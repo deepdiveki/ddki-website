@@ -3,7 +3,12 @@ import Link from "next/link";
 
 const CallToAction = () => {
   return (
+    
     <section>
+                <div style={{ height: "20px" }}></div>
+                <div style={{ height: "20px" }}></div>
+
+
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
         <div className="cta-box-gradient relative z-999 overflow-hidden rounded-[30px] bg-dark px-4 py-20 lg:py-25">
           {/* <!-- bg shapes --> */}
@@ -52,21 +57,22 @@ const CallToAction = () => {
                 height={16}
               />
 
-              <span className="hero-subtitle-text">Try our tool for Free</span>
+              <span className="hero-subtitle-text">Starten mit Künstlicher Intelligenz</span>
             </span>
             <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
               Integrieren Sie die DeepDiveKI Tool Box in Ihre Systemarchitektur
             </h2>
             <p className="mx-auto mb-9 max-w-[714px] font-medium">
               Wir helfen Ihnen dabei, die KI-Technologie in Ihre IT-Systeme zu integrieren. Unsere Tools sind benutzerfreundlich und einfach zu bedienen. Probieren Sie es aus!
-              Sehr hilfreich sind auch unsere Fortbildungen eine Übersicht finden Sie hier:
+              Sehr hilfreich sind dafür unsere Fortbildungen. Eine Übersicht finden Sie hier:
             </p>
 
             <Link
-              href="/fortbildungen"
+              //href="https://ddki-chat.vercel.app/"
+              href="deepdive-ki.de"
               className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
             >
-              Jetzt Fortbildungen buchen
+              Jetzt Toolbox ausprobieren
             </Link>
           </div>
         </div>

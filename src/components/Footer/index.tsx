@@ -31,7 +31,7 @@ const Footer = () => {
               </Link>
 
               <p className="mb-12 xl:w-4/5">
-              DeepDiveKI bietet eine umfassende Palette an einsatzbereiten Tools, um Lehrende zu entlasten, den Unterricht effizienter zu gestalten und gleichzeitig das Lernpotenzial der Schüler:innen voll auszuschöpfen.
+              DeepDiveKI bietet eine umfassende Palette an einsatzbereiten KI Tools, um Lehrende zu entlasten, den Unterricht effizienter zu gestalten und gleichzeitig das Lernpotenzial der Schüler:innen voll auszuschöpfen.
               </p>
 
 
@@ -42,11 +42,11 @@ const Footer = () => {
 
             <div className="w-full max-w-[571px]">
               <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
-                <FooterLinkList title="Products" links={productsLink} />
+                <FooterLinkList title="Unsere Produkte" links={productsLink} />
 
-                <FooterLinkList title="Company" links={companiesLink} />
+                <FooterLinkList title="DeepDiveKI" links={companiesLink} />
 
-                <FooterLinkList title="Support" links={supportsLink} />
+                <FooterLinkList title="Hilfe" links={supportsLink} />
               </div>
             </div>
           </div>

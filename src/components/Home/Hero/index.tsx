@@ -40,10 +40,10 @@ const Hero = () => {
             </span>
           </span>
           <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">
-            DeepDive-KI Tool Box 
+            DeepDiveKI  
           </h1>
           <p className="mx-auto mb-9 max-w-[500px] font-medium md:text-lg">
-          Unsere Plattform bietet Lehrenden an Schulen und Universitäten eine innovative Möglichkeit, Künstliche Intelligenz (KI) gezielt im Unterricht einzusetzen.
+          Unsere Plattform bietet KI Produkte für Schulen und Universitäten an. Mit der DDKI Toolbox, dem ChatBot für Schulen und den Fortbildungen zum Thema KI, bieten wir eine breite Palette von KI Produkten an.
           </p>
 
           <Link

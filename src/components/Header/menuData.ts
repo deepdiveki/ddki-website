@@ -14,55 +14,69 @@ const menuData: Menu[] = [
     path: "/about",
   },
   {
+    id: 6,
+    title: "DDKI ToolBox",
+    newTab: false,
+    path: "/ddki-toolbox",
+    submenu: [
+      {
+        id: 66,
+        title: "Arbeitsblatt Generator",
+        newTab: false,
+        //path: "https://ddki-chat.vercel.app/",
+        path: "deepdive-ki.de",
+      },
+      {
+        id: 67,
+        title: "KI Chatbot",
+        newTab: false,
+        //path: "https://ddki-chat.vercel.app/",
+        path: "deepdive-ki.de",
+      },
+      {
+        id: 69,
+        title: "Persona Chat",
+        newTab: false,
+        //path: "https://ddki-chat.vercel.app/",
+        path: "deepdive-ki.de",
+      },
+      {
+        id: 68,
+        title: "KI-Assistenten Builder",
+        newTab: false,
+        //path: "https://ddki-chat.vercel.app/",
+        path: "deepdive-ki.de",
+      },
+      {
+        id: 70,
+        title: "QR Code Generator",
+        newTab: false,
+        //path: "https://ddki-chat.vercel.app/",
+        path: "deepdive-ki.de",
+      },
+      {
+        id: 71,
+        title: "KI-Assistenten erstellen",
+        newTab: false,
+        //path: "https://ddki-chat.vercel.app/",
+        path: "deepdive-ki.de",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Chatbot für Ihre Schule ",
+    newTab: false,
+    path: "/chatbot-fuer-ihre-schule"
+  },
+  {
     id: 5,
     title: "Fortbildungen",
     newTab: false,
     path: "/fortbildungen"
   },
 
-  {
-    id: 6,
-    title: "DDKI ToolBox",
-    newTab: false,
-    path: "/ai-examples",
-    submenu: [
-      {
-        id: 66,
-        title: "Arbeitsblatt Generator",
-        newTab: false,
-        path: "/ai-examples/content-writing-tool",
-      },
-      {
-        id: 67,
-        title: "KI Chatbot",
-        newTab: false,
-        path: "/ai-examples/ki-chat",
-      },
-      {
-        id: 69,
-        title: "Persona Chat",
-        newTab: false,
-        path: "/ai-examples/product-name-generator",
-      },
-      {
-        id: 68,
-        title: "KI-Assistenten Builder",
-        newTab: false,
-        path: "/ai-examples/article-title-generator",
-      },
-      {
-        id: 70,
-        title: "QR Code Generator",
-        newTab: false,
-        path: "/ai-examples/spreadsheet-generator",
-      },
-      {
-        id: 71,
-        title: "KI-Assistenten erstellen",
-        newTab: false,
-        path: "/ai-examples/interview-question-generator",
-      },
-    ],
-  },
+
+
 ];
 export default menuData;

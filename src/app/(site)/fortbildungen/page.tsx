@@ -51,37 +51,65 @@ export default function DocsPage() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2">Crash Kurs KI</td>
+                      <td className="border border-gray-300 px-4 py-2">
+                      <a href="/fortbildungen/crash-kurs-ki" className="text-blue-500 hover:underline">
+                       Crash Kurs KI
+                         </a>
+                          </td>
                         <td className="border border-gray-300 px-4 py-2">Künstliche Intelligenz in der Schule mit dem Schwerpunkt: Unterstützung zum individualisierten Unterricht</td>
                         <td className="border border-gray-300 px-4 py-2">3 Stunden</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2">Deep Dive Modul I</td>
+                      <td className="border border-gray-300 px-4 py-2">
+  <a href="/fortbildungen/deep-dive-modul-1" className="text-blue-500 hover:underline">
+    Deep Dive Modul I
+  </a>
+</td>
                         <td className="border border-gray-300 px-4 py-2">Unterrichtseinheiten konzipieren mit KI - Tools</td>
                         <td className="border border-gray-300 px-4 py-2">3 Stunden</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2">Deep Dive Modul II</td>
+                      <td className="border border-gray-300 px-4 py-2">
+  <a href="/fortbildungen/deep-dive-II" className="text-blue-500 hover:underline">
+    Deep Dive Modul II
+  </a>
+</td>
                         <td className="border border-gray-300 px-4 py-2">Plagiate, Hausaufgaben und Klausuren in Zeiten von KI</td>
                         <td className="border border-gray-300 px-4 py-2">3 Stunden</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2">Deep Dive Modul III</td>
+                      <td className="border border-gray-300 px-4 py-2">
+  <a href="/fortbildungen/deep-dive-III" className="text-blue-500 hover:underline">
+    Deep Dive Modul III
+  </a>
+</td>
                         <td className="border border-gray-300 px-4 py-2">Chancen und Risiken von KI in Schule und Gesellschaft</td>
                         <td className="border border-gray-300 px-4 py-2">3 Stunden</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2">Deep Dive Modul IV</td>
+                      <td className="border border-gray-300 px-4 py-2">
+  <a href="/fortbildungen/deep-dive-IV" className="text-blue-500 hover:underline">
+    Deep Dive Modul IV
+  </a>
+</td>
                         <td className="border border-gray-300 px-4 py-2">Inklusion durch und mit KI</td>
                         <td className="border border-gray-300 px-4 py-2">3 Stunden</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2">Deep Dive Modul V</td>
+                      <td className="border border-gray-300 px-4 py-2">
+  <a href="/fortbildungen/deep-dive-V" className="text-blue-500 hover:underline">
+    Deep Dive Modul V
+  </a>
+</td>
                         <td className="border border-gray-300 px-4 py-2">KI in deiner Schule: Chancen für Schulleitung und Führungskräfte</td>
                         <td className="border border-gray-300 px-4 py-2">3 Stunden</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 px-4 py-2">Deep Dive Modul VI</td>
+                      <td className="border border-gray-300 px-4 py-2">
+  <a href="/fortbildungen/deep-dive-VI" className="text-blue-500 hover:underline">
+    Deep Dive Modul VI
+  </a>
+</td>
                         <td className="border border-gray-300 px-4 py-2">DDKI KI-Tools: Einführung und Anwendungsbeispiele</td>
                         <td className="border border-gray-300 px-4 py-2">3 Stunden</td>
                       </tr>

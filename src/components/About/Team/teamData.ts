@@ -28,6 +28,15 @@ const teamData: Team[] = [
     twitterLink: "https://twitter.com/",
     instagramLink: "https://www.instagram.com/",
   },
+  {
+    id: 87,
+    name: "ChatCampus ",
+    designation: "KI Chatbot: Schulwebseite",
+    image: "/images/team/team-09.png",
+    fbLink: "https://www.facebook.com/",
+    twitterLink: "https://twitter.com/",
+    instagramLink: "https://www.instagram.com/",
+  },
 ];
 
 export default teamData;

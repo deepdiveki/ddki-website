@@ -15,7 +15,7 @@ const exampleData: AiExample[] = [
     description:
       "Ein interaktiver Chatbot, der auf natürliche Spracheingaben reagiert und vielseitig einsetzbar ist.",
     icon: "/images/ai-tools/icon-2.svg",
-    path: "/ai-examples/ki-chat",
+    path: "/ai-examples/business-name-generator",
   },
   {
     id: 21,

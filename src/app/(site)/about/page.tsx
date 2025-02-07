@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CallToAction from "@/components/CallToAction";
 import Features from "@/components/Home/Features";
 import { Metadata } from "next";
+import Clients from "@/components/About/Kunden";
 
 export const metadata: Metadata = {
   title: "Über uns | DeepDive KI ToolBox und KI Fortbildungen",
@@ -18,6 +19,7 @@ const AboutPage = () => {
       <AboutSection />
       <Features />
       <Team />
+      <Clients />
       <CallToAction />
     </>
   );
