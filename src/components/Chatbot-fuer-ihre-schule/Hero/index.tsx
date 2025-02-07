@@ -52,13 +52,13 @@ const HeroChatbot = () => {
           </div>
         </div>
 
-        {/* Chatbot-Einbindung */}
+        {/* Chatbot-Einbindung
         <div className="chatbot-container mt-10">
           <zapier-interfaces-chatbot-embed
             is-popup="true"
             chatbot-id="clycok7xk00058s6rn16regex"
           ></zapier-interfaces-chatbot-embed>
-        </div>
+        </div> */}
       </div>
     </section>
   );
