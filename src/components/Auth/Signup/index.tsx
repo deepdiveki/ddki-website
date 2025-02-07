@@ -24,7 +24,7 @@ const RegisterSchema = z.object({
     .refine((val) => /\d/.test(val), {
       message: "Password must contain at least one number.",
     })
-    .refine((val) => /[@$!%*?&#]/.test(val), {
+    .refine((val) => /[,.:-_#+~<>!§$%&(){}=?@]/.test(val), {
       message: "Password must contain at least one special character.",
     }),
 });
@@ -53,7 +53,7 @@ const Signup = () => {
     }
 
     axios
-      .post("/api/register", {
+      .post("/api/signup", {
         name,
         email,
         password,
@@ -67,9 +67,10 @@ const Signup = () => {
         });
         setLoader(false);
       })
-      .catch(() => {
-        toast.error("Something went wrong");
-        setLoader(false);
+      .catch((error) => {
+          console.error("Signup Error:", error);
+          toast.error("Something went wrong");
+          setLoader(false);
       });
   };
 
