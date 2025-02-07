@@ -32,6 +32,7 @@
     "next-auth": "^4.24.3",
     "next-mdx-remote": "^5.0.0",
     "nextjs-toploader": "^3.7.15",
+    "nodemailer": "^6.10.0",
     "openai": "^4.29.2",
     "pg": "^8.13.1",
     "postcss": "^8.4.38",

@@ -4,9 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import SocialSignup from "../SocialSignup";
-import SwitchOptions from "../SwitchOptions";
-import MagicLink from "../MagicLink";
 import Loader from "@/components/Common/Loader";
 import { integrations, messages } from "../../../../integrations.config";
 import z from "zod";
@@ -16,18 +13,6 @@ const SigninSchema = z.object({
   password: z
     .string()
     .min(8, { message: "Password must be at least 8 characters long" })
-    .refine((val) => /[A-Z]/.test(val), {
-      message: "Password must contain at least one uppercase letter.",
-    })
-    .refine((val) => /[a-z]/.test(val), {
-      message: "Password must contain at least one lowercase letter.",
-    })
-    .refine((val) => /\d/.test(val), {
-      message: "Password must contain at least one number.",
-    })
-    .refine((val) => /[@$!%*?&]/.test(val), {
-      message: "Password must contain at least one special character.",
-    }),
 });
 
 const Signin = () => {
@@ -80,7 +65,7 @@ const Signin = () => {
                   <div className="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-white/0 via-white/20 to-white/0"></div>
 
                   <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white">
-                    Unlock the Power of Writing Tool
+                    Schalte jetzt die DDKI-Toolbox frei
                   </h2>
                   <div className="relative aspect-[61/50] w-full max-w-[427px]">
                     <Image src="/images/signin/sigin.svg" alt="signin" fill />
@@ -91,29 +76,20 @@ const Signin = () => {
               <div className="w-full lg:w-1/2">
                 <div className="py-8 pl-8 pr-8 sm:py-20 sm:pl-21 sm:pr-20">
                   <div>
-
-                    <SwitchOptions
-                      isPassword={isPassword}
-                      setIsPassword={setIsPassword}
-                    />
-
-                    {!isPassword ? (
-                      <MagicLink />
-                    ) : (
                       <form onSubmit={loginUser}>
                         <div className="relative mb-4">
                           <span className="absolute left-6 top-1/2 -translate-y-1/2">
                             <svg
                               width="16"
-                              height="12"
-                              viewBox="0 0 16 12"
+                              height="16"
+                              viewBox="0 0 16 16"
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
                                 d="M13.9998 0.399994H1.9998C1.1498 0.399994 0.424805 1.09999 0.424805 1.97499V10.075C0.424805 10.925 1.1248 11.65 1.9998 11.65H13.9998C14.8498 11.65 15.5748 10.95 15.5748 10.075V1.94999C15.5748 1.09999 14.8498 0.399994 13.9998 0.399994ZM13.9998 1.52499C14.0248 1.52499 14.0498 1.52499 14.0748 1.52499L7.9998 5.42499L1.9248 1.52499C1.9498 1.52499 1.9748 1.52499 1.9998 1.52499H13.9998ZM13.9998 10.475H1.9998C1.7498 10.475 1.5498 10.275 1.5498 10.025V2.62499L7.3998 6.37499C7.5748 6.49999 7.7748 6.54999 7.9748 6.54999C8.1748 6.54999 8.3748 6.49999 8.5498 6.37499L14.3998 2.62499V10.05C14.4498 10.3 14.2498 10.475 13.9998 10.475Z"
                                 fill="#918EA0"
-                              />
+                                />
                             </svg>
                           </span>
                           <input
@@ -227,7 +203,6 @@ const Signin = () => {
                           Sign in {loader && <Loader />}
                         </button>
                       </form>
-                    )}
 
                     <p className="mt-5 text-center font-medium text-white">
                       Don{`'`}t have an account?{" "}
