@@ -1,5 +1,5 @@
 import AboutSection from "@/components/About/AboutSection";
-import Team from "@/components/About/Team";
+import Pricing from "@/components/Chatbot-fuer-ihre-schule/Pricing";
 import Breadcrumb from "@/components/Breadcrumb";
 import CallToAction from "@/components/CallToAction";
 import Chatbot from "@/components/Chatbot-fuer-ihre-schule/Chatbot";
@@ -20,7 +20,7 @@ const AboutPage = () => {
       <Breadcrumb pageTitle="ChatBot für Ihre Schulwebsite" />
       <HeroChatbot />
       <Chatbot />
-      <Team />
+      <Pricing />
       <CallToAction />
     </>
   );
