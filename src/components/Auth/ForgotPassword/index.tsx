@@ -47,14 +47,13 @@ const ForgotPassword = () => {
       }
 
       if (res.status === 200) {
-        toast.success(res.data);
+        toast.success(res.data.message); // Access the `message` property
         setEmail("");
       }
 
-      setEmail("");
       setLoader(false);
     } catch (error: any) {
-      toast.error(error?.response.data);
+      toast.error(error?.response?.data?.message || "An error occurred"); // Access the `message` property
       setLoader(false);
     }
   };

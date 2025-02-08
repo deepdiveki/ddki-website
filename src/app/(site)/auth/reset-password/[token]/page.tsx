@@ -1,12 +1,11 @@
 import React from "react";
-
 import { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import ResetPassword from "@/components/Auth/ResetPassword";
 
 export const metadata: Metadata = {
-  title: "Reset Password | AI Tool - Next.js Template for AI Tools",
-  description: "This is Reset Password page for AI Tool",
+  title: "Reset Password | AI Tool",
+  description: "This is Reset Password page",
   // other metadata
 };
 

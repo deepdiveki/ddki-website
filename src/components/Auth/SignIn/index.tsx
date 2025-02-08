@@ -141,6 +141,7 @@ const Signin = () => {
                             }
                             className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-none focus:border-purple focus-visible:shadow-none"
                           />
+
                         </div>
 
                         <div className="mb-7.5 flex items-center justify-between">
