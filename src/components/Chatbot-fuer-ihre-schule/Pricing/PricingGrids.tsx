@@ -1,6 +1,5 @@
 import SectionTitle from "../../Common/SectionTitle";
-import SinglePricing from "./SinglePricing";
-
+import SinglePricing from "./SInglePricing"
 // Beispiel für lokale Preisdaten
 const pricingData = [
   {
