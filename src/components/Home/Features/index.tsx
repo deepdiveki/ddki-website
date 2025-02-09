@@ -12,7 +12,7 @@ const Features = () => {
         <SectionTitle
           subTitle="Technische Informationen"
           title="Unser Techstack im Überblick"
-          paragraph="Spezifische Informationen zu den Funktionen, Technologien und genutzen API's unserer Plattform finden Sie hier."
+          paragraph="Spezifische Informationen zu den Funktionen, Technologien und genutzen API's unserer Plattform finden Sie hier:"
         />
 
         <div className="relative">

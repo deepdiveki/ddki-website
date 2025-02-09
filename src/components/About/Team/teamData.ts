@@ -15,7 +15,7 @@ const teamData: Team[] = [
   },
   {
     id: 86,
-    name: "Lip",
+    name: "Chat mit DDKI",
     designation: "KI Chatbot: Customer Service",
     image: "/images/team/team-08.png",
   },

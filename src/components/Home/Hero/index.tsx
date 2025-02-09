@@ -47,10 +47,10 @@ const Hero = () => {
           </p>
 
           <Link
-            href="/ai-examples"
+            href="#ddki-toolbox"
             className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
           >
-            Jetzt ausprobieren
+            Jetzt Produktübersicht ansehen
           </Link>
         </div>
       </div>

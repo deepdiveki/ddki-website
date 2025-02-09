@@ -4,19 +4,19 @@ export const productsLink: FooterLink[] = [
   {
     id: 1,
     title: "DDKI ToolBox",
-    href: "#",
+    href: "/ddki-toolbox",
     newTab: false,
   },
   {
     id: 2,
     title: "Chatbot für Ihre Schule",
-    href: "#",
+    href: "/chatbot-fuer-ihre-schule",
     newTab: false,
   },
   {
     id: 3,
     title: "Fortbildungen",
-    href: "#",
+    href: "/fortbildungen",
     newTab: false,
   },
 ];
@@ -63,7 +63,7 @@ export const supportsLink: FooterLink[] = [
   {
     id: 21,
     title: "Kontakt",
-    href: "#",
+    href: "/about#support",
     newTab: false,
   },
   {

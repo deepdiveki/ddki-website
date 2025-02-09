@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Highlighter from "./HighLighter";
+import CubeAnimation from "../../CubeAnimation";  // Passe den Pfad an
 
 const FeaturesList = () => {
   return (
@@ -26,14 +27,14 @@ const FeaturesList = () => {
                           Unsere Produkte im Überblick
                         </span>
                       </span>
-                      <h3 className="mb-4.5 text-heading-4 font-bold text-white">
+                      <h3 id="ddki-toolbox" className="mb-4.5 text-heading-4 font-bold text-white">
                         Mit der DDKI ToolBox Künstliche Intelligenz in Ihre Schule oder Universitäten integrieren.
                       </h3>
                       <p className="mb-10 font-medium">
                         Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte – unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.
                       </p>
                       <Link
-                        href="/ai-examples"
+                        href="/ddki-toolbox"
                         className="features-button-gradient relative inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm text-white duration-300 ease-in hover:shadow-button"
                       >
                         Jetzt ausprobieren
@@ -53,11 +54,8 @@ const FeaturesList = () => {
                     </div>
 
                     <div className="relative hidden aspect-square w-full max-w-[428px] sm:block">
-                      <Image
-                        src="/images/features/big-icon.svg"
-                        alt="icon"
-                        fill
-                      />
+                    <CubeAnimation />
+                      
                     </div>
                   </div>
                 </div>

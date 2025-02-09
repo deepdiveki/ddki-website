@@ -1,4 +1,6 @@
 import { Feature } from "@/types/feature";
+import IconFeature from '../../../../public/images/features/icon-02.svg';
+
 
 const featuresDatachatbot: Feature[] = [
   {

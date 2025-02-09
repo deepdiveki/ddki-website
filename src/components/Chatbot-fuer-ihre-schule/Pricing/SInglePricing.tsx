@@ -55,15 +55,15 @@ const SinglePricing = ({ price }: any) => {
 
       <div className="flex items-center gap-3.5">
         <h2 className="pricing-gradient-text text-custom-1 font-bold">
-          ${" "}
+          €{" "}
           {(price.unit_amount / 100).toLocaleString("en-US", {
             currency: "USD",
           })}
         </h2>
 
         <p className="font-medium">
-          /month <br />
-          (billed annually)
+          / monatlich <br />
+          Grundgebühr
         </p>
       </div>
 

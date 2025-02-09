@@ -9,7 +9,7 @@ const PricingGrids = () => {
         <SectionTitle
           subTitle="Jetzt anfragen"
           title="Preise"
-          paragraph="Entdecken Sie unsere flexiblen Lizenzen – so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an. "
+          paragraph="Entdecken Sie unsere flexiblen Chatbots – so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an. "
         />
         <div className="grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-3">
           {pricingData &&
