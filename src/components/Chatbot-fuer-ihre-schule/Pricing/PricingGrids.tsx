@@ -1,5 +1,5 @@
 import SectionTitle from "../../Common/SectionTitle";
-import SinglePricing from "./SinglePricing";  // Tippfehler behoben (von "SInglePricing" auf "SinglePricing")
+import SinglePricing from "./SinglePricing";
 
 // Beispiel für lokale Preisdaten
 const pricingData = [
