@@ -9,7 +9,7 @@ export const productsLink: FooterLink[] = [
   },
   {
     id: 2,
-    title: "Chatbot für Ihre Schule",
+    title: "ChatBot für Ihre Schule",
     href: "/chatbot-fuer-ihre-schule",
     newTab: false,
   },

@@ -65,7 +65,7 @@ const menuData: Menu[] = [
   },
   {
     id: 7,
-    title: "Chatbot für Ihre Schule ",
+    title: "ChatBot für Ihre Schule ",
     newTab: false,
     path: "/chatbot-fuer-ihre-schule"
   },
