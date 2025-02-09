@@ -6,7 +6,7 @@ import FullStackTechAnimation from "@/components/NextJsChatBotAnimation"
 import SecurityPrivacyAnimation from "@/components/SicherheitChatBotAnimation"
 import DataTransmissionAnimation from "@/components/DatenübertragungChatbotAnimation"
 import OptimizedModelsAnimation from "@/components/OptimierteKIChatbotAnimation"
-import MadeInHamburgAnimation from "@/components/MadeinHamburgChatbotAnimation"
+import MadeInHamburgChatbotAnimation from "@/components/MadeinHamburgChatbotAnimation"
 import CitySkylineAnimation from "@/components/MadeinHamburgAnimation"
 
 const awsBedrockAnimation = <AwsBedrockAnimation />;

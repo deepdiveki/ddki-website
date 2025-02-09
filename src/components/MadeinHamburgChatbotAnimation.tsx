@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 
-export default function madeInHamburgChatbotAnimation() {
+export default function MadeInHamburgChatbotAnimation() {
     const wavesRef = useRef<HTMLDivElement>(null);
     const starsRef = useRef<HTMLDivElement[]>([]);
 
