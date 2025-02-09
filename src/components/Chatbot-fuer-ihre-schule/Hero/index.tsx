@@ -35,14 +35,14 @@ const HeroChatbot = () => {
               Die intelligente Hilfe für ihr Schulbüro und ihre Verwaltung
             </h2>
             <p className="mb-9 font-medium">
-              Mit unserem KI ChatBot haben Sie die Möglichkeit, in Ihrer Schulwebsite einen KI Chatbot zu integrieren. Damit verbessern Sie den Informationsfluss zu ihren Schülerinnen und Schülern, Eltern und Lehrkräften. Der ChatBot beantwortet Fragen zu Öffnungszeiten, Terminen, Anmeldungen, Vertretungsplänen und vielem mehr. So entlasten Sie Ihr Schulbüro und Ihre Verwaltung und bieten gleichzeitig einen modernen Service für Ihre Schulgemeinschaft.
+              Mit unserem KI ChatBot haben Sie die Möglichkeit, in Ihrer Schulwebsite einen KI ChatBot zu integrieren. Damit verbessern Sie den Informationsfluss zu ihren Schülerinnen und Schülern, Eltern und Lehrkräften. Der ChatBot beantwortet Fragen zu Öffnungszeiten, Terminen, Anmeldungen, Vertretungsplänen und vielem mehr. So entlasten Sie Ihr Schulbüro und Ihre Verwaltung und bieten gleichzeitig einen modernen Service für Ihre Schulgemeinschaft.
             </p>
 
             <a
               href="#"
               className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
             >
-              ChatBot ausprobieren
+              Hier den ChatBot ausprobieren
             </a>
           </div>
 

@@ -84,7 +84,7 @@ const Signup = () => {
               <div className="relative py-20 pl-17.5 pr-22">
                 <div className="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-white/0 via-white/20 to-white/0"></div>
                 <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white">
-                  Schalte jetzt die DDKI-Toolbox frei
+                Registrieren: DDKIKI ToolBox
                 </h2>
                 <div className="relative aspect-[61/50] w-full max-w-[427px]">
                   <Image src="/images/signin/sigin.svg" alt="signin" fill />
@@ -117,7 +117,7 @@ const Signup = () => {
                       </span>
                       <input
                         type="name"
-                        placeholder="Enter your name"
+                        placeholder="Vor und Nachname"
                         value={data.name}
                         onChange={(e) =>
                           setData({
@@ -146,7 +146,7 @@ const Signup = () => {
                       </span>
                       <input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder="E-Mail-Adresse"
                         value={data.email}
                         onChange={(e) =>
                           setData({
@@ -181,7 +181,7 @@ const Signup = () => {
                       </span>
                       <input
                         type="password"
-                        placeholder="Enter your password"
+                        placeholder="Passwort"
                         value={data.password}
                         onChange={(e) =>
                           setData({
@@ -197,14 +197,14 @@ const Signup = () => {
                       type="submit"
                       className="hero-button-gradient flex w-full items-center justify-center rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
                     >
-                      Sign up {loader && <Loader />}
+                      Registrieren {loader && <Loader />}
                     </button>
                   </form>
 
                   <p className="mt-5 text-center font-medium text-white">
-                    Already have an account?{" "}
+                    Haben Sie schon einen Account?{" "}
                     <Link href="/auth/signin" className="text-purple">
-                      Sign in Here
+                      Hier einloggen
                     </Link>
                   </p>
                 </div>

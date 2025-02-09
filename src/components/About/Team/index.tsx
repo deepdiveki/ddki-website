@@ -12,11 +12,11 @@ const Team = () => {
           paragraph="Wir sind ein junges Team aus Hamburg mit einer Leidenschaft für Künstliche Intelligenz und Bildung. Unsere Vision ist es, KI für alle zugänglich zu machen und den Einsatz von KI im Bildungsbereich zu fördern."
         />
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-17.5 xl:grid-cols-4">
-          {teamData.map((team) => (
-            <SingleTeam key={team.id} team={team} />
-          ))}
-        </div>
+<div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 justify-center">
+  {teamData.map((team) => (
+    <SingleTeam key={team.id} team={team} />
+  ))}
+</div>
       </div>
     </section>
   );

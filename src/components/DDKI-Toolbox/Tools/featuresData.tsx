@@ -27,8 +27,8 @@ const ddkitools: Feature[] = [
   },
   {
     id: 27,
-    title: "KI Chatbot",
-    description: "Entwickelt",
+    title: "KI-Chat",
+    description: "Nutze die besten LMS für deine Chats. GPT 4o, Llama 3.1, Claude 3 Opus",
     icon: "/images/features/icon-02.svg",
     animationComponent: chatbotAnimation,
   },
@@ -53,7 +53,7 @@ const ddkitools: Feature[] = [
     id: 48,
     title: "QR Code Generator",
     description:
-      "Entwickelt",
+      "Erstelle QR Codes für deine Lerninhalte",
     icon: "/images/features/icon-05.svg",
     animationComponent: qrCodeAnimation,
     rotate: true,

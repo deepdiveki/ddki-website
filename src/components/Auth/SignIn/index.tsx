@@ -65,7 +65,7 @@ const Signin = () => {
                   <div className="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-white/0 via-white/20 to-white/0"></div>
 
                   <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white">
-                    Schalte jetzt die DDKI-Toolbox frei
+                  Login:<br /> DDKI ToolBox
                   </h2>
                   <div className="relative aspect-[61/50] w-full max-w-[427px]">
                     <Image src="/images/signin/sigin.svg" alt="signin" fill />
@@ -94,7 +94,7 @@ const Signin = () => {
                           </span>
                           <input
                             type="email"
-                            placeholder="Enter your email"
+                            placeholder="E-Mail-Adresse"
                             value={data.email}
                             onChange={(e) =>
                               setData({
@@ -134,7 +134,7 @@ const Signin = () => {
                           </span>
                           <input
                             type="password"
-                            placeholder="Password"
+                            placeholder="Passwort"
                             value={data.password}
                             onChange={(e) =>
                               setData({ ...data, password: e.target.value })
@@ -186,14 +186,14 @@ const Signin = () => {
                                   </span>
                                 </div>
                               </div>
-                              Remember me
+                              Eingeloggt bleiben
                             </label>
                           </div>
                           <Link
                             href="/auth/forgot-password"
                             className="text-sm font-medium text-purple"
                           >
-                            Forgot Password?
+                            Passwort vergessen?
                           </Link>
                         </div>
 
@@ -201,14 +201,14 @@ const Signin = () => {
                           type="submit"
                           className="hero-button-gradient flex w-full items-center  justify-center rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
                         >
-                          Sign in {loader && <Loader />}
+                          Login {loader && <Loader />}
                         </button>
                       </form>
 
                     <p className="mt-5 text-center font-medium text-white">
-                      Don{`'`}t have an account?{" "}
+                      Noch keinen Account? {" "}
                       <Link href="/auth/signup" className="text-purple">
-                        Sign Up for Free
+                        Hier Registrieren
                       </Link>
                     </p>
                   </div>

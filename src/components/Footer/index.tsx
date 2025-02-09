@@ -31,7 +31,7 @@ const Footer = () => {
               </Link>
 
               <p className="mb-12 xl:w-4/5">
-              DeepDiveKI bietet eine umfassende Palette an einsatzbereiten KI Tools, um Lehrende zu entlasten, den Unterricht effizienter zu gestalten und gleichzeitig das Lernpotenzial der Schüler:innen voll auszuschöpfen.
+              Die DeepDiveKI Plattform bietet drei KI Produkte für Schulen und Universitäten an. Mit der DDKI Toolbox, dem ChatBot für Ihre Schulwebsite und den Fortbildungen zum Thema KI, bieten wir eine breite Palette von KI Produkten für Ihre Institution an.
               </p>
 
 

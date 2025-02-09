@@ -68,7 +68,7 @@ const ForgotPassword = () => {
                 <div className="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-white/0 via-white/20 to-white/0"></div>
 
                 <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white">
-                  Schalte jetzt die DDKI-Toolbox frei
+                  Passwort vergessen:<br /> DDKI ToolBox
                 </h2>
                 <div className="relative aspect-[61/50] w-full max-w-[427px]">
                   <Image src="/images/signin/sigin.svg" alt="signin" fill />
@@ -97,7 +97,7 @@ const ForgotPassword = () => {
                       </span>
                       <input
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder="E-Mail-Adresse"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-none focus:border-purple focus-visible:shadow-none"
@@ -108,7 +108,7 @@ const ForgotPassword = () => {
                       type="submit"
                       className="hero-button-gradient flex w-full items-center justify-center rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
                     >
-                      Send Email {loader && <Loader />}
+                      Senden {loader && <Loader />}
                     </button>
                   </form>
                 </div>

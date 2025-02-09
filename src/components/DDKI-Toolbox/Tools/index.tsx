@@ -10,9 +10,9 @@ const Features = () => {
     >
       <div className="mx-auto max-w-[1222px] px-4 sm:px-8 xl:px-0">
         <SectionTitle
-          subTitle="Toolbox"
-          title="Unser KI ToolBox im Überblick"
-          paragraph="Spezifische Informationen zu den verschiedenn Tools finden Sie hier."
+          subTitle="DeepDiveKI ToolBox"
+          title="Unsere Tools"
+          paragraph="Was möchtest du tun?"
         />
 
         <div className="relative">

@@ -5,7 +5,7 @@ import ForgotPassword from "@/components/Auth/ForgotPassword";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Forgot Password | AI Tool",
+  title: "Passwort vergessen? | AI Tool",
   description: "This is Forgot Password page",
   // other metadata
 };
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const ForgotPasswordPage = () => {
   return (
     <>
-      <Breadcrumb pageTitle="Forgot Password" />
+      <Breadcrumb pageTitle="Passwort vergessen?" />
       <ForgotPassword />
     </>
   );

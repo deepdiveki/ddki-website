@@ -137,13 +137,13 @@ const Header = () => {
                     href="/auth/signin"
                     className="text-sm text-white hover:text-opacity-75"
                   >
-                    Sign In
+                    Login
                   </Link>
                   <Link
                     href="/auth/signup"
                     className="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-4.5 py-2 text-sm text-white shadow-button hover:shadow-none"
                   >
-                    Sign up
+                    Registrieren
                     <svg
                       className="mt-0.5"
                       width="16"

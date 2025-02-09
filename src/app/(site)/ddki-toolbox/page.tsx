@@ -16,8 +16,6 @@ export const metadata: Metadata = {
 const ddki_toolbox = () => {
   return (
     <>
-      <Breadcrumb pageTitle="DeepDiveKI ToolBox" />
-      <Uebersicht />
       <Features />
       <CallToAction />
     </>

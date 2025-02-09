@@ -30,7 +30,7 @@ const ResetPasswordSection = ({
               <div className="relative py-20 pl-17.5 pr-22">
                 <div className="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-white/0 via-white/20 to-white/0"></div>
                 <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white">
-                  Schalte jetzt die DDKI-Toolbox frei
+                  Login DeepDiveKI ToolBox
                 </h2>
                 <div className="relative aspect-[61/50] w-full max-w-[427px]">
                   <Image src="/images/signin/sigin.svg" alt="signin" fill />

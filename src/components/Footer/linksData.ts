@@ -34,30 +34,6 @@ export const companiesLink: FooterLink[] = [
     href: "/datenschutz",
     newTab: false,
   },
-  {
-    id: 14,
-    title: "AGB's",
-    href: "#",
-    newTab: false,
-  },
-  {
-    id: 15,
-    title: "Privatsphäre Einstellungen",
-    href: "#",
-    newTab: false,
-  },
-  {
-    id: 16,
-    title: "Historie der Privatsphäre-Einstellungen",
-    href: "#",
-    newTab: false,
-  },
-  {
-    id: 16,
-    title: "Einwilligungen widerrufen",
-    href: "#",
-    newTab: false,
-  },
 ];
 export const supportsLink: FooterLink[] = [
   {

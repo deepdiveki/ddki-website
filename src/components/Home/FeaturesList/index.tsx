@@ -79,10 +79,10 @@ const FeaturesList = () => {
                     </span>
 
                     <h3 className="mb-4.5 text-heading-6 font-semibold text-white">
-                      Chatbot für Ihre Schulwebsite
+                      ChatBot für Ihre Schulwebsite
                     </h3>
                     <p className="mb-10 font-medium">
-                      Mit unserem KI ChatBot haben Sie die Möglichkeit, in Ihrer Schulwebsite einen KI Chatbot zu integrieren. Damit verbessern Sie den Informationsfluss zu ihren Schülerinnen und Schülern, Eltern und Lehrkräften.
+                      Mit unserem ChatBot haben Sie die Möglichkeit, in Ihrer Schulwebsite einen Chatbot zu integrieren. Damit verbessern Sie den Informationsfluss zu ihren Schülerinnen und Schülern, Eltern und Lehrkräften.
                     </p>
                     <Link
                       href="/chatbot-fuer-ihre-schule"

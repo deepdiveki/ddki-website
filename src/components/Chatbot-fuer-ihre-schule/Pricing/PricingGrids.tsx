@@ -18,7 +18,7 @@ const pricingData = [
   },
   {
     title: "Premium-Chatbot",
-    price: "TBA €",
+    price: "TBA",
     features: [
       "Chatbot mit Agent Funktionen",
       "Für 35 Sprachen",
@@ -30,7 +30,7 @@ const pricingData = [
   },
   {
     title: "Uni-Chatbot",
-    price: "TBA €",
+    price: "TBA",
     features: [
       "Chatbot mit Agent für 3000+",
       "Für 70 Sprachen",
