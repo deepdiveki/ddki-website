@@ -36,7 +36,7 @@ const Footer = () => {
 
 
               <p className="mt-5.5 font-medium">
-                DeepDive-KI UG (haftungsbeschränkt)
+                DeepDiveKI UG (haftungsbeschränkt)
               </p>
             </div>
 

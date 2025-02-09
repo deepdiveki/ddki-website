@@ -1,11 +1,8 @@
-import Image from "next/image";
+import SectionTitle from "@/components/Common/SectionTitle";
 import SingleFeature from "./SingleFeature";
 import featuresDatachatbot from "./chatbotData";
-import SectionTitle from "@/components/Common/SectionTitle";
 
-
-
-const Chatbot = () => {
+const Features = () => {
   return (
     <section
       id="features"
@@ -13,9 +10,9 @@ const Chatbot = () => {
     >
       <div className="mx-auto max-w-[1222px] px-4 sm:px-8 xl:px-0">
         <SectionTitle
-          subTitle="Chabot Funktionen"
-          title="Die Funktionen des Chatbots im Überblick"
-          paragraph="Spezifische Informationen zu den Funktionen unseres Chatbots finden Sie hier."
+          subTitle="DeepDiveKI ToolBox"
+          title="Unsere Tools"
+          paragraph="Was möchtest du tun?"
         />
 
         <div className="relative">
@@ -25,7 +22,7 @@ const Chatbot = () => {
           {/* <!--=== Features Row ===--> */}
           <div className="flex flex-wrap justify-center">
             {featuresDatachatbot.slice(0, 3).map((feature) => (
-              <SingleFeature key={feature.id} featuresDatachatbot={feature} />
+              <SingleFeature key={feature.id} feature={feature} />
             ))}
           </div>
 
@@ -34,7 +31,7 @@ const Chatbot = () => {
           {/* <!--=== Features Row ===--> */}
           <div className="flex flex-wrap justify-center">
             {featuresDatachatbot.slice(3).map((feature) => (
-              <SingleFeature key={feature.id} featuresDatachatbot={feature} />
+              <SingleFeature key={feature.id} feature={feature} />
             ))}
           </div>
         </div>
@@ -43,4 +40,4 @@ const Chatbot = () => {
   );
 };
 
-export default Chatbot;
+export default Features;

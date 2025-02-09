@@ -24,7 +24,7 @@ const PrivacyPage = () => {
             Wenn Sie Fragen oder Anregungen zu diesen Informationen haben oder sich wegen der Geltendmachung Ihrer Rechte an uns wenden möchten, richten Sie Ihre Anfrage bitte an:
           </p>
           <p>
-            DeepDive-KI UG (haftungsbeschränkt) <br />
+            DeepDiveKI UG (haftungsbeschränkt) <br />
             Eppendorfer Landstraße 55, 20249 Hamburg <br />
             Tel.: 0049 17661411514 <br />
             E-Mail: <a href="mailto:info@deepdive-ki.de" className="text-blue-500 underline">info@deepdive-ki.de</a>
