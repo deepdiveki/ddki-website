@@ -33,7 +33,9 @@ export default function CitySkylineAnimation() {
             {[...Array(3)].map((_, i) => (
                 <div
                     key={i}
-                    ref={(el) => (starsRef.current[i] = el!)}
+                    ref={(el) => {
+                        starsRef.current[i] = el!;
+                    }}
                     className="star"
                     style={{ top: "-30px", left: `${30 + i * 50}px` }}
                 />

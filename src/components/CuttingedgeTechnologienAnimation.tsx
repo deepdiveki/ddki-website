@@ -22,10 +22,12 @@ export default function CuttingEdgeAnimation() {
         <div className="cutting-edge-animation-container">
             {[...Array(3)].map((_, i) => (
                 <div
-                    key={i}
-                    ref={(el) => (trianglesRef.current[i] = el!)}
-                    className="rotating-triangle"
-                />
+                key={i}
+                ref={(el) => {
+                    trianglesRef.current[i] = el!;
+                }}
+                className="rotating-triangle"
+            />
             ))}
             <StyleSheet />
         </div>

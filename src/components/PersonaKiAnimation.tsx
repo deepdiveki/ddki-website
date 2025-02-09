@@ -26,7 +26,9 @@ export default function PersonaAnimation() {
             {[...Array(6)].map((_, i) => (
                 <div
                     key={i}
-                    ref={(el) => (pointsRef.current[i] = el!)}
+                    ref={(el) => {
+                        pointsRef.current[i] = el!;
+                    }}
                     className="orbiting-point"
                 />
             ))}

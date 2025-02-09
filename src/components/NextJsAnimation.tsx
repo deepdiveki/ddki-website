@@ -24,7 +24,9 @@ export default function NextJsAnimation() {
             {[...Array(6)].map((_, i) => (
                 <div
                     key={i}
-                    ref={(el) => (segmentsRef.current[i] = el!)}
+                    ref={(el) => {
+                        segmentsRef.current[i] = el!;
+                    }}
                     className="rotating-segment"
                 />
             ))}

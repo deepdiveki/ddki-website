@@ -1,33 +1,19 @@
 "use client";
 
-import axios from "axios";
 import Image from "next/image";
 import OfferItem from "./OfferItem";
-import { integrations, messages } from "../../../../integrations.config";
-import toast from "react-hot-toast";
 
-const SinglePricing = ({ price }: any) => {
-  // POST request
-  const handleSubscription = async (e: any) => {
+type Price = {
+  title: string;
+  price: string;
+  features: string[];
+};
+
+const SinglePricing = ({ price }: { price: Price }) => {
+  const handleSubscription = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-    if (!integrations?.isStripeEnabled) {
-      toast.error(messages.stripe);
-      return;
-    }
-
-    const { data } = await axios.post(
-      "/api/payment",
-      {
-        priceId: price.id,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      },
-    );
-    window.location.assign(data);
+    // Falls du eine andere Aktion beim Buchen haben möchtest, hier hinzufügen
+    alert(`Plan "${price.title}" ausgewählt!`);
   };
 
   return (
@@ -35,11 +21,11 @@ const SinglePricing = ({ price }: any) => {
       <span className="absolute right-9 top-9">
         <Image
           src={
-            price.nickname === "Small"
+            price.title === "Basisplan"
               ? "./images/pricing/pricing-icon-01.svg"
-              : price.nickname === "Medium"
-                ? "./images/pricing/pricing-icon-02.svg"
-                : "./images/pricing/pricing-icon-03.svg"
+              : price.title === "Pro-Plan"
+              ? "./images/pricing/pricing-icon-02.svg"
+              : "./images/pricing/pricing-icon-03.svg"
           }
           alt="icon"
           width={44}
@@ -48,17 +34,12 @@ const SinglePricing = ({ price }: any) => {
       </span>
 
       <h3 className="mb-5.5 text-heading-6 font-semibold text-white">
-        {price.nickname === "Small" && "Basis-Chatbot"}
-        {price.nickname === "Medium" && "Premium-Chatbot"}
-        {price.nickname === "Large" && "Uni-Chatbot"}
+        {price.title}
       </h3>
 
       <div className="flex items-center gap-3.5">
         <h2 className="pricing-gradient-text text-custom-1 font-bold">
-          €{" "}
-          {(price.unit_amount / 100).toLocaleString("en-US", {
-            currency: "USD",
-          })}
+          {price.price}
         </h2>
 
         <p className="font-medium">
@@ -69,37 +50,12 @@ const SinglePricing = ({ price }: any) => {
 
       <div className="pricing-gradient-divider my-10 h-[1px] w-full"></div>
 
-      {price.nickname === "Small" && (
-        <ul className="flex flex-col gap-4">
-          <OfferItem text="Individueller Schul-Chatbot" />
-          <OfferItem text="Wöchentliches DB Update " />
-          <OfferItem text="C5 -Framework" />
-          <OfferItem text="Sprachmodelle: GPT-4o" />
-          <OfferItem text="Unbegrenzte Unterhaltungen" />
-          <OfferItem text="Kundensupport" />
-        </ul>
-      )}
-
-      {price.nickname === "Medium" && (
-        <ul className="flex flex-col gap-4">
-          <OfferItem text="Chatbot mit Agent Funktionen" />
-          <OfferItem text="Für 35 Sprachen" />
-          <OfferItem text="C5 -Framework" />
-          <OfferItem text="Sprachmodelle: GPT-4o" />
-          <OfferItem text="Unbegrenzte Unterhaltungen" />
-          <OfferItem text="Priorisierter Kundensupport" />
-        </ul>
-      )}
-      {price.nickname === "Large" && (
-        <ul className="flex flex-col gap-4">
-          <OfferItem text="Chatbot mit Agent für 3000+" />
-          <OfferItem text="Für 70 Sprachen" />
-          <OfferItem text="C5 -Framework" />
-          <OfferItem text="Sprachmodelle: GPT-4o" />
-          <OfferItem text="Unbegrenzte Unterhaltungen" />
-          <OfferItem text="Priorisierter Kundensupport" />
-        </ul>
-      )}
+      {/* Feature-Liste */}
+      <ul className="flex flex-col gap-4">
+        {price.features.map((feature, index) => (
+          <OfferItem key={index} text={feature} />
+        ))}
+      </ul>
 
       <button
         aria-label="Get the plan button"

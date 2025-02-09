@@ -29,10 +29,12 @@ export default function PDFChatAnimation() {
             <div ref={pdfRef} className="pdf-block" />
             {[...Array(6)].map((_, i) => (
                 <div
-                    key={i}
-                    ref={(el) => (pointsRef.current[i] = el!)}
-                    className="orbiting-chat-point"
-                />
+                key={i}
+                ref={(el) => {
+                    pointsRef.current[i] = el!;
+                }}
+                className="orbiting-chat-point"
+            />
             ))}
             <StyleSheet />
         </div>

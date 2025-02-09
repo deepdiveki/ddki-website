@@ -31,8 +31,19 @@ export default function AIModelAnimation() {
     return (
         <div className="ai-model-animation-container">
             {[...Array(4)].map((_, i) => (
-                <div key={i} ref={(el) => (linesRef.current[i] = el!)} className="rotating-line">
-                    <div ref={(el) => (pointsRef.current[i] = el!)} className="moving-point" />
+                <div
+                    key={i}
+                    ref={(el) => {
+                        linesRef.current[i] = el!;
+                    }}
+                    className="rotating-line"
+                >
+                    <div
+                        ref={(el) => {
+                            pointsRef.current[i] = el!;
+                        }}
+                        className="moving-point"
+                    />
                 </div>
             ))}
             <StyleSheet />

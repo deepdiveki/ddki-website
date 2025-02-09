@@ -1,6 +1,47 @@
 import SectionTitle from "../../Common/SectionTitle";
-import SinglePricing from "./SInglePricing";
-import { pricingData } from "../../../../stripe/pricingData"; // Ensure this path is correct
+import SinglePricing from "./SinglePricing";  // Tippfehler behoben (von "SInglePricing" auf "SinglePricing")
+
+// Beispiel für lokale Preisdaten
+const pricingData = [
+  {
+    title: "Basis-Chatbot",
+    price: "15 €",
+    features: [
+      "Individueller Schul-Chatbot",
+      "Wöchentliches DB Update",
+      "C5 -Framework",
+      "Sprachmodelle: GPT-4o",
+      "Unbegrenzte Unterhaltungen",
+      "Kundensupport",
+
+
+    ],
+  },
+  {
+    title: "Premium-Chatbot",
+    price: "TBA €",
+    features: [
+      "Chatbot mit Agent Funktionen",
+      "Für 35 Sprachen",
+      "C5 -Framework",
+      "Sprachmodelle: GPT-4o",
+      "Unbegrenzte Unterhaltungen",
+      "Priorisierter Kundensupport"
+    ],
+  },
+  {
+    title: "Uni-Chatbot",
+    price: "TBA €",
+    features: [
+      "Chatbot mit Agent für 3000+",
+      "Für 70 Sprachen",
+      "C5 -Framework",
+      "Sprachmodelle: GPT-4o",
+      "Unbegrenzte Unterhaltungen",
+      "Priorisierter Kundensupport"
+    ],
+  },
+];
 
 const PricingGrids = () => {
   return (
@@ -9,12 +50,12 @@ const PricingGrids = () => {
         <SectionTitle
           subTitle="Jetzt anfragen"
           title="Preise"
-          paragraph="Entdecken Sie unsere flexiblen Chatbots – so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an. "
+          paragraph="Entdecken Sie unsere flexiblen Chatbots – so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an."
         />
         <div className="grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-3">
           {pricingData &&
-            pricingData.map((price, key) => (
-              <SinglePricing price={price} key={key} />
+            pricingData.map((price, index) => (
+              <SinglePricing price={price} key={index} />
             ))}
         </div>
       </div>

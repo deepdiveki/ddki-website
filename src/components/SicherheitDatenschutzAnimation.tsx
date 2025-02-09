@@ -30,7 +30,9 @@ export default function SecurityPrivacyAnimation() {
             {[...Array(4)].map((_, i) => (
                 <div
                     key={i}
-                    ref={(el) => (orbitingPointsRef.current[i] = el!)}
+                    ref={(el) => {
+                        orbitingPointsRef.current[i] = el!;
+                    }}
                     className="orbiting-point"
                 />
             ))}
