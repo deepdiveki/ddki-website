@@ -61,7 +61,7 @@ export default function DocsPage() {
                       </tr>
                       <tr>
                       <td className="border border-gray-300 px-4 py-2">
-  <a href="/fortbildungen/deep-dive-modul-1" className="text-blue-500 hover:underline">
+  <a href="/fortbildungen/deep-dive-I" className="text-blue-500 hover:underline">
     Deep Dive Modul I
   </a>
 </td>
