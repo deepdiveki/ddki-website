@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 
-const UCPage = () => {
+const ProfilPage = () => {
 
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -27,7 +27,7 @@ const UCPage = () => {
 
   return (
     <>
-      <Breadcrumb pageTitle="Under Construction" />
+      <Breadcrumb pageTitle="Profil Seite" />
 
       <section className="pb-20 pt-17.5 lg:pb-25 lg:pt-22.5 xl:pb-30 xl:pt-27.5 2xl:pb-[150px]">
         <div
@@ -55,4 +55,4 @@ const UCPage = () => {
   );
 };
 
-export default UCPage;
+export default ProfilPage;

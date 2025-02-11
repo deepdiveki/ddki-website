@@ -2,7 +2,7 @@
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import logo from "../../../public/images/logo/logo.svg";
 import DropDown from "./DropDown";
@@ -14,6 +14,7 @@ const Header = () => {
 
   const { data: session } = useSession();
 
+  const router = useRouter();
   const pathUrl = usePathname();
 
   // Sticky menu
@@ -122,7 +123,19 @@ const Header = () => {
             <div className="mt-7 flex items-center gap-6 lg:mt-0">
               {session ? (
                 <>
-                  <p>{session?.user?.name}</p>
+                  <button
+                    aria-label="Profile button"
+                    onClick={() => {
+                      if (pathUrl !== "/profil") {
+                        router.push("/profil");  // Directly redirect to profile page
+                      }
+                    }}
+                    className={`text-sm ${
+                      pathUrl === "/profil" ? "text-blue-400" : "text-white hover:text-opacity-75"
+                    }`}
+                  >
+                    {session?.user?.name}
+                  </button>
                   <button
                     aria-label="Sign Out button"
                     onClick={() => signOut()}
