@@ -2,6 +2,7 @@
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Loader from "@/components/Common/Loader";
@@ -24,6 +25,7 @@ const Signin = () => {
   const [loader, setLoader] = useState(false);
   const [remember, setRemember] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
+  const router = useRouter();
 
   const loginUser = async (e: any) => {
     e.preventDefault();
