@@ -25,6 +25,7 @@ const ProfilPage = () => {
   // Redirect to sign-in if session is null
   if (!session) {
     return <div>Redirecting to login...</div>;
+    router.push("/auth/signin");
   }
 
   // Extract user information

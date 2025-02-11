@@ -17,6 +17,8 @@ const Header = () => {
   const router = useRouter();
   const pathUrl = usePathname();
 
+  router.refresh();
+
   // Sticky menu
   const handleStickyMenu = () => {
     if (window.scrollY >= 80) {
