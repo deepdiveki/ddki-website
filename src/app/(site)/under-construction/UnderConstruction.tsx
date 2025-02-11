@@ -1,19 +1,34 @@
+"use client";
+
 import Breadcrumb from "@/components/Breadcrumb";
 
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-export const metadata: Metadata = {
-  title: "Error",
-  description: "This is Error page",
-  // other metadata
-};
 
-const ErrorPage = () => {
+const UCPage = () => {
+
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  // Redirect if not authenticated
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/auth/signin");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
-      <Breadcrumb pageTitle="Error Page" />
+      <Breadcrumb pageTitle="Under Construction" />
 
       <section className="pb-20 pt-17.5 lg:pb-25 lg:pt-22.5 xl:pb-30 xl:pt-27.5 2xl:pb-[150px]">
         <div
@@ -24,11 +39,10 @@ const ErrorPage = () => {
             <Image src="/images/404.svg" alt="404" fill />
           </div>
           <h2 className="mb-5.5 text-heading-3 font-bold text-white">
-            Oops! Page Not Found.
+            Diese Seite ist noch in Arbeit!.
           </h2>
           <p className="mb-9 font-medium">
-            The page you are looking for is not available or has been moved. Try
-            a different page or go to homepage with the button below.
+            Wir arbeiten mit hochdruck daran, diese Seite fertigzustellen!
           </p>
           <Link
             href="/"
@@ -42,4 +56,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default UCPage;

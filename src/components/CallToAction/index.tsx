@@ -68,7 +68,7 @@ const CallToAction = () => {
 
             <Link
               //href="https://ddki-chat.vercel.app/"
-              href="/ddki-toolbox"
+              href="/under-construction"
               className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
             >
               Jetzt Toolbox ausprobieren
