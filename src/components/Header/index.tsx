@@ -17,7 +17,7 @@ const Header = () => {
   const router = useRouter();
   const pathUrl = usePathname();
 
-  router.refresh();
+  //router.refresh(); //does nothing i guess
 
   // Sticky menu
   const handleStickyMenu = () => {
