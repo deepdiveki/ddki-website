@@ -55,8 +55,9 @@ const Signin = () => {
 
           // Force session refresh and navigate
           await getSession();
-          window.location.reload();
-          router.refresh();
+          await new Promise((resolve) => setTimeout(resolve, 500));  // Optional: short delay
+          //window.location.reload();
+          //router.refresh();
           await router.push("/ddki-toolbox");
         }
 
