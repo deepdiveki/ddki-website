@@ -1,5 +1,5 @@
 "use client";
-import { signIn } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -28,37 +28,41 @@ const Signin = () => {
   const router = useRouter();
 
   const loginUser = async (e: any) => {
-    e.preventDefault();
+      e.preventDefault();
 
-    if (!integrations?.isAuthEnabled) {
-      toast.error(messages.auth);
-      return;
-    }
-
-    const result = SigninSchema.safeParse({ ...data });
-    if (!result.success) {
-      toast.error(result.error.errors[0].message);
-      return;
-    }
-
-    setLoader(true);
-    signIn("credentials", { ...data, redirect: false }).then((callback) => {
-      if (callback?.error) {
-        toast.error(callback.error);
-        setLoader(false);
+      if (!integrations?.isAuthEnabled) {
+        toast.error(messages.auth);
         return;
       }
 
-      if (callback?.ok && !callback?.error) {
-        toast.success("Logged in successfully");
-        setLoader(false);
-
-        router.push("/ddki-toolbox");
-        router.refresh();
+      const result = SigninSchema.safeParse({ ...data });
+      if (!result.success) {
+        toast.error(result.error.errors[0].message);
         return;
       }
-    });
-  };
+
+      setLoader(true);
+
+      signIn("credentials", { ...data, redirect: false }).then(async (callback) => {
+        if (callback?.error) {
+          toast.error(callback.error);
+          setLoader(false);
+          return;
+        }
+
+        if (callback?.ok && !callback?.error) {
+          toast.success("Logged in successfully");
+
+          // Force session refresh and navigate
+          await getSession();
+          await router.push("/ddki-toolbox");
+          router.refresh();
+        }
+
+        setLoader(false);
+      });
+    };
+
   return (
     <>
       <section className="pb-17.5 pt-17.5 lg:pb-22.5 xl:pb-27.5">

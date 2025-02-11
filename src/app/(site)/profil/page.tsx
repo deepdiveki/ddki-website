@@ -19,6 +19,7 @@ export default async function ProfilPage() {
 
   if (!session) {
     // Redirect to sign-in if not authenticated
+    return <div>Redirecting to login...</div>;
     redirect("/auth/signin");
   }
   return <Profil />;
