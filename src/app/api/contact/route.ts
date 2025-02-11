@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
 
     // Define the email payload
     const emailPayload = {
-      to: EMAIL_SERVER_USER,
+      to: 'info@deepdive-ki.de',
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>
