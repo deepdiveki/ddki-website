@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const HeroChatbot = () => {
   // Dynamisches Laden des externen Skripts für den Chatbot
@@ -52,13 +52,13 @@ const HeroChatbot = () => {
           </div>
         </div>
 
-        {/* Chatbot-Einbindung
+        {/* Chatbot-Einbindung */}
         <div className="chatbot-container mt-10">
-          <zapier-interfaces-chatbot-embed
-            is-popup="true"
-            chatbot-id="clycok7xk00058s6rn16regex"
-          ></zapier-interfaces-chatbot-embed>
-        </div> */}
+          {React.createElement('zapier-interfaces-chatbot-embed' as any, {
+            'is-popup': 'true',
+            'chatbot-id': 'clycok7xk00058s6rn16regex',
+          })}
+        </div>
       </div>
     </section>
   );
