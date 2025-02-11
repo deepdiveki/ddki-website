@@ -1,9 +1,30 @@
 import { prisma } from "@/libs/prismaDB";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import bcrypt from "bcryptjs";
-import { type NextAuthOptions } from "next-auth";
+import { type NextAuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
+import { JWT } from "next-auth/jwt";
+
+// Define the custom user type
+interface CustomUser {
+  id: string
+  name: string;
+  email: string;
+}
+
+// Extend the token and session types
+declare module "next-auth" {
+  interface Session {
+    user: CustomUser;
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    user: CustomUser;
+  }
+}
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -31,14 +52,17 @@ export const authOptions: NextAuthOptions = {
 
         // check to see if user already exist
         const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email,
-          },
+          where: { email: credentials.email },
+          select: { id: true, name: true, email: true, password: true },  // Include 'id'
         });
 
         // if user was not found
         if (!user || !user?.password) {
           throw new Error("No user found");
+        }
+
+        if (!user?.name || !user?.email) {
+          throw new Error("User information is incomplete");
         }
 
         // check to see if passwords match
@@ -69,5 +93,26 @@ export const authOptions: NextAuthOptions = {
 
   ],
 
-  // debug: process.env.NODE_ENV === "development",
+  callbacks: {
+  async jwt({ token, user }) {
+    // Add custom user data to the token on login
+    if (user) {
+      token.user = {
+        id: user.id,
+        name: user.name ?? "Unbenannt",
+        email: user.email ?? "",
+      };
+    }
+
+    return token;
+  },
+
+  async session({ session, token }) {
+    // Pass the custom user data to the session
+    session.user = token.user as CustomUser;  // Explicitly cast the type
+    return session;
+  },
+},
+
+
 };
