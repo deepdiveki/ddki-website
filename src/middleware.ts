@@ -9,11 +9,9 @@ export async function middleware(req: NextRequest) {
   // Alternatively, access cookies directly if needed:
   // const sessionToken = req.cookies.get("session_token")?.value;
 
-  // Get the current hostname
-  const hostname = req.nextUrl.hostname;
 
   // Protect paths for the specific domain and `/profile`
-  if (hostname.endsWith("toolbox.deepdive-ki.de") || req.nextUrl.pathname.startsWith("/profil")) {
+  if (req.nextUrl.hostname === "toolbox.deepdive-ki.de") || req.nextUrl.pathname.startsWith("/profil")) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/signin", req.url));
     }

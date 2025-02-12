@@ -17,7 +17,7 @@ const Header = () => {
   const router = useRouter();
   const pathUrl = usePathname();
 
-  //router.refresh(); //does nothing i guess
+
 
   // Sticky menu
   const handleStickyMenu = () => {
@@ -30,6 +30,7 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
+    router.refresh(); //does nothing i guess??
   });
 
   return (
