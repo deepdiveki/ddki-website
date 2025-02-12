@@ -11,7 +11,7 @@ export async function middleware(req: NextRequest) {
 
 
   // Protect paths for the specific domain and `/profile`
-  if (req.nextUrl.hostname === "toolbox.deepdive-ki.de" || req.nextUrl.pathname.startsWith("/profil")) {
+  if (req.nextUrl.hostname === "https://toolbox.deepdive-ki.de" || req.nextUrl.pathname.startsWith("/profil")) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/signin", req.url));
     }

@@ -1,9 +1,9 @@
 "use client";
-import { signIn, getSession } from "next-auth/react";
+import { signIn, getSession, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import Loader from "@/components/Common/Loader";
 import { integrations, messages } from "../../../../integrations.config";
@@ -26,6 +26,15 @@ const Signin = () => {
   const [remember, setRemember] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const router = useRouter();
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    // Check if the user is logged in
+    if (session?.user) {
+      // Redirect to the toolbox page once the session is updated
+      router.push("/ddki-toolbox");
+    }
+  }, [session, router]);
 
   const loginUser = async (e: any) => {
       e.preventDefault();
@@ -59,9 +68,9 @@ const Signin = () => {
 
           window.location.reload();
 
-          await new Promise((resolve) => setTimeout(resolve, 500));  // Optional: short delay
-          //window.location.reload();
-          await router.push("/ddki-toolbox");
+          //await new Promise((resolve) => setTimeout(resolve, 500));  // Optional: short delay
+
+          //await router.push("/ddki-toolbox");
         }
 
         setLoader(false);
