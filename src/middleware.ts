@@ -13,7 +13,7 @@ export async function middleware(req: NextRequest) {
   const hostname = req.nextUrl.hostname;
 
   // Protect paths for the specific domain and `/profile`
-  if (hostname === "toolbox.deepdive-ki.de" || req.nextUrl.pathname.startsWith("/profil")) {
+  if (hostname.endsWith("toolbox.deepdive-ki.de") || req.nextUrl.pathname.startsWith("/profil")) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/signin", req.url));
     }

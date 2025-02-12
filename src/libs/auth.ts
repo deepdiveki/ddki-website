@@ -113,6 +113,17 @@ export const authOptions: NextAuthOptions = {
     return session;
   },
 },
-
-
+// Define cookie configuration to share across subdomains
+  cookies: {
+    sessionToken: {
+      name: "next-auth.session-token",
+      options: {
+        domain: ".deepdive-ki.de",  // Make cookie accessible across subdomains of example.com
+        path: "/",
+        secure: process.env.NODE_ENV === "production", // Use secure cookies only in production
+        httpOnly: true,            // Prevent JavaScript access to the cookie (XSS protection)
+        sameSite: "lax",           // Or 'strict'/'none' depending on your needs
+      },
+    },
+  },
 };
