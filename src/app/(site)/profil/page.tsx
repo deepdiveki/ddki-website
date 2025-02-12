@@ -17,10 +17,5 @@ import Profil from "./Profil";
 export default async function ProfilPage() {
   const session = await getServerSession(authOptions);
 
-  if (!session) {
-    // Redirect to sign-in if not authenticated
-    return <div>Redirecting to login...</div>;
-    redirect("/auth/signin");
-  }
   return <Profil />;
 }
