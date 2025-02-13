@@ -16,10 +16,10 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  // If the user is authenticated and tries to access the login page, redirect to the profilpage
-  if (req.nextUrl.pathname.startsWith('/auth/signin') && token) {
-    return NextResponse.redirect(new URL("profil", req.url));
-  }
+  // If the user is authenticated and tries to access the login page, redirect to the profilpage doesnt work
+//   if (req.nextUrl.pathname.startsWith('/auth/signin') && token) {
+//     return NextResponse.redirect(new URL("/profil", req.url));
+//   }
 
   return NextResponse.next();
 }
