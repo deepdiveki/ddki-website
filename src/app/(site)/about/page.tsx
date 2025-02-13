@@ -6,6 +6,8 @@ import Features from "@/components/Home/Features";
 import { Metadata } from "next";
 import Clients from "@/components/About/Kunden";
 import Kontakt from "@/components/Kontakt";
+import CookieBanner from "@/components/CookieBanner";
+
 
 export const metadata: Metadata = {
   title: "Über uns | DeepDive KI ToolBox und KI Fortbildungen",

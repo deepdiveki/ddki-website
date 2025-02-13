@@ -4,6 +4,8 @@ import FeaturesList from "@/components/Home/FeaturesList";
 import Hero from "@/components/Home/Hero";
 import { Metadata } from "next";
 import { integrations } from "../../../integrations.config";
+import CookieBanner from "@/components/CookieBanner";
+
 
 export const metadata: Metadata = {
   title: "DeepDive KI ToolBox und KI Fortbildungen",
@@ -18,6 +20,8 @@ export default function Home() {
       <Features />
       <FeaturesList />
       <CallToAction />
+      <CookieBanner />;
+
     </>
   );
 }
