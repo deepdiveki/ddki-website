@@ -51,7 +51,7 @@ const ProfilPage = () => {
               <strong>Status:</strong> {status === "authenticated" ? "Standard Access" : "Not Authenticated"}
           </p>
 
-          <div className="flex gap-4 mt-6">
+          <div className="flex justify-center gap-4 mt-6">
               {/* Logout Button */}
               <button
                 onClick={() => signOut()}
