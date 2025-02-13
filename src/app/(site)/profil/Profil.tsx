@@ -51,23 +51,25 @@ const ProfilPage = () => {
               <strong>Status:</strong> {status === "authenticated" ? "Standard Access" : "Not Authenticated"}
           </p>
 
-          {/* Logout Button */}
-          <button
-            onClick={() => signOut()}
-            className="hero-button-gradient mt-6 inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
-          >
-            Logout
-          </button>
+          <div className="flex gap-4 mt-6">
+              {/* Logout Button */}
+              <button
+                onClick={() => signOut()}
+                className="hero-button-gradient rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
+              >
+                Logout
+              </button>
 
-          {/* Delete Acc Button */}
-          <button
-          onClick={() => {
-            window.location.href = "/under-construction";
-          }}
-            className="hero-button-gradient mt-6 inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
-          >
-            Account löschen
-          </button>
+              {/* Delete Account Button (Grey Tone) */}
+              <button
+                onClick={() => {
+                  window.location.href = "/under-construction";
+                }}
+                className="bg-gray-600 text-white rounded-lg px-7 py-3 font-medium duration-300 ease-in hover:bg-gray-500"
+              >
+                Account löschen
+              </button>
+            </div>
         </div>
       </section>
     </>

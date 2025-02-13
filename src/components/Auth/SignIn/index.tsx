@@ -40,13 +40,17 @@ const Signin = () => {
       e.preventDefault();
 
       if (!integrations?.isAuthEnabled) {
-        toast.error(messages.auth);
+        //toast.error(messages.auth);
+        console.error("Login error:", messages.auth);
+        toast.error("An error occurred while logging in. Please try again later.");
         return;
       }
 
       const result = SigninSchema.safeParse({ ...data });
       if (!result.success) {
-        toast.error(result.error.errors[0].message);
+        //toast.error(result.error.errors[0].message);
+        console.error("Login error:", result.error.errors[0].message);
+        toast.error("An error occurred while logging in. Please try again later.");
         return;
       }
 
@@ -54,7 +58,8 @@ const Signin = () => {
 
       signIn("credentials", { ...data, redirect: false }).then(async (callback) => {
         if (callback?.error) {
-          toast.error(callback.error);
+          console.error("Login error:", callback.error);
+          toast.error("An error occurred while logging in. Please try again later.");
           setLoader(false);
           return;
         }
@@ -64,7 +69,6 @@ const Signin = () => {
 
           // Force session refresh and navigate
           await getSession();
-          //router.refresh();
 
           window.location.reload();
 
