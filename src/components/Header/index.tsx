@@ -30,7 +30,6 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
-    router.refresh(); //does nothing i guess??
   });
 
   return (
