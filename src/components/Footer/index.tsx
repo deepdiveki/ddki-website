@@ -26,13 +26,15 @@ const Footer = () => {
 
           <div className="flex flex-wrap justify-between">
             <div className="mb-10 w-full max-w-[520px]">
-              <Link href="/" className="mb-8.5 inline-block">
-                <Image src={logo} alt="Logo" width={164} height={36} />
-              </Link>
+            <Link href="/" className="flex items-center gap-3">
+  <Image src={logo} alt="Logo" width={100} height={24} className="h-10 w-auto" />
+  <span className="text-white text-xl font-bold">DeepDiveKI</span>
+</Link>
 
-              <p className="mb-12 xl:w-4/5">
-              Die DeepDiveKI Plattform bietet drei KI Produkte für Schulen und Universitäten an. Mit der DDKI Toolbox, dem ChatBot für Ihre Schulwebsite und den Fortbildungen zum Thema KI, bieten wir eine breite Palette von KI Produkten für Ihre Institution an.
-              </p>
+<p className="mb-12 xl:w-4/5">
+  <br />
+  Die DeepDiveKI Plattform bietet drei KI-Produkte für Schulen und Universitäten an. Mit der DDKI Toolbox, dem ChatBot für Ihre Schulwebsite und den Fortbildungen zum Thema KI bieten wir eine breite Palette von KI-Produkten für Ihre Institution an.
+</p>
 
 
               <p className="mt-5.5 font-medium">
