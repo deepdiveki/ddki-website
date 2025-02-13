@@ -16,6 +16,11 @@ export async function middleware(req: NextRequest) {
     }
   }
 
+  // If the user is authenticated and tries to access the login page, redirect to the profilpage
+  if (request.nextUrl.pathname.startsWith('/auth/signin') && sessionToken) {
+    return NextResponse.redirect(new URL("profil", req.url));
+  }
+
   return NextResponse.next();
 }
 
