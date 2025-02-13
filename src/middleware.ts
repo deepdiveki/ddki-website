@@ -9,7 +9,7 @@ export async function middleware(req: NextRequest) {
   // Alternatively, access cookies directly if needed:
   // const sessionToken = req.cookies.get("session_token")?.value;
 
-  // Protect paths for the specific domain and `/profile` - toolbox redirect doesnt work
+  // Protect paths for the specific domain and `/profile` - toolbox redirect block doesnt work
   if (((req.headers.get("host") || "") === "toolbox.deepdive-ki.de") || req.nextUrl.pathname.startsWith("/profil")) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/signin", req.url));

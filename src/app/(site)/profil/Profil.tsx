@@ -58,6 +58,16 @@ const ProfilPage = () => {
           >
             Logout
           </button>
+
+          {/* Delete Acc Button */}
+          <button
+          onClick={() => {
+            window.location.href = "/under-construction";
+          }}
+            className="hero-button-gradient mt-6 inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
+          >
+            Account löschen
+          </button>
         </div>
       </section>
     </>
