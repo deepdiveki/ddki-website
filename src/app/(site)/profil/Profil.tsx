@@ -32,6 +32,39 @@ const ProfilPage = () => {
   const name = session.user?.name || "N/A";
   const email = session.user?.email || "N/A";
 
+  // Handler-Funktion, die den API-Call ausführt
+  const handleDeleteAccount = async () => {
+    // Benutzer um Bestätigung bitten
+    if (
+      !confirm(
+        "Möchtest du deinen Account wirklich löschen? Diese Aktion ist unwiderruflich."
+      )
+    ) {
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/deleteUser", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        // Nach erfolgreicher Löschung kann der User ausgeloggt und umgeleitet werden
+        await signOut();
+        router.push("/");
+      } else {
+        const errorText = await response.text();
+        console.error("Löschung fehlgeschlagen:", errorText);
+        alert("Account konnte nicht gelöscht werden: " + errorText);
+      }
+    } catch (error) {
+      console.error("Fehler beim Löschen des Accounts:", error);
+      alert("Ein Fehler ist beim Löschen deines Accounts aufgetreten.");
+    }
+  };
+
   return (
     <>
       <Breadcrumb pageTitle="Profil Seite" />
@@ -62,9 +95,7 @@ const ProfilPage = () => {
 
               {/* Delete Account Button (Grey Tone) */}
               <button
-                onClick={() => {
-                  window.location.href = "/under-construction";
-                }}
+                onClick={handleDeleteAccount}
                 className="bg-gray-600 text-white rounded-lg px-7 py-3 font-medium duration-300 ease-in hover:bg-gray-500"
               >
                 Account löschen
