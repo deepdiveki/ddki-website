@@ -7,6 +7,7 @@ const corsHeaders = {
   "Access-Control-Allow-Origin": "http://localhost:3000", // später durch toolbox link ersetzen
   "Access-Control-Allow-Methods": "GET, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Credentials": "true",
 };
 
 export async function GET() {
