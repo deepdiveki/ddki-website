@@ -4,7 +4,7 @@ import { authOptions } from "@/libs/auth";
 
 // Define CORS headers
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "http://localhost:3000", // später durch toolbox link ersetzen
+  "Access-Control-Allow-Origin": "https://toolbox.deepdive-ki.de", // später durch toolbox link ersetzen
   "Access-Control-Allow-Methods": "GET, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
   "Access-Control-Allow-Credentials": "true",
