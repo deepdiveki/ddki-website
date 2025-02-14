@@ -2,22 +2,33 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/libs/auth";
 
+// Define CORS headers
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "http://localhost:3000", // später durch toolbox link ersetzen
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
 export async function GET() {
   // Retrieve the NextAuth session server-side
   const session = await getServerSession(authOptions);
 
-  // Define CORS headers
-  const headers = {
-    "Access-Control-Allow-Origin": "http://localhost:3000", // or use "*" to allow all origins (not recommended for production)
-    "Access-Control-Allow-Methods": "GET",
-    "Access-Control-Allow-Headers": "Content-Type",
-  };
-
   if (!session) {
-    // Not logged in
-    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+    // Not logged in: include CORS headers on error responses too
+    return NextResponse.json(
+      { error: "Not authenticated" },
+      { status: 401, headers: corsHeaders }
+    );
   }
 
-  // Logged in: return user info
-  return NextResponse.json({ name: session.user?.name }, { status: 200 });
+  // Logged in: return user info with CORS headers
+  return NextResponse.json(
+    { name: session.user?.name },
+    { status: 200, headers: corsHeaders }
+  );
+}
+
+// Handle preflight requests
+export async function OPTIONS() {
+  return new NextResponse(null, { headers: corsHeaders });
 }
