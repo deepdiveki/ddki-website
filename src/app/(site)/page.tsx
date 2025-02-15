@@ -20,7 +20,7 @@ export default function Home() {
       <Features />
       <FeaturesList />
       <CallToAction />
-      <CookieBanner />;
+      {/* <CookieBanner />; */}
 
     </>
   );
