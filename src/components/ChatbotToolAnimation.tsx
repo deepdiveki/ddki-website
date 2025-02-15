@@ -2,15 +2,15 @@
 
 import { useRef, useEffect } from "react";
 
-export default function ChatbotAnimation() {
-    const circleRef = useRef<HTMLDivElement>(null);
+export default function AbstractChatbotAnimation() {
+    const botRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         let angle = 0;
         const interval = setInterval(() => {
-            if (circleRef.current) {
+            if (botRef.current) {
                 angle += 1;
-                circleRef.current.style.transform = `rotate(${angle}deg)`;
+                botRef.current.style.transform = `translateY(${Math.sin(angle * 0.1) * 8}px) rotate(${Math.sin(angle * 0.05) * 5}deg)`;
             }
         }, 50);
 
@@ -19,19 +19,19 @@ export default function ChatbotAnimation() {
 
     return (
         <div className="chatbot-animation-container">
-            <div ref={circleRef} className="glowing-circle">
-                <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M12 2a10 10 0 100 20 10 10 0 100-20zm-1 15h-2v-2h2v2zm0-4h-2v-6h2v6zm6 0h-2v-6h2v6zm0 4h-2v-2h2v2z"
-                        fill="#ffffff"
-                    />
-                </svg>
+            <div ref={botRef} className="chatbot-body">
+                <div className="chatbot-symbol">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 200 200"
+                        width="100"
+                        height="100"
+                        preserveAspectRatio="xMidYMid meet"
+                    >
+                        <path fill="none" stroke="#6C63FF" strokeWidth="3" d="M100,10 C150,10 190,50 190,100 C190,150 150,190 100,190 C50,190 10,150 10,100 C10,50 50,10 100,10 Z" />
+                        <path fill="none" stroke="#6C63FF" strokeWidth="3" d="M50,100 C50,70 70,50 100,50 C130,50 150,70 150,100 C150,130 130,150 100,150 C70,150 50,130 50,100 Z" />
+                    </svg>
+                </div>
             </div>
             <StyleSheet />
         </div>
@@ -45,30 +45,40 @@ function StyleSheet() {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
+            margin-top: 40px;
         }
 
-        .glowing-circle {
-            width: 60px;
-            height: 60px;
+        .chatbot-body {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(128, 90, 213, 0.8), rgba(90, 60, 150, 0.9));
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.8), rgba(90, 60, 150, 0.9));
             display: flex;
-            justify-content: center;
             align-items: center;
-            animation: pulse 3s ease-in-out infinite;
-            box-shadow: 0 0 20px rgba(128, 90, 213, 0.6), 0 0 40px rgba(128, 90, 213, 0.4);
+            justify-content: center;
+            position: relative;
+            animation: glow 3s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.6), 0 0 40px rgba(108, 99, 255, 0.4);
         }
 
-        @keyframes pulse {
+        .chatbot-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes glow {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 0 20px rgba(128, 90, 213, 0.6), 0 0 40px rgba(128, 90, 213, 0.4);
+                box-shadow: 0 0 20px rgba(108, 99, 255, 0.6), 0 0 40px rgba(108, 99, 255, 0.4);
             }
             50% {
                 transform: scale(1.1);
-                box-shadow: 0 0 30px rgba(128, 90, 213, 0.9), 0 0 60px rgba(128, 90, 213, 0.6);
+                box-shadow: 0 0 30px rgba(108, 99, 255, 0.9), 0 0 60px rgba(108, 99, 255, 0.6);
             }
         }
     `}</style>
