@@ -6,6 +6,8 @@ import QRCodeAnimation from "@/components/QRCodeAnimation";
 import AssistantAnimation from "@/components/KiAssistentenBuilder";
 import PersonaAnimation from "@/components/PersonaKiAnimation";
 import PDFChatAnimation from "@/components/ChatMitPdfAnimation";
+import { Menu } from "@/types/menu";
+
 
 
 const worksheetAnimation = <WorksheetGeneratorAnimation />;
@@ -24,6 +26,7 @@ const ddkitools: Feature[] = [
       "In Entwicklung",
     icon: "/images/features/icon-01.svg",
     animationComponent: worksheetAnimation,
+    link: "https://toolbox.deepdive-ki.de/arbeitsblatt-generator",
   },
   {
     id: 27,
@@ -31,6 +34,7 @@ const ddkitools: Feature[] = [
     description: "Nutze die besten LMS für deine Chats. GPT 4o, Llama 3.1, Claude 3 Opus",
     icon: "/images/features/icon-02.svg",
     animationComponent: chatbotAnimation,
+    link: "https://toolbox.deepdive-ki.de/ki-chat",
   },
   {
     id: 21,
@@ -39,6 +43,7 @@ const ddkitools: Feature[] = [
       "In Entwicklung",
     icon: "/images/features/icon-03.svg",
     animationComponent: personaAnimation,
+    link: "https://toolbox.deepdive-ki.de/personachat",
   },
   {
     id: 3,
@@ -48,6 +53,7 @@ const ddkitools: Feature[] = [
     icon: "/images/features/icon-04.svg",
     animationComponent: pdfChatAnimation,
     rotate: true,
+    link: "https://toolbox.deepdive-ki.de/chat-mit-pdf",
   },
   {
     id: 48,
@@ -57,6 +63,7 @@ const ddkitools: Feature[] = [
     icon: "/images/features/icon-05.svg",
     animationComponent: qrCodeAnimation,
     rotate: true,
+    link: "https://toolbox.deepdive-ki.de/qrcode-generator",
   },
   {
     id: 88,
@@ -65,6 +72,7 @@ const ddkitools: Feature[] = [
     icon: "/images/features/icon-06.svg",
     animationComponent: assistantAnimation,
     rotate: true,
+    link: "https://toolbox.deepdive-ki.de/ki-assistent",
   },
 ];
 

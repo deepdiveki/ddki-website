@@ -7,4 +7,6 @@ export type Feature = {
   description: string;
   rotate?: boolean;
   animationComponent?: ReactNode; // Neuer Typ für die Animation
+  link?: string;
+  
 };
