@@ -27,7 +27,7 @@ const menuData: Menu[] = [
       },
       {
         id: 67,
-        title: "KI Chatbot",
+        title: "KI-Chat",
         newTab: false,
         path: "https://toolbox.deepdive-ki.de/ki-chat",
       },
@@ -39,15 +39,21 @@ const menuData: Menu[] = [
       },
       {
         id: 68,
-        title: "KI-Assistenten Builder",
+        title: "Chat mit PDF",
         newTab: false,
-        path: "https://toolbox.deepdive-ki.de/ki-assistent",
+        path: "https://toolbox.deepdive-ki.de/chat-mit-pdf",
       },
       {
         id: 70,
         title: "QR Code Generator",
         newTab: false,
         path: "https://toolbox.deepdive-ki.de/qrcode-generator",
+      },
+      {
+        id: 71,
+        title: "KI-Assistant erstellen",
+        newTab: false,
+        path: "https://toolbox.deepdive-ki.de/ki-assistent",
       },
     ],
   },
