@@ -24,3 +24,4 @@ export const metadata = {
   }
 };
 
+<meta name="google-site-verification" content="rapFK4LKVJ-ur_9PSHMiVY7sFbmvzuTvfYj7TS-bqNE" />
