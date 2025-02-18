@@ -10,11 +10,14 @@ export async function middleware(req: NextRequest) {
   // const sessionToken = req.cookies.get("session_token")?.value;
 
   // Protect paths for the specific domain and `/profile` - toolbox redirect block doesnt work
-  if (((req.headers.get("host") || "") === "toolbox.deepdive-ki.de") || req.nextUrl.pathname.startsWith("/profil")) {
+  //if (((req.headers.get("host") || "") === "toolbox.deepdive-ki.de") || req.nextUrl.pathname.startsWith("/profil")) {
+  if (((req.headers.get("host") || "") === "ddki-chat-test.osc-fr1.scalingo.io") || req.nextUrl.pathname.startsWith("/profil")) {
+
     if (!token) {
       return NextResponse.redirect(new URL("/auth/signin", req.url));
     }
   }
+
 
   return NextResponse.next();
 }
