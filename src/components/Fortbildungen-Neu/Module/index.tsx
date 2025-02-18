@@ -36,7 +36,7 @@ const FeaturesList = () => {
                         </span>
                       </span>
                       <h3 id="ddki-toolbox" className="mb-4.5 text-heading-4 font-bold text-white">
-                      Crash Kurs KI - Unterstuetzung zum individualisierten Unterricht
+                      Crash Kurs KI - Unterstützung zum individualisierten Unterricht
                       </h3>
                       <p className="mb-10 font-medium">
                       In dieser Fortbildung stärken die Teilnehmerinnen und Teilnehmer ihre Kompetenz im Umgang mit Künstlicher Intelligenz.  

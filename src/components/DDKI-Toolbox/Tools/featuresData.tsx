@@ -31,7 +31,7 @@ const ddkitools: Feature[] = [
   {
     id: 27,
     title: "KI-Chat",
-    description: "Nutze die besten LMS für deine Chats. GPT 4o, Llama 3.1, Claude 3 Opus",
+    description: "Nutze die besten LLM'S für deine Chats. GPT 4o, Llama 3.1, Claude 3 Opus",
     icon: "/images/features/icon-02.svg",
     animationComponent: chatbotAnimation,
     link: "https://toolbox.deepdive-ki.de/ki-chat",

@@ -15,9 +15,17 @@ const SingleTeam = ({ team }: { team: Team }) => {
         />
       </div>
       <h3 className="mb-2.5 text-heading-6 font-semibold text-white">{name}</h3>
-      <p className="mb-6 font-medium">{designation}</p>
+      <p className="mb-6 font-medium">
+        {designation.split("\n").map((line, index) => (
+          <span key={index}>
+            {line}
+            <br />
+          </span>
+        ))}
+      </p>
     </div>
   );
+
 };
 
 export default SingleTeam;
