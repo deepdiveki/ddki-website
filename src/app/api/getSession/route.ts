@@ -4,7 +4,8 @@ import { authOptions } from "@/libs/auth";
 
 // Define CORS headers
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "https://toolbox.deepdive-ki.de", // später durch toolbox link ersetzen
+  //"Access-Control-Allow-Origin": "https://toolbox.deepdive-ki.de",
+  "Access-Control-Allow-Origin": "https://ddki-chat-test.osc-fr1.scalingo.io/", //nur zum testen
   "Access-Control-Allow-Methods": "GET, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
   "Access-Control-Allow-Credentials": "true",
@@ -24,7 +25,10 @@ export async function GET() {
 
   // Logged in: return user info with CORS headers
   return NextResponse.json(
-    { name: session.user?.name },
+    { id: session.user?.id,
+      name: session.user?.name,
+      email: session.user?.email,
+    },
     { status: 200, headers: corsHeaders }
   );
 }
