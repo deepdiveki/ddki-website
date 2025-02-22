@@ -26,7 +26,7 @@ const ddkitools: Feature[] = [
       "In Entwicklung",
     icon: "/images/features/icon-01.svg",
     animationComponent: worksheetAnimation,
-    link: "https://toolbox.deepdive-ki.de/arbeitsblatt-generator",
+    link: "https://www.deepdive-ki.de/ddki-toolbox",
   },
   {
     id: 27,
@@ -43,7 +43,7 @@ const ddkitools: Feature[] = [
       "In Entwicklung",
     icon: "/images/features/icon-03.svg",
     animationComponent: personaAnimation,
-    link: "https://toolbox.deepdive-ki.de/personachat",
+    link: "https://www.deepdive-ki.de/ddki-toolbox",
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const ddkitools: Feature[] = [
     icon: "/images/features/icon-04.svg",
     animationComponent: pdfChatAnimation,
     rotate: true,
-    link: "https://toolbox.deepdive-ki.de/chat-mit-pdf",
+    link: "https://www.deepdive-ki.de/ddki-toolbox",
   },
   {
     id: 48,
@@ -63,7 +63,7 @@ const ddkitools: Feature[] = [
     icon: "/images/features/icon-05.svg",
     animationComponent: qrCodeAnimation,
     rotate: true,
-    link: "https://toolbox.deepdive-ki.de/qrcode-generator",
+    link: "https://www.deepdive-ki.de/ddki-toolbox",
   },
   {
     id: 88,
@@ -72,7 +72,7 @@ const ddkitools: Feature[] = [
     icon: "/images/features/icon-06.svg",
     animationComponent: assistantAnimation,
     rotate: true,
-    link: "https://toolbox.deepdive-ki.de/ki-assistent",
+    link: "https://www.deepdive-ki.de/ddki-toolbox",
   },
 ];
 
