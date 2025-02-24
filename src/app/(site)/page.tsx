@@ -5,6 +5,8 @@ import Hero from "@/components/Home/Hero";
 import { Metadata } from "next";
 import { integrations } from "../../../integrations.config";
 import CookieBanner from "@/components/CookieBanner";
+import Kontakt from "@/components/Kontakt";
+
 
 
 export const metadata: Metadata = {
@@ -19,6 +21,7 @@ export default function Home() {
       <Hero />
       <Features />
       <FeaturesList />
+      <Kontakt />
       <CallToAction />
       {/* <CookieBanner />; */}
 
