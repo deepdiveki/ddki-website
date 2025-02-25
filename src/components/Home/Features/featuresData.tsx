@@ -17,9 +17,9 @@ const hamburgAbstractAnimation = <HamburgAbstractAnimation />;
 const featuresData: Feature[] = [
   {
     id: 11,
-    title: "OpenAI Integration",
+    title: "Günstige und passende API's",
     description:
-      "Datenschutzkonforme Integration für optimale Ergebnisse",
+      "Günstige und datenschutzkonforme Integration von verschiedenen KI-Modellen für optimale Ergebnisse",
     icon: "/images/features/icon-01.svg",
     animationComponent: openAIIntegrationAnimation,
 
@@ -27,7 +27,7 @@ const featuresData: Feature[] = [
   {
     id: 27,
     title: "Next.js 13, React 18, TS",
-    description: "Neuste Full-Stack Technologien für beste Performance",
+    description: "Neuste Full-Stack Website Technologien für gute Performance im Schulalltag",
     icon: "/images/features/icon-02.svg",
     animationComponent: nextJsAnimation,
   },
@@ -35,24 +35,24 @@ const featuresData: Feature[] = [
     id: 21,
     title: "Sicherheit & Datenschutz",
     description:
-      "Sicherheit und Datenschutz sind uns wichtig. Wir halten uns an die DSGVO",
+      "Sicherheit und Datenschutz sind uns wichtig. Wir halten uns an die DSGVO. Hosting in der EU",
     icon: "/images/features/icon-03.svg",
     animationComponent: securityPrivacyAnimation,
   },
   {
     id: 3,
-    title: "Cutting-edge Technologien",
+    title: "KI - Wekrzeuge für Lehrkräfte",
     description:
-      "Moderne Technologien für beste Performance und Nutzererfahrung",
+      "Erstellung von Arbeitsmaterialien, schnelle Differenzierung der Lernmaterialien und administrative Erleichterung",
     icon: "/images/features/icon-04.svg",
     animationComponent: cuttingEdgeAnimation,
     rotate: true,
   },
   {
     id: 48,
-    title: "Optimierte KI Modelle",
+    title: "Konstante Produkt/KI Entwicklung",
     description:
-      "KI Modelle für optimale Ergebnisse und beste Nutzererfahrung",
+      "Stetige Weiterentwicklung der KI Tools und Optimierung der LLM's an Ihre Bedürfnisse",
     icon: "/images/features/icon-05.svg",
     animationComponent: aiModelAnimation,
     rotate: true,

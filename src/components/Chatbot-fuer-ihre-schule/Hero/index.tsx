@@ -39,7 +39,7 @@ const HeroChatbot = () => {
             </p>
 
             <a
-              href="#"
+              href="https://onboardingbot-a8ed03.zapier.app"
               className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
             >
               Hier den ChatBot ausprobieren

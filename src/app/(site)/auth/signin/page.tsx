@@ -3,8 +3,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign in | AI Tool - Next.js Template for AI Tools",
-  description: "This is Sign in page for AI Tool",
+  title: "DeepDiveKI",
+  description: "Hier können Sie sich anmelden",
   // other metadata
 };
 
