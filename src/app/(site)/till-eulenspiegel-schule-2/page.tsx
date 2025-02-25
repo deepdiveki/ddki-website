@@ -1,10 +1,10 @@
+"use client"
 import React, { useState } from 'react';
 
 export default function ProtectedPage() {
   const [password, setPassword] = useState('');
   const [isAuthorized, setIsAuthorized] = useState(false);
 
-  // Replace 'yourPassword' with the actual password you want to use.
   const secretPassword = 'hktJ)cZ%xy!hh#B-';
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,7 +20,7 @@ export default function ProtectedPage() {
     return (
       <div>
         <h1>Welcome!</h1>
-        <p>This is the secret text only visible to authorized users.</p>
+        <p>Das ist die Testseite für den ChatBot der TUS Mölln</p>
       </div>
     );
   }
