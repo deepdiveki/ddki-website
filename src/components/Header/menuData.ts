@@ -18,44 +18,6 @@ const menuData: Menu[] = [
     title: "DDKI ToolBox",
     newTab: false,
     path: "/ddki-toolbox",
-    submenu: [
-      {
-        id: 66,
-        title: "Arbeitsblatt Generator",
-        newTab: false,
-        path: "https://www.deepdive-ki.de/ddki-toolbox",
-      },
-      {
-        id: 67,
-        title: "KI-Chat",
-        newTab: false,
-        path: "https://www.deepdive-ki.de/ddki-toolbox",
-      },
-      {
-        id: 69,
-        title: "Persona Chat",
-        newTab: false,
-        path: "https://www.deepdive-ki.de/ddki-toolbox",
-      },
-      {
-        id: 68,
-        title: "Chat mit PDF",
-        newTab: false,
-        path: "https://www.deepdive-ki.de/ddki-toolbox",
-      },
-      {
-        id: 70,
-        title: "QR Code Generator",
-        newTab: false,
-        path: "https://www.deepdive-ki.de/ddki-toolbox",
-      },
-      {
-        id: 71,
-        title: "KI-Assistant erstellen",
-        newTab: false,
-        path: "https://www.deepdive-ki.de/ddki-toolbox",
-      },
-    ],
   },
   {
     id: 7,

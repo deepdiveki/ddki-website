@@ -50,7 +50,7 @@ const featuresData: Feature[] = [
   },
   {
     id: 48,
-    title: "Konstante Produkt und KI Entwicklung",
+    title: "Konstante Produkt/KI Entwicklung",
     description:
       "Stetige Weiterentwicklung der KI Tools und Optimierung der LLM's an Ihre Bedürfnisse",
     icon: "/images/features/icon-05.svg",

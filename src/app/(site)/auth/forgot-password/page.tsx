@@ -5,7 +5,7 @@ import ForgotPassword from "@/components/Auth/ForgotPassword";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Passwort vergessen? | AI Tool",
+  title: "Passwort vergessen? | DeepDiveKI",
   description: "This is Forgot Password page",
   // other metadata
 };
