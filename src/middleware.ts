@@ -6,8 +6,6 @@ export async function middleware(req: NextRequest) {
   // Read the session token using getToken or directly from cookies
   const token = await getToken({ req, secret: process.env.SECRET });
 
-  // Alternatively, access cookies directly if needed:
-  // const sessionToken = req.cookies.get("session_token")?.value;
 
   // Protect paths for the specific domain and `/profile` - toolbox redirect block doesnt work
   if (((req.headers.get("host") || "") === "toolbox.deepdive-ki.de") || req.nextUrl.pathname.startsWith("/profil")) {
