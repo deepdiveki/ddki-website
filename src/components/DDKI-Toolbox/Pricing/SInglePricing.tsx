@@ -19,20 +19,6 @@ const SinglePricing = ({ price }: { price: Price }) => {
   return (
     <div className="wow fadeInUp pricing-item-border relative z-20 overflow-hidden rounded-3xl bg-dark px-8 pb-10 pt-12.5 xl:px-10">
       <span className="absolute right-9 top-9">
-      <Image
-  src={
-    price.title === "Basis-Chatbot"
-      ? "/images/pricing/pricing-icon-01.svg"
-      : price.title === "Premium-Chatbot"
-      ? "/images/pricing/pricing-icon-02.svg"
-      : price.title === "Uni-Chatbot"
-      ? "/images/pricing/pricing-icon-03.svg"
-      : ""
-  }
-  alt="icon"
-  width={44}
-  height={44}
-/>
       </span>
 
       <h3 className="mb-5.5 text-heading-6 font-semibold text-white">
