@@ -23,7 +23,7 @@ export default function ProtectedPage() {
         <Breadcrumb pageTitle="ChatBot für die Till-Eulenspiegel-Schule" />
         <section className="p-6 md:p-12">
             <div className="max-w-4xl mx-auto text-lg space-y-6">
-                <p>Hier können Sie den ChatBot ausprobieren.</p>
+                <p>Hier können Sie den ChatBot ausprobieren:</p>
                 <iframe
                     src="https://tester.osc-fr1.scalingo.io/"
                     width="100%"
@@ -41,18 +41,23 @@ export default function ProtectedPage() {
     <>
       <Breadcrumb pageTitle="ChatBot für die Till-Eulenspiegel-Schule" />
       <section className="p-6 md:p-12">
-        <div className="max-w-4xl mx-auto text-lg space-y-6">
-            <form onSubmit={handleSubmit}>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Geben Sie hier das Password ein."
-              />
-              <button type="submit">Submit</button>
-            </form>
-        </div>
-      </section>
+      <div className="max-w-4xl mx-auto text-lg space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Geben Sie hier das Passwort ein."
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          />
+          <button
+            type="submit"
+            className="w-full px-4 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
     </>
   );
 }
