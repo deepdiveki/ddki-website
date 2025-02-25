@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import Breadcrumb from "@/components/Breadcrumb";
 
 export default function ProtectedPage() {
   const [password, setPassword] = useState('');
@@ -18,25 +19,29 @@ export default function ProtectedPage() {
 
   if (isAuthorized) {
     return (
-      <div>
-        <h1>Welcome!</h1>
-        <p>Das ist die Testseite für den ChatBot der TUS Mölln</p>
-      </div>
+      <>
+        <Breadcrumb pageTitle="Willkommen!" />
+        <section className="p-6 md:p-12">
+          <p>Das ist die Testseite für den ChatBot der TUS Mölln</p>
+        </section>
+      </>
     );
   }
 
   return (
-    <div>
-      <h1>Enter Password</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter the password"
-        />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <>
+      <Breadcrumb pageTitle="Willkommen!" />
+      <section className="p-6 md:p-12">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter the password"
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </>
   );
 }
