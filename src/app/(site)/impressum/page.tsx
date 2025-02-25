@@ -21,7 +21,7 @@ const AboutPage = () => {
 
           <h2 className="text-xl font-semibold">Hauptsitz</h2>
           <p>
-            DeepDiveKi UG (haftungsbeschränkt) <br />
+            DeepDiveKI UG (haftungsbeschränkt) <br />
             Eppendorfer Landstraße 55 <br />
             20249 Hamburg <br />
             <a href="https://www.deepdive-ki.de" className="text-blue-500 underline">www.deepdive-ki.de</a>

@@ -20,9 +20,18 @@ export default function ProtectedPage() {
   if (isAuthorized) {
     return (
       <>
-        <Breadcrumb pageTitle="Willkommen!" />
+        <Breadcrumb pageTitle="ChatBot für die Till-Eulenspiegel-Schule" />
         <section className="p-6 md:p-12">
-          <p>Das ist die Testseite für den ChatBot der TUS Mölln</p>
+            <div className="max-w-4xl mx-auto text-lg space-y-6">
+                <p>Hier können Sie den ChatBot ausprobieren.</p>
+                <iframe
+                    src="https://tester.osc-fr1.scalingo.io/"
+                    width="100%"
+                    height="600px"
+                    title="TUS ChatBot"
+                    style={{ border: 'none' }}
+                  />
+            </div>
         </section>
       </>
     );
@@ -30,17 +39,19 @@ export default function ProtectedPage() {
 
   return (
     <>
-      <Breadcrumb pageTitle="Willkommen!" />
+      <Breadcrumb pageTitle="ChatBot für die Till-Eulenspiegel-Schule" />
       <section className="p-6 md:p-12">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter the password"
-          />
-          <button type="submit">Submit</button>
-        </form>
+        <div className="max-w-4xl mx-auto text-lg space-y-6">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Geben Sie hier das Password ein."
+              />
+              <button type="submit">Submit</button>
+            </form>
+        </div>
       </section>
     </>
   );
