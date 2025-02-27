@@ -37,11 +37,19 @@ export async function POST(request: any) {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
+  let access = "website";
+
+  const adminEmails = ["philipp@deepdive-ki.de"]; // List of admin emails
+    if (adminEmails.includes(email.toLowerCase())) {
+      access = "admin";
+    }
+
   const user = await prisma.user.create({
     data: {
       name,
       email,
       password: hashedPassword,
+      access,
     },
   });
 

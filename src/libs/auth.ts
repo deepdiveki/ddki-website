@@ -11,6 +11,7 @@ interface CustomUser {
   id: string
   name: string;
   email: string;
+  access: string;
 }
 
 // Extend the token and session types
@@ -53,7 +54,7 @@ export const authOptions: NextAuthOptions = {
         // check to see if user already exist
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
-          select: { id: true, name: true, email: true, password: true, emailVerified: true, },
+          select: { id: true, name: true, email: true, password: true, emailVerified: true, access: true, },
         });
 
         // if user was not found
@@ -107,6 +108,7 @@ export const authOptions: NextAuthOptions = {
         id: user.id,
         name: user.name ?? "Unbenannt",
         email: user.email ?? "",
+        access: user.access,
       };
     }
 
