@@ -47,12 +47,12 @@ export async function POST(request: any) {
 
     // Generate verification token and send the email
     const token = await createVerificationToken(email);
-    const verificationUrl = `https://deepdive-ki.de/verify?token=${token}&identifier=${encodeURIComponent(email)}`;
+    const verificationUrl = `https://deepdive-ki.de/api/verify?token=${token}&identifier=${encodeURIComponent(email)}`;
 
     await sendEmail({
       to: email,
-      subject: "Verify Your Email Address",
-      html: `<p>Please verify your email by clicking <a href="${verificationUrl}">here</a>.</p>`,
+      subject: "Verifizieren Sie jetzt Ihren Account",
+      html: `<p>Verifizieren Sie jetzt Ihren Account bei DeepDiveKI, indem Sie auf diesen <a href="${verificationUrl}">Link</a> klicken.</p>`,
     });
 
     // Exclude password before sending response
