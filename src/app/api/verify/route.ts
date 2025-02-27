@@ -28,7 +28,7 @@ export async function GET(request: Request) {
     });
     if (user && user.emailVerified) {
       // If the user is already verified, redirect them to the profile page.
-      return NextResponse.redirect(new URL('/profile?verified=success', request.url));
+      return NextResponse.redirect(new URL('/profil?verified=success', request.url));
     }
     return NextResponse.json(
       { error: 'Invalid verification token.' },
