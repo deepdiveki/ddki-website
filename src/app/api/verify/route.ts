@@ -15,11 +15,23 @@ export async function GET(request: Request) {
     );
   }
 
-  const tokenRecord = await prisma.verificationToken.findFirst({
-    where: { token, identifier },
-  });
+  let tokenRecord;
+  try {
+    console.log("Debug: token =", token, "identifier =", identifier);
+    tokenRecord = await prisma.verificationToken.findFirst({
+      where: { token, identifier },
+    });
+    console.log("Debug: tokenRecord =", tokenRecord);
+  } catch (error) {
+    console.error("Error while fetching verification token:", error);
+    return NextResponse.json(
+      { error: 'Internal server error.' },
+      { status: 500 }
+    );
+  }
 
   if (!tokenRecord) {
+    console.error("No verification token found for token:", token, "and identifier:", identifier);
     return NextResponse.json(
       { error: 'Invalid verification token.' },
       { status: 400 }

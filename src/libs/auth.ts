@@ -53,7 +53,7 @@ export const authOptions: NextAuthOptions = {
         // check to see if user already exist
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
-          select: { id: true, name: true, email: true, password: true },  // Include 'id'
+          select: { id: true, name: true, email: true, password: true, emailVerified: true, },
         });
 
         // if user was not found
