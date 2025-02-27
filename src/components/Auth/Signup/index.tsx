@@ -59,7 +59,7 @@ const Signup = () => {
         password,
       })
       .then(() => {
-        toast.success("User has been registered");
+        toast.success("User has been registered. Please check your email to verify your account.");
         setData({
           name: "",
           email: "",

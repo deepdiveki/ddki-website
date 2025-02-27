@@ -1,6 +1,22 @@
 import { prisma } from "@/libs/prismaDB";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
+import crypto from "crypto";
+import { sendEmail } from "@/libs/email";
+
+async function createVerificationToken(userEmail: string) {
+  const token = crypto.randomBytes(32).toString("hex");
+  const expires = new Date(Date.now() + 3600000); // expires in 1 hour
+
+  await prisma.verificationToken.create({
+    data: {
+      identifier: userEmail,
+      token,
+      expires,
+    },
+  });
+  return token;
+}
 
 export async function POST(request: any) {
     try {
@@ -12,9 +28,7 @@ export async function POST(request: any) {
   }
 
   const exist = await prisma.user.findUnique({
-    where: {
-      email,
-    },
+    where: { email },
   });
 
   if (exist) {
@@ -31,14 +45,30 @@ export async function POST(request: any) {
     },
   });
 
-  //return NextResponse.json(user);
+    // Generate verification token and send the email
+    const token = await createVerificationToken(email);
+    const verificationUrl = `https://deepdive-ki.de/verify?token=${token}&identifier=${encodeURIComponent(email)}`;
 
-  // Return the user object without the password for security
-  const { password: _, ...userWithoutPassword } = user;
+    await sendEmail({
+      to: email,
+      subject: "Verify Your Email Address",
+      html: `<p>Please verify your email by clicking <a href="${verificationUrl}">here</a>.</p>`,
+    });
 
-  return NextResponse.json(userWithoutPassword);
+    // Exclude password before sending response
+    const { password: _, ...userWithoutPassword } = user;
+    return NextResponse.json(
+      {
+        message: "User registered and verification email sent",
+        user: userWithoutPassword,
+      },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error during signup:", error);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
