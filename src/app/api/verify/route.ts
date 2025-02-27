@@ -44,5 +44,5 @@ export async function GET(request: Request) {
     where: { id: tokenRecord.id },
   });
 
-  return NextResponse.json({ message: 'Email verified successfully!' });
+  return NextResponse.redirect(new URL('/profile?verified=success', request.url));
 }

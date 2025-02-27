@@ -6,7 +6,6 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Profil",
   description: "This is Profil page",
-  // other metadata
 };
 
 

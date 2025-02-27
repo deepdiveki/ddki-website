@@ -2,14 +2,15 @@
 
 import Breadcrumb from "@/components/Breadcrumb";
 import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-
 
 const ProfilPage = () => {
 
   const { data: session, status } = useSession();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const verified = searchParams.get('verified');
 
   // Redirect if not authenticated
   useEffect(() => {
@@ -67,6 +68,11 @@ const ProfilPage = () => {
 
   return (
     <>
+      {verified === 'success' && (
+        <div className="alert alert-success">
+          Dein Account wurde erfolgreich verifiziert!
+        </div>
+      )}
       <Breadcrumb pageTitle="Profil Seite" />
 
       <section className="pb-20 pt-17.5 lg:pb-25 lg:pt-22.5 xl:pb-30 xl:pt-27.5 2xl:pb-[150px]">
