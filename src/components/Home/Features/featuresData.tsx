@@ -41,7 +41,7 @@ const featuresData: Feature[] = [
   },
   {
     id: 3,
-    title: "KI-Werkzeuge für Lehrkräfte",
+    title: "KI - Werkzeuge für Lehrkräfte",
     description:
       "Erstellung von Arbeitsmaterialien, schnelle Differenzierung der Lernmaterialien und administrative Erleichterung",
     icon: "/images/features/icon-04.svg",
