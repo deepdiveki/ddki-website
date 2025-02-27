@@ -82,7 +82,12 @@ export const authOptions: NextAuthOptions = {
           );
         }
 
-        return user;
+        return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            access: user.access,
+          } as CustomUser;
       },
     }),
 
@@ -108,7 +113,7 @@ export const authOptions: NextAuthOptions = {
         id: user.id,
         name: user.name ?? "Unbenannt",
         email: user.email ?? "",
-        access: user.access,
+        access: (user as CustomUser).access,
       };
     }
 
