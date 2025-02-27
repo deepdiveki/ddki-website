@@ -2,7 +2,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, getSession, useSession } from 'next-auth/react';
 
 export default function AutoSigninForm() {
   const searchParams = useSearchParams();
@@ -12,10 +12,19 @@ export default function AutoSigninForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
 
   }, [email, callbackUrl]);
+
+  useEffect(() => {
+    // Check if the user is logged in
+    if (session?.user) {
+      // Redirect to the toolbox page once the session is updated
+      router.push("/ddki-toolbox");
+    }
+  }, [session, router]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,6 +38,9 @@ export default function AutoSigninForm() {
     if (result?.error) {
       setError(result.error);
     } else if (result?.ok) {
+      await getSession();
+
+      window.location.reload();
       router.push(callbackUrl);
     }
   };
