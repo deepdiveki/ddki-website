@@ -28,7 +28,7 @@ export async function GET(request: Request) {
     });
     if (user && user.emailVerified) {
       // If the user is already verified, redirect them to the profile page.
-      return NextResponse.redirect(new URL('/profil?verified=success', request.url));
+      return NextResponse.redirect(new URL('/profil?verified=success', 'https://deepdive-ki.de'));
     }
     return NextResponse.json(
       { error: 'Invalid verification token.' },
@@ -56,5 +56,6 @@ export async function GET(request: Request) {
   });
 
   // Redirect to the profile page with a success message
-  return NextResponse.redirect(new URL('/profil?verified=success', request.url));
+  const redirectUrl = `/auto-signin?email=${encodeURIComponent(identifier)}&callbackUrl=${encodeURIComponent('/profil?verified=success')}`;
+  return NextResponse.redirect(new URL(redirectUrl, 'https://deepdive-ki.de'));
 }
