@@ -15,29 +15,28 @@ export async function GET(request: Request) {
     );
   }
 
-  let tokenRecord;
-  try {
-    console.log("Debug: token =", token, "identifier =", identifier);
-    tokenRecord = await prisma.verificationToken.findFirst({
-      where: { token, identifier },
-    });
-    console.log("Debug: tokenRecord =", tokenRecord);
-  } catch (error) {
-    console.error("Error while fetching verification token:", error);
-    return NextResponse.json(
-      { error: 'Internal server error.' },
-      { status: 500 }
-    );
-  }
+  // Try to find the verification token record
+  const tokenRecord = await prisma.verificationToken.findFirst({
+    where: { token, identifier },
+  });
 
+  // If no token record is found, check if the user is already verified.
   if (!tokenRecord) {
-    console.error("No verification token found for token:", token, "and identifier:", identifier);
+    const user = await prisma.user.findUnique({
+      where: { email: identifier },
+      select: { emailVerified: true },
+    });
+    if (user && user.emailVerified) {
+      // If the user is already verified, redirect them to the profile page.
+      return NextResponse.redirect(new URL('/profile?verified=success', request.url));
+    }
     return NextResponse.json(
       { error: 'Invalid verification token.' },
       { status: 400 }
     );
   }
 
+  // Check if the token has expired
   if (new Date() > tokenRecord.expires) {
     return NextResponse.json(
       { error: 'Verification token has expired.' },
@@ -51,10 +50,11 @@ export async function GET(request: Request) {
     data: { emailVerified: new Date() },
   });
 
-  // Optionally, remove the used token
+  // Remove the used token
   await prisma.verificationToken.delete({
     where: { id: tokenRecord.id },
   });
 
-  return NextResponse.redirect(new URL('/profile?verified=success', request.url));
+  // Redirect to the profile page with a success message
+  return NextResponse.redirect(new URL('/profil?verified=success', request.url));
 }

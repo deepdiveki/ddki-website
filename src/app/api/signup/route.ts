@@ -53,7 +53,7 @@ export async function POST(request: any) {
       to: email,
       subject: "Verifizieren Sie Ihren Account",
       html: `<p>Verifizieren Sie jetzt Ihren Account bei DeepDiveKI, indem Sie auf diesen Link klicken: </p>
-<p><a href="${verificationUrl}">Link</a></p>`,
+<p><a href="${verificationUrl}">${verificationUrl}</a></p>`,
     });
 
     // Exclude password before sending response
