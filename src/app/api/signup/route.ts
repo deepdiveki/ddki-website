@@ -51,9 +51,9 @@ export async function POST(request: any) {
 
     await sendEmail({
       to: email,
-      subject: "Verifizieren Sie jetzt Ihren Account",
-      html: `<p>Verifizieren Sie jetzt Ihren Account bei DeepDiveKI, indem Sie auf diesen <a href="${verificationUrl}">Link</a> klicken.</p>
-<p>${verificationUrl}</p>`,
+      subject: "Verifizieren Sie Ihren Account",
+      html: `<p>Verifizieren Sie jetzt Ihren Account bei DeepDiveKI, indem Sie auf diesen Link klicken: </p>
+<p><a href="${verificationUrl}">Link</a></p>`,
     });
 
     // Exclude password before sending response
