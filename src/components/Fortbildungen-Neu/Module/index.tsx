@@ -392,7 +392,7 @@ Dieses Modul zeigt auf, wie KI-Technologien effektiv im Schulbetrieb eingesetzt 
 Der Schwerpunkt liegt auf der Vermittlung von Wissen über die DDKI Toolbox, die Lehrkräfte unterstützen kann, um den Unterricht effizienter und individueller zu gestalten.  
 Die Teilnehmer*innen lernen, wie KI-Technologien in verschiedenen Bildungsbereichen eingesetzt werden können, und erhalten konkrete Anwendungsbeispiele, die direkt im Unterricht implementiert werden können.                        </p>
 <Link
-  href="/pdfs/DD5.pdf"
+  href="/pdfs/DD6.pdf"
   download
   target="_blank"
   rel="noopener noreferrer"
