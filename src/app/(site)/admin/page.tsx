@@ -11,6 +11,5 @@ export default function AdminPage() {
     return <p>Access denied</p>;
   }
 
-  return
-  <AdminSeite />;
+  return <AdminSeite />;
 }
