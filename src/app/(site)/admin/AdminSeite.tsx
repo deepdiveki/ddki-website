@@ -22,6 +22,25 @@ const AdminSeite = () => {
         }
       };
 
+      const handleChangeAccess = async (userId: string, newAccess: string) => {
+          try {
+            const response = await fetch('/api/dbRequests', {
+              method: 'PUT', // or PATCH
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ userId, newAccess }),
+            });
+            if (!response.ok) {
+              throw new Error('Failed to update user access');
+            }
+            // Optionally update local state here if you want immediate UI feedback
+            // For example, re-fetch the users or update the specific user's access in the state
+          } catch (error) {
+            console.error('Error updating access:', error);
+          }
+      };
+
     return (
     <>
       <Breadcrumb pageTitle="Admin Seite" />
@@ -53,15 +72,24 @@ const AdminSeite = () => {
                 </tr>
               </thead>
               <tbody>
-                {users.map((user) => (
-                  <tr key={user.id} className="border-b">
-                    <td className="px-4 py-2">{user.id}</td>
-                    <td className="px-4 py-2">{user.name}</td>
-                    <td className="px-4 py-2">{user.email}</td>
-                    <td className="px-4 py-2">{user.access}</td>
-                  </tr>
-                ))}
-              </tbody>
+                  {users.map((user) => (
+                    <tr key={user.id} className="border-b">
+                      <td className="px-4 py-2">{user.id}</td>
+                      <td className="px-4 py-2">{user.name}</td>
+                      <td className="px-4 py-2">{user.email}</td>
+                      <td className="px-4 py-2">
+                        <select
+                          value={user.access}
+                          onChange={(e) => handleChangeAccess(user.id, e.target.value)}
+                        >
+                          <option value="website">Website</option>
+                          <option value="standard">Standard</option>
+                          <option value="admin">Admin</option>
+                        </select>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
             </table>
           ) : (
             <p className="text-center text-white">No users found.</p>
