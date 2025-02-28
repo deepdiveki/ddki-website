@@ -15,7 +15,7 @@
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
     "@portabletext/react": "^3.0.11",
-    "@prisma/client": "^6.2.1",
+    "@prisma/client": "^6.4.1",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20.17.16",
     "@types/qrcode.react": "^1.0.5",
