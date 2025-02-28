@@ -32,6 +32,7 @@ const ProfilPage = () => {
   // Extract user information
   const name = session.user?.name || "N/A";
   const email = session.user?.email || "N/A";
+  const access = session.user?.access || "N/A";
 
   // Handler-Funktion, die den API-Call ausführt
   const handleDeleteAccount = async () => {
@@ -87,7 +88,7 @@ const ProfilPage = () => {
             <strong>Email:</strong> {email || "N/A"}
           </p>
           <p className="mb-4 text-lg text-white">
-              <strong>Status:</strong> {status === "authenticated" ? "Standard Access" : "Not Authenticated"}
+              <strong>Zugriffsberechtigung:</strong> {access || "N/A"}
           </p>
 
           <div className="flex justify-center gap-4 mt-6">

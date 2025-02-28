@@ -7,7 +7,7 @@ import EmailProvider from "next-auth/providers/email";
 import { JWT } from "next-auth/jwt";
 
 // Define the custom user type
-interface CustomUser {
+export interface CustomUser {
   id: string
   name: string;
   email: string;
