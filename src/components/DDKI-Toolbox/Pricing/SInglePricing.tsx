@@ -8,6 +8,7 @@ type Price = {
   price: string;
   features: string[];
   patch: string; // Neu hinzugefügt: Dynamischer Link für jedes Produkt
+  link: string;  // 🔹 Fehlendes Property hinzugefügt
 };
 
 const SinglePricing = ({ price }: { price: Price }) => {

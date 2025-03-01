@@ -15,6 +15,7 @@ const pricingData = [
       "Kundensupport"
     ],
     link: "https://buy.stripe.com/4gw03IfBz8SF0xifYZ", // Link 
+    patch: "basic",
   },
   {
     title: "Schullizenz Toolbox",
@@ -28,6 +29,7 @@ const pricingData = [
       "Priorisierter Kundensupport"
     ],
     link: "/kontakt", // Link
+    patch: "school",
   },
   {
     title: "Unilizenz Toolbox",
@@ -41,6 +43,7 @@ const pricingData = [
       "Priorisierter Kundensupport"
     ],
     link: "/kontakt", //  Link 
+    patch: "university",
   },
 ];
 
