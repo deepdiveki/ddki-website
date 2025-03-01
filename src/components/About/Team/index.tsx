@@ -14,7 +14,7 @@ const Team = () => {
 
 <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 justify-center">
   {teamData.map((team) => (
-    <SingleTeam key={team.id} team={team} />
+    <SingleTeam key={team.id} team={team}  />
   ))}
 </div>
       </div>

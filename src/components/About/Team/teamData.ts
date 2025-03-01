@@ -14,9 +14,15 @@ const teamData: Team[] = [
     image: "/images/team/team-02.png",
   },
   {
+    id: 51,
+    name: "Dr. Antonius Baehr-Oliva",
+    designation: "Dozent mit Schwerpunkt: Sprache \n Fachleitung und Lehrkraft für Englisch & Deutsch",
+    image: "",
+  },
+  {
     id: 86,
     name: "Chat mit DDKI",
-    designation: "KI Chatbot: Customer Service",
+    designation: "KI Chatbot: Informiert über DDKI und den Chatbot für Ihre Schule",
     image: "/images/team/team-08.png",
   },
 ];
