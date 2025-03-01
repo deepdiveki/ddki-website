@@ -7,7 +7,7 @@ type Price = {
   title: string;
   price: string;
   features: string[];
-  link: string; // Neu hinzugefügt: Dynamischer Link für jedes Produkt
+  patch: string; // Neu hinzugefügt: Dynamischer Link für jedes Produkt
 };
 
 const SinglePricing = ({ price }: { price: Price }) => {
