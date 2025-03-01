@@ -127,6 +127,43 @@ const Kontakt = () => {
                     />
                   </div>
                 </div>
+{/* Email field */}
+<div className="w-full px-4 md:w-1/2 xl:px-5">
+                  <div className="mb-9.5">
+                    <label htmlFor="email" className="mb-2.5 block font-medium text-white">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Ihre Email-Adresse"
+                      required
+                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-white outline-none focus:border-purple"
+                    />
+                  </div>
+                </div>
+
+                {/* Phone field */}
+                <div className="w-full px-4 md:w-1/2 xl:px-5">
+                  <div className="mb-9.5">
+                    <label htmlFor="phone" className="mb-2.5 block font-medium text-white">
+                      Telefonnummer (optional)
+                    </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+49 123 456 789"
+                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-white outline-none focus:border-purple"
+                    />
+                  </div>
+                </div>
+                
 
                 {/* Number of students field */}
                 <div className="w-full px-4 md:w-1/2 xl:px-5">
@@ -155,7 +192,7 @@ const Kontakt = () => {
                     </label>
                     <input
                       id="website"
-                      type="url"
+                      type="text"
                       name="website"
                       value={formData.website}
                       onChange={handleChange}
