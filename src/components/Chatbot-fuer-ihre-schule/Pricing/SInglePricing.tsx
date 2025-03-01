@@ -7,32 +7,27 @@ type Price = {
   title: string;
   price: string;
   features: string[];
+  link: string; // NEU: Link für den Buchungs-Button
 };
 
 const SinglePricing = ({ price }: { price: Price }) => {
-  const handleSubscription = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    // Falls du eine andere Aktion beim Buchen haben möchtest, hier hinzufügen
-    alert(`Plan "${price.title}" ausgewählt!`);
-  };
-
   return (
     <div className="wow fadeInUp pricing-item-border relative z-20 overflow-hidden rounded-3xl bg-dark px-8 pb-10 pt-12.5 xl:px-10">
       <span className="absolute right-9 top-9">
-      <Image
-  src={
-    price.title === "Basis-Chatbot"
-      ? "/images/pricing/pricing-icon-01.svg"
-      : price.title === "Premium-Chatbot"
-      ? "/images/pricing/pricing-icon-02.svg"
-      : price.title === "Uni-Chatbot"
-      ? "/images/pricing/pricing-icon-03.svg"
-      : ""
-  }
-  alt="icon"
-  width={44}
-  height={44}
-/>
+        <Image
+          src={
+            price.title === "Basis-Chatbot"
+              ? "/images/pricing/pricing-icon-01.svg"
+              : price.title === "Premium-Chatbot"
+              ? "/images/pricing/pricing-icon-02.svg"
+              : price.title === "Uni-Chatbot"
+              ? "/images/pricing/pricing-icon-03.svg"
+              : ""
+          }
+          alt="icon"
+          width={44}
+          height={44}
+        />
       </span>
 
       <h3 className="mb-5.5 text-heading-6 font-semibold text-white">
@@ -59,9 +54,11 @@ const SinglePricing = ({ price }: { price: Price }) => {
         ))}
       </ul>
 
-      <button
-        aria-label="Get the plan button"
-        onClick={handleSubscription}
+      {/* Dynamischer Buchungs-Link */}
+      <a
+        href={price.link}
+        target="_blank"
+        rel="noopener noreferrer"
         className="pricing-button-gradient relative mt-11 flex w-full items-center justify-center gap-1.5 rounded-lg p-3 font-medium text-white transition-all duration-300 ease-in-out hover:shadow-button"
       >
         Jetzt buchen
@@ -77,11 +74,11 @@ const SinglePricing = ({ price }: { price: Price }) => {
             fill="white"
           />
         </svg>
-      </button>
+      </a>
 
       <p className="mt-4 text-center text-sm">Unverbindlich Anfragen</p>
 
-      {/* <!-- bg shapes --> */}
+      {/* Hintergrund-Elemente */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <span className="absolute bottom-0 left-0 -z-1 aspect-[370/553] w-full">
           <Image

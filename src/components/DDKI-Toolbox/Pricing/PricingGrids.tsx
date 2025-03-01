@@ -1,5 +1,6 @@
 import SectionTitle from "../../Common/SectionTitle";
-import SinglePricing from "./SInglePricing"
+import SinglePricing from "./SInglePricing"; // Korrigierter Import
+
 // Beispiel für lokale Preisdaten
 const pricingData = [
   {
@@ -11,10 +12,9 @@ const pricingData = [
       "Unterrichtsassistenten",
       "Konstante Weiterentwicklung",
       "Unbegrenzte Unterhaltungen",
-      "Kundensupport",
-
-
+      "Kundensupport"
     ],
+    link: "https://buy.stripe.com/4gw03IfBz8SF0xifYZ", // Link 
   },
   {
     title: "Schullizenz Toolbox",
@@ -27,6 +27,7 @@ const pricingData = [
       "Unbegrenzte Unterhaltungen",
       "Priorisierter Kundensupport"
     ],
+    link: "/kontakt", // Link
   },
   {
     title: "Unilizenz Toolbox",
@@ -39,6 +40,7 @@ const pricingData = [
       "Unbegrenzte Unterhaltungen",
       "Priorisierter Kundensupport"
     ],
+    link: "/kontakt", //  Link 
   },
 ];
 
@@ -52,10 +54,9 @@ const PricingGrids = () => {
           paragraph="Entdecken Sie unsere flexiblen Chatbots – so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an."
         />
         <div className="grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-3">
-          {pricingData &&
-            pricingData.map((price, index) => (
-              <SinglePricing price={price} key={index} />
-            ))}
+          {pricingData.map((price, index) => (
+            <SinglePricing price={price} key={index} />
+          ))}
         </div>
       </div>
     </div>

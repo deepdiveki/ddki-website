@@ -1,6 +1,7 @@
 import SectionTitle from "../../Common/SectionTitle";
-import SinglePricing from "./SInglePricing"
-// Beispiel für lokale Preisdaten
+import SinglePricing from "./SInglePricing"; // Korrigierter Import
+
+// Beispiel für lokale Preisdaten mit individuellen Links
 const pricingData = [
   {
     title: "Basis-Chatbot",
@@ -12,9 +13,8 @@ const pricingData = [
       "Sprachmodelle: GPT-4o",
       "Unbegrenzte Unterhaltungen",
       "Kundensupport",
-
-
     ],
+    link: "/kontakt-chat-bot", // Link zur Bestellung
   },
   {
     title: "Premium-Chatbot",
@@ -25,8 +25,9 @@ const pricingData = [
       "C5 -Framework",
       "Sprachmodelle: GPT-4o",
       "Unbegrenzte Unterhaltungen",
-      "Priorisierter Kundensupport"
+      "Priorisierter Kundensupport",
     ],
+    link: "kontakt-chat-bot",
   },
   {
     title: "Uni-Chatbot",
@@ -37,8 +38,9 @@ const pricingData = [
       "C5 -Framework",
       "Sprachmodelle: GPT-4o",
       "Unbegrenzte Unterhaltungen",
-      "Priorisierter Kundensupport"
+      "Priorisierter Kundensupport",
     ],
+    link: "/kontakt-chat-bot",
   },
 ];
 
@@ -52,10 +54,9 @@ const PricingGrids = () => {
           paragraph="Entdecken Sie unsere flexiblen Chatbots – so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an."
         />
         <div className="grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-3">
-          {pricingData &&
-            pricingData.map((price, index) => (
-              <SinglePricing price={price} key={index} />
-            ))}
+          {pricingData.map((price, index) => (
+            <SinglePricing price={price} key={index} />
+          ))}
         </div>
       </div>
     </div>
