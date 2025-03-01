@@ -2,43 +2,43 @@
 
 import Breadcrumb from "@/components/Breadcrumb";
 import { useState } from "react";
-import { CustomUser } from '@/libs/auth';
+//import { CustomUser } from '@/libs/auth';
 
 const AdminSeite = () => {
 
-      const [users, setUsers] = useState<CustomUser[]>([]);
+//       const [users, setUsers] = useState<CustomUser[]>([]);
 
       // Function to fetch users
       const handleUserAbfrage = async () => {
-        try {
-          const response = await fetch('/api/dbRequests');
-          if (!response.ok) {
-            throw new Error('Failed to fetch users');
-          }
-          const data: CustomUser[] = await response.json();
-          setUsers(data); // Update state with fetched users
-        } catch (error) {
-          console.error('Error fetching users:', error);
-        }
+//         try {
+//           const response = await fetch('/api/dbRequests');
+//           if (!response.ok) {
+//             throw new Error('Failed to fetch users');
+//           }
+//           const data: CustomUser[] = await response.json();
+//           setUsers(data); // Update state with fetched users
+//         } catch (error) {
+//           console.error('Error fetching users:', error);
+//         }
       };
 
       const handleChangeAccess = async (userId: string, newAccess: string) => {
-          try {
-            const response = await fetch('/api/dbRequests', {
-              method: 'PUT', // or PATCH
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ userId, newAccess }),
-            });
-            if (!response.ok) {
-              throw new Error('Failed to update user access');
-            }
-            // Optionally update local state here if you want immediate UI feedback
-            // For example, re-fetch the users or update the specific user's access in the state
-          } catch (error) {
-            console.error('Error updating access:', error);
-          }
+//           try {
+//             const response = await fetch('/api/dbRequests', {
+//               method: 'PUT', // or PATCH
+//               headers: {
+//                 'Content-Type': 'application/json',
+//               },
+//               body: JSON.stringify({ userId, newAccess }),
+//             });
+//             if (!response.ok) {
+//               throw new Error('Failed to update user access');
+//             }
+//             // Optionally update local state here if you want immediate UI feedback
+//             // For example, re-fetch the users or update the specific user's access in the state
+//           } catch (error) {
+//             console.error('Error updating access:', error);
+//           }
       };
 
     return (
@@ -59,7 +59,7 @@ const AdminSeite = () => {
           </button>
         </div>
 
-        {/* Display users below the button */}
+        {/* Display users below the button
         <div className="mt-8">
           {users.length > 0 ? (
             <table className="w-full max-w-2xl mx-auto bg-white text-black rounded-lg overflow-hidden">
@@ -94,7 +94,7 @@ const AdminSeite = () => {
           ) : (
             <p className="text-center text-white">No users found.</p>
           )}
-        </div>
+        </div>*/}
       </section>
     </>
   );

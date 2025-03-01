@@ -5,27 +5,20 @@ import { type NextAuthOptions, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import EmailProvider from "next-auth/providers/email";
 import { JWT } from "next-auth/jwt";
-
-// Define the custom user type
-export interface CustomUser {
-  id: string
-  name: string;
-  email: string;
-  access: string;
-}
+import { CustomUser } from "@/types";
 
 // Extend the token and session types
-declare module "next-auth" {
-  interface Session {
-    user: CustomUser;
-  }
-}
+// declare module "next-auth" {
+//   interface Session {
+//     user: CustomUser;
+//   }
+// }
 
-declare module "next-auth/jwt" {
-  interface JWT {
-    user: CustomUser;
-  }
-}
+// declare module "next-auth/jwt" {
+//   interface JWT {
+//     user: CustomUser;
+//   }
+// }
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -82,12 +75,14 @@ export const authOptions: NextAuthOptions = {
           );
         }
 
-        return {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            access: user.access,
-          } as CustomUser;
+        const user1: CustomUser = {
+          id: user.id,
+          access: user.access,
+          name: user.name,
+          email: user.email,
+        };
+        return user1;
+
       },
     }),
 
@@ -111,9 +106,9 @@ export const authOptions: NextAuthOptions = {
     if (user) {
       token.user = {
         id: user.id,
+        access: user.access ?? "website",
         name: user.name ?? "Unbenannt",
         email: user.email ?? "",
-        access: (user as CustomUser).access,
       };
     }
 
@@ -122,7 +117,7 @@ export const authOptions: NextAuthOptions = {
 
   async session({ session, token }) {
     // Pass the custom user data to the session
-    session.user = token.user as CustomUser;  // Explicitly cast the type
+    session.user = token.user  // Explicitly cast the type
     return session;
   },
 },
