@@ -14,7 +14,7 @@ const pricingData = [
       "Unbegrenzte Unterhaltungen",
       "Kundensupport"
     ],
-    path: "https://buy.stripe.com/4gw03IfBz8SF0xifYZ", // Link 
+    link: "https://buy.stripe.com/4gw03IfBz8SF0xifYZ", // Link 
   },
   {
     title: "Schullizenz Toolbox",
@@ -27,7 +27,7 @@ const pricingData = [
       "Unbegrenzte Unterhaltungen",
       "Priorisierter Kundensupport"
     ],
-    path: "/kontakt", // Link
+    link: "/kontakt", // Link
   },
   {
     title: "Unilizenz Toolbox",
@@ -40,7 +40,7 @@ const pricingData = [
       "Unbegrenzte Unterhaltungen",
       "Priorisierter Kundensupport"
     ],
-    path: "/kontakt", //  Link 
+    link: "/kontakt", //  Link 
   },
 ];
 
