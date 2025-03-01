@@ -33,7 +33,7 @@ export async function GET() {
     { id: session.user?.id,
       name: session.user?.name,
       email: session.user?.email,
-      access: session.user?.access,
+      access: session.user?.access
     },
     { status: 200, headers: corsHeaders }
   );
