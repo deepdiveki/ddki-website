@@ -15,6 +15,11 @@ export async function GET() {
   // Retrieve the NextAuth session server-side
   const session = await getServerSession(authOptions);
 
+  // Debug logs
+  console.log("DEBUG - Session Object:", session);
+  console.log("DEBUG - Session User:", session?.user);
+  console.log("DEBUG - Session User Access:", session?.user?.access);
+
   if (!session) {
     // Not logged in: include CORS headers on error responses too
     return NextResponse.json(
