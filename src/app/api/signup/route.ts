@@ -64,6 +64,12 @@ export async function POST(request: any) {
 <p><a href="${verificationUrl}">${verificationUrl}</a></p>`,
     });
 
+    await sendEmail({
+      to: info@deepdive-ki.de,
+      subject: "Neuer User bei DDKI",
+      html: `<p>Name: ${name} <br> Email: ${email} </p>`,
+    });
+
     // Exclude password before sending response
     const { password: _, ...userWithoutPassword } = user;
     return NextResponse.json(
