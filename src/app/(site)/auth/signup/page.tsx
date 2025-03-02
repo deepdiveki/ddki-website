@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const SignupPage = () => {
   return (
     <>
-      <Breadcrumb pageTitle="Sign up" />
+      <Breadcrumb pageTitle="Registrieren" />
 
       <Signup />
     </>

@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 import Loader from "@/components/Common/Loader";
 import { integrations, messages } from "../../../../integrations.config";
 import z from "zod";
+import { useRouter } from "next/navigation"; // Importieren
+
 
 const RegisterSchema = z.object({
   name: z.string(),
@@ -30,6 +32,8 @@ const RegisterSchema = z.object({
 });
 
 const Signup = () => {
+  const router = useRouter(); // Router-Instanz
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -66,6 +70,8 @@ const Signup = () => {
           password: "",
         });
         setLoader(false);
+        router.push("/auth/registrierung-check-mail"); // Ersetze "/" mit der gewünschten Zielseite
+
       })
       .catch((error) => {
           console.error("Signup Error:", error);
@@ -84,7 +90,7 @@ const Signup = () => {
               <div className="relative py-20 pl-17.5 pr-22">
                 <div className="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-white/0 via-white/20 to-white/0"></div>
                 <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white">
-                Registrieren: DDKI ToolBox
+                Neu bei der DDKI ToolBox registrieren
                 </h2>
                 <div className="relative aspect-[61/50] w-full max-w-[427px]">
                   <Image src="/images/signin/sigin.svg" alt="signin" fill />
@@ -204,8 +210,13 @@ const Signup = () => {
                   <p className="mt-5 text-center font-medium text-white">
                     Haben Sie schon einen Account?{" "}
                     <Link href="/auth/signin" className="text-purple">
-                      Hier einloggen
+                       Hier einloggen
                     </Link>
+                    <br /><br />
+                    Verwenden Sie bitte sicheres Passwort mit:
+mind. 8 Zeichen, 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Ziffer und 1 Sonderzeichen
+
+                    <br /><br />Mit der Registrierung stimmen Sie den Nutzungsbedingungen und den Datenschutzbedingungen von DeepDiveKI zu.
                   </p>
                 </div>
               </div>
