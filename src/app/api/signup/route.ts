@@ -65,7 +65,7 @@ export async function POST(request: any) {
     });
 
     await sendEmail({
-      to: info@deepdive-ki.de,
+      to: "info@deepdive-ki.de",
       subject: "Neuer User bei DDKI",
       html: `<p>Name: ${name} <br> Email: ${email} </p>`,
     });
