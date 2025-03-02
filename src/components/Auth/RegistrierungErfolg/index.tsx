@@ -1,12 +1,13 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
+"use client";
 
+import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import React from "react";
 
 const AboutSection = () => {
-  const router = useRouter();
-  const { email } = router.query;
-  const emailToDisplay = typeof email === "string" ? email : "Sie";
-  
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email") || "Sie";
+
   return (
     <section className="overflow-hidden">
       <div className="relative mx-auto max-w-[1170px] px-4 py-20 sm:px-8 lg:py-25 xl:px-0">
@@ -22,7 +23,7 @@ const AboutSection = () => {
             Bitte bestätigen Sie Ihre E-Mail-Adresse
             </h2>
             <p className="mb-9 font-medium">
-            Wir haben eine E-Mail an {emailToDisplay} geschickt. Klicken Sie den Bestätigungslink in der E-Mail an, um Ihr Benutzerkonto zu bestätigen. <br />
+            Wir haben eine E-Mail an {email} geschickt. Klicken Sie den Bestätigungslink in der E-Mail an, um Ihr Benutzerkonto zu bestätigen. <br />
             <br />Keine E-Mail erhalten?
             Bitte prüfen Sie Ihren Spam Ordner oder ob Sie vielleicht einen Tippfehler in der E-Mail-Adresse haben. Sonst melden Sie sich gerne unter support@deepdive-ki.de 
             </p>
