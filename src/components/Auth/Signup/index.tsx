@@ -70,7 +70,7 @@ const Signup = () => {
           password: "",
         });
         setLoader(false);
-        router.push("/auth/registrierung-check-mail"); // Ersetze "/" mit der gewünschten Zielseite
+        router.push(`/auth/registrierung-check-mail?email=${encodeURIComponent(email)}`);
 
       })
       .catch((error) => {
