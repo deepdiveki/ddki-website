@@ -7,11 +7,11 @@ const pricingData = [
     title: "Einzellizenz Toolbox",
     price: "4,99 €",
     features: [
-      "Zugriff auf die DDKI ToolBox",
+      "Individueller Zugriff auf die DDKI ToolBox",
       "ChatGPT 4o Qualität",
       "Unterrichtsassistenten",
       "Konstante Weiterentwicklung",
-      "Unbegrenzte Unterhaltungen",
+      "Datenschutzkonforme KI-Nutzung",
       "Kundensupport"
     ],
     link: "https://buy.stripe.com/4gw03IfBz8SF0xifYZ", // Link 
@@ -19,13 +19,13 @@ const pricingData = [
   },
   {
     title: "Schullizenz Toolbox",
-    price: "125 €",
+    price: "TBA",
     features: [
-      "70 Lizenzen für Ihre Schule",
+      "Lizenzen für Ihr gesamtes Kollegium",
       "ChatGPT 4o Qualität",
       "Unterrichtsassistenten",
       "Konstante Weiterentwicklung",
-      "Unbegrenzte Unterhaltungen",
+      "Datenschutzkonforme KI-Nutzung",
       "Priorisierter Kundensupport"
     ],
     link: "/kontakt", // Link
@@ -33,13 +33,13 @@ const pricingData = [
   },
   {
     title: "Unilizenz Toolbox",
-    price: "500 €",
+    price: "TBA",
     features: [
-      "300 Lizenzen für Ihre Universität",
+      "Lizenzen für Ihr gesamtes Kollegium",
       "Für 70 Sprachen",
       "C5 -Framework und GPT-4o",
       "KI für Forschungsprojekte/API's",
-      "Unbegrenzte Unterhaltungen",
+      "Datenschutzkonforme KI-Nutzung",
       "Priorisierter Kundensupport"
     ],
     link: "/kontakt", //  Link 
