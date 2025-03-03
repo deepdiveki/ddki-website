@@ -42,6 +42,8 @@ const Signup = () => {
 
   const [loader, setLoader] = useState(false);
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const { name, email, password } = data;
 
   const registerUser = async (e: any) => {
@@ -186,7 +188,7 @@ const Signup = () => {
                         </svg>
                       </span>
                       <input
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         placeholder="Passwort"
                         value={data.password}
                         onChange={(e) =>
@@ -197,6 +199,47 @@ const Signup = () => {
                         }
                         className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-none focus:border-purple focus-visible:shadow-none"
                       />
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200"
+                          >
+                          {showPassword ? (
+                          // Eye-off icon
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 26 26"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+
+                            <circle cx="14" cy="12" r="3" />
+                            <line x1="6" y1="5" x2="22" y2="21" />
+                            <path d="M2 12c3.81-5 8.19-7.5 12-7.5s8.19 2.5 12 7.5c-3.81 5-8.19 7.5-12 7.5S5.81 17 2 12z" />
+                          </svg>
+                            ) : (
+                          // Eye icon
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 26 26"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <circle cx="14" cy="12" r="3" />
+                            <path d="M2 12c3.81-5 8.19-7.5 12-7.5s8.19 2.5 12 7.5c-3.81 5-8.19 7.5-12 7.5S5.81 17 2 12z" />
+                          </svg>
+                        )}
+                      </button>
                     </div>
 
                     <button
