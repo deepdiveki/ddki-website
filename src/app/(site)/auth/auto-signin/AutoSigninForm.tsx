@@ -2,21 +2,13 @@
 import { signIn, getSession, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import Loader from "@/components/Common/Loader";
 import { integrations, messages } from "../../../../../integrations.config";
-import z from "zod";
+import { useRouter, useSearchParams } from "next/navigation";
 
-const SigninSchema = z.object({
-  email: z.string().email("Please enter a valid email address."),
-  password: z
-    .string()
-    .min(8, { message: "Password must be at least 8 characters long" })
-});
-
-const Signin = () => {
+const AutoSigninForm = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -24,10 +16,13 @@ const Signin = () => {
 
   const [loader, setLoader] = useState(false);
   const [remember, setRemember] = useState(false);
-  const [isPassword, setIsPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const { data: session, status } = useSession();
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email');
+  const callbackUrl = searchParams.get('callbackUrl') || '/profil';
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // Check if the user is logged in
@@ -37,49 +32,25 @@ const Signin = () => {
     }
   }, [session, router]);
 
-  const loginUser = async (e: any) => {
-      e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(null);
+    const result = await signIn('credentials', {
+      email,
+      password: data.password,
+      redirect: false,
+      callbackUrl,
+    });
+    if (result?.error) {
+      setError(result.error);
+    } else if (result?.ok) {
+      await getSession();
 
-      if (!integrations?.isAuthEnabled) {
-        //toast.error(messages.auth);
-        console.error("Login error:", messages.auth);
-        toast.error("An error occurred while logging in. Please try again later.");
-        return;
-      }
+      window.location.reload();
+      router.push(callbackUrl);
+    }
+  };
 
-      const result = SigninSchema.safeParse({ ...data });
-      if (!result.success) {
-        //toast.error(result.error.errors[0].message);
-        console.error("Login error:", result.error.errors[0].message);
-        toast.error("An error occurred while logging in. Please try again later.");
-        return;
-      }
-
-      setLoader(true);
-
-      signIn("credentials", { ...data, redirect: false }).then(async (callback) => {
-        if (callback?.error) {
-          console.error("Login error:", callback.error);
-          toast.error("An error occurred while logging in. Please try again later.");
-          setLoader(false);
-          return;
-        }
-
-        if (callback?.ok && !callback?.error) {
-          toast.success("Logged in successfully");
-
-          // Force session refresh and navigate
-          await getSession();
-
-          window.location.reload();
-
-          //await new Promise((resolve) => setTimeout(resolve, 500));  // Optional: short delay
-          //await router.push("/ddki-toolbox");
-        }
-
-        setLoader(false);
-      });
-    };
 
   return (
     <>
@@ -106,7 +77,7 @@ const Signin = () => {
                   Bestätigen Sie jetzt Ihr Passwort!
                   </h1>
                   <div>
-                      <form onSubmit={loginUser}>
+                      <form onSubmit={handleSubmit}>
 
                         <div className="relative mb-5">
                           <span className="absolute left-6 top-1/2 -translate-y-1/2">
@@ -258,4 +229,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default AutoSigninForm;
