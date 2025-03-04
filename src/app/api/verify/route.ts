@@ -56,6 +56,6 @@ export async function GET(request: Request) {
   });
 
   // Redirect to the profile page with a success message
-  const redirectUrl = `/auto-signin?email=${encodeURIComponent(identifier)}&callbackUrl=${encodeURIComponent('/profil?verified=success')}`;
+  const redirectUrl = `/auth/auto-signin?email=${encodeURIComponent(identifier)}&callbackUrl=${encodeURIComponent('/profil?verified=success')}`;
   return NextResponse.redirect(new URL(redirectUrl, 'https://deepdive-ki.de'));
 }
