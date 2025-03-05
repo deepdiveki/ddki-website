@@ -33,8 +33,7 @@ const Footer = () => {
 
 <p className="mb-12 xl:w-4/5">
   <br />
-  Die DeepDiveKI Plattform bietet drei KI-Produkte für Schulen und Universitäten an. Mit der DDKI Toolbox, dem ChatBot für Ihre Schulwebsite und den Fortbildungen zum Thema KI bieten wir eine breite Palette von KI-Produkten für Ihre Institution an.
-</p>
+  Unsere Plattform bietet drei KI-Produkte für Schulen und Universitäten: die DDKI Toolbox, einen Chatbot für Ihre Schulwebsite und Fortbildungen zum Thema Künstliche Intelligenz. Damit unterstützen wir Sie dabei, KI sinnvoll und effektiv in Ihrer Schule einzusetzen.</p>
 
 
               <p className="mt-5.5 font-medium">

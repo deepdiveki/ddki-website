@@ -7,7 +7,7 @@ const pricingData = [
     title: "Einzellizenz Toolbox",
     price: "4,99 €",
     features: [
-      "Individueller Zugriff auf die DDKI ToolBox",
+      "Zugriff auf die DDKI ToolBox",
       "ChatGPT 4o Qualität",
       "Unterrichtsassistenten",
       "Konstante Weiterentwicklung",

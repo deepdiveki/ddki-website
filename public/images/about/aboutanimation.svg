@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="556" height="401" viewBox="0 0 556 401" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        text { font-family: Arial, sans-serif; font-size: 14px; fill: white; }
+        .header { font-weight: bold; font-size: 16px; fill: white; }
+        .row { opacity: 0; animation: fadeIn 1s forwards; }
+        .row:nth-child(1) { animation-delay: 1s; }
+        .row:nth-child(2) { animation-delay: 2s; }
+        .row:nth-child(3) { animation-delay: 3s; }
+        .row:nth-child(4) { animation-delay: 4s; }
+        .row:nth-child(5) { animation-delay: 5s; }
+        .row:nth-child(6) { animation-delay: 6s; }
+        .row:nth-child(7) { animation-delay: 7s; }
+    </style>
+    
+    <rect y="277" width="556" height="123" fill="#030014"/>
+    <rect width="556" height="393" rx="20" fill="white" fill-opacity="0.03"/>
+    
+    <text x="20" y="30" class="header">Art der Veranstaltung</text>
+    <text x="200" y="30" class="header">Titel der Veranstaltung</text>
+    <text x="480" y="30" class="header">Zeitraum</text>
+    
+    <g class="row" transform="translate(0,50)">
+        <text x="20" y="20">Crash Kurs KI</text>
+        <text x="200" y="20">Künstliche Intelligenz in der Schule mit dem Schwerpunkt: Unterstützung zum individualisierten Unterricht</text>
+        <text x="480" y="20">3 Stunden</text>
+    </g>
+    
+    <g class="row" transform="translate(0,80)">
+        <text x="20" y="20">Deep Dive Modul I</text>
+        <text x="200" y="20">Unterrichtseinheiten konzipieren mit KI - Tools</text>
+        <text x="480" y="20">3 Stunden</text>
+    </g>
+    
+    <g class="row" transform="translate(0,110)">
+        <text x="20" y="20">Deep Dive Modul II</text>
+        <text x="200" y="20">Plagiate, Hausaufgaben und Klausuren in Zeiten von KI</text>
+        <text x="480" y="20">3 Stunden</text>
+    </g>
+    
+    <g class="row" transform="translate(0,140)">
+        <text x="20" y="20">Deep Dive Modul III</text>
+        <text x="200" y="20">Chancen und Risiken von KI in Schule und Gesellschaft</text>
+        <text x="480" y="20">3 Stunden</text>
+    </g>
+    
+    <g class="row" transform="translate(0,170)">
+        <text x="20" y="20">Deep Dive Modul IV</text>
+        <text x="200" y="20">Inklusion durch und mit KI</text>
+        <text x="480" y="20">3 Stunden</text>
+    </g>
+    
+    <g class="row" transform="translate(0,200)">
+        <text x="20" y="20">Deep Dive Modul V</text>
+        <text x="200" y="20">KI in deiner Schule: Chancen für Schulleitung und Führungskräfte</text>
+        <text x="480" y="20">3 Stunden</text>
+    </g>
+    
+    <g class="row" transform="translate(0,230)">
+        <text x="20" y="20">Deep Dive Modul VI</text>
+        <text x="200" y="20">Deep Dive Modul VI - DDKI Toolbox Einführung und Anwendungsbeispiele</text>
+        <text x="480" y="20">3 Stunden</text>
+    </g>
+</svg>

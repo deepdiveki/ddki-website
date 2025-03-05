@@ -13,21 +13,21 @@ import { useRouter } from "next/navigation"; // Importieren
 
 const RegisterSchema = z.object({
   name: z.string(),
-  email: z.string().email("Please enter a valid email address."),
+  email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
   password: z
     .string()
-    .min(8, { message: "Password must be at least 8 characters long" })
+    .min(8, { message: "Das Passwort muss mindestens 8 Zeichen lang sein." })
     .refine((val) => /[A-Z]/.test(val), {
-      message: "Password must contain at least one uppercase letter.",
+      message: "Das Passwort muss mindestens einen Großbuchstaben enthalten.",
     })
     .refine((val) => /[a-z]/.test(val), {
-      message: "Password must contain at least one lowercase letter.",
+      message: "Das Passwort muss mindestens einen Kleinbuchstaben enthalten.",
     })
     .refine((val) => /\d/.test(val), {
-      message: "Password must contain at least one number.",
+      message: "Das Passwort muss mindestens eine Zahl enthalten.",
     })
     .refine((val) => /[,.:-_#+~<>!§$%&(){}=?@]/.test(val), {
-      message: "Password must contain at least one special character.",
+      message: "Das Passwort muss mindestens ein Sonderzeichen enthalten.",
     }),
 });
 

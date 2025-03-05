@@ -43,10 +43,10 @@ const Hero = () => {
             DeepDiveKI  
           </h1>
           <p className="mx-auto mb-9 max-w-[500px] font-medium md:text-lg">
-  Unsere Plattform bietet drei KI-Lösungen für Schulen und Universitäten: die   
+  Unsere Plattform bietet drei KI-Produkte für Schulen und Universitäten: die   
   <strong> DDKI Toolbox</strong>, einen <strong>Chatbot für Ihre Schulwebsite </strong>  
   und <strong>Fortbildungen</strong> zum Thema Künstliche Intelligenz.  
-  Damit unterstützen wir Sie dabei, KI sinnvoll und effektiv einzusetzen.
+  Damit unterstützen wir Sie dabei, KI sinnvoll und effektiv in Ihrer Schule einzusetzen.
 </p>
 
           <Link
