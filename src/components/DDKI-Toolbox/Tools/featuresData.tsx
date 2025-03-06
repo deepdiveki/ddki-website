@@ -23,7 +23,7 @@ const ddkitools: Feature[] = [
     id: 11,
     title: "Arbeitsblatt Generator",
     description:
-      "In Entwicklung",
+      "Verfügbar ab: 04/2025",
     icon: "/images/features/icon-01.svg",
     animationComponent: worksheetAnimation,
     link: "https://www.deepdive-ki.de/ddki-toolbox",
@@ -31,7 +31,7 @@ const ddkitools: Feature[] = [
   {
     id: 27,
     title: "KI-Chat",
-    description: "Nutze die besten LLM'S für deine Chats. GPT 4o, Llama 3.1, Claude 3 Opus",
+    description: "Nutze die besten LLM'S für deine Chats. GPT 4o, Llama 3.3, Claude 3.7",
     icon: "/images/features/icon-02.svg",
     animationComponent: chatbotAnimation,
     link: "https://toolbox.deepdive-ki.de/",
@@ -40,7 +40,7 @@ const ddkitools: Feature[] = [
     id: 21,
     title: "Persona Chat",
     description:
-      "In Entwicklung",
+      "Verfügbar ab: 04/2025",
     icon: "/images/features/icon-03.svg",
     animationComponent: personaAnimation,
     link: "https://www.deepdive-ki.de/ddki-toolbox",
@@ -49,7 +49,7 @@ const ddkitools: Feature[] = [
     id: 3,
     title: "Chat mit PDF",
     description:
-      "In Entwicklung",
+      "Verfügbar ab: 04/2025",
     icon: "/images/features/icon-04.svg",
     animationComponent: pdfChatAnimation,
     rotate: true,
@@ -57,9 +57,9 @@ const ddkitools: Feature[] = [
   },
   {
     id: 48,
-    title: "QR Code Generator",
+    title: "Simple Share",
     description:
-      "Erstelle QR Codes für deine Lerninhalte",
+      "Verfügbar ab: 04/2025",
     icon: "/images/features/icon-05.svg",
     animationComponent: qrCodeAnimation,
     rotate: true,
@@ -68,7 +68,7 @@ const ddkitools: Feature[] = [
   {
     id: 88,
     title: "KI-Assistenten erstellen",
-    description: "In Entwicklung",
+    description: "Verfügbar ab: 04/2025",
     icon: "/images/features/icon-06.svg",
     animationComponent: assistantAnimation,
     rotate: true,

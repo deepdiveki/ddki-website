@@ -11,7 +11,7 @@ const Features = () => {
       <div className="mx-auto max-w-[1222px] px-4 sm:px-8 xl:px-0">
         <SectionTitle
           subTitle="DeepDiveKI ToolBox"
-          title="Unsere Tools"
+          title="Unsere Features"
           paragraph="Was möchtest du tun?"
         />
 
