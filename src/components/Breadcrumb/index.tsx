@@ -21,10 +21,12 @@ const Breadcrumb = ({ pageTitle }: { pageTitle: string }) => {
           {pageTitle}
         </h1>
         <ul className="flex items-center justify-center gap-2">
+         {/*
           <li className="font-medium">
             <Link href="/">Home</Link>
           </li>
           <li className="font-medium">/ {pageTitle}</li>
+          */}
         </ul>
       </div>
     </section>

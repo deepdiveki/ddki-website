@@ -44,15 +44,10 @@ export async function POST(request: any) {
       access = "admin";
     }
 
-  const verifiedEmails = ["timphilipp@live.de", "katrin.wenzel@bsb.hamburg.de"]; // List of verified emails
+  const verifiedEmails = ["timphilipp@live.de", "info@deepdive-ki.de", "katrin.wenzel@bsb.hamburg.de"]; // List of verified emails
     if (verifiedEmails.includes(email.toLowerCase())) {
       access = "standard";
     }
-
-    console.log("Checking access for email:", email.toLowerCase());
-    console.log("Verified emails list:", verifiedEmails.map(e => e.toLowerCase()));
-    console.log("Is email in verified list?", verifiedEmails.map(e => e.toLowerCase()).includes(email.toLowerCase()));
-
 
   const user = await prisma.user.create({
     data: {
