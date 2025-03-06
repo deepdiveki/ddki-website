@@ -44,6 +44,11 @@ export async function POST(request: any) {
       access = "admin";
     }
 
+  const verifiedEmails = ["timphilipp@live.de", "katrin.wenzel@bsb.hamburg.de"]; // List of verified emails
+    if (adminEmails.includes(email.toLowerCase())) {
+      access = "standard";
+    }
+
   const user = await prisma.user.create({
     data: {
       name,
