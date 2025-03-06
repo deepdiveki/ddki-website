@@ -45,7 +45,7 @@ export async function POST(request: any) {
     }
 
   const verifiedEmails = ["timphilipp@live.de", "katrin.wenzel@bsb.hamburg.de"]; // List of verified emails
-    if (adminEmails.includes(email.toLowerCase())) {
+    if (verifiedEmails.includes(email.toLowerCase())) {
       access = "standard";
     }
 
