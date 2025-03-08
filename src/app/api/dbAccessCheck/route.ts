@@ -6,11 +6,10 @@ import { authOptions } from "@/libs/auth";
 const prisma = new PrismaClient();
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "https://deepdive-ki.de",
-  "Access-Control-Allow-Methods": "GET, GET, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-  "Access-Control-Allow-Credentials": "true",
-};
+      "Access-Control-Allow-Origin": "https://www.deepdive-ki.de",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    };
 
 /**
  * GET request to check if a user's session access matches the database.
@@ -54,6 +53,11 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+
+
+    if (request.method === "OPTIONS") {
+        return new NextResponse(null, { headers });
+      }
   const session = await getServerSession(authOptions);
 
   if (!session) {
