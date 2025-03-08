@@ -44,14 +44,21 @@ export default async function ProfilPage() {
       // Show error7777777
     }
 
-    if (data.needsUpdate) {
-      <UpdateSession userId={userId} newAccess={data.databaseAccess} />
-    }
+    return (
+      <>
+        {/* Render the Profil component */}
+        <Profil />
+
+        {/* Conditionally render the UpdateSession component */}
+        {data.needsUpdate && (
+          <UpdateSession userId={userId} newAccess={data.databaseAccess} />
+        )}
+      </>
+    );
   } catch (error) {
     console.error("Error fetching access data:", error);
-    // Show error message777777777777777
+    // Handle the error (e.g., show an error message to the user)
+    return <Profil />; // Fallback to rendering the Profil component
   }
-
-  return <Profil />;
 }
 
