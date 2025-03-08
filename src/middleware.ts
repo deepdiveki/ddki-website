@@ -7,19 +7,10 @@ export async function middleware(req: NextRequest) {
   const token = await getToken({ req, secret: process.env.SECRET });
 
 
-  // Protect paths for the specific domain and `/profile` - toolbox redirect block doesnt work
-//   if (req.nextUrl.pathname.startsWith("/profil")) {
-//
-//     if (!token) {
-//       return NextResponse.redirect(new URL("/auth/signin", req.url));
-//     }
-//   }
-
-
   return NextResponse.next();
 }
 
 // Configuration to apply the middleware
 export const config = {
-  matcher: ["/profil/:path*", "/:path*"],  // All paths are matched
+  matcher: ["/:path*"],  // All paths are matched
 };

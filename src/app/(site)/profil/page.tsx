@@ -3,7 +3,7 @@ import { authOptions } from "@/libs/auth";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import Profil from "./Profil";
-import { updateSessionAccess } from "@/libs/changeSessionData";
+import { signOut } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Profil",
@@ -45,8 +45,10 @@ export default async function ProfilPage() {
 
     if (data.needsUpdate) {
       console.warn(`User access mismatch: Session (${session.user.access}) vs. DB (${data.databaseAccess})`);
-      // Update the session with the correct access level
-      await updateSessionAccess(userId, data.databaseAccess);
+
+        // Sign out the user when mismatch
+      await signOut({ redirect: false });
+      redirect("/auth/signin");
     }
   } catch (error) {
     console.error("Error fetching access data:", error);

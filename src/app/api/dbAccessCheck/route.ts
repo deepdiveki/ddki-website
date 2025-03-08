@@ -46,18 +46,3 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Failed to validate session access' }, { status: 500 });
   }
 }
-
-export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
-
-  if (!session) {
-    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
-  }
-
-  const { newAccess } = await request.json();
-
-  // Update session data
-  session.user.access = newAccess;
-
-  return NextResponse.json({ message: "Session updated", session }, { status: 200 });
-}
