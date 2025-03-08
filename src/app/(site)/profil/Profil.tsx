@@ -3,7 +3,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const ProfilPage = () => {
 
@@ -12,6 +12,7 @@ const ProfilPage = () => {
   const searchParams = useSearchParams();
   const verified = searchParams.get('verified');
   const [isUpdating, setIsUpdating] = useState(false);
+  const prevAccessRef = useRef(session?.user?.access);
 
   console.log("Client-side session5555:", session);
 
@@ -23,9 +24,15 @@ const ProfilPage = () => {
   }, [status, router]);
 
   useEffect(() => {
-    if (session && !isUpdating) {
+      console.log("Session changed:", session);
+  console.log("Previous access:", prevAccessRef.current);
+  console.log("Current access:", session?.user?.access);
+    if (session && session.user?.access !== prevAccessRef.current && !isUpdating) {
       setIsUpdating(true);
-      update().finally(() => setIsUpdating(false));
+      update().finally(() => {
+        setIsUpdating(false);
+        prevAccessRef.current = session.user?.access; // Update the ref
+      });
     }
   }, [session, update, isUpdating]);
 
@@ -116,6 +123,16 @@ const ProfilPage = () => {
                 className="bg-gray-600 text-white rounded-lg px-7 py-3 font-medium duration-300 ease-in hover:bg-gray-500"
               >
                 Account löschen
+              </button>
+              {/* Refresh Session Button */}
+              <button
+                onClick={() => {
+                  setIsUpdating(true);
+                  update().finally(() => setIsUpdating(false));
+                }}
+                className="bg-blue-600 text-white rounded-lg px-7 py-3 font-medium duration-300 ease-in hover:bg-blue-500"
+              >
+                {isUpdating ? "Aktualisiere..." : "Session aktualisieren"}
               </button>
             </div>
         </div>
