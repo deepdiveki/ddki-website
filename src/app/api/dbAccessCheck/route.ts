@@ -56,7 +56,7 @@ export async function POST(request: Request) {
 
 
     if (request.method === "OPTIONS") {
-        return new NextResponse(null, { headers });
+        return new NextResponse(null, { headers: corsHeaders });
       }
   const session = await getServerSession(authOptions);
 
