@@ -2,7 +2,7 @@
 
 export async function updateSessionAccess(userId: string, newAccess: string) {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/dbAccessCheck`, {
+    const response = await fetch(`${process.env.SITE_URL}/api/dbAccessCheck`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ newAccess }),
