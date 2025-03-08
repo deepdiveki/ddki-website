@@ -1,5 +1,3 @@
-"use server";
-
 export async function updateSessionAccess(userId: string, newAccess: string) {
   try {
 
@@ -14,6 +12,7 @@ export async function updateSessionAccess(userId: string, newAccess: string) {
     });
 
     const data = await response.json();
+    console.log("Response data POST??????:", data);
 
     if (!response.ok) {
       throw new Error(data.error || "Failed to update session");

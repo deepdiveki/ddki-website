@@ -5,6 +5,12 @@ import { authOptions } from "@/libs/auth";
 
 const prisma = new PrismaClient();
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "https://deepdive-ki.de",
+  "Access-Control-Allow-Methods": "GET, GET, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Credentials": "true",
+};
 
 /**
  * GET request to check if a user's session access matches the database.
@@ -58,6 +64,8 @@ export async function POST(request: Request) {
 
   // Update session data
   session.user.access = newAccess;
+
+  console.log('Haloooooooooo?');
 
   return NextResponse.json({ message: "Session updated", session }, { status: 200 });
 }
