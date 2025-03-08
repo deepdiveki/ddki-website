@@ -22,36 +22,35 @@ export default async function ProfilPage() {
 
   console.log("Session Data:", session);
 
-  if (!session?.user?.id || !session?.user?.access) {
-    console.error("Session missing required fields:", session);
+  const userId = session?.user?.id;
+  const sessionAccess = session?.user?.access;
+
+  if (!userId || !sessionAccess) {
+    console.error("Session is missing required fields:", session);
   }
 
-  // Ensure values exist before making the request
-  const userId = encodeURIComponent(session.user.id);
-  const sessionAccess = encodeURIComponent(session.user.access);
+  try {
+    // Fetch the latest access data from the database
+    const res = await fetch(`${process.env.SITE_URL}/api/dbAccessCheck?userId=${encodeURIComponent(userId)}&sessionAccess=${encodeURIComponent(sessionAccess)}`, {
+      method: "GET",
+      cache: "no-store",
+    });
 
-  const baseUrl = process.env.SITE_URL || "";
+    const data = await res.json();
 
-    console.log("URL:", baseUrl);
+    if (data.error) {
+      console.error("Access check failed:", data.error);
+      // Show error7777777
+    }
 
-  // Fetch the latest access data from the database
-  const res = await fetch(`${process.env.SITE_URL}/api/dbAccessCheck?userId=${userId}&sessionAccess=${sessionAccess}`, {
-    method: "GET",
-    cache: "no-store",
-  });
-
-  const data = await res.json();
-
-  if (data.error) {
-    console.error("Access check failed:", data.error);
-    redirect("/auth/signin"); // Redirect if the check fails
-  }
-
-  if (data.needsUpdate) {
-    console.warn(`User access mismatch: Session (${session.user.access}) vs. DB (${data.databaseAccess})`);
-
-    // Update the session with the correct access level
-    await updateSessionAccess(userId, data.databaseAccess);
+    if (data.needsUpdate) {
+      console.warn(`User access mismatch: Session (${session.user.access}) vs. DB (${data.databaseAccess})`);
+      // Update the session with the correct access level
+      await updateSessionAccess(userId, data.databaseAccess);
+    }
+  } catch (error) {
+    console.error("Error fetching access data:", error);
+    // Show error message777777777777777
   }
 
   return <Profil />;

@@ -34,14 +34,11 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    // Compare session access with DB access
-    const isAccessUpToDate = user.access === sessionAccess;
-
     return NextResponse.json({
-      isAccessUpToDate,
+      isAccessUpToDate: user.access === sessionAccess,
       sessionAccess,
       databaseAccess: user.access,
-      needsUpdate: !isAccessUpToDate, // Easier frontend handling
+      needsUpdate: user.access !== sessionAccess,
     }, { status: 200 });
 
   } catch (error) {
