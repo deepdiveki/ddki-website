@@ -9,6 +9,7 @@ const corsHeaders = {
       "Access-Control-Allow-Origin": "https://www.deepdive-ki.de",
       "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Credentials": "true",
     };
 
 /**
@@ -54,10 +55,6 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
 
-
-    if (request.method === "OPTIONS") {
-        return new NextResponse(null, { headers: corsHeaders });
-      }
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -71,5 +68,10 @@ export async function POST(request: Request) {
 
   console.log('Haloooooooooo?');
 
-  return NextResponse.json({ message: "Session updated", session }, { status: 200 });
+  return NextResponse.json({ message: "Session updated", session }, { status: 200, headers: corsHeaders });
+}
+
+
+export async function OPTIONS() {
+  return new NextResponse(null, { headers: corsHeaders });
 }
