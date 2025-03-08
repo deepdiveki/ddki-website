@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import Profil from "./Profil";
 import { signOut } from "next-auth/react";
+import SignOutButton from "./SignOutButton"; // Import the client-side sign-out component
 
 export const metadata: Metadata = {
   title: "Profil",
@@ -45,16 +46,17 @@ export default async function ProfilPage() {
 
     if (data.needsUpdate) {
       console.warn(`User access mismatch: Session (${session.user.access}) vs. DB (${data.databaseAccess})`);
-
-        // Sign out the user when mismatch
-      await signOut({ redirect: false });
-      redirect("/auth/signin");
     }
   } catch (error) {
     console.error("Error fetching access data:", error);
     // Show error message777777777777777
   }
 
-  return <Profil />;
+  return (
+    <>
+      {needsUpdate && <SignOutButton />} {/* Render the sign-out button if a mismatch is detected */}
+      <Profil />
+    </>
+  );
 }
 
