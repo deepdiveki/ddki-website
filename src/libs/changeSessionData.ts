@@ -1,7 +1,7 @@
 export async function updateSessionAccess(userId: string, newAccess: string) {
   try {
 
-      const url = "https://deepdive-ki.de/api/dbAccessCheck";
+      const url = "https://www.deepdive-ki.de/api/dbAccessCheck";
       console.log("Sending POST request to:", url);
       console.log("Request body:", JSON.stringify({ userId, newAccess }));
     const response = await fetch(url, {
