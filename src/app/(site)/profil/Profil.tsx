@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 const ProfilPage = () => {
 
-  const { data: session, status } = useSession();
+  const { data: session, status, update } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
   const verified = searchParams.get('verified');
@@ -20,6 +20,12 @@ const ProfilPage = () => {
       router.push("/auth/signin");
     }
   }, [status, router]);
+
+  useEffect(() => {
+    if (session) {
+      update(); // Refresh the session
+    }
+  }, [session, update]);
 
   if (status === "loading") {
     return <div>Loading...</div>;

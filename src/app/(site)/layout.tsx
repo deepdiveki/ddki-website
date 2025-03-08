@@ -9,6 +9,7 @@ import "../../styles/star.css";
 import "../../styles/tailwind.css";
 import AuthProvider from "../context/AuthContext";
 import ToasterContext from "../context/ToastContext";
+import { SessionProvider } from "next-auth/react";
 
 export default function RootLayout({
   children,
@@ -24,14 +25,16 @@ export default function RootLayout({
           showSpinner={false}
           shadow="none"
         />
-        <AuthProvider>
-          <ToasterContext />
-          <Header />
-          {children}
-          <Footer />
+        <SessionProvider>
+            <AuthProvider>
+              <ToasterContext />
+              <Header />
+              {children}
+              <Footer />
 
-          <ScrollToTop />
-        </AuthProvider>
+              <ScrollToTop />
+            </AuthProvider>
+        </SessionProvider>
       </body>
     </html>
   );
