@@ -2,7 +2,11 @@
 
 export async function updateSessionAccess(userId: string, newAccess: string) {
   try {
-    const response = await fetch(`${process.env.SITE_URL}/api/dbAccessCheck`, {
+
+      const url = "https://deepdive-ki.de/api/dbAccessCheck";
+      console.log("Sending POST request to:", url);
+      console.log("Request body:", JSON.stringify({ newAccess }));
+    const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ newAccess }),
