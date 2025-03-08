@@ -12,6 +12,8 @@ const ProfilPage = () => {
   const searchParams = useSearchParams();
   const verified = searchParams.get('verified');
 
+  console.log("Client-side session5555:", session);
+
   // Redirect if not authenticated
   useEffect(() => {
     if (status === "unauthenticated") {
