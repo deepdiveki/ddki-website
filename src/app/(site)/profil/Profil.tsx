@@ -3,7 +3,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ProfilPage = () => {
 
@@ -11,6 +11,7 @@ const ProfilPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const verified = searchParams.get('verified');
+  const [isUpdating, setIsUpdating] = useState(false);
 
   console.log("Client-side session5555:", session);
 
@@ -22,10 +23,11 @@ const ProfilPage = () => {
   }, [status, router]);
 
   useEffect(() => {
-    if (session) {
-      update(); // Refresh the session
+    if (session && !isUpdating) {
+      setIsUpdating(true);
+      update().finally(() => setIsUpdating(false));
     }
-  }, [session, update]);
+  }, [session, update, isUpdating]);
 
   if (status === "loading") {
     return <div>Loading...</div>;
