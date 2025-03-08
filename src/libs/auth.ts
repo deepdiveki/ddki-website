@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
         secure: process.env.NODE_ENV === "production", // Use secure cookies only in production
         httpOnly: true,            // Prevent JavaScript access to the cookie (XSS protection)
         sameSite: "lax",           // Or 'strict'/'none' depending on your needs
-        maxAge: 7 * 24 * 60 * 60, // 30 days
+        maxAge: 7 * 24 * 60 * 60, // 7 days
       },
     },
   },
