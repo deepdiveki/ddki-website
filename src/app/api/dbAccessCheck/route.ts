@@ -11,10 +11,15 @@ const prisma = new PrismaClient();
  */
 export async function GET(request: Request) {
   try {
-    const { userId, sessionAccess } = Object.fromEntries(new URL(request.url).searchParams);
+
+    const { searchParams } = new URL(request.url);
+
+    const userId = searchParams.get("userId");
+    const sessionAccess = searchParams.get("sessionAccess");
 
     if (!userId || !sessionAccess) {
-      return NextResponse.json({ error: 'Missing userId or sessionAccess' }, { status: 400 });
+      console.error("API received missing parameters:", { userId, sessionAccess });
+      return NextResponse.json({ error: "Missing userId or sessionAccess" }, { status: 400 });
     }
 
     // Fetch user from database

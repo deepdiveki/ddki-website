@@ -20,8 +20,19 @@ export default async function ProfilPage() {
     redirect("/auth/signin");
   }
 
+  console.log("Session Data:", session);
+
+  if (!session?.user?.id || !session?.user?.access) {
+    console.error("Session missing required fields:", session);
+  }
+
+  // Ensure values exist before making the request
+  const userId = session.user.id;
+  const sessionAccess = session.user.access;
+
+
   // Fetch the latest access data from the database
-  const res = await fetch(`${process.env.SITE_URL}/api/dbAccessCheck?userId=${session.user.id}&sessionAccess=${session.user.access}`, {
+  const res = await fetch(`${process.env.SITE_URL}/api/dbAccessCheck?userId=${userId}&sessionAccess=${sessionAccess}`, {
     method: "GET",
     cache: "no-store",
   });
@@ -37,7 +48,7 @@ export default async function ProfilPage() {
     console.warn(`User access mismatch: Session (${session.user.access}) vs. DB (${data.databaseAccess})`);
 
     // Update the session with the correct access level
-    await updateSessionAccess(session.user.id, data.databaseAccess);
+    await updateSessionAccess(userId, data.databaseAccess);
   }
 
   return <Profil />;
