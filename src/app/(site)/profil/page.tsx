@@ -30,6 +30,8 @@ export default async function ProfilPage() {
     console.error("Session is missing required fields:", session);
   }
 
+  let needsUpdate = false;
+
   try {
     // Fetch the latest access data from the database
     const res = await fetch(`${process.env.SITE_URL}/api/dbAccessCheck?userId=${encodeURIComponent(userId)}&sessionAccess=${encodeURIComponent(sessionAccess)}`, {
@@ -46,6 +48,7 @@ export default async function ProfilPage() {
 
     if (data.needsUpdate) {
       console.warn(`User access mismatch: Session (${session.user.access}) vs. DB (${data.databaseAccess})`);
+      needsUpdate = true;
     }
   } catch (error) {
     console.error("Error fetching access data:", error);
