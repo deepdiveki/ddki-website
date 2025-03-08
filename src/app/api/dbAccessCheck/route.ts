@@ -84,6 +84,14 @@ export async function POST(request: NextRequest) {
     session: { access: newAccess },
   });
 
+  console.log("JWT callback parameters:", {
+      token: { user: session.user },
+      user: session.user as unknown as AdapterUser,
+      account: null,
+      trigger: "update",
+      session: { access: newAccess },
+    });
+
   console.log("Session updated with new access:", newAccess);
 
   // Return the updated session to the client
