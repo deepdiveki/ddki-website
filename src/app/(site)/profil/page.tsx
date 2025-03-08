@@ -43,6 +43,7 @@ export default async function ProfilPage() {
       console.error("Access check failed:", data.error);
       // Show error7777777
     }
+    console.log("mismatch?:", data.needsUpdate);
 
     return (
       <>

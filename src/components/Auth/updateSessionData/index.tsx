@@ -10,6 +10,7 @@ interface UpdateSessionProps {
 }
 
 export default function UpdateSession({ userId, newAccess }: UpdateSessionProps) {
+    console.log("funciton is even called??:", userId, newAccess);
   useEffect(() => {
     if (userId && newAccess) {
       updateSessionAccess(userId, newAccess)
