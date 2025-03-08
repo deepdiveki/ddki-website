@@ -13,9 +13,11 @@ export async function GET(request: Request) {
   try {
 
     const { searchParams } = new URL(request.url);
-
     const userId = searchParams.get("userId");
     const sessionAccess = searchParams.get("sessionAccess");
+
+    console.log("API Received userId:", userId);
+    console.log("API Received sessionAccess:", sessionAccess);
 
     if (!userId || !sessionAccess) {
       console.error("API received missing parameters:", { userId, sessionAccess });

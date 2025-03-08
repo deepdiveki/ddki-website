@@ -27,9 +27,12 @@ export default async function ProfilPage() {
   }
 
   // Ensure values exist before making the request
-  const userId = session.user.id;
-  const sessionAccess = session.user.access;
+  const userId = encodeURIComponent(session.user.id);
+  const sessionAccess = encodeURIComponent(session.user.access);
 
+  const baseUrl = process.env.SITE_URL || "";
+
+    console.log("URL:", baseUrl);
 
   // Fetch the latest access data from the database
   const res = await fetch(`${process.env.SITE_URL}/api/dbAccessCheck?userId=${userId}&sessionAccess=${sessionAccess}`, {
