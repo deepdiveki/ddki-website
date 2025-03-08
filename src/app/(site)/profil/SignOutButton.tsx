@@ -11,7 +11,7 @@ export default function SignOutButton() {
     // Perform the sign-out
     signOut({ redirect: false }).then(() => {
       // Redirect to the sign-in page after signing out
-      router.push("/auth/signin");
+      window.location.href = "/auth/signin";
     });
   }, [router]);
 

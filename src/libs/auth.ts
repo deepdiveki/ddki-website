@@ -34,7 +34,24 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
   session: {
+    maxAge: 7 * 24 * 60 * 60,
+    updateAge: 60 * 60, // Refresh session every 1 hour of inactivity
     strategy: "jwt",
+  },
+
+  useSecureCookies: process.env.NODE_ENV === "production", // Use secure cookies in production
+  cookies: {
+    sessionToken: {
+      name: "next-auth.session-token",
+      options: {
+        domain: ".deepdive-ki.de",  // Make cookie accessible across subdomains of example.com
+        path: "/",
+        secure: process.env.NODE_ENV === "production", // Use secure cookies only in production
+        httpOnly: true,            // Prevent JavaScript access to the cookie (XSS protection)
+        sameSite: "lax",           // Or 'strict'/'none' depending on your needs
+        maxAge: 7 * 24 * 60 * 60, // 30 days
+      },
+    },
   },
 
   providers: [
@@ -126,17 +143,4 @@ export const authOptions: NextAuthOptions = {
     return session;
   },
 },
-// Define cookie configuration to share across subdomains
-  cookies: {
-    sessionToken: {
-      name: "next-auth.session-token",
-      options: {
-        domain: ".deepdive-ki.de",  // Make cookie accessible across subdomains of example.com
-        path: "/",
-        secure: process.env.NODE_ENV === "production", // Use secure cookies only in production
-        httpOnly: true,            // Prevent JavaScript access to the cookie (XSS protection)
-        sameSite: "lax",           // Or 'strict'/'none' depending on your needs
-      },
-    },
-  },
 };
