@@ -8,7 +8,7 @@ export default function AdminPage() {
   const { data: session } = useSession();
 
   if (!session || session.user.access !== "admin") {
-    return <p>Access denied</p>;
+    redirect("/");
   }
 
   return <AdminSeite />;
