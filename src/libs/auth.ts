@@ -106,7 +106,12 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-  async jwt({ token, user }) {
+  async jwt({ token, user, trigger, session }) {
+    // Update the token with the new access level when the session is updated
+    if (trigger === "update" && session?.access) {
+      token.user.access = session.access;
+    }
+
     // Add custom user data to the token on login
     if (user) {
       token.user = {

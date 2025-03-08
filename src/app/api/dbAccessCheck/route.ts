@@ -65,32 +65,32 @@ export async function POST(request: NextRequest) {
 
   const { newAccess } = await request.json();
 
+  if (!newAccess) {
+    return NextResponse.json({ error: "Missing newAccess" }, { status: 400 });
+  }
+
   // Update session data
   session.user.access = newAccess;
 
-  if (!authOptions.callbacks?.session) {
-    throw new Error("Session callback is not defined in authOptions");
-  }
+  if (!authOptions.callbacks?.jwt) {
+      throw new Error("JWT callback is not defined in authOptions");
+    }
 
-  const token = await getToken({ req: request });
-
-    const jwtToken = token || {
-    user: session.user, // Include the required `user` property
-    // Add other required JWT properties if needed
-  };
-
-  // Save the updated session to the session store
-  await authOptions.callbacks.session({
-    session,
-    token: jwtToken,
-    user: session.user as unknown as AdapterUser,
-    newSession: false, // Indicate whether this is a new session
-    trigger: "update", // Indicate the trigger for the session update
+  await authOptions.callbacks.jwt({
+    token: { user: session.user },
+    user: session.user as unknown as AdapterUser, // Cast to AdapterUser
+    account: null, // Provide a default value for account
+    trigger: "update",
+    session: { access: newAccess },
   });
 
-  console.log('Haloooooooooo?');
+  console.log("Session updated with new access:", newAccess);
 
-  return NextResponse.json({ message: "Session updated", session }, { status: 200, headers: corsHeaders });
+  // Return the updated session to the client
+  return NextResponse.json(
+    { message: "Session updated", session },
+    { status: 200 }
+  );
 }
 
 
