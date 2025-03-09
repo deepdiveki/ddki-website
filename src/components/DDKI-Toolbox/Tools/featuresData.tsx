@@ -31,7 +31,7 @@ const ddkitools: Feature[] = [
   {
     id: 27,
     title: "KI-Chat",
-    description: "Nutze die besten LLM's für deine Chats. GPT o3, Gemini 2.0, Sonar",
+    description: "Nutzen Sie die besten LLM's für Ihre Chats. GPT o3, Gemini 2.0, Sonar",
     icon: "/images/features/icon-02.svg",
     animationComponent: chatbotAnimation,
     link: "https://toolbox.deepdive-ki.de/",
@@ -39,11 +39,10 @@ const ddkitools: Feature[] = [
   {
     id: 21,
     title: "Persona Chat",
-    description:
-      "Verfügbar ab: 04/2025",
+    description: "Chatten Sie mit berühmten oder historischen Persönlichkeiten",
     icon: "/images/features/icon-03.svg",
     animationComponent: personaAnimation,
-    link: "https://www.deepdive-ki.de/ddki-toolbox",
+    link: "https://toolbox.deepdive-ki.de/",
   },
   {
     id: 3,
