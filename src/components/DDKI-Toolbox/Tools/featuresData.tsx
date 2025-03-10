@@ -23,15 +23,15 @@ const ddkitools: Feature[] = [
     id: 11,
     title: "Arbeitsblatt Generator",
     description:
-      "Im DDKI-Chat können Sie Arbeitsblätter erstellen und bearbeiten. Diese können Sie dann digital teilen oder als PDF/Docx herunterladen",
+      "Im DeepDiveChat können Sie Arbeitsblätter erstellen und bearbeiten. Diese können Sie dann digital teilen oder als PDF/Docx herunterladen",
     icon: "/images/features/icon-01.svg",
     animationComponent: worksheetAnimation,
     link: "https://toolbox.deepdive-ki.de/",
   },
   {
     id: 27,
-    title: "KI-Chat Performance",
-    description: "Besten LLM's für Ihre Chats. GPT o3, Gemini 2.0, Sonar. Mit unserer DDKI Auto-Select & Prompt-Arcitektur Technologie wählt der DDKI automatisch die besten Modelle für Ihre Chats.",
+    title: "DeepDiveChat Performance",
+    description: "Besten LLM's für Ihre Chats. GPT o3, Gemini 2.0, Sonar. Mit unserer DDKI Auto-Select & Prompt-Arcitektur Technologie wählt der DeepDiveChat automatisch die besten Modelle für Ihre Chats.",
     icon: "/images/features/icon-02.svg",
     animationComponent: chatbotAnimation,
     link: "https://toolbox.deepdive-ki.de/",
@@ -39,16 +39,16 @@ const ddkitools: Feature[] = [
   {
     id: 21,
     title: "Persona Chat",
-    description: "Chatten Sie im DDKI-Chat mit berühmten oder historischen Persönlichkeiten",
+    description: "Chatten Sie im DeepDiveChat mit berühmten oder historischen Persönlichkeiten",
     icon: "/images/features/icon-03.svg",
     animationComponent: personaAnimation,
     link: "https://toolbox.deepdive-ki.de/",
   },
   {
     id: 3,
-    title: "DDKI Assistenten",
+    title: "Chat Assistenten",
     description:
-      "Erstellen Sie einen DDKI-Assistenten, den Sie mit eigenen Informationen erweitern können – für individuelle Lernwege oder zur Automatisierung wiederkehrender Aufgaben.",
+      "Erstellen Sie einen Chat-Assistenten, den Sie mit eigenen Informationen erweitern können – für individuelle Lernwege oder zur Automatisierung wiederkehrender Aufgaben.",
     icon: "/images/features/icon-04.svg",
     animationComponent: pdfChatAnimation,
     rotate: true,
@@ -66,7 +66,7 @@ const ddkitools: Feature[] = [
   },
   {
     id: 88,
-    title: "Dein DDKI-Chat",
+    title: "Dein DeepDiveChat",
     description: "Sie können Ihre Fächer und Unterrichtsthemen eingeben, damit wir Ihnen maßgeschneiderte und individuelle Ergebnisse bereitstellen können.",
     icon: "/images/features/icon-06.svg",
     animationComponent: assistantAnimation,

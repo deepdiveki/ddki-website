@@ -4,10 +4,10 @@ import SinglePricing from "./SInglePricing"; // Korrigierter Import
 // Beispiel für lokale Preisdaten
 const pricingData = [
   {
-    title: "Einzellizenz KI-Chat",
+    title: "Einzellizenz DeepDiveChat",
     price: "4,99 €",
     features: [
-      "Zugriff auf den DDKI KI-Chat",
+      "All-in-One KI-Chat",
       "ChatGPT o3 Qualität",
       "Planung von Unterrichtseinheiten",
       "Stetig neue Funktionalitäten",
@@ -26,7 +26,8 @@ const PricingGrids = () => {
         <SectionTitle
           subTitle="Jetzt anfragen"
           title="Preise"
-          paragraph="Entdecken Sie den DDKI-Chat – Ihre intelligente, funktionsreiche und datenschutzkonforme KI-Anwendung. Mit einer Vielzahl an Funktionalitäten, perfekt für den Unterricht oder als administrative Unterstützung und garantiert mit höchsten Datenschutzstandards. Ob für Schulen, Schulträger, Medienzentren, Bundesländer oder Hochschulen – profitieren Sie von einem maßgeschneiderten DDKI-Chat, die flexibel und sicher sind."
+          paragraph="Entdecken Sie den DeepDiveChat – Ihre intelligente, funktionsreiche und datenschutzkonforme KI-Anwendung. Mit einer Vielzahl an Funktionalitäten, perfekt für den Unterricht oder als administrative Unterstützung und garantiert mit höchsten Datenschutzstandards. Ob für Schulen, Schulträger, Medienzentren, Bundesländer oder Hochschulen – profitieren Sie von einem maßgeschneiderten DeepDiveChat
+, die flexibel und sicher sind."
         />
         <div className="flex justify-center items-center">
           <SinglePricing price={pricingData[0]} />
