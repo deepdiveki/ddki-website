@@ -67,7 +67,7 @@ const SinglePricing = ({ price }: { price: Price }) => {
         </svg>
       </a>
 
-      <p className="mt-4 text-center text-sm">Unverbindlich Anfragen</p>
+      <p className="mt-4 text-center text-sm">Monatlich kündbar</p>
 
       {/* Hintergrund-Elemente */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

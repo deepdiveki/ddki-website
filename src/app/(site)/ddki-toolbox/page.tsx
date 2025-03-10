@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import Clients from "@/components/About/Kunden";
 import Uebersicht from "@/components/DDKI-Toolbox/Uebersicht";
 import Pricing from "@/components/DDKI-Toolbox/Pricing";
+import DDKICHAT from "@/components/DDKI-Toolbox/DDKICHAT";
 
 export const metadata: Metadata = {
   title: "Über uns | DeepDive KI ToolBox und KI Fortbildungen",
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 const ddki_toolbox = () => {
   return (
     <>
+      <DDKICHAT />
       <Features />
       <Pricing />
       <CallToAction />

@@ -10,9 +10,9 @@ const Features = () => {
     >
       <div className="mx-auto max-w-[1222px] px-4 sm:px-8 xl:px-0">
         <SectionTitle
-          subTitle="DeepDiveKI ToolBox"
+          subTitle="DeepDiveKI All-in-One Chat"
           title="Unsere Features"
-          paragraph="Was möchtest du tun?"
+          paragraph="Diese Feature findest du in unserer DeepDiveKI-Chat:"
         />
 
         <div className="relative">
