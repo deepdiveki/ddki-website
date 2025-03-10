@@ -5,7 +5,7 @@ import Link from "next/link";
 import ChatbotToolAnimation from "@/components/ChatbotToolAnimation";
 import Highlighter from "./HighLighter";
 
-const ddkichat = () => {
+const DDKIChat = () => {
   const text =
     "Deer DeepDiveChat für alle Features für den Unterricht oder administrative Entlastungen:";
   const [displayedText, setDisplayedText] = useState("");
@@ -28,7 +28,7 @@ const ddkichat = () => {
 
   return (
     <section className="relative pt-20 flex justify-center items-center">
-      
+
       <div className="relative mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0 z-20">
         <div className="flex flex-col items-center text-center">
           <div className="features-box-border relative rounded-3xl w-full h-auto">
@@ -103,4 +103,4 @@ const ddkichat = () => {
   );
 };
 
-export default ddkichat;
+export default DDKIChat;
