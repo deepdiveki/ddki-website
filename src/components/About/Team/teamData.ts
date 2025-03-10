@@ -17,7 +17,7 @@ const teamData: Team[] = [
     id: 51,
     name: "Dr. Antonius Baehr-Oliva",
     designation: "Dozent mit Schwerpunkt: Sprache \n Fachleitung und Lehrkraft für Englisch & Deutsch",
-    image: "",
+    image: "/images/team/team-03.png",
   },
   {
     id: 86,
