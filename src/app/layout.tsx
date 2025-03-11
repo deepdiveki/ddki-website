@@ -18,7 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
 export const metadata = {
   title: "DeepDiveKI Künstliche Intelligenz für Schulen und Universitäten",
-  description: "Mit der DDKI Toolbox, dem ChatBot für Ihre Schulwebsite und den Fortbildungen zum Thema KI, bieten wir eine breite Palette von KI Produkten für Ihre Institution an.",
+  description: "Mit dem DeepDiveChat, dem ChatBot für Ihre Schulwebsite und den Fortbildungen zum Thema KI, bieten wir eine breite Palette von KI Produkten für Ihre Institution an.",
   other: {
     "google-site-verification": "rapFK4LKVJ-ur_9PSHMiVY7sFbmvzuTvfYj7TS-bqNE."
   }

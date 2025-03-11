@@ -3,7 +3,7 @@ import { FooterLink } from "@/types/footerLink";
 export const productsLink: FooterLink[] = [
   {
     id: 1,
-    title: "DDKI ToolBox",
+    title: "DeepDiveChat",
     href: "/ddki-toolbox",
     newTab: false,
   },

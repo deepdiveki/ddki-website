@@ -15,7 +15,7 @@ const menuData: Menu[] = [
   },
   {
     id: 6,
-    title: "DDKI ToolBox",
+    title: "DeepDiveChat",
     newTab: false,
     path: "/ddki-toolbox",
   },

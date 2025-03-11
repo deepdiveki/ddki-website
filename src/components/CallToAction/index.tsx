@@ -60,10 +60,10 @@ const CallToAction = () => {
               <span className="hero-subtitle-text">Starten mit Künstlicher Intelligenz</span>
             </span>
             <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
-              Integrieren Sie die DeepDiveKI ToolBox in Ihre Systemarchitektur
+              Integrieren Sie den DeepDiveChat in Ihre Systemarchitektur
             </h2>
             <p className="mx-auto mb-9 max-w-[714px] font-medium">
-              Wir helfen Ihnen dabei, die KI-Technologie in Ihre IT-Systeme zu integrieren. Unsere Tools sind benutzerfreundlich und einfach zu bedienen. Probieren Sie es aus!
+              Wir helfen Ihnen dabei, die KI-Technologie in Ihre IT-Systeme zu integrieren. Unsere KI-Produkte sind benutzerfreundlich und einfach zu bedienen. Probieren Sie es aus!
             </p>
 
             <Link
@@ -71,7 +71,7 @@ const CallToAction = () => {
               href="https://toolbox.deepdive-ki.de/"
               className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
             >
-              Jetzt Toolbox ausprobieren
+              Jetzt DeepDiveChat ausprobieren
             </Link>
           </div>
         </div>

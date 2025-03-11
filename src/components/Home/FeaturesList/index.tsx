@@ -28,7 +28,7 @@ const FeaturesList = () => {
                         </span>
                       </span>
                       <h3 id="ddki-toolbox" className="mb-4.5 text-heading-4 font-bold text-white">
-                        Mit der DDKI ToolBox Künstliche Intelligenz in Ihre Schule oder Universitäten integrieren.
+                        Mit dem DeepDiveChat in Ihre Schule oder Universitäten Künstliche Intelligenz integrieren.
                       </h3>
                       <p className="mb-10 font-medium">
                         Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte – unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.

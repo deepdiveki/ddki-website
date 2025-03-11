@@ -13,7 +13,7 @@ const AboutSection = () => {
             </span>
 
             <h2 className="mb-5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
-              Die KI Toolbox für Schulen und Universitäten
+              DeepDiveKI als Partner für Schulen und Universitäten
             </h2>
             <p className="mb-9 font-medium">
               DeepDiveKI wurden von Lehrenden für Lehrende entwickelt. Mit unseren benutzerfreundlichen Tools können Lehrkräfte den Lernprozess effizienter gestalten, individuelle Förderung ermöglichen und kreative Lehrmethoden entwickeln. Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte – unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.

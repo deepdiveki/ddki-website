@@ -92,7 +92,7 @@ const Signin = () => {
                   <div className="absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-white/0 via-white/20 to-white/0"></div>
 
                   <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white">
-                  DDKI ToolBox Login
+                  DeepDiveChat Login
                   </h2>
                   <div className="relative aspect-[61/50] w-full max-w-[427px]">
                     <Image src="/images/signin/sigin.svg" alt="signin" fill />
