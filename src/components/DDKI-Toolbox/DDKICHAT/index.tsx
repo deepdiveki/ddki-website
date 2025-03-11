@@ -7,7 +7,7 @@ import Highlighter from "./HighLighter";
 
 const DDKIChat = () => {
   const text =
-    "Deer DeepDiveChat für alle Features für den Unterricht oder administrative Entlastungen:";
+    "Deer DeepDiveChat, das All-in-One Tool mit allen Features für den Unterricht oder administrative Entlastungen:";
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
 
