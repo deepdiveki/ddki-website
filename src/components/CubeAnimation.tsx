@@ -9,7 +9,7 @@ export default function CubeAnimation() {
     useAnimationFrame((t) => {
         if (!ref.current) return;
 
-        const rotate = Math.sin(t / 10000) * 200;
+        const rotate = Math.sin(t / 30000) * 200;
         const y = (1 + Math.sin(t / 1000)) * -20;
         ref.current.style.transform = `translateY(${y}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`;
     });
@@ -34,17 +34,18 @@ function StyleSheet() {
         <style>{`
         .cube-container {
             perspective: 1200px;
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             margin: 0 auto;
-            position: absolute;
-            top: 50px;
-            right: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
 
         .cube {
-            width: 250px;
-            height: 250px;
+            width: 130px;
+            height: 130px;
             position: relative;
             transform-style: preserve-3d;
         }
@@ -60,22 +61,22 @@ function StyleSheet() {
         }
 
         .front {
-            transform: rotateY(0deg) translateZ(125px);
+            transform: rotateY(0deg) translateZ(65px);
         }
         .right {
-            transform: rotateY(90deg) translateZ(125px);
+            transform: rotateY(90deg) translateZ(65px);
         }
         .back {
-            transform: rotateY(180deg) translateZ(125px);
+            transform: rotateY(180deg) translateZ(65px);
         }
         .left {
-            transform: rotateY(-90deg) translateZ(125px);
+            transform: rotateY(-90deg) translateZ(65px);
         }
         .top {
-            transform: rotateX(90deg) translateZ(125px);
+            transform: rotateX(90deg) translateZ(65px);
         }
         .bottom {
-            transform: rotateX(-90deg) translateZ(125px);
+            transform: rotateX(-90deg) translateZ(65px);
         }
     `}</style>
     );

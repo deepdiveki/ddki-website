@@ -16,7 +16,7 @@ const AboutSection = () => {
             Crash Kurs und DeepDive Module I-VI
             </h2>
             <p className="mb-9 font-medium">
-            In unseren Fortbildungen stärken die Teilnehmerinnen und Teilnehmer ihre Kompetenz im Umgang mit Künstlicher Intelligenz. Sie erhalten praktische und direkt anwendbare Unterrichtsmethoden/KI - Tools sowie Material für die Verwendung von KI. Die Teilnehmerinnen und Teilnehmer lernen unterschiedliche KI-basierte Werkzeuge kennen und erproben eine neue Form von Team-Teaching. Es gibt sieben unterschiedliche Fortbildungen mit verschiedenen inhaltlichen Ausrichtungen wie z.B. Unterrichtseinheiten erstellen, Umgang mit Plagiaten und Unterrichtsdurchführung mit KI.
+            In unseren Fortbildungen stärken die Teilnehmerinnen und Teilnehmer ihre Kompetenz im Umgang mit Künstlicher Intelligenz. Sie erhalten praktische und direkt anwendbare Unterrichtsmethoden/KI - Tools sowie Material für die Verwendung von KI. Die Teilnehmerinnen und Teilnehmer lernen unterschiedliche KI-basierte Werkzeuge kennen und erproben eine neue Form von Team-Teaching. Es gibt eine Keynote und neun unterschiedliche Fortbildungen mit verschiedenen inhaltlichen Ausrichtungen wie z.B. Unterrichtseinheiten erstellen, Umgang mit Plagiaten und Unterrichtsdurchführung mit KI.
             </p>
             <p className="mb-9 font-medium">
             Unser KI-Chat <strong>DeepChat</strong> steht allen KuK während der Fortbildung kostenlos zur Verfügung. Damit können Sie praktische Anwendungen datenschutzkonform und mit bester Performance direkt in der Fortbildung ausprobieren.

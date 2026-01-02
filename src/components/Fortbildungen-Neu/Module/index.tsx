@@ -17,6 +17,42 @@ const FeaturesList = () => {
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
         <div className="grid gap-7.5 sm:grid-cols-12">
 
+          {/* <!-- Keynote --> */}
+          <div className="sm:col-span-12">
+            <Highlighter>
+              <div className="features-box-border relative rounded-3xl">
+                <div className="box-hover relative overflow-hidden rounded-3xl p-10 xl:p-15">
+                  <div className="relative z-20 flex items-center justify-between">
+                    <div className="w-full max-w-[477px]">
+                      <span className="hero-subtitle-gradient relative mb-4 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
+                        <Image
+                          src="/images/hero/icon-title.svg"
+                          alt="icon"
+                          width={16}
+                          height={16}
+                        />
+
+                        <span className="hero-subtitle-text">
+                          DeepDiveKI Keynote
+                        </span>
+                      </span>
+                      <h3 id="ddki-toolbox" className="mb-4.5 text-heading-4 font-bold text-white">
+                        Keynote
+                      </h3>
+                      <p className="mb-10 font-medium">
+                      Die Keynote „DeepDive in die Welt von KI und Bildung – Vom Werkzeug zum Lernpartner“ zeigt, wie KI Lernen unterstützen kann: durch personalisierte Erklärungen, Feedback und passende Übungen. Im Mittelpunkt steht der Perspektivwechsel hin zur KI als Lernpartner – ergänzt um wichtige Leitplanken wie Didaktik, Transparenz, Datenschutz und die Rolle der Lehrenden. So werden Chancen und Grenzen praxisnah eingeordnet, ohne den Menschen aus dem Zentrum zu rücken.
+                      </p>
+                    </div>
+
+                    <div className="relative hidden aspect-square w-full max-w-[428px] sm:block sm:-translate-x-12">
+                      <CubeAnimation />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Highlighter>
+          </div>
+
           {/* <!-- Crash Kurs --> */}
           <div className="sm:col-span-12">
             <Highlighter>
