@@ -59,7 +59,7 @@ const Kontakt = () => {
       const res = await axios.post("/api/contact", formData);
 
       if (res.status === 200) {
-        toast.success(res.data.message);
+        toast.success("Nachricht erfolgreich zugestellt!");
         setFormData({ name: "", school: "", email: "", phone: "", students: "", website: "", message: "" }); // Reset form on success
       } else {
         toast.error("Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.");

@@ -150,15 +150,25 @@ const Header = () => {
                   >
                     {userName}
                   </button>
-                  <button
-                    aria-label="Sign Out button"
-                    onClick={async () => {
-                      window.location.href = "https://plattform.deepdive-ki.de/api/logout";
-                    }}
-                    className="text-sm text-white hover:text-opacity-75"
-                  >
-                    Sign out
-                  </button>
+                  <Link
+                      href="https://plattform.deepdive-ki.de/"
+                      className="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-4.5 py-2 text-sm text-white shadow-button hover:shadow-none"
+                    >
+                      Zur Plattform
+                      <svg
+                        className="mt-0.5"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14.4002 7.60002L9.2252 2.35002C9.0002 2.12502 8.6502 2.12502 8.4252 2.35002C8.2002 2.57502 8.2002 2.92502 8.4252 3.15002L12.6252 7.42502H2.0002C1.7002 7.42502 1.4502 7.67502 1.4502 7.97502C1.4502 8.27502 1.7002 8.55003 2.0002 8.55003H12.6752L8.4252 12.875C8.2002 13.1 8.2002 13.45 8.4252 13.675C8.5252 13.775 8.6752 13.825 8.8252 13.825C8.9752 13.825 9.1252 13.775 9.2252 13.65L14.4002 8.40002C14.6252 8.17502 14.6252 7.82503 14.4002 7.60002Z"
+                          fill="white"
+                        />
+                      </svg>
+                  </Link>
                 </>
               ) : (
                 <>

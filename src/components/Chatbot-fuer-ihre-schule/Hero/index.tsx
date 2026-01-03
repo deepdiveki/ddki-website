@@ -6,20 +6,7 @@ import React, { useEffect } from "react";
 import ChatbotIphoneAnimation from "@/components/ChatbotIphoneAnimation";
 
 const HeroChatbot = () => {
-  // Dynamisches Laden des externen Skripts für den Chatbot
-  useEffect(() => {
-    // const script = document.createElement("script");
-    // script.async = true;
-    // script.type = "module";
-    // script.src =
-    //   "https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js";
-    // document.body.appendChild(script);
-
-    // return () => {
-    //   document.body.removeChild(script);
-    // };
-  }, []);
-
+  
   return (
     <section className="overflow-hidden">
       <div className="relative mx-auto max-w-[1170px] px-4 py-20 sm:px-8 lg:py-25 xl:px-0">
@@ -54,14 +41,7 @@ const HeroChatbot = () => {
         </div>
 
         {/* Chatbot-Einbindung */}
-        {/*
-        <div className="chatbot-container mt-10">
-          {React.createElement('zapier-interfaces-chatbot-embed' as any, {
-            'is-popup': 'true',
-            'chatbot-id': 'clycok7xk00058s6rn16regex',
-          })}
-        </div> 
-        */}
+        
       </div>
     </section>
   );

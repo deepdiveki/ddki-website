@@ -30,7 +30,7 @@
     "gsap": "^3.13.0",
     "lucide-react": "^0.501.0",
     "motion": "^12.4.1",
-    "next": "^15.1.5",
+    "next": "15.5.9",
     "next-auth": "^4.24.11",
     "nextjs-toploader": "^3.7.15",
     "nodemailer": "^6.10.0",
@@ -50,7 +50,7 @@
     "@types/fslightbox-react": "^1.7.3",
     "@types/nodemailer": "^6.4.17",
     "eslint": "^9.20.0",
-    "eslint-config-next": "^15.3.2"
+    "eslint-config-next": "15.5.9"
   },
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.1",
