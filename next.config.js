@@ -9,10 +9,10 @@ const nextConfig = {
     ],
   },
   output: "standalone", // Optimize the build for standalone deployment
+  outputFileTracingRoot: __dirname,
   eslint: {
     ignoreDuringBuilds: true,
   },
 };
-
 
 module.exports = nextConfig;

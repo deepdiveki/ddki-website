@@ -40,6 +40,18 @@ export const companiesLink: FooterLink[] = [
     href: "/datenschutz",
     newTab: false,
   },
+  {
+    id: 14,
+    title: "Jobs",
+    href: "/jobs",
+    newTab: false,
+  },
+  {
+    id: 15,
+    title: "Mentoring",
+    href: "/mentoring",
+    newTab: false,
+  },
 ];
 export const supportsLink: FooterLink[] = [
   {
