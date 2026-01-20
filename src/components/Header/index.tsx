@@ -46,17 +46,20 @@ const Header = () => {
     window.addEventListener("scroll", handleStickyMenu);
   });
 
+  const primaryMenu = menuData.slice(0, 3);
+  const overflowMenu = menuData.slice(3);
+
   return (
     <>
       <header
         className={`fixed left-0 top-0 z-[1000] w-full ${
           stickyMenu
-            ? "before:features-row-border bg-dark/70 !py-4 shadow backdrop-blur-lg transition duration-100 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full lg:!py-0"
-            : "py-7 lg:py-0"
+            ? "before:features-row-border bg-dark/70 !py-4 shadow backdrop-blur-lg transition duration-100 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full md:!py-0"
+            : "py-7 md:py-0"
         }`}
       >
-        <div className="relative mx-auto max-w-[1170px] items-center justify-between px-4 sm:px-8 lg:flex xl:px-0">
-          <div className="flex w-full items-center justify-between lg:w-1/4">
+        <div className="relative mx-auto max-w-[1170px] items-center justify-between px-4 sm:px-8 md:flex xl:px-0">
+          <div className="flex w-full items-center justify-between md:w-1/4">
           <Link href="/" className="flex items-center gap-3">
               <Image src={logo} alt="Logo" width={100} height={24} className="h-10 w-auto" />
               <span className="text-white text-xl font-bold">DeepDiveKI</span>
@@ -64,7 +67,7 @@ const Header = () => {
 
             <button
               onClick={() => setNavigationOpen(!navigationOpen)}
-              className="block lg:hidden"
+              className="block md:hidden"
             >
               <span className="relative block h-5.5 w-5.5 cursor-pointer">
                 <span className="du-block absolute right-0 h-full w-full">
@@ -101,19 +104,19 @@ const Header = () => {
           </div>
 
           <div
-            className={`invisible h-0 w-full items-center justify-between lg:visible lg:flex lg:h-auto lg:w-3/4 ${
+            className={`invisible h-0 w-full items-center justify-between md:visible md:flex md:h-auto md:w-3/4 ${
               navigationOpen
                 ? "!visible relative mt-4 !h-auto max-h-[400px] overflow-y-scroll rounded-md bg-dark p-7.5 shadow-lg"
                 : ""
             }`}
           >
             <nav>
-              <ul className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-2">
-                {menuData.map((menuItem, key) => (
+              <ul className="flex flex-col gap-5 md:flex-row md:items-center md:gap-2">
+                {primaryMenu.map((menuItem, key) => (
                   <li
                     key={key}
                     className={`nav__menu group relative ${
-                      stickyMenu ? "lg:py-4" : "lg:py-7"
+                      stickyMenu ? "md:py-4" : "md:py-7"
                     }`}
                   >
                     {menuItem.submenu ? (
@@ -124,7 +127,7 @@ const Header = () => {
                       <Link
                         href={`${menuItem.path}`}
                         onClick={() => setNavigationOpen(false)}
-                        className={`hover:nav-gradient relative border border-transparent px-4 py-1.5 text-sm hover:text-white ${
+                        className={`hover:nav-gradient relative whitespace-nowrap border border-transparent px-4 py-1.5 text-sm hover:text-white ${
                           pathUrl === menuItem.path
                             ? "nav-gradient text-white"
                             : "text-white/80"
@@ -135,6 +138,45 @@ const Header = () => {
                     )}
                   </li>
                 ))}
+                {overflowMenu.map((menuItem, key) => (
+                  <li
+                    key={`overflow-${key}`}
+                    className={`nav__menu group relative md:hidden xl:block ${
+                      stickyMenu ? "md:py-4" : "md:py-7"
+                    }`}
+                  >
+                    {menuItem.submenu ? (
+                      <DropDown menuItem={menuItem} />
+                    ) : (
+                      <Link
+                        href={`${menuItem.path}`}
+                        onClick={() => setNavigationOpen(false)}
+                        className={`hover:nav-gradient relative whitespace-nowrap border border-transparent px-4 py-1.5 text-sm hover:text-white ${
+                          pathUrl === menuItem.path
+                            ? "nav-gradient text-white"
+                            : "text-white/80"
+                        }`}
+                      >
+                        {menuItem.title}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+                {overflowMenu.length > 0 && (
+                  <li
+                    className={`nav__menu group relative hidden md:block xl:hidden ${
+                      stickyMenu ? "md:py-4" : "md:py-7"
+                    }`}
+                  >
+                    <DropDown
+                      menuItem={{
+                        id: 999,
+                        title: "Mehr",
+                        submenu: overflowMenu,
+                      }}
+                    />
+                  </li>
+                )}
               </ul>
             </nav>
 

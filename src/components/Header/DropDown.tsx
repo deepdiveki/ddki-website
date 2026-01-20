@@ -6,12 +6,15 @@ import { Menu } from "@/types/menu";
 const DropDown = ({ menuItem }: { menuItem: Menu }) => {
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const pathUrl = usePathname();
+  const hasLink = Boolean(menuItem.path);
+  const useButton = Boolean(menuItem.submenu) && !hasLink;
+
   return (
     <>
-      {menuItem.title !== "Pages" ? (
+      {menuItem.title !== "Pages" && !useButton ? (
         <Link
           onClick={() => setDropdownToggler(!dropdownToggler)}
-          className={`hover:nav-gradient relative flex items-center justify-between gap-3 border border-transparent px-4 py-1.5 text-sm hover:text-white ${
+          className={`hover:nav-gradient relative flex items-center justify-between gap-3 whitespace-nowrap border border-transparent px-4 py-1.5 text-sm hover:text-white ${
             pathUrl === menuItem.path
               ? "nav-gradient text-white"
               : "text-white/80"
@@ -32,7 +35,7 @@ const DropDown = ({ menuItem }: { menuItem: Menu }) => {
       ) : (
         <button
           onClick={() => setDropdownToggler(!dropdownToggler)}
-          className={`hover:nav-gradient relative flex items-center justify-between gap-3 border border-transparent px-4 py-1.5 text-sm hover:text-white ${
+          className={`hover:nav-gradient relative flex items-center justify-between gap-3 whitespace-nowrap border border-transparent px-4 py-1.5 text-sm hover:text-white ${
             pathUrl === menuItem.path
               ? "nav-gradient text-white"
               : "text-white/80"
