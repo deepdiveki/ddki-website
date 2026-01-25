@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import ScrollProgress from "@/components/ScrollProgress";
 import AutoRegressiveGame from "@/components/AutoRegressiveGame";
 import ShannonExperiment from "@/components/ShannonExperiment";
+import IntroFBQuiz from "@/components/IntroFBQuiz";
 
 export const metadata: Metadata = {
   title: "Intro Fortbildungen | DeepDiveKI",
@@ -78,7 +79,7 @@ const curriculum: Module[] = [
     visualCaption: "Von Heute zu Ziel: klare Richtung vor dem Start.",
   },
   {
-    title: "Kapitel 2: Tokens & Wahrscheinlichkeit",
+    title: "Kapitel 2: Die Technologie: Tokens & Wahrscheinlichkeit",
     duration: "8 Min",
     lessons: [
       {
@@ -117,7 +118,7 @@ const curriculum: Module[] = [
     visualCaption: "Token-Leiste plus Wahrscheinlichkeiten.",
   },
   {
-    title: "Kapitel 3: Prompting fuer Unterricht",
+    title: "Kapitel 3: Prompting lernen und verbessern",
     duration: "9 Min",
     lessons: [
       {
@@ -155,7 +156,7 @@ const curriculum: Module[] = [
     visualCaption: "Prompt-Bausteine fuehren zu klarem Output.",
   },
   {
-    title: "Kapitel 4: Praxis-Check & Quiz",
+    title: "Kapitel 4: Praxis-Check, Quiz und Vertiefung",
     duration: "8 Min",
     lessons: [
       {
@@ -218,7 +219,13 @@ const tasks = [
   },
 ];
 
-const quizQuestions = [
+type QuizQuestion = {
+  question: string;
+  options: string[];
+  correctIndex: number;
+};
+
+const quizQuestions: QuizQuestion[] = [
   {
     question: "Was beschreibt ein Token in einem LLM?",
     options: [
@@ -226,6 +233,7 @@ const quizQuestions = [
       "Eine komplette Seite Text",
       "Ein neues Kapitel im Kurs",
     ],
+    correctIndex: 0,
   },
   {
     question: "Warum ist Kontext wichtig fuer LLMs?",
@@ -234,6 +242,7 @@ const quizQuestions = [
       "Er vergroessert die Schrift im Output",
       "Er ersetzt die Trainingsdaten",
     ],
+    correctIndex: 0,
   },
   {
     question: "Welcher Prompt ist am klarsten formuliert?",
@@ -242,6 +251,61 @@ const quizQuestions = [
       "Erstelle drei Einstiegsfragen zum Thema Klimawandel fuer Klasse 9.",
       "Schreibe irgendwas zum Thema.",
     ],
+    correctIndex: 1,
+  },
+  {
+    question: "Welche Angabe hilft einem LLM am meisten bei der Ausgabe?",
+    options: [
+      "Zielgruppe, Format und Ziel",
+      "Die Lieblingsfarbe der Lehrkraft",
+      "Eine zufaellige Zahl",
+    ],
+    correctIndex: 0,
+  },
+  {
+    question: "Was ist eine sinnvolle Check-Frage vor dem Einsatz von KI?",
+    options: [
+      "Sind Quellen pruefbar und Ergebnisse nachvollziehbar?",
+      "Wie gross ist die Datei?",
+      "Welche Schriftart nutzt das Modell?",
+    ],
+    correctIndex: 0,
+  },
+  {
+    question: "Wofuer steht die Abkuerzung LLM?",
+    options: [
+      "Large Language Model",
+      "Long Learning Method",
+      "Live Lesson Manager",
+    ],
+    correctIndex: 0,
+  },
+  {
+    question: "Welche Aufgabe passt am besten zu einem Mini-Task im Kurs?",
+    options: [
+      "Formuliere ein Lernziel in einem Satz.",
+      "Schreibe ein komplettes Lehrbuch.",
+      "Erstelle 100 Seiten Material.",
+    ],
+    correctIndex: 0,
+  },
+  {
+    question: "Welche Aussage beschreibt eine Grenze von LLMs?",
+    options: [
+      "Sie koennen plausible, aber falsche Antworten erzeugen.",
+      "Sie verstehen Inhalte wie Menschen.",
+      "Sie haben immer aktuelle Daten.",
+    ],
+    correctIndex: 0,
+  },
+  {
+    question: "Warum sind Beispiele im Prompt hilfreich?",
+    options: [
+      "Sie zeigen Ton und Format der gewuenschten Antwort.",
+      "Sie machen die Anfrage laenger ohne Nutzen.",
+      "Sie ersetzen den Kontext.",
+    ],
+    correctIndex: 0,
   },
 ];
 
@@ -274,9 +338,8 @@ const feedbackPoints = [
 ];
 
 const soekiaHighlights = [
-  "Schreib- und Unterrichtsassistenz",
-  "Ideen, Struktur und Reflexion in einem Tool",
-  "Direkter Zugriff per QR-Code",
+  "Lernende koennen Schritt fuer Schritt nachvollziehen, wie aus Trainings-/Beispieltexten Vorhersagen fuer das naechste Wort entstehen, und dabei Datenbasis und Parameter gezielt veraendern (z. B. um Effekte wie Bias oder \"Halluzinationen\" zu beobachten).",
+  "Wichtig: SoekiaGPT ist didaktisch vereinfacht und nicht als Tool fuer hochwertige Alltagstexte gedacht, sondern zum Verstehen der Funktionsweise von Modellen wie ChatGPT.",
 ];
 
 const qrPattern = [
@@ -289,24 +352,36 @@ const qrPattern = [
   "1111111",
 ];
 
-const aiTypes = [
+type AITypeGraphic = "weak" | "strong" | "super";
+
+type AIType = {
+  title: string;
+  description: string;
+  status: string;
+  graphic: AITypeGraphic;
+};
+
+const aiTypes: AIType[] = [
   {
     title: "Schwache KI (Weak AI)",
     description:
       "KI-Systeme, die auf spezifische Aufgaben spezialisiert sind und keine allgemeine Intelligenz besitzen.",
     status: "Heute im Einsatz",
+    graphic: "weak",
   },
   {
     title: "Starke KI (Strong AI)",
     description:
       "Hypothetische KI-Systeme, die ueber eine allgemeine Intelligenz verfuegen, die der menschlichen Intelligenz ebenbuertig oder ueberlegen ist.",
     status: "Status: Forschung",
+    graphic: "strong",
   },
   {
     title: "Ueberlegene KI (Superintelligence)",
     description:
       "Eine Form der KI, die in allen Bereichen die menschliche Intelligenz deutlich uebertrifft.",
     status: "Status: Hypothese",
+    graphic: "super",
   },
 ];
 
@@ -506,6 +581,120 @@ const ChapterGraphic = ({ variant }: { variant: ModuleGraphic }) => {
   );
 };
 
+const AITypeGraphic = ({ variant }: { variant: AITypeGraphic }) => {
+  if (variant === "weak") {
+    return (
+      <div className="relative h-full w-full">
+        <div className="absolute inset-0 grid grid-cols-2 gap-3 p-6">
+          {["Texte", "Bilder", "Audio", "Planung"].map((label) => (
+            <div
+              key={label}
+              className="flex items-center justify-center rounded-xl border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-white/60"
+            >
+              {label}
+            </div>
+          ))}
+        </div>
+        <div className="absolute right-6 top-6 flex h-8 w-8 items-center justify-center rounded-full border border-purple/40 bg-purple/20 text-[10px] uppercase tracking-[0.2em] text-purple-light-2 motion-safe:animate-pulse">
+          1
+        </div>
+        <div className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.2em] text-white/40">
+          Fokus auf Aufgaben
+        </div>
+      </div>
+    );
+  }
+
+  if (variant === "strong") {
+    return (
+      <div className="relative h-full w-full">
+        <div className="absolute inset-6 rounded-full border border-purple/30 motion-safe:animate-spin"></div>
+        <svg
+          viewBox="0 0 140 140"
+          className="absolute inset-0 h-full w-full"
+          fill="none"
+        >
+          <circle
+            cx="70"
+            cy="70"
+            r="20"
+            className="stroke-purple-light/70"
+            strokeWidth="2"
+          />
+          {[
+            [70, 10],
+            [120, 35],
+            [120, 105],
+            [70, 130],
+            [20, 105],
+            [20, 35],
+          ].map(([x, y], index) => (
+            <g key={`node-${index}`}>
+              <line
+                x1="70"
+                y1="70"
+                x2={x}
+                y2={y}
+                className="stroke-white/20"
+                strokeWidth="1.5"
+              />
+              <circle
+                cx={x}
+                cy={y}
+                r="6"
+                className="fill-white/40"
+              />
+            </g>
+          ))}
+        </svg>
+        <div className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.2em] text-white/40">
+          Allgemeine Faehigkeiten
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative h-full w-full">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="h-24 w-24 rounded-full bg-gradient-to-br from-pink-light/40 to-purple-light/40 blur-[6px]"></div>
+      </div>
+      <svg
+        viewBox="0 0 140 140"
+        className="absolute inset-0 h-full w-full"
+        fill="none"
+      >
+        <circle
+          cx="70"
+          cy="70"
+          r="26"
+          className="stroke-pink-light/60"
+          strokeWidth="2"
+        />
+        {Array.from({ length: 8 }).map((_, index) => {
+          const angle = (index * 45 * Math.PI) / 180;
+          const x = 70 + Math.cos(angle) * 46;
+          const y = 70 + Math.sin(angle) * 46;
+          return (
+            <line
+              key={`ray-${index}`}
+              x1="70"
+              y1="70"
+              x2={x}
+              y2={y}
+              className="stroke-white/30"
+              strokeWidth="1.5"
+            />
+          );
+        })}
+      </svg>
+      <div className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.2em] text-white/40">
+        Hypothetische Spitze
+      </div>
+    </div>
+  );
+};
+
 export default function IntroFBPage() {
   return (
     <main className="relative z-10 overflow-hidden">
@@ -518,8 +707,6 @@ export default function IntroFBPage() {
           <div className="footer-bg-gradient h-[4.99px] w-full"></div>
           <div className="footer-bg-gradient h-[6.19px] w-full"></div>
         </div>
-        <div className="absolute right-0 top-10 -z-1 h-60 w-60 rounded-full bg-purple/20 blur-[120px]"></div>
-
         <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-7">
@@ -825,7 +1012,6 @@ export default function IntroFBPage() {
       </section>
 
       <section className="relative py-16">
-        <div className="absolute left-0 top-0 -z-1 h-80 w-80 rounded-full bg-pink/10 blur-[140px]"></div>
         <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
           <div className="mb-10 text-center">
             <span className="hero-subtitle-gradient relative mb-4 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
@@ -987,7 +1173,6 @@ export default function IntroFBPage() {
       </section>
 
       <section className="relative py-16">
-        <div className="absolute right-0 top-10 -z-1 h-72 w-72 rounded-full bg-purple/20 blur-[120px]"></div>
         <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
           <div className="mb-10 text-center">
             <span className="hero-subtitle-gradient relative mb-4 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
@@ -1003,8 +1188,7 @@ export default function IntroFBPage() {
               SoekiaGPT
             </h2>
             <p className="mx-auto max-w-[640px] text-white/70">
-              Eine sichere Beispielanwendung fuer Unterrichtsideen, Texte und
-              Reflexion. Direkt per QR-Code erreichbar.
+            SoekiaGPT ist eine webbasierte Lernumgebung bzw. ein didaktischer Textgenerator speziell für den Unterricht. Sie wurde entwickelt, um „unter die Motorhaube“ von Sprachmodellen zu schauen. 
             </p>
           </div>
 
@@ -1012,19 +1196,37 @@ export default function IntroFBPage() {
             <div className="lg:col-span-7">
               <div className="features-box-border relative rounded-3xl">
                 <div className="box-hover relative overflow-hidden rounded-3xl p-6">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="rounded-full border border-white/10 bg-dark/60 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
-                        Screenshot-Platzhalter
-                      </span>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10 bg-dark/40">
+                    <div className="absolute inset-0 z-0 grid grid-rows-[2fr_1fr] gap-3 p-3">
+                      <div className="relative overflow-hidden rounded-xl border border-white/10">
+                        <Image
+                          src="/images/intro_fb/soekia/soekia1.png"
+                          alt="SoekiaGPT Screenshot 1"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="relative overflow-hidden rounded-xl border border-white/10">
+                          <Image
+                            src="/images/intro_fb/soekia/soekia2.png"
+                            alt="SoekiaGPT Screenshot 2"
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <div className="relative overflow-hidden rounded-xl border border-white/10">
+                          <Image
+                            src="/images/intro_fb/soekia/soekia3.png"
+                            alt="SoekiaGPT Screenshot 3"
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-dark/70 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/60">
+                    <div className="absolute left-4 top-4 z-10 rounded-full border border-white/10 bg-dark/70 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/60">
                       SoekiaGPT UI
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-                      <div className="h-2 flex-1 rounded-full bg-white/10"></div>
-                      <div className="h-2 flex-1 rounded-full bg-white/20 motion-safe:animate-pulse"></div>
-                      <div className="h-2 flex-1 rounded-full bg-white/10"></div>
                     </div>
                   </div>
                   <div className="mt-5 space-y-3 text-sm text-white/70">
@@ -1043,19 +1245,13 @@ export default function IntroFBPage() {
               <div className="features-box-border relative rounded-3xl">
                 <div className="box-hover relative overflow-hidden rounded-3xl p-6">
                   <div className="rounded-2xl border border-white/10 bg-white p-4">
-                    <div className="grid grid-cols-7 gap-1">
-                      {qrPattern.map((row, rowIndex) => (
-                        <div key={`row-${rowIndex}`} className="contents">
-                          {row.split("").map((cell, cellIndex) => (
-                            <span
-                              key={`cell-${rowIndex}-${cellIndex}`}
-                              className={`aspect-square w-full ${
-                                cell === "1" ? "bg-black" : "bg-white"
-                              }`}
-                            ></span>
-                          ))}
-                        </div>
-                      ))}
+                    <div className="relative aspect-square w-full">
+                      <Image
+                        src="/images/intro_fb/QR-Code%20Soekia.png"
+                        alt="QR-Code SoekiaGPT"
+                        fill
+                        className="object-contain"
+                      />
                     </div>
                   </div>
                   <div className="mt-5 flex items-center justify-between text-xs text-white/60">
@@ -1070,7 +1266,7 @@ export default function IntroFBPage() {
                     </a>
                   </div>
                   <p className="mt-3 text-xs text-white/50">
-                    Platzhalter fuer echten QR-Code, der zum Tool fuehrt.
+                    QR-Code fuehrt direkt zu SoekiaGPT.
                   </p>
                 </div>
               </div>
@@ -1193,11 +1389,7 @@ export default function IntroFBPage() {
               <div key={item.title} className="features-box-border relative rounded-3xl">
                 <div className="box-hover relative overflow-hidden rounded-3xl p-6">
                   <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="rounded-full border border-white/10 bg-dark/60 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
-                        Grafik-Platzhalter
-                      </span>
-                    </div>
+                    <AITypeGraphic variant={item.graphic} />
                   </div>
                   <h3 className="mt-5 text-lg font-semibold text-white">
                     {item.title}
@@ -1298,8 +1490,12 @@ export default function IntroFBPage() {
         </div>
       </section>
 
-      <section id="quiz" className="relative scroll-mt-32 py-16">
-        <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
+      <section
+        id="quiz"
+        className="relative z-[10000] isolate scroll-mt-32 py-16 pointer-events-auto"
+      >
+        <div className="pointer-events-none absolute inset-0 z-[10001] bg-dark"></div>
+        <div className="relative z-[10002] mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
           <div className="mb-10 text-center">
             <span className="hero-subtitle-gradient relative mb-4 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
               <Image
@@ -1319,49 +1515,110 @@ export default function IntroFBPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {quizQuestions.map((item, questionIndex) => (
-              <fieldset
-                key={item.question}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6"
-              >
-                <legend className="text-xs uppercase tracking-[0.2em] text-white/50">
-                  Frage {questionIndex + 1}
-                </legend>
-                <p className="mt-3 text-base font-semibold text-white">
-                  {item.question}
-                </p>
-                <div className="mt-4 space-y-2">
-                  {item.options.map((option, optionIndex) => {
-                    const id = `q${questionIndex}-o${optionIndex}`;
-                    return (
-                      <label
-                        key={id}
-                        htmlFor={id}
-                        className="flex cursor-pointer items-center gap-3 rounded-xl border border-white/10 bg-dark/40 px-3 py-2 text-sm text-white/70"
-                      >
-                        <input
-                          id={id}
-                          type="radio"
-                          name={`question-${questionIndex}`}
-                          className="h-4 w-4 accent-purple-light"
-                        />
-                        <span>{option}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </fieldset>
-            ))}
+          <IntroFBQuiz questions={quizQuestions} />
+        </div>
+      </section>
+
+      <section id="vertiefung" className="relative scroll-mt-32 py-16">
+        <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
+          <div className="mb-10 text-center">
+            <span className="hero-subtitle-gradient relative mb-4 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
+              <Image
+                src="/images/hero/icon-title.svg"
+                alt="icon"
+                width={16}
+                height={16}
+              />
+              <span className="hero-subtitle-text">Vertiefung</span>
+            </span>
+            <h2 className="mb-4 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-3">
+              Vertiefung KI-Assistenten
+            </h2>
+            <p className="mx-auto max-w-[640px] text-white/70">
+              Schon fertig und noch Zeit? Hier folgt ein vertiefendes Video sowie eine Aufgabenstellung.
+            </p>
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <button
-              type="button"
-              className="button-border-gradient inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white"
-            >
-              Antworten spaeter pruefen
-            </button>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="features-box-border relative rounded-3xl">
+              <div className="box-hover relative overflow-hidden rounded-3xl p-6">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-white/50">
+                  <span>Video</span>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px]">
+                    KI-Assistenten
+                  </span>
+                </div>
+                <div className="mt-5">
+                  <div className="relative h-0 overflow-hidden rounded-2xl border border-white/10 pb-[56.25%]">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="rounded-full border border-white/10 bg-dark/60 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
+                        Video-Platzhalter
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="features-box-border relative rounded-3xl">
+              <div className="box-hover relative overflow-hidden rounded-3xl p-6">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-white/50">
+                  <span>Aufgabe</span>
+                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px]">
+                    KI-Assistenten
+                  </span>
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  KI-Assistenten im Unterricht
+                </h3>
+                <p className="mt-3 text-sm text-white/70">
+                  Schaue das Video-Tutorial und bearbeite die Aufgabe: 
+                </p>
+                <div className="mt-5 rounded-2xl border border-white/10 bg-dark/40 p-4 text-sm text-white/50">
+                  Erstelle einen Lernhelfer in Fach X der deinem Schueler mit
+                  Begabtenfoerderung Aufgaben deutlich komplexer gestaltet und
+                  dich bei der Differenzierung nach oben unterstuetzt.
+                </div>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://chatgpt.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="ChatGPT"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition hover:border-white/30"
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-white/20 to-white/5 text-[11px]">
+                      GPT
+                    </span>
+                    ChatGPT
+                  </a>
+                  <Link
+                    href="/ddki-toolbox"
+                    aria-label="DeepChat"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition hover:border-white/30"
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-purple-light/40 to-pink-light/30 text-[11px]">
+                      DC
+                    </span>
+                    DeepChat
+                  </Link>
+                  <a
+                    href="https://notebooklm.google.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="NotebookLM"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition hover:border-white/30"
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-white/20 to-white/5 text-[11px]">
+                      NLM
+                    </span>
+                    NotebookLM
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -148,8 +148,23 @@ const ShannonExperiment = () => {
                 Shannon Experiment
               </div>
               <h3 className="mt-2 text-2xl font-semibold text-white">
-                Shannons Vorhersage und Entropie von gedrucktem Text
+                Shannons Vorhersage und Entropie
               </h3>
+              <p className="mt-3 max-w-[560px] text-sm text-white/60">
+                Das Shannon-Experiment (auch "Shannon's Game") ist ein
+                Experiment aus der Informationstheorie, das zeigt, wie
+                vorhersagbar Sprache ist und wie viel Information in einem Text
+                steckt. Dabei nimmt man einen normalen Text und laesst eine
+                Person das jeweils naechste Zeichen (Buchstabe oder Leerzeichen)
+                nur anhand des bisherigen Kontexts erraten; bei falschen
+                Versuchen bekommt sie Feedback und raet weiter, bis das Zeichen
+                stimmt. Aus der durchschnittlichen Anzahl der benoetigten
+                Versuche pro Zeichen kann man abschaetzen, wie viel "neue"
+                Information im naechsten Zeichen steckt (die Entropie): Weil
+                Sprache viele Muster und Redundanz enthaelt, ist vieles gut
+                vorhersagbar und traegt weniger neue Information - genau deshalb
+                funktioniert Datenkompression so gut.
+              </p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-sm text-white/70">
               <label className="flex items-center gap-2">
