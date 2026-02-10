@@ -22,7 +22,7 @@ const HeroStatic = () => {
             KI-Fortbildungen für Lehrkräfte
           </h1>
           <p className="mx-auto mb-9 max-w-[500px] font-medium md:text-lg text-white">
-            Stärken Sie Ihre KI-Kompetenz für den Unterricht – praxisnah und sofort anwendbar: vom Crashkurs bis zu den Vertiefungen in den Deep‑Dive‑Modulen.
+            Stärken Sie Ihre KI-Kompetenz für den Unterricht – praxisnah und sofort anwendbar: vom Crashkurs bis zu den Vertiefungen in den Deep‑Dive‑Modulen. Gerne kommen wir auch für eine SCHILF oder einen pädagogischen Tag zu Ihnen.
           </p>
         </div>
       </div>
