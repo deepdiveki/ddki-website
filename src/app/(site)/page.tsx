@@ -2,6 +2,7 @@ import CallToAction from "@/components/CallToAction";
 import Features from "@/components/Home/Features";
 import FeaturesList from "@/components/Home/FeaturesList";
 import Hero from "@/components/Home/Hero";
+import SchulFeedback from "@/components/Home/SchulFeedback";
 import { Metadata } from "next";
 import { integrations } from "../../../integrations.config";
 import CookieBanner from "@/components/CookieBanner";
@@ -22,6 +23,7 @@ export default function Home() {
       <Hero />
       
       <Features />
+      <SchulFeedback />
       <Kontakt />
       <CallToAction />
       {/* <CookieBanner />; */}

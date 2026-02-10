@@ -3,7 +3,7 @@ import Image from "next/image";
 type propsType = {
   subTitle?: string;
   title: string;
-  paragraph: string;
+  paragraph?: string;
   center?: boolean;
   icon?: string;
 };
@@ -24,7 +24,9 @@ const SectionTitle = ({
       <h2 className="mb-4.5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
         {title}
       </h2>
-      <p className="mx-auto max-w-[714px] font-medium">{paragraph}</p>
+      {paragraph ? (
+        <p className="mx-auto max-w-[714px] font-medium">{paragraph}</p>
+      ) : null}
     </div>
   );
 };
