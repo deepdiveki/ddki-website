@@ -13,7 +13,7 @@ const AboutSection = () => {
             </span>
 
             <h2 className="mb-5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
-            Crash Kurs und DeepDive Module I-VI
+            Crash Kurs und DeepDive Module I-VIII
             </h2>
             <p className="mb-9 font-medium">
             In unseren Fortbildungen stärken die Teilnehmerinnen und Teilnehmer ihre Kompetenz im Umgang mit Künstlicher Intelligenz. Sie erhalten praktische und direkt anwendbare Unterrichtsmethoden/KI - Tools sowie Material für die Verwendung von KI. Die Teilnehmerinnen und Teilnehmer lernen unterschiedliche KI-basierte Werkzeuge kennen und erproben eine neue Form von Team-Teaching. Es gibt eine Keynote und neun unterschiedliche Fortbildungen mit verschiedenen inhaltlichen Ausrichtungen wie z.B. Unterrichtseinheiten erstellen, Umgang mit Plagiaten und Unterrichtsdurchführung mit KI.

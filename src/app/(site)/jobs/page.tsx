@@ -24,18 +24,16 @@ const highlights = [
 
 const benefits = [
   "Flexible Arbeitszeiten und Remote-Setup",
-  "Persönliches Lernbudget & Konferenzen",
   "Sinnstiftende Mission im Bildungsbereich",
   "Schnelle Verantwortung und kurze Wege",
   "Moderne Tools und klare Prozesse",
-  "Regelmäßige Team-Retreats in Deutschland",
 ];
 
 const roles = [
   {
     title: "Dozent:in (m/w/d) Fokus: Datenschutz",
     team: "Education & Training",
-    type: "Vollzeit",
+    type: "Honorartätigkeit",
     location: "Remote oder Hamburg",
     summary:
       "Vermittle Datenschutzkompetenz in praxisnahen Workshops für Schulen und Hochschulen.",
@@ -57,7 +55,7 @@ const roles = [
   {
     title: "Dozent:in (m/w/d) Fokus: KI und Unterricht",
     team: "Education & Training",
-    type: "Vollzeit / Teilzeit",
+    type: "Honorartätigkeit",
     location: "DACH, hybrid",
     summary:
       "Vermittle Lehrkräften praxisnahe KI-Kompetenzen für Unterricht und Schulentwicklung.",
@@ -124,7 +122,7 @@ const faqs = [
   {
     question: "Kann ich komplett remote arbeiten?",
     answer:
-      "Ja, wir sind remote-first. Für Teamtage und Retreats treffen wir uns regelmäßig vor Ort.",
+      "Ja, wir sind remote-first. Einsätze in Deutschland sind möglich, wenn gewünscht.",
   },
   {
     question: "Wie schnell erhalte ich Feedback?",
@@ -221,7 +219,7 @@ export default function JobsPage() {
                     {
                       title: "Tempo & Verantwortung",
                       description:
-                        "Kurze Wege, schnelle Entscheidungen, echte Ownership.",
+                        "Kurze Wege, schnelle Entscheidungen, real Ownership.",
                     },
                     {
                       title: "Kundennähe",
