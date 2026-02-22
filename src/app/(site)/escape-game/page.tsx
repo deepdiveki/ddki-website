@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Suspense,
   useEffect,
   useMemo,
   useRef,
@@ -2156,7 +2157,7 @@ const buildInitialRevealedPowerups = (map: JumpRunMapConfig) =>
     return acc;
   }, {} as Record<string, boolean>);
 
-export default function EscapeGamePage() {
+function EscapeGamePageContent() {
   const searchParams = useSearchParams();
   const chapterParam = searchParams.get("chapter");
   const isChallengeMode = searchParams.get("mode") === "challenge";
@@ -4508,5 +4509,13 @@ export default function EscapeGamePage() {
 {/* REMOVED: Mini-Map, Timer & Bestzeit, Lern-Logbuch panels — decluttered in redesign */}
 
     </main>
+  );
+}
+
+export default function EscapeGamePage() {
+  return (
+    <Suspense fallback={null}>
+      <EscapeGamePageContent />
+    </Suspense>
   );
 }
