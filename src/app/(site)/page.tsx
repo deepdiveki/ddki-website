@@ -7,21 +7,46 @@ import { Metadata } from "next";
 import { integrations } from "../../../integrations.config";
 import CookieBanner from "@/components/CookieBanner";
 import Kontakt from "@/components/Kontakt";
+import JsonLd from "@/components/JsonLd";
 
 // import FloatingChatbotWidget from "@/components/FloatingChatbotWidget";
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "DeepDiveKI",
+  url: "https://www.deepdive-ki.de",
+  logo: "https://www.deepdive-ki.de/images/logo/deepdiveki-logo.svg",
+  description:
+    "DeepDiveKI bietet Schulen innovative KI-Tools: DeepChat, KI-Schulbüro und praxisnahe Fortbildungen für Lehrkräfte.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    url: "https://www.deepdive-ki.de/kontakt",
+    availableLanguage: "German",
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "DeepDiveKI",
+  url: "https://www.deepdive-ki.de",
+};
 
 export const metadata: Metadata = {
-  title: "DeepDive KI: DeepChat, KI-Schulbüro und KI Fortbildungen",
-  description: "DeepDive KI: DeepChat, KI-Schulbüro und KI Fortbildungen",
-  // other metadata
+  title: "DeepChat, KI-Schulbüro und KI-Fortbildungen für Schulen",
+  description:
+    "DeepDiveKI bietet Schulen innovative KI-Tools: DeepChat für den Unterricht, KI-Schulbüro für die Schulwebsite und praxisnahe Fortbildungen für Lehrkräfte.",
 };
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={organizationJsonLd} />
+      <JsonLd data={websiteJsonLd} />
       <Hero />
-      
+
       <Features />
       <SchulFeedback />
       <Kontakt />

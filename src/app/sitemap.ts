@@ -42,6 +42,30 @@ const collectRoutes = () => {
   return Array.from(new Set(routes)).sort();
 };
 
+const priorityMap: Record<string, number> = {
+  "/": 1.0,
+  "/ddki-toolbox": 0.8,
+  "/chatbot-fuer-ihre-schule": 0.8,
+  "/websites": 0.7,
+  "/playground": 0.7,
+  "/escape-game": 0.7,
+  "/li_superhirn": 0.7,
+  "/kontakt": 0.6,
+  "/kontakt-chat-bot": 0.6,
+};
+
+const frequencyMap: Record<string, MetadataRoute.Sitemap[number]["changeFrequency"]> = {
+  "/": "weekly",
+  "/ddki-toolbox": "monthly",
+  "/chatbot-fuer-ihre-schule": "monthly",
+  "/websites": "monthly",
+  "/playground": "monthly",
+  "/escape-game": "monthly",
+  "/li_superhirn": "monthly",
+  "/kontakt": "yearly",
+  "/kontakt-chat-bot": "yearly",
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const routes = collectRoutes();
@@ -49,5 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: now,
+    priority: priorityMap[route] ?? 0.5,
+    changeFrequency: frequencyMap[route] ?? "monthly",
   }));
 }

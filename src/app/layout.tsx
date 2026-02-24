@@ -8,7 +8,10 @@ const siteUrl = process.env.SITE_URL || "https://www.deepdive-ki.de";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "DeepDiveKI Künstliche Intelligenz für Schulen und Universitäten",
+  title: {
+    template: "%s | DeepDiveKI",
+    default: "DeepDiveKI – KI-Lösungen für Schulen und Universitäten",
+  },
   description:
     "Mit dem DeepChat, dem KI-Schulbüro und den Fortbildungen zum Thema KI, bieten wir eine breite Palette von KI Produkten für Ihre Institution an.",
   robots: {
@@ -17,6 +20,23 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "rapFK4LKVJ-ur_9PSHMiVY7sFbmvzuTvfYj7TS-bqNE.",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "DeepDiveKI",
+    locale: "de_DE",
+    url: siteUrl,
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DeepDiveKI – KI-Lösungen für Schulen",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

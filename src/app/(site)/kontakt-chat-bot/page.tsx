@@ -10,9 +10,9 @@ import CookieBanner from "@/components/CookieBanner";
 
 
 export const metadata: Metadata = {
-  title: "Über uns | DeepDive KI ToolBox und KI Fortbildungen",
-  description: "Über uns DeepDive KI ToolBox und KI Fortbildungen",
-  // other metadata
+  title: "Kontakt-Chatbot – Fragen Sie unseren KI-Assistenten",
+  description:
+    "Stellen Sie Ihre Fragen direkt an unseren KI-Chatbot. Erhalten Sie sofortige Antworten zu DeepDiveKI-Produkten, Preisen und Funktionen.",
 };
 
 const KontaktPage = () => {
