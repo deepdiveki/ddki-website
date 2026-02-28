@@ -3807,12 +3807,12 @@ function EscapeGamePageContent() {
               <h2 className={`${displayFont.className} text-2xl`}>
                 {isChallengeMode
                   ? `Challenge-Modus: ${activeChapter.title}`
-                  : "SoekiaGPT Quest: KI-Multiversum (Jump & Run)"}
+                  : "KI-Multiversum (Jump & Run)"}
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-700">
                 {isChallengeMode
                   ? "Schließe diese Challenge erfolgreich ab, um deinen 6-stelligen Missions-Code zu erhalten."
-                  : "Wähle ein Chapter, laufe durch die 2D-Welt und löse die passenden Lernstationen aus dem Mission Scroll."}
+                  : "Laufe durch die 2D-Welt und löse die passenden Lernstationen aus dem Mission Scroll."}
               </p>
             </div>
             <div className="border-4 border-black bg-white px-4 py-3 text-xs uppercase tracking-[0.2em] shadow-[4px_4px_0_#000]">

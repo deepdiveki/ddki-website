@@ -14,6 +14,7 @@ import {
   IconPlayerPlay,
   IconPuzzle,
   IconRocket,
+  IconExternalLink,
   IconSparkles,
   IconX,
 } from "@tabler/icons-react";
@@ -63,6 +64,13 @@ type QuizQuestion = {
   explanation: string;
 };
 
+type InteractiveTool = {
+  title: string;
+  description: string;
+  url: string;
+  label: string;
+};
+
 type TutorialConfig = {
   id: DimensionId;
   title: string;
@@ -73,6 +81,7 @@ type TutorialConfig = {
   knowledgeBlocks: KnowledgeBlock[];
   exercise: InteractiveExercise;
   quizQuestions: QuizQuestion[];
+  interactiveTools?: InteractiveTool[];
   challengeSummary: string;
 };
 
@@ -116,6 +125,24 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
         takeaway:
           "Halluzination und Bias sind keine Bugs, sondern systemische Eigenschaften. Jede KI-Ausgabe braucht professionelle Prüfung.",
       },
+      {
+        title: "KI-Kategorien: Von schwacher KI bis Superintelligenz",
+        content:
+          "KI ist nicht gleich KI. Heute existiert ausschließlich schwache KI (Weak AI): Systeme, die auf spezifische Aufgaben spezialisiert sind — Bilderkennung, Textgenerierung, Sprachübersetzung. Starke KI (Strong AI), ein System mit allgemeiner menschenähnlicher Intelligenz, existiert bislang nur als Forschungsvision. Superintelligenz — KI, die menschliche Intelligenz in allen Bereichen übertrifft — ist reine Hypothese. Diese Unterscheidung ist wichtig, weil die öffentliche Debatte oft Fähigkeiten schwacher KI mit Szenarien starker KI vermischt.",
+        example:
+          "ChatGPT ist schwache KI: Es kann beeindruckend Texte generieren, aber es kann weder ein Bild riechen noch ein physisches Experiment durchführen. Es ist ein Spezialist für Sprachverarbeitung — kein universeller Denker.",
+        takeaway:
+          "Alle heutigen KI-Systeme sind schwache KI. Die Unterscheidung hilft, überzogene Erwartungen und Ängste einzuordnen.",
+      },
+      {
+        title: "Maschinelles Lernen: Der Feedback-Loop",
+        content:
+          "Maschinelles Lernen (ML) ist der Motor hinter moderner KI. Das Grundprinzip: Ein neuronales Netzwerk erhält Trainingsdaten, trifft Vorhersagen, vergleicht sie mit den erwarteten Ergebnissen und passt seine internen Gewichtungen an — ein kontinuierlicher Feedback-Loop. Bei Sprachmodellen bedeutet das: Das System liest Milliarden von Sätzen und lernt durch wiederholte Fehlerkorrektur, welche Wortfolgen wahrscheinlich sind. Je mehr Daten und Rechenleistung, desto besser die Vorhersagen — aber nicht das Verständnis.",
+        example:
+          "Stell dir vor, du übst Vokabeln mit Karteikarten. Nach jeder falschen Antwort wird die Karte wieder einsortiert. Mit der Zeit wirst du besser — nicht weil du die Sprache 'verstehst', sondern weil du die Muster gelernt hast. Ähnlich funktioniert ML: Training durch Wiederholung und Fehlerkorrektur.",
+        takeaway:
+          "ML lernt durch Daten und Feedback-Loops. Mehr Daten verbessern die Vorhersagen, aber nicht das Verständnis.",
+      },
     ],
     exercise: {
       instruction:
@@ -131,10 +158,28 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
         { id: "e6", label: "Eigene Fehler selbstständig erkennen und korrigieren", correctCategory: "B" },
         { id: "e7", label: "Bilder nach Beschreibungen erzeugen", correctCategory: "A" },
         { id: "e8", label: "Moralische Urteile begründet fällen", correctCategory: "B" },
+        { id: "e9", label: "Allgemeine Intelligenz wie ein Mensch besitzen", correctCategory: "B" },
+        { id: "e10", label: "Aus großen Datenmengen statistische Zusammenhänge lernen", correctCategory: "A" },
       ],
       successMessage:
-        "Richtig! KI ist stark bei Mustererkennung und Generierung, aber sie versteht nicht, urteilt nicht und prüft sich nicht selbst.",
+        "Richtig! KI ist stark bei Mustererkennung und Generierung, aber sie versteht nicht, urteilt nicht und prüft sich nicht selbst. Alle heutigen KI-Systeme sind spezialisierte (schwache) KI.",
     },
+    interactiveTools: [
+      {
+        title: "SoekiaGPT – Token-Vorhersage interaktiv erleben",
+        description:
+          "Eine webbasierte Lernumgebung, in der du nachvollziehen kannst, wie Trainingstexte zu Vorhersagen für das nächste Wort führen. Verändere gezielt die Datenbasis und Parameter und beobachte, wie sich Bias oder Halluzinationen ergeben.",
+        url: "https://soekia.ch/GPT/",
+        label: "SoekiaGPT ausprobieren",
+      },
+      {
+        title: "Shannon-Experiment – Wie vorhersagbar ist Sprache?",
+        description:
+          "Versuche, Buchstabe für Buchstabe einen unbekannten Satz zu erraten. Dieses klassische Experiment von Claude Shannon (1951) zeigt: Sprache ist überraschend vorhersagbar — genau dieses Prinzip nutzen große Sprachmodelle für die Token-Vorhersage.",
+        url: "https://www.deepdive-ki.de/intro_fb",
+        label: "Zum Shannon-Experiment",
+      },
+    ],
     quizQuestions: [
       {
         id: "q1",
@@ -191,9 +236,71 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
         explanation:
           "Wenn Trainingsdaten gesellschaftliche Verzerrungen enthalten (z.B. Geschlechter-Stereotype), reproduziert die KI diese systematisch. Im Schulkontext ist das besonders relevant, weil Lehrmaterialien inklusiv und diversitätssensibel sein müssen.",
       },
+      {
+        id: "q4",
+        question: "Was beschreibt ein Token im Kontext von Sprachmodellen?",
+        options: [
+          { id: "a", label: "Ein komplettes Wort in einer bestimmten Sprache.", correct: false },
+          {
+            id: "b",
+            label:
+              "Ein Wortteil, Wort oder Zeichen — die kleinste Verarbeitungseinheit des Modells.",
+            correct: true,
+          },
+          { id: "c", label: "Ein Sicherheitsschlüssel für den API-Zugang.", correct: false },
+        ],
+        explanation:
+          "Tokens sind die Bausteine, mit denen Sprachmodelle arbeiten. Ein Token kann ein ganzes Wort, ein Wortteil oder sogar ein einzelnes Zeichen sein. Das Modell verarbeitet und erzeugt Text Token für Token.",
+      },
+      {
+        id: "q5",
+        question: "Welche Art von KI existiert heute tatsächlich?",
+        options: [
+          {
+            id: "a",
+            label: "Starke KI mit allgemeiner menschlicher Intelligenz.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label: "Schwache KI, die auf spezifische Aufgaben spezialisiert ist.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Superintelligenz, die menschliches Denken übertrifft.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Alle heutigen KI-Systeme — von ChatGPT bis zur Bilderkennung — sind schwache KI (Weak AI). Sie sind auf bestimmte Aufgaben spezialisiert. Starke KI und Superintelligenz sind bislang Forschungsvision bzw. Hypothese.",
+      },
+      {
+        id: "q6",
+        question: "Warum ist der Kontext bei einem Sprachmodell entscheidend?",
+        options: [
+          {
+            id: "a",
+            label: "Weil das Modell nur Texte in einer bestimmten Sprache verarbeitet.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label: "Weil der Kontext die Wahrscheinlichkeit der nächsten Tokens steuert.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Weil ohne Kontext das Modell keine Internetverbindung hat.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Der Kontext — also alle bisherigen Tokens in der Eingabe — bestimmt, welche Fortsetzungen das Modell als wahrscheinlich berechnet. Mehr und präziserer Kontext führt zu relevanteren Ausgaben.",
+      },
     ],
     challengeSummary:
-      "Du weißt jetzt, wie KI Muster erkennt, warum Sprachmodelle überzeugend klingen ohne zu verstehen, und welche Risiken durch Halluzination und Bias entstehen. In der Jump-&-Run-Challenge wendest du dieses Wissen an den Lernstationen an.",
+      "Du weißt jetzt, wie KI Muster erkennt, warum Sprachmodelle überzeugend klingen ohne zu verstehen, welche Risiken durch Halluzination und Bias entstehen, und wie du schwache KI von Science-Fiction unterscheidest. Du kennst den Feedback-Loop des Maschinellen Lernens und hast interaktive Tools zur Token-Vorhersage kennengelernt. In der Jump-&-Run-Challenge wendest du dieses Wissen an den Lernstationen an.",
   },
 
   durch: {
@@ -232,6 +339,24 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Eine KI-Plattform empfiehlt, einen Schüler in einen niedrigeren Kurs umzustufen, basierend auf Testergebnissen. Die Lehrkraft kennt aber den familiären Hintergrund und weiß, dass der Schüler gerade eine schwierige Phase durchlebt. Die menschliche Einschätzung korrigiert die algorithmische.",
         takeaway:
           "Lernziele, Bewertung und Verantwortung bleiben menschliche Aufgaben — KI liefert Daten, nicht Urteile.",
+      },
+      {
+        title: "Das Feedback-Modell nach Hattie & Timperley",
+        content:
+          "Das meistzitierte Feedback-Modell der Bildungsforschung stammt von Hattie und Timperley (2007). Es definiert drei Leitfragen: 'Feed Up' (Wo will ich hin?), 'Feed Back' (Wo stehe ich?) und 'Feed Forward' (Was ist der nächste Schritt?). Zusätzlich unterscheidet es vier Feedback-Ebenen: Aufgabenebene (richtig/falsch), Prozessebene (Lernstrategien), Selbstregulationsebene (Metakognition) und Selbstebene ('Du bist toll!'). Die Selbstebene ist dabei am wenigsten lernwirksam — obwohl KI-Systeme besonders häufig genau dieses unspezifische Lob produzieren.",
+        example:
+          "Ein KI-Feedback wie 'Toller Text! Du hast das super gemacht!' operiert auf der Selbstebene — es klingt nett, enthält aber null aufgabenbezogene Information. Ein Feedback auf der Prozessebene wäre: 'Dein Argument wäre stärker, wenn du zuerst die Gegenposition darstellst und dann widerlegst.' Das gibt eine konkrete Strategie für den nächsten Schritt.",
+        takeaway:
+          "Lernwirksames Feedback beantwortet: Wo hin? Wo stehe ich? Was kommt als Nächstes? — nicht: 'Du bist toll!'",
+      },
+      {
+        title: "Blooms 2-Sigma-Problem und KI-Tutoring",
+        content:
+          "Benjamin Bloom zeigte 1984, dass Schüler mit individuellem 1:1-Tutoring im Schnitt zwei Standardabweichungen besser abschneiden als Schüler im Klassenunterricht — der tutorierte Durchschnittsschüler übertrifft 98% der Klassengruppe. Das Problem: 1:1-Tutoring ist für Bildungssysteme nicht finanzierbar. KI-Tutoring-Systeme versprechen, diese Lücke zu schließen. Aktuelle Studien zeigen Effektstärken von 0,73 bis 1,3 Sigma — vielversprechend, aber noch nicht bei 2 Sigma. Wichtig: Blooms Effekt entstand nicht durch Tutoring allein, sondern durch die Kombination aus Tutoring, häufigem Feedback und mehr Lernzeit.",
+        example:
+          "Ein KI-Tutor wie Khanmigo (Khan Academy) nutzt den sokratischen Ansatz: Statt die Antwort zu geben, stellt er Gegenfragen ('Was passiert, wenn du beide Seiten der Gleichung durch 3 teilst?'). Das simuliert 1:1-Tutoring — aber ohne die menschliche Intuition, wann ein Schüler frustriert ist und Ermutigung statt einer weiteren Frage braucht.",
+        takeaway:
+          "KI-Tutoring schließt die 2-Sigma-Lücke teilweise, erreicht aber nicht die Wirkung menschlichen 1:1-Tutorings. Die Kombination ist entscheidend.",
       },
     ],
     exercise: {
@@ -272,10 +397,32 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           correctCategory: "A",
         },
         { id: "e8", label: "Insgesamt eine solide Leistung.", correctCategory: "B" },
+        {
+          id: "e9",
+          label: "Dein erster Absatz enthält eine starke These, aber der Beleg in Zeile 4 stützt sie nicht — wähle ein Beispiel, das Ursache und Wirkung zeigt.",
+          correctCategory: "A",
+        },
+        { id: "e10", label: "Der Text hat Stärken und Schwächen.", correctCategory: "B" },
       ],
       successMessage:
-        "Richtig! Professionelles Feedback benennt konkret, was zu verbessern ist und wie. Generisches Feedback klingt nett, führt aber nicht zum nächsten Lernschritt.",
+        "Richtig! Professionelles Feedback benennt konkret, was zu verbessern ist und wie. Generisches Feedback klingt nett, führt aber nicht zum nächsten Lernschritt. Denk an Hattie & Timperley: Feed Up, Feed Back, Feed Forward!",
     },
+    interactiveTools: [
+      {
+        title: "PEER AI Tutor – KI-Textfeedback live testen",
+        description:
+          "Kostenloser KI-Schreibtutor der TU München. Gib einen Schülertext ein und erhalte mehrstufiges Feedback: allgemeines Feedback, kriterienbasierte Rückmeldung und konkrete Verbesserungsvorschläge. Ideal zum Vergleich mit eigenem professionellem Feedback.",
+        url: "https://peer-ai-tutor.streamlit.app/",
+        label: "PEER ausprobieren",
+      },
+      {
+        title: "FelloFish – KI-Feedback für die Schule",
+        description:
+          "DSGVO-konformes Feedback-Tool, bei dem Lehrkräfte Aufgabe und Bewertungskriterien definieren. Schüler reichen Texte ein und erhalten in Sekunden kriterienbasiertes KI-Feedback. Über 15.000 Lehrkräfte in Deutschland nutzen das Tool bereits.",
+        url: "https://www.fellofish.com/",
+        label: "FelloFish entdecken",
+      },
+    ],
     quizQuestions: [
       {
         id: "q1",
@@ -341,9 +488,81 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
         explanation:
           "Professionelles Lernen durch KI bedeutet: Die KI unterstützt mit Daten, Feedback und Adaptivität. Aber die Verantwortung für Lernziele, Bewertungskriterien und pädagogische Entscheidungen bleibt beim Menschen.",
       },
+      {
+        id: "q4",
+        question:
+          "Welche Feedback-Ebene nach Hattie & Timperley ist am WENIGSTEN lernwirksam?",
+        options: [
+          {
+            id: "a",
+            label: "Aufgabenebene: 'Du hast 3 von 5 Aufgaben richtig.'",
+            correct: false,
+          },
+          {
+            id: "b",
+            label: "Prozessebene: 'Versuche, die Aufgabe mit einer Mindmap zu strukturieren.'",
+            correct: false,
+          },
+          {
+            id: "c",
+            label: "Selbstebene: 'Du bist ein kluger Schüler!'",
+            correct: true,
+          },
+        ],
+        explanation:
+          "Feedback auf der Selbstebene ('Du bist toll!') hat den geringsten Lerneffekt, weil es keine aufgabenbezogene Information enthält. Viele KI-Systeme neigen zu genau diesem unspezifischen Lob. Lernwirksames Feedback bezieht sich auf Aufgabe, Prozess oder Selbstregulation.",
+      },
+      {
+        id: "q5",
+        question: "Was besagt Blooms 2-Sigma-Problem in Bezug auf KI-Tutoring?",
+        options: [
+          {
+            id: "a",
+            label: "KI-Tutoren sind doppelt so effektiv wie menschliche Lehrkräfte.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label:
+              "1:1-Tutoring führt zu massiven Leistungssteigerungen, ist aber zu teuer — KI könnte diese Lücke teilweise schließen.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Nach 2 Stunden KI-Tutoring erreichen alle Schüler das gleiche Niveau.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Bloom zeigte, dass tutorierte Schüler 98% der Klassen-Schüler übertreffen. Das Problem: 1:1-Tutoring ist nicht skalierbar. KI-Tutoren erreichen Effektstärken von 0,73-1,3 Sigma — vielversprechend, aber noch nicht auf dem Niveau menschlicher Tutoren.",
+      },
+      {
+        id: "q6",
+        question: "Was unterscheidet formatives von summativem KI-Feedback?",
+        options: [
+          {
+            id: "a",
+            label: "Formatives Feedback gibt es nur am Ende, summatives während des Lernens.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label:
+              "Formatives Feedback begleitet den Lernprozess und ermöglicht Überarbeitung; summatives Feedback bewertet das Endergebnis.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Es gibt keinen Unterschied — beides bedeutet Bewertung.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Formatives KI-Feedback unterstützt den Lernprozess: Schüler erhalten Rückmeldung während der Arbeit und können iterativ überarbeiten. Summatives Feedback bewertet nach Abschluss. Pädagogischer Konsens: Formatives Feedback ist lernwirksamer, weil es den nächsten Lernschritt aktiv unterstützt.",
+      },
     ],
     challengeSummary:
-      "Du kannst jetzt KI-Feedback professionell bewerten, algorithmische Steuerung hinterfragen und weißt, wo menschliche Verantwortung unverzichtbar bleibt. In der Challenge testest du dieses Wissen an den Lernstationen.",
+      "Du kannst jetzt KI-Feedback mit dem Hattie-Timperley-Modell professionell bewerten, kennst Blooms 2-Sigma-Problem und die Grenzen von KI-Tutoring, und weißt, wo menschliche Verantwortung unverzichtbar bleibt. In der Challenge testest du dieses Wissen an den Lernstationen.",
   },
 
   mit: {
@@ -382,6 +601,24 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Am Hamburger LI könnte eine Governance-Regel lauten: 'Wenn KI bei der Erstellung von Prüfungsaufgaben genutzt wird, muss dokumentiert werden: (1) welches Tool, (2) welche Prompts, (3) welche menschlichen Änderungen. Die fachliche Verantwortung liegt bei der Lehrkraft.'",
         takeaway:
           "Transparenz über KI-Einsatz ist kein Nice-to-have, sondern professioneller Standard.",
+      },
+      {
+        title: "Prompt-Techniken: Chain-of-Thought und Few-Shot",
+        content:
+          "Zwei Prompting-Techniken verbessern die Qualität von KI-Ausgaben erheblich: Chain-of-Thought (CoT) fordert die KI auf, ihre Zwischenschritte sichtbar zu machen — das verbessert besonders mathematische und logische Aufgaben. Die einfachste Umsetzung: 'Lass uns Schritt für Schritt denken' an den Prompt anhängen. Few-Shot Prompting gibt der KI 2-5 Beispiele des gewünschten Ergebnisses, sodass sie das Muster erkennt und auf neue Aufgaben überträgt. Beide Techniken zeigen: KI versteht nicht, sondern folgt Mustern — das ist ein zentrales KI-Literacy-Konzept.",
+        example:
+          "Prompt ohne CoT: 'Was ist 17 × 23?' → KI antwortet direkt (manchmal falsch). Prompt mit CoT: 'Was ist 17 × 23? Rechne Schritt für Schritt.' → KI zeigt: 17 × 20 = 340, 17 × 3 = 51, 340 + 51 = 391. Die Zwischenschritte machen die Antwort nachvollziehbar und reduzieren Fehler.",
+        takeaway:
+          "Chain-of-Thought macht Denkwege sichtbar, Few-Shot lehrt durch Beispiele. Beide Techniken stärken die Kontrolle über KI-Ausgaben.",
+      },
+      {
+        title: "Regulierung: KMK-Empfehlung und EU AI Act",
+        content:
+          "Die KMK-Handlungsempfehlung (Oktober 2024) definiert fünf Handlungsfelder für KI in der Schule: Didaktik, Prüfungen, Lehrerbildung, Regulierung und Chancengerechtigkeit. Sie fordert eine Anpassung der Prüfungskultur und die Verankerung von KI-Kompetenzen in der Lehrkräftebildung. Der EU AI Act (seit 2024 in Kraft) klassifiziert Bildung als 'Hochrisiko-Bereich' — ähnlich wie Gesundheitswesen. Das bedeutet: KI-Systeme für Benotung, Zulassung oder Prüfungsüberwachung unterliegen strengen Transparenz- und Aufsichtspflichten. Seit Februar 2025 müssen Schulen KI-Literacy-Schulungen für ihr Personal sicherstellen.",
+        example:
+          "Eine Schule setzt ein KI-System ein, das Bewerbungen für einen begrenzten Schulplatz vorselektiert. Nach dem EU AI Act muss dieses System strenge Anforderungen an Transparenz, Fairness und menschliche Aufsicht erfüllen — die finale Entscheidung darf nicht allein dem Algorithmus überlassen werden.",
+        takeaway:
+          "Bildung ist laut EU AI Act ein Hochrisiko-Bereich. Governance ist keine Kür, sondern wachsende rechtliche Pflicht.",
       },
     ],
     exercise: {
@@ -422,10 +659,28 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           label: "Zusammenfassungen langer Texte erstellen",
           correctCategory: "B",
         },
+        { id: "e9", label: "Entscheiden, ob KI-Einsatz in einer Prüfung erlaubt ist", correctCategory: "A" },
+        { id: "e10", label: "Prompt-Varianten für verschiedene Schwierigkeitsstufen generieren", correctCategory: "B" },
       ],
       successMessage:
-        "Richtig! Der Mensch verantwortet Ziele, Entscheidungen und Qualität. Die KI unterstützt bei Generierung, Variation und Routineaufgaben.",
+        "Richtig! Der Mensch verantwortet Ziele, Entscheidungen und Qualität. Die KI unterstützt bei Generierung, Variation und Routineaufgaben. Ko-Kreation heißt: Der Mensch steuert, die KI liefert.",
     },
+    interactiveTools: [
+      {
+        title: "Learn Prompting – Interaktiver Prompting-Kurs (Deutsch)",
+        description:
+          "Kostenloser, interaktiver Kurs zum Prompt Engineering auf Deutsch. Du kannst Prompts direkt auf der Seite testen und verschiedene Techniken wie Few-Shot, Chain-of-Thought und Role Prompting ausprobieren — ohne technische Vorkenntnisse.",
+        url: "https://learnprompting.org/de/docs/basics/introduction",
+        label: "Kurs starten",
+      },
+      {
+        title: "PAIR Explorables – KI-Konzepte interaktiv erleben (Google)",
+        description:
+          "16 interaktive Visualisierungen von Google PAIR, die grundlegende KI-Konzepte erklären: Bias, Fairness, Datenschutz, neuronale Netze. Komplett im Browser nutzbar und ohne Registrierung — ideal um zu verstehen, was 'unter der Haube' passiert.",
+        url: "https://pair.withgoogle.com/explorables/",
+        label: "Explorables öffnen",
+      },
+    ],
     quizQuestions: [
       {
         id: "q1",
@@ -499,9 +754,82 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
         explanation:
           "Governance ist weder Verbot noch blinde Empfehlung. Es sind klare, verbindliche Regeln: Wann darf KI eingesetzt werden? Wie wird der Einsatz dokumentiert? Welche Qualitätskriterien gelten? Wer trägt die Verantwortung?",
       },
+      {
+        id: "q4",
+        question:
+          "Was bewirkt die Anweisung 'Lass uns Schritt für Schritt denken' in einem Prompt?",
+        options: [
+          {
+            id: "a",
+            label: "Die KI antwortet schneller und kürzer.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label:
+              "Die KI zeigt ihre Zwischenschritte, was die Qualität komplexer Antworten verbessert.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Die KI verwendet weniger Rechenleistung.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Chain-of-Thought (CoT) Prompting fordert die KI auf, ihren 'Denkprozess' sichtbar zu machen. Die Genauigkeit verbessert sich besonders bei mathematischen, logischen und komplexen Aufgaben. Das entspricht der pädagogischen Methode des 'lauten Denkens'.",
+      },
+      {
+        id: "q5",
+        question: "Wie klassifiziert der EU AI Act den Bildungsbereich?",
+        options: [
+          {
+            id: "a",
+            label: "Als 'Niedrigrisiko' — keine besonderen Regeln nötig.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label:
+              "Als 'Hochrisiko' — strenge Anforderungen an Transparenz, Fairness und menschliche Aufsicht.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Als 'Verbotener Bereich' — KI darf in Schulen nicht eingesetzt werden.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Der EU AI Act stuft Bildung als 'High-Risk'-Bereich ein. KI-Systeme für Zulassungsentscheidungen, Benotung oder Prüfungsüberwachung müssen strenge Anforderungen erfüllen. Seit Februar 2025 müssen Schulen KI-Literacy-Schulungen für ihr Personal sicherstellen.",
+      },
+      {
+        id: "q6",
+        question: "Was bedeutet 'Few-Shot Prompting'?",
+        options: [
+          {
+            id: "a",
+            label: "Man gibt der KI möglichst wenig Informationen.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label:
+              "Man gibt der KI einige Beispiele des gewünschten Ergebnisses, damit sie das Muster erkennt und anwendet.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Man stellt der KI mehrere verschiedene Fragen gleichzeitig.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Beim Few-Shot Prompting werden der KI 2-5 Beispiele des gewünschten Formats gezeigt. Die KI erkennt das Muster und überträgt es auf neue Aufgaben. Das zeigt, dass KI Muster reproduziert statt zu verstehen — ein wichtiges KI-Literacy-Konzept.",
+      },
     ],
     challengeSummary:
-      "Du verstehst jetzt den Unterschied zwischen Ko-Kreation und Delegation, weißt warum Prompt-Dokumentation wichtig ist und kennst die Grundlagen professioneller KI-Governance. Ab in die Challenge!",
+      "Du verstehst jetzt den Unterschied zwischen Ko-Kreation und Delegation, beherrschst Prompt-Techniken wie Chain-of-Thought und Few-Shot, weißt warum Prompt-Dokumentation wichtig ist und kennst die Grundlagen professioneller KI-Governance — von der KMK-Empfehlung bis zum EU AI Act. Ab in die Challenge!",
   },
 
   trotz: {
@@ -540,6 +868,24 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Eine Hausarbeit kann mit KI in einer Stunde geschrieben werden. Aber wenn der Schüler die Arbeit mündlich verteidigen muss, Rückfragen beantworten und den Arbeitsprozess dokumentiert hat, wird Eigenleistung sichtbar — unabhängig davon, ob KI genutzt wurde.",
         takeaway:
           "Prüfungen müssen Eigenleistung sichtbar machen, nicht KI-Nutzung verhindern.",
+      },
+      {
+        title: "KI-Erkennung: Warum Detektoren scheitern",
+        content:
+          "KI-Erkennungstools wie GPTZero oder Turnitin versprechen, KI-generierte Texte zu identifizieren. Die Realität: OpenAI hat seinen eigenen Detektor eingestellt — er erkannte nur 26% der KI-Texte und markierte 9% menschlicher Texte fälschlicherweise als KI-generiert. Eine Stanford-Studie zeigte, dass 97% der TOEFL-Aufsätze von nicht-muttersprachlichen Schreibenden von mindestens einem Detektor fälschlicherweise als KI markiert wurden. Mehrere Elite-Universitäten (Yale, Johns Hopkins, Vanderbilt) haben Turnitins KI-Erkennung deaktiviert. Die Konsequenz: KI-Detektoren sind als alleiniges Bewertungsinstrument ungeeignet.",
+        example:
+          "Eine Lehrkraft lässt einen Schüleraufsatz durch GPTZero prüfen. Ergebnis: '87% Wahrscheinlichkeit, dass der Text KI-generiert ist.' Der Schüler hat den Text selbst geschrieben. Eine einfache Umformulierung ('Schreibe wie ein Teenager') lässt die KI-Erkennung von 100% auf 0% fallen. Die vermeintliche Sicherheit der Detektoren ist trügerisch.",
+        takeaway:
+          "KI-Detektoren sind unzuverlässig und diskriminieren systematisch nicht-muttersprachliche Schreibende. Vertrauen auf Detektoren ersetzt keine professionelle Urteilskraft.",
+      },
+      {
+        title: "Die fünf Dimensionen des Prüfens im KI-Zeitalter",
+        content:
+          "Joscha Falck unterscheidet fünf Dimensionen, wie Prüfungen im KI-Zeitalter gestaltet werden können: (1) Prüfen OHNE KI — klassisch, beaufsichtigt, papierbasiert. (2) Prüfen TROTZ KI — Standardformate trotz KI-Verfügbarkeit. (3) Prüfen ÜBER KI — KI selbst wird zum Prüfungsgegenstand. (4) Prüfen MIT KI — Schüler nutzen KI bewusst und dokumentiert. (5) Prüfen DURCH KI — automatisierte Bewertungssysteme. Dieses Modell hilft Lehrkräften, differenzierte Prüfungsstrategien zu entwickeln, statt zwischen 'KI verbieten' und 'KI erlauben' zu pendeln.",
+        example:
+          "Prüfen MIT KI: Schüler erhalten die Aufgabe, mit Hilfe von ChatGPT eine Erörterung zu verfassen. Sie müssen ihre Prompts, den Chatverlauf und alle eigenen Änderungen dokumentieren. Die Bewertung bezieht sich auf die Qualität der Prompts, die kritische Prüfung der KI-Ausgaben und die eigene Überarbeitung — nicht nur auf das Endprodukt.",
+        takeaway:
+          "Prüfen im KI-Zeitalter hat fünf Dimensionen — die professionelle Antwort ist Differenzierung, nicht Verbot oder blinde Erlaubnis.",
       },
     ],
     exercise: {
@@ -588,10 +934,36 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           label: "KI-generierte Unterrichtsentwürfe sind immer schlecht.",
           correctCategory: "B",
         },
+        {
+          id: "e9",
+          label: "KI-Erkennungstools können zuverlässig zwischen menschlichen und KI-Texten unterscheiden.",
+          correctCategory: "B",
+        },
+        {
+          id: "e10",
+          label: "KI kann den Lernprozess eines Schülers nicht eigenständig bewerten und verantworten.",
+          correctCategory: "A",
+        },
       ],
       successMessage:
-        "Richtig! KI hat echte Grenzen (Urteilskraft, Kontextwissen, Werte), aber viele pauschale Aussagen über KI sind Mythen. Professionelle Haltung bedeutet: differenziert prüfen, nicht pauschal urteilen.",
+        "Richtig! KI hat echte Grenzen (Urteilskraft, Kontextwissen, Werte, Bewertungsverantwortung), aber viele pauschale Aussagen über KI sind Mythen — einschließlich der vermeintlichen Zuverlässigkeit von KI-Detektoren.",
     },
+    interactiveTools: [
+      {
+        title: "GPTZero – KI-Erkennung live testen",
+        description:
+          "Teste selbst, wie (un)zuverlässig KI-Erkennung ist: Füge eigene Texte, Schülertexte oder KI-generierte Texte ein und beobachte die Ergebnisse. Ideal um zu erleben, warum KI-Detektoren als alleiniges Bewertungsinstrument ungeeignet sind.",
+        url: "https://gptzero.me",
+        label: "GPTZero ausprobieren",
+      },
+      {
+        title: "Stanford CRAFT – KI-Literacy Aktivitäten",
+        description:
+          "Kostenlose, browserbasierte Aktivitäten der Stanford University für kritisches Denken über KI. Die Übung 'AI or Not AI?' trainiert die Fähigkeit, KI-Fähigkeiten realistisch einzuschätzen — eine Kernkompetenz für 'Lernen trotz KI'.",
+        url: "https://craft.stanford.edu/resources/",
+        label: "CRAFT-Aktivitäten entdecken",
+      },
+    ],
     quizQuestions: [
       {
         id: "q1",
@@ -666,9 +1038,82 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
         explanation:
           "Professionelle Haltung 'trotz KI' heißt weder Ablehnung noch unkritische Übernahme. Es bedeutet: Mit Urteilskraft prüfen, mit Fachwissen begründen und die Verantwortung für pädagogische Entscheidungen behalten — auch wenn KI beeindruckende Ergebnisse liefert.",
       },
+      {
+        id: "q4",
+        question: "Warum hat OpenAI seinen eigenen KI-Textdetektor eingestellt?",
+        options: [
+          {
+            id: "a",
+            label: "Weil er zu teuer im Betrieb war.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label:
+              "Weil er nur 26% der KI-Texte erkannte und 9% menschlicher Texte fälschlicherweise als KI markierte.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Weil er gegen Datenschutzgesetze verstieß.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "OpenAIs eigener Detektor hatte eine so niedrige Trefferquote (26%) und eine so hohe Falsch-Positiv-Rate (9%), dass er mehr Schaden als Nutzen anrichtete. Selbst der Entwickler der führenden KI-Technologie konnte kein zuverlässiges Erkennungstool bauen.",
+      },
+      {
+        id: "q5",
+        question:
+          "Welche fünf Dimensionen des Prüfens im KI-Zeitalter unterscheidet Joscha Falck?",
+        options: [
+          {
+            id: "a",
+            label: "Digital, Analog, Hybrid, Mündlich, Schriftlich.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label: "Ohne KI, Trotz KI, Über KI, Mit KI, Durch KI.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Wissen, Verstehen, Anwenden, Analysieren, Bewerten.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Falcks Modell unterscheidet: Prüfen OHNE KI (klassisch), TROTZ KI (trotz Verfügbarkeit), ÜBER KI (KI als Lerngegenstand), MIT KI (bewusster dokumentierter KI-Einsatz) und DURCH KI (automatisierte Bewertung). Dieses Modell ermöglicht differenzierte Prüfungsstrategien statt eines Entweder-oder.",
+      },
+      {
+        id: "q6",
+        question:
+          "Was ist der zentrale Vorteil prozessorientierter Leistungsbewertung im KI-Zeitalter?",
+        options: [
+          {
+            id: "a",
+            label: "Sie ist einfacher zu bewerten als produktorientierte Formate.",
+            correct: false,
+          },
+          {
+            id: "b",
+            label:
+              "Sie macht den Lernweg sichtbar — Rechercheschritte, Promptverläufe und Reflexionen werden dokumentiert und bewertet.",
+            correct: true,
+          },
+          {
+            id: "c",
+            label: "Sie verhindert, dass Schüler KI nutzen können.",
+            correct: false,
+          },
+        ],
+        explanation:
+          "Prozessorientierte Bewertung dokumentiert den Lernweg: Prompts, Chatverläufe, Entscheidungen und Reflexionen. So kann die Lehrkraft beurteilen, ob echtes Lernen stattgefunden hat — unabhängig davon, ob KI eingesetzt wurde. Es geht nicht um Verhinderung, sondern um Sichtbarmachung.",
+      },
     ],
     challengeSummary:
-      "Du weißt jetzt, warum Urteilskraft, Tiefenstrukturanalyse und Prüfungsvalidität trotz KI unverzichtbar sind. In der Challenge zeigst du diese Fähigkeiten an den Lernstationen.",
+      "Du weißt jetzt, warum Urteilskraft, Tiefenstrukturanalyse und Prüfungsvalidität trotz KI unverzichtbar sind. Du kennst die Grenzen von KI-Erkennungstools und die fünf Dimensionen des Prüfens im KI-Zeitalter. In der Challenge zeigst du diese Fähigkeiten an den Lernstationen.",
   },
 };
 
@@ -935,6 +1380,36 @@ export default function CrewTutorialPage() {
                 </div>
               </div>
             ))}
+
+            {/* Interactive Tools */}
+            {tutorial.interactiveTools && tutorial.interactiveTools.length > 0 && (
+              <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
+                <div className="mb-4 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-600">
+                  <IconExternalLink className="h-4 w-4" />
+                  Interaktive Tools zum Ausprobieren
+                </div>
+                <p className="mb-4 text-sm text-slate-600">
+                  Vertiefe dein Verständnis mit diesen interaktiven Werkzeugen:
+                </p>
+                <div className="space-y-4">
+                  {tutorial.interactiveTools.map((tool) => (
+                    <div key={tool.title} className={`rounded border-2 ${accent.border} p-4`}>
+                      <h4 className="text-sm font-bold">{tool.title}</h4>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">{tool.description}</p>
+                      <a
+                        href={tool.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`mt-3 inline-flex items-center gap-2 border-2 border-black ${accent.bg} px-4 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-[3px_3px_0_#000] hover:opacity-90`}
+                      >
+                        {tool.label}
+                        <IconExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 
