@@ -15,7 +15,7 @@ const SchulFeedback = () => {
           paragraph="Die besten Geschichten schreibt der Schulalltag. Hier erzählen unsere Schulen, wie sie unsere Lösungen einsetzen, was sie begeistert – und wie KI ihnen den Rücken im Alltag stärkt."
         />
 
-        <div className="mx-auto max-w-[920px]">
+        <div className="mx-auto max-w-[920px] space-y-6">
           <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md shadow-input transition hover:border-purple-500/40 hover:shadow-[0_0_10px_#a855f7] sm:p-8 md:p-10">
             <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-purple-500/80 via-purple-500/40 to-transparent" />
             <div className="relative space-y-4 pl-4 text-left">
@@ -31,6 +31,26 @@ const SchulFeedback = () => {
                 C. Weller{" "}
                 <span className="font-normal text-neutral-400">
                   (Rektorin der DBR in Hannover)
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md shadow-input transition hover:border-purple-500/40 hover:shadow-[0_0_10px_#a855f7] sm:p-8 md:p-10">
+            <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-purple-500/80 via-purple-500/40 to-transparent" />
+            <div className="relative space-y-4 pl-4 text-left">
+              <p className="text-sm leading-relaxed text-neutral-200 sm:text-base">
+                Björn Isenbiel und Tim Philipp haben eine schulinterne
+                Lehrerfortbildung an der Robert-Koch-Schule Clausthal-Zellerfeld
+                durchgeführt. Auch die beteiligten Kollegien des Ratsgymnasiums
+                Goslar sowie des Oberharzgymnasiums Braunlage waren von der
+                Sachkompetenz, der Praxisnähe und der Vielfalt der vorgestellten
+                Anwendungen und Möglichkeiten überzeugt.
+              </p>
+              <p className="pt-2 text-sm font-semibold text-white">
+                Jens Wachsmuth{" "}
+                <span className="font-normal text-neutral-400">
+                  (Ständiger Vertreter des Schulleiters)
                 </span>
               </p>
             </div>
