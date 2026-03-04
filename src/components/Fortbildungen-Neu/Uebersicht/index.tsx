@@ -19,7 +19,7 @@ const AboutSection = () => {
             In unseren Fortbildungen stärken die Teilnehmerinnen und Teilnehmer ihre Kompetenz im Umgang mit Künstlicher Intelligenz. Sie erhalten praktische und direkt anwendbare Unterrichtsmethoden/KI - Tools sowie Material für die Verwendung von KI. Die Teilnehmerinnen und Teilnehmer lernen unterschiedliche KI-basierte Werkzeuge kennen und erproben eine neue Form von Team-Teaching. Es gibt eine Keynote und neun unterschiedliche Fortbildungen mit verschiedenen inhaltlichen Ausrichtungen wie z.B. Unterrichtseinheiten erstellen, Umgang mit Plagiaten und Unterrichtsdurchführung mit KI.
             </p>
             <p className="mb-9 font-medium">
-            Unser KI-Chat <strong>DeepChat</strong> steht allen KuK während der Fortbildung kostenlos zur Verfügung. Damit können Sie praktische Anwendungen datenschutzkonform und mit bester Performance direkt in der Fortbildung ausprobieren.
+            Unsere Fortbildung ist bewusst herstellerunabhängig gestaltet: Wir geben einen praxisnahen Überblick über die Bandbreite an KI-Tools und Technologien, die aktuell auf dem Markt verfügbar sind. Unser KI-Chat <strong>DeepChat</strong> steht allen Teilnehmenden während der Fortbildung kostenlos zur Verfügung – datenschutzkonform, DSGVO-sicher und mit bester Performance. Auf Wunsch kann die Fortbildung auch gezielt auf die Arbeit mit <strong>telli</strong> ausgerichtet werden.
             </p>
 
             <a
