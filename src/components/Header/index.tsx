@@ -128,7 +128,8 @@ const Header = () => {
                         href={`${menuItem.path}`}
                         onClick={() => setNavigationOpen(false)}
                         className={`hover:nav-gradient relative whitespace-nowrap border border-transparent px-4 py-1.5 text-sm hover:text-white ${
-                          pathUrl === menuItem.path
+                          pathUrl === menuItem.path ||
+                          (menuItem.path === "/" && pathUrl === "/software")
                             ? "nav-gradient text-white"
                             : "text-white/80"
                         }`}
@@ -152,7 +153,8 @@ const Header = () => {
                         href={`${menuItem.path}`}
                         onClick={() => setNavigationOpen(false)}
                         className={`hover:nav-gradient relative whitespace-nowrap border border-transparent px-4 py-1.5 text-sm hover:text-white ${
-                          pathUrl === menuItem.path
+                          pathUrl === menuItem.path ||
+                          (menuItem.path === "/" && pathUrl === "/software")
                             ? "nav-gradient text-white"
                             : "text-white/80"
                         }`}

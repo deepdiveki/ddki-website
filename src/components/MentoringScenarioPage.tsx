@@ -255,7 +255,7 @@ export default function MentoringScenarioPage({
       <section className="relative pb-20 pt-4">
         <div className="mx-auto max-w-6xl px-6">
           <a
-            href="/mentoring"
+            href="/software/mentoring"
             className="mb-6 inline-flex items-center gap-2 text-sm text-purple-300 hover:text-purple-200"
           >
             <span className="text-lg">&lt;-</span>

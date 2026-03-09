@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="540" viewBox="0 0 300 540">
+  <defs>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9B8AFB"/>
+      <stop offset="100%" stop-color="#7C5CFC"/>
+    </linearGradient>
+    <linearGradient id="sealGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9B8AFB"/>
+      <stop offset="100%" stop-color="#7C5CFC"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-2%" y="-1%" width="104%" height="103%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.06"/>
+    </filter>
+    <clipPath id="headerClip">
+      <rect x="12" y="12" width="276" height="72" rx="10"/>
+    </clipPath>
+  </defs>
+
+  <!-- Card background -->
+  <rect x="12" y="12" width="276" height="516" rx="12" fill="white" filter="url(#cardShadow)" stroke="#E9E5F5" stroke-width="0.75"/>
+
+  <!-- Top purple header -->
+  <rect x="12" y="12" width="276" height="72" rx="12" fill="url(#headerGrad)" clip-path="url(#headerClip)"/>
+  <rect x="12" y="60" width="276" height="24" fill="url(#headerGrad)"/>
+
+  <!-- Header grid pattern (subtle) -->
+  <g opacity="0.1" clip-path="url(#headerClip)">
+    <line x1="40" y1="12" x2="40" y2="84" stroke="white" stroke-width="0.5"/>
+    <line x1="80" y1="12" x2="80" y2="84" stroke="white" stroke-width="0.5"/>
+    <line x1="120" y1="12" x2="120" y2="84" stroke="white" stroke-width="0.5"/>
+    <line x1="160" y1="12" x2="160" y2="84" stroke="white" stroke-width="0.5"/>
+    <line x1="200" y1="12" x2="200" y2="84" stroke="white" stroke-width="0.5"/>
+    <line x1="240" y1="12" x2="240" y2="84" stroke="white" stroke-width="0.5"/>
+    <line x1="12" y1="32" x2="288" y2="32" stroke="white" stroke-width="0.5"/>
+    <line x1="12" y1="52" x2="288" y2="52" stroke="white" stroke-width="0.5"/>
+    <line x1="12" y1="72" x2="288" y2="72" stroke="white" stroke-width="0.5"/>
+  </g>
+
+  <!-- DDKI branding in header -->
+  <text x="150" y="44" text-anchor="middle" fill="white" font-size="11" font-weight="300" font-family="system-ui, -apple-system, sans-serif" letter-spacing="3" opacity="0.85">DDKI FORTBILDUNGEN</text>
+  <text x="150" y="62" text-anchor="middle" fill="white" font-size="8" font-weight="300" font-family="system-ui, -apple-system, sans-serif" letter-spacing="1.5" opacity="0.6">DEUTSCHES DIGITAL &amp; KI INSTITUT</text>
+
+  <!-- Decorative corner elements -->
+  <path d="M40,105 L40,98 L47,98" fill="none" stroke="#C6B9FA" stroke-width="1.2"/>
+  <path d="M260,105 L260,98 L253,98" fill="none" stroke="#C6B9FA" stroke-width="1.2"/>
+  <path d="M40,455 L40,462 L47,462" fill="none" stroke="#C6B9FA" stroke-width="1.2"/>
+  <path d="M260,455 L260,462 L253,462" fill="none" stroke="#C6B9FA" stroke-width="1.2"/>
+
+  <!-- Certificate title -->
+  <text x="150" y="135" text-anchor="middle" fill="#222530" font-size="16" font-weight="300" font-family="system-ui, -apple-system, sans-serif" letter-spacing="4.5">FORTBILDUNGS</text>
+  <text x="150" y="156" text-anchor="middle" fill="#222530" font-size="16" font-weight="300" font-family="system-ui, -apple-system, sans-serif" letter-spacing="4.5">ZERTIFIKAT</text>
+
+  <!-- Decorative divider -->
+  <line x1="100" y1="175" x2="200" y2="175" stroke="#DDD7FE" stroke-width="0.75"/>
+  <circle cx="150" cy="175" r="3" fill="#C6B9FA"/>
+  <circle cx="130" cy="175" r="1.5" fill="#DDD7FE"/>
+  <circle cx="170" cy="175" r="1.5" fill="#DDD7FE"/>
+
+  <!-- Certification text -->
+  <text x="150" y="205" text-anchor="middle" fill="#71717A" font-size="10" font-weight="300" font-family="system-ui, -apple-system, sans-serif" letter-spacing="0.5">Hiermit wird bestätigt, dass</text>
+
+  <!-- Recipient name -->
+  <text x="150" y="240" text-anchor="middle" fill="#222530" font-size="21" font-weight="300" font-family="Georgia, 'Times New Roman', serif" font-style="italic">Maria Schneider</text>
+
+  <!-- Subtle line under name -->
+  <line x1="70" y1="252" x2="230" y2="252" stroke="#E9E5F5" stroke-width="0.5"/>
+
+  <!-- Participation text -->
+  <text x="150" y="278" text-anchor="middle" fill="#71717A" font-size="10" font-weight="300" font-family="system-ui, -apple-system, sans-serif" letter-spacing="0.5">erfolgreich an der Fortbildung</text>
+
+  <!-- Course title -->
+  <text x="150" y="308" text-anchor="middle" fill="#222530" font-size="13" font-weight="600" font-family="system-ui, -apple-system, sans-serif">KI im Unterricht –</text>
+  <text x="150" y="326" text-anchor="middle" fill="#222530" font-size="13" font-weight="600" font-family="system-ui, -apple-system, sans-serif">Praktische Anwendungen</text>
+
+  <!-- Completion text -->
+  <text x="150" y="356" text-anchor="middle" fill="#71717A" font-size="10" font-weight="300" font-family="system-ui, -apple-system, sans-serif" letter-spacing="0.5">teilgenommen hat.</text>
+
+  <!-- Duration badge -->
+  <rect x="115" y="370" width="70" height="22" rx="11" fill="#F4F0FF"/>
+  <text x="150" y="385" text-anchor="middle" fill="#7C5CFC" font-size="9" font-weight="500" font-family="system-ui, -apple-system, sans-serif">8 Stunden</text>
+
+  <!-- Date and location -->
+  <text x="150" y="420" text-anchor="middle" fill="#71717A" font-size="9.5" font-weight="300" font-family="system-ui, -apple-system, sans-serif">Berlin, 15. Januar 2026</text>
+
+  <!-- Seal -->
+  <circle cx="150" cy="468" r="28" fill="none" stroke="url(#sealGrad)" stroke-width="1.5"/>
+  <circle cx="150" cy="468" r="23" fill="none" stroke="url(#sealGrad)" stroke-width="0.75"/>
+  <!-- Seal inner decorative dots -->
+  <g opacity="0.4">
+    <circle cx="150" cy="443" r="1" fill="#7C5CFC"/>
+    <circle cx="150" cy="493" r="1" fill="#7C5CFC"/>
+    <circle cx="125" cy="468" r="1" fill="#7C5CFC"/>
+    <circle cx="175" cy="468" r="1" fill="#7C5CFC"/>
+    <circle cx="131" cy="451" r="0.8" fill="#7C5CFC"/>
+    <circle cx="169" cy="451" r="0.8" fill="#7C5CFC"/>
+    <circle cx="131" cy="485" r="0.8" fill="#7C5CFC"/>
+    <circle cx="169" cy="485" r="0.8" fill="#7C5CFC"/>
+  </g>
+  <text x="150" y="464" text-anchor="middle" fill="#7C5CFC" font-size="9" font-weight="600" font-family="system-ui, -apple-system, sans-serif" letter-spacing="1">DDKI</text>
+  <text x="150" y="477" text-anchor="middle" fill="#7C5CFC" font-size="6.5" font-weight="400" font-family="system-ui, -apple-system, sans-serif" letter-spacing="1.5">ZERTIFIZIERT</text>
+</svg>

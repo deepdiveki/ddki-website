@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Highlighter from "./HighLighter";
-import CubeAnimation from "../../CubeAnimation";  // Passe den Pfad an
+import CubeAnimation from "@/components/animations/CubeAnimation";
+import { BASE_PATH } from "@/lib/constants";
 
 const FeaturesList = () => {
   return (
@@ -34,7 +35,7 @@ const FeaturesList = () => {
                         Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte – unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.
                       </p>
                       <Link
-                        href="/ddki-toolbox"
+                        href={`${BASE_PATH}/ddki-toolbox`}
                         className="features-button-gradient relative inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm text-white duration-300 ease-in hover:shadow-button"
                       >
                         Jetzt ausprobieren
@@ -85,7 +86,7 @@ const FeaturesList = () => {
                       Mit unserem KI-Schulbüro haben Sie die Möglichkeit, in Ihrer Schulwebsite einen KI-Chatbot zu integrieren. Damit verbessern Sie den Informationsfluss zu Ihren Schülerinnen und Schülern, Eltern und Lehrkräften.
                     </p>
                     <Link
-                      href="/chatbot-fuer-ihre-schule"
+                      href={`${BASE_PATH}/chatbot-fuer-ihre-schule`}
                       className="features-button-gradient relative inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm text-white duration-300 ease-in hover:shadow-button"
                     >
                       Jetzt ausprobieren
@@ -130,7 +131,7 @@ const FeaturesList = () => {
                       Wir bieten Fortbildungen zum Thema Künstliche Intelligenz für Lehrkräfte, Lehramtsstudierende und Angestellte an Bildungsinstituten an.
                     </p>
                     <Link
-                      href="/fortbildungen"
+                      href={`${BASE_PATH}/fortbildungen`}
                       className="features-button-gradient relative inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm text-white duration-300 ease-in hover:shadow-button"
                     >
                       Jetzt ausprobieren

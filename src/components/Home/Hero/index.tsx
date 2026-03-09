@@ -1,10 +1,10 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import ConnectorAnimation from "@/components/ConnectorAnimation";
+import ConnectorAnimation from "@/components/animations/ConnectorAnimation";
 import Image from "next/image";
 import Link from "next/link";
-import AIEngineAnimation from "@/components/AIEngineAnimation";
+import AIEngineAnimation from "@/components/animations/AIEngineAnimation";
 
 const Hero = () => {
   const buttonRef = useRef<HTMLAnchorElement>(null);

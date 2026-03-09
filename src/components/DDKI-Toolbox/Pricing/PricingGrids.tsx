@@ -28,7 +28,7 @@ const pricingData = [
       "Onboarding durch unser Team",
       "Premium-Support"
     ],
-    link: "https://www.deepdive-ki.de/kontakt",
+    link: "https://www.deepdive-ki.de/software/kontakt",
     patch: "school",
   },
 ];

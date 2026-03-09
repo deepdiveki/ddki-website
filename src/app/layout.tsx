@@ -1,4 +1,9 @@
 import type { Metadata } from "next";
+import SiteChrome from "@/components/SiteChrome";
+import "../styles/animate.css";
+import "../styles/prism-vsc-dark-plus.css";
+import "../styles/star.css";
+import "../styles/tailwind.css";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -43,7 +48,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="de">
-      <body>{children}</body>
+      <body>
+        <SiteChrome>{children}</SiteChrome>
+      </body>
     </html>
   );
 }

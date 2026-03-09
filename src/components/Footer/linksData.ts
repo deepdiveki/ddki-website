@@ -1,28 +1,29 @@
 import { FooterLink } from "@/types/footerLink";
+import { BASE_PATH } from "@/lib/constants";
 
 export const productsLink: FooterLink[] = [
   {
     id: 1,
     title: "DeepChat",
-    href: "/ddki-toolbox",
+    href: `${BASE_PATH}/ddki-toolbox`,
     newTab: false,
   },
   {
     id: 2,
     title: "KI-Schulbüro",
-    href: "/chatbot-fuer-ihre-schule",
+    href: `${BASE_PATH}/chatbot-fuer-ihre-schule`,
     newTab: false,
   },
   {
     id: 3,
     title: "Fortbildungen",
-    href: "/fortbildungen",
+    href: `${BASE_PATH}/fortbildungen`,
     newTab: false,
   },
   {
     id: 4,
     title: "Websites",
-    href: "/websites",
+    href: `${BASE_PATH}/websites`,
     newTab: false,
   },
 ];
@@ -31,39 +32,40 @@ export const companiesLink: FooterLink[] = [
   {
     id: 11,
     title: "Impressum",
-    href: "/impressum",
+    href: `${BASE_PATH}/impressum`,
     newTab: false,
   },
   {
     id: 13,
     title: "Datenschutz",
-    href: "/datenschutz",
+    href: `${BASE_PATH}/datenschutz`,
     newTab: false,
   },
   {
     id: 14,
     title: "Jobs",
-    href: "/jobs",
+    href: `${BASE_PATH}/jobs`,
     newTab: false,
   },
   {
     id: 15,
     title: "Mentoring",
-    href: "/mentoring",
+    href: `${BASE_PATH}/mentoring`,
     newTab: false,
   },
 ];
+
 export const supportsLink: FooterLink[] = [
   {
     id: 21,
     title: "Kontakt",
-    href: "/about#kontakt",
+    href: `${BASE_PATH}/about#kontakt`,
     newTab: false,
   },
   {
     id: 32,
     title: "Über uns",
-    href: "/about",
+    href: `${BASE_PATH}/about`,
     newTab: false,
   },
   {
@@ -71,6 +73,5 @@ export const supportsLink: FooterLink[] = [
     title: "info@deepdive-ki.de",
     href: "mailto:info@deepdive-ki.de",
     newTab: false,
-  }
-  
+  },
 ];

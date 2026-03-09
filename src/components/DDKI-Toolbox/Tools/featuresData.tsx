@@ -1,11 +1,11 @@
 import { Feature } from "@/types/feature";
-import AnimatedNeonRings from "@/components/AnimatedNeonRings";
-import WorksheetGeneratorAnimation from "@/components/WorksheetGeneratorAnimation";
-import ChatbotToolAnimation from "@/components/ChatbotToolAnimation";
-import QRCodeAnimation from "@/components/QRCodeAnimation";
-import AssistantAnimation from "@/components/KiAssistentenBuilder";
-import PersonaAnimation from "@/components/PersonaKiAnimation";
-import PDFChatAnimation from "@/components/ChatMitPdfAnimation";
+import AnimatedNeonRings from "@/components/animations/AnimatedNeonRings";
+import WorksheetGeneratorAnimation from "@/components/animations/WorksheetGeneratorAnimation";
+import ChatbotToolAnimation from "@/components/animations/ChatbotToolAnimation";
+import QRCodeAnimation from "@/components/animations/QRCodeAnimation";
+import AssistantAnimation from "@/components/animations/KiAssistentenBuilder";
+import PersonaAnimation from "@/components/animations/PersonaKiAnimation";
+import PDFChatAnimation from "@/components/animations/ChatMitPdfAnimation";
 import { Menu } from "@/types/menu";
 
 

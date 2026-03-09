@@ -1,44 +1,36 @@
 import { Menu } from "@/types/menu";
+import { BASE_PATH } from "@/lib/constants";
 
 const menuData: Menu[] = [
   {
-    id: 1,
-    title: "Home",
-    newTab: false,
-    path: "/",
-  },
-  {
     id: 2,
-    title: "Über uns",
+    title: "DeepChat",
     newTab: false,
-    path: "/about",
+    path: `${BASE_PATH}/ddki-toolbox`,
   },
   {
     id: 6,
-    title: "DeepChat",
+    title: "KI-Schulbüro ",
     newTab: false,
-    path: "/ddki-toolbox",
+    path: `${BASE_PATH}/chatbot-fuer-ihre-schule`,
   },
   {
     id: 7,
-    title: "KI-Schulbüro ",
+    title: "Websites",
     newTab: false,
-    path: "/chatbot-fuer-ihre-schule"
+    path: `${BASE_PATH}/websites`,
   },
   {
     id: 8,
-    title: "Fortbildungen",
+    title: "Über uns",
     newTab: false,
-    path: "/fortbildungen"
+    path: `${BASE_PATH}/about`,
   },
   {
     id: 9,
-    title: "Websites",
+    title: "Kontakt",
     newTab: false,
-    path: "/websites"
+    path: `${BASE_PATH}/kontakt`,
   },
-
-
-
 ];
 export default menuData;

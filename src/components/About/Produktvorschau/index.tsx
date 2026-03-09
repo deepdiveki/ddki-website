@@ -1,5 +1,5 @@
 import SectionTitle from "@/components/Common/SectionTitle";
-import DeepChatAnimationCarousel from "@/components/DeepChatAnimation1";
+import DeepChatAnimationCarousel from "@/components/animations/DeepChatAnimation1";
 
 const Produktvorschau = () => {
   return (

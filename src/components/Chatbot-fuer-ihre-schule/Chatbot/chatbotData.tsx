@@ -1,13 +1,13 @@
 import { Feature } from "@/types/feature";
 import IconFeature from '../../../../public/images/features/icon-02.svg';
 
-import AwsBedrockAnimation from "@/components/AWSBedrockIntegrationChatBotAnimation";
-import FullStackTechAnimation from "@/components/NextJsChatBotAnimation"
-import SecurityPrivacyAnimation from "@/components/SicherheitChatBotAnimation"
-import DataTransmissionAnimation from "@/components/DatenübertragungChatbotAnimation"
-import OptimizedModelsAnimation from "@/components/OptimierteKIChatbotAnimation"
-import MadeInHamburgChatbotAnimation from "@/components/MadeinHamburgChatbotAnimation"
-import CitySkylineAnimation from "@/components/MadeinHamburgAnimation"
+import AwsBedrockAnimation from "@/components/animations/AWSBedrockIntegrationChatBotAnimation";
+import FullStackTechAnimation from "@/components/animations/NextJsChatBotAnimation"
+import SecurityPrivacyAnimation from "@/components/animations/SicherheitChatBotAnimation"
+import DataTransmissionAnimation from "@/components/animations/DatenübertragungChatbotAnimation"
+import OptimizedModelsAnimation from "@/components/animations/OptimierteKIChatbotAnimation"
+import MadeInHamburgChatbotAnimation from "@/components/animations/MadeinHamburgChatbotAnimation"
+import CitySkylineAnimation from "@/components/animations/MadeinHamburgAnimation"
 
 const awsBedrockAnimation = <AwsBedrockAnimation />;
 const fullStackTechAnimation = <FullStackTechAnimation />;

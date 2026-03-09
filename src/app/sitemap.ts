@@ -3,10 +3,17 @@ import fs from "node:fs";
 import path from "node:path";
 
 const siteUrl = process.env.SITE_URL || "https://www.deepdive-ki.de";
-const siteAppDir = path.join(process.cwd(), "src/app/(site)");
+const siteAppDir = path.join(process.cwd(), "src/app");
 
 const excludedSegments = new Set(["error", "unauthorized"]);
-const excludedRoutes = new Set(["/error", "/error/verify", "/unauthorized"]);
+const excludedRoutes = new Set([
+  "/error",
+  "/error/verify",
+  "/unauthorized",
+  "/software/error",
+  "/software/error/verify",
+  "/software/unauthorized",
+]);
 
 const collectRoutes = () => {
   const pageFiles: string[] = [];
@@ -44,26 +51,28 @@ const collectRoutes = () => {
 
 const priorityMap: Record<string, number> = {
   "/": 1.0,
-  "/ddki-toolbox": 0.8,
-  "/chatbot-fuer-ihre-schule": 0.8,
-  "/websites": 0.7,
-  "/playground": 0.7,
-  "/escape-game": 0.7,
-  "/li_superhirn": 0.7,
-  "/kontakt": 0.6,
-  "/kontakt-chat-bot": 0.6,
+  "/software": 1.0,
+  "/software/ddki-toolbox": 0.8,
+  "/software/chatbot-fuer-ihre-schule": 0.8,
+  "/software/websites": 0.7,
+  "/software/playground": 0.7,
+  "/software/escape-game": 0.7,
+  "/software/li_superhirn": 0.7,
+  "/software/kontakt": 0.6,
+  "/software/kontakt-chat-bot": 0.6,
 };
 
 const frequencyMap: Record<string, MetadataRoute.Sitemap[number]["changeFrequency"]> = {
   "/": "weekly",
-  "/ddki-toolbox": "monthly",
-  "/chatbot-fuer-ihre-schule": "monthly",
-  "/websites": "monthly",
-  "/playground": "monthly",
-  "/escape-game": "monthly",
-  "/li_superhirn": "monthly",
-  "/kontakt": "yearly",
-  "/kontakt-chat-bot": "yearly",
+  "/software": "weekly",
+  "/software/ddki-toolbox": "monthly",
+  "/software/chatbot-fuer-ihre-schule": "monthly",
+  "/software/websites": "monthly",
+  "/software/playground": "monthly",
+  "/software/escape-game": "monthly",
+  "/software/li_superhirn": "monthly",
+  "/software/kontakt": "yearly",
+  "/software/kontakt-chat-bot": "yearly",
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -1,11 +1,11 @@
 import { Feature } from "@/types/feature";
 
-import OpenAIIntegrationAnimation from "@/components/OpenAIIntegrationAnimation";
-import NextJsAnimation from "@/components/NextJsAnimation";
-import SecurityPrivacyAnimation from "@/components/SicherheitDatenschutzAnimation";
-import CuttingEdgeAnimation from "@/components/CuttingedgeTechnologienAnimation";
-import AIModelAnimation from "@/components/OptimierteKIModelleAnimation";
-import HamburgAbstractAnimation from "@/components/MadeinHamburgAnimation";
+import OpenAIIntegrationAnimation from "@/components/animations/OpenAIIntegrationAnimation";
+import NextJsAnimation from "@/components/animations/NextJsAnimation";
+import SecurityPrivacyAnimation from "@/components/animations/SicherheitDatenschutzAnimation";
+import CuttingEdgeAnimation from "@/components/animations/CuttingedgeTechnologienAnimation";
+import AIModelAnimation from "@/components/animations/OptimierteKIModelleAnimation";
+import HamburgAbstractAnimation from "@/components/animations/MadeinHamburgAnimation";
 
 const openAIIntegrationAnimation = <OpenAIIntegrationAnimation />;
 const nextJsAnimation = <NextJsAnimation />;

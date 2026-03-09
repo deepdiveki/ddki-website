@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import ChatbotToolAnimation from "@/components/ChatbotToolAnimation";
+import ChatbotToolAnimation from "@/components/animations/ChatbotToolAnimation";
 
 const DDKIChat = () => {
   const text =

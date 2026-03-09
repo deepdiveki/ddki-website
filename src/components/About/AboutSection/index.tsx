@@ -1,6 +1,6 @@
 "use client"
 import dynamic from "next/dynamic";
-const DeepChatAnimation = dynamic(() => import('@/components/DeepChatAnimation1'), { ssr: false });
+const DeepChatAnimation = dynamic(() => import('@/components/animations/DeepChatAnimation1'), { ssr: false });
 
 
 const AboutSection = () => {

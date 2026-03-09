@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="760" viewBox="0 0 380 760">
+  <defs>
+    <!-- Phone frame gradients -->
+    <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2A2A3C"/>
+      <stop offset="40%" stop-color="#1C1C2E"/>
+      <stop offset="100%" stop-color="#141424"/>
+    </linearGradient>
+    <linearGradient id="frameEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.15)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.04)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.12)"/>
+    </linearGradient>
+    <linearGradient id="frameEdgeV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.03)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.08)"/>
+    </linearGradient>
+    <linearGradient id="screenBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDFDFF"/>
+      <stop offset="100%" stop-color="#F8F6FF"/>
+    </linearGradient>
+    <linearGradient id="certHead" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="sealStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C6B9FA"/>
+      <stop offset="100%" stop-color="#9B8AFB"/>
+    </linearGradient>
+
+    <!-- Shadows -->
+    <filter id="phoneShadow" x="-15%" y="-8%" width="130%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16" result="blur1"/>
+      <feOffset in="blur1" dy="12" result="offsetBlur1"/>
+      <feComponentTransfer in="offsetBlur1" result="shadow1">
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur2"/>
+      <feOffset in="blur2" dy="4" result="offsetBlur2"/>
+      <feComponentTransfer in="offsetBlur2" result="shadow2">
+        <feFuncA type="linear" slope="0.15"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="shadow1"/>
+        <feMergeNode in="shadow2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="0.5" stdDeviation="1.5" flood-color="#7C3AED" flood-opacity="0.04"/>
+    </filter>
+    <filter id="glowSeal">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="glow"/>
+      <feComponentTransfer in="glow" result="glowFaded">
+        <feFuncA type="linear" slope="0.12"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="glowFaded"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clips -->
+    <clipPath id="screenClip">
+      <rect x="12" y="12" width="356" height="736" rx="44"/>
+    </clipPath>
+    <clipPath id="certHeaderClip">
+      <rect x="28" y="70" width="324" height="58" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- ===== PHONE FRAME ===== -->
+  <g filter="url(#phoneShadow)">
+    <!-- Main body -->
+    <rect x="0" y="0" width="380" height="760" rx="52" fill="url(#frameGrad)"/>
+
+    <!-- Titanium edge highlights -->
+    <rect x="0.5" y="0.5" width="379" height="759" rx="51.5" fill="none" stroke="url(#frameEdge)" stroke-width="1"/>
+    <rect x="1.5" y="1.5" width="377" height="757" rx="50.5" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+
+    <!-- Side buttons -->
+    <!-- Power button (right) -->
+    <rect x="378" y="185" width="3" height="58" rx="1.5" fill="#2A2A3C"/>
+    <rect x="379" y="187" width="1.5" height="54" rx="0.75" fill="rgba(255,255,255,0.08)"/>
+    <!-- Volume up (left) -->
+    <rect x="-1" y="165" width="3" height="34" rx="1.5" fill="#2A2A3C"/>
+    <rect x="-0.5" y="167" width="1.5" height="30" rx="0.75" fill="rgba(255,255,255,0.08)"/>
+    <!-- Volume down (left) -->
+    <rect x="-1" y="210" width="3" height="34" rx="1.5" fill="#2A2A3C"/>
+    <rect x="-0.5" y="212" width="1.5" height="30" rx="0.75" fill="rgba(255,255,255,0.08)"/>
+    <!-- Silent switch (left) -->
+    <rect x="-1" y="130" width="3" height="18" rx="1.5" fill="#2A2A3C"/>
+  </g>
+
+  <!-- ===== SCREEN ===== -->
+  <rect x="12" y="12" width="356" height="736" rx="44" fill="url(#screenBg)"/>
+
+  <!-- Dynamic Island -->
+  <rect x="138" y="22" width="104" height="30" rx="15" fill="#1C1C2E"/>
+  <!-- Camera dot -->
+  <circle cx="210" cy="37" r="4.5" fill="#0D0D1A"/>
+  <circle cx="210" cy="37" r="3" fill="#1A1A2E"/>
+  <circle cx="211" cy="36" r="1" fill="rgba(255,255,255,0.08)"/>
+
+  <!-- Status bar -->
+  <text x="38" y="44" fill="#1C1C2E" font-size="12.5" font-weight="600" font-family="-apple-system, SF Pro Text, system-ui, sans-serif" letter-spacing="-0.2">9:41</text>
+  <!-- WiFi icon -->
+  <g transform="translate(296, 32)" fill="#1C1C2E">
+    <path d="M0,8 Q6,0 12,8" fill="none" stroke="#1C1C2E" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M2,6 Q6,1.5 10,6" fill="none" stroke="#1C1C2E" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="6" cy="9" r="1.2"/>
+  </g>
+  <!-- Signal bars -->
+  <g transform="translate(316, 34)">
+    <rect x="0" y="5" width="3" height="5" rx="0.75" fill="#1C1C2E"/>
+    <rect x="4.5" y="3.5" width="3" height="6.5" rx="0.75" fill="#1C1C2E"/>
+    <rect x="9" y="1.5" width="3" height="8.5" rx="0.75" fill="#1C1C2E"/>
+    <rect x="13.5" y="0" width="3" height="10" rx="0.75" fill="#1C1C2E"/>
+  </g>
+  <!-- Battery -->
+  <rect x="340" y="34" width="22" height="11" rx="3" fill="none" stroke="#1C1C2E" stroke-width="1.1"/>
+  <rect x="362" y="37.5" width="1.5" height="4" rx="0.75" fill="#1C1C2E" opacity="0.4"/>
+  <rect x="342" y="36" width="16" height="7" rx="1.5" fill="#1C1C2E"/>
+
+  <!-- ===== CERTIFICATE ===== -->
+
+  <!-- Certificate card -->
+  <rect x="28" y="70" width="324" height="618" rx="16" fill="white" filter="url(#cardShadow)"/>
+  <!-- Subtle top border accent -->
+  <rect x="28" y="70" width="324" height="1" rx="0.5" fill="url(#goldAccent)" opacity="0.5"/>
+
+  <!-- Purple header -->
+  <rect x="28" y="70" width="324" height="58" rx="16" fill="url(#certHead)" clip-path="url(#certHeaderClip)"/>
+  <rect x="28" y="104" width="324" height="24" fill="url(#certHead)"/>
+
+  <!-- Header subtle pattern -->
+  <g opacity="0.06" clip-path="url(#certHeaderClip)">
+    <circle cx="60" cy="80" r="20" fill="white"/>
+    <circle cx="320" cy="115" r="25" fill="white"/>
+    <circle cx="190" cy="70" r="15" fill="white"/>
+  </g>
+
+  <!-- Header text -->
+  <text x="190" y="98" text-anchor="middle" fill="white" font-size="12" font-weight="400" font-family="-apple-system, system-ui, sans-serif" letter-spacing="3" opacity="0.95">DDKI FORTBILDUNGEN</text>
+  <text x="190" y="114" text-anchor="middle" fill="white" font-size="7.5" font-weight="300" font-family="-apple-system, system-ui, sans-serif" letter-spacing="1.5" opacity="0.55">DEUTSCHES DIGITAL &amp; KI INSTITUT</text>
+
+  <!-- Decorative fine line below header -->
+  <line x1="80" y1="148" x2="300" y2="148" stroke="#EDE9FE" stroke-width="0.4"/>
+
+  <!-- Decorative corner brackets -->
+  <path d="M62,162 L62,155 L69,155" fill="none" stroke="#DDD6FE" stroke-width="0.8" stroke-linecap="round"/>
+  <path d="M318,162 L318,155 L311,155" fill="none" stroke="#DDD6FE" stroke-width="0.8" stroke-linecap="round"/>
+  <path d="M62,555 L62,562 L69,562" fill="none" stroke="#DDD6FE" stroke-width="0.8" stroke-linecap="round"/>
+  <path d="M318,555 L318,562 L311,562" fill="none" stroke="#DDD6FE" stroke-width="0.8" stroke-linecap="round"/>
+
+  <!-- Certificate title -->
+  <text x="190" y="200" text-anchor="middle" fill="#1C1C2E" font-size="14" font-weight="300" font-family="-apple-system, system-ui, sans-serif" letter-spacing="5">FORTBILDUNGS</text>
+  <text x="190" y="220" text-anchor="middle" fill="#1C1C2E" font-size="14" font-weight="300" font-family="-apple-system, system-ui, sans-serif" letter-spacing="5">ZERTIFIKAT</text>
+
+  <!-- Ornamental divider -->
+  <line x1="120" y1="242" x2="163" y2="242" stroke="#DDD6FE" stroke-width="0.5"/>
+  <line x1="217" y1="242" x2="260" y2="242" stroke="#DDD6FE" stroke-width="0.5"/>
+  <path d="M166,242 L170,237 L174,242 L178,237 L182,242 L186,237 L190,242 L194,237 L198,242 L202,237 L206,242 L210,237 L214,242" fill="none" stroke="#C4B5FD" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Certification text -->
+  <text x="190" y="278" text-anchor="middle" fill="#71717A" font-size="10.5" font-weight="300" font-family="-apple-system, system-ui, sans-serif" letter-spacing="0.3">Hiermit wird bestätigt, dass</text>
+
+  <!-- Recipient name -->
+  <text x="190" y="318" text-anchor="middle" fill="#1C1C2E" font-size="24" font-weight="300" font-family="Georgia, 'Times New Roman', 'Palatino', serif" font-style="italic">Maria Schneider</text>
+
+  <!-- Elegant underline -->
+  <line x1="95" y1="332" x2="285" y2="332" stroke="#EDE9FE" stroke-width="0.5"/>
+  <line x1="130" y1="335" x2="250" y2="335" stroke="#EDE9FE" stroke-width="0.3"/>
+
+  <!-- Participation text -->
+  <text x="190" y="362" text-anchor="middle" fill="#71717A" font-size="10.5" font-weight="300" font-family="-apple-system, system-ui, sans-serif" letter-spacing="0.3">erfolgreich an der Fortbildung</text>
+
+  <!-- Course title -->
+  <text x="190" y="396" text-anchor="middle" fill="#1C1C2E" font-size="14" font-weight="600" font-family="-apple-system, system-ui, sans-serif" letter-spacing="0.2">KI im Unterricht –</text>
+  <text x="190" y="416" text-anchor="middle" fill="#1C1C2E" font-size="14" font-weight="600" font-family="-apple-system, system-ui, sans-serif" letter-spacing="0.2">Praktische Anwendungen</text>
+
+  <!-- Completion text -->
+  <text x="190" y="448" text-anchor="middle" fill="#71717A" font-size="10.5" font-weight="300" font-family="-apple-system, system-ui, sans-serif" letter-spacing="0.3">teilgenommen hat.</text>
+
+  <!-- Duration + Format badges -->
+  <rect x="118" y="468" width="72" height="24" rx="12" fill="#F5F3FF"/>
+  <text x="154" y="484" text-anchor="middle" fill="#7C3AED" font-size="9" font-weight="500" font-family="-apple-system, system-ui, sans-serif">8 Stunden</text>
+  <rect x="196" y="468" width="66" height="24" rx="12" fill="#F5F3FF"/>
+  <text x="229" y="484" text-anchor="middle" fill="#7C3AED" font-size="9" font-weight="500" font-family="-apple-system, system-ui, sans-serif">Online</text>
+
+  <!-- Date -->
+  <text x="190" y="518" text-anchor="middle" fill="#71717A" font-size="10" font-weight="300" font-family="-apple-system, system-ui, sans-serif" letter-spacing="0.5">Berlin, 15. Januar 2026</text>
+
+  <!-- Seal -->
+  <g filter="url(#glowSeal)">
+    <!-- Outer ring -->
+    <circle cx="190" cy="580" r="34" fill="none" stroke="url(#sealStroke)" stroke-width="1.5"/>
+    <!-- Inner ring with dots -->
+    <circle cx="190" cy="580" r="27" fill="none" stroke="url(#sealStroke)" stroke-width="0.6" stroke-dasharray="2.5 3.5"/>
+    <!-- Innermost ring -->
+    <circle cx="190" cy="580" r="21" fill="none" stroke="url(#sealStroke)" stroke-width="0.4"/>
+  </g>
+  <!-- Seal text -->
+  <text x="190" y="577" text-anchor="middle" fill="#7C3AED" font-size="10.5" font-weight="700" font-family="-apple-system, system-ui, sans-serif" letter-spacing="1.5">DDKI</text>
+  <text x="190" y="590" text-anchor="middle" fill="#7C3AED" font-size="6.5" font-weight="400" font-family="-apple-system, system-ui, sans-serif" letter-spacing="2">ZERTIFIZIERT</text>
+
+  <!-- ===== Bottom area ===== -->
+
+  <!-- Home indicator -->
+  <rect x="140" y="728" width="100" height="4.5" rx="2.25" fill="#1C1C2E" opacity="0.18"/>
+</svg>
