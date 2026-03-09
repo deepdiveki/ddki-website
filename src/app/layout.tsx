@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import SiteChrome from "@/components/SiteChrome";
 import "../styles/animate.css";
 import "../styles/prism-vsc-dark-plus.css";
 import "../styles/star.css";
@@ -49,7 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="de">
       <body>
-        <SiteChrome>{children}</SiteChrome>
+        {children}
       </body>
     </html>
   );

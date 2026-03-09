@@ -10,6 +10,8 @@ module.exports = {
   theme: {
     fontFamily: {
       "plus-jakarta": ["Plus Jakarta Sans", "sans-serif"],
+      "stack-sans": ["var(--font-stack-sans-text)", "sans-serif"],
+      inter: ["var(--font-inter)", "sans-serif"],
     },
     container: {
       center: true,
@@ -58,8 +60,27 @@ module.exports = {
           "light-3": "#F6D8FE",
           "light-4": "#FCF1FE",
         },
+        // Chooser (Fortbildungen-style) design tokens
+        background: {
+          primary: "#ffffff",
+          secondary: "#f8fafc",
+        },
+        primary: {
+          base: "#8646F4",
+          light: "#A78BFA",
+          dark: "#6D28D9",
+          darker: "#6D28D9",
+        },
+        text: {
+          primary: "#181B25",
+          secondary: "#495270",
+          tertiary: "#918EA0",
+        },
+        border: {
+          secondary: "#e2e8f0",
+          tertiary: "#cbd5e1",
+        },
       },
-
       fontSize: {
         "heading-1": ["60px", "72px"],
         "heading-2": ["48px", "58px"],
@@ -68,6 +89,10 @@ module.exports = {
         "heading-5": ["28px", "40px"],
         "heading-6": ["24px", "30px"],
         "custom-1": ["45px", "55px"],
+        "display-xs": ["1.5rem", "2rem"],
+        "display-sm": ["2rem", "2.5rem"],
+        "display-md": ["2.5rem", "3rem"],
+        "display-lg": ["3rem", "3.5rem"],
       },
       spacing: {
         4.5: "1.125rem",
@@ -161,6 +186,21 @@ module.exports = {
         30: "7.5rem",
         40: "10rem",
         50: "12.5rem",
+        304: "76rem", /* 1216px - chooser content width */
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "border-glow-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+      },
+      animation: {
+        marquee: "marquee 30s linear infinite",
+        "border-glow-shift": "border-glow-shift 3s linear infinite",
       },
       zIndex: {
         99999: "99999",

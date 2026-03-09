@@ -38,7 +38,9 @@ const collectRoutes = () => {
     .map((filePath) => {
       const relativeDir = path.relative(siteAppDir, path.dirname(filePath));
       const normalized = relativeDir.split(path.sep).join("/");
-      return normalized ? `/${normalized}` : "/";
+      // Strip Next.js route groups like (main) or (chooser) from the path
+      const routePath = normalized.replace(/\([^)]+\)\/?/g, "").replace(/\/$/, "") || "";
+      return routePath ? `/${routePath}` : "/";
     })
     .filter((route) => {
       if (excludedRoutes.has(route)) return false;

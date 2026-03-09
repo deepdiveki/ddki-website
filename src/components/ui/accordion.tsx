@@ -22,10 +22,15 @@ export function useRootContext() {
 type AccordionRootProps = {
   className?: string;
   children: React.ReactNode;
+  defaultActiveId?: string;
 };
 
-export function AccordionRoot({ children, className }: AccordionRootProps) {
-  const [activeId, setActiveId] = useState<string>();
+export function AccordionRoot({
+  children,
+  className,
+  defaultActiveId,
+}: AccordionRootProps) {
+  const [activeId, setActiveId] = useState<string | undefined>(defaultActiveId);
 
   function toggleActiveId(id: string) {
     setActiveId((currentActiveId) => (currentActiveId === id ? undefined : id));
@@ -64,11 +69,17 @@ export function useItemContext() {
 type AccordionItemProps = {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 };
 
-export function AccordionItem({ children, className }: AccordionItemProps) {
-  const triggerId = useId();
-  const contentId = useId();
+export function AccordionItem({
+  children,
+  className,
+  id: providedId,
+}: AccordionItemProps) {
+  const generatedId = useId();
+  const triggerId = providedId ?? generatedId;
+  const contentId = `${triggerId}-content`;
 
   const { activeId } = useRootContext();
 

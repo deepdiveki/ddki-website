@@ -24,7 +24,7 @@ export default function NuggetAnimation() {
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
         >
           <div
-            className="rounded-full border border-white border-opacity-20 shadow-[0_0_10px_2px_rgba(255,255,255,0.1)]"
+            className="rounded-full border border-white border-white/20 shadow-[0_0_10px_2px_rgba(255,255,255,0.1)]"
             style={{ width: size, height: size }}
           ></div>
         </div>

@@ -190,7 +190,7 @@ const Header = () => {
                     onClick={() => {
                       window.location.href = "https://plattform.deepdive-ki.de/profil"
                     }}
-                    className={`text-sm ${pathUrl === "/profil" ? "text-blue-400" : "text-white hover:text-opacity-75"}`}
+                    className={`text-sm ${pathUrl === "/profil" ? "text-blue-400" : "text-white hover:text-white/75"}`}
                   >
                     {userName}
                   </button>
@@ -218,7 +218,7 @@ const Header = () => {
                 <>
                   <Link
                     href="https://plattform.deepdive-ki.de/auth/signin"
-                    className="text-sm text-white hover:text-opacity-75"
+                    className="text-sm text-white hover:text-white/75"
                   >
                     Login
                   </Link>
