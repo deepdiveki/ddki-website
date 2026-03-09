@@ -32,19 +32,19 @@ export const companiesLink: FooterLink[] = [
   {
     id: 11,
     title: "Impressum",
-    href: `${BASE_PATH}/impressum`,
+    href: `/impressum`,
     newTab: false,
   },
   {
     id: 13,
     title: "Datenschutz",
-    href: `${BASE_PATH}/datenschutz`,
+    href: `/datenschutz`,
     newTab: false,
   },
   {
     id: 14,
     title: "Jobs",
-    href: `${BASE_PATH}/jobs`,
+    href: `/jobs`,
     newTab: false,
   },
   {

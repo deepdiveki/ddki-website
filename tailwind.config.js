@@ -63,7 +63,7 @@ module.exports = {
         // Chooser (Fortbildungen-style) design tokens
         background: {
           primary: "#ffffff",
-          secondary: "#f8fafc",
+          secondary: "#F9F8FB",
         },
         primary: {
           base: "#8646F4",

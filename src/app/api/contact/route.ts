@@ -4,7 +4,7 @@ import { sendEmail } from '@/lib/email';
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    const { name, school, email, phone, students, website, licenses, message, training } = data;
+    const { name, school, email, phone, students, website, licenses, message, training, subject } = data;
 
     // Validation
     if (!name || !email || !message) {
@@ -14,10 +14,11 @@ export async function POST(req: NextRequest) {
     // Define the email payload
     const emailPayload = {
       to: 'info@deepdive-ki.de',
-      subject: `New Contact Form Submission from ${name}`,
+      subject: subject ? `[${subject}] Contact from ${name}` : `New Contact Form Submission from ${name}`,
       html: `
         <h2>Neue Kontaktanfrage</h2>
         <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Betreff:</strong> ${subject || "Nicht angegeben"}</p>
         <p><strong>Schule/Institution:</strong> ${school}</p>
         <p><strong>E-Mail:</strong> ${email}</p>
         <p><strong>Telefonnummer:</strong> ${phone || "Nicht angegeben"}</p>

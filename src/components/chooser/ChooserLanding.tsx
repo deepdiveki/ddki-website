@@ -780,14 +780,14 @@ export default function ChooserLanding() {
         >
           <div className="flex items-center gap-x-4">
             <Link
-              href="/fortbildung/impressum"
+              href="/impressum"
               className="text-text-secondary duration-300 hover:text-primary-base"
             >
               Impressum
             </Link>
             <span aria-hidden="true">|</span>
             <Link
-              href="/fortbildung/datenschutz"
+              href="/datenschutz"
               className="text-text-secondary duration-300 hover:text-primary-base"
             >
               Datenschutz

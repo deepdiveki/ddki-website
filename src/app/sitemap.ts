@@ -38,7 +38,7 @@ const collectRoutes = () => {
     .map((filePath) => {
       const relativeDir = path.relative(siteAppDir, path.dirname(filePath));
       const normalized = relativeDir.split(path.sep).join("/");
-      // Strip Next.js route groups like (main) or (chooser) from the path
+      // Strip Next.js route groups like (software) or (chooser) from the path
       const routePath = normalized.replace(/\([^)]+\)\/?/g, "").replace(/\/$/, "") || "";
       return routePath ? `/${routePath}` : "/";
     })

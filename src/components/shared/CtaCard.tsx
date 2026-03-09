@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ButtonLink from "../ui/ButtonLink";
+import ButtonLink from "../ui/button-link-fortbildung";
 
 export default function CtaCard() {
   return (
