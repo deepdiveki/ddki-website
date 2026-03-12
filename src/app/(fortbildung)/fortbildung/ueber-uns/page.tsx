@@ -1,5 +1,5 @@
 import TeamSection from "@/components/ueber-uns/TeamSection";
-import TestimonialsSection from "@/components/ueber-uns/TestimonialsSection";
+import TestimonialsSection, { SchulFeedbackSection } from "@/components/ueber-uns/TestimonialsSection";
 import CtaCard from "@/components/shared/CtaCard";
 import type { Metadata } from "next";
 
@@ -34,6 +34,7 @@ export default function UeberUnsPage() {
 
       <TeamSection />
       <TestimonialsSection />
+      <SchulFeedbackSection />
       <CtaCard />
     </div>
   );

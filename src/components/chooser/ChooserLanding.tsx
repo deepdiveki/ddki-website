@@ -723,10 +723,10 @@ export default function ChooserLanding() {
               </p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-xl grid-cols-1 gap-8 sm:grid-cols-2">
+            <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {/* Björn Isenbiel */}
               <div className="flex flex-col items-center text-center">
-                <div className="size-32 overflow-hidden rounded-2xl border border-border-tertiary bg-white shadow-sm lg:size-40">
+                <div className="size-32 overflow-hidden rounded-full lg:size-40">
                   <Image
                     src="/images/team/team-01.png"
                     alt="Björn Isenbiel"
@@ -748,7 +748,7 @@ export default function ChooserLanding() {
 
               {/* Tim Philipp */}
               <div className="flex flex-col items-center text-center">
-                <div className="size-32 overflow-hidden rounded-2xl border border-border-tertiary bg-white shadow-sm lg:size-40">
+                <div className="size-32 overflow-hidden rounded-full lg:size-40">
                   <Image
                     src="/images/team/team-02.png"
                     alt="Tim Philipp"
@@ -765,6 +765,47 @@ export default function ChooserLanding() {
                 </p>
                 <p className="text-sm font-light text-text-secondary">
                   Lehrkraft für Informatik & Sport
+                </p>
+              </div>
+
+              {/* Dr. Nora Schröder */}
+              <div className="flex flex-col items-center text-center">
+                <div className="size-32 overflow-hidden rounded-full lg:size-40">
+                  <Image
+                    src="/images/team/team-06.png"
+                    alt="Dr. Nora Schröder"
+                    width={160}
+                    height={160}
+                    className="size-full object-cover"
+                  />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-text-primary">
+                  Dr. Nora Schröder
+                </h3>
+                <p className="mt-1 text-sm font-light text-text-secondary">
+                  Learning Experience Designer
+                </p>
+                <p className="text-sm font-light text-text-secondary">
+                  and Teaching Consultant
+                </p>
+              </div>
+
+              {/* Tim Maximilian Baum */}
+              <div className="flex flex-col items-center text-center">
+                <div className="size-32 overflow-hidden rounded-full border-2 border-black lg:size-40">
+                  <Image
+                    src="/images/team/team-05.png"
+                    alt="Tim Maximilian Baum"
+                    width={160}
+                    height={160}
+                    className="size-full object-cover"
+                  />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-text-primary">
+                  Tim Maximilian Baum
+                </h3>
+                <p className="mt-1 text-sm font-light text-text-secondary">
+                  Full Stack Software Engineer
                 </p>
               </div>
             </div>

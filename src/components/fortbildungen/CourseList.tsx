@@ -15,8 +15,11 @@ export default function CourseList() {
   const [selectedFormat, setSelectedFormat] = useState("alle");
 
   const filteredCourses = courses.filter((course) => {
+    const isDeepDive = course.slug.startsWith("deep-dive-modul-");
     const matchesCategory =
-      selectedCategory === "alle" || course.categoryId === selectedCategory;
+      selectedCategory === "alle" ||
+      course.categoryId === selectedCategory ||
+      (selectedCategory === "ki" && isDeepDive);
     const matchesFormat =
       selectedFormat === "alle" || course.format === selectedFormat;
     return matchesCategory && matchesFormat;

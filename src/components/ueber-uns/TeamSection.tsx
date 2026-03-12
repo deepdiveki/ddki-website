@@ -20,11 +20,10 @@ const teamMembers = [
     designation: "Geschäftsführer\nLehrkraft für Informatik & Sport",
     image: "/images/team/team-02.png",
   },
-  {
-    name: "Magdalena Seils",
-    designation:
-      "Lehrerin und Dozentin mit Schwerpunkt: Ausbildungen und Deutsch an Beruflichen Schulen",
-    image: "/images/team/team-04.png",
+{
+    name: "Dr. Nora Schröder",
+    designation: "Learning Experience Designer\nand Teaching Consultant",
+    image: "/images/team/team-06.png",
   },
   {
     name: "Tim Maximilian Baum",
@@ -42,9 +41,9 @@ export default function TeamSection() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <SectionHeader>
-          <HeaderTitle>Unser Team</HeaderTitle>
-          <HeaderSubtitle>
+        <SectionHeader className="mx-auto max-w-304 px-4 text-center xl:px-0">
+          <HeaderTitle className="text-display-xs font-light -tracking-[0.72px] text-text-primary lg:text-display-sm">Unser Team</HeaderTitle>
+          <HeaderSubtitle className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
             Wir sind Lehrkräfte, Entwickler und Bildungsenthusiasten – vereint
             durch die Vision, KI sinnvoll in den Schulalltag zu bringen.
           </HeaderSubtitle>
@@ -69,7 +68,8 @@ export default function TeamSection() {
               className={cn(
                 "relative size-40 overflow-hidden rounded-full bg-background-secondary",
                 (member.image === "/images/team/team-01.png" ||
-                  member.image === "/images/team/team-02.png") &&
+                  member.image === "/images/team/team-02.png" ||
+                  member.image === "/images/team/team-05.png") &&
                   "border-2 border-black"
               )}
             >
@@ -81,8 +81,7 @@ export default function TeamSection() {
                   "object-cover",
                   (member.image === "/images/team/team-01.png" ||
                     member.image === "/images/team/team-02.png") &&
-                    "scale-125",
-                  member.image === "/images/team/team-04.png" && "scale-110"
+                    "scale-125"
                 )}
               />
             </div>

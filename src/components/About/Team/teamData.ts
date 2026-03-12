@@ -15,9 +15,9 @@ const teamData: Team[] = [
   },
   {
     id: 89,
-    name: "Magdalena Seils",
-    designation: "Lehrerin und Dozentin mit Schwerpunkt: Ausbildungen und Deutsch an Beruflichen Schulen",
-    image: "/images/team/team-04.png",
+    name: "Dr. Nora Schröder",
+    designation: "Learning Experience Designer\nand Teaching Consultant",
+    image: "/images/team/team-06.png",
   },
   {
     id: 91,
