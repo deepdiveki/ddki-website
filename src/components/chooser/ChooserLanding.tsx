@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FortbildungenDetail, SoftwareDetail } from "./CardDetail";
 import FortbildungenAnimation from "./FortbildungenAnimation";
+import PlatformSwitcher from "@/components/shared/PlatformSwitcher";
 
 const AIEngineMini = dynamic(() => import("./AIEngineMini"), { ssr: false });
 
@@ -264,7 +265,12 @@ function ExpandButton({
 /* ─── Main Page ─── */
 
 export default function ChooserLanding() {
-  const [introComplete, setIntroComplete] = useState(false);
+  const [introComplete, setIntroComplete] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("ddki-intro-seen") === "1";
+    }
+    return false;
+  });
   const [hovered, setHovered] = useState<"fortbildungen" | "software" | null>(
     null,
   );
@@ -297,7 +303,10 @@ export default function ChooserLanding() {
       {/* Intro overlay */}
       <AnimatePresence>
         {!introComplete && (
-          <IntroOverlay onComplete={() => setIntroComplete(true)} />
+          <IntroOverlay onComplete={() => {
+            setIntroComplete(true);
+            sessionStorage.setItem("ddki-intro-seen", "1");
+          }} />
         )}
       </AnimatePresence>
 
@@ -327,23 +336,8 @@ export default function ChooserLanding() {
           animate={introComplete ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: AFTER_INTRO, ease: "easeOut" }}
         >
-          <Link
-            href="/"
-            className="flex items-center gap-2 focus-visible:outline-primary-base"
-          >
-            <Image
-              src="/images/ddki-logo.svg"
-              alt="DeepDive KI Logo"
-              width={32}
-              height={32}
-              className="size-8 lg:size-9"
-            />
-            <span className="text-lg font-medium tracking-tight text-text-primary lg:text-xl">
-              DeepDiveKI{" "}
-              <span className="font-light text-text-secondary">Plattform</span>
-            </span>
-          </Link>
-          <ButtonLink href="https://www.deepdive-ki.de" target="_blank" rel="noopener noreferrer">
+          <PlatformSwitcher variant="light" activePlatform="plattform" />
+          <ButtonLink href="https://plattform.deepdive-ki.de/auth/signin">
             Login
           </ButtonLink>
         </motion.header>
@@ -380,9 +374,7 @@ export default function ChooserLanding() {
                   <ArrowRight className="size-4" />
                 </Link>
                 <a
-                  href="https://www.deepdive-ki.de"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="https://plattform.deepdive-ki.de/auth/signup"
                   className="inline-flex items-center gap-2 rounded-[10px] border border-border-secondary bg-background-primary px-4 py-2.5 font-inter text-sm font-medium -tracking-[0.084px] text-text-primary transition-colors duration-300 hover:bg-background-secondary"
                 >
                   Registrieren
@@ -427,7 +419,7 @@ export default function ChooserLanding() {
                   <Link
                     href="/fortbildung"
                     className={cn(
-                      "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-tertiary bg-white shadow-sm transition-shadow duration-300",
+                      "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-tertiary bg-white/60 shadow-sm backdrop-blur-md transition-shadow duration-300",
                       "hover:shadow-xl",
                     )}
                   >
@@ -441,7 +433,7 @@ export default function ChooserLanding() {
                     />
 
                     {/* Visual header */}
-                    <div className="relative h-48 bg-gradient-to-br from-primary-light/40 to-primary-base/10 lg:h-56">
+                    <div className="relative h-48 bg-gradient-to-br from-primary-light/30 to-primary-base/10 lg:h-56">
                       <AnimationErrorBoundary>
                         <FortbildungenAnimation />
                       </AnimationErrorBoundary>
@@ -486,25 +478,19 @@ export default function ChooserLanding() {
               >
                 <GlowCard
                   isHovered={hovered === "software"}
-                  variant="dark"
+                  variant="light"
                   className="h-full"
                 >
-                  <a
+                  <Link
                     href="/software"
-                    target=""
-                    rel="noopener noreferrer"
                     className={cn(
-                      "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#8646F4]/20 shadow-sm transition-shadow duration-300",
-                      "hover:shadow-xl hover:shadow-[#8646F4]/10",
+                      "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-tertiary bg-white/60 shadow-sm backdrop-blur-md transition-shadow duration-300",
+                      "hover:shadow-xl",
                     )}
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #0F0C1F 0%, #030014 100%)",
-                    }}
                   >
                     {/* Expand button */}
                     <ExpandButton
-                      variant="dark"
+                      variant="light"
                       onClick={(e) => {
                         e.preventDefault();
                         setExpanded("software");
@@ -515,41 +501,47 @@ export default function ChooserLanding() {
                     <div
                       className="relative h-48 lg:h-56"
                       style={{
-                        backgroundImage: `
-                          linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-                        `,
-                        backgroundSize: "20px 20px",
+                        background: "linear-gradient(135deg, rgba(140,113,246,0.12) 0%, rgba(37,71,208,0.06) 100%)",
                       }}
                     >
+                      <div
+                        className="pointer-events-none absolute inset-0"
+                        style={{
+                          backgroundImage: `
+                            linear-gradient(rgba(140,113,246,0.06) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(140,113,246,0.06) 1px, transparent 1px)
+                          `,
+                          backgroundSize: "20px 20px",
+                        }}
+                      />
                       <div className="absolute inset-0">
                         <AnimationErrorBoundary>
                           <AIEngineMini />
                         </AnimationErrorBoundary>
                       </div>
-                      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#030014] to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white/40 to-transparent" />
                     </div>
 
                     {/* Content */}
                     <div className="flex flex-1 flex-col justify-between p-6 lg:p-8">
                       <div>
-                        <h2 className="text-display-xs font-semibold tracking-tight text-white lg:text-display-sm">
+                        <h2 className="text-display-xs font-semibold tracking-tight text-text-primary lg:text-display-sm">
                           Software
                         </h2>
-                        <p className="mt-2 text-md font-light text-[#918EA0] lg:text-lg">
+                        <p className="mt-2 text-md font-light text-text-secondary lg:text-lg">
                           DeepChat, KI-Schulbüro & digitale Lösungen für Schulen
                         </p>
                         <FeaturePills
                           pills={SOFTWARE_PILLS}
                           visible={hovered === "software"}
-                          variant="dark"
+                          variant="light"
                         />
                       </div>
                       <div className="mt-6 flex items-center justify-end">
-                        <ArrowRight className="size-6 text-[#A78BFA] transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight className="size-6 text-primary-darker transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </GlowCard>
               </motion.div>
             </div>

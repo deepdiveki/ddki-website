@@ -26,7 +26,7 @@ export default function OptimizedModelsAnimation() {
                     ref={(el) => {
                         diamondsRef.current[i] = el!;
                     }}
-                    className="rotating-diamond"
+                    className="rotating-diamond-cb"
                 />
             ))}
             <StyleSheet />
@@ -46,36 +46,36 @@ function StyleSheet() {
             position: relative;
         }
 
-        .rotating-diamond {
+        .rotating-diamond-cb {
             width: 0;
             height: 0;
             border: 20px solid transparent;
-            border-bottom-color: rgba(255, 255, 255, 0.8);
+            border-bottom-color: rgba(59, 130, 246, 0.6);
             position: absolute;
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            animation: glow 3s ease-in-out infinite alternate;
+            animation: diamond-glow-cb 3s ease-in-out infinite alternate;
         }
 
-        .rotating-diamond:nth-child(1) {
-            border-bottom-color: rgba(72, 150, 220, 0.9);
+        .rotating-diamond-cb:nth-child(1) {
+            border-bottom-color: rgba(59, 130, 246, 0.7);
         }
 
-        .rotating-diamond:nth-child(2) {
-            border-bottom-color: rgba(90, 200, 150, 0.9);
+        .rotating-diamond-cb:nth-child(2) {
+            border-bottom-color: rgba(34, 197, 94, 0.7);
             animation-delay: 0.5s;
         }
 
-        .rotating-diamond:nth-child(3) {
-            border-bottom-color: rgba(255, 120, 90, 0.9);
+        .rotating-diamond-cb:nth-child(3) {
+            border-bottom-color: rgba(249, 115, 22, 0.6);
             animation-delay: 1s;
         }
 
-        @keyframes glow {
+        @keyframes diamond-glow-cb {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+                filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.2));
             }
             50% {
-                box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+                filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
             }
         }
     `}</style>

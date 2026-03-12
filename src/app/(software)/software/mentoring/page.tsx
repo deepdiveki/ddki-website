@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Mentoring Simulator | DeepDiveKI",
+  title: "Mentoring Simulator",
   description:
     "Trainieren Sie Ihre Gesprächsführung als Mentor:in mit realistischen Szenarien.",
 };
@@ -40,24 +41,17 @@ const scenarios = [
 
 export default function MentoringPage() {
   return (
-    <main className="min-h-screen bg-[#070511] text-white">
-      <section className="relative z-10 overflow-visible pt-35 md:pt-40 xl:pt-45 pb-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(134,70,244,0.18),_transparent_60%)]" />
+    <>
+      <section className="relative z-10 overflow-visible pb-0 pt-35 md:pt-40 xl:pt-45">
         <div className="relative mx-auto max-w-[900px] px-4 sm:px-8 xl:px-0">
-          <div className="text-center max-w-[900px] mx-auto">
-            <span className="hero-subtitle-gradient hover:hero-subtitle-hover relative mb-5 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
-              <Image
-                src="/images/hero/icon-title.svg"
-                alt="icon"
-                width={16}
-                height={16}
-              />
-              <span className="hero-subtitle-text">Mentoring</span>
+          <div className="mx-auto max-w-[900px] text-center">
+            <span className="relative mb-5 inline-flex items-center gap-2 rounded-full sw-glass border border-border-tertiary px-4.5 py-2 text-sm font-medium text-primary-darker shadow-sm">
+              Mentoring
             </span>
-            <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">
+            <h1 className="mb-6 text-display-sm font-light -tracking-[1.2px] text-text-primary lg:text-display-lg xl:text-display-xl">
               Mentoring Simulator
             </h1>
-            <p className="mx-auto mb-9 max-w-[600px] font-medium md:text-lg text-white">
+            <p className="mx-auto mb-9 max-w-[600px] text-md font-light text-text-secondary">
               Wählen Sie ein Szenario aus, um Ihre Gesprächsführung als Mentor:in
               zu üben. Jedes Szenario bietet eine einzigartige Herausforderung
               und Gelegenheit, verschiedene Mentoring-Kompetenzen zu trainieren.
@@ -68,7 +62,7 @@ export default function MentoringPage() {
 
       <section className="relative pb-20 pt-4">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {scenarios.map((scenario) => {
               const needsZoomOut =
                 scenario.image.includes("cover-06") ||
@@ -77,7 +71,7 @@ export default function MentoringPage() {
               return (
                 <article
                   key={scenario.title}
-                  className="group overflow-hidden rounded-3xl border border-purple-900/50 bg-[#0b071a] shadow-[0_0_45px_rgba(134,70,244,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_60px_rgba(134,70,244,0.25)]"
+                  className="group sw-card-glow overflow-hidden rounded-3xl border border-border-tertiary bg-white/65 shadow-sm backdrop-blur-sm transition-all duration-300"
                 >
                   <div
                     className={`relative h-56 md:h-64 ${
@@ -94,20 +88,19 @@ export default function MentoringPage() {
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       unoptimized={scenario.image.endsWith(".svg")}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0b071a] via-transparent to-transparent" />
                   </div>
                   <div className="flex h-full flex-col gap-6 p-8">
                     <div>
-                      <h2 className="text-2xl font-semibold text-white transition-colors group-hover:text-purple-300">
+                      <h2 className="text-2xl font-semibold text-text-primary transition-colors group-hover:text-primary-dark">
                         {scenario.title}
                       </h2>
-                      <p className="mt-4 text-sm leading-relaxed text-slate-300">
+                      <p className="mt-4 text-sm leading-relaxed text-text-secondary">
                         {scenario.description}
                       </p>
                     </div>
-                    <a
+                    <Link
                       href={scenario.href}
-                      className="button-border-gradient hover:button-gradient-hover relative inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm text-white shadow-button hover:shadow-none"
+                      className="inline-flex items-center gap-2 rounded-lg bg-primary-darker px-5 py-2.5 text-sm font-medium text-white transition hover:bg-primary-dark"
                     >
                       Szenario starten
                       <svg
@@ -121,7 +114,7 @@ export default function MentoringPage() {
                       >
                         <path d="M9 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </article>
               );
@@ -129,6 +122,6 @@ export default function MentoringPage() {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }

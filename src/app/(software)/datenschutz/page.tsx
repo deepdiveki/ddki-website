@@ -2,8 +2,11 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Datenschutz | DeepDiveKI",
+  title: "Datenschutz",
   description: "Informationen zum Datenschutz bei DeepDiveKI: Erfahren Sie, wie wir Ihre personenbezogenen Daten gemäß DSGVO verarbeiten und welche Rechte Sie dabei haben.",
+  alternates: {
+    canonical: "https://www.deepdive-ki.de/datenschutz",
+  },
 };
 
 const PrivacyPage = () => {

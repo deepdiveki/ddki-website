@@ -18,9 +18,9 @@ export default function SecurityPrivacyAnimation() {
     }, []);
 
     return (
-        <div className="security-animation-container">
-            <div className="central-shield" />
-            <div ref={rotatingCircleRef} className="rotating-dashed-circle" />
+        <div className="security-cb-animation-container">
+            <div className="central-shield-cb" />
+            <div ref={rotatingCircleRef} className="rotating-dashed-circle-cb" />
             <StyleSheet />
         </div>
     );
@@ -29,7 +29,7 @@ export default function SecurityPrivacyAnimation() {
 function StyleSheet() {
     return (
         <style>{`
-        .security-animation-container {
+        .security-cb-animation-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -38,31 +38,30 @@ function StyleSheet() {
             position: relative;
         }
 
-        .central-shield {
+        .central-shield-cb {
             width: 35px;
             height: 40px;
-            background: linear-gradient(135deg, rgba(72, 72, 72, 0.9), rgba(0, 0, 0, 0.8));
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85), rgba(59, 130, 246, 0.8));
             clip-path: polygon(50% 0%, 90% 30%, 90% 80%, 50% 100%, 10% 80%, 10% 30%);
-            box-shadow: 0 0 20px rgba(72, 72, 72, 0.7);
+            box-shadow: 0 0 16px rgba(30, 58, 138, 0.4);
             position: absolute;
-            animation: glow-shield 3s ease-in-out infinite alternate;
+            animation: glow-shield-cb 3s ease-in-out infinite alternate;
         }
 
-        .rotating-dashed-circle {
+        .rotating-dashed-circle-cb {
             width: 60px;
             height: 60px;
-            border: 2px dashed rgba(34, 193, 195, 0.7);
+            border: 2px dashed rgba(20, 184, 166, 0.5);
             border-radius: 50%;
             position: absolute;
-            box-shadow: 0 0 15px rgba(34, 193, 195, 0.6);
         }
 
-        @keyframes glow-shield {
+        @keyframes glow-shield-cb {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(72, 72, 72, 0.7);
+                box-shadow: 0 0 12px rgba(30, 58, 138, 0.3);
             }
             50% {
-                box-shadow: 0 0 40px rgba(72, 72, 72, 1);
+                box-shadow: 0 0 24px rgba(30, 58, 138, 0.5);
             }
         }
     `}</style>

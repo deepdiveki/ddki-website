@@ -1,0 +1,140 @@
+/* Software theme – loaded only on /software routes */
+/* Purple-tinted "techy" variant matching Fortbildung design language */
+@import "tw-animate-css";
+
+@theme {
+  /* FONTS */
+  --font-inter: var(--font-inter), sans-serif;
+
+  /* FONT SIZES & LINE HEIGHTS */
+  --text-display-2xl: 72px;
+  --text-display-2xl--line-height: 76px;
+  --text-display-xl: 60px;
+  --text-display-xl--line-height: 68px;
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 56px;
+  --text-display-md: 36px;
+  --text-display-md--line-height: 44px;
+  --text-display-sm: 30px;
+  --text-display-sm--line-height: 38px;
+  --text-display-xs: 24px;
+  --text-display-xs--line-height: 32px;
+  --text-xl: 20px;
+  --text-xl--line-height: 30px;
+  --text-lg: 18px;
+  --text-lg--line-height: 28px;
+  --text-md: 16px;
+  --text-md--line-height: 24px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-xs: 12px;
+  --text-xs--line-height: 18px;
+
+  /* COLORS - BACKGROUND (purple-tinted for Software) */
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #eae6fb;
+  --color-background-tertiary: #d6d0f0;
+  --color-background-quaternary: #b8b0e0;
+  --color-background-week-black: #222530;
+  --color-background-black: #181b25;
+
+  /* COLORS - TEXT */
+  --color-text-primary: #181b25;
+  --color-text-secondary: #525866;
+  --color-text-tertiary: #99a0ae;
+  --color-text-disabled: #cacfd8;
+  --color-text-white: #ffffff;
+
+  /* COLORS - PRIMARY */
+  --color-primary-darker: #2547d0;
+  --color-primary-dark: #8c71f6;
+  --color-primary-base: #c6bdfa;
+  --color-primary-light: #dcd5ff;
+
+  /* COLORS - BORDER (purple-tinted) */
+  --color-border-primary: #181b25;
+  --color-border-secondary: #b8b0e0;
+  --color-border-tertiary: #d0c9ed;
+  --color-border-white: #ffffff;
+
+  /* SHADOWS (with slight purple tint) */
+  --shadow-xs: 0 1px 2px 0 rgb(80 60 140 / 6%);
+  --shadow-sm: 0 1px 3px 0 rgb(80 60 140 / 10%), 0 1px 2px 0 rgb(80 60 140 / 6%);
+  --shadow-md: 0 4px 8px -2px rgb(80 60 140 / 10%), 0 2px 4px -2px rgb(80 60 140 / 6%);
+  --shadow-lg: 0 12px 16px -4px rgb(80 60 140 / 10%), 0 4px 6px -2px rgb(80 60 140 / 4%);
+  --shadow-xl: 0 20px 24px -4px rgb(80 60 140 / 10%), 0 8px 8px -4px rgb(80 60 140 / 4%);
+  --shadow-2xl: 0 24px 48px -12px rgb(80 60 140 / 18%);
+  --shadow-3xl: 0 32px 64px -12px rgb(80 60 140 / 14%);
+}
+
+/* Software-specific utility classes */
+
+/* Tile grid pattern — visible "Kacheloptik" */
+.sw-grid-pattern {
+  background-image:
+    linear-gradient(rgba(140, 113, 246, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 113, 246, 0.10) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Finer grid for hero / CTA sections */
+.sw-grid-pattern-lg {
+  background-image:
+    linear-gradient(rgba(140, 113, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 113, 246, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glass card with stronger frosted look */
+.sw-glass-card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(208, 201, 237, 0.35);
+}
+
+/* Soft glow for cards on hover */
+.sw-card-glow {
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+.sw-card-glow:hover {
+  box-shadow:
+    0 8px 24px -4px rgba(140, 113, 246, 0.18),
+    0 0 0 1px rgba(140, 113, 246, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Gradient accent line */
+.sw-accent-line {
+  background: linear-gradient(90deg, transparent, rgba(140, 113, 246, 0.4), rgba(37, 71, 208, 0.4), transparent);
+}
+
+/* Glass card effect */
+.sw-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Floating orb decorations */
+@keyframes sw-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes sw-pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.sw-float-slow {
+  animation: sw-float 8s ease-in-out infinite;
+}
+
+.sw-float-medium {
+  animation: sw-float 6s ease-in-out infinite;
+}
+
+.sw-pulse-glow {
+  animation: sw-pulse-glow 4s ease-in-out infinite;
+}

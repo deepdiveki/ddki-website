@@ -51,31 +51,31 @@ function StyleSheet() {
             height: 0;
             border-left: 20px solid transparent;
             border-right: 20px solid transparent;
-            border-bottom: 40px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 40px solid rgba(59, 130, 246, 0.6);
             position: absolute;
-            animation: glow 3s ease-in-out infinite alternate;
+            animation: triangle-glow 3s ease-in-out infinite alternate;
         }
 
         .rotating-triangle:nth-child(1) {
-            border-bottom-color: rgba(72, 160, 220, 0.9);
+            border-bottom-color: rgba(20, 184, 166, 0.7);
         }
 
         .rotating-triangle:nth-child(2) {
-            border-bottom-color: rgba(128, 90, 213, 0.9);
+            border-bottom-color: rgba(249, 115, 22, 0.7);
             animation-delay: 0.5s;
         }
 
         .rotating-triangle:nth-child(3) {
-            border-bottom-color: rgba(255, 100, 150, 0.9);
+            border-bottom-color: rgba(59, 130, 246, 0.6);
             animation-delay: 1s;
         }
 
-        @keyframes glow {
+        @keyframes triangle-glow {
             0%, 100% {
-                box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+                filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.2));
             }
             50% {
-                box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+                filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.5));
             }
         }
     `}</style>

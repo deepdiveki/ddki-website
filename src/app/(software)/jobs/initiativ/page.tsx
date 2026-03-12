@@ -37,7 +37,7 @@ export default function InitiativbewerbungPage() {
               />
               <span className="hero-subtitle-text">Initiativbewerbung</span>
             </span>
-            <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">
+            <h1 className="mb-6 text-display-sm font-light -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
               Bewerbung im Team DeepDiveKI
             </h1>
             <div className="mx-auto mb-10 max-w-[780px] text-left">

@@ -1,9 +1,67 @@
-import SiteChrome from "@/components/SiteChrome";
+import "./software-theme.css";
+import Header from "@/components/Header";
+import Footer from "@/components/layout/Footer";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 
 export default function MainLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <SiteChrome>{children}</SiteChrome>;
+  return (
+    <div className={inter.variable}>
+      <Header />
+
+      <main
+        id="main-content"
+        className="animate-in fade-in relative min-h-screen font-inter duration-700"
+        style={{
+          background:
+            "linear-gradient(180deg, #c8bff5 0%, #ddd7fe 25%, #eae6fb 50%, #eae6fb 100%)",
+        }}
+      >
+        {/* Subtle dot-grid pattern overlay for "techy" feel */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0 sw-grid-pattern"
+          aria-hidden="true"
+        />
+        {/* Decorative floating purple orbs */}
+        <div
+          className="sw-float-slow sw-pulse-glow pointer-events-none absolute -left-32 top-[20%] z-0 h-96 w-96 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(140,113,246,0.15) 0%, transparent 70%)",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          className="sw-float-medium sw-pulse-glow pointer-events-none absolute -right-24 top-[55%] z-0 h-72 w-72 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(37,71,208,0.1) 0%, transparent 70%)",
+          }}
+          aria-hidden="true"
+        />
+        <div
+          className="sw-float-slow pointer-events-none absolute left-1/4 top-[80%] z-0 h-64 w-64 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(198,189,250,0.2) 0%, transparent 70%)",
+            animationDelay: "2s",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Page content */}
+        <div className="relative z-10">{children}</div>
+      </main>
+
+      <Footer variant="software" />
+    </div>
+  );
 }

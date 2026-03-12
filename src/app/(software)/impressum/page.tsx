@@ -6,9 +6,11 @@ import Features from "@/components/Home/Features";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Impressum | DeepDiveKI",
+  title: "Impressum",
   description: "Impressum der DeepDiveKI UG - Kontaktadresse und rechtliche Informationen zum Unternehmen.",
-  // other metadata
+  alternates: {
+    canonical: "https://www.deepdive-ki.de/impressum",
+  },
 };
 
 const AboutPage = () => {

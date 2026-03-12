@@ -275,10 +275,10 @@ export default function LiSuperhirnPage() {
               />
               <span className="hero-subtitle-text">LI Superhirn</span>
             </span>
-            <h1 className="mb-5 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-2">
+            <h1 className="mb-5 text-display-sm font-light -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
               Das LI Superhirn
             </h1>
-            <p className="mx-auto max-w-[700px] text-base font-medium text-white/80 md:text-lg">
+            <p className="mx-auto max-w-[700px] text-md font-light text-white/80">
               Ein gemeinsamer KI-Chat, der Lernprozesse, Unterrichtsplanung,
               Termine und Prüfungsvorbereitung in einer Oberfläche vereint. Rolle auswählen, Frage
               stellen, Antwort nutzen.

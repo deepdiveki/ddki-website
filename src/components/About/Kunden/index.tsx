@@ -10,8 +10,8 @@ const Clients = () => {
     <section className="py-19">
       <div className="mx-auto max-w-[1104px] px-4 sm:px-8 xl:px-0">
         <div className="relative z-10 overflow-hidden">
-          <span className="pointer-events-none absolute inset-0 left-0 top-1/2 z-10 block h-[37px] w-full max-w-[128px] -translate-y-1/2 bg-gradient-to-l from-dark/0 to-dark/100"></span>
-          <span className="pointer-events-none absolute inset-0 left-auto top-1/2 z-10 block h-[37px] w-full max-w-[128px] -translate-y-1/2 bg-gradient-to-r from-dark/0 to-dark/100"></span>
+          <span className="pointer-events-none absolute inset-0 left-0 top-1/2 z-10 block h-[37px] w-full max-w-[128px] -translate-y-1/2 bg-gradient-to-l from-transparent to-background-secondary"></span>
+          <span className="pointer-events-none absolute inset-0 left-auto top-1/2 z-10 block h-[37px] w-full max-w-[128px] -translate-y-1/2 bg-gradient-to-r from-transparent to-background-secondary"></span>
           <div className="clients-carousel">
             <Swiper
               modules={[Autoplay]}

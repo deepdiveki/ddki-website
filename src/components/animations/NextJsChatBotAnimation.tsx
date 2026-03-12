@@ -44,21 +44,22 @@ function FullStackStyleSheet() {
         .stack-cube {
             width: 35px;
             height: 35px;
-            background: linear-gradient(135deg, rgba(34, 193, 195, 0.9), rgba(253, 187, 45, 0.9));
-            box-shadow: 0 0 20px rgba(34, 193, 195, 0.8);
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.7), rgba(234, 179, 8, 0.7));
+            box-shadow: 0 0 16px rgba(20, 184, 166, 0.4);
             position: relative;
             transform-style: preserve-3d;
             animation: pulse-stack 3s ease-in-out infinite;
+            border-radius: 6px;
         }
 
         .orbiting-tech {
             width: 12px;
             height: 12px;
-            background: rgba(253, 187, 45, 0.9);
+            background: rgba(234, 179, 8, 0.8);
             border-radius: 50%;
             position: absolute;
             animation: orbit-tech 5s linear infinite;
-            box-shadow: 0 0 15px rgba(253, 187, 45, 0.6);
+            box-shadow: 0 0 8px rgba(234, 179, 8, 0.4);
         }
 
         .frontend {
@@ -85,21 +86,17 @@ function FullStackStyleSheet() {
         @keyframes pulse-stack {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 0 20px rgba(34, 193, 195, 0.8);
+                box-shadow: 0 0 16px rgba(20, 184, 166, 0.4);
             }
             50% {
                 transform: scale(1.1);
-                box-shadow: 0 0 40px rgba(34, 193, 195, 1);
+                box-shadow: 0 0 28px rgba(20, 184, 166, 0.6);
             }
         }
 
         @keyframes orbit-tech {
-            from {
-                transform: rotate(0deg) translateX(45px);
-            }
-            to {
-                transform: rotate(360deg) translateX(45px);
-            }
+            from { transform: rotate(0deg) translateX(45px); }
+            to { transform: rotate(360deg) translateX(45px); }
         }
     `}</style>
     );

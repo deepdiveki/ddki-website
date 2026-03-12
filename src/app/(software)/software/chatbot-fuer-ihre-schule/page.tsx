@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   title: "KI-Schulbüro – Chatbot für Ihre Schulwebsite",
   description:
     "Unser KI-Chatbot für Schulwebsites beantwortet Fragen rund um Schule und Organisation (z.B. Termine, Anmeldungen). Entlasten Sie Ihr Schulbüro und bieten Ihrer Schulgemeinschaft einen modernen Service.",
+  alternates: {
+    canonical: "https://www.deepdive-ki.de/software/chatbot-fuer-ihre-schule",
+  },
 };
 
 const AboutPage = () => {

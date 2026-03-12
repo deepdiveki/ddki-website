@@ -26,7 +26,7 @@ const featuresData: Feature[] = [
   },
   {
     id: 27,
-    title: "Next.js 13, React 18, TS",
+    title: "Next.js 15, React 19, TS",
     description: "Neuste Full-Stack Website Technologien für gute Performance im Schulalltag",
     icon: "/images/features/icon-02.svg",
     animationComponent: nextJsAnimation,

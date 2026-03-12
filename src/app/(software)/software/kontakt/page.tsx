@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Kontakt – Sprechen Sie uns an",
   description:
     "Nehmen Sie Kontakt mit DeepDiveKI auf. Wir beraten Sie gerne zu DeepChat, KI-Schulbüro und Fortbildungen für Ihre Schule.",
+  alternates: {
+    canonical: "https://www.deepdive-ki.de/software/kontakt",
+  },
 };
 
 const KontaktPage = () => {

@@ -11,7 +11,6 @@ export default function AIModelAnimation() {
         const interval = setInterval(() => {
             angle += 1.5;
 
-            // Punkte auf Linien bewegen
             pointsRef.current.forEach((point, index) => {
                 const offset = (angle + index * 40) % 360;
                 const x = 25 * Math.cos((offset * Math.PI) / 180);
@@ -19,7 +18,6 @@ export default function AIModelAnimation() {
                 point.style.transform = `translate(${x}px, ${y}px)`;
             });
 
-            // Linien rotieren leicht
             linesRef.current.forEach((line, index) => {
                 line.style.transform = `rotate(${angle + index * 90}deg)`;
             });
@@ -66,27 +64,54 @@ function StyleSheet() {
         .rotating-line {
             width: 60px;
             height: 2px;
-            background: rgba(255, 255, 255, 0.8);
             position: absolute;
             transform-origin: center;
-            animation: line-glow 3s ease-in-out infinite alternate;
+            animation: aimodel-line-glow 3s ease-in-out infinite alternate;
+        }
+
+        .rotating-line:nth-child(1) {
+            background: rgba(20, 184, 166, 0.4);
+        }
+        .rotating-line:nth-child(2) {
+            background: rgba(59, 130, 246, 0.4);
+        }
+        .rotating-line:nth-child(3) {
+            background: rgba(249, 115, 22, 0.4);
+        }
+        .rotating-line:nth-child(4) {
+            background: rgba(168, 85, 247, 0.4);
         }
 
         .moving-point {
             width: 8px;
             height: 8px;
-            background: rgba(128, 90, 213, 1);
             border-radius: 50%;
             position: absolute;
-            box-shadow: 0 0 10px rgba(128, 90, 213, 0.6);
         }
 
-        @keyframes line-glow {
+        .rotating-line:nth-child(1) .moving-point {
+            background: rgba(20, 184, 166, 0.9);
+            box-shadow: 0 0 8px rgba(20, 184, 166, 0.5);
+        }
+        .rotating-line:nth-child(2) .moving-point {
+            background: rgba(59, 130, 246, 0.9);
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+        }
+        .rotating-line:nth-child(3) .moving-point {
+            background: rgba(249, 115, 22, 0.9);
+            box-shadow: 0 0 8px rgba(249, 115, 22, 0.5);
+        }
+        .rotating-line:nth-child(4) .moving-point {
+            background: rgba(168, 85, 247, 0.9);
+            box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+        }
+
+        @keyframes aimodel-line-glow {
             0%, 100% {
-                box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+                filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.2));
             }
             50% {
-                box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+                filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.4));
             }
         }
     `}</style>

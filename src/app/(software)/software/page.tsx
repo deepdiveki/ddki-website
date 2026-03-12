@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   title: "DeepChat, KI-Schulbüro und KI-Fortbildungen für Schulen",
   description:
     "DeepDiveKI bietet Schulen innovative KI-Tools: DeepChat für den Unterricht, KI-Schulbüro für die Schulwebsite und praxisnahe Fortbildungen für Lehrkräfte.",
+  alternates: {
+    canonical: "https://www.deepdive-ki.de/software",
+  },
 };
 
 export default function Home() {

@@ -44,22 +44,22 @@ function AwsStyleSheet() {
         .center-cloud {
             width: 40px;
             height: 30px;
-            background: linear-gradient(135deg, rgba(60, 120, 255, 0.9), rgba(30, 90, 200, 0.9));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.85), rgba(37, 99, 235, 0.85));
             border-radius: 40% 40% 60% 60%;
             position: relative;
             animation: pulse-cloud 3s ease-in-out infinite;
-            box-shadow: 0 0 20px rgba(60, 120, 255, 0.8);
+            box-shadow: 0 0 16px rgba(59, 130, 246, 0.5);
             overflow: hidden;
         }
 
         .orbiting-icon {
             width: 14px;
             height: 14px;
-            background: linear-gradient(135deg, rgba(255, 165, 0, 0.9), rgba(255, 120, 0, 0.8));
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.9), rgba(249, 115, 22, 0.8));
             border-radius: 50%;
             position: absolute;
             animation: orbit-aws 4s linear infinite;
-            box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+            box-shadow: 0 0 8px rgba(249, 115, 22, 0.5);
         }
 
         .orbit-1 {
@@ -86,21 +86,17 @@ function AwsStyleSheet() {
         @keyframes pulse-cloud {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 0 20px rgba(60, 120, 255, 0.8);
+                box-shadow: 0 0 16px rgba(59, 130, 246, 0.5);
             }
             50% {
                 transform: scale(1.1);
-                box-shadow: 0 0 40px rgba(60, 120, 255, 0.9);
+                box-shadow: 0 0 28px rgba(59, 130, 246, 0.7);
             }
         }
 
         @keyframes orbit-aws {
-            from {
-                transform: rotate(0deg) translateX(40px);
-            }
-            to {
-                transform: rotate(360deg) translateX(40px);
-            }
+            from { transform: rotate(0deg) translateX(40px); }
+            to { transform: rotate(360deg) translateX(40px); }
         }
     `}</style>
     );

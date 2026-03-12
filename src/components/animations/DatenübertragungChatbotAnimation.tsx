@@ -18,10 +18,10 @@ export default function DataTransmissionAnimation() {
     }, []);
 
     return (
-        <div className="data-animation-container">
-            <div className="data-packet" />
-            <div ref={rotatingWavesRef} className="rotating-waves" />
-            <div className="outer-control-frame" />
+        <div className="data-cb-animation-container">
+            <div className="data-packet-cb" />
+            <div ref={rotatingWavesRef} className="rotating-waves-cb" />
+            <div className="outer-control-frame-cb" />
             <StyleSheet />
         </div>
     );
@@ -30,7 +30,7 @@ export default function DataTransmissionAnimation() {
 function StyleSheet() {
     return (
         <style>{`
-        .data-animation-container {
+        .data-cb-animation-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -39,51 +39,41 @@ function StyleSheet() {
             position: relative;
         }
 
-        .data-packet {
+        .data-packet-cb {
             width: 30px;
             height: 20px;
-            background: linear-gradient(135deg, rgba(72, 150, 240, 0.9), rgba(40, 90, 200, 0.8));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.7));
             border-radius: 5px;
-            box-shadow: 0 0 20px rgba(72, 150, 240, 0.7);
+            box-shadow: 0 0 14px rgba(59, 130, 246, 0.4);
             position: absolute;
-            animation: glow-data 3s ease-in-out infinite alternate;
+            animation: glow-data-cb 3s ease-in-out infinite alternate;
         }
 
-        .rotating-waves {
+        .rotating-waves-cb {
             width: 70px;
             height: 70px;
-            border: 2px solid rgba(72, 150, 240, 0.6);
+            border: 2px solid rgba(20, 184, 166, 0.4);
             border-radius: 50%;
             position: absolute;
-            box-shadow: 0 0 15px rgba(72, 150, 240, 0.5);
-            animation: wave-pulse 4s ease-in-out infinite alternate;
+            animation: wave-pulse-cb 4s ease-in-out infinite alternate;
         }
 
-        .outer-control-frame {
+        .outer-control-frame-cb {
             width: 90px;
             height: 90px;
-            border: 2px dotted rgba(34, 193, 195, 0.7);
+            border: 2px dotted rgba(20, 184, 166, 0.3);
             border-radius: 10px;
             position: absolute;
-            box-shadow: 0 0 10px rgba(34, 193, 195, 0.5);
         }
 
-        @keyframes glow-data {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(72, 150, 240, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(72, 150, 240, 0.9);
-            }
+        @keyframes glow-data-cb {
+            0%, 100% { box-shadow: 0 0 14px rgba(59, 130, 246, 0.4); }
+            50% { box-shadow: 0 0 24px rgba(59, 130, 246, 0.6); }
         }
 
-        @keyframes wave-pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
+        @keyframes wave-pulse-cb {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
     `}</style>
     );

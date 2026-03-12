@@ -1,27 +1,18 @@
-import Image from "next/image";
-
 const HeroStaticDeepChat = () => {
   return (
     <section
       id="home"
-      className="relative z-10 overflow-visible pt-35 md:pt-40 xl:pt-45 pb-0"
-      style={{ position: "relative" }}
+      className="relative z-10 overflow-visible pb-0 pt-35 md:pt-40 xl:pt-45"
     >
       <div className="relative z-1 mx-auto max-w-[900px] px-4 sm:px-8 xl:px-0">
         <div className="text-center">
-          <span className="hero-subtitle-gradient hover:hero-subtitle-hover relative mb-5 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
-            <Image
-              src="/images/hero/icon-title.svg"
-              alt="icon"
-              width={16}
-              height={16}
-            />
-            <span className="hero-subtitle-text">DeepChat</span>
+          <span className="relative mb-5 inline-flex items-center gap-2 rounded-full sw-glass border border-border-tertiary px-4.5 py-2 text-sm font-medium text-primary-darker shadow-sm">
+            DeepChat
           </span>
-          <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">
+          <h1 className="mb-6 text-display-sm font-light -tracking-[1.2px] text-text-primary lg:text-display-lg xl:text-display-xl">
             DeepChat
           </h1>
-          <p className="mx-auto mb-9 max-w-[600px] font-medium md:text-lg text-white">
+          <p className="mx-auto mb-9 max-w-[600px] text-md font-light text-text-secondary">
             Planen Sie Unterricht, erstellen Sie Materialien und organisieren Sie den Schulalltag – alles in einem Chat. Datenschutzkonform und performant.
           </p>
         </div>
@@ -31,5 +22,3 @@ const HeroStaticDeepChat = () => {
 };
 
 export default HeroStaticDeepChat;
-
-

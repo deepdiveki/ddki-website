@@ -179,10 +179,10 @@ export default function PlaygroundPage() {
               />
               <span className="hero-subtitle-text">Playground</span>
             </span>
-            <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">
+            <h1 className="mb-6 text-display-sm font-light -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
               KI-Schulbüro für Ihre Schule
             </h1>
-            <p className="mx-auto mb-9 max-w-[600px] font-medium md:text-lg text-white">
+            <p className="mx-auto mb-9 max-w-[600px] text-md font-light text-white">
               Hier sehen Sie, wie ein KI-Schulbüro auf Ihrer Schul-Website
               aussehen könnte. Stellen Sie konkrete Fragen zum (fiktiven) Nordlicht-Gymnasium
               und erhalten Sie sofortige Antworten.

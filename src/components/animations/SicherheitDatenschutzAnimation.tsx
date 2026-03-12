@@ -56,39 +56,45 @@ function StyleSheet() {
         .shield-symbol {
             width: 40px;
             height: 48px;
-            background: linear-gradient(135deg, rgba(72, 160, 220, 0.9), rgba(40, 100, 180, 0.9));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(30, 58, 138, 0.8));
             clip-path: polygon(50% 0%, 85% 20%, 85% 70%, 50% 100%, 15% 70%, 15% 20%);
-            box-shadow: 0 0 20px rgba(72, 160, 220, 0.7);
+            box-shadow: 0 0 16px rgba(59, 130, 246, 0.3);
             position: absolute;
-            animation: glow 3s ease-in-out infinite alternate;
+            animation: shield-glow 3s ease-in-out infinite alternate;
         }
 
         .orbiting-point {
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.8);
+            width: 7px;
+            height: 7px;
+            background: rgba(34, 197, 94, 0.8);
             border-radius: 50%;
             position: absolute;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-            animation: point-pulse 2.5s ease-in-out infinite alternate;
+            box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
+            animation: sec-point-pulse 2.5s ease-in-out infinite alternate;
         }
 
-        @keyframes glow {
+        .orbiting-point:nth-child(3) {
+            background: rgba(249, 115, 22, 0.8);
+            box-shadow: 0 0 6px rgba(249, 115, 22, 0.4);
+        }
+
+        .orbiting-point:nth-child(4) {
+            background: rgba(20, 184, 166, 0.8);
+            box-shadow: 0 0 6px rgba(20, 184, 166, 0.4);
+        }
+
+        @keyframes shield-glow {
             0%, 100% {
-                box-shadow: 0 0 15px rgba(72, 160, 220, 0.7);
+                box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
             }
             50% {
-                box-shadow: 0 0 30px rgba(72, 160, 220, 0.9);
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
             }
         }
 
-        @keyframes point-pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.3);
-            }
+        @keyframes sec-point-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
         }
     `}</style>
     );

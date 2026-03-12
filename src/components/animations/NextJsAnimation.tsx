@@ -50,21 +50,39 @@ function StyleSheet() {
         .rotating-segment {
             width: 50px;
             height: 10px;
-            background: rgba(255, 255, 255, 0.8);
             position: absolute;
             top: 50%;
             left: 50%;
             transform-origin: left center;
             border-radius: 4px;
-            animation: glow 3s ease-in-out infinite alternate;
+            animation: nextjs-glow 3s ease-in-out infinite alternate;
         }
 
-        @keyframes glow {
+        .rotating-segment:nth-child(1) {
+            background: linear-gradient(90deg, rgba(20, 184, 166, 0.7), rgba(6, 182, 212, 0.5));
+        }
+        .rotating-segment:nth-child(2) {
+            background: linear-gradient(90deg, rgba(59, 130, 246, 0.7), rgba(37, 99, 235, 0.5));
+        }
+        .rotating-segment:nth-child(3) {
+            background: linear-gradient(90deg, rgba(249, 115, 22, 0.7), rgba(234, 88, 12, 0.5));
+        }
+        .rotating-segment:nth-child(4) {
+            background: linear-gradient(90deg, rgba(34, 197, 94, 0.7), rgba(22, 163, 74, 0.5));
+        }
+        .rotating-segment:nth-child(5) {
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.7), rgba(139, 92, 246, 0.5));
+        }
+        .rotating-segment:nth-child(6) {
+            background: linear-gradient(90deg, rgba(234, 179, 8, 0.7), rgba(202, 138, 4, 0.5));
+        }
+
+        @keyframes nextjs-glow {
             0%, 100% {
-                box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+                filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.3));
             }
             50% {
-                box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+                filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
             }
         }
     `}</style>

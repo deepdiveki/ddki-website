@@ -5,8 +5,8 @@ const SingleTeam = ({ team }: { team: Team }) => {
   const { name, designation, image } = team;
 
   return (
-    <div className="wow fadeInUp group text-center">
-      <div className="team-img-gradient group-hover:before:gradient-3 relative mx-auto mb-7.5 h-50 w-full max-w-50 rounded-full">
+    <div className="group text-center">
+      <div className="relative mx-auto mb-7.5 h-50 w-full max-w-50 overflow-hidden rounded-full border border-border-tertiary shadow-md transition-shadow duration-300 group-hover:shadow-lg">
         <Image
           src={image}
           alt={name}
@@ -14,8 +14,8 @@ const SingleTeam = ({ team }: { team: Team }) => {
           className="rounded-full object-cover object-center"
         />
       </div>
-      <h3 className="mb-2.5 text-heading-6 font-semibold text-white">{name}</h3>
-      <p className="mb-6 font-medium">
+      <h3 className="mb-2.5 text-heading-6 font-semibold text-text-primary">{name}</h3>
+      <p className="mb-6 font-medium text-text-secondary">
         {designation.split("\n").map((line, index) => (
           <span key={index}>
             {line}
@@ -25,7 +25,6 @@ const SingleTeam = ({ team }: { team: Team }) => {
       </p>
     </div>
   );
-
 };
 
 export default SingleTeam;

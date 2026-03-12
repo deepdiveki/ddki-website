@@ -1,6 +1,12 @@
 import "./fortbildung-theme.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 
 export default function FortbildungLayout({
   children,
@@ -8,17 +14,17 @@ export default function FortbildungLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <div className={inter.variable}>
       <Header />
 
       <main
         id="main-content"
-        className="animate-in fade-in min-h-screen bg-background-secondary duration-700"
+        className="animate-in fade-in min-h-screen font-inter bg-background-secondary duration-700"
       >
         {children}
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

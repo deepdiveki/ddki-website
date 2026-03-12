@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     description:
       "Praxisnahe Fortbildungen in KI, Digitalisierung und Pädagogik. Zertifizierte Abschlüsse für Lehrkräfte.",
   },
+  alternates: {
+    canonical: "https://www.deepdive-ki.de/fortbildung",
+  },
 };
 
 export default function Home() {

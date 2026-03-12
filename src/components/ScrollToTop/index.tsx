@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Top: 0 takes us all the way back to the top of the page
-  // Behavior: smooth keeps it smooth!
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -13,7 +11,6 @@ export default function ScrollToTop() {
   };
 
   useEffect(() => {
-    // Button is displayed after scrolling for 500 pixels
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
         setIsVisible(true);
@@ -31,12 +28,12 @@ export default function ScrollToTop() {
     <div
       className={`${
         isVisible ? "flex" : "hidden"
-      } shadow-solid-5 fixed bottom-8 right-8 z-999 h-10 w-10 items-center justify-center rounded-[4px] bg-purple hover:opacity-70`}
+      } fixed bottom-8 right-8 z-999 h-10 w-10 items-center justify-center rounded-lg bg-primary-darker shadow-md hover:bg-primary-dark`}
     >
       <div
         onClick={scrollToTop}
         aria-label="scroll to top"
-        className="bg-primary hover:shadow-signUp flex h-10 w-10 cursor-pointer items-center justify-center rounded-sm text-white shadow-md transition duration-300 ease-in-out hover:bg-primary/80"
+        className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg text-white transition duration-300 ease-in-out"
       >
         <svg
           className="h-5 w-5 fill-white"

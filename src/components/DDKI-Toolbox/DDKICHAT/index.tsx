@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import ChatbotToolAnimation from "@/components/animations/ChatbotToolAnimation";
 
@@ -8,39 +7,33 @@ const DDKIChat = () => {
     "DeepChat ist dein All-in-One Tool für den Unterricht und schulische Organisation. Von der Unterrichtsplanung bis zur Verwaltung – alles in einem Chat.";
 
   return (
-    <section className="relative pt-20 flex justify-center items-center">
-      <div className="relative mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0 z-20">
+    <section className="relative flex items-center justify-center pt-20">
+      <div className="relative z-20 mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
         <div className="flex flex-col items-center text-center">
-          <div className="features-box-border relative rounded-3xl w-full h-auto">
-            <div className="box-hover relative overflow-hidden rounded-3xl p-10 xl:p-15 flex flex-col items-center text-center">
-              <span className="hero-subtitle-gradient relative mb-4 inline-flex items-center gap-2 rounded-full px-4.5 py-2 text-sm font-medium">
-                <Image
-                  src="/images/hero/icon-title.svg"
-                  alt="icon"
-                  width={16}
-                  height={16}
-                />
-                <span className="hero-subtitle-text">All-in-One KI-Chat</span>
+          <div className="sw-card-glow relative w-full rounded-3xl border border-border-tertiary bg-white/65 shadow-sm backdrop-blur-sm">
+            <div className="relative overflow-hidden rounded-3xl p-10 xl:p-15 flex flex-col items-center text-center">
+              <span className="sw-glass relative mb-4 inline-flex items-center gap-2 rounded-full border border-border-tertiary px-4.5 py-2 text-sm font-medium text-primary-darker shadow-sm">
+                All-in-One KI-Chat
               </span>
               <h3
                 id="ddki-toolbox"
-                className="mb-4.5 text-heading-4 font-bold text-white"
+                className="mb-4.5 text-display-sm -tracking-[0.96px] text-text-primary lg:text-display-lg"
               >
                 DeepChat
               </h3>
-              <p className="mb-10 font-medium max-w-[700px] min-h-[100px]">
+              <p className="mb-10 max-w-[700px] min-h-[100px] text-md font-light text-text-secondary">
                 {text}
               </p>
               <Link
                 href="https://toolbox.deepdive-ki.de/"
               >
-                <div className="flex justify-center items-center mb-10 w-full cursor-pointer relative z-30">
+                <div className="relative z-30 mb-10 flex w-full cursor-pointer items-center justify-center">
                   <ChatbotToolAnimation />
                 </div>
               </Link>
               <Link
                 href="https://toolbox.deepdive-ki.de/"
-                className="features-button-gradient relative z-30 inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm text-white duration-300 ease-in hover:shadow-button"
+                className="relative z-30 inline-flex items-center gap-1.5 rounded-full bg-primary-darker px-6 py-3 text-sm text-white duration-300 ease-in hover:bg-primary-dark"
               >
                 DeepChat
                 <svg

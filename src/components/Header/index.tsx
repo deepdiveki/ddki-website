@@ -1,19 +1,25 @@
 "use client";
-import Image from "next/image";
+
+import PlatformSwitcher from "@/components/shared/PlatformSwitcher";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import logo from "../../../public/images/logo/logo.svg";
-import DropDown from "./DropDown";
-import menuData from "./menuData";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import Button from "@/components/ui/button-fortbildung";
+import ButtonLink from "@/components/ui/button-link-fortbildung";
+
+const links = [
+  { name: "DeepChat", href: "/software/ddki-toolbox" },
+  { name: "KI-Schulbüro", href: "/software/chatbot-fuer-ihre-schule" },
+  { name: "Websites", href: "/software/websites" },
+  { name: "Über uns", href: "/software/about" },
+];
 
 const Header = () => {
-  const [navigationOpen, setNavigationOpen] = useState(false);
-  const [stickyMenu, setStickyMenu] = useState(false);
+  const pathname = usePathname();
   const [userName, setUserName] = useState<string | null>(null);
-
-  const router = useRouter();
-  const pathUrl = usePathname();
 
   useEffect(() => {
     async function fetchUser() {
@@ -24,231 +30,185 @@ const Header = () => {
         if (!res.ok) return;
         const data = await res.json();
         if (data.name) setUserName(data.name);
-      } catch (error) {
+      } catch {
         setUserName(null);
       }
     }
     fetchUser();
   }, []);
 
+  return (
+    <header className="font-inter fixed top-4 left-1/2 z-[1000] mx-auto flex w-[calc(100%-32px)] max-w-304 -translate-x-1/2 items-center justify-between rounded-xl bg-white px-6 py-4 md:top-6 md:rounded-2xl lg:top-7 xl:w-full">
+      <PlatformSwitcher variant="light" activePlatform="software" />
 
+      <nav aria-label="Hauptnavigation" className="hidden p-1 lg:block">
+        <ul className="flex items-center">
+          {links.map((link) => (
+            <li key={link.name} className="px-4 py-2">
+              <Link
+                href={link.href}
+                className={cn(
+                  "text-md font-light duration-100 focus-visible:outline-primary-dark",
+                  pathname === link.href
+                    ? "text-text-primary"
+                    : "text-text-secondary hover:text-primary-dark",
+                )}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-  // Sticky menu
-  const handleStickyMenu = () => {
-    if (window.scrollY >= 80) {
-      setStickyMenu(true);
-    } else {
-      setStickyMenu(false);
-    }
-  };
+      <div className="hidden items-center gap-3 lg:inline-flex">
+        {userName ? (
+          <>
+            <ButtonLink
+              href="https://plattform.deepdive-ki.de/profil"
+              variant="secondary"
+            >
+              {userName}
+            </ButtonLink>
+            <ButtonLink href="https://plattform.deepdive-ki.de/">
+              Zur Plattform
+            </ButtonLink>
+          </>
+        ) : (
+          <>
+            <ButtonLink
+              href="https://plattform.deepdive-ki.de/auth/signin"
+              variant="secondary"
+            >
+              Login
+            </ButtonLink>
+            <ButtonLink href="https://plattform.deepdive-ki.de/auth/signup">
+              Registrieren
+            </ButtonLink>
+          </>
+        )}
+      </div>
+
+      <MobileMenubar userName={userName} />
+    </header>
+  );
+};
+
+function MobileMenubar({ userName }: { userName: string | null }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleStickyMenu);
-  });
+    setMounted(true);
+  }, []);
 
-  const primaryMenu = menuData.slice(0, 3);
-  const overflowMenu = menuData.slice(3);
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (
+        !triggerRef.current?.contains(target) &&
+        !contentRef.current?.contains(target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    return () => window.removeEventListener("pointerdown", handlePointerDown);
+  }, []);
 
   return (
-    <>
-      <header
-        className={`fixed left-0 top-0 z-[1000] w-full ${
-          stickyMenu
-            ? "before:features-row-border bg-dark/70 !py-4 shadow backdrop-blur-lg transition duration-100 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-full md:!py-0"
-            : "py-7 md:py-0"
-        }`}
+    <div className="relative flex items-center justify-center lg:hidden">
+      <Button
+        ref={triggerRef}
+        variant="secondary"
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-label={isOpen ? "Menü schließen" : "Menü öffnen"}
+        aria-expanded={isOpen}
+        className={cn(
+          "size-10 cursor-pointer items-center justify-center rounded-lg bg-white px-0 py-0 text-text-primary",
+          isOpen && "border-primary-base",
+        )}
       >
-        <div className="relative mx-auto max-w-[1170px] items-center justify-between px-4 sm:px-8 md:flex xl:px-0">
-          <div className="flex w-full items-center justify-between md:w-1/4">
-          <Link href="/" className="flex items-center gap-3">
-              <Image src={logo} alt="Logo" width={100} height={24} className="h-10 w-auto" />
-              <span className="text-white text-xl font-bold">DeepDiveKI</span>
-            </Link>
+        {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+      </Button>
 
-            <button
-              onClick={() => setNavigationOpen(!navigationOpen)}
-              className="block md:hidden"
-            >
-              <span className="relative block h-5.5 w-5.5 cursor-pointer">
-                <span className="du-block absolute right-0 h-full w-full">
-                  <span
-                    className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-white delay-[0] duration-200 ease-in-out ${
-                      !navigationOpen ? "!w-full delay-300" : "w-0"
-                    }`}
-                  ></span>
-                  <span
-                    className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-white delay-150 duration-200 ease-in-out ${
-                      !navigationOpen ? "delay-400 !w-full" : "w-0"
-                    }`}
-                  ></span>
-                  <span
-                    className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-white delay-200 duration-200 ease-in-out ${
-                      !navigationOpen ? "!w-full delay-500" : "w-0"
-                    }`}
-                  ></span>
-                </span>
-                <span className="du-block absolute right-0 h-full w-full rotate-45">
-                  <span
-                    className={`absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-white delay-300 duration-200 ease-in-out ${
-                      !navigationOpen ? "!h-0 delay-[0]" : "h-full"
-                    }`}
-                  ></span>
-                  <span
-                    className={`delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-white duration-200 ease-in-out ${
-                      !navigationOpen ? "!h-0 delay-200" : "h-0.5"
-                    }`}
-                  ></span>
-                </span>
-              </span>
-            </button>
-          </div>
-
+      {isOpen &&
+        mounted &&
+        createPortal(
           <div
-            className={`invisible h-0 w-full items-center justify-between md:visible md:flex md:h-auto md:w-3/4 ${
-              navigationOpen
-                ? "!visible relative mt-4 !h-auto max-h-[400px] overflow-y-scroll rounded-md bg-dark p-7.5 shadow-lg"
-                : ""
-            }`}
+            ref={contentRef}
+            className="fixed top-24 right-0 z-[1001] w-full max-w-106.25 rounded-xl bg-white p-5 pr-4 shadow-xl sm:right-4 md:top-28"
           >
-            <nav>
-              <ul className="flex flex-col gap-5 md:flex-row md:items-center md:gap-2">
-                {primaryMenu.map((menuItem, key) => (
-                  <li
-                    key={key}
-                    className={`nav__menu group relative ${
-                      stickyMenu ? "md:py-4" : "md:py-7"
-                    }`}
-                  >
-                    {menuItem.submenu ? (
-                      <>
-                        <DropDown menuItem={menuItem} />
-                      </>
-                    ) : (
-                      <Link
-                        href={`${menuItem.path}`}
-                        onClick={() => setNavigationOpen(false)}
-                        className={`hover:nav-gradient relative whitespace-nowrap border border-transparent px-4 py-1.5 text-sm hover:text-white ${
-                          pathUrl === menuItem.path ||
-                          (menuItem.path === "/" && pathUrl === "/software")
-                            ? "nav-gradient text-white"
-                            : "text-white/80"
-                        }`}
-                      >
-                        {menuItem.title}
-                      </Link>
+            <ul className="flex flex-col gap-y-3.5 py-2">
+              {links.map((link) => (
+                <li
+                  key={link.href}
+                  className="text-center text-lg text-text-primary"
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "text-md font-light duration-100 focus-visible:outline-primary-dark",
+                      pathname === link.href
+                        ? "text-text-primary"
+                        : "text-text-secondary hover:text-primary-dark",
                     )}
-                  </li>
-                ))}
-                {overflowMenu.map((menuItem, key) => (
-                  <li
-                    key={`overflow-${key}`}
-                    className={`nav__menu group relative md:hidden xl:block ${
-                      stickyMenu ? "md:py-4" : "md:py-7"
-                    }`}
                   >
-                    {menuItem.submenu ? (
-                      <DropDown menuItem={menuItem} />
-                    ) : (
-                      <Link
-                        href={`${menuItem.path}`}
-                        onClick={() => setNavigationOpen(false)}
-                        className={`hover:nav-gradient relative whitespace-nowrap border border-transparent px-4 py-1.5 text-sm hover:text-white ${
-                          pathUrl === menuItem.path ||
-                          (menuItem.path === "/" && pathUrl === "/software")
-                            ? "nav-gradient text-white"
-                            : "text-white/80"
-                        }`}
-                      >
-                        {menuItem.title}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-                {overflowMenu.length > 0 && (
-                  <li
-                    className={`nav__menu group relative hidden md:block xl:hidden ${
-                      stickyMenu ? "md:py-4" : "md:py-7"
-                    }`}
-                  >
-                    <DropDown
-                      menuItem={{
-                        id: 999,
-                        title: "Mehr",
-                        submenu: overflowMenu,
-                      }}
-                    />
-                  </li>
-                )}
-              </ul>
-            </nav>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-            <div className="mt-7 flex items-center gap-4  lg:mt-0 ">
+            <div className="mt-3.5 flex flex-col gap-3">
               {userName ? (
                 <>
-                  <button
-                    aria-label="Profile button"
-                    onClick={() => {
-                      window.location.href = "https://plattform.deepdive-ki.de/profil"
-                    }}
-                    className={`text-sm ${pathUrl === "/profil" ? "text-blue-400" : "text-white hover:text-white/75"}`}
+                  <ButtonLink
+                    href="https://plattform.deepdive-ki.de/profil"
+                    variant="secondary"
+                    onClick={() => setIsOpen(false)}
+                    className="w-full"
                   >
                     {userName}
-                  </button>
-                  <Link
-                      href="https://plattform.deepdive-ki.de/"
-                      className="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-4.5 py-2 text-sm text-white shadow-button hover:shadow-none"
-                    >
-                      Zur Plattform
-                      <svg
-                        className="mt-0.5"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M14.4002 7.60002L9.2252 2.35002C9.0002 2.12502 8.6502 2.12502 8.4252 2.35002C8.2002 2.57502 8.2002 2.92502 8.4252 3.15002L12.6252 7.42502H2.0002C1.7002 7.42502 1.4502 7.67502 1.4502 7.97502C1.4502 8.27502 1.7002 8.55003 2.0002 8.55003H12.6752L8.4252 12.875C8.2002 13.1 8.2002 13.45 8.4252 13.675C8.5252 13.775 8.6752 13.825 8.8252 13.825C8.9752 13.825 9.1252 13.775 9.2252 13.65L14.4002 8.40002C14.6252 8.17502 14.6252 7.82503 14.4002 7.60002Z"
-                          fill="white"
-                        />
-                      </svg>
-                  </Link>
+                  </ButtonLink>
+                  <ButtonLink
+                    href="https://plattform.deepdive-ki.de/"
+                    onClick={() => setIsOpen(false)}
+                    className="w-full"
+                  >
+                    Zur Plattform
+                  </ButtonLink>
                 </>
               ) : (
                 <>
-                  <Link
+                  <ButtonLink
                     href="https://plattform.deepdive-ki.de/auth/signin"
-                    className="text-sm text-white hover:text-white/75"
+                    variant="secondary"
+                    onClick={() => setIsOpen(false)}
+                    className="w-full"
                   >
                     Login
-                  </Link>
-                  <Link
+                  </ButtonLink>
+                  <ButtonLink
                     href="https://plattform.deepdive-ki.de/auth/signup"
-                    className="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-4.5 py-2 text-sm text-white shadow-button hover:shadow-none"
+                    onClick={() => setIsOpen(false)}
+                    className="w-full"
                   >
                     Registrieren
-                    <svg
-                      className="mt-0.5"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14.4002 7.60002L9.2252 2.35002C9.0002 2.12502 8.6502 2.12502 8.4252 2.35002C8.2002 2.57502 8.2002 2.92502 8.4252 3.15002L12.6252 7.42502H2.0002C1.7002 7.42502 1.4502 7.67502 1.4502 7.97502C1.4502 8.27502 1.7002 8.55003 2.0002 8.55003H12.6752L8.4252 12.875C8.2002 13.1 8.2002 13.45 8.4252 13.675C8.5252 13.775 8.6752 13.825 8.8252 13.825C8.9752 13.825 9.1252 13.775 9.2252 13.65L14.4002 8.40002C14.6252 8.17502 14.6252 7.82503 14.4002 7.60002Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </Link>
+                  </ButtonLink>
                 </>
               )}
             </div>
-          </div>
-        </div>
-      </header>
-    </>
+          </div>,
+          document.body,
+        )}
+    </div>
   );
-};
+}
 
 export default Header;

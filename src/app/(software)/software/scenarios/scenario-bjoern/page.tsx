@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import MentoringScenarioPage, { type ScenarioContent } from "@/components/MentoringScenarioPage";
 
 export const metadata: Metadata = {
-  title: "Szenario Björn | DeepDiveKI",
+  title: "Szenario Björn",
   description:
     "Training im Mentoring Simulator: Nachbesprechung einer Deutschlektion mit Björn.",
 };

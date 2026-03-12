@@ -25,17 +25,17 @@ const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-white/10 bg-white/2.5 backdrop-blur-md p-4 transition duration-200 hover:shadow-[0_0_10px_#a855f7] dark:shadow-none",
+        "sw-card-glow group/bento row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-border-tertiary bg-white/65 p-4 shadow-xs backdrop-blur-sm transition duration-200",
         className,
       )}
     >
       {header}
       <div className="transition duration-200 group-hover/bento:translate-x-2">
         {icon}
-        <div className="mt-2 mb-2 font-sans font-bold text-neutral-100">
+        <div className="mt-2 mb-2 font-sans font-semibold text-text-primary">
           {title}
         </div>
-        <div className="font-sans text-xs font-normal text-neutral-300">
+        <div className="font-sans text-xs font-normal text-text-secondary">
           {description}
         </div>
       </div>
@@ -61,10 +61,10 @@ const CounterItem = ({
       viewport={{ once: true }}
       style={{ transformStyle: "preserve-3d" }}
     >
-      <span className="text-4xl font-bold text-white">
+      <span className="text-4xl font-light text-text-primary">
         <CountUp end={value} duration={2} />
       </span>
-      <span className="text-sm text-neutral-300">{label}</span>
+      <span className="text-sm text-text-secondary">{label}</span>
     </motion.div>
   );
 };
@@ -75,7 +75,7 @@ const feedbackItems = [
     description: "Der DeepChat hilft mir dabei, gezielt Aufgaben für meine Schüler zu entwickeln.",
     icon: <Sparkles className="h-5 w-5 text-purple-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Lehrerin, Berlin</div>
+      <div className="text-sm text-text-tertiary">Lehrerin, Berlin</div>
     ),
   },
   {
@@ -83,7 +83,7 @@ const feedbackItems = [
     description: "Der DeepChat ist einfach zu bedienen – auch für technikferne Kolleg:innen. Gute Einführung von Björn und Tim.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Schulleiter, Hamburg</div>
+      <div className="text-sm text-text-tertiary">Schulleiter, Hamburg</div>
     ),
   },
   {
@@ -91,16 +91,15 @@ const feedbackItems = [
     description: "Ich spare mit dem DeepChat viel Zeit bei administrtiven Aufgaben .",
     icon: <Sparkles className="h-5 w-5 text-green-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Lehrkraft, NRW</div>
+      <div className="text-sm text-text-tertiary">Lehrkraft, NRW</div>
     ),
   },
   {
     title: "Tolle Fortbildung",
     description: "Viele Information und Tipps, die ich sofort umsetzen kann. Coole Notion Materialsammlung. Gute Diskussion mit Toni.",
-    icon: <Sparkles className="h-5 w-5 text-green-400"
- />,
+    icon: <Sparkles className="h-5 w-5 text-green-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Lehrer, Niedersachsen</div>
+      <div className="text-sm text-text-tertiary">Lehrer, Niedersachsen</div>
     ),
   },
   {
@@ -108,7 +107,7 @@ const feedbackItems = [
     description: "Den KI Assistenten im DeepChat setze ich gerne ein. So ein Hilfslehrer ist Gold wert.",
     icon: <Sparkles className="h-5 w-5 text-purple-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Lehrer, Köln</div>
+      <div className="text-sm text-text-tertiary">Lehrer, Köln</div>
     ),
   },
   {
@@ -116,7 +115,7 @@ const feedbackItems = [
     description: "Habe meine Klassenfahrt mit dem DeepChat geplant. Das hat mir viel Zeit gespart.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Lehrerin, Hamburg</div>
+      <div className="text-sm text-text-tertiary">Lehrerin, Hamburg</div>
     ),
   },
   {
@@ -124,7 +123,7 @@ const feedbackItems = [
     description: "Ich bin kein Profi beim Thema Digitales. Ich finde das kuratierte Prompting super.",
     icon: <Sparkles className="h-5 w-5 text-green-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Lehrer, Stuttgart</div>
+      <div className="text-sm text-text-tertiary">Lehrer, Stuttgart</div>
     ),
   },
   {
@@ -132,7 +131,7 @@ const feedbackItems = [
     description: "Björn und Tim waren bei uns an der Schule. Das waren super Workshops. Cool das man viel ausprobiern konnte.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Didaktische Leitung, Niedersachsen</div>
+      <div className="text-sm text-text-tertiary">Didaktische Leitung, Niedersachsen</div>
     ),
   },
   {
@@ -140,7 +139,7 @@ const feedbackItems = [
     description: "Vorstellung vieler Apps, direkte Links im Chat, Möglichkeiten zum Ausprobieren, die Videos für zu Hause waren toll.",
     icon: <Sparkles className="h-5 w-5 text-purple-400" />,
     header: (
-      <div className="text-sm text-neutral-300 dark:text-neutral-300">Lehrerin, Thüringen</div>
+      <div className="text-sm text-text-tertiary">Lehrerin, Thüringen</div>
     ),
   },
 ];
@@ -180,7 +179,6 @@ const UserFeedback = () => {
           {feedbackItems.map((item, index) => (
             <div className="w-full max-w-sm" key={index}>
               <BentoGridItem
-                className="hover:border-purple-500/40 hover:shadow-[0_0_10px_#a855f7] border-white/10"
                 title={item.title}
                 description={item.description}
                 header={item.header}

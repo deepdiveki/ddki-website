@@ -1,6 +1,7 @@
 "use client";
 
 import Logo from "@/components/shared/Logo";
+import PlatformSwitcher from "@/components/shared/PlatformSwitcher";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -22,12 +23,7 @@ export default function Header() {
 
   return (
     <header className="font-inter fixed top-4 left-1/2 z-50 mx-auto flex w-[calc(100%-32px)] max-w-304 -translate-x-1/2 items-center justify-between rounded-xl bg-white px-6 py-4 md:top-6 md:rounded-2xl lg:top-7 xl:w-full">
-      <Link
-        href="/"
-        className="focus-visible:outline-primary-base"
-      >
-        <Logo className="h-8 lg:h-9" />
-      </Link>
+      <PlatformSwitcher variant="light" activePlatform="fortbildungen" />
 
       <nav aria-label="Hauptnavigation" className="hidden p-1 lg:block">
         <ul className="flex items-center">

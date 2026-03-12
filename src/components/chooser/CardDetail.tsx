@@ -74,7 +74,7 @@ function FortbildungenProductCard({
     <motion.div variants={fadeUpSlow}>
       <Link
         href={product.href}
-        className="group relative flex flex-col rounded-2xl border border-border-tertiary bg-white p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-border-secondary hover:shadow-lg lg:p-9"
+        className="group relative flex flex-col rounded-2xl border border-border-tertiary bg-white/35 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-border-secondary hover:bg-white/50 hover:shadow-lg lg:p-9"
       >
         {/* Category */}
         <span className="text-xs font-medium tracking-wide text-primary-darker uppercase">
@@ -216,19 +216,19 @@ const SOFTWARE_PRODUCTS = [
     category: "KI-Chat",
     title: "DeepChat",
     desc: "Der intelligente und datenschutzkonforme Chatbot für Lehrkräfte und Schüler. Optimiert für Bildungszwecke und Lernunterstützung.",
-    href: "https://www.deepdive-ki.de",
+    href: "/software/ddki-toolbox",
   },
   {
     category: "Schulbüro 3.0",
     title: "KI-Schulbüro",
     desc: "Das intelligente Verwaltungsbüro für Schulen. Automatisierte Prozesse, Dokumentenverwaltung und effiziente Kommunikation.",
-    href: "https://www.deepdive-ki.de",
+    href: "/software/chatbot-fuer-ihre-schule",
   },
   {
     category: "Online Auftritt",
     title: "Websites für Schulen",
     desc: "Professionelle Schulwebsites mit modernem Design und benutzerfreundlicher Bedienung. Responsive Layouts und Content-Management-Systeme.",
-    href: "https://www.deepdive-ki.de",
+    href: "/software/websites",
   },
   {
     category: "Workshops",
@@ -243,48 +243,40 @@ function SoftwareProductCard({
 }: {
   product: (typeof SOFTWARE_PRODUCTS)[number];
 }) {
-  const isExternal = product.href.startsWith("http");
-
   return (
     <motion.div variants={fadeUpSlow}>
-      <a
+      <Link
         href={product.href}
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
-        className="group relative flex flex-col rounded-2xl border border-[#8646F4]/15 p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8646F4]/30 hover:shadow-lg hover:shadow-[#8646F4]/5 lg:p-9"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(134,70,244,0.04) 0%, rgba(3,0,20,0.45) 100%)",
-        }}
+        className="group relative flex flex-col rounded-2xl border border-border-tertiary bg-white/35 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-border-secondary hover:bg-white/50 hover:shadow-lg lg:p-9"
       >
         {/* Category */}
-        <span className="text-xs font-medium tracking-wide text-[#A78BFA] uppercase">
+        <span className="text-xs font-medium tracking-wide text-primary-darker uppercase">
           {product.category}
         </span>
 
         {/* Title */}
-        <h3 className="mt-3 text-xl font-semibold -tracking-[0.3px] text-white lg:text-2xl">
+        <h3 className="mt-3 text-xl font-semibold -tracking-[0.3px] text-text-primary lg:text-2xl">
           {product.title}
         </h3>
 
         {/* Description */}
-        <p className="mt-2.5 text-sm font-light leading-relaxed text-[#918EA0] lg:text-[15px]">
+        <p className="mt-2.5 text-sm font-light leading-relaxed text-text-secondary lg:text-[15px]">
           {product.desc}
         </p>
 
         {/* Link indicator */}
-        <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-[#C4B5FD]">
+        <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-primary-darker">
           Mehr erfahren
           <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
         </div>
-      </a>
+      </Link>
     </motion.div>
   );
 }
 
 export function SoftwareDetail({ onClose }: { onClose: () => void }) {
   return (
-    <DetailShell onClose={onClose} variant="dark">
+    <DetailShell onClose={onClose} variant="light">
       <motion.div
         className="flex flex-col gap-14 lg:gap-20"
         variants={stagger}
@@ -295,19 +287,19 @@ export function SoftwareDetail({ onClose }: { onClose: () => void }) {
         <div className="mx-auto max-w-2xl text-center">
           <motion.span
             variants={fadeUp}
-            className="inline-block rounded-full bg-[#8646F4]/15 px-3.5 py-1 text-xs font-medium tracking-wide text-[#C4B5FD]"
+            className="inline-block rounded-full bg-primary-light/30 px-3.5 py-1 text-xs font-medium tracking-wide text-primary-darker"
           >
             Software-Lösungen
           </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="mt-5 text-display-sm font-light -tracking-[0.96px] text-white lg:text-display-md"
+            className="mt-5 text-display-sm font-light -tracking-[0.96px] text-text-primary lg:text-display-md"
           >
             KI-Software für den Schulalltag
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-4 text-md font-light leading-relaxed text-[#918EA0] lg:text-lg"
+            className="mt-4 text-md font-light leading-relaxed text-text-secondary lg:text-lg"
           >
             DeepChat, KI-Schulbüro und weitere digitale Lösungen — entwickelt
             für die Anforderungen moderner Schulen.
@@ -317,7 +309,7 @@ export function SoftwareDetail({ onClose }: { onClose: () => void }) {
         {/* Divider */}
         <motion.div
           variants={fadeUp}
-          className="mx-auto h-px w-16 bg-[#8646F4]/20"
+          className="mx-auto h-px w-16 bg-border-tertiary"
         />
 
         {/* Product grid */}
@@ -346,23 +338,19 @@ export function SoftwareDetail({ onClose }: { onClose: () => void }) {
           variants={fadeUp}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <a
-            href="https://www.deepdive-ki.de"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-xl bg-[#8646F4] px-7 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:-translate-y-px hover:shadow-lg hover:shadow-[#8646F4]/25"
+          <Link
+            href="/software"
+            className="inline-flex items-center gap-2.5 rounded-xl bg-primary-darker px-7 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:-translate-y-px hover:shadow-lg hover:shadow-primary-darker/20"
           >
             Alle Produkte entdecken
             <ArrowRight className="size-4" />
-          </a>
-          <a
-            href="https://www.deepdive-ki.de"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-[#8646F4]/25 px-7 py-3.5 text-[15px] font-medium text-[#C4B5FD] transition-all duration-200 hover:-translate-y-px hover:bg-[#8646F4]/10"
+          </Link>
+          <Link
+            href="/software/kontakt"
+            className="inline-flex items-center gap-2 rounded-xl border border-border-secondary bg-white px-7 py-3.5 text-[15px] font-medium text-text-primary transition-all duration-200 hover:-translate-y-px hover:shadow-md"
           >
             Demo anfragen
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
     </DetailShell>

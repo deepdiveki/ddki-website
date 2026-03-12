@@ -41,28 +41,27 @@ function StyleSheet() {
         .central-hexagon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, rgba(128, 90, 213, 0.9), rgba(72, 40, 160, 0.9));
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.85), rgba(20, 184, 166, 0.85));
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            box-shadow: 0 0 20px rgba(128, 90, 213, 0.7);
+            box-shadow: 0 0 16px rgba(34, 197, 94, 0.4);
             position: absolute;
-            animation: glow 3s ease-in-out infinite alternate;
+            animation: openai-glow 3s ease-in-out infinite alternate;
         }
 
         .rotating-lines {
             width: 60px;
             height: 60px;
-            border: 2px dashed rgba(128, 90, 213, 0.6);
+            border: 2px dashed rgba(20, 184, 166, 0.4);
             border-radius: 50%;
             position: absolute;
-            box-shadow: 0 0 10px rgba(128, 90, 213, 0.6);
         }
 
-        @keyframes glow {
+        @keyframes openai-glow {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(128, 90, 213, 0.7);
+                box-shadow: 0 0 12px rgba(34, 197, 94, 0.3);
             }
             50% {
-                box-shadow: 0 0 40px rgba(128, 90, 213, 0.9);
+                box-shadow: 0 0 24px rgba(34, 197, 94, 0.6);
             }
         }
     `}</style>

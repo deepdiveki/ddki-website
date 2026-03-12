@@ -466,7 +466,7 @@ export default function ExplodedIsometric() {
               return (
           <div className="w-full relative overflow-visible" data-ai-engine-section>
             {/* Title overlay */}
-            <div className="absolute top-20 left-4 text-purple-300 text-xs tracking-widest uppercase"></div>
+            <div className="absolute top-20 left-4 text-primary-dark text-xs tracking-widest uppercase"></div>
 
             {/* Canvas + Desktop HUD wrapper */}
             <div className="relative w-full h-[75vh] md:h-[80vh] overflow-visible" style={{ touchAction: isMobile ? 'pan-y' : 'none' }}>
@@ -501,24 +501,17 @@ export default function ExplodedIsometric() {
                   transform: 'none'
                 }}
               >
-                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-16 h-px bg-gradient-to-r from-purple-400 to-transparent opacity-60"></div>
-                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-400 rounded-full"></div>
-                <div className="bg-gradient-to-br from-gray-900/95 to-gray-800/95 border border-purple-500/30 rounded-xl p-6 shadow-2xl max-w-sm relative" style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "20px 20px, 20px 20px",
-                  backgroundPosition: "-1px -1px, -1px -1px"
-                }}>
+                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-16 h-px bg-gradient-to-r from-purple-300 to-transparent opacity-40"></div>
+                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-300 rounded-full"></div>
+                <div className="rounded-xl p-6 shadow-sm max-w-sm relative bg-white/10 backdrop-blur-sm border border-white/20">
                   <div className="flex items-center mb-4">
-                    <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3 shadow-lg"></div>
-                    <span className="text-purple-300 font-bold text-sm tracking-wider">KI-Chat</span>
+                    <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3"></div>
+                    <span className="text-primary-dark font-bold text-sm tracking-wider">KI-Chat</span>
                   </div>
-                  <h3 className="text-white font-bold text-xl mb-3 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">DeepChat</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4">Der intelligente und datenschutzkonforme Chatbot für Lehrkräfte und Schüler. Optimiert für Bildungszwecke und Lernunterstützung</p>
+                  <h3 className="font-bold text-xl mb-3 text-text-primary">DeepChat</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed mb-4">Der intelligente und datenschutzkonforme Chatbot für Lehrkräfte und Schüler. Optimiert für Bildungszwecke und Lernunterstützung</p>
                   <div className="text-center">
-                    <a ref={ctaRef} href="/software/ddki-toolbox" className="inline-block bg-gradient-to-r from-purple-600 to-purple-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-purple-500 hover:to-purple-400 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">Mehr erfahren</a>
+                    <a ref={ctaRef} href="/software/ddki-toolbox" className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-all duration-300">Mehr erfahren</a>
                   </div>
                 </div>
               </div>
@@ -537,24 +530,17 @@ export default function ExplodedIsometric() {
                   transform: 'none'
                 }}
               >
-                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-16 h-px bg-gradient-to-l from-purple-400 to-transparent opacity-60"></div>
-                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-400 rounded-full"></div>
-                <div className="bg-gradient-to-br from-gray-900/98 to-gray-800/98 border border-purple-500/20 rounded-xl p-6 shadow-lg max-w-sm relative" style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "20px 20px, 20px 20px",
-                  backgroundPosition: "-1px -1px, -1px -1px"
-                }}>
+                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-16 h-px bg-gradient-to-l from-purple-300 to-transparent opacity-40"></div>
+                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-300 rounded-full"></div>
+                <div className="rounded-xl p-6 shadow-sm max-w-sm relative bg-white/10 backdrop-blur-sm border border-white/20">
                   <div className="flex items-center mb-4">
-                    <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3 shadow-lg"></div>
-                    <span className="text-purple-300 font-bold text-sm tracking-wider">Schulbüro 3.0</span>
+                    <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3"></div>
+                    <span className="text-primary-dark font-bold text-sm tracking-wider">Schulbüro 3.0</span>
                   </div>
-                  <h3 className="text-white font-bold text-xl mb-3 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">KI-Schulbüro</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4">Das intelligente Verwaltungsbüro für Schulen. Automatisierte Prozesse, Dokumentenverwaltung und effiziente Kommunikation</p>
+                  <h3 className="font-bold text-xl mb-3 text-text-primary">KI-Schulbüro</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed mb-4">Das intelligente Verwaltungsbüro für Schulen. Automatisierte Prozesse, Dokumentenverwaltung und effiziente Kommunikation</p>
                   <div className="text-center">
-                    <a ref={ctaRef} href="/software/chatbot-fuer-ihre-schule" className="inline-block bg-gradient-to-r from-purple-600 to-purple-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-purple-500 hover:to-purple-400 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">Mehr erfahren</a>
+                    <a ref={ctaRef} href="/software/chatbot-fuer-ihre-schule" className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-all duration-300">Mehr erfahren</a>
                   </div>
                 </div>
               </div>
@@ -573,24 +559,17 @@ export default function ExplodedIsometric() {
                   transform: 'none'
                 }}
               >
-                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-16 h-px bg-gradient-to-r from-purple-400 to-transparent opacity-60"></div>
-                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-400 rounded-full"></div>
-                <div className="bg-gradient-to-br from-gray-900/95 to-gray-800/95 border border-purple-500/30 rounded-xl p-6 shadow-2xl max-w-sm relative" style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "20px 20px, 20px 20px",
-                  backgroundPosition: "-1px -1px, -1px -1px"
-                }}>
+                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-16 h-px bg-gradient-to-r from-purple-300 to-transparent opacity-40"></div>
+                <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-300 rounded-full"></div>
+                <div className="rounded-xl p-6 shadow-sm max-w-sm relative bg-white/10 backdrop-blur-sm border border-white/20">
                   <div className="flex items-center mb-4">
-                    <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3 shadow-lg"></div>
-                    <span className="text-purple-300 font-bold text-sm tracking-wider">Workshops</span>
+                    <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3"></div>
+                    <span className="text-primary-dark font-bold text-sm tracking-wider">Workshops</span>
                   </div>
-                  <h3 className="text-white font-bold text-xl mb-3 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">Fortbildungen für Lehrkräfte</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4">Professionelle Weiterbildung im Bereich KI für Pädagogen. Modulare Kurse, praktische Anwendungen und zertifizierte Abschlüsse.</p>
+                  <h3 className="font-bold text-xl mb-3 text-text-primary">Fortbildungen für Lehrkräfte</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed mb-4">Professionelle Weiterbildung im Bereich KI für Pädagogen. Modulare Kurse, praktische Anwendungen und zertifizierte Abschlüsse.</p>
                   <div className="text-center">
-                    <a ref={ctaRef} href="/software/fortbildungen" className="inline-block bg-gradient-to-r from-purple-600 to-purple-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-purple-500 hover:to-purple-400 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">Mehr erfahren</a>
+                    <a ref={ctaRef} href="/fortbildung/fortbildungen" className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-all duration-300">Mehr erfahren</a>
                   </div>
                 </div>
               </div>
@@ -609,24 +588,17 @@ export default function ExplodedIsometric() {
                   transform: 'none'
                 }}
               >
-                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-16 h-px bg-gradient-to-l from-purple-400 to-transparent opacity-60"></div>
-                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-400 rounded-full"></div>
-                <div className="bg-gradient-to-br from-gray-900/98 to-gray-800/98 border border-purple-500/20 rounded-xl p-6 shadow-lg max-w-sm relative" style={{
-                  backgroundImage: `
-                    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-                  `,
-                  backgroundSize: "20px 20px, 20px 20px",
-                  backgroundPosition: "-1px -1px, -1px -1px"
-                }}>
+                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-16 h-px bg-gradient-to-l from-purple-300 to-transparent opacity-40"></div>
+                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-purple-300 rounded-full"></div>
+                <div className="rounded-xl p-6 shadow-sm max-w-sm relative bg-white/10 backdrop-blur-sm border border-white/20">
                   <div className="flex items-center mb-4">
-                    <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3 shadow-lg"></div>
-                    <span className="text-purple-300 font-bold text-sm tracking-wider">Online Auftritt</span>
+                    <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3"></div>
+                    <span className="text-primary-dark font-bold text-sm tracking-wider">Online Auftritt</span>
                   </div>
-                  <h3 className="text-white font-bold text-xl mb-3 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">Websites für Schulen</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4">Professionelle Schulwebsites mit modernem Design und benutzerfreundlicher Bedienung. Responsive Layouts und Content-Management-Systeme.</p>
+                  <h3 className="font-bold text-xl mb-3 text-text-primary">Websites für Schulen</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed mb-4">Professionelle Schulwebsites mit modernem Design und benutzerfreundlicher Bedienung. Responsive Layouts und Content-Management-Systeme.</p>
                   <div className="text-center">
-                    <a ref={ctaRef} href="/software/websites" className="inline-block bg-gradient-to-r from-purple-600 to-purple-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-purple-500 hover:to-purple-400 transition-all duration-300 shadow-lg hover:shadow-purple-500/25">Mehr erfahren</a>
+                    <a ref={ctaRef} href="/software/websites" className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-all duration-300">Mehr erfahren</a>
                   </div>
                 </div>
               </div>

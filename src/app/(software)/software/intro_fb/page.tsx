@@ -7,7 +7,7 @@ import ShannonExperiment from "@/components/ShannonExperiment";
 import IntroFBQuiz from "@/components/IntroFBQuiz";
 
 export const metadata: Metadata = {
-  title: "Intro Fortbildungen | DeepDiveKI",
+  title: "Intro Fortbildungen",
   description:
     "30-Minuten-Intro zur Vorbereitung auf die DeepDiveKI Fortbildungen.",
 };

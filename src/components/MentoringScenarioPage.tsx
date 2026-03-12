@@ -242,10 +242,10 @@ export default function MentoringScenarioPage({
               />
               <span className="hero-subtitle-text">{scenario.subtitle}</span>
             </span>
-            <h1 className="mb-6 text-3xl font-extrabold text-white sm:text-5xl xl:text-heading-1">
+            <h1 className="mb-6 text-display-sm font-light -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
               {scenario.title}
             </h1>
-            <p className="mx-auto mb-9 max-w-[620px] font-medium md:text-lg text-white">
+            <p className="mx-auto mb-9 max-w-[620px] text-md font-light text-white">
               {scenario.heroDescription}
             </p>
           </div>
