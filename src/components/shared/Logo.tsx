@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-export default function Logo({ className }: { className?: string }) {
+export default function Logo({ className, label = "Fortbildungen" }: { className?: string; label?: string }) {
   return (
     <div className={cn("flex items-center gap-2", className)}>
       <Image
@@ -12,7 +12,7 @@ export default function Logo({ className }: { className?: string }) {
         className="size-8"
       />
       <span className="text-lg font-medium tracking-tight text-text-primary">
-        DDKI <span className="font-light text-text-secondary">Fortbildungen</span>
+        DDKI <span className="font-light text-text-secondary">{label}</span>
       </span>
     </div>
   );

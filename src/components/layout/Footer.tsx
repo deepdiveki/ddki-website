@@ -60,7 +60,7 @@ export default function Footer({ variant = "fortbildung" }: { variant?: FooterVa
     <footer className="overflow-hidden bg-background-secondary">
       <div className="mx-auto max-w-304 pt-14 pb-10 md:px-4 lg:pt-20 xl:px-0">
         <div className="mx-auto flex w-full flex-col flex-wrap justify-between md:flex-row md:flex-nowrap md:items-center lg:items-start">
-          <CompanyInfo tagline={tagline} />
+          <CompanyInfo tagline={tagline} logoLabel={isSoftware ? "Software" : "Fortbildungen"} />
 
           <ul className="mt-10 flex shrink-0 flex-wrap items-start gap-13.5 pl-4 md:mt-0 md:grow-0 md:gap-7.5 lg:pl-14 xl:gap-16">
             {infoLinks.map((links, index) => (
@@ -103,12 +103,12 @@ export default function Footer({ variant = "fortbildung" }: { variant?: FooterVa
   );
 }
 
-function CompanyInfo({ tagline }: { tagline: string }) {
+function CompanyInfo({ tagline, logoLabel }: { tagline: string; logoLabel: string }) {
   return (
     <div className="flex h-37.5 max-w-100 flex-col items-start justify-between px-4 text-center sm:mx-0 sm:h-full sm:min-h-50 sm:w-100 md:w-62.5 md:items-start md:px-0 md:text-left lg:w-91.75 xl:px-0">
       <div className="w-full">
         <Link href="/">
-          <Logo />
+          <Logo label={logoLabel} />
         </Link>
         <p className="mt-4 text-start text-sm tracking-[0.16px] text-text-secondary lg:text-md">
           {tagline}
