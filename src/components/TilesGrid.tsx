@@ -38,12 +38,12 @@ export default function TilesGrid() {
             <div className="w-3 h-3 bg-gradient-to-r from-primary-dark to-primary-base rounded-full mr-3" />
             <span className="text-primary-dark font-semibold text-xs tracking-wider">{t.tag}</span>
           </div>
-          <h3 className="font-semibold text-lg mb-2 text-text-primary">
+          <h3 className="font-semibold text-lg mb-2 text-white">
             {t.title}
           </h3>
-          <p className="text-text-secondary text-sm leading-relaxed mb-4">{t.text}</p>
+          <p className="text-white/70 text-sm leading-relaxed mb-4">{t.text}</p>
           <div className="text-left">
-            <span className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold transition hover:bg-primary-dark">
+            <span className="inline-block bg-purple text-white px-4 py-2 rounded-lg text-sm font-semibold transition hover:bg-purple-light">
               Mehr erfahren
             </span>
           </div>

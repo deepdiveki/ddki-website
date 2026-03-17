@@ -9,7 +9,7 @@ const feedbackItems = [
     description: "Der KI-Chat hilft mir dabei, gezielt Aufgaben für meine Schüler zu entwickeln.",
     icon: <Sparkles className="h-5 w-5 text-purple-400" />,
     header: (
-      <div className="text-sm text-neutral-400 dark:text-neutral-500">Lehrerin, Berlin</div>
+      <div className="text-sm text-white/60 dark:text-neutral-500">Lehrerin, Berlin</div>
     ),
   },
   {
@@ -17,7 +17,7 @@ const feedbackItems = [
     description: "Das System ist super einfach zu bedienen – auch für technikferne Kolleg:innen.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
-      <div className="text-sm text-neutral-400 dark:text-neutral-500">Schulleiter, Hamburg</div>
+      <div className="text-sm text-white/60 dark:text-neutral-500">Schulleiter, Hamburg</div>
     ),
   },
   {
@@ -25,7 +25,7 @@ const feedbackItems = [
     description: "Ich spare täglich mindestens 30 Minuten bei der Unterrichtsvorbereitung.",
     icon: <Sparkles className="h-5 w-5 text-green-400" />,
     header: (
-      <div className="text-sm text-neutral-400 dark:text-neutral-500">Lehrkraft, NRW</div>
+      <div className="text-sm text-white/60 dark:text-neutral-500">Lehrkraft, NRW</div>
     ),
   },
 ];
@@ -61,7 +61,7 @@ const BentoGridItem = ({
         </div>
       )}
       <div className="font-sans font-semibold text-white">{title}</div>
-      <div className="font-sans text-sm text-neutral-300">{description}</div>
+      <div className="font-sans text-sm text-white/60">{description}</div>
     </div>
   );
 };
@@ -70,7 +70,7 @@ const UserFeedbackGrid = () => {
   return (
     <section className="overflow-hidden py-17.5 lg:py-22.5 xl:py-27.5">
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
-        <SectionTitle
+        <SectionTitle variant="software"
           subTitle="Triff unser Team"
           title="Unser Team"
           paragraph="Wir sind ein junges Team aus Hamburg mit einer Leidenschaft für Künstliche Intelligenz und Bildung. Unsere Vision ist es, KI für alle zugänglich zu machen und den Einsatz von KI im Bildungsbereich zu fördern."

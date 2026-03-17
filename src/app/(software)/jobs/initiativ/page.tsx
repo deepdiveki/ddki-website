@@ -37,7 +37,7 @@ export default function InitiativbewerbungPage() {
               />
               <span className="hero-subtitle-text">Initiativbewerbung</span>
             </span>
-            <h1 className="mb-6 text-display-sm font-light -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
+            <h1 className="mb-6 text-display-sm font-bold -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
               Bewerbung im Team DeepDiveKI
             </h1>
             <div className="mx-auto mb-10 max-w-[780px] text-left">
@@ -48,14 +48,14 @@ export default function InitiativbewerbungPage() {
                 <h2 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
                   Kein perfekter Titel. Nur echtes Interesse.
                 </h2>
-                <p className="mt-4 text-sm text-slate-300 leading-relaxed">
+                <p className="mt-4 text-sm text-white/60 leading-relaxed">
                   Als Tim und ich angefangen haben, haben wir tausend Fehler
                   gemacht. Wir haben uns Dinge selbst beigebracht, anderen
                   zugehört, um Rat gefragt, Workflows aufgebaut und wieder
                   verworfen, unter Schreibtischen geschlafen, uns gestritten –
                   und wieder vertragen.
                 </p>
-                <p className="mt-4 text-sm text-slate-300 leading-relaxed">
+                <p className="mt-4 text-sm text-white/60 leading-relaxed">
                   Was ich sagen will: Wir hätten uns damals nie auf einen festen
                   Titel bewerben können. Und wir wissen, wie nervig und
                   schwierig das manchmal ist.
@@ -77,42 +77,42 @@ export default function InitiativbewerbungPage() {
               <h2 className="text-xl font-semibold text-white">
                 Schreib uns direkt
               </h2>
-              <p className="mt-2 text-sm text-slate-300">
+              <p className="mt-2 text-sm text-white/60">
                 Erzähl uns, wer du bist, was du kannst und worauf du Lust hast.
                 Der Button öffnet dein E-Mail-Programm mit deiner Nachricht.
               </p>
 
               <div className="mt-6 grid gap-4 md:grid-cols-2">
-                <label className="text-sm text-slate-300">
+                <label className="text-sm text-white/60">
                   Name
                   <input
                     type="text"
                     value={name}
                     onChange={(event) => setName(event.target.value)}
                     placeholder="Dein Name"
-                    className="mt-2 w-full rounded-xl border border-purple-900/40 bg-[#0b071a] px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/60"
+                    className="mt-2 w-full rounded-xl border border-purple-900/40 bg-[#0b071a] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/60"
                   />
                 </label>
-                <label className="text-sm text-slate-300">
+                <label className="text-sm text-white/60">
                   E-Mail
                   <input
                     type="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder="du@email.de"
-                    className="mt-2 w-full rounded-xl border border-purple-900/40 bg-[#0b071a] px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/60"
+                    className="mt-2 w-full rounded-xl border border-purple-900/40 bg-[#0b071a] px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/60"
                   />
                 </label>
               </div>
 
-              <label className="mt-5 block text-sm text-slate-300">
+              <label className="mt-5 block text-sm text-white/60">
                 Deine Nachricht
                 <textarea
                   value={message}
                   onChange={(event) => setMessage(event.target.value)}
                   placeholder="Erzähl uns von deinem Background, Projekten oder was dich antreibt."
                   rows={7}
-                  className="mt-2 w-full rounded-2xl border border-purple-900/40 bg-[#0b071a] px-4 py-4 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/60"
+                  className="mt-2 w-full rounded-2xl border border-purple-900/40 bg-[#0b071a] px-4 py-4 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500/60"
                 />
               </label>
 
@@ -123,7 +123,7 @@ export default function InitiativbewerbungPage() {
                 >
                   Nachricht senden
                 </a>
-                <span className="text-xs text-slate-400">
+                <span className="text-xs text-white/60">
                   Alternativ: info@deepdive-ki.de
                 </span>
               </div>
@@ -131,7 +131,7 @@ export default function InitiativbewerbungPage() {
           </div>
           <div className="mt-6 text-center">
             <a
-              href="/software/jobs"
+              href="/jobs"
               className="text-sm text-purple-300 hover:text-purple-200"
             >
               Zurück zu den Jobs

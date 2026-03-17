@@ -25,17 +25,17 @@ const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "sw-card-glow group/bento row-span-1 flex flex-col justify-between space-y-4 rounded-xl border border-border-tertiary bg-white/65 p-4 shadow-xs backdrop-blur-sm transition duration-200",
+        "sw-card-glow group/bento row-span-1 flex h-full flex-col justify-between space-y-4 rounded-xl border border-purple-500/20 bg-white/5 p-4 shadow-xs backdrop-blur-sm transition duration-200",
         className,
       )}
     >
       {header}
       <div className="transition duration-200 group-hover/bento:translate-x-2">
         {icon}
-        <div className="mt-2 mb-2 font-sans font-semibold text-text-primary">
+        <div className="mt-2 mb-2 font-sans font-semibold text-white">
           {title}
         </div>
-        <div className="font-sans text-xs font-normal text-text-secondary">
+        <div className="font-sans text-xs font-normal text-white/70">
           {description}
         </div>
       </div>
@@ -61,10 +61,10 @@ const CounterItem = ({
       viewport={{ once: true }}
       style={{ transformStyle: "preserve-3d" }}
     >
-      <span className="text-4xl font-light text-text-primary">
+      <span className="text-4xl font-light text-white">
         <CountUp end={value} duration={2} />
       </span>
-      <span className="text-sm text-text-secondary">{label}</span>
+      <span className="text-sm text-white/70">{label}</span>
     </motion.div>
   );
 };
@@ -75,7 +75,7 @@ const feedbackItems = [
     description: "Der DeepChat hilft mir dabei, gezielt Aufgaben für meine Schüler zu entwickeln.",
     icon: <Sparkles className="h-5 w-5 text-purple-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Lehrerin, Berlin</div>
+      <div className="text-sm text-white/50">Lehrerin, Berlin</div>
     ),
   },
   {
@@ -83,7 +83,7 @@ const feedbackItems = [
     description: "Der DeepChat ist einfach zu bedienen – auch für technikferne Kolleg:innen. Gute Einführung von Björn und Tim.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Schulleiter, Hamburg</div>
+      <div className="text-sm text-white/50">Schulleiter, Hamburg</div>
     ),
   },
   {
@@ -91,7 +91,7 @@ const feedbackItems = [
     description: "Ich spare mit dem DeepChat viel Zeit bei administrtiven Aufgaben .",
     icon: <Sparkles className="h-5 w-5 text-green-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Lehrkraft, NRW</div>
+      <div className="text-sm text-white/50">Lehrkraft, NRW</div>
     ),
   },
   {
@@ -99,7 +99,7 @@ const feedbackItems = [
     description: "Viele Information und Tipps, die ich sofort umsetzen kann. Coole Notion Materialsammlung. Gute Diskussion mit Toni.",
     icon: <Sparkles className="h-5 w-5 text-green-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Lehrer, Niedersachsen</div>
+      <div className="text-sm text-white/50">Lehrer, Niedersachsen</div>
     ),
   },
   {
@@ -107,7 +107,7 @@ const feedbackItems = [
     description: "Den KI Assistenten im DeepChat setze ich gerne ein. So ein Hilfslehrer ist Gold wert.",
     icon: <Sparkles className="h-5 w-5 text-purple-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Lehrer, Köln</div>
+      <div className="text-sm text-white/50">Lehrer, Köln</div>
     ),
   },
   {
@@ -115,7 +115,7 @@ const feedbackItems = [
     description: "Habe meine Klassenfahrt mit dem DeepChat geplant. Das hat mir viel Zeit gespart.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Lehrerin, Hamburg</div>
+      <div className="text-sm text-white/50">Lehrerin, Hamburg</div>
     ),
   },
   {
@@ -123,7 +123,7 @@ const feedbackItems = [
     description: "Ich bin kein Profi beim Thema Digitales. Ich finde das kuratierte Prompting super.",
     icon: <Sparkles className="h-5 w-5 text-green-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Lehrer, Stuttgart</div>
+      <div className="text-sm text-white/50">Lehrer, Stuttgart</div>
     ),
   },
   {
@@ -131,7 +131,7 @@ const feedbackItems = [
     description: "Björn und Tim waren bei uns an der Schule. Das waren super Workshops. Cool das man viel ausprobiern konnte.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Didaktische Leitung, Niedersachsen</div>
+      <div className="text-sm text-white/50">Didaktische Leitung, Niedersachsen</div>
     ),
   },
   {
@@ -139,7 +139,7 @@ const feedbackItems = [
     description: "Vorstellung vieler Apps, direkte Links im Chat, Möglichkeiten zum Ausprobieren, die Videos für zu Hause waren toll.",
     icon: <Sparkles className="h-5 w-5 text-purple-400" />,
     header: (
-      <div className="text-sm text-text-tertiary">Lehrerin, Thüringen</div>
+      <div className="text-sm text-white/50">Lehrerin, Thüringen</div>
     ),
   },
 ];
@@ -160,7 +160,7 @@ const UserFeedback = () => {
   return (
     <section className="overflow-hidden py-17.5 lg:py-22.5 xl:py-27.5">
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
-        <SectionTitle
+        <SectionTitle variant="software"
           subTitle="User Feedback"
           title="Was unsere Lehrer:innen sagen"
           paragraph="Die besten Geschichten schreibt der Schulalltag. Hier erzählen Lehrer:innen, wie sie unsere Lösungen einsetzen, was sie begeistert – und wie KI ihnen den Rücken im Alltag stärkt."
@@ -175,9 +175,9 @@ const UserFeedback = () => {
           )}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
           {feedbackItems.map((item, index) => (
-            <div className="w-full max-w-sm" key={index}>
+            <div className="w-full" key={index}>
               <BentoGridItem
                 title={item.title}
                 description={item.description}

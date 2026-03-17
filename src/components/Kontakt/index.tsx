@@ -47,7 +47,7 @@ const Kontakt = () => {
   };
 
   return (
-    <section id="kontakt" className="scroll-mt-17">
+    <section id="kontakt" className="scroll-mt-17 pb-20 lg:pb-28">
       <motion.div
         className="mx-auto max-w-[1104px] px-4 sm:px-8 xl:px-0"
         initial={{ opacity: 0, y: 30 }}
@@ -55,7 +55,7 @@ const Kontakt = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="sw-card-glow relative z-10 overflow-hidden rounded-[30px] border border-border-tertiary bg-white/65 px-4 pb-10 pt-25 shadow-sm backdrop-blur-sm sm:px-20 sm:pb-14 lg:px-27.5">
+        <div className="sw-card-glow relative z-10 overflow-hidden rounded-[30px] border border-purple-500/20 bg-white/5 px-4 pb-10 pt-25 shadow-sm backdrop-blur-sm sm:px-20 sm:pb-14 lg:px-27.5">
           {/* Grid pattern overlay */}
           <div
             className="pointer-events-none absolute inset-0 sw-grid-pattern-lg"
@@ -74,19 +74,19 @@ const Kontakt = () => {
           />
 
           <div className="relative z-10">
-            <SectionTitle
+            <SectionTitle variant="software"
               subTitle="Können wir helfen?"
               title="Kontaktieren Sie uns"
               paragraph="Kontaktieren Sie uns, wenn Sie Fragen haben oder Hilfe benötigen. Wir helfen Ihnen gerne weiter."
             />
 
-            <div className="relative overflow-hidden rounded-[25px] border border-border-tertiary bg-white/50 p-6 backdrop-blur-sm sm:p-8 xl:p-15">
+            <div className="relative overflow-hidden rounded-[25px] border border-purple-500/20 bg-white/5 p-6 backdrop-blur-sm sm:p-8 xl:p-15">
               <form onSubmit={handleSubmit} className="relative z-10">
                 <div className="-mx-4 flex flex-wrap xl:-mx-10">
                   {/* Name field */}
                   <div className="w-full px-4 md:w-1/2 xl:px-5">
                     <div className="mb-9.5">
-                      <label htmlFor="name" className="mb-2.5 block text-sm font-medium text-text-primary">
+                      <label htmlFor="name" className="mb-2.5 block text-sm font-medium text-white">
                         Name
                       </label>
                       <input
@@ -97,7 +97,7 @@ const Kontakt = () => {
                         onChange={handleChange}
                         placeholder="Vor und Nachname"
                         required
-                        className="w-full rounded-xl border border-border-tertiary bg-white/80 px-6 py-3 text-sm text-text-primary outline-none backdrop-blur-sm transition-colors focus:border-primary-base focus:ring-2 focus:ring-primary-base/20"
+                        className="w-full rounded-xl border border-purple-500/20 bg-white/10 px-6 py-3 text-sm text-white outline-none backdrop-blur-sm transition-colors focus:border-primary-base focus:ring-2 focus:ring-primary-base/20"
                       />
                     </div>
                   </div>
@@ -105,7 +105,7 @@ const Kontakt = () => {
                   {/* Email field */}
                   <div className="w-full px-4 md:w-1/2 xl:px-5">
                     <div className="mb-9.5">
-                      <label htmlFor="email" className="mb-2.5 block text-sm font-medium text-text-primary">
+                      <label htmlFor="email" className="mb-2.5 block text-sm font-medium text-white">
                         Email
                       </label>
                       <input
@@ -116,7 +116,7 @@ const Kontakt = () => {
                         onChange={handleChange}
                         placeholder="Ihre Email-Adresse"
                         required
-                        className="w-full rounded-xl border border-border-tertiary bg-white/80 px-6 py-3 text-sm text-text-primary outline-none backdrop-blur-sm transition-colors focus:border-primary-base focus:ring-2 focus:ring-primary-base/20"
+                        className="w-full rounded-xl border border-purple-500/20 bg-white/10 px-6 py-3 text-sm text-white outline-none backdrop-blur-sm transition-colors focus:border-primary-base focus:ring-2 focus:ring-primary-base/20"
                       />
                     </div>
                   </div>
@@ -124,7 +124,7 @@ const Kontakt = () => {
                   {/* Message field */}
                   <div className="w-full px-4 xl:px-5">
                     <div className="mb-10">
-                      <label htmlFor="message" className="mb-2.5 block text-sm font-medium text-text-primary">
+                      <label htmlFor="message" className="mb-2.5 block text-sm font-medium text-white">
                         Nachricht
                       </label>
                       <textarea
@@ -135,7 +135,7 @@ const Kontakt = () => {
                         placeholder="Ihre Nachricht...."
                         rows={6}
                         required
-                        className="w-full rounded-xl border border-border-tertiary bg-white/80 px-6 py-5 text-sm text-text-primary outline-none backdrop-blur-sm transition-colors focus:border-primary-base focus:ring-2 focus:ring-primary-base/20"
+                        className="w-full rounded-xl border border-purple-500/20 bg-white/10 px-6 py-5 text-sm text-white outline-none backdrop-blur-sm transition-colors focus:border-primary-base focus:ring-2 focus:ring-primary-base/20"
                       />
                     </div>
                   </div>
@@ -146,7 +146,7 @@ const Kontakt = () => {
                       <button
                         type="submit"
                         disabled={loader}
-                        className="inline-flex rounded-lg bg-primary-darker px-7 py-3 font-medium text-white shadow-md duration-300 ease-in hover:bg-primary-dark hover:shadow-lg disabled:opacity-60"
+                        className="inline-flex rounded-lg bg-purple px-7 py-3 font-medium text-white shadow-md duration-300 ease-in hover:bg-purple-light hover:shadow-lg disabled:opacity-60"
                       >
                         {loader ? 'Wird gesendet...' : 'Nachricht senden'}
                       </button>

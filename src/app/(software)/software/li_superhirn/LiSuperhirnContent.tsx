@@ -275,7 +275,7 @@ export default function LiSuperhirnPage() {
               />
               <span className="hero-subtitle-text">LI Superhirn</span>
             </span>
-            <h1 className="mb-5 text-display-sm font-light -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
+            <h1 className="mb-5 text-display-sm font-bold -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
               Das LI Superhirn
             </h1>
             <p className="mx-auto max-w-[700px] text-md font-light text-white/80">
@@ -289,7 +289,7 @@ export default function LiSuperhirnPage() {
             <div className="space-y-6 animated fadeInLeft">
               <div className="rounded-3xl border border-purple-900/60 bg-[#0b071a] p-6 shadow-[0_0_45px_rgba(134,70,244,0.18)]">
                 <h2 className="text-lg font-semibold">Wer schreibt gerade?</h2>
-                <p className="mt-2 text-sm text-slate-300">
+                <p className="mt-2 text-sm text-white/60">
                   Schalte zwischen Rollen, um Antworten auf Zielgruppen-Niveau zu erhalten.
                 </p>
                 <div className="mt-5 grid gap-3">
@@ -312,7 +312,7 @@ export default function LiSuperhirnPage() {
                             <p className="text-sm font-semibold text-white">
                               {role.label}
                             </p>
-                            <p className="text-xs text-slate-400">{role.title}</p>
+                            <p className="text-xs text-white/60">{role.title}</p>
                           </div>
                           <span
                             className={`rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-[0.2em] ${
@@ -358,7 +358,7 @@ export default function LiSuperhirnPage() {
                     <h4 className="mt-4 text-sm font-semibold text-white">
                       {item.title}
                     </h4>
-                    <p className="mt-2 text-xs text-slate-400">
+                    <p className="mt-2 text-xs text-white/60">
                       {item.detail}
                     </p>
                   </div>
@@ -388,7 +388,7 @@ export default function LiSuperhirnPage() {
                 </div>
 
                 <div className="px-6 pt-4">
-                  <div className="flex items-center justify-between rounded-2xl border border-purple-900/50 bg-[#141126] px-4 py-3 text-xs text-slate-300">
+                  <div className="flex items-center justify-between rounded-2xl border border-purple-900/50 bg-[#141126] px-4 py-3 text-xs text-white/60">
                     <span>Antwortzeit: ca. 1-3 Sekunden</span>
                     <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-[11px] text-emerald-200">
                       Online
@@ -401,7 +401,7 @@ export default function LiSuperhirnPage() {
                   className="h-[430px] space-y-4 overflow-y-auto px-6 py-6 no-scrollbar"
                 >
                   {visibleMessages.length === 0 && !isTyping && (
-                    <div className="rounded-2xl border border-purple-800/60 bg-[#151128] px-4 py-4 text-sm text-slate-300">
+                    <div className="rounded-2xl border border-purple-800/60 bg-[#151128] px-4 py-4 text-sm text-white/60">
                       Starte den Chat im Modus {activeProfile.label}. Stelle eine
                       konkrete Frage, damit die Antwort direkt passt.
                     </div>
@@ -419,7 +419,7 @@ export default function LiSuperhirnPage() {
                           className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm shadow-lg ${
                             isUser
                               ? roleStyle.userBubble
-                              : "bg-[#151128] text-slate-200 border border-purple-800/60"
+                              : "bg-[#151128] text-white/50 border border-purple-800/60"
                           }`}
                         >
                           <div className="mb-2 flex items-center justify-between gap-3 text-[10px] uppercase tracking-[0.2em] text-white/60">
@@ -442,7 +442,7 @@ export default function LiSuperhirnPage() {
                   })}
                   {isTyping && (
                     <div className="flex justify-start">
-                      <div className="rounded-2xl border border-purple-800/60 bg-[#151128] px-4 py-3 text-sm text-slate-200">
+                      <div className="rounded-2xl border border-purple-800/60 bg-[#151128] px-4 py-3 text-sm text-white/50">
                         <span className="inline-flex gap-1">
                           <span className="h-2 w-2 animate-bounce rounded-full bg-purple-400" />
                           <span className="h-2 w-2 animate-bounce rounded-full bg-purple-400 [animation-delay:120ms]" />
@@ -462,7 +462,7 @@ export default function LiSuperhirnPage() {
                       onChange={(event) => setInputValue(event.target.value)}
                       onKeyDown={handleKeyDown}
                       placeholder="Schreibe deine Frage und drücke Enter..."
-                      className="flex-1 bg-transparent text-sm text-white placeholder:text-slate-500 focus:outline-none"
+                      className="flex-1 bg-transparent text-sm text-white placeholder:text-white/50 focus:outline-none"
                     />
                     <button
                       onClick={() => handleSend()}
@@ -472,13 +472,13 @@ export default function LiSuperhirnPage() {
                       <IconSend size={18} />
                     </button>
                   </div>
-                  <p className="mt-3 text-xs text-slate-400">
+                  <p className="mt-3 text-xs text-white/60">
                     Tipp: Nenne Fach, Niveau und Ziel, damit die Antwort direkt passt.
                   </p>
                 </div>
               </div>
 
-              <p className="mt-4 text-xs text-slate-500">
+              <p className="mt-4 text-xs text-white/70">
                 Live-Chat: Antworten kommen vom KI-Backend.
               </p>
             </div>

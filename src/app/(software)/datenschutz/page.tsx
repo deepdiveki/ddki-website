@@ -30,7 +30,7 @@ const PrivacyPage = () => {
             DeepDiveKI UG (haftungsbeschränkt) <br />
             Eppendorfer Landstraße 55, 20249 Hamburg <br />
             Tel.: 0049 17661411514 <br />
-            E-Mail: <a href="mailto:info@deepdive-ki.de" className="text-blue-500 underline">info@deepdive-ki.de</a>
+            E-Mail: <a href="mailto:info@deepdive-ki.de" className="text-purple-400 underline">info@deepdive-ki.de</a>
           </p>
 
           <h3 className="text-lg font-semibold">2. Rechtsgrundlagen</h3>
@@ -80,7 +80,7 @@ Wenn Sie der Ansicht sind, dass eine Verarbeitung der Sie betreffenden personenb
           <h3 className="text-lg font-semibold">9. Datenschutzbeauftragter</h3>
           <p>
             Sie erreichen unseren Datenschutzbeauftragten unter folgenden Kontaktdaten: <br />
-            E-Mail: <a href="mailto:datenschutz@deepdive-ki.de" className="text-blue-500 underline">datenschutz@deepdive-ki.de</a>
+            E-Mail: <a href="mailto:datenschutz@deepdive-ki.de" className="text-purple-400 underline">datenschutz@deepdive-ki.de</a>
           </p>
 
 
@@ -122,7 +122,7 @@ Die Einwilligung kann unter dem Punkt „Rechtliches“ im Footer der Website je
 
 Die Rechtsgrundlage ist Art. 6 Abs. 1 Buchst. f DSGVO i.V.m. § 7 Abs. 3 UWG. Sie können dem jederzeit widersprechen, ohne dass hierfür andere als die Übermittlungskosten nach den Basistarifen entstehen. Dazu können Sie sich per Klick auf den in jedem Mailing enthaltenen Abmeldelink abmelden.</p>
 
-          <p className="text-sm text-gray-500 mt-6">Stand: 1.0, Januar 2025</p>
+          <p className="text-sm text-white/50 mt-6">Stand: 1.0, Januar 2025</p>
         </div>
       </section>
     </>

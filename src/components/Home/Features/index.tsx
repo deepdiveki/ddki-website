@@ -18,7 +18,7 @@ const Features = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <SectionTitle
+          <SectionTitle variant="software"
             subTitle="Technische Informationen"
             title="Unser Techstack im Überblick"
             paragraph="Spezifische Informationen zu den Funktionen, Technologien und genutzen API's unserer Plattform finden Sie hier:"

@@ -1229,7 +1229,7 @@ export default function CrewTutorialPage() {
   /* ─── Not found ─── */
   if (!tutorial || !accent) {
     return (
-      <main className={`${bodyFont.className} min-h-screen bg-slate-100 px-6 py-16`}>
+      <main className={`${bodyFont.className} min-h-screen bg-slate-100 px-6 pt-28 pb-16`}>
         <div className="mx-auto max-w-3xl border-4 border-black bg-white p-8 shadow-[6px_6px_0_#000]">
           <h1 className={`${pixelFont.className} text-2xl`}>Tutorial nicht gefunden</h1>
           <p className="mt-4 text-sm text-slate-700">Dieses Tutorial existiert nicht.</p>
@@ -1249,7 +1249,7 @@ export default function CrewTutorialPage() {
   return (
     <main className={`${bodyFont.className} min-h-screen bg-[#f8fafc] text-slate-900`}>
       {/* Header */}
-      <section className="mx-auto max-w-5xl px-6 pt-10 pb-4">
+      <section className="mx-auto max-w-5xl px-6 pt-28 pb-4">
         <Link
           href="/software/escape-game"
           className="inline-flex items-center gap-2 border-2 border-black bg-white px-4 py-2 text-xs uppercase tracking-[0.2em] shadow-[3px_3px_0_#000] hover:bg-slate-50"

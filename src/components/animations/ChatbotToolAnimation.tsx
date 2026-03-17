@@ -24,7 +24,7 @@ export default function CompactChatbotAnimation() {
           src="/images/ddki-logo.svg"
           alt="DeepDiveKI Logo"
           fill
-          className="object-contain drop-shadow-lg"
+          className="object-contain drop-shadow-lg brightness-0 invert"
         />
       </div>
     </div>

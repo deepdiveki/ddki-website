@@ -6,7 +6,7 @@ const SingleTeam = ({ team }: { team: Team }) => {
 
   return (
     <div className="group text-center">
-      <div className="relative mx-auto mb-7.5 h-50 w-full max-w-50 overflow-hidden rounded-full border border-border-tertiary shadow-md transition-shadow duration-300 group-hover:shadow-lg">
+      <div className="relative mx-auto mb-7.5 h-50 w-full max-w-50 overflow-hidden rounded-full border border-purple-500/20 shadow-md transition-shadow duration-300 group-hover:shadow-lg">
         <Image
           src={image}
           alt={name}
@@ -14,8 +14,8 @@ const SingleTeam = ({ team }: { team: Team }) => {
           className="rounded-full object-cover object-center"
         />
       </div>
-      <h3 className="mb-2.5 text-heading-6 font-semibold text-text-primary">{name}</h3>
-      <p className="mb-6 font-medium text-text-secondary">
+      <h3 className="mb-2.5 text-heading-6 font-semibold text-white">{name}</h3>
+      <p className="mb-6 font-medium text-white/70">
         {designation.split("\n").map((line, index) => (
           <span key={index}>
             {line}

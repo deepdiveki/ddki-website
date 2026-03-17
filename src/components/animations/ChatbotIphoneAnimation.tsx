@@ -54,7 +54,7 @@ const AnimatedFinger = ({ isActive, position }: { isActive: boolean; position: {
     className="absolute z-[999] h-8 w-8 rounded-full border-2 border-white bg-white/40 shadow-lg"
   >
     <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-1">
-      <div className="rounded-md bg-white/90 px-2 py-1 text-xs text-black">Tap</div>
+      <div className="rounded-md bg-white/90 px-2 py-1 text-xs text-white">Tap</div>
       <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" viewBox="0 0 16 16">
         <path fill="black" d="M8 12L3 6h10L8 12z" />
       </svg>
@@ -116,7 +116,7 @@ const ChatWindow = ({ messages, isTyping }: { messages: { sender: string; text: 
   <div className="w-full h-full flex flex-col p-4 space-y-2 pb-20 bg-[#141414] text-white">
     <div className="flex items-center justify-between mb-2">
       <div className="text-sm font-medium">KI-Schulbüro</div>
-      <div className="text-xs text-gray-400">Online</div>
+      <div className="text-xs text-white/60">Online</div>
     </div>
     <div className="flex-1 flex flex-col space-y-2 overflow-y-auto scrollbar-none">
       {messages.map((msg, i) => (
@@ -163,7 +163,7 @@ const SchoolWebsite = ({ onChatButtonClick }: { onChatButtonClick: () => void })
     {/* Browser window-style header with URL bar */}
     <div className="h-6 flex items-center justify-center mb-4">
       <div>
-        <div className="bg-[#2c2c2c] text-gray-400 text-[10px] px-3 py-0.5 rounded w-[200px] truncate flex items-center gap-1 justify-center">
+        <div className="bg-[#2c2c2c] text-white/60 text-[10px] px-3 py-0.5 rounded w-[200px] truncate flex items-center gap-1 justify-center">
           <span>🔒</span>
           <span>https://gymnasium-alster.de</span>
         </div>
@@ -171,7 +171,7 @@ const SchoolWebsite = ({ onChatButtonClick }: { onChatButtonClick: () => void })
     </div>
     <header className="mb-4">
       <h2 className="text-xl font-bold">Gymnasium Alster</h2>
-      <p className="text-gray-400">Willkommen auf unserer Schulwebseite</p>
+      <p className="text-white/60">Willkommen auf unserer Schulwebseite</p>
     </header>
     <nav className="flex gap-4 text-sm text-purple-300 mb-4 border-b border-purple-800 pb-2">
       <span>Start</span>
@@ -182,7 +182,7 @@ const SchoolWebsite = ({ onChatButtonClick }: { onChatButtonClick: () => void })
     </nav>
     <section className="mb-4">
       <h3 className="text-white font-semibold mb-1">Herzlich Willkommen</h3>
-      <ul className="list-disc ml-4 text-gray-300">
+      <ul className="list-disc ml-4 text-white/60">
         <li>
           bei uns am Alstercampus, wie wir hier in Hamburg zu unserer Schule sagen. Das Gymnasium Alster hat Vieles für
           viele zu bieten. Ich lade Sie ganz herzlich ein, uns kennenzulernen. Surfen Sie auf unseren Seiten durch die bunte Welt einer Schule für Alle. Von der 5. Klasse bis zum Abitur lernen hier alle an einem Ort.
@@ -191,9 +191,9 @@ const SchoolWebsite = ({ onChatButtonClick }: { onChatButtonClick: () => void })
     </section>
     <section className="mb-4">
       <h3 className="text-white font-semibold mb-1">Infos für neue Eltern</h3>
-      <p className="text-gray-400">Alles zur Anmeldung, Termine, benötigte Unterlagen und Ansprechpersonen.</p>
+      <p className="text-white/60">Alles zur Anmeldung, Termine, benötigte Unterlagen und Ansprechpersonen.</p>
     </section>
-    <footer className="text-gray-500 text-[10px] mt-auto border-t border-purple-800 pt-2">
+    <footer className="text-white/70 text-[10px] mt-auto border-t border-purple-800 pt-2">
       © 2025 Gymnasium Alster · Impressum · Datenschutz
     </footer>
 

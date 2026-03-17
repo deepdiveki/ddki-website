@@ -38,7 +38,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="font-inter fixed top-4 left-1/2 z-[1000] mx-auto flex w-[calc(100%-32px)] max-w-304 -translate-x-1/2 items-center justify-between rounded-xl bg-white px-6 py-4 md:top-6 md:rounded-2xl lg:top-7 xl:w-full">
+    <header className="font-inter fixed top-4 left-1/2 z-[1000] mx-auto flex w-[calc(100%-32px)] max-w-304 -translate-x-1/2 items-center justify-between rounded-xl bg-background-primary px-6 py-4 md:top-6 md:rounded-2xl lg:top-7 xl:w-full border border-border-secondary">
       <PlatformSwitcher variant="light" activePlatform="software" />
 
       <nav aria-label="Hauptnavigation" className="hidden p-1 lg:block">
@@ -129,7 +129,7 @@ function MobileMenubar({ userName }: { userName: string | null }) {
         aria-label={isOpen ? "Menü schließen" : "Menü öffnen"}
         aria-expanded={isOpen}
         className={cn(
-          "size-10 cursor-pointer items-center justify-center rounded-lg bg-white px-0 py-0 text-text-primary",
+          "size-10 cursor-pointer items-center justify-center rounded-lg bg-background-primary px-0 py-0 text-text-primary",
           isOpen && "border-primary-base",
         )}
       >
@@ -141,7 +141,7 @@ function MobileMenubar({ userName }: { userName: string | null }) {
         createPortal(
           <div
             ref={contentRef}
-            className="fixed top-24 right-0 z-[1001] w-full max-w-106.25 rounded-xl bg-white p-5 pr-4 shadow-xl sm:right-4 md:top-28"
+            className="fixed top-24 right-0 z-[1001] w-full max-w-106.25 rounded-xl bg-background-primary border border-border-secondary p-5 pr-4 shadow-xl sm:right-4 md:top-28"
           >
             <ul className="flex flex-col gap-y-3.5 py-2">
               {links.map((link) => (

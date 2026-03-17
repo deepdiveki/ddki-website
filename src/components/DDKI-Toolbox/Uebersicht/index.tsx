@@ -8,20 +8,20 @@ const Uebersicht = () => {
 
         <div className="flex flex-wrap justify-between gap-11 xl:flex-nowrap">
           <div className="w-full max-w-[570px]">
-            <span className="mb-5 block font-semibold text-primary-darker">
+            <span className="mb-5 block font-semibold text-purple-light">
               Über unsere Plattform
             </span>
 
-            <h2 className="mb-5 text-display-sm -tracking-[0.96px] text-text-primary lg:text-display-lg">
+            <h2 className="mb-5 text-display-sm -tracking-[0.96px] text-white lg:text-display-lg">
               Die KI Toolbox für Schulen und Universitäten
             </h2>
-            <p className="mb-9 text-md font-light text-text-secondary">
+            <p className="mb-9 text-md font-light text-white/70">
               DeepDiveKI wurden von Lehrenden für Lehrende entwickelt. Mit unseren benutzerfreundlichen Tools können Lehrkräfte den Lernprozess effizienter gestalten, individuelle Förderung ermöglichen und kreative Lehrmethoden entwickeln. Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte – unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.
             </p>
 
             <a
               href="https://www.deepdive-ki.de/software/ddki-toolbox"
-              className="inline-flex rounded-lg bg-primary-darker px-7 py-3 font-medium text-white duration-300 ease-in hover:bg-primary-dark"
+              className="inline-flex rounded-lg bg-purple px-7 py-3 font-medium text-white duration-300 ease-in hover:bg-purple-light"
             >
               Jetzt Toolbox ausprobieren
             </a>

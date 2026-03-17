@@ -12,17 +12,17 @@ type Price = {
 
 const SinglePricing = ({ price }: { price: Price }) => {
   return (
-    <div className="sw-card-glow relative z-20 overflow-hidden rounded-3xl border border-border-tertiary bg-white/50 px-8 pb-10 pt-12.5 shadow-sm backdrop-blur-md xl:px-10">
-      <h3 className="mb-5.5 text-heading-6 font-semibold text-text-primary">
+    <div className="sw-card-glow relative z-20 overflow-hidden rounded-3xl border border-purple-500/20 bg-white/5 px-8 pb-10 pt-12.5 shadow-sm backdrop-blur-md xl:px-10">
+      <h3 className="mb-5.5 text-heading-6 font-semibold text-white">
         {price.title}
       </h3>
 
       <div className="flex items-center gap-3.5">
-        <h2 className="text-custom-1 font-light text-primary-darker">
+        <h2 className="text-custom-1 font-light text-purple-light">
           {price.price}
         </h2>
 
-        <p className="text-sm font-light text-text-secondary">
+        <p className="text-sm font-light text-white/70">
           / monatlich <br />
           Grundgebühr
         </p>
@@ -40,7 +40,7 @@ const SinglePricing = ({ price }: { price: Price }) => {
         href={price.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative mt-11 flex w-full items-center justify-center gap-1.5 rounded-lg bg-primary-darker p-3 font-medium text-white shadow-md transition-all duration-300 ease-in-out hover:bg-primary-dark hover:shadow-lg"
+        className="relative mt-11 flex w-full items-center justify-center gap-1.5 rounded-lg bg-purple p-3 font-medium text-white shadow-md transition-all duration-300 ease-in-out hover:bg-purple-light hover:shadow-lg"
       >
         Jetzt buchen
         <svg
@@ -57,7 +57,7 @@ const SinglePricing = ({ price }: { price: Price }) => {
         </svg>
       </a>
 
-      <p className="mt-4 text-center text-sm font-light text-text-tertiary">Monatlich kündbar</p>
+      <p className="mt-4 text-center text-sm font-light text-white/50">Monatlich kündbar</p>
     </div>
   );
 };

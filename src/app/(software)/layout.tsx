@@ -22,7 +22,7 @@ export default function MainLayout({
         className="animate-in fade-in relative min-h-screen font-inter duration-700"
         style={{
           background:
-            "linear-gradient(180deg, #c8bff5 0%, #ddd7fe 25%, #eae6fb 50%, #eae6fb 100%)",
+            "linear-gradient(180deg, #030014 0%, #0a0525 25%, #060320 50%, #030014 100%)",
         }}
       >
         {/* Subtle dot-grid pattern overlay for "techy" feel */}
@@ -35,7 +35,7 @@ export default function MainLayout({
           className="sw-float-slow sw-pulse-glow pointer-events-none absolute -left-32 top-[20%] z-0 h-96 w-96 rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(140,113,246,0.15) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(140,113,246,0.12) 0%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -43,7 +43,7 @@ export default function MainLayout({
           className="sw-float-medium sw-pulse-glow pointer-events-none absolute -right-24 top-[55%] z-0 h-72 w-72 rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(37,71,208,0.1) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(37,71,208,0.08) 0%, transparent 70%)",
           }}
           aria-hidden="true"
         />
@@ -51,7 +51,7 @@ export default function MainLayout({
           className="sw-float-slow pointer-events-none absolute left-1/4 top-[80%] z-0 h-64 w-64 rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(198,189,250,0.2) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(198,189,250,0.1) 0%, transparent 70%)",
             animationDelay: "2s",
           }}
           aria-hidden="true"

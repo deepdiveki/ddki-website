@@ -33,7 +33,7 @@ const PricingGrids = () => {
   return (
     <div>
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
-        <SectionTitle
+        <SectionTitle variant="software"
           subTitle="Jetzt anfragen"
           title="Preise"
           paragraph="Entdecken Sie unser KI-Schulbüro – so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an."

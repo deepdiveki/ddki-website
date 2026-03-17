@@ -179,7 +179,7 @@ export default function PlaygroundPage() {
               />
               <span className="hero-subtitle-text">Playground</span>
             </span>
-            <h1 className="mb-6 text-display-sm font-light -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
+            <h1 className="mb-6 text-display-sm font-bold -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
               KI-Schulbüro für Ihre Schule
             </h1>
             <p className="mx-auto mb-9 max-w-[600px] text-md font-light text-white">
@@ -197,7 +197,7 @@ export default function PlaygroundPage() {
             <div className="space-y-6">
               <div className="rounded-3xl border border-purple-900/60 bg-[#0b071a] p-6 shadow-[0_0_40px_rgba(134,70,244,0.15)]">
                 <h2 className="text-xl font-semibold">Schulprofil</h2>
-                <p className="mt-2 text-sm text-slate-300">
+                <p className="mt-2 text-sm text-white/60">
                   Das Nordlicht-Gymnasium ist eine moderne Ganztagsschule mit
                   digitalem Campus, persönlicher Beratung und klaren Prozessen.
                 </p>
@@ -212,7 +212,7 @@ export default function PlaygroundPage() {
                         <p className="text-sm font-semibold text-white">
                           {fact.title}
                         </p>
-                        <p className="text-xs text-slate-400">{fact.detail}</p>
+                        <p className="text-xs text-white/60">{fact.detail}</p>
                       </div>
                     </div>
                   ))}
@@ -261,7 +261,7 @@ export default function PlaygroundPage() {
                       className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm shadow-lg ${
                         message.sender === "user"
                           ? "bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white"
-                          : "bg-[#151128] text-slate-200 border border-purple-800/60"
+                          : "bg-[#151128] text-white/50 border border-purple-800/60"
                       }`}
                     >
                       <p>{message.text}</p>
@@ -276,7 +276,7 @@ export default function PlaygroundPage() {
                 ))}
                 {isTyping && (
                   <div className="flex justify-start">
-                    <div className="rounded-2xl border border-purple-800/60 bg-[#151128] px-4 py-3 text-sm text-slate-200">
+                    <div className="rounded-2xl border border-purple-800/60 bg-[#151128] px-4 py-3 text-sm text-white/50">
                       <span className="inline-flex gap-1">
                         <span className="h-2 w-2 animate-bounce rounded-full bg-purple-400" />
                         <span className="h-2 w-2 animate-bounce rounded-full bg-purple-400 [animation-delay:120ms]" />
@@ -296,7 +296,7 @@ export default function PlaygroundPage() {
                     onChange={(event) => setInputValue(event.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Fragen Sie z.B. nach Anmeldung, Mensa oder Terminen..."
-                    className="flex-1 bg-transparent text-sm text-white placeholder:text-slate-500 focus:outline-none"
+                    className="flex-1 bg-transparent text-sm text-white placeholder:text-white/50 focus:outline-none"
                   />
                   <button
                     onClick={() => handleSend()}
@@ -306,7 +306,7 @@ export default function PlaygroundPage() {
                     <IconSend size={18} />
                   </button>
                 </div>
-                <p className="mt-3 text-xs text-slate-400">
+                <p className="mt-3 text-xs text-white/60">
                   Beispiel: \"Wann ist der Elternabend?\" oder \"Welche Unterlagen brauche ich?\"
                 </p>
               </div>

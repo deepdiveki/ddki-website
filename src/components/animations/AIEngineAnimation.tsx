@@ -508,10 +508,10 @@ export default function ExplodedIsometric() {
                     <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3"></div>
                     <span className="text-primary-dark font-bold text-sm tracking-wider">KI-Chat</span>
                   </div>
-                  <h3 className="font-bold text-xl mb-3 text-text-primary">DeepChat</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed mb-4">Der intelligente und datenschutzkonforme Chatbot für Lehrkräfte und Schüler. Optimiert für Bildungszwecke und Lernunterstützung</p>
+                  <h3 className="font-bold text-xl mb-3 text-white">DeepChat</h3>
+                  <p className="text-white/80 text-sm leading-relaxed mb-4">Der intelligente und datenschutzkonforme Chatbot für Lehrkräfte und Schüler. Optimiert für Bildungszwecke und Lernunterstützung</p>
                   <div className="text-center">
-                    <a ref={ctaRef} href="/software/ddki-toolbox" className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-all duration-300">Mehr erfahren</a>
+                    <a ref={ctaRef} href="/software/ddki-toolbox" className="inline-block bg-purple text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-purple-light transition-all duration-300">Mehr erfahren</a>
                   </div>
                 </div>
               </div>
@@ -537,10 +537,10 @@ export default function ExplodedIsometric() {
                     <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3"></div>
                     <span className="text-primary-dark font-bold text-sm tracking-wider">Schulbüro 3.0</span>
                   </div>
-                  <h3 className="font-bold text-xl mb-3 text-text-primary">KI-Schulbüro</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed mb-4">Das intelligente Verwaltungsbüro für Schulen. Automatisierte Prozesse, Dokumentenverwaltung und effiziente Kommunikation</p>
+                  <h3 className="font-bold text-xl mb-3 text-white">KI-Schulbüro</h3>
+                  <p className="text-white/80 text-sm leading-relaxed mb-4">Das intelligente Verwaltungsbüro für Schulen. Automatisierte Prozesse, Dokumentenverwaltung und effiziente Kommunikation</p>
                   <div className="text-center">
-                    <a ref={ctaRef} href="/software/chatbot-fuer-ihre-schule" className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-all duration-300">Mehr erfahren</a>
+                    <a ref={ctaRef} href="/software/chatbot-fuer-ihre-schule" className="inline-block bg-purple text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-purple-light transition-all duration-300">Mehr erfahren</a>
                   </div>
                 </div>
               </div>
@@ -566,10 +566,10 @@ export default function ExplodedIsometric() {
                     <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3"></div>
                     <span className="text-primary-dark font-bold text-sm tracking-wider">Workshops</span>
                   </div>
-                  <h3 className="font-bold text-xl mb-3 text-text-primary">Fortbildungen für Lehrkräfte</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed mb-4">Professionelle Weiterbildung im Bereich KI für Pädagogen. Modulare Kurse, praktische Anwendungen und zertifizierte Abschlüsse.</p>
+                  <h3 className="font-bold text-xl mb-3 text-white">Fortbildungen für Lehrkräfte</h3>
+                  <p className="text-white/80 text-sm leading-relaxed mb-4">Professionelle Weiterbildung im Bereich KI für Pädagogen. Modulare Kurse, praktische Anwendungen und zertifizierte Abschlüsse.</p>
                   <div className="text-center">
-                    <a ref={ctaRef} href="/fortbildung/fortbildungen" className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-all duration-300">Mehr erfahren</a>
+                    <a ref={ctaRef} href="/fortbildung/fortbildungen" className="inline-block bg-purple text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-purple-light transition-all duration-300">Mehr erfahren</a>
                   </div>
                 </div>
               </div>
@@ -595,10 +595,10 @@ export default function ExplodedIsometric() {
                     <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full mr-3"></div>
                     <span className="text-primary-dark font-bold text-sm tracking-wider">Online Auftritt</span>
                   </div>
-                  <h3 className="font-bold text-xl mb-3 text-text-primary">Websites für Schulen</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed mb-4">Professionelle Schulwebsites mit modernem Design und benutzerfreundlicher Bedienung. Responsive Layouts und Content-Management-Systeme.</p>
+                  <h3 className="font-bold text-xl mb-3 text-white">Websites für Schulen</h3>
+                  <p className="text-white/80 text-sm leading-relaxed mb-4">Professionelle Schulwebsites mit modernem Design und benutzerfreundlicher Bedienung. Responsive Layouts und Content-Management-Systeme.</p>
                   <div className="text-center">
-                    <a ref={ctaRef} href="/software/websites" className="inline-block bg-primary-darker text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary-dark transition-all duration-300">Mehr erfahren</a>
+                    <a ref={ctaRef} href="/software/websites" className="inline-block bg-purple text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-purple-light transition-all duration-300">Mehr erfahren</a>
                   </div>
                 </div>
               </div>

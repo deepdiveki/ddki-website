@@ -90,7 +90,7 @@ export default function ProductShowcaseAnimation() {
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
           Unsere KI-Lösungen
         </h2>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+        <p className="text-xl text-white/60 max-w-3xl mx-auto">
           Entdecken Sie unsere drei innovativen Produkte, perfekt aufeinander abgestimmt
         </p>
       </div>
@@ -158,12 +158,12 @@ export default function ProductShowcaseAnimation() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white">{product.title}</h3>
-                      <p className="text-sm text-gray-300">{product.subtitle}</p>
+                      <p className="text-sm text-white/60">{product.subtitle}</p>
                     </div>
                   </div>
 
                   {/* Beschreibung */}
-                  <p className="text-gray-300 text-sm mb-4 flex-1">
+                  <p className="text-white/60 text-sm mb-4 flex-1">
                     {product.description}
                   </p>
 
@@ -187,7 +187,7 @@ export default function ProductShowcaseAnimation() {
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: featureIndex * 0.1 }}
-                              className="text-xs text-gray-300 flex items-center gap-2"
+                              className="text-xs text-white/60 flex items-center gap-2"
                             >
                               <div 
                                 className="w-1.5 h-1.5 rounded-full"
@@ -260,7 +260,7 @@ export default function ProductShowcaseAnimation() {
 
         {/* Info-Text */}
         <motion.p
-          className="text-center text-gray-400 text-sm mt-6"
+          className="text-center text-white/60 text-sm mt-6"
           animate={{ opacity: isExpanded ? 0.7 : 1 }}
         >
           {isExpanded 

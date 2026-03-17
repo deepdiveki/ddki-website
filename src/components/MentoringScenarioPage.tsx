@@ -81,7 +81,7 @@ const TabButton = ({
     className={`px-5 py-3 text-sm font-semibold transition-colors ${
       active
         ? "text-white border-b-2 border-purple-400"
-        : "text-slate-400 hover:text-white"
+        : "text-white/60 hover:text-white"
     }`}
   >
     {label}
@@ -222,7 +222,7 @@ export default function MentoringScenarioPage({
               </button>
             </div>
             <div className="px-6 py-5">
-              <p className="text-sm text-slate-200 whitespace-pre-line">
+              <p className="text-sm text-white/50 whitespace-pre-line">
                 {feedbackModal}
               </p>
             </div>
@@ -242,7 +242,7 @@ export default function MentoringScenarioPage({
               />
               <span className="hero-subtitle-text">{scenario.subtitle}</span>
             </span>
-            <h1 className="mb-6 text-display-sm font-light -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
+            <h1 className="mb-6 text-display-sm font-bold -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl">
               {scenario.title}
             </h1>
             <p className="mx-auto mb-9 max-w-[620px] text-md font-light text-white">
@@ -275,7 +275,7 @@ export default function MentoringScenarioPage({
               </div>
               <div className="p-6 space-y-8">
                 <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-5">
-                  <p className="text-sm text-slate-300">
+                  <p className="text-sm text-white/60">
                     Vorbereitung aktiv: Nutzen Sie die Tabs, um Unterricht,
                     Profil und Gesprächsstrategie zu verstehen. Aktuell sehen Sie
                     <span className="text-white font-semibold"> {activeLabel}</span>.
@@ -311,13 +311,13 @@ export default function MentoringScenarioPage({
                           <h4 className="font-semibold text-white mb-3">
                             {scenario.lessonTitle || "Unterrichtsüberblick"}
                           </h4>
-                          <div className="grid md:grid-cols-2 gap-4 text-sm text-slate-300">
+                          <div className="grid md:grid-cols-2 gap-4 text-sm text-white/60">
                             {(scenario.lessonSummary ?? scenario.classOverview).map((item) => (
                               <div key={"label" in item ? item.label : item.title}>
                                 <p className="text-white font-semibold">
                                   {"label" in item ? item.label : item.title}
                                 </p>
-                                <p className="text-slate-400">
+                                <p className="text-white/60">
                                   {"value" in item ? item.value : item.description}
                                 </p>
                               </div>
@@ -339,7 +339,7 @@ export default function MentoringScenarioPage({
                               className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4"
                             >
                               <p className="text-white font-semibold">{item.title}</p>
-                              <p className="text-sm text-slate-300 mt-2">
+                              <p className="text-sm text-white/60 mt-2">
                                 {item.description}
                               </p>
                             </div>
@@ -362,7 +362,7 @@ export default function MentoringScenarioPage({
                               <p className="text-white font-semibold">
                                 {item.title}
                               </p>
-                              <p className="text-sm text-slate-300 mt-1">
+                              <p className="text-sm text-white/60 mt-1">
                                 {item.description}
                               </p>
                             </div>
@@ -386,7 +386,7 @@ export default function MentoringScenarioPage({
                               <p className="text-white font-semibold">
                                 {item.title}
                               </p>
-                              <p className="text-sm text-slate-300 mt-1">
+                              <p className="text-sm text-white/60 mt-1">
                                 {item.description}
                               </p>
                             </div>
@@ -403,7 +403,7 @@ export default function MentoringScenarioPage({
                         {scenario.issues.map((issue) => (
                           <div
                             key={issue}
-                            className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-slate-300"
+                            className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-white/60"
                           >
                             {issue}
                           </div>
@@ -428,7 +428,7 @@ export default function MentoringScenarioPage({
                               {section.columns.map((column) => (
                                 <div
                                   key={column.title || column.items.join("-")}
-                                  className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-slate-300"
+                                  className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-white/60"
                                 >
                                   {column.title && (
                                     <p className="text-white font-semibold mb-3">
@@ -452,7 +452,7 @@ export default function MentoringScenarioPage({
                               ))}
                             </div>
                           ) : section.columns && section.layout === "single" ? (
-                            <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-slate-300">
+                            <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-white/60">
                               {section.columns[0]?.title && (
                                 <p className="text-white font-semibold mb-3">
                                   {section.columns[0].title}
@@ -473,7 +473,7 @@ export default function MentoringScenarioPage({
                               )}
                             </div>
                           ) : (
-                            <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-slate-300">
+                            <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-white/60">
                               {section.columns?.[0]?.items.map((item) => (
                                 <p key={item}>{item}</p>
                               ))}
@@ -494,7 +494,7 @@ export default function MentoringScenarioPage({
                                 className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4"
                               >
                                 <p className="text-white font-semibold">{item.title}</p>
-                                <p className="text-sm text-slate-300 mt-2">
+                                <p className="text-sm text-white/60 mt-2">
                                   {item.description}
                                 </p>
                               </div>
@@ -513,7 +513,7 @@ export default function MentoringScenarioPage({
                                 className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4"
                               >
                                 <p className="text-white font-semibold">{item.title}</p>
-                                <p className="text-sm text-slate-300 mt-2">
+                                <p className="text-sm text-white/60 mt-2">
                                   {item.description}
                                 </p>
                               </div>
@@ -539,7 +539,7 @@ export default function MentoringScenarioPage({
                               className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4"
                             >
                               <p className="text-white font-semibold">{item.title}</p>
-                              <p className="text-sm text-slate-300 mt-2">
+                              <p className="text-sm text-white/60 mt-2">
                                 {item.description}
                               </p>
                             </div>
@@ -576,7 +576,7 @@ export default function MentoringScenarioPage({
                             {section.columns.map((column) => (
                               <div
                                 key={column.title}
-                                className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-slate-300"
+                                className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-white/60"
                               >
                                 <p className="text-white font-semibold mb-2">
                                   {column.title}
@@ -598,7 +598,7 @@ export default function MentoringScenarioPage({
                             ))}
                           </div>
                         ) : (
-                          <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-slate-300 space-y-2">
+                          <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4 text-sm text-white/60 space-y-2">
                             {section.body?.map((line) => (
                               <p key={line}>{line}</p>
                             ))}
@@ -621,7 +621,7 @@ export default function MentoringScenarioPage({
                           className="rounded-2xl border border-purple-900/40 bg-[#141126] p-4"
                         >
                           <p className="text-white font-semibold">{item.title}</p>
-                          <p className="text-sm text-slate-300 mt-2">
+                          <p className="text-sm text-white/60 mt-2">
                             {item.description}
                           </p>
                         </div>
@@ -637,11 +637,11 @@ export default function MentoringScenarioPage({
                 <h2 className="text-lg font-semibold text-white">
                   Chat mit {scenario.studentName}
                 </h2>
-                <p className="text-sm text-slate-300 mt-1">{scenario.chatGoal}</p>
+                <p className="text-sm text-white/60 mt-1">{scenario.chatGoal}</p>
               </div>
 
               <div className="px-6 py-4 border-b border-purple-900/40">
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-white/60">
                   Hinweis: Beim Schliessen wird das Feedback nicht gespeichert,
                   kann aber jederzeit neu generiert werden. Sie können danach
                   direkt weiter chatten.
@@ -650,7 +650,7 @@ export default function MentoringScenarioPage({
 
               <div className="flex-1 px-6 py-6 space-y-4 overflow-y-auto">
                 {userMessageCount === 0 && messages.length === 0 && (
-                  <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-6 text-center text-slate-300">
+                  <div className="rounded-2xl border border-purple-900/40 bg-[#141126] p-6 text-center text-white/60">
                     <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-purple-600/20 text-purple-200">
                       <svg
                         className="h-5 w-5"
@@ -683,7 +683,7 @@ export default function MentoringScenarioPage({
                           ? "bg-gradient-to-r from-purple-600 to-fuchsia-500 text-white"
                           : message.kind === "feedback"
                           ? "bg-[#1b1733] text-slate-100 border border-emerald-500/40"
-                          : "bg-[#151128] text-slate-200 border border-purple-800/60"
+                          : "bg-[#151128] text-white/50 border border-purple-800/60"
                       }`}
                     >
                       <p>{message.text}</p>
@@ -695,7 +695,7 @@ export default function MentoringScenarioPage({
                 ))}
                 {isSending && (
                   <div className="flex justify-start">
-                    <div className="rounded-2xl border border-purple-800/60 bg-[#151128] px-4 py-3 text-sm text-slate-200">
+                    <div className="rounded-2xl border border-purple-800/60 bg-[#151128] px-4 py-3 text-sm text-white/50">
                       <span className="inline-flex gap-1">
                         <span className="h-2 w-2 animate-bounce rounded-full bg-purple-400" />
                         <span className="h-2 w-2 animate-bounce rounded-full bg-purple-400 [animation-delay:120ms]" />
@@ -711,7 +711,7 @@ export default function MentoringScenarioPage({
                   <input
                     type="text"
                     placeholder="Nachricht eingeben..."
-                    className="flex-1 bg-transparent text-sm text-white placeholder:text-slate-500 focus:outline-none"
+                    className="flex-1 bg-transparent text-sm text-white placeholder:text-white/50 focus:outline-none"
                     value={inputValue}
                     onChange={(event) => setInputValue(event.target.value)}
                     onKeyDown={(event) => {
@@ -751,7 +751,7 @@ export default function MentoringScenarioPage({
                   >
                     Feedback einholen
                   </button>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-white/60">
                     {isSending
                       ? "Analysiere..."
                       : canRequestFeedback

@@ -72,7 +72,7 @@ const Kontakt = () => {
             {/* Other layout code */}
           </div>
 
-          <SectionTitle
+          <SectionTitle variant="software"
             subTitle="Können wir helfen?"
             title="Welche Lizenz passt zu Ihrer Schule?"
             paragraph="Kontaktieren Sie uns, wenn Sie Fragen haben oder Hilfe bei der Auswahl einer Lizenz benötigen. Wir helfen Ihnen gerne weiter."

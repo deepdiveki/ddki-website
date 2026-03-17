@@ -459,7 +459,7 @@ export default function Leseverständnis() {
         <div className="flex flex-col items-center mt-8 space-y-4">
           <button
             type="submit"
-            className="text-white border-2 border-white rounded-full px-6 py-2 hover:bg-white hover:text-black transition duration-300"
+            className="text-white border-2 border-white rounded-full px-6 py-2 hover:bg-white hover:text-white transition duration-300"
           >
             Abschicken
           </button>

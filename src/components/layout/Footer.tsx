@@ -38,6 +38,9 @@ const softwareLinks = [
     links: [
       { name: "Über uns", href: "/software/about" },
       { name: "Kontakt", href: "/software/kontakt" },
+      { name: "Jobs", href: "/jobs" },
+      { name: "Mentoring", href: "/software/mentoring" },
+      { name: "Escape Game", href: "/software/escape-game" },
       { name: "info@deepdive-ki.de", href: "mailto:info@deepdive-ki.de" },
     ],
   },
@@ -57,10 +60,10 @@ export default function Footer({ variant = "fortbildung" }: { variant?: FooterVa
     : "Ihre zentrale Plattform für berufliche Weiterbildung und Kompetenzentwicklung.";
 
   return (
-    <footer className="overflow-hidden bg-background-secondary">
+    <footer className={`overflow-hidden ${isSoftware ? "bg-[#0a0525]" : "bg-background-secondary"}`}>
       <div className="mx-auto max-w-304 pt-14 pb-10 md:px-4 lg:pt-20 xl:px-0">
         <div className="mx-auto flex w-full flex-col flex-wrap justify-between md:flex-row md:flex-nowrap md:items-center lg:items-start">
-          <CompanyInfo tagline={tagline} logoLabel={isSoftware ? "Software" : "Fortbildungen"} />
+          <CompanyInfo tagline={tagline} logoLabel={isSoftware ? "Software" : "Fortbildungen"} isSoftware={isSoftware} />
 
           <ul className="mt-10 flex shrink-0 flex-wrap items-start gap-13.5 pl-4 md:mt-0 md:grow-0 md:gap-7.5 lg:pl-14 xl:gap-16">
             {infoLinks.map((links, index) => (
@@ -68,7 +71,7 @@ export default function Footer({ variant = "fortbildung" }: { variant?: FooterVa
                 key={index}
                 className="w-36 space-y-5 md:w-23.75 lg:w-22.5 xl:w-28"
               >
-                <h4 className="text-md font-medium text-text-primary">
+                <h4 className={`text-md font-medium ${isSoftware ? "text-white" : "text-text-primary"}`}>
                   {links.title}
                 </h4>
 
@@ -77,7 +80,7 @@ export default function Footer({ variant = "fortbildung" }: { variant?: FooterVa
                     <Link
                       key={link.name}
                       href={link.href}
-                      className="block text-sm text-text-secondary duration-100 hover:text-text-primary"
+                      className={`block text-sm duration-100 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-text-primary"}`}
                     >
                       {link.name}
                     </Link>
@@ -87,30 +90,30 @@ export default function Footer({ variant = "fortbildung" }: { variant?: FooterVa
             ))}
 
             <li className="w-full space-y-5 md:w-45 lg:w-77">
-              <h4 className="text-md font-medium text-text-primary">
+              <h4 className={`text-md font-medium ${isSoftware ? "text-white" : "text-text-primary"}`}>
                 Über {sectionLabel}
               </h4>
-              <p className="text-sm text-text-secondary">
+              <p className={`text-sm ${isSoftware ? "text-white/70" : "text-text-secondary"}`}>
                 {aboutText}
               </p>
             </li>
           </ul>
         </div>
 
-        <Copyright sectionLabel={sectionLabel} />
+        <Copyright sectionLabel={sectionLabel} isSoftware={isSoftware} />
       </div>
     </footer>
   );
 }
 
-function CompanyInfo({ tagline, logoLabel }: { tagline: string; logoLabel: string }) {
+function CompanyInfo({ tagline, logoLabel, isSoftware }: { tagline: string; logoLabel: string; isSoftware: boolean }) {
   return (
     <div className="flex h-37.5 max-w-100 flex-col items-start justify-between px-4 text-center sm:mx-0 sm:h-full sm:min-h-50 sm:w-100 md:w-62.5 md:items-start md:px-0 md:text-left lg:w-91.75 xl:px-0">
       <div className="w-full">
         <Link href="/">
-          <Logo label={logoLabel} />
+          <Logo label={logoLabel} variant={isSoftware ? "software" : "default"} />
         </Link>
-        <p className="mt-4 text-start text-sm tracking-[0.16px] text-text-secondary lg:text-md">
+        <p className={`mt-4 text-start text-sm tracking-[0.16px] lg:text-md ${isSoftware ? "text-white/70" : "text-text-secondary"}`}>
           {tagline}
         </p>
       </div>
@@ -119,7 +122,7 @@ function CompanyInfo({ tagline, logoLabel }: { tagline: string; logoLabel: strin
         <ButtonLink
           href="https://www.instagram.com/deepdive_ki"
           variant="secondary"
-          className="size-11 rounded-full border-none px-0 py-0 hover:bg-background-tertiary"
+          className={`size-11 rounded-full border-none px-0 py-0 ${isSoftware ? "hover:bg-white/10" : "hover:bg-background-tertiary"}`}
           aria-label="Instagram"
         >
           <Instagram className="size-4.5" />
@@ -127,7 +130,7 @@ function CompanyInfo({ tagline, logoLabel }: { tagline: string; logoLabel: strin
         <ButtonLink
           href="https://de.linkedin.com/company/deepdiveki"
           variant="secondary"
-          className="size-11 rounded-full border-none px-0 py-0 hover:bg-background-tertiary"
+          className={`size-11 rounded-full border-none px-0 py-0 ${isSoftware ? "hover:bg-white/10" : "hover:bg-background-tertiary"}`}
           aria-label="LinkedIn"
         >
           <Linkedin className="size-4.5" />
@@ -137,26 +140,26 @@ function CompanyInfo({ tagline, logoLabel }: { tagline: string; logoLabel: strin
   );
 }
 
-function Copyright({ sectionLabel }: { sectionLabel: string }) {
+function Copyright({ sectionLabel, isSoftware }: { sectionLabel: string; isSoftware: boolean }) {
   return (
     <div className="mt-10 flex flex-col-reverse items-center justify-between px-4 md:mt-16 md:flex-row md:px-0">
-      <p className="mt-5 text-center text-sm font-medium tracking-[0.28px] text-text-tertiary sm:text-left md:mt-0">
+      <p className={`mt-5 text-center text-sm font-medium tracking-[0.28px] sm:text-left md:mt-0 ${isSoftware ? "text-white/50" : "text-text-tertiary"}`}>
         &copy; {new Date().getFullYear()} {sectionLabel}. Alle Rechte vorbehalten.
       </p>
 
       <div className="flex items-center gap-x-4">
         <Link
           href="/impressum"
-          className="text-sm font-medium tracking-[0.28px] text-text-secondary duration-300 hover:text-primary-base"
+          className={`text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`}
         >
           Impressum
         </Link>
-        <span className="text-text-secondary" aria-hidden="true">
+        <span className={isSoftware ? "text-white/70" : "text-text-secondary"} aria-hidden="true">
           |
         </span>
         <Link
           href="/datenschutz"
-          className="text-sm font-medium tracking-[0.28px] text-text-secondary duration-300 hover:text-primary-base"
+          className={`text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`}
         >
           Datenschutz
         </Link>

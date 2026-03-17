@@ -412,7 +412,7 @@ export default function AdvancedChatbotWidget({
                       className={`max-w-[80%] p-3 rounded-2xl ${
                         message.sender === 'user'
                           ? 'bg-blue-500 text-white'
-                          : 'bg-gray-100 text-gray-800'
+                          : 'bg-gray-100 text-white'
                       }`}
                     >
                       {message.type === 'file' ? (
@@ -439,7 +439,7 @@ export default function AdvancedChatbotWidget({
                     animate={{ opacity: 1 }}
                     className="flex justify-start"
                   >
-                    <div className="bg-gray-100 text-gray-800 p-3 rounded-2xl">
+                    <div className="bg-gray-100 text-white p-3 rounded-2xl">
                       <div className="flex space-x-1">
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>

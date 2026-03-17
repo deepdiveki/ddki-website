@@ -6,7 +6,7 @@ const Team = () => {
   return (
     <section className="overflow-hidden py-17.5 lg:py-22.5 xl:py-27.5">
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
-        <SectionTitle
+        <SectionTitle variant="software"
           subTitle="Triff unser Team"
           title="Unser Team"
           paragraph="Wir sind ein junges Team aus Hamburg mit einer Leidenschaft für Künstliche Intelligenz und Bildung. Unsere Vision ist es, KI für alle zugänglich zu machen und den Einsatz von KI im Bildungsbereich zu fördern."

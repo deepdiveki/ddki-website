@@ -247,25 +247,25 @@ function SoftwareProductCard({
     <motion.div variants={fadeUpSlow}>
       <Link
         href={product.href}
-        className="group relative flex flex-col rounded-2xl border border-border-tertiary bg-white/35 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-border-secondary hover:bg-white/50 hover:shadow-lg lg:p-9"
+        className="group relative flex flex-col rounded-2xl border border-purple-500/20 bg-white/5 p-7 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-purple-500/40 hover:bg-white/10 hover:shadow-lg hover:shadow-purple/10 lg:p-9"
       >
         {/* Category */}
-        <span className="text-xs font-medium tracking-wide text-primary-darker uppercase">
+        <span className="text-xs font-medium tracking-wide text-purple-light uppercase">
           {product.category}
         </span>
 
         {/* Title */}
-        <h3 className="mt-3 text-xl font-semibold -tracking-[0.3px] text-text-primary lg:text-2xl">
+        <h3 className="mt-3 text-xl font-semibold -tracking-[0.3px] text-white lg:text-2xl">
           {product.title}
         </h3>
 
         {/* Description */}
-        <p className="mt-2.5 text-sm font-light leading-relaxed text-text-secondary lg:text-[15px]">
+        <p className="mt-2.5 text-sm font-light leading-relaxed text-white/70 lg:text-[15px]">
           {product.desc}
         </p>
 
         {/* Link indicator */}
-        <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-primary-darker">
+        <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-purple-light">
           Mehr erfahren
           <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
         </div>
@@ -276,7 +276,7 @@ function SoftwareProductCard({
 
 export function SoftwareDetail({ onClose }: { onClose: () => void }) {
   return (
-    <DetailShell onClose={onClose} variant="light">
+    <DetailShell onClose={onClose} variant="dark">
       <motion.div
         className="flex flex-col gap-14 lg:gap-20"
         variants={stagger}
@@ -287,19 +287,19 @@ export function SoftwareDetail({ onClose }: { onClose: () => void }) {
         <div className="mx-auto max-w-2xl text-center">
           <motion.span
             variants={fadeUp}
-            className="inline-block rounded-full bg-primary-light/30 px-3.5 py-1 text-xs font-medium tracking-wide text-primary-darker"
+            className="inline-block rounded-full bg-purple/15 px-3.5 py-1 text-xs font-medium tracking-wide text-purple-light"
           >
             Software-Lösungen
           </motion.span>
           <motion.h2
             variants={fadeUp}
-            className="mt-5 text-display-sm font-light -tracking-[0.96px] text-text-primary lg:text-display-md"
+            className="mt-5 text-display-sm font-bold -tracking-[0.96px] text-white lg:text-display-md"
           >
             KI-Software für den Schulalltag
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-4 text-md font-light leading-relaxed text-text-secondary lg:text-lg"
+            className="mt-4 text-md font-light leading-relaxed text-white/70 lg:text-lg"
           >
             DeepChat, KI-Schulbüro und weitere digitale Lösungen — entwickelt
             für die Anforderungen moderner Schulen.
@@ -309,7 +309,7 @@ export function SoftwareDetail({ onClose }: { onClose: () => void }) {
         {/* Divider */}
         <motion.div
           variants={fadeUp}
-          className="mx-auto h-px w-16 bg-border-tertiary"
+          className="mx-auto h-px w-16 bg-purple-500/30"
         />
 
         {/* Product grid */}
@@ -340,14 +340,14 @@ export function SoftwareDetail({ onClose }: { onClose: () => void }) {
         >
           <Link
             href="/software"
-            className="inline-flex items-center gap-2.5 rounded-xl bg-primary-darker px-7 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:-translate-y-px hover:shadow-lg hover:shadow-primary-darker/20"
+            className="inline-flex items-center gap-2.5 rounded-xl bg-purple px-7 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-purple-light hover:shadow-lg hover:shadow-purple/20"
           >
             Alle Produkte entdecken
             <ArrowRight className="size-4" />
           </Link>
           <Link
             href="/software/kontakt"
-            className="inline-flex items-center gap-2 rounded-xl border border-border-secondary bg-white px-7 py-3.5 text-[15px] font-medium text-text-primary transition-all duration-200 hover:-translate-y-px hover:shadow-md"
+            className="inline-flex items-center gap-2 rounded-xl border border-purple-500/30 bg-white/5 px-7 py-3.5 text-[15px] font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-white/10 hover:shadow-md"
           >
             Demo anfragen
           </Link>

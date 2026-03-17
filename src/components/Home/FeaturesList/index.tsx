@@ -19,22 +19,23 @@ const FeaturesList = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="sw-card-glow relative overflow-hidden rounded-3xl border border-border-tertiary bg-white/40 backdrop-blur-md transition-shadow duration-300 hover:shadow-lg">
+            <div className="sw-card-glow relative overflow-hidden rounded-3xl border border-purple-500/20 bg-white/5 backdrop-blur-md transition-shadow duration-300 hover:shadow-lg">
               <div className="relative overflow-hidden rounded-3xl p-10 xl:p-15">
                 <div className="relative z-20 flex items-center justify-between">
                   <div className="w-full max-w-[477px]">
-                    <span className="sw-glass relative mb-4 inline-flex items-center gap-2 rounded-full border border-border-tertiary px-4.5 py-2 text-sm font-medium text-primary-darker shadow-sm">
+                    <span className="sw-glass relative mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 text-sm font-medium text-primary-light">
+                      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1C12 1 12.7 5.3 14.7 7.3C16.7 9.3 21 10 21 10C21 10 16.7 10.7 14.7 12.7C12.7 14.7 12 19 12 19C12 19 11.3 14.7 9.3 12.7C7.3 10.7 3 10 3 10C3 10 7.3 9.3 9.3 7.3C11.3 5.3 12 1 12 1Z"/><path d="M19 15C19 15 19.4 17.1 20.1 17.9C20.9 18.6 23 19 23 19C23 19 20.9 19.4 20.1 20.1C19.4 20.9 19 23 19 23C19 23 18.6 20.9 17.9 20.1C17.1 19.4 15 19 15 19C15 19 17.1 18.6 17.9 17.9C18.6 17.1 19 15 19 15Z" opacity="0.7"/><circle cx="20" cy="5" r="1" opacity="0.5"/></svg>
                       Unsere Produkte im Überblick
                     </span>
-                    <h3 id="ddki-toolbox" className="mb-4.5 text-heading-4 font-light text-text-primary">
+                    <h3 id="ddki-toolbox" className="mb-4.5 text-heading-4 font-bold text-white">
                       Mit dem DeepChat in Ihre Schule oder Universitäten Künstliche Intelligenz integrieren.
                     </h3>
-                    <p className="mb-10 font-light text-text-secondary">
+                    <p className="mb-10 font-light text-white/70">
                       Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte – unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.
                     </p>
                     <Link
                       href={`${BASE_PATH}/ddki-toolbox`}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-primary-darker px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:bg-primary-dark hover:shadow-lg"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-purple px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:bg-purple-light hover:shadow-lg"
                     >
                       Jetzt ausprobieren
                       <svg
@@ -68,10 +69,10 @@ const FeaturesList = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
           >
-            <div className="sw-card-glow relative h-full overflow-hidden rounded-3xl border border-border-tertiary bg-white/40 backdrop-blur-md transition-shadow duration-300 hover:shadow-lg">
+            <div className="sw-card-glow relative h-full overflow-hidden rounded-3xl border border-purple-500/20 bg-white/5 backdrop-blur-md transition-shadow duration-300 hover:shadow-lg">
               <div className="relative overflow-hidden rounded-3xl px-11 pb-14 pt-12.5">
                 <div className="relative z-20">
-                  <span className="relative mx-auto mb-13.5 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full border border-border-tertiary bg-white/70 shadow-sm backdrop-blur-sm">
+                  <span className="relative mx-auto mb-13.5 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full border border-purple-500/20 bg-white/10 shadow-sm backdrop-blur-sm">
                     <Image
                       src="/images/features/icon-05.svg"
                       alt="icon"
@@ -80,15 +81,15 @@ const FeaturesList = () => {
                     />
                   </span>
 
-                  <h3 className="mb-4.5 text-heading-6 font-semibold text-text-primary">
+                  <h3 className="mb-4.5 text-heading-6 font-semibold text-white">
                     KI-Schulbüro
                   </h3>
-                  <p className="mb-10 font-light text-text-secondary">
+                  <p className="mb-10 font-light text-white/70">
                     Mit unserem KI-Schulbüro haben Sie die Möglichkeit, in Ihrer Schulwebsite einen KI-Chatbot zu integrieren. Damit verbessern Sie den Informationsfluss zu Ihren Schülerinnen und Schülern, Eltern und Lehrkräften.
                   </p>
                   <Link
                     href={`${BASE_PATH}/chatbot-fuer-ihre-schule`}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-primary-darker px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:bg-primary-dark hover:shadow-lg"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-purple px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:bg-purple-light hover:shadow-lg"
                   >
                     Jetzt ausprobieren
                     <svg
@@ -117,10 +118,10 @@ const FeaturesList = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           >
-            <div className="sw-card-glow relative h-full overflow-hidden rounded-3xl border border-border-tertiary bg-white/40 backdrop-blur-md transition-shadow duration-300 hover:shadow-lg">
+            <div className="sw-card-glow relative h-full overflow-hidden rounded-3xl border border-purple-500/20 bg-white/5 backdrop-blur-md transition-shadow duration-300 hover:shadow-lg">
               <div className="relative overflow-hidden rounded-3xl px-11 pb-14 pt-12.5">
                 <div className="relative z-20">
-                  <span className="relative mx-auto mb-13.5 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full border border-border-tertiary bg-white/70 shadow-sm backdrop-blur-sm">
+                  <span className="relative mx-auto mb-13.5 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full border border-purple-500/20 bg-white/10 shadow-sm backdrop-blur-sm">
                     <Image
                       src="/images/features/icon-07.svg"
                       alt="icon"
@@ -129,15 +130,15 @@ const FeaturesList = () => {
                     />
                   </span>
 
-                  <h3 className="mb-4.5 text-heading-6 font-semibold text-text-primary">
+                  <h3 className="mb-4.5 text-heading-6 font-semibold text-white">
                     Fortbildungen zum Thema KI
                   </h3>
-                  <p className="mb-10 font-light text-text-secondary">
+                  <p className="mb-10 font-light text-white/70">
                     Wir bieten Fortbildungen zum Thema Künstliche Intelligenz für Lehrkräfte, Lehramtsstudierende und Angestellte an Bildungsinstituten an.
                   </p>
                   <Link
-                    href={`${BASE_PATH}/fortbildungen`}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-primary-darker px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:bg-primary-dark hover:shadow-lg"
+                    href="/fortbildung/fortbildungen"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-purple px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:bg-purple-light hover:shadow-lg"
                   >
                     Jetzt ausprobieren
                     <svg

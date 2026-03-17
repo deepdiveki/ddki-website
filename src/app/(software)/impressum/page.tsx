@@ -26,7 +26,7 @@ const AboutPage = () => {
             DeepDiveKI UG (haftungsbeschränkt) <br />
             Eppendorfer Landstraße 55 <br />
             20249 Hamburg <br />
-            <a href="https://www.deepdive-ki.de" className="text-blue-500 underline">www.deepdive-ki.de</a>
+            <a href="https://www.deepdive-ki.de" className="text-purple-400 underline">www.deepdive-ki.de</a>
           </p>
 
           <h2 className="text-xl font-semibold">Vertreten durch</h2>
@@ -37,7 +37,7 @@ const AboutPage = () => {
 
           <h2 className="text-xl font-semibold">Kontakt</h2>
           <p>
-            E-Mail: <a href="mailto:info@deepdive-ki.de" className="text-blue-500 underline">info@deepdive-ki.de</a>
+            E-Mail: <a href="mailto:info@deepdive-ki.de" className="text-purple-400 underline">info@deepdive-ki.de</a>
           </p>
 
           <h2 className="text-xl font-semibold">Verantwortlich für den Inhalt</h2>
@@ -56,7 +56,7 @@ const AboutPage = () => {
           <h2 className="text-xl font-semibold">EU-Streitschlichtung</h2>
           <p>
             Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <br />
-            <a href="https://ec.europa.eu/consumers/odr/" className="text-blue-500 underline">
+            <a href="https://ec.europa.eu/consumers/odr/" className="text-purple-400 underline">
               https://ec.europa.eu/consumers/odr/
             </a>. <br />
             Unsere E-Mail-Adresse finden Sie oben im Impressum.
@@ -99,8 +99,8 @@ const AboutPage = () => {
             von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
           </p>
 
-          <p className="text-sm text-gray-500">
-            Quelle: <a href="https://www.e-recht24.de" className="text-blue-500 underline">https://www.e-recht24.de</a>
+          <p className="text-sm text-white/50">
+            Quelle: <a href="https://www.e-recht24.de" className="text-purple-400 underline">https://www.e-recht24.de</a>
           </p>
         </div>
       </section>

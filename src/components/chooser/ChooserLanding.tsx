@@ -478,19 +478,19 @@ export default function ChooserLanding() {
               >
                 <GlowCard
                   isHovered={hovered === "software"}
-                  variant="light"
+                  variant="dark"
                   className="h-full"
                 >
                   <Link
                     href="/software"
                     className={cn(
-                      "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-tertiary bg-white/60 shadow-sm backdrop-blur-md transition-shadow duration-300",
-                      "hover:shadow-xl",
+                      "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-purple-500/30 bg-[#030014] shadow-sm transition-shadow duration-300",
+                      "hover:shadow-[0_0_30px_rgba(134,70,244,0.2)]",
                     )}
                   >
                     {/* Expand button */}
                     <ExpandButton
-                      variant="light"
+                      variant="dark"
                       onClick={(e) => {
                         e.preventDefault();
                         setExpanded("software");
@@ -519,26 +519,26 @@ export default function ChooserLanding() {
                           <AIEngineMini />
                         </AnimationErrorBoundary>
                       </div>
-                      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white/40 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#030014] to-transparent" />
                     </div>
 
                     {/* Content */}
                     <div className="flex flex-1 flex-col justify-between p-6 lg:p-8">
                       <div>
-                        <h2 className="text-display-xs font-semibold tracking-tight text-text-primary lg:text-display-sm">
+                        <h2 className="text-display-xs font-semibold tracking-tight text-white lg:text-display-sm">
                           Software
                         </h2>
-                        <p className="mt-2 text-md font-light text-text-secondary lg:text-lg">
+                        <p className="mt-2 text-md font-light text-white/70 lg:text-lg">
                           DeepChat, KI-Schulbüro & digitale Lösungen für Schulen
                         </p>
                         <FeaturePills
                           pills={SOFTWARE_PILLS}
                           visible={hovered === "software"}
-                          variant="light"
+                          variant="dark"
                         />
                       </div>
                       <div className="mt-6 flex items-center justify-end">
-                        <ArrowRight className="size-6 text-primary-darker transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight className="size-6 text-purple-light transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </div>
                   </Link>

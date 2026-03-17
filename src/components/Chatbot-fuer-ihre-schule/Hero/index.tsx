@@ -168,9 +168,9 @@ const HeroChatbot = () => {
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
           <div className="space-y-6">
-            <div className="sw-card-glow rounded-3xl border border-border-tertiary bg-white/65 p-6 shadow-sm backdrop-blur-sm">
-              <h2 className="text-xl font-semibold text-text-primary">Schulprofil</h2>
-              <p className="mt-2 text-sm text-text-secondary">
+            <div className="sw-card-glow rounded-3xl border border-purple-500/20 bg-white/5 p-6 shadow-sm backdrop-blur-sm">
+              <h2 className="text-xl font-semibold text-white">Schulprofil</h2>
+              <p className="mt-2 text-sm text-white/70">
                 Das Nordlicht-Gymnasium ist eine moderne Ganztagsschule mit
                 digitalem Campus, persönlicher Beratung und klaren Prozessen.
               </p>
@@ -178,22 +178,22 @@ const HeroChatbot = () => {
                 {SCHOOL_FACTS.map((fact) => (
                   <div
                     key={fact.title}
-                    className="flex items-start gap-3 rounded-2xl border border-border-tertiary bg-background-secondary p-4"
+                    className="flex items-start gap-3 rounded-2xl border border-purple-500/20 bg-white/5 p-4"
                   >
-                    <fact.icon className="mt-0.5 text-primary-dark" size={20} />
+                    <fact.icon className="mt-0.5 text-purple-light" size={20} />
                     <div>
-                      <p className="text-sm font-semibold text-text-primary">
+                      <p className="text-sm font-semibold text-white">
                         {fact.title}
                       </p>
-                      <p className="text-xs text-text-tertiary">{fact.detail}</p>
+                      <p className="text-xs text-white/50">{fact.detail}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="sw-card-glow rounded-3xl border border-border-tertiary bg-white/65 p-6 shadow-sm backdrop-blur-sm">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-primary-dark">
+            <div className="sw-card-glow rounded-3xl border border-purple-500/20 bg-white/5 p-6 shadow-sm backdrop-blur-sm">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-light">
                 Schnellfragen
               </h3>
               <div className="mt-4 flex flex-wrap gap-3">
@@ -201,7 +201,7 @@ const HeroChatbot = () => {
                   <button
                     key={question}
                     onClick={() => handleSend(question)}
-                    className="rounded-full border border-border-tertiary bg-background-secondary px-4 py-2 text-xs text-text-secondary transition hover:border-primary-base hover:text-text-primary"
+                    className="rounded-full border border-purple-500/20 bg-purple-500/5 px-4 py-2 text-xs text-white/80 transition hover:border-purple-light hover:bg-purple-500/10 hover:text-white"
                   >
                     {question}
                   </button>
@@ -211,12 +211,12 @@ const HeroChatbot = () => {
           </div>
 
           <div className="sw-glass-card rounded-[32px] shadow-md">
-            <div className="flex items-center justify-between border-b border-border-tertiary px-6 py-4">
+            <div className="flex items-center justify-between border-b border-purple-500/20 px-6 py-4">
               <div>
-                <p className="text-sm text-primary-dark">Nordlicht-Gymnasium</p>
-                <h2 className="text-lg font-semibold text-text-primary">KI-Schulbüro</h2>
+                <p className="text-sm text-purple-light">Nordlicht-Gymnasium</p>
+                <h2 className="text-lg font-semibold text-white">KI-Schulbüro</h2>
               </div>
-              <div className="rounded-full bg-emerald-100 px-3 py-1 text-xs text-emerald-700">
+              <div className="rounded-full bg-emerald-500/20 px-3 py-1 text-xs text-emerald-400">
                 Online
               </div>
             </div>
@@ -234,7 +234,7 @@ const HeroChatbot = () => {
                     className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm shadow-sm ${
                       message.sender === "user"
                         ? "bg-primary-darker text-white"
-                        : "border border-border-tertiary bg-background-secondary text-text-primary"
+                        : "border border-purple-500/20 bg-white/5 text-white"
                     }`}
                   >
                     <p>{message.text}</p>
@@ -249,7 +249,7 @@ const HeroChatbot = () => {
               ))}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="rounded-2xl border border-border-tertiary bg-background-secondary px-4 py-3 text-sm text-text-secondary">
+                  <div className="rounded-2xl border border-purple-500/20 bg-white/5 px-4 py-3 text-sm text-white/70">
                     <span className="inline-flex gap-1">
                       <span className="h-2 w-2 animate-bounce rounded-full bg-primary-base" />
                       <span className="h-2 w-2 animate-bounce rounded-full bg-primary-base [animation-delay:120ms]" />
@@ -261,25 +261,25 @@ const HeroChatbot = () => {
               <div ref={scrollRef} />
             </div>
 
-            <div className="border-t border-border-tertiary px-6 py-4">
-              <div className="flex items-center gap-3 rounded-full border border-border-tertiary bg-background-secondary px-4 py-2">
+            <div className="border-t border-purple-500/20 px-6 py-4">
+              <div className="flex items-center gap-3 rounded-full border border-purple-500/20 bg-white/5 px-4 py-2">
                 <input
                   type="text"
                   value={inputValue}
                   onChange={(event) => setInputValue(event.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Fragen Sie z.B. nach Anmeldung, Mensa oder Terminen..."
-                  className="flex-1 bg-transparent text-sm text-text-primary placeholder:text-text-tertiary focus:outline-none"
+                  className="flex-1 bg-transparent text-sm text-white placeholder:text-white/50 focus:outline-none"
                 />
                 <button
                   onClick={() => handleSend()}
-                  className="rounded-full bg-primary-darker p-2 text-white transition hover:bg-primary-dark"
+                  className="rounded-full bg-purple p-2 text-white shadow-[0_0_12px_rgba(134,70,244,0.4)] transition hover:bg-purple-light hover:shadow-[0_0_16px_rgba(134,70,244,0.6)]"
                   aria-label="Nachricht senden"
                 >
                   <IconSend size={18} />
                 </button>
               </div>
-              <p className="mt-3 text-xs text-text-tertiary">
+              <p className="mt-3 text-xs text-white/50">
                 Beispiel: "Wann ist der Elternabend?" oder "Welche Unterlagen brauche ich?"
               </p>
             </div>
