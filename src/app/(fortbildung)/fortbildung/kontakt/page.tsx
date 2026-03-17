@@ -1,3 +1,4 @@
+import CalendlySection from "@/components/Kontakt/CalendlySection";
 import ContactFormSection from "@/components/Kontakt/ContactFormSection";
 import CtaCard from "@/components/shared/CtaCard";
 import FAQSection from "@/components/shared/FaqSection";
@@ -18,6 +19,7 @@ export default function KontaktPage() {
   return (
     <div className="min-h-screen">
       <ContactFormSection />
+      <CalendlySection />
       <FAQSection />
       <CtaCard />
     </div>
