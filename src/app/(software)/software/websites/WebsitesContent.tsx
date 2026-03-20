@@ -328,11 +328,14 @@ export default function WebsitesPage() {
                   </div>
                 </div>
 
-                {/* Website Content - Echte Website */}
+                {/* Website Content - Video */}
                 <div className="relative rounded-xl overflow-hidden">
-                  <img
-                    src="/images/website/Mockup Gymnasium Alster.png"
-                    alt="Gymnasium Alster Website Mockup"
+                  <video
+                    src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/DBR%20Website%20KI-Schulbu%CC%88ro%20Einsatz.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-auto object-cover"
                   />
                 </div>
@@ -343,6 +346,30 @@ export default function WebsitesPage() {
           {/* Bento Grid Features */}
           <div className="mb-16">
             <BentoGridThirdDemo />
+          </div>
+
+          {/* KI-Schulbüro iPhone Video */}
+          <div className="relative mb-16">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="mb-3 text-center text-3xl font-bold text-white lg:text-4xl">
+                KI-Schulbüro in Aktion
+              </h2>
+              <p className="mb-8 text-center text-md font-light text-white/70">
+                Für die heutige Mobile-First-Nutzung optimiert und angepasst.
+              </p>
+              <div className="sw-card-glow relative rounded-2xl border border-purple-500/20 bg-white/5 p-6 shadow-md backdrop-blur-sm transition-all duration-700 overflow-hidden">
+                <div className="relative rounded-xl overflow-hidden">
+                  <video
+                    src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/KI-Schulbu%CC%88ro%20DBR%20Iphone.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
