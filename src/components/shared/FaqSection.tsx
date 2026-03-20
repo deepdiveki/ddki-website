@@ -47,6 +47,11 @@ const faqs: Omit<FAQ, "id">[] = [
     answer:
       "Die Voraussetzungen variieren je nach Kurs. Viele unserer Einsteiger-Kurse setzen keine besonderen Vorkenntnisse voraus. Die spezifischen Anforderungen finden Sie in der jeweiligen Kursbeschreibung.",
   },
+  {
+    question: "Sind die Fortbildungen und Produkte förderfähig?",
+    answer:
+      "Ja, alle unsere Fortbildungen und Produkte sind förderfähig im Rahmen des Startchancen-Programms und des DigitalPakts 2.0. Gerne unterstützen wir Sie bei der Beantragung der Fördermittel und beraten Sie zu den Möglichkeiten.",
+  },
 ];
 
 export default function FAQSection() {
@@ -77,6 +82,7 @@ export default function FAQSection() {
             id={`faq-${index}`}
             openId={openId}
             onToggle={setOpenId}
+            anchorId={index === 5 ? "faq-foerderung" : undefined}
           />
         ))}
       </ul>
@@ -91,14 +97,17 @@ function FAQItem({
   id,
   openId,
   onToggle,
+  anchorId,
 }: FAQ & {
   openId: string | undefined;
   onToggle: (id: string | undefined) => void;
+  anchorId?: string;
 }) {
   const isOpen = openId === id;
 
   return (
     <motion.li
+      id={anchorId}
       layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}

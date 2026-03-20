@@ -1,6 +1,7 @@
 import "./fortbildung-theme.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -16,6 +17,7 @@ export default function FortbildungLayout({
   return (
     <div className={inter.variable}>
       <Header />
+      <AnnouncementBar variant="fortbildung" />
 
       <main
         id="main-content"

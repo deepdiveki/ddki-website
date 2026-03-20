@@ -19,8 +19,9 @@ export default function ContactFormSection() {
             Kontaktieren Sie uns
           </h1>
           <p className="mx-auto mt-4 max-w-104.25 px-2 text-md font-light text-text-secondary lg:mx-0 lg:px-0">
-            Haben Sie Fragen zu unseren Fortbildungen? Wir beraten Sie gerne
-            und finden gemeinsam das passende Angebot für Sie.
+            Haben Sie Fragen zu unseren Fortbildungen, Produkten oder Fördermöglichkeiten? Wir beraten Sie gerne
+            und finden gemeinsam das passende Angebot für Sie. Schreiben Sie uns durch das Kontaktformular, buchen
+            Sie direkt einen Termin, oder rufen Sie gerne einfach an.
           </p>
 
           <div className="mt-6 flex flex-col gap-9 md:mt-12 md:flex-row lg:flex-col">
