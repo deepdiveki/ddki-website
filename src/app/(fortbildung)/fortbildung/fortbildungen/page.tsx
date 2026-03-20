@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Entdecken Sie unser vielfältiges Angebot an Fortbildungen in den Bereichen KI, Digitalisierung, Pädagogik, Management und Gesundheit.",
   openGraph: {
-    title: "Alle Fortbildungen im Überblick | DDKI Fortbildungen",
+    title: "Alle Fortbildungen im Überblick | DeepDive Fortbildungen",
     description:
       "Vielfältige Fortbildungen in KI, Digitalisierung, Pädagogik und mehr – filtern Sie nach Kategorie und Format.",
   },

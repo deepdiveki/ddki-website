@@ -1,20 +1,63 @@
 "use client";
 
-import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
 import { toast } from "react-hot-toast";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Loader from "@/components/Common/Loader";
 import axios from "axios";
+import { IconChevronDown } from "@tabler/icons-react";
+
+const TRAINING_OPTIONS = [
+  { value: "", label: "Bitte auswählen" },
+  { value: "yes", label: "Ja, bitte" },
+  { value: "no", label: "Nein, danke" },
+] as const;
+
+function TrainingSelect({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const fn = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener("mousedown", fn);
+    return () => document.removeEventListener("mousedown", fn);
+  }, []);
+  const label = TRAINING_OPTIONS.find((o) => o.value === value)?.label ?? "Bitte auswählen";
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-left text-white outline-none focus:border-purple"
+      >
+        <span className={value ? "" : "text-white/60"}>{label}</span>
+        <IconChevronDown className={`size-5 shrink-0 text-white/80 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <ul className="absolute top-full left-0 right-0 z-50 mt-1 rounded-lg border border-white/[0.12] bg-[#1a1a2e] py-1 shadow-lg">
+          {TRAINING_OPTIONS.map((opt) => (
+            <li key={opt.value || "_"}>
+              <button
+                type="button"
+                onClick={() => { onChange(opt.value); setOpen(false); }}
+                className="w-full px-6 py-3 text-left text-white hover:bg-white/10"
+              >
+                {opt.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 const Kontakt = () => {
-  const [formData, setFormData] = useState({ name: "", school: "", email: "", phone: "", licenses: "", message: "", training:"" });
+  const [formData, setFormData] = useState({ name: "", school: "", email: "", phone: "", licenses: "", message: "", training: "" });
   const [loader, setLoader] = useState(false);
 
-  // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   // Form submission handler
@@ -22,7 +65,7 @@ const Kontakt = () => {
     e.preventDefault();
 
     // Simple client-side validation
-    if (!formData.name || !formData.school || !formData.email || !formData.message) {
+    if (!formData.name || !formData.school || !formData.email || !formData.message || !formData.training) {
       toast.error("Bitte füllen Sie alle Pflichtfelder aus.");
       return;
     }
@@ -181,18 +224,8 @@ const Kontakt = () => {
                     <label htmlFor="training" className="mb-2.5 block font-medium text-white">
                       Kostenlose Einführungsfortbildung dazu buchen?
                     </label>
-                    <select
-                      id="training"
-                      name="training"
-                      value={formData.training}
-                      onChange={handleChange}
-                      required
-                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-white outline-none focus:border-purple"
-                    >
-                      <option value="">Bitte auswählen</option>
-                      <option value="yes">Ja, bitte</option>
-                      <option value="no">Nein, danke</option>
-                    </select>
+                    <input type="hidden" name="training" value={formData.training} />
+                    <TrainingSelect value={formData.training} onChange={(v) => setFormData((prev) => ({ ...prev, training: v }))} />
                   </div>
                 </div>
 

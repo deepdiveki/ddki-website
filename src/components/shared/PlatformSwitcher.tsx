@@ -69,19 +69,31 @@ export default function PlatformSwitcher({
             isLight ? "text-text-primary" : "text-white text-xl font-bold",
           )}
         >
-          DDKI{" "}
-          <span
-            className={cn(
-              "font-light",
-              isLight ? "text-text-secondary" : "text-white/70",
-            )}
-          >
-            {activePlatform === "fortbildungen"
-              ? "Fortbildungen"
-              : activePlatform === "software"
-                ? "Software"
-                : "Plattform"}
-          </span>
+          {activePlatform === "fortbildungen" ? (
+            <>
+              DeepDive{" "}
+              <span
+                className={cn(
+                  "font-light",
+                  isLight ? "text-text-secondary" : "text-white/70",
+                )}
+              >
+                Fortbildungen
+              </span>
+            </>
+          ) : (
+            <>
+              DDKI{" "}
+              <span
+                className={cn(
+                  "font-light",
+                  isLight ? "text-text-secondary" : "text-white/70",
+                )}
+              >
+                {activePlatform === "software" ? "Software" : "Plattform"}
+              </span>
+            </>
+          )}
         </span>
         <ChevronDown
           className={cn(
@@ -137,7 +149,9 @@ export default function PlatformSwitcher({
                         : isLight ? "text-text-primary" : "text-white",
                     )}
                   >
-                    DDKI {platform.name}
+                    {platform.name === "Fortbildungen"
+                      ? "DeepDive Fortbildungen"
+                      : `DDKI ${platform.name}`}
                   </span>
                   {isActive && (
                     <span

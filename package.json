@@ -1,6 +1,6 @@
 {
   "name": "ddki-minimal-website",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "engines": {
     "node": ">=16.0.0"
@@ -17,6 +17,7 @@
     "@react-three/drei": "^10.7.4",
     "@react-three/fiber": "^9.3.0",
     "@tabler/icons-react": "^3.31.0",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20.17.16",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
@@ -29,10 +30,10 @@
     "gsap": "^3.13.0",
     "lucide-react": "^0.501.0",
     "motion": "^12.4.1",
-    "next": "15.5.9",
+    "next": "^15.5.14",
     "next-auth": "^4.24.11",
     "nextjs-toploader": "^3.7.15",
-    "nodemailer": "^6.10.0",
+    "nodemailer": "^8.0.3",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
@@ -40,10 +41,9 @@
     "react-icons": "^5.5.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "swiper": "^11.2.2",
+    "swiper": "^12.1.2",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4",
-    "@tailwindcss/postcss": "^4",
     "tw-animate-css": "^1",
     "typescript": "^5.4.3"
   },
@@ -56,6 +56,7 @@
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "fast-xml-parser": "^5.5.7",
     "jsdom": "latest"
   }
 }

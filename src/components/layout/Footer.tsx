@@ -4,6 +4,7 @@ import Logo from "@/components/shared/Logo";
 import ButtonLink from "@/components/ui/button-link-fortbildung";
 import { Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const fortbildungLinks = [
   {
@@ -31,6 +32,7 @@ const softwareLinks = [
       { name: "KI-Schulbüro", href: "/software/chatbot-fuer-ihre-schule" },
       { name: "Websites", href: "/software/websites" },
       { name: "Fortbildungen", href: "/fortbildung" },
+      { name: "Mentoring", href: "/software/mentoring" },
     ],
   },
   {
@@ -39,7 +41,6 @@ const softwareLinks = [
       { name: "Über uns", href: "/software/about" },
       { name: "Kontakt", href: "/software/kontakt" },
       { name: "Jobs", href: "/jobs" },
-      { name: "Mentoring", href: "/software/mentoring" },
       { name: "Escape Game", href: "/software/escape-game" },
       { name: "info@deepdive-ki.de", href: "mailto:info@deepdive-ki.de" },
     ],
@@ -49,9 +50,11 @@ const softwareLinks = [
 type FooterVariant = "fortbildung" | "software";
 
 export default function Footer({ variant = "fortbildung" }: { variant?: FooterVariant }) {
+  const pathname = usePathname();
   const isSoftware = variant === "software";
+  const showPrivacySettings = pathname?.startsWith("/software/escape-game");
   const infoLinks = isSoftware ? softwareLinks : fortbildungLinks;
-  const sectionLabel = isSoftware ? "DDKI Software" : "DDKI Fortbildungen";
+  const sectionLabel = isSoftware ? "DDKI Software" : "DeepDive Fortbildungen";
   const aboutText = isSoftware
     ? "DeepDiveKI bietet Schulen innovative KI-Tools: DeepChat für den Unterricht, KI-Schulbüro für die Schulwebsite und professionelle Websites für Schulen."
     : "Hochwertige Fortbildungen in den Bereichen KI, Digitalisierung, Pädagogik, Management und Gesundheit für Fach- und Führungskräfte.";
@@ -100,7 +103,7 @@ export default function Footer({ variant = "fortbildung" }: { variant?: FooterVa
           </ul>
         </div>
 
-        <Copyright sectionLabel={sectionLabel} isSoftware={isSoftware} />
+        <Copyright sectionLabel={sectionLabel} isSoftware={isSoftware} showPrivacySettings={showPrivacySettings} />
       </div>
     </footer>
   );
@@ -140,14 +143,33 @@ function CompanyInfo({ tagline, logoLabel, isSoftware }: { tagline: string; logo
   );
 }
 
-function Copyright({ sectionLabel, isSoftware }: { sectionLabel: string; isSoftware: boolean }) {
+function Copyright({ sectionLabel, isSoftware, showPrivacySettings }: { sectionLabel: string; isSoftware: boolean; showPrivacySettings: boolean }) {
+  const handleOpenPrivacySettings = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent("openCookieBanner"));
+  };
+
   return (
     <div className="mt-10 flex flex-col-reverse items-center justify-between px-4 md:mt-16 md:flex-row md:px-0">
       <p className={`mt-5 text-center text-sm font-medium tracking-[0.28px] sm:text-left md:mt-0 ${isSoftware ? "text-white/50" : "text-text-tertiary"}`}>
         &copy; {new Date().getFullYear()} {sectionLabel}. Alle Rechte vorbehalten.
       </p>
 
-      <div className="flex items-center gap-x-4">
+      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+        {showPrivacySettings && (
+          <>
+            <button
+              type="button"
+              onClick={handleOpenPrivacySettings}
+              className={`text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`}
+            >
+              Privatsphäre-Einstellungen
+            </button>
+            <span className={isSoftware ? "text-white/70" : "text-text-secondary"} aria-hidden="true">
+              |
+            </span>
+          </>
+        )}
         <Link
           href="/impressum"
           className={`text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`}

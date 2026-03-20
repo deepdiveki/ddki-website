@@ -4,7 +4,6 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CallToAction from "@/components/CallToAction";
 import Features from "@/components/Home/Features";
 import { Metadata } from "next";
-import Clients from "@/components/About/Kunden";
 import Kontakt from "@/components/KontaktSinglePage";
 import CookieBanner from "@/components/CookieBanner";
 

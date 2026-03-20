@@ -133,7 +133,7 @@ function IntroOverlay({ onComplete }: { onComplete: () => void }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
       >
-        DeepDive KI
+        DeepDiveKI
       </motion.span>
       <motion.div
         className="mt-8 h-0.5 rounded-full bg-primary-base"
@@ -498,12 +498,14 @@ export default function ChooserLanding() {
                     />
 
                     {/* Visual header — AIEngine */}
-                    <div
-                      className="relative h-48 lg:h-56"
-                      style={{
-                        background: "linear-gradient(135deg, rgba(140,113,246,0.12) 0%, rgba(37,71,208,0.06) 100%)",
-                      }}
-                    >
+                    <div className="relative h-48 lg:h-56 bg-[#030014]">
+                      {/* Colored glow behind icon — contrast to dark background */}
+                      <div
+                        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                        style={{
+                          background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(134,70,244,0.25) 0%, rgba(140,113,246,0.08) 40%, transparent 70%)",
+                        }}
+                      />
                       <div
                         className="pointer-events-none absolute inset-0"
                         style={{
@@ -522,8 +524,8 @@ export default function ChooserLanding() {
                       <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#030014] to-transparent" />
                     </div>
 
-                    {/* Content */}
-                    <div className="flex flex-1 flex-col justify-between p-6 lg:p-8">
+                    {/* Content — slightly different shade for visual separation from icon area */}
+                    <div className="flex flex-1 flex-col justify-between border-t border-purple-500/20 bg-[#0a0525] p-6 lg:p-8">
                       <div>
                         <h2 className="text-display-xs font-semibold tracking-tight text-white lg:text-display-sm">
                           Software
@@ -827,7 +829,7 @@ export default function ChooserLanding() {
             </Link>
           </div>
           <p>
-            &copy; {new Date().getFullYear()} DeepDive KI. Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} DeepDiveKI. Alle Rechte vorbehalten.
           </p>
         </motion.footer>
       </motion.div>

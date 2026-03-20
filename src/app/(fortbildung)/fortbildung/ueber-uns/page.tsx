@@ -6,9 +6,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Über uns – Das Team hinter DDKI",
   description:
-    "Lernen Sie Björn Isenbiel und Tim Philipp kennen – das Team hinter DDKI Fortbildungen. KI-Lösungen und Fortbildungen für Schulen aus Hamburg.",
+    "Lernen Sie Björn Isenbiel und Tim Philipp kennen – das Team hinter DeepDive Fortbildungen. KI-Lösungen und Fortbildungen für Schulen aus Hamburg.",
   openGraph: {
-    title: "Über uns | DDKI Fortbildungen",
+    title: "Über uns | DeepDive Fortbildungen",
     description:
       "Ein junges Team aus Hamburg mit Leidenschaft für KI und Bildung. Lernen Sie uns kennen.",
   },

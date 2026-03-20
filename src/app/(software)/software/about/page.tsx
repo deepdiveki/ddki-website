@@ -4,7 +4,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CallToAction from "@/components/CallToAction";
 import Features from "@/components/Home/Features";
 import { Metadata } from "next";
-import Clients from "@/components/About/Kunden";
+import Clients from "@/components/About/ClientsLazy";
 import Kontakt from "@/components/Kontakt";
 import Produktvorschau from "@/components/About/Produktvorschau";
 import UserFeedback from "@/components/About/UserFeedback";

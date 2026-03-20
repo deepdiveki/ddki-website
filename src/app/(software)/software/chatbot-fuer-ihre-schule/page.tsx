@@ -5,7 +5,6 @@ import CallToAction from "@/components/CallToAction";
 import Chatbot from "@/components/Chatbot-fuer-ihre-schule/Chatbot";
 import Features from "@/components/Chatbot-fuer-ihre-schule/Chatbot";
 import HeroChatbot from "@/components/Chatbot-fuer-ihre-schule/Hero";
-import Hero from "@/components/Home/Hero";
 import { Metadata } from "next";
 import Usecases from "@/components/Chatbot-fuer-ihre-schule/Usecases";
 import HeroStaticSchulbuero from "@/components/HeroStaticSchulbuero";

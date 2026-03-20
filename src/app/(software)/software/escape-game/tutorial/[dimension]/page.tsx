@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
+import { useCookieConsent } from "@/hooks/use-cookie-consent";
 import {
   IconArrowLeft,
   IconArrowRight,
@@ -1347,6 +1348,9 @@ export default function CrewTutorialPage() {
     if (einstiegLesson > 0) setEinstiegLesson((l) => l - 1);
   }, [einstiegLesson]);
 
+  // Cookie consent for YouTube embeds (TTDSG)
+  const hasFunctionalConsent = useCookieConsent();
+
   // Lesson player state (Kernwissen 3 / Über uns)
   const [currentLesson, setCurrentLesson] = useState(0);
   const [completedLessons, setCompletedLessons] = useState<Set<number>>(new Set());
@@ -2242,7 +2246,16 @@ In der nächsten Lektion könnt ihr das Ganze selbst ausprobieren — mit Soekia
                     <p className={`${displayFont.className} mt-2 text-base ${accent.text}`}>{intro.subheading}</p>
                     <div className="mt-6 overflow-hidden rounded border-2 border-black bg-black">
                       {intro.videoUrl ? (
-                        <iframe title="Intro Video" src={intro.videoUrl} className="h-64 w-full md:h-80" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                        hasFunctionalConsent ? (
+                          <iframe title="Intro Video" src={intro.videoUrl} className="h-64 w-full md:h-80" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                        ) : (
+                          <div className="flex h-64 w-full flex-col items-center justify-center gap-3 bg-slate-900 px-4 md:h-80">
+                            <IconPlayerPlay className="h-12 w-12 text-slate-400" />
+                            <p className="text-center text-sm font-bold uppercase tracking-widest text-slate-400">
+                              Video laden: Bitte aktiviere funktionale Cookies über die Privatsphäre-Einstellungen im Footer.
+                            </p>
+                          </div>
+                        )
                       ) : (
                         <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
                           <div className="flex flex-col items-center gap-3 text-slate-400">
@@ -2276,7 +2289,16 @@ In der nächsten Lektion könnt ihr das Ganze selbst ausprobieren — mit Soekia
                     )}
                     <div className="overflow-hidden rounded border-2 border-black bg-black">
                       {vid.videoUrl ? (
-                        <iframe title={vid.title || `Video`} src={vid.videoUrl} className="h-64 w-full md:h-80" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                        hasFunctionalConsent ? (
+                          <iframe title={vid.title || `Video`} src={vid.videoUrl} className="h-64 w-full md:h-80" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                        ) : (
+                          <div className="flex h-64 w-full flex-col items-center justify-center gap-3 bg-slate-900 px-4 md:h-80">
+                            <IconPlayerPlay className="h-12 w-12 text-slate-400" />
+                            <p className="text-center text-sm font-bold uppercase tracking-widest text-slate-400">
+                              Video laden: Bitte aktiviere funktionale Cookies über die Privatsphäre-Einstellungen im Footer.
+                            </p>
+                          </div>
+                        )
                       ) : (
                         <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
                           <div className="flex flex-col items-center gap-3 text-slate-400">

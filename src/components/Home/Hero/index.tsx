@@ -2,7 +2,12 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import AIEngineAnimation from "@/components/animations/AIEngineAnimation";
+import dynamic from "next/dynamic";
+
+const AIEngineAnimation = dynamic(
+  () => import("@/components/animations/AIEngineAnimation"),
+  { ssr: false, loading: () => <div className="relative z-20 mt-2 min-h-[200px]" /> }
+);
 
 const Hero = () => {
   useEffect(() => {

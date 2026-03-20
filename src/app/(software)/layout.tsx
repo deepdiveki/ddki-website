@@ -2,6 +2,7 @@ import "./software-theme.css";
 import Header from "@/components/Header";
 import Footer from "@/components/layout/Footer";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import EscapeGameCookieBanner from "@/components/EscapeGameCookieBanner";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -15,7 +16,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className={inter.variable}>
+    <div className={`${inter.variable} overflow-x-hidden`}>
       <Header />
       <AnnouncementBar />
 
@@ -64,6 +65,7 @@ export default function MainLayout({
       </main>
 
       <Footer variant="software" />
+      <EscapeGameCookieBanner />
     </div>
   );
 }

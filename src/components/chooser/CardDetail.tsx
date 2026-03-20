@@ -401,7 +401,7 @@ function DetailShell({
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
-        className="fixed inset-x-3 top-16 bottom-3 z-[70] mx-auto max-w-304 overflow-y-auto overscroll-contain rounded-3xl shadow-2xl outline-none md:inset-x-6 lg:top-20 lg:bottom-6"
+        className="fixed inset-x-3 top-16 bottom-3 z-[70] mx-auto max-w-304 overflow-y-auto overscroll-contain rounded-3xl shadow-2xl outline-none scrollbar-hide md:inset-x-6 lg:top-20 lg:bottom-6"
         style={{
           background:
             variant === "dark"

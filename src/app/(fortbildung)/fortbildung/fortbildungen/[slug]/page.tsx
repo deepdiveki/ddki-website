@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!course) return { title: "Kurs nicht gefunden" };
 
   return {
-    title: `${course.title} | DDKI Fortbildungen`,
+    title: `${course.title} | DeepDive Fortbildungen`,
     description: course.shortDescription,
   };
 }

@@ -425,7 +425,7 @@ export default function ExplodedIsometric() {
          const VERTICAL_TILE_GAP = 110; // größerer vertikaler Abstand zwischen oberer und unterer Kachelreihe
          const START_TOP_OFFSET = 0; // Start etwas unterhalb der Button-Unterkante
          const MOBILE_TOP_OFFSET = 1200; // Mobile: Kacheln weit unter der Animation
-         const MOBILE_TILE_WIDTH = 'calc(100vw - 2rem)'; // Mobile: Breite mit minimalem Rand
+         const MOBILE_TILE_WIDTH = 'calc(100% - 2rem)'; // Mobile: Breite mit minimalem Rand (100% statt 100vw vermeidet horizontalen Scroll)
          const [isMobile, setIsMobile] = useState(false);
   
            // Kachel-Styling mit subtiler Gitter-Optik

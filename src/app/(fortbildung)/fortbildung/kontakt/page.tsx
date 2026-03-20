@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Kontaktieren Sie uns für Fragen zu unseren Fortbildungsangeboten. Wir beraten Sie gerne persönlich.",
   openGraph: {
-    title: "Kontakt | DDKI Fortbildungen",
+    title: "Kontakt | DeepDive Fortbildungen",
     description:
       "Fragen zu Fortbildungen, Keynotes oder dem pädagogischen Tag? Wir beraten Sie gerne.",
   },

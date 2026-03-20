@@ -13,7 +13,15 @@ export default function Logo({ className, label = "Fortbildungen", variant = "de
         className={`size-8 ${isSoftware ? "brightness-0 invert" : ""}`}
       />
       <span className={`text-lg font-medium tracking-tight ${isSoftware ? "text-white" : "text-text-primary"}`}>
-        DDKI <span className={`font-light ${isSoftware ? "text-white/70" : "text-text-secondary"}`}>{label}</span>
+        {label === "Fortbildungen" ? (
+          <>
+            DeepDive <span className={`font-light ${isSoftware ? "text-white/70" : "text-text-secondary"}`}>Fortbildungen</span>
+          </>
+        ) : (
+          <>
+            DDKI <span className={`font-light ${isSoftware ? "text-white/70" : "text-text-secondary"}`}>{label}</span>
+          </>
+        )}
       </span>
     </div>
   );

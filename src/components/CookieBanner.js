@@ -24,10 +24,24 @@ export default function CookieBanner() {
     }
   }, []);
 
+  // Reopen banner when user clicks "Privatsphäre-Einstellungen" in footer (DSGVO Art. 7 Abs. 3)
+  useEffect(() => {
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener("openCookieBanner", handleOpen);
+    return () => window.removeEventListener("openCookieBanner", handleOpen);
+  }, []);
+
+  const saveAndNotify = (consent) => {
+    localStorage.setItem("cookieConsent", JSON.stringify(consent));
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("cookieConsentUpdated", { detail: consent }));
+    }
+  };
+
   const handleConsent = (type, value) => {
     const updatedCookies = { ...cookies, [type]: value };
     setCookies(updatedCookies);
-    localStorage.setItem("cookieConsent", JSON.stringify(updatedCookies));
+    saveAndNotify(updatedCookies);
   };
 
   const saveConsent = () => {
@@ -58,26 +72,15 @@ export default function CookieBanner() {
           />
           <span className="text-sm">Funktional (z. B. YouTube, Vimeo)</span>
         </label>
-        <label className="flex items-center space-x-3">
-          <input
-            type="checkbox"
-            checked={cookies.marketing}
-            onChange={(e) => handleConsent("marketing", e.target.checked)}
-            className="accent-purple-500"
-          />
-          <span className="text-sm">Marketing (z. B. Google Analytics, Meta Pixel)</span>
-        </label>
       </div>
 
-      <div className="flex mt-4 space-x-2">
+      <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
         <button
           className="flex-1 py-2 px-4 bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-semibold transition"
           onClick={() => {
-            setCookies({ essential: true, functional: true, marketing: true });
-            localStorage.setItem(
-              "cookieConsent",
-              JSON.stringify({ essential: true, functional: true, marketing: true })
-            );
+            const consent = { essential: true, functional: true, marketing: true };
+            setCookies(consent);
+            saveAndNotify(consent);
             saveConsent();
           }}
         >
@@ -86,15 +89,19 @@ export default function CookieBanner() {
         <button
           className="flex-1 py-2 px-4 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-semibold transition"
           onClick={() => {
-            setCookies({ essential: true, functional: false, marketing: false });
-            localStorage.setItem(
-              "cookieConsent",
-              JSON.stringify({ essential: true, functional: false, marketing: false })
-            );
+            const consent = { essential: true, functional: false, marketing: false };
+            setCookies(consent);
+            saveAndNotify(consent);
             saveConsent();
           }}
         >
           Ablehnen
+        </button>
+        <button
+          className="py-2 px-4 border border-gray-500 rounded-lg text-gray-300 hover:bg-gray-800 font-medium transition text-sm"
+          onClick={saveConsent}
+        >
+          Schließen
         </button>
       </div>
     </div>

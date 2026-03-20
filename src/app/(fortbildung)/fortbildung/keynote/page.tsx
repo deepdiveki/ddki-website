@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Inspirierende Keynotes rund um Künstliche Intelligenz in der Bildung – für Konferenzen, Schulveranstaltungen und pädagogische Tage.",
   openGraph: {
-    title: "Keynote – KI in der Bildung | DDKI Fortbildungen",
+    title: "Keynote – KI in der Bildung | DeepDive Fortbildungen",
     description:
       "Inspirierende Vorträge zu KI im Klassenzimmer, Zukunft der Bildung und Datenschutz – individuell für Ihre Veranstaltung.",
   },
