@@ -1323,6 +1323,12 @@ export default function CrewTutorialPage() {
   // Einstieg lesson player state
   const [einstiegLesson, setEinstiegLesson] = useState(0);
   const [einstiegCompleted, setEinstiegCompleted] = useState<Set<number>>(new Set());
+  const [savedPrompt, setSavedPrompt] = useState("");
+  const [promptSaved, setPromptSaved] = useState(false);
+  const [savedPromptClaude, setSavedPromptClaude] = useState("");
+  const [promptSavedClaude, setPromptSavedClaude] = useState(false);
+  const [quickdrawDrawings, setQuickdrawDrawings] = useState(["", "", ""]);
+  const [quickdrawSaved, setQuickdrawSaved] = useState(false);
 
   const einstiegLessons = useMemo(() => [
     { title: "Fokus-Frage & Einführung", type: "focus" as const },
@@ -1622,6 +1628,33 @@ export default function CrewTutorialPage() {
             {/* Current lesson content */}
             {einstiegLesson === 0 && (
               <div className={`border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]`}>
+                <div className="mb-6 overflow-hidden rounded border-2 border-black bg-black">
+                  <video
+                    controls
+                    className="w-full bg-black"
+                    preload="metadata"
+                  >
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Einsieg%20Lernen%20ueber%20KI%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    Dein Browser unterstützt keine Videowiedergabe.
+                  </video>
+                </div>
+                <div className="mb-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                    <IconBook className="h-4 w-4" />
+                    Skript
+                  </div>
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+{`Herzlich willkommen zum Bereich „Lernen über KI"! Ich bin Björn von DeepDiveKI und ich freue mich, dass du dabei bist.
+
+Bevor wir loslegen, eine kurze Orientierung: In diesem Tutorial geht es darum, ein grundlegendes Verständnis davon aufzubauen, was Künstliche Intelligenz eigentlich ist — und was nicht. Wir schauen uns an, wie KI funktioniert, was sie kann, wo ihre Grenzen liegen und warum das für deinen Schulalltag relevant ist.
+
+Du wirst dabei nicht nur zuhören und lesen, sondern vor allem selbst ausprobieren. Wir starten gleich mit einem kleinen Experiment, schauen uns dann an, wie moderne KI-Tools aufgebaut sind, und arbeiten uns Schritt für Schritt zum technischen Kern vor — der Token-Vorhersage.
+
+Am Ende dieses Einstiegs wirst du wissen, was hinter dem „Zauber" von ChatGPT und Co. steckt. Und keine Sorge: Du brauchst dafür keinerlei Vorkenntnisse. Alles, was du mitbringen musst, ist Neugier.
+
+Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen gesamten Bereich begleiten wird.`}
+                  </p>
+                </div>
                 <div className={`mb-4 inline-block rounded border-2 ${accent.border} ${accent.light} px-3 py-1 text-xs font-bold uppercase tracking-widest ${accent.text}`}>
                   Fokus-Frage
                 </div>
@@ -1634,12 +1667,14 @@ export default function CrewTutorialPage() {
               <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
                 <h3 className={`${displayFont.className} mb-4 text-lg ${accent.text}`}>So geht es los!</h3>
                 <div className="overflow-hidden rounded border-2 border-black bg-black">
-                  <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
-                    <div className="flex flex-col items-center gap-3 text-slate-400">
-                      <IconPlayerPlay className="h-12 w-12" />
-                      <p className="text-sm font-bold uppercase tracking-widest">Video kommt bald</p>
-                    </div>
-                  </div>
+                  <video
+                    controls
+                    className="w-full bg-black"
+                    preload="metadata"
+                  >
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/So%20geht%20es%20los%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    Dein Browser unterstützt keine Videowiedergabe.
+                  </video>
                 </div>
                 <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
                   <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
@@ -1647,7 +1682,7 @@ export default function CrewTutorialPage() {
                     Skript
                   </div>
                   <p className="text-sm leading-relaxed text-slate-700">
-                    Hi, ich bin Björn von DeepDiveKI, ich werde euch heute durch den Bereich: &apos;Lernen über KI&apos; führen. Wichtig ist es in diesem Teil ein grobes Verständnis von der Funktionsweise von Künstlicher Intelligenz zu entwickeln. Ich möchte gerne, ohne viel Erklärung dich direkt ins Ausprobieren schicken. Klicke unten auf nächste Lektion und probiere Quickdraw einmal aus.
+                    Okay, genug Theorie — jetzt wird ausprobiert! In der nächsten Lektion findest du Quickdraw, ein Zeichenspiel von Google. Du bekommst einen Begriff und hast 20 Sekunden, um ihn zu zeichnen — und eine KI versucht in Echtzeit zu erraten, was du malst. Klingt nach Spaß? Ist es auch. Aber dahinter steckt echte KI. Klick auf nächste Lektion und probier es einmal aus.
                   </p>
                 </div>
               </div>
@@ -1681,6 +1716,49 @@ export default function CrewTutorialPage() {
                     </a>
                   </div>
                 </div>
+                <div className={`mt-6 rounded border-2 ${quickdrawSaved ? "border-emerald-400 bg-emerald-50" : `${accent.border} ${accent.light}`} p-5`}>
+                  <div className="mb-2 flex items-center gap-2">
+                    <IconSparkles className={`h-4 w-4 ${quickdrawSaved ? "text-emerald-600" : accent.text}`} />
+                    <span className={`text-xs font-bold uppercase tracking-widest ${quickdrawSaved ? "text-emerald-600" : accent.text}`}>
+                      {quickdrawSaved ? "Gespeichert!" : "Deine Zeichnungen"}
+                    </span>
+                  </div>
+                  <p className="mb-3 text-sm text-slate-600">
+                    Na, erinnerst du dich noch an deine Zeichnungen? Bitte trage hier 3 Zeichnungstitel ein.
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {quickdrawDrawings.map((val, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-200 text-xs font-bold text-slate-500">{i + 1}</span>
+                        <input
+                          type="text"
+                          value={val}
+                          onChange={(e) => {
+                            const updated = [...quickdrawDrawings];
+                            updated[i] = e.target.value;
+                            setQuickdrawDrawings(updated);
+                            setQuickdrawSaved(false);
+                          }}
+                          placeholder={`Zeichnung ${i + 1}, z.B. Katze`}
+                          className="flex-1 rounded border-2 border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder-slate-400 focus:border-black focus:outline-none"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => { if (quickdrawDrawings.some((d) => d.trim())) setQuickdrawSaved(true); }}
+                    disabled={!quickdrawDrawings.some((d) => d.trim())}
+                    className={`mt-3 inline-flex items-center gap-2 border-2 border-black px-5 py-2.5 text-xs font-bold uppercase tracking-wider shadow-[3px_3px_0_#000] ${
+                      quickdrawDrawings.some((d) => d.trim())
+                        ? `${accent.bg} text-white hover:opacity-90`
+                        : "bg-slate-200 text-slate-400"
+                    }`}
+                  >
+                    <IconSparkles className="h-3 w-3" />
+                    {quickdrawSaved ? "Gespeichert" : "Speichern"}
+                  </button>
+                </div>
               </div>
             )}
 
@@ -1688,12 +1766,14 @@ export default function CrewTutorialPage() {
               <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
                 <h3 className={`${displayFont.className} mb-4 text-lg ${accent.text}`}>Wofür eigentlich KI?</h3>
                 <div className="overflow-hidden rounded border-2 border-black bg-black">
-                  <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
-                    <div className="flex flex-col items-center gap-3 text-slate-400">
-                      <IconPlayerPlay className="h-12 w-12" />
-                      <p className="text-sm font-bold uppercase tracking-widest">Video kommt bald</p>
-                    </div>
-                  </div>
+                  <video
+                    controls
+                    className="w-full bg-black"
+                    preload="metadata"
+                  >
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Wof%C3%BCr%20eigentlich%20KI%3F%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    Dein Browser unterstützt keine Videowiedergabe.
+                  </video>
                 </div>
                 <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
                   <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
@@ -1701,11 +1781,11 @@ export default function CrewTutorialPage() {
                     Skript
                   </div>
                   <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
-{`Willkommen zurück! Ihr habt gerade Quickdraw ausprobiert — und dabei vielleicht zum ersten Mal ganz bewusst ein neuronales Netzwerk trainiert. Denn genau das ist passiert: Jedes Mal, wenn ihr einen Gegenstand gezeichnet habt, hat das System eure Zeichnung analysiert und versucht, sie zu erkennen. Dabei hat es nicht nur geraten — es hat aus eurer Interpretation gelernt.
+{`Willkommen zurück! Du hast gerade Quickdraw ausprobiert — und dabei vielleicht zum ersten Mal ganz bewusst ein neuronales Netzwerk trainiert. Denn genau das ist passiert: Jedes Mal, wenn du einen Gegenstand gezeichnet hast, hat das System deine Zeichnung analysiert und versucht, sie zu erkennen. Dabei hat es nicht nur geraten — es hat aus deiner Interpretation gelernt.
 
-Das Spannende daran: Jeder Mensch zeichnet eine Katze, ein Fahrrad oder eine Brille anders. Eure Zeichnung ist eure persönliche Interpretation dieses Objekts. Und genau diese Vielfalt an Interpretationen ist es, die das neuronale Netzwerk hinter Quickdraw besser macht. Je mehr verschiedene Menschen zeichnen, desto mehr Varianten lernt das System — und desto zuverlässiger kann es in Zukunft erkennen, was gemeint ist.
+Das Spannende daran: Jeder Mensch zeichnet eine Katze, ein Fahrrad oder eine Brille anders. Deine Zeichnung ist deine persönliche Interpretation dieses Objekts. Und genau diese Vielfalt an Interpretationen ist es, die das neuronale Netzwerk hinter Quickdraw besser macht. Je mehr verschiedene Menschen zeichnen, desto mehr Varianten lernt das System — und desto zuverlässiger kann es in Zukunft erkennen, was gemeint ist.
 
-Das ist im Kern das Prinzip hinter Künstlicher Intelligenz: Große Mengen an Daten analysieren, Muster darin erkennen und auf dieser Basis Entscheidungen treffen oder Vorhersagen machen. Bei Quickdraw sind die Daten eure Zeichnungen, die Muster sind die typischen Formen und Striche für bestimmte Objekte, und die Entscheidung ist: „Das sieht aus wie eine Katze."
+Das ist im Kern das Prinzip hinter Künstlicher Intelligenz: Große Mengen an Daten analysieren, Muster darin erkennen und auf dieser Basis Entscheidungen treffen oder Vorhersagen machen. Bei Quickdraw sind die Daten deine Zeichnungen, die Muster sind die typischen Formen und Striche für bestimmte Objekte, und die Entscheidung ist: „Das sieht aus wie eine Katze."
 
 Aber — und das ist wichtig — das System versteht nicht wirklich, was eine Katze ist. Es hat kein Bild einer echten Katze im Kopf. Es erkennt nur statistische Muster in Pixeln und Strichen. Diesen Unterschied zwischen Mustererkennung und echtem Verstehen werden wir in diesem Kurs noch genauer beleuchten.
 
@@ -1726,12 +1806,14 @@ Schauen wir uns jetzt an, wofür KI eigentlich eingesetzt wird — und was sie b
               <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
                 <h3 className={`${displayFont.className} mb-4 text-lg ${accent.text}`}>Von speziellen Aufgaben zu genereller KI</h3>
                 <div className="overflow-hidden rounded border-2 border-black bg-black">
-                  <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
-                    <div className="flex flex-col items-center gap-3 text-slate-400">
-                      <IconPlayerPlay className="h-12 w-12" />
-                      <p className="text-sm font-bold uppercase tracking-widest">Video kommt bald</p>
-                    </div>
-                  </div>
+                  <video
+                    controls
+                    className="w-full bg-black"
+                    preload="metadata"
+                  >
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Von%20speziellen%20Aufgaben%20zu%20genereller%20KI%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    Dein Browser unterstützt keine Videowiedergabe.
+                  </video>
                 </div>
                 <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
                   <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
@@ -1741,13 +1823,13 @@ Schauen wir uns jetzt an, wofür KI eigentlich eingesetzt wird — und was sie b
                   <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
 {`Es gibt drei sehr grobe wissenschaftliche Theorien zu Künstlicher Intelligenz. Die klingen ein wenig, als hätte ein Kind sich diese Kategorien ausgedacht — aber sie helfen tatsächlich, das große Bild zu verstehen.
 
-Die erste Kategorie ist die sogenannte schwache KI. Klingt nicht besonders beeindruckend, oder? Aber genau das ist alles, was wir heute haben. Schwache KI sind Systeme, die auf eine ganz bestimmte Aufgabe spezialisiert sind: Bilder erkennen, Texte generieren, Sprache übersetzen, Schach spielen. Quickdraw, das ihr gerade ausprobiert habt, ist ein perfektes Beispiel — es kann Zeichnungen erkennen, aber es kann euch nicht sagen, was es zum Abendessen empfiehlt. Auch ChatGPT und Claude sind schwache KI: Sie sind Spezialisten für Sprachverarbeitung, keine universellen Denker.
+Die erste Kategorie ist die sogenannte schwache KI. Klingt nicht besonders beeindruckend, oder? Aber genau das ist alles, was wir heute haben. Schwache KI sind Systeme, die auf eine ganz bestimmte Aufgabe spezialisiert sind: Bilder erkennen, Texte generieren, Sprache übersetzen, Schach spielen. Quickdraw, das du gerade ausprobiert hast, ist ein perfektes Beispiel — es kann Zeichnungen erkennen, aber es kann dir nicht sagen, was es zum Abendessen empfiehlt. Auch ChatGPT und Claude sind schwache KI: Sie sind Spezialisten für Sprachverarbeitung, keine universellen Denker.
 
 Dann gibt es die starke KI. Das wäre ein System, das eine allgemeine Intelligenz besitzt — so wie ein Mensch. Es könnte nicht nur Texte schreiben, sondern auch ein physisches Experiment durchführen, emotionale Zusammenhänge verstehen und sich selbst neue Aufgaben stellen. Klingt nach Science-Fiction? Ist es auch — bislang existiert starke KI nur als Forschungsvision. Niemand hat sie bisher gebaut, und ob das überhaupt möglich ist, darüber streiten sich die Experten.
 
 Und dann gibt es noch die überlegene KI — die Superintelligenz. Eine KI, die in allen Bereichen die menschliche Intelligenz weit übertrifft. Das ist reine Hypothese, mehr Gedankenexperiment als Wissenschaft. Aber es ist wichtig zu wissen, dass diese Kategorie existiert — weil in der öffentlichen Debatte oft Fähigkeiten von schwacher KI mit Szenarien von Superintelligenz vermischt werden. Und das führt zu überzogenen Erwartungen oder unnötigen Ängsten.
 
-Also merkt euch: Alles, was ihr heute nutzt — jedes KI-Tool, jeder Chatbot, jede Bilderkennung — ist schwache KI. Spezialisiert, leistungsstark in seinem Bereich, aber weit entfernt von menschlicher Intelligenz. Diese Unterscheidung hilft enorm, KI realistisch einzuordnen.`}
+Also merk dir: Alles, was du heute nutzt — jedes KI-Tool, jeder Chatbot, jede Bilderkennung — ist schwache KI. Spezialisiert, leistungsstark in seinem Bereich, aber weit entfernt von menschlicher Intelligenz. Diese Unterscheidung hilft enorm, KI realistisch einzuordnen.`}
                   </p>
                 </div>
                 <div className="mt-4">
@@ -1769,7 +1851,7 @@ Also merkt euch: Alles, was ihr heute nutzt — jedes KI-Tool, jeder Chatbot, je
                     className="w-full bg-black"
                     preload="metadata"
                   >
-                    <source src="/video/chatgpt-eingabe.mp4" type="video/mp4" />
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Eingabe%20bei%20ChatGPT%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -1779,17 +1861,23 @@ Also merkt euch: Alles, was ihr heute nutzt — jedes KI-Tool, jeder Chatbot, je
                     Skript
                   </div>
                   <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
-{`Schauen wir uns jetzt mal ganz konkret an, wie so ein moderner KI-Chatbot eigentlich aufgebaut ist. Denn wenn ihr ChatGPT öffnet, seht ihr nicht einfach nur ein Textfeld — da steckt viel mehr dahinter.
+{`Schauen wir uns jetzt mal ganz konkret an, wie so ein moderner KI-Chatbot eigentlich aufgebaut ist. Denn wenn du ChatGPT öffnest, siehst du nicht einfach nur ein Textfeld — da steckt viel mehr dahinter.
 
-Oben links könnt ihr neue Chats starten und eure bisherigen Unterhaltungen durchsuchen. Das ist praktisch, weil ihr so an frühere Gespräche anknüpfen könnt.
+Oben links kannst du neue Chats starten und deine bisherigen Unterhaltungen durchsuchen. Das ist praktisch, weil du so an frühere Gespräche anknüpfen kannst.
 
-Aber das wirklich Spannende passiert unten im Eingabefeld. Hier habt ihr nicht nur die Möglichkeit, eine Frage einzutippen. Über das Plus-Symbol könnt ihr Fotos und Dateien hinzufügen — PDFs, Bilder, Tabellen. Die KI kann diese dann analysieren und darüber sprechen. Dann gibt es Deep Research — damit durchsucht die KI eigenständig das Internet und erstellt euch einen ausführlichen Recherchebericht. Ihr könnt Bilder erstellen lassen, den Agentenmodus nutzen, und sogar einen speziellen Lernmodus aktivieren.
+Aber das wirklich Spannende passiert unten im Eingabefeld. Hier hast du nicht nur die Möglichkeit, eine Frage einzutippen. Über das Plus-Symbol kannst du Fotos und Dateien hinzufügen — PDFs, Bilder, Tabellen. Die KI kann diese dann analysieren und darüber sprechen. Dann gibt es Deep Research — damit durchsucht die KI eigenständig das Internet und erstellt dir einen ausführlichen Recherchebericht. Du kannst Bilder erstellen lassen, den Agentenmodus nutzen, und sogar einen speziellen Lernmodus aktivieren.
 
-Unter „Mehr" findet ihr noch weitere Funktionen: Die Internetsuche, mit der ChatGPT aktuelle Informationen aus dem Web einbezieht — das ist wichtig, weil das Modell selbst ja einen Wissensstichtag hat. Dann gibt es Canvas — ein separates Fenster, in dem ihr gemeinsam mit der KI an Texten oder Code arbeiten könnt, ähnlich wie in einem geteilten Dokument. Und ihr könnt sogar Google Drive, OneDrive oder Sharepoint verbinden, sodass die KI direkt auf eure Dateien zugreifen kann.
+Unter „Mehr" findest du noch weitere Funktionen: Die Internetsuche, mit der ChatGPT aktuelle Informationen aus dem Web einbezieht — das ist wichtig, weil das Modell selbst ja einen Wissensstichtag hat. Dann gibt es Canvas — ein separates Fenster, in dem du gemeinsam mit der KI an Texten oder Code arbeiten kannst, ähnlich wie in einem geteilten Dokument. Und du kannst sogar Google Drive, OneDrive oder Sharepoint verbinden, sodass die KI direkt auf deine Dateien zugreifen kann.
 
-Rechts unten seht ihr außerdem einen Bereich mit Vorschlägen — die KI bietet euch Einstiegsfragen an, um das Gespräch zu starten. Und ganz wichtig: Ihr könnt auch per Spracheingabe mit der KI interagieren.
+Rechts unten siehst du außerdem einen Bereich mit Vorschlägen — die KI bietet dir Einstiegsfragen an, um das Gespräch zu starten. Und ganz wichtig: Du kannst auch per Spracheingabe mit der KI interagieren.
 
-All das zeigt: Moderne KI-Chatbots sind längst keine einfachen Frage-Antwort-Maschinen mehr. Sie sind Plattformen mit Konnektoren, Integrationen und Werkzeugen, die weit über reines Texten hinausgehen.`}
+All das zeigt: Moderne KI-Chatbots sind längst keine einfachen Frage-Antwort-Maschinen mehr. Sie sind Plattformen mit Konnektoren, Integrationen und Werkzeugen, die weit über reines Texten hinausgehen.
+
+Jetzt wollen wir aber auch mal etwas Konkretes ausprobieren: Wie kann ich denn zum Beispiel ein Arbeitsblatt mit der Canvas-Funktion erstellen? Canvas ist ja dieses geteilte Dokument-Fenster, das wir gerade erwähnt haben. Und genau da wird es für den Schulalltag richtig praktisch — denn statt nur eine Textantwort im Chat zu bekommen, kannst du das Arbeitsblatt direkt im Canvas bearbeiten, Abschnitte umformulieren, Aufgaben verschieben oder ergänzen, und das alles gemeinsam mit der KI in Echtzeit.
+
+Ich zeige dir das jetzt einmal live: Ich öffne Canvas, gebe einen Prompt ein — zum Beispiel „Erstelle ein Arbeitsblatt zum Thema Fotosynthese für Klasse 7 mit drei Aufgaben in aufsteigender Schwierigkeit" — und du siehst, wie das Arbeitsblatt direkt im Canvas-Fenster entsteht. Jetzt kann ich einzelne Stellen markieren und der KI sagen: „Mach diese Aufgabe etwas leichter" oder „Ergänze hier einen Tipp für schwächere Schüler." Das Dokument wird in Echtzeit angepasst, ohne dass ich jedes Mal einen komplett neuen Prompt schreiben muss.
+
+Und jetzt probier das einmal selber aus — öffne ChatGPT, aktiviere Canvas und erstelle dein eigenes Arbeitsblatt. Experimentier ruhig mit verschiedenen Fächern, Klassenstufen und Aufgabenformaten.`}
                   </p>
                 </div>
                 <div className="mt-4">
@@ -1799,6 +1887,37 @@ All das zeigt: Moderne KI-Chatbots sind längst keine einfachen Frage-Antwort-Ma
                     className="w-full rounded border-2 border-slate-200"
                   />
                 </div>
+                <div className={`mt-6 rounded border-2 ${promptSaved ? "border-emerald-400 bg-emerald-50" : `${accent.border} ${accent.light}`} p-5`}>
+                  <div className="mb-2 flex items-center gap-2">
+                    <IconSparkles className={`h-4 w-4 ${promptSaved ? "text-emerald-600" : accent.text}`} />
+                    <span className={`text-xs font-bold uppercase tracking-widest ${promptSaved ? "text-emerald-600" : accent.text}`}>
+                      {promptSaved ? "Prompt gespeichert!" : "Dein Prompt"}
+                    </span>
+                  </div>
+                  <p className="mb-3 text-sm text-slate-600">
+                    Trage hier deinen benutzten Prompt ein und speichere ihn für einen magischen weiteren Schritt später im Tutorial.
+                  </p>
+                  <textarea
+                    value={savedPrompt}
+                    onChange={(e) => { setSavedPrompt(e.target.value); setPromptSaved(false); }}
+                    placeholder="z.B. Erstelle ein Arbeitsblatt zum Thema Fotosynthese für Klasse 7..."
+                    className="w-full rounded border-2 border-slate-300 bg-white p-3 text-sm text-slate-800 placeholder-slate-400 focus:border-black focus:outline-none"
+                    rows={3}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => { if (savedPrompt.trim()) setPromptSaved(true); }}
+                    disabled={!savedPrompt.trim()}
+                    className={`mt-3 inline-flex items-center gap-2 border-2 border-black px-5 py-2.5 text-xs font-bold uppercase tracking-wider shadow-[3px_3px_0_#000] ${
+                      savedPrompt.trim()
+                        ? `${accent.bg} text-white hover:opacity-90`
+                        : "bg-slate-200 text-slate-400"
+                    }`}
+                  >
+                    <IconSparkles className="h-3 w-3" />
+                    {promptSaved ? "Gespeichert" : "Prompt speichern"}
+                  </button>
+                </div>
               </div>
             )}
 
@@ -1806,12 +1925,14 @@ All das zeigt: Moderne KI-Chatbots sind längst keine einfachen Frage-Antwort-Ma
               <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
                 <h3 className={`${displayFont.className} mb-4 text-lg ${accent.text}`}>oder bei Claude</h3>
                 <div className="overflow-hidden rounded border-2 border-black bg-black">
-                  <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
-                    <div className="flex flex-col items-center gap-3 text-slate-400">
-                      <IconPlayerPlay className="h-12 w-12" />
-                      <p className="text-sm font-bold uppercase tracking-widest">Video kommt bald</p>
-                    </div>
-                  </div>
+                  <video
+                    controls
+                    className="w-full bg-black"
+                    preload="metadata"
+                  >
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/oder%20bei%20Claude%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    Dein Browser unterstützt keine Videowiedergabe.
+                  </video>
                 </div>
                 <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
                   <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
@@ -1821,17 +1942,23 @@ All das zeigt: Moderne KI-Chatbots sind längst keine einfachen Frage-Antwort-Ma
                   <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
 {`Und so sieht das Ganze bei Claude aus — dem KI-Assistenten von Anthropic. Auf den ersten Blick wirkt die Oberfläche etwas aufgeräumter, aber die Funktionen sind vergleichbar.
 
-Oben seht ihr drei Modi: Chat, Cowork und Code. Chat ist der klassische Gesprächsmodus. Cowork ist Claudes Version eines Canvas-Fensters — hier könnt ihr gemeinsam an Dokumenten arbeiten, Texte überarbeiten oder Ideen strukturieren. Und Code ist ein spezieller Modus für Programmierung.
+Oben siehst du drei Modi: Chat, Cowork und Code. Chat ist der klassische Gesprächsmodus. Cowork ist Claudes Version eines Canvas-Fensters — hier kannst du gemeinsam mit der KI an Dokumenten arbeiten, Texte überarbeiten oder Ideen strukturieren. Und Code ist ein spezieller Modus für Programmierung.
 
-Links habt ihr die Seitenleiste mit euren bisherigen Chats, Suche und verschiedenen Bereichen für Projekte und gespeicherte Inhalte.
+Links hast du die Seitenleiste mit deinen bisherigen Chats, Suche und verschiedenen Bereichen für Projekte und gespeicherte Inhalte.
 
-Unten im Eingabefeld seht ihr wieder das Plus-Symbol zum Hochladen von Dateien. Daneben könnt ihr das Modell auswählen — hier steht zum Beispiel Sonnet 4.6 mit dem Zusatz „Erweitert", was bedeutet, dass erweiterte Denkfähigkeiten aktiviert sind. Und rechts gibt es auch hier eine Spracheingabe.
+Unten im Eingabefeld siehst du wieder das Plus-Symbol zum Hochladen von Dateien. Daneben kannst du das Modell auswählen — hier steht zum Beispiel Sonnet 4.6 mit dem Zusatz „Erweitert", was bedeutet, dass erweiterte Denkfähigkeiten aktiviert sind. Und rechts gibt es auch hier eine Spracheingabe.
 
-Darunter findet ihr Schnellzugriffe: Code, Lernen, Strategisch planen, Schreiben und sogar die Möglichkeit, direkt aus Google Drive Dateien einzubinden.
+Darunter findest du Schnellzugriffe: Code, Lernen, Strategisch planen, Schreiben und sogar die Möglichkeit, direkt aus Google Drive Dateien einzubinden.
 
 Was auffällt: Beide Plattformen — ChatGPT und Claude — bieten ähnliche Grundfunktionen, aber mit unterschiedlichen Schwerpunkten. ChatGPT hat mehr Integrationen und Konnektoren zu externen Diensten. Claude setzt stärker auf den Cowork-Modus und strukturiertes Zusammenarbeiten. Beide können Dateien verarbeiten, im Internet suchen und per Sprache bedient werden.
 
-Für euch als Lehrkräfte ist wichtig: Es lohnt sich, beide Plattformen zu kennen und auszuprobieren. Je nach Aufgabe kann das eine oder das andere Tool besser passen. Und genau das ist Teil der Delegation-Kompetenz aus dem AI Fluency Framework — zu wissen, welches Tool für welche Aufgabe geeignet ist.`}
+Für dich als Lehrkraft ist wichtig: Es lohnt sich, beide Plattformen zu kennen und auszuprobieren. Je nach Aufgabe kann das eine oder das andere Tool besser passen. Und genau das ist Teil der Delegation-Kompetenz aus dem AI Fluency Framework — zu wissen, welches Tool für welche Aufgabe geeignet ist.
+
+Jetzt schauen wir uns den Cowork-Modus mal in Aktion an. Stell dir vor, du willst eine Klassenarbeit vorbereiten — nicht einfach nur generieren lassen, sondern wirklich gemeinsam mit der KI entwickeln. Ich wechsle jetzt in den Cowork-Modus und gebe einen Prompt ein, zum Beispiel: „Erstelle einen Erwartungshorizont für eine Klassenarbeit im Fach Geschichte, Klasse 10, Thema Weimarer Republik. Drei Aufgaben: Reproduktion, Transfer, Reflexion."
+
+Was jetzt passiert, ist anders als bei einem normalen Chat: Claude öffnet ein Dokument-Fenster — ähnlich wie ein geteiltes Google Doc. Dort entsteht der Erwartungshorizont Stück für Stück. Und jetzt kommt das Entscheidende: Ich kann direkt im Dokument einzelne Passagen markieren und Claude gezielt Anweisungen geben — „Formuliere dieses Bewertungskriterium konkreter" oder „Ergänze hier eine Teilaufgabe zur Quellenanalyse." Claude überarbeitet nur diese Stelle, ohne den Rest des Dokuments zu verändern.
+
+Das ist der Unterschied zwischen Chat und Cowork: Im Chat bekommst du jedes Mal eine komplett neue Antwort. In Cowork arbeitest du iterativ an einem gemeinsamen Dokument — genau so, wie man es von der Ko-Kreation erwartet. Und jetzt probier das einmal selber aus.`}
                   </p>
                 </div>
                 <div className="mt-4">
@@ -1840,6 +1967,37 @@ Für euch als Lehrkräfte ist wichtig: Es lohnt sich, beide Plattformen zu kenne
                     alt="oder bei Claude — Übersicht der Eingabemöglichkeiten"
                     className="w-full rounded border-2 border-slate-200"
                   />
+                </div>
+                <div className={`mt-6 rounded border-2 ${promptSavedClaude ? "border-emerald-400 bg-emerald-50" : `${accent.border} ${accent.light}`} p-5`}>
+                  <div className="mb-2 flex items-center gap-2">
+                    <IconSparkles className={`h-4 w-4 ${promptSavedClaude ? "text-emerald-600" : accent.text}`} />
+                    <span className={`text-xs font-bold uppercase tracking-widest ${promptSavedClaude ? "text-emerald-600" : accent.text}`}>
+                      {promptSavedClaude ? "Prompt gespeichert!" : "Dein Prompt"}
+                    </span>
+                  </div>
+                  <p className="mb-3 text-sm text-slate-600">
+                    Trage hier deinen benutzten Prompt ein und speichere ihn für einen magischen weiteren Schritt später im Tutorial.
+                  </p>
+                  <textarea
+                    value={savedPromptClaude}
+                    onChange={(e) => { setSavedPromptClaude(e.target.value); setPromptSavedClaude(false); }}
+                    placeholder="z.B. Erstelle einen Erwartungshorizont für eine Klassenarbeit im Fach Geschichte..."
+                    className="w-full rounded border-2 border-slate-300 bg-white p-3 text-sm text-slate-800 placeholder-slate-400 focus:border-black focus:outline-none"
+                    rows={3}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => { if (savedPromptClaude.trim()) setPromptSavedClaude(true); }}
+                    disabled={!savedPromptClaude.trim()}
+                    className={`mt-3 inline-flex items-center gap-2 border-2 border-black px-5 py-2.5 text-xs font-bold uppercase tracking-wider shadow-[3px_3px_0_#000] ${
+                      savedPromptClaude.trim()
+                        ? `${accent.bg} text-white hover:opacity-90`
+                        : "bg-slate-200 text-slate-400"
+                    }`}
+                  >
+                    <IconSparkles className="h-3 w-3" />
+                    {promptSavedClaude ? "Gespeichert" : "Prompt speichern"}
+                  </button>
                 </div>
               </div>
             )}
@@ -1853,7 +2011,7 @@ Für euch als Lehrkräfte ist wichtig: Es lohnt sich, beide Plattformen zu kenne
                     className="w-full bg-black"
                     preload="metadata"
                   >
-                    <source src="/video/chatgpt-ausgabe.mp4" type="video/mp4" />
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Ausgabe%20bei%20ChatGPT%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -1863,13 +2021,13 @@ Für euch als Lehrkräfte ist wichtig: Es lohnt sich, beide Plattformen zu kenne
                     Skript
                   </div>
                   <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
-{`Diese Ansicht kennen wir natürlich fast alle: Wir tippen eine Frage ein, drücken Enter — und die KI liefert eine Antwort. Hier haben wir ChatGPT gebeten, ein Gedicht im Duktus von Hermann Hesse zu schreiben, das Lehrerinnen und Lehrern LLMs erklärt. Und was wir zurückbekommen, klingt tatsächlich erstaunlich überzeugend — der Sprachrhythmus, die Wortwahl, sogar die melancholische Stimmung erinnern an Hesse.
+{`Diese Ansicht kennst du natürlich: Du tippst eine Frage ein, drückst Enter — und die KI liefert eine Antwort. Hier haben wir ChatGPT gebeten, ein Gedicht im Duktus von Hermann Hesse zu schreiben, das Lehrerinnen und Lehrern LLMs erklärt. Und was wir zurückbekommen, klingt tatsächlich erstaunlich überzeugend — der Sprachrhythmus, die Wortwahl, sogar die melancholische Stimmung erinnern an Hesse.
 
-Links seht ihr: Das ist eine unveränderte, vollautomatisch generierte Antwort von ChatGPT. Kein Mensch hat daran nachgebessert. Rechts die Begriffe, die wir gleich genauer anschauen: Oben der Prompt — also unsere Eingabe, unsere Anweisung an die KI. Und unten die Ausgabe — Token für Token vom Sprachmodell generiert.
+Links siehst du: Das ist eine unveränderte, vollautomatisch generierte Antwort von ChatGPT. Kein Mensch hat daran nachgebessert. Rechts die Begriffe, die wir gleich genauer anschauen: Oben der Prompt — also unsere Eingabe, unsere Anweisung an die KI. Und unten die Ausgabe — Token für Token vom Sprachmodell generiert.
 
 Aber halt — wie macht die KI das eigentlich? Woher „weiß" sie, wie Hermann Hesse schreibt? Woher kennt sie den Unterschied zwischen einem Gedicht und einem Sachtext? Und warum klingt das so überzeugend, obwohl die KI — wie wir gelernt haben — gar nichts versteht?
 
-Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir uns in der nächsten Lektion an: Wie ein Sprachmodell Wort für Wort — oder genauer: Token für Token — seine Antwort aufbaut. Klickt auf „Nächste Lektion" — es wird spannend.`}
+Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir uns in der nächsten Lektion an: Wie ein Sprachmodell Wort für Wort — oder genauer: Token für Token — seine Antwort aufbaut. Klick auf „Nächste Lektion" — es wird spannend.`}
                   </p>
                 </div>
                 <div className="mt-4">
@@ -1886,12 +2044,14 @@ Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir un
               <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
                 <h3 className={`${displayFont.className} mb-4 text-lg ${accent.text}`}>Aufgabe eines LLM</h3>
                 <div className="overflow-hidden rounded border-2 border-black bg-black">
-                  <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
-                    <div className="flex flex-col items-center gap-3 text-slate-400">
-                      <IconPlayerPlay className="h-12 w-12" />
-                      <p className="text-sm font-bold uppercase tracking-widest">Video kommt bald</p>
-                    </div>
-                  </div>
+                  <video
+                    controls
+                    className="w-full bg-black"
+                    preload="metadata"
+                  >
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Aufgabe%20eines%20LLM%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    Dein Browser unterstützt keine Videowiedergabe.
+                  </video>
                 </div>
                 <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
                   <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
@@ -1899,23 +2059,23 @@ Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir un
                     Skript
                   </div>
                   <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
-{`Okay, jetzt wird es richtig spannend. Wir schauen uns an, wie ein großes Sprachmodell — ein LLM — tatsächlich funktioniert. Und ich verspreche euch: Es ist einfacher, als ihr denkt.
+{`Okay, jetzt wird es richtig spannend. Wir schauen uns an, wie ein großes Sprachmodell — ein LLM — tatsächlich funktioniert. Und ich verspreche dir: Es ist einfacher, als du denkst.
 
 Ein LLM hat im Grunde genau eine Aufgabe: Das nächste Wort vorhersagen. Das ist alles. Kein Nachdenken, kein Verstehen, keine Meinung — nur die Frage: Welches Wort kommt wahrscheinlich als Nächstes?
 
-Schauen wir uns das an einem Beispiel an. Nehmen wir den berühmten Satz: „Houston, wir haben..." — was kommt als Nächstes? Euer Bauchgefühl sagt wahrscheinlich sofort „ein Problem". Und genau so funktioniert ein LLM. Es bekommt die bisherigen Wörter als Input — das ist der Kontext — schickt sie durch das Modell und berechnet: Welches Wort folgt am wahrscheinlichsten?
+Schauen wir uns das an einem Beispiel an. Nehmen wir den berühmten Satz: „Houston, wir haben..." — was kommt als Nächstes? Dein Bauchgefühl sagt wahrscheinlich sofort „ein Problem". Und genau so funktioniert ein LLM. Es bekommt die bisherigen Wörter als Input — das ist der Kontext — schickt sie durch das Modell und berechnet: Welches Wort folgt am wahrscheinlichsten?
 
 Aber das Modell gibt nicht einfach ein einzelnes Wort aus. Es berechnet für jedes mögliche Wort in seinem Wortschatz eine Wahrscheinlichkeit. In unserem Beispiel: „ein" bekommt 90 Prozent, „eine" bekommt 5 Prozent, „seine" 2 Prozent, „deine" 1 Prozent — und Wörter wie „du" oder „Atlanta" liegen bei praktisch null Prozent. Das Modell wählt dann das Wort mit der höchsten Wahrscheinlichkeit aus.
 
 Und jetzt kommt der entscheidende Trick: Das gewählte Wort wird an den bisherigen Text angehängt — und der gesamte Text geht wieder als neuer Input in das Modell. Aus „Houston, wir haben" wird „Houston, wir haben ein" — und das Modell berechnet erneut: Was kommt als Nächstes? Wahrscheinlich „Problem". Und so weiter, Token für Token, Wort für Wort.
 
-Diesen Kreislauf seht ihr auf der dritten Folie: Der Output wird wieder zum Input. Das Modell baut seine Antwort Stück für Stück auf — wie eine Perlenkette, bei der jede neue Perle von allen vorherigen abhängt.
+Diesen Kreislauf siehst du auf der dritten Folie: Der Output wird wieder zum Input. Das Modell baut seine Antwort Stück für Stück auf — wie eine Perlenkette, bei der jede neue Perle von allen vorherigen abhängt.
 
-Und jetzt versteht ihr auch, warum das Hesse-Gedicht so überzeugend klang: Das Modell hat in seinen Trainingsdaten Millionen von Texten gelesen — darunter auch Gedichte von Hesse und über Hesse. Es hat gelernt, welche Wörter in einem bestimmten Kontext wahrscheinlich aufeinander folgen. Wenn der Prompt „im Duktus von Hermann Hesse" enthält, verschiebt sich die Wahrscheinlichkeitsverteilung in Richtung poetischer, melancholischer Sprache. Nicht weil die KI Hesse versteht — sondern weil sie die statistischen Muster seiner Sprache gelernt hat.
+Und jetzt verstehst du auch, warum das Hesse-Gedicht so überzeugend klang: Das Modell hat in seinen Trainingsdaten Millionen von Texten gelesen — darunter auch Gedichte von Hesse und über Hesse. Es hat gelernt, welche Wörter in einem bestimmten Kontext wahrscheinlich aufeinander folgen. Wenn der Prompt „im Duktus von Hermann Hesse" enthält, verschiebt sich die Wahrscheinlichkeitsverteilung in Richtung poetischer, melancholischer Sprache. Nicht weil die KI Hesse versteht — sondern weil sie die statistischen Muster seiner Sprache gelernt hat.
 
 Das ist die zentrale Erkenntnis: Ein LLM versteht nichts. Es berechnet Wahrscheinlichkeiten. Aber es tut das so gut, dass die Ergebnisse täuschend intelligent wirken. Und genau deshalb ist es so wichtig, dass wir als Menschen die Ergebnisse kritisch prüfen — denn Plausibilität ist kein Beweis für Korrektheit.
 
-In der nächsten Lektion könnt ihr das Ganze selbst ausprobieren — mit Soekia GPT, einem interaktiven Tool, das euch Token-Vorhersage live erleben lässt.`}
+In der nächsten Lektion kannst du das Ganze selbst ausprobieren — mit Soekia GPT, einem interaktiven Tool, das dir Token-Vorhersage live erleben lässt.`}
                   </p>
                 </div>
                 <div className="mt-4 space-y-4">
@@ -1942,19 +2102,33 @@ In der nächsten Lektion könnt ihr das Ganze selbst ausprobieren — mit Soekia
               <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
                 <h3 className={`${displayFont.className} mb-4 text-lg ${accent.text}`}>Soekia GPT – Ausprobieren</h3>
                 <div className="overflow-hidden rounded border-2 border-black bg-black">
-                  <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
-                    <div className="flex flex-col items-center gap-3 text-slate-400">
-                      <IconPlayerPlay className="h-12 w-12" />
-                      <p className="text-sm font-bold uppercase tracking-widest">Video kommt bald</p>
-                    </div>
-                  </div>
+                  <video
+                    controls
+                    className="w-full bg-black"
+                    preload="metadata"
+                  >
+                    <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Soekia%20GPT%20%E2%80%93%20Ausprobieren%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    Dein Browser unterstützt keine Videowiedergabe.
+                  </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-dashed border-slate-300 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
                     Skript
                   </div>
-                  <p className="text-sm italic text-slate-400">Skript wird noch ergänzt...</p>
+                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+{`Jetzt bist du dran. In der letzten Lektion haben wir gesehen, wie ein LLM Token für Token seine Antwort aufbaut — immer das wahrscheinlichste nächste Wort. Aber wie fühlt sich das eigentlich an, wenn man selbst in die Rolle des Modells schlüpft?
+
+Genau das kannst du jetzt mit Soekia GPT ausprobieren. Das ist eine interaktive Lernumgebung, die von der Pädagogischen Hochschule St. Gallen entwickelt wurde. Du siehst dort einen Trainingstext — also die Daten, aus denen das Mini-Modell lernt — und kannst dann beobachten, wie es basierend auf diesen Daten das nächste Wort vorhersagt.
+
+Das Besondere: Du kannst den Trainingstext verändern. Füg neue Sätze hinzu, entferne welche, verändere die Gewichtung — und schau, was passiert. Plötzlich ändert sich die Vorhersage. Und genau hier wird es spannend: Wenn der Trainingstext einseitig ist, wird auch die Vorhersage einseitig. Das ist Bias — nicht weil das Modell „voreingenommen" ist, sondern weil die Daten es sind.
+
+Und wenn das Modell eine Antwort generiert, die plausibel klingt, aber im Trainingstext gar nicht so vorkommt? Dann hast du eine Halluzination live erlebt — das Modell füllt Lücken mit statistisch wahrscheinlichen, aber falschen Informationen.
+
+Probier es aus, experimentier mit verschiedenen Texten und beobachte, wie sich die Vorhersagen verändern. Du wirst danach ein viel intuitiveres Verständnis dafür haben, warum KI manchmal überraschend gut und manchmal überraschend falsch liegt.
+
+Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — Muster erkennen und Wahrscheinlichkeiten berechnen — und du hast es selbst erlebt. Im nächsten Schritt, dem Kernwissen, vertiefen wir diese Grundlagen und schauen uns an, was das für den Schulkontext konkret bedeutet.`}
+                  </p>
                 </div>
                 <div className="mt-4">
                   <img
