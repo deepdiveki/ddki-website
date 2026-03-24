@@ -28,7 +28,7 @@ const deepChatJsonLd = {
 export const metadata: Metadata = {
   title: "DeepChat – KI-Chat für Unterricht und Schulorganisation",
   description:
-    "DeepChat ist Ihr All-in-One KI-Chat für Unterricht und schulische Organisation. Planen Sie Unterricht, erstellen Sie Material und nutzen Sie KI-Unterstützung – alles in einem Chat.",
+    "DeepChat ist Ihr All-in-One KI-Chat für Unterricht und schulische Organisation. Planen Sie Unterricht, erstellen Sie Material und nutzen Sie KI-Unterstützung – alles in einem Chat. DSGVO-konform.",
   alternates: {
     canonical: "https://www.deepdive-ki.de/software/ddki-toolbox",
   },

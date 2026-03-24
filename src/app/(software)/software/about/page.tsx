@@ -12,9 +12,12 @@ import HeroStaticAbout from "@/components/HeroStaticAbout";
 
 
 export const metadata: Metadata = {
-  title: "DeepDiveKI KI-Tools & Fortbildungen für Schulen",
-  description: "DeepDiveKI bietet Schulen innovative KI-Tools (DeepChat, KI-Schulbüro) und Fortbildungen für Lehrkräfte. Entdecken Sie jetzt, wie KI Ihren Schulalltag bereichern kann!",
-  // other metadata
+  title: "DeepDiveKI – KI-Tools & Fortbildungen für Schulen",
+  description:
+    "DeepDiveKI bietet Schulen innovative KI-Tools (DeepChat, KI-Schulbüro) und Fortbildungen für Lehrkräfte. Entdecken Sie jetzt, wie KI Ihren Schulalltag bereichern kann!",
+  alternates: {
+    canonical: "https://www.deepdive-ki.de/about",
+  },
 };
 
 const AboutPage = () => {

@@ -14,10 +14,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     template: "%s | DeepDiveKI",
-    default: "DeepDiveKI – KI-Lösungen für Schulen und Universitäten",
+    default: "DeepDiveKI – KI-Fortbildungen & Software für Schulen | DSGVO-konform",
   },
   description:
-    "Mit dem DeepChat, dem KI-Schulbüro und den Fortbildungen zum Thema KI, bieten wir eine breite Palette von KI Produkten für Ihre Institution an.",
+    "DSGVO-konforme KI-Tools und Fortbildungen für Schulen: DeepChat, KI-Schulbüro & praxisnahe Lehrerfortbildungen. Made in Hamburg. Jetzt kostenlos testen.",
+  alternates: {
+    canonical: "/",
+  },
   robots: {
     index: true,
     follow: true,
@@ -30,6 +33,9 @@ export const metadata: Metadata = {
     siteName: "DeepDiveKI",
     locale: "de_DE",
     url: siteUrl,
+    title: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
+    description:
+      "DSGVO-konforme KI-Tools und Fortbildungen für Schulen: DeepChat, KI-Schulbüro & praxisnahe Lehrerfortbildungen. Made in Hamburg.",
     images: [
       {
         url: "/images/og-image.png",
@@ -41,6 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
+    description:
+      "DSGVO-konforme KI-Tools und Fortbildungen für Schulen. Made in Hamburg.",
   },
   alternates: {
     canonical: siteUrl,

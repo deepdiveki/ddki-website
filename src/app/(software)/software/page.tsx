@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import CookieBanner from "@/components/CookieBanner";
 import Kontakt from "@/components/Kontakt";
 import JsonLd from "@/components/JsonLd";
+import { FAQSchema } from "./schema";
 
 // import FloatingChatbotWidget from "@/components/FloatingChatbotWidget";
 
@@ -36,7 +37,7 @@ const websiteJsonLd = {
 export const metadata: Metadata = {
   title: "DeepChat, KI-Schulbüro und KI-Fortbildungen für Schulen",
   description:
-    "DeepDiveKI bietet Schulen innovative KI-Tools: DeepChat für den Unterricht, KI-Schulbüro für die Schulwebsite und praxisnahe Fortbildungen für Lehrkräfte.",
+    "DeepDiveKI bietet Schulen innovative KI-Tools: DeepChat für den Unterricht, KI-Schulbüro für die Schulwebsite und praxisnahe Fortbildungen für Lehrkräfte. DSGVO-konform, made in Hamburg.",
   alternates: {
     canonical: "https://www.deepdive-ki.de/software",
   },
@@ -47,6 +48,7 @@ export default function Home() {
     <>
       <JsonLd data={organizationJsonLd} />
       <JsonLd data={websiteJsonLd} />
+      <FAQSchema />
       <Hero />
 
       <Features />

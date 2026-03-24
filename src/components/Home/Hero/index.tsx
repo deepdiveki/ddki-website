@@ -89,7 +89,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="mb-6 text-display-sm font-bold -tracking-[1.2px] text-white lg:text-display-lg xl:text-display-xl"
           >
-            DeepDiveKI – Ihr Partner für KI
+            KI-Fortbildungen & Software für Schulen
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
