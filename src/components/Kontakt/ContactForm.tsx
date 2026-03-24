@@ -32,6 +32,11 @@ export default function ContactForm() {
       if (res.ok) {
         setSubmitted(true);
         form.reset();
+        window.gtag?.('event', 'conversion', {
+          'send_to': 'AW-18037716280/dXYcCMOAxo4cELjqhplD',
+          'value': 1.0,
+          'currency': 'EUR'
+        });
         setTimeout(() => setSubmitted(false), 5000);
       } else {
         const json = await res.json().catch(() => ({}));
