@@ -52,9 +52,6 @@ export const metadata: Metadata = {
     description:
       "DSGVO-konforme KI-Tools und Fortbildungen für Schulen. Made in Hamburg.",
   },
-  alternates: {
-    canonical: siteUrl,
-  },
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
