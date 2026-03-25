@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 import { useCookieConsent } from "@/hooks/use-cookie-consent";
 import {
   IconArrowLeft,
   IconArrowRight,
+  IconBolt,
   IconBook,
   IconCheck,
   IconChevronLeft,
@@ -17,6 +18,9 @@ import {
   IconRocket,
   IconExternalLink,
   IconSparkles,
+  IconUsers,
+  IconNotebook,
+  IconShieldCheck,
   IconX,
 } from "@tabler/icons-react";
 import { Bungee, Press_Start_2P, Space_Mono } from "next/font/google";
@@ -79,7 +83,8 @@ type TutorialConfig = {
   focusQuestion: string;
   introText: string;
   videoUrl: string;
-  knowledgeBlocks: KnowledgeBlock[];
+  hideEinstieg?: boolean;
+  knowledgeBlocks?: KnowledgeBlock[];
   knowledgeBlocks2?: KnowledgeBlock[];
   knowledgeBlocks2Title?: string;
   interactiveTools2?: InteractiveTool[];
@@ -97,8 +102,20 @@ type TutorialConfig = {
     transcript: string;
   }>;
   interactiveTools3?: InteractiveTool[];
-  exercise: InteractiveExercise;
-  quizQuestions: QuizQuestion[];
+  mitLessons?: Array<{ title: string; type: string }>;
+  mitLessonsScripts?: string[];
+  mitLessonsVideoUrls?: string[];
+  mitLessonsLinks?: Record<number, { url: string; label: string }>;
+  ldkLessons?: Array<{ title: string; type: string }>;
+  ldkLessonsScripts?: string[];
+  ldkLessonsVideoUrls?: string[];
+  ldkLessonsLinks?: Record<number, { url: string; label: string }>;
+  ltkLessons?: Array<{ title: string; type: string }>;
+  ltkLessonsScripts?: string[];
+  ltkLessonsVideoUrls?: string[];
+  ltkLessonsLinks?: Record<number, { url: string; label: string }>;
+  exercise?: InteractiveExercise;
+  quizQuestions?: QuizQuestion[];
   interactiveTools?: InteractiveTool[];
   challengeSummary: string;
 };
@@ -115,6 +132,7 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
     introText:
       "Künstliche Intelligenz ist kein Zaubertrick, sondern angewandte Statistik. In diesem Tutorial baust du ein belastbares Verständnis auf: Wie erkennt KI Muster? Warum klingt sie überzeugend, ohne zu verstehen? Und welche Konsequenzen hat das für den Unterricht? Darüber hinaus lernst du das AI Fluency Framework kennen — ein wissenschaftlich fundiertes Kompetenzmodell mit vier Kernkompetenzen (Delegation, Beschreibung, Urteilsfähigkeit und Sorgfalt), das dir eine Struktur für professionelle Mensch-KI-Zusammenarbeit gibt. Diese Grundlagen sind unverzichtbar, bevor KI didaktisch eingesetzt wird.",
     videoUrl: "https://www.youtube-nocookie.com/embed/aircAruvnKk",
+    /* ── Kernwissen (auskommentiert) ──
     knowledgeBlocks: [
       {
         title: "Mustererkennung statt Verstehen",
@@ -144,6 +162,8 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Halluzination und Bias sind keine Bugs, sondern systemische Eigenschaften. Jede KI-Ausgabe braucht professionelle Prüfung.",
       },
     ],
+    ── Ende Kernwissen ── */
+    /* ── AI Fluency Framework (auskommentiert) ──
     knowledgeBlocks2Title: "AI Fluency Framework",
     knowledgeBlocks2: [
       {
@@ -286,6 +306,8 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
       },
     ],
     interactiveTools3: [],
+    ── Ende AI Fluency Framework + Über uns ── */
+    /* ── Praxis-Übung (auskommentiert) ──
     exercise: {
       instruction:
         "Sortiere die folgenden Aussagen: Welche beschreiben eine menschliche Kompetenz (die KI NICHT ersetzen kann) und welche eine KI-Stärke?",
@@ -449,6 +471,7 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Sorgfalt umfasst drei Bereiche: Verantwortungsvoller Einsatz (Creation Diligence), Transparenz über KI-Beteiligung (Transparency Diligence) und Faktenprüfung vor Veröffentlichung (Deployment Diligence). Wer zuerst die ethischen Leitplanken setzt, kann KI danach bewusster und sicherer einsetzen.",
       },
     ],
+    ── Ende Praxis-Übung + Wissens-Check ── */
     challengeSummary:
       "Du weißt jetzt, wie KI Muster erkennt, warum Sprachmodelle überzeugend klingen ohne zu verstehen, und welche Risiken durch Halluzination und Bias entstehen. Du kennst das AI Fluency Framework mit seinen vier Kernkompetenzen — Delegation, Beschreibung, Urteilsfähigkeit und Sorgfalt — und verstehst die drei Interaktionsmodi Automation, Augmentation und Agency. In der Jump-&-Run-Challenge wendest du dieses Wissen an den Lernstationen an.",
   },
@@ -462,6 +485,190 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
     introText:
       "KI wird zunehmend als Feedbackgeberin, Tutorin und Lernbegleiterin eingesetzt. Aber wie gut ist KI-Feedback wirklich? Welche Logik steckt hinter adaptiven Systemen? Und wo bleibt die menschliche Steuerungsverantwortung? In diesem Tutorial analysierst du die Qualität von KI-gestütztem Lernen und entwickelst professionelle Bewertungskriterien.",
     videoUrl: "https://www.youtube-nocookie.com/embed/5sLYAQS9sWQ",
+    hideEinstieg: true,
+    ldkLessons: [
+      { title: "Willkommen in der Dimension LDK", type: "video" },
+      { title: "Spielregeln: Analyse & Dokumentation", type: "video" },
+      { title: "Level 1: KI-Feedback erleben – Auftrag", type: "video" },
+      { title: "Level 1: KI-Feedback erleben – Reflexion", type: "video" },
+      { title: "Level 2: Adaptives Lernsystem – Auftrag", type: "video" },
+      { title: "Level 2: Adaptives Lernsystem – Reflexion", type: "video" },
+      { title: "Level 3: Tutor durch Mega-Prompt – Auftrag", type: "video" },
+      { title: "Level 3: Tutor durch Mega-Prompt – Reflexion", type: "video" },
+      { title: "Steuerungsmatrix: Einordnung & Analyse", type: "video" },
+      { title: "Governance-Ebene: Das Tor zur Freischaltung", type: "video" },
+    ],
+    ldkLessonsVideoUrls: ["", "", "", "", "", "", "", "", "", ""],
+    ldkLessonsLinks: {
+      2: { url: "https://unterrichten.digital/2025/09/08/peer-ki-tutor-feedback-schule-unterricht/", label: "PEER KI-Tutor öffnen" },
+      4: { url: "https://smartresponse.westermann.de/klasse-7/wortschatz/wortschatz/wortschatz-menschen-und-gefuehle-people/", label: "Westermann Smart Response öffnen" },
+      6: { url: "https://digitaleprofis.de/kuenstliche-intelligenz/chatgpt/mega-prompts/chatgpt-mega-prompt-4-der-tutor-prompt/", label: "Mega-Prompt Tutor öffnen" },
+    },
+    ldkLessonsScripts: [
+      `Willkommen in der Dimension „Lernen durch KI"! Ich bin Toni und ich freue mich, dass du dabei bist.
+
+In dieser Dimension geht es um eine grundlegende Frage: Was passiert, wenn KI selbst zum lernsteuernden Akteur wird? Nicht du steuerst die KI — die KI steuert deinen Lernprozess. Sie gibt Feedback, passt Schwierigkeitsgrade an, wählt Aufgaben aus und bereitet Entscheidungen vor.
+
+Das klingt erst mal praktisch. Aber es wirft Fragen auf, die wir professionell beantworten müssen: Wer lernt eigentlich — und wer kontrolliert? Wo unterstützt algorithmische Steuerung den Lernprozess — und wo ersetzt sie menschliches Urteil?
+
+In diesem Tutorial wirst du drei Ebenen kooperativer KI-Nutzung erleben: Erstens KI-Feedback — wie gut ist es wirklich? Zweitens adaptive Lernsysteme — welche Logik steckt dahinter? Und drittens KI-Tutoring — was passiert, wenn du selbst einen KI-Tutor baust?
+
+Am Ende formulierst du ein Governance-Statement für deine Einrichtung. Dafür brauchst du eine Steuerungsmatrix, die sichtbar macht, wo menschliche und wo algorithmische Kontrolle dominiert.
+
+Du wirst dabei nicht nur zuhören, sondern aktiv testen, analysieren und reflektieren. Jede Rückmeldung der KI wird kritisch geprüft. Jede Steuerungsentscheidung dokumentiert.
+
+Und keine Sorge: Du brauchst dafür keinerlei Vorkenntnisse. Alles, was du mitbringen musst, ist Neugier und eine gesunde Portion Skepsis.
+
+Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen gesamten Bereich begleiten wird.`,
+
+      `Bevor wir starten, die Spielregeln für diese Dimension. Hier geht es nicht ums Produzieren — sondern ums Analysieren.
+
+Regel Nummer 1: Dokumentiert alle Schritte im Logbuch. Was habt ihr getestet? Was hat die KI zurückgegeben? Wie habt ihr es bewertet? Das Logbuch ist euer Analysewerkzeug — nicht nur ein Protokoll.
+
+Regel Nummer 2: Nutzt KI-Tools aktiv und testet ihre Rückmeldungen. Ihr sollt nicht nur lesen, was KI kann — ihr sollt es erleben. Gebt eigene Texte ein, probiert adaptive Systeme aus, baut einen eigenen Tutor.
+
+Regel Nummer 3: Prüft jede Rückmeldung kritisch. Klingt das Feedback der KI professionell — oder nur professionell? Ist es spezifisch oder generisch? Hilft es beim nächsten Lernschritt — oder bestätigt es nur, was offensichtlich ist?
+
+Regel Nummer 4: Euer Ziel ist die Analyse von Steuerungsverschiebungen. Wo verschiebt sich Kontrolle vom Menschen zur Maschine? Wo ist das sinnvoll — und wo problematisch?
+
+Am Ende steht eine Steuerungsmatrix und ein Governance-Statement. Das ist eure Escape-Bedingung.
+
+Nehmt euch euer Logbuch — ab jetzt wird analysiert.`,
+
+      `Willkommen bei Level 1: KI-Feedback erleben.
+
+Eure Aufgabe: Lasst euch von einem KI-Tool Rückmeldung zu einem eigenen kurzen Text geben. Nutzt dafür den PEER KI-Tutor — ein kostenloses Feedback-Tool der TU München, das speziell für schulische Texte entwickelt wurde.
+
+So geht ihr vor: Schreibt einen kurzen Text — das kann ein Aufsatz-Absatz sein, eine Argumentation, eine Erörterung oder ein Sachtext. Etwa 100 bis 200 Wörter reichen. Gebt diesen Text in den PEER KI-Tutor ein und lasst euch Feedback generieren.
+
+Über den Button unten kommt ihr direkt zum PEER KI-Tutor.
+
+Und jetzt beginnt eure eigentliche Arbeit — die Analyse: Lest das Feedback sorgfältig. Nicht als Empfänger, sondern als Analytiker. Fragt euch: Was genau sagt mir dieses Feedback? Ist es aufgabenbezogen oder allgemein? Gibt es einen konkreten nächsten Schritt — oder klingt es nur so?
+
+Dokumentiert im Logbuch:
+— Welchen Text habt ihr eingegeben?
+— Was hat der PEER KI-Tutor zurückgegeben?
+— Wie bewertet ihr die Qualität des Feedbacks?
+— Was hättet ihr als Lehrkraft anders formuliert?
+
+Das ist der Kern dieser Übung: Ihr erlebt KI-Feedback nicht als Nutzer, sondern als professionelle Analytiker. Denn genau das brauchen Lehrkräfte, wenn sie KI-Feedback-Tools im Unterricht einsetzen wollen.`,
+
+      `Ihr habt KI-Feedback erlebt. Jetzt reflektieren wir — vier zentrale Fragen:
+
+Erstens: Wie spezifisch ist das Feedback? Hat der PEER KI-Tutor konkrete Stellen in eurem Text benannt — oder hat er allgemeine Ratschläge gegeben? Professionelles Feedback nach Hattie und Timperley beantwortet drei Fragen: Wo will ich hin (Feed Up)? Wo stehe ich (Feed Back)? Was ist der nächste Schritt (Feed Forward)? Prüft: Hat das KI-Feedback alle drei Fragen beantwortet?
+
+Zweitens: Wo wirkt es adaptiv? Hat das Feedback auf die spezifischen Schwächen eures Textes reagiert — oder hätte es bei jedem beliebigen Text ähnlich geklungen? Echte Adaptivität bedeutet: Das Feedback verändert sich, wenn der Text sich verändert. Testet das — gebt einen zweiten, deutlich anderen Text ein und vergleicht.
+
+Drittens: Wo bleibt es generisch? KI-Feedback neigt zu Sätzen wie „Gute Struktur, aber du könntest noch konkreter werden." Das klingt hilfreich, ist aber oft eine Schablone. Identifiziert die Stellen, an denen das Feedback auf jeden Text passen würde — das sind die generischen Anteile.
+
+Viertens: Welche Rolle spielt eure eigene Urteilsfähigkeit? Hättet ihr als Lehrkraft ein anderes Feedback gegeben? Wo seht ihr Stärken, die die KI übersehen hat? Wo Schwächen, die sie nicht erkannt hat? Eure professionelle Einschätzung ist der Maßstab — nicht die KI.
+
+Tragt eure Analyse ins Logbuch ein. Seid konkret — Beispiele aus dem Feedback zitieren, nicht nur zusammenfassen.`,
+
+      `Willkommen bei Level 2: Adaptives Lernsystem analysieren.
+
+Jetzt geht es eine Ebene tiefer. Statt einzelnem Feedback analysiert ihr ein ganzes System, das Lernpfade steuert. Nutzt dafür Westermann Smart Response — ein adaptives Vokabeltraining, das Aufgaben automatisch anpasst.
+
+Über den Button unten kommt ihr direkt zum Tool. Arbeitet mindestens 10 Minuten damit und beobachtet dabei systematisch:
+
+Wie werden Aufgaben ausgewählt? Bekommt ihr nach einem Fehler eine leichtere Aufgabe? Nach einem Erfolg eine schwierigere? Oder ist die Reihenfolge fix?
+
+Wie wird Fortschritt gemessen? Gibt es einen Fortschrittsbalken? Punkte? Level? Was genau wird gemessen — Geschwindigkeit, Korrektheit, Konsistenz?
+
+Welche Entscheidungen trifft das System für euch? Könnt ihr den Lernpfad selbst wählen — oder bestimmt der Algorithmus, was als Nächstes kommt?
+
+Dokumentiert im Logbuch:
+— Wie reagiert das System auf Fehler?
+— Wie reagiert es auf Erfolge?
+— Welche Steuerungsentscheidungen sind sichtbar, welche unsichtbar?
+— Wo fühlt ihr euch unterstützt — und wo bevormundet?
+
+Das ist die analytische Kernaufgabe: Adaptive Systeme treffen ständig Entscheidungen über euren Lernprozess. Macht diese Entscheidungen sichtbar.`,
+
+      `Ihr habt ein adaptives Lernsystem analysiert. Jetzt die Reflexion — drei Diskussionsfragen:
+
+Erstens: Welche Logik der Leistungsdiagnose steckt dahinter? Das System hat euch eingestuft — aber nach welchen Kriterien? Basiert die Diagnose auf einem einzelnen Fehler oder auf einem Muster? Kennt das System den Grund für einen Fehler — oder nur die Tatsache, dass er passiert ist? Ein Schüler, der aus Unkonzentriertheit falsch antwortet, braucht keine leichteren Aufgaben — er braucht eine Pause. Aber das kann der Algorithmus nicht unterscheiden.
+
+Zweitens: Wer definiert Lernziele? Das System hat Aufgaben ausgewählt und Fortschritt gemessen. Aber wer hat entschieden, was „Fortschritt" bedeutet? Wer hat die Lernziele definiert — ihr oder der Algorithmus? Wenn Lehrkräfte die Steuerungslogik nicht kennen, delegieren sie nicht nur Aufgaben an die KI — sie delegieren die Definition von Lernerfolg.
+
+Drittens: Wo entstehen blinde Flecken? Adaptive Systeme optimieren auf das, was sie messen können. Aber was wird nicht gemessen? Kreativität? Transferleistung? Motivation? Soziale Kompetenz? Jedes System hat blinde Flecken — und diese blinden Flecken werden zu blinden Flecken im Lernprozess, wenn niemand sie benennt.
+
+Tragt eure Analyse ins Logbuch ein. Diskutiert in der Gruppe: Würdet ihr dieses System in eurem Unterricht einsetzen — und wenn ja, unter welchen Bedingungen?`,
+
+      `Willkommen bei Level 3: Tutor durch Mega-Prompt.
+
+Jetzt wird es anspruchsvoll — und kreativ. Eure Aufgabe: Erstellt mit einem Mega-Prompt euren eigenen KI-Tutor. Nicht ein Tool nutzen, das jemand anderes gebaut hat — sondern selbst definieren, wie eine KI als Tutor agieren soll.
+
+Über den Button unten findet ihr eine Anleitung für den Mega-Prompt-Ansatz. Nutzt ChatGPT, Claude oder ein anderes Sprachmodell und definiert:
+
+Die Rolle: Wer ist euer Tutor? Ein sokratischer Fragensteller? Ein geduldiger Erklärer? Ein strenger Coach? Definiert Persönlichkeit, Tonalität und Stil.
+
+Den Feedbackmodus: Wie soll der Tutor Rückmeldung geben? Sofort oder erst nach Aufforderung? Kriterial oder ermutigend? Auf welcher Ebene — Aufgabe, Prozess, Selbstregulation?
+
+Die Schwierigkeitsanpassung: Soll der Tutor einfacher werden, wenn ihr Fehler macht? Oder soll er hartnäckig nachfragen? Definiert die Logik der Anpassung explizit.
+
+Testet euren Tutor dann mit einem konkreten Lerninhalt — zum Beispiel einer Matheaufgabe, einer Textanalyse oder einer Vokabelübung. Führt mindestens drei Durchgänge durch.
+
+Dokumentiert im Logbuch:
+— Euren vollständigen Mega-Prompt
+— Wie der Tutor reagiert hat
+— Was ihr nach jeder Runde angepasst habt und warum
+— Wie zufrieden ihr mit dem Ergebnis seid`,
+
+      `Ihr habt euren eigenen KI-Tutor gebaut. Jetzt reflektieren wir — drei zentrale Fragen:
+
+Erstens: Welche Steuerungsentscheidungen habt ihr bewusst getroffen? Ihr habt definiert, wie der Tutor reagiert, welches Feedback er gibt, wann er die Schwierigkeit anpasst. Das waren bewusste Designentscheidungen. Macht sie explizit: Was habt ihr gewählt — und warum? Jede Entscheidung, die ihr getroffen habt, trifft in kommerziellen KI-Tutoring-Systemen ein Algorithmus. Der Unterschied: Eure Entscheidungen sind transparent. Die des Algorithmus oft nicht.
+
+Zweitens: Wo übernimmt die KI eigenständig Struktur? Auch wenn ihr den Mega-Prompt definiert habt — die KI interpretiert ihn. Hat sie Dinge getan, die ihr nicht vorgesehen hattet? Hat sie eigenständig den Schwierigkeitsgrad verändert? Hat sie Rückmeldungen gegeben, die über euren Prompt hinausgingen? Diese Momente sind aufschlussreich: Sie zeigen, wo die Grenze zwischen menschlicher Steuerung und algorithmischer Eigendynamik verläuft.
+
+Drittens: Wie transparent ist der Anpassungsprozess? Wenn euer Tutor die Schwierigkeit anpasst — ist für den Lernenden nachvollziehbar, warum? Oder wirkt es wie Magie? Transparenz ist ein Qualitätsmerkmal professioneller KI-Nutzung. Wenn Lernende nicht verstehen, warum sie bestimmte Aufgaben bekommen, verlieren sie die Kontrolle über ihren eigenen Lernprozess.
+
+Tragt eure Reflexion ins Logbuch ein. Vergleicht eure Erfahrung mit Level 1 und 2: Was haben die kommerziellen Tools besser gemacht — und was euer selbstgebauter Tutor?`,
+
+      `Ihr habt drei Levels durchlaufen — KI-Feedback erlebt, ein adaptives System analysiert und einen eigenen KI-Tutor gebaut. Jetzt bringt ihr alles zusammen: die Steuerungsmatrix.
+
+Erstellt eine 2x2-Matrix mit folgenden Dimensionen:
+
+Horizontale Achse: Menschliche Steuerung — niedrig bis hoch
+Vertikale Achse: Algorithmische Steuerung — niedrig bis hoch
+
+Das ergibt vier Quadranten:
+
+Oben links — Hohe algorithmische Steuerung, niedrige menschliche Steuerung: Die KI steuert den Lernprozess weitgehend autonom. Beispiel: Ein vollautomatisches adaptives Lernsystem ohne Lehrkraft-Eingriff.
+
+Oben rechts — Hohe algorithmische Steuerung, hohe menschliche Steuerung: KI und Mensch steuern gemeinsam. Beispiel: Ein adaptives System, bei dem die Lehrkraft Lernziele definiert und die KI-Empfehlungen prüft.
+
+Unten links — Niedrige algorithmische Steuerung, niedrige menschliche Steuerung: Weder KI noch Mensch steuern aktiv. Beispiel: Unbegleitetes, unstrukturiertes Online-Lernen.
+
+Unten rechts — Niedrige algorithmische Steuerung, hohe menschliche Steuerung: Der Mensch steuert, KI unterstützt punktuell. Beispiel: Klassischer Unterricht mit gelegentlichem KI-Feedback.
+
+Ordnet jetzt eure Erfahrungen aus den drei Levels ein: Wo steht der PEER KI-Tutor? Wo Westermann Smart Response? Wo euer selbstgebauter Mega-Prompt-Tutor?
+
+Dokumentiert die Matrix und eure Einordnungen im Logbuch. Begründet jede Platzierung.`,
+
+      `Ihr habt alle Levels durchlaufen und eure Steuerungsmatrix erstellt. Jetzt kommt die finale Aufgabe — die Governance-Ebene.
+
+Das hier ist das Tor zur Freischaltung. Es öffnet sich nur, wenn ihr ein verbindliches Governance-Statement formuliert.
+
+Nutzt eure Erfahrungen aus allen drei Levels und eure Steuerungsmatrix als Grundlage. Beantwortet diese Leitfragen:
+
+Eins: Wo ist algorithmische Steuerung lernförderlich — und wo wird sie problematisch? Nicht jede Automatisierung ist schlecht. Schnelles Feedback zu Rechtschreibung? Sinnvoll. Automatische Einstufung in Leistungsniveaus ohne Lehrkraft-Prüfung? Problematisch. Wo liegt die Grenze?
+
+Zwei: Welche Transparenzregeln braucht es? Wenn KI Lernpfade steuert — müssen Lernende das wissen? Müssen Lehrkräfte die Algorithmus-Logik kennen? Welche Information muss offengelegt werden?
+
+Drei: Wo muss menschliche Letztverantwortung verbindlich sein? Lernzieldefinition? Leistungsbewertung? Schullaufbahnentscheidungen? Definiert die Bereiche, in denen algorithmische Steuerung nie allein entscheiden darf.
+
+Und jetzt die Escape-Bedingung — euer 3-Satz-Governance-Statement:
+
+Satz 1: „Lernen durch KI ist sinnvoll, wenn …"
+Satz 2: „Problematisch wird es, wenn …"
+Satz 3: „Deshalb beschließen wir …"
+
+Formuliert dieses Statement gemeinsam. Nutzt eure Steuerungsmatrix als Argumentationsgrundlage. Das ist keine Meinungsübung — es ist eine Governance-Entscheidung auf Basis systematischer Analyse.
+
+Tragt euer Statement ins Logbuch ein. Wenn ihr es habt — herzlichen Glückwunsch: Die Dimension „Lernen durch KI" ist freigeschaltet.`,
+    ],
+    /* ── Kernwissen (auskommentiert) ──
     knowledgeBlocks: [
       {
         title: "KI-Feedback: Zwischen Spezifität und Schablone",
@@ -509,6 +716,8 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "KI-Tutoring schließt die 2-Sigma-Lücke teilweise, erreicht aber nicht die Wirkung menschlichen 1:1-Tutorings. Die Kombination ist entscheidend.",
       },
     ],
+    ── Ende Kernwissen ── */
+    /* ── Praxis-Übung + Wissens-Check (auskommentiert) ──
     exercise: {
       instruction:
         "Sortiere die Feedback-Beispiele: Welches Feedback ist spezifisch und professionell, welches ist generisch und oberflächlich?",
@@ -711,6 +920,7 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Formatives KI-Feedback unterstützt den Lernprozess: Schüler erhalten Rückmeldung während der Arbeit und können iterativ überarbeiten. Summatives Feedback bewertet nach Abschluss. Pädagogischer Konsens: Formatives Feedback ist lernwirksamer, weil es den nächsten Lernschritt aktiv unterstützt.",
       },
     ],
+    ── Ende Praxis-Übung + Wissens-Check ── */
     challengeSummary:
       "Du kannst jetzt KI-Feedback mit dem Hattie-Timperley-Modell professionell bewerten, kennst Blooms 2-Sigma-Problem und die Grenzen von KI-Tutoring, und weißt, wo menschliche Verantwortung unverzichtbar bleibt. In der Challenge testest du dieses Wissen an den Lernstationen.",
   },
@@ -724,6 +934,8 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
     introText:
       "KI als Werkzeug einsetzen kann jeder. Aber KI als Ko-Kreationspartner professionell nutzen — das braucht Struktur, Transparenz und klare Rollenverteilung. In diesem Tutorial lernst du, wie Prompt-Iteration funktioniert, warum Dokumentation unverzichtbar ist und welche Governance-Regeln professionelle Ko-Kreation braucht.",
     videoUrl: "https://www.youtube-nocookie.com/embed/wjZofJX0v4M",
+    hideEinstieg: true,
+    /* ── Kernwissen (auskommentiert) ──
     knowledgeBlocks: [
       {
         title: "Ko-Kreation: Mehr als Copy-Paste",
@@ -771,6 +983,198 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Bildung ist laut EU AI Act ein Hochrisiko-Bereich. Governance ist keine Kür, sondern wachsende rechtliche Pflicht.",
       },
     ],
+    ── Ende Kernwissen ── */
+    mitLessons: [
+      { title: "Willkommen in der Dimension MIT", type: "video" },
+      { title: "Spielregeln: Logbuch & Transparenz", type: "video" },
+      { title: "Level 1: Der digitale Würfel – Auftrag", type: "video" },
+      { title: "Level 1: Der digitale Würfel – Reflexion", type: "video" },
+      { title: "Insel 1: Generative Transformation – Comic zu Anne Frank", type: "video" },
+      { title: "Insel 1: Generative Transformation – Reflexion", type: "video" },
+      { title: "Insel 2: Wissensverdichtung – Auftrag", type: "video" },
+      { title: "Insel 2: Wissensverdichtung – Reflexion", type: "video" },
+      { title: "Insel 3: Simulierter Dialog – Auftrag & Reflexion", type: "video" },
+      { title: "Governance-Ebene: Das Tor zur Freischaltung", type: "video" },
+    ],
+    mitLessonsVideoUrls: [
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Toni%20Intro.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Spielregeln-%20Logbuch%20%26%20Transparenz.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Level%201-%20Der%20digitale%20Wu%CC%88rfel%20%E2%80%93%20Auftrag.mp4",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ],
+    mitLessonsLinks: {
+      6: { url: "https://notebooklm.google.com/", label: "NotebookLM öffnen" },
+    },
+    mitLessonsScripts: [
+      `Herzlich willkommen zum Bereich „Lernen mit KI"! Ich bin Toni und ich freue mich, dass du dabei bist.
+
+Bevor wir loslegen, eine kurze Orientierung: In diesem Tutorial geht es darum, wie Lernprozesse mit KI ausgestaltet werden können. Es soll für dich erfahrbar werden, welches Anwendungs- und Strategiewissen Lernende brauchen, um die eigenen Lernprozesse mit KI zu unterstützen und Lernprodukte neu zu denken.
+
+Du wirst dabei nicht nur zuhören und lesen, sondern vor allem selbst ausprobieren. Wir starten gleich mit einem kleinen Experiment, mit dessen Ergebnis du dann entscheidest, welchen Lernpfad du beschreiten kannst.
+
+Je nachdem wie viel Zeit du mitbringst, kannst du natürlich auch alle Lernpfade gehen: Von generativen Transformationen, zu KI-Wissensverdichtungen bis hin zum simulierten Dialog.
+
+Eine zentrale Frage begleitet dich dabei: Wie kann KI kooperativ in Lehr- und Lernprozesse eingebettet werden? Bereise die komplette Lernlandkarte — jede Insel steht für eine spezifische Form der kooperativen KI-Nutzung. Am Ende formulierst du ein verbindliches Governance-Statement für deine Einrichtung.
+
+Und keine Sorge: Du brauchst dafür keinerlei Vorkenntnisse. Alles, was du mitbringen musst, ist Neugier.
+
+Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen gesamten Bereich begleiten wird.`,
+
+      ``,
+
+      `Willkommen auf Level 1: Der digitale Würfel.
+
+Eure Aufgabe klingt einfach: Programmiert mit Hilfe einer KI einen funktionierenden digitalen Würfel, der Zahlen von 1 bis 6 anzeigt. Das kann eine Webseite sein, ein Python-Skript, eine App — das Format ist euch überlassen.
+
+Aber Achtung: Es geht nicht um das Ergebnis allein. Es geht um den Weg dorthin.
+
+So geht ihr vor: Öffnet ein KI-Tool eurer Wahl — ChatGPT, Claude, Copilot, was auch immer. Formuliert euren ersten Prompt. Und jetzt wird es wichtig: Dokumentiert im Logbuch, was ihr promptet, was die KI liefert, was ihr ändert und warum.
+
+Testet den Würfel. Funktioniert er? Zeigt er wirklich zufällige Zahlen? Ist das Design ansprechend? Wenn nicht — iteriert. Verbessert den Prompt, gebt Feedback an die KI, passt an.
+
+Notiert im Logbuch:
+— Prompt Nummer 1: Was habt ihr geschrieben?
+— Ergebnis: Was kam zurück?
+— Bewertung: Was war gut, was nicht?
+— Prompt Nummer 2: Was habt ihr geändert und warum?
+
+Wiederholt das, bis ihr zufrieden seid. Zählt die Iterationen. Die meisten Teams brauchen zwischen 3 und 7 Durchläufe — das ist völlig normal und zeigt, dass Ko-Kreation ein Prozess ist, keine Einmal-Aktion.
+
+Viel Erfolg — und vergesst das Logbuch nicht!`,
+
+      `Ihr habt euren digitalen Würfel gebaut — Glückwunsch! Jetzt kommt der entscheidende Teil: die Reflexion. Denn ohne Reflexion ist das hier nur eine Programmierübung. Mit Reflexion wird es zu einer Lektion über professionelle KI-Kooperation.
+
+Drei Fragen für euer Logbuch:
+
+Erstens: Welche Promptstrategie war erfolgreich? Habt ihr mit einem sehr allgemeinen Prompt gestartet und euch dann verfeinert? Oder wart ihr von Anfang an spezifisch? Was hat besser funktioniert — und warum? Die meisten stellen fest: Je klarer die Aufgabenbeschreibung, desto besser das Ergebnis. Das ist der Kern der Kompetenz „Beschreibung" aus dem AI Fluency Framework.
+
+Zweitens: Welche Fehler traten auf? Hat die KI Code generiert, der nicht funktioniert hat? Waren die Zufallszahlen wirklich zufällig? Gab es Designprobleme? Fehler sind kein Versagen — sie sind Lernmomente. Dokumentiert, welche Fehler auftraten und wie ihr sie behoben habt.
+
+Drittens: Welche Kompetenzen braucht ihr zur Qualitätskontrolle? Konntet ihr den Code lesen und verstehen? Oder habt ihr blind vertraut? Das ist eine zentrale Frage: Wenn wir KI-Outputs nicht prüfen können, delegieren wir — statt zu kooperieren. Urteilsfähigkeit ist hier der Schlüssel.
+
+Tragt eure Antworten ins Logbuch ein. Erst dann ist Level 1 abgeschlossen und Insel 1 wird freigeschaltet.`,
+
+      `Willkommen auf Insel 1: Generative Transformation.
+
+Hier verlassen wir die Welt des Codes und betreten die Welt der kreativen KI-Nutzung. Euer Auftrag: Erstellt mit einem generativen KI-Tool einen Comic zu einem Tagebucheintrag von Anne Frank.
+
+Hier ist der Eintrag, mit dem ihr arbeitet:
+
+„Sonntag, 27. Februar 1944
+Liebste Kitty!
+Von morgens früh bis abends spät denke ich eigentlich an nichts anderes als an Peter. Ich schlafe mit seinem Bild vor Augen ein, träume von ihm und werde wieder wach, wenn er mich anschaut.
+Ich glaube, dass Peter und ich gar nicht so verschieden sind, wie das von außen wirkt, und ich erkläre dir auch warum: Peter und ich vermissen beide eine Mutter. Seine ist zu oberflächlich, flirtet gern und kümmert sich nicht viel um Peters Gedanken. Meine bemüht sich zwar um mich, hat aber keinen Takt, kein Feingefühl, kein mütterliches Verständnis.
+Peter und ich kämpfen beide in unserem Inneren. Wir sind beide noch unsicher und eigentlich zu zerbrechlich und innerlich zu zart, um so hart angepackt zu werden. Dann will ich raus oder will mein Inneres verbergen. Ich werfe mit Töpfen und Wasser und bin laut und lärmend, sodass jeder sich wünscht, ich wäre weit weg. Er zieht sich dann zurück, spricht fast nicht, ist still und träumt und verbirgt sich ängstlich.
+Aber wie und wann werden wir uns endlich finden?
+Ich weiß nicht, wie lange ich dieses Verlangen noch mit meinem Verstand beherrschen kann.
+Deine Anne M. Frank"
+
+Eure Aufgabe: Verwandelt diesen Tagebucheintrag in einen Comic — mit mehreren Panels, die die Stimmung, die Gedanken und die Situation visuell erzählen. Nutzt dafür ein generatives Bild-Tool eurer Wahl — DALL-E, Midjourney, Adobe Firefly, Stable Diffusion oder ein anderes Tool.
+
+Überlegt euch: Wie setzt ihr die innere Zerrissenheit visuell um? Wie stellt ihr die Unterschiede zwischen Anne und Peter dar — sie laut und lärmend, er still und zurückgezogen? Welchen visuellen Stil wählt ihr — realistisch, expressionistisch, Graphic-Novel-Stil?
+
+Dokumentiert im Logbuch:
+— Welche Szenen habt ihr für die Panels ausgewählt und warum?
+— Welche Bild-Prompts habt ihr formuliert?
+— Wie viele Iterationen waren pro Panel nötig?
+— Was habt ihr am Prompt verändert und warum?
+— Wie zufrieden seid ihr mit dem Ergebnis?
+
+Achtet besonders darauf: Was ist eure kreative Leistung — die Auswahl der Szenen, die Dramaturgie, die Reihenfolge — und was ist die Leistung des Tools? Wo habt ihr gesteuert, wo hat die KI überrascht? Diese Trennung ist besonders wichtig, weil ihr hier mit dem realen Tagebuch einer historischen Person arbeitet.
+
+Startet jetzt — und haltet alles im Logbuch fest.`,
+
+      `Ihr habt einen Comic zu Anne Franks Tagebucheintrag erstellt. Jetzt reflektieren wir — drei zentrale Fragen:
+
+Erstens: Was verändert KI an der Rezeption? Wenn ihr den Tagebucheintrag vom 27. Februar 1944 lest und dann euren Comic seht — verändert die visuelle Darstellung, wie ihr den Text wahrnehmt? Verstärkt der Comic die Emotionalität? Oder vereinfacht er die innere Zerrissenheit, die Anne beschreibt? Wenn sie schreibt „Ich werfe mit Töpfen und Wasser und bin laut und lärmend" — wird das in einem Comic-Panel stärker, schwächer oder anders als im Text? Generative KI transformiert nicht nur das Medium — sie transformiert die Bedeutung. Gerade bei einem so persönlichen, historisch bedeutsamen Text ist das pädagogisch hochrelevant.
+
+Zweitens: Wo liegt eure Eigenleistung? Habt ihr den Comic „gemacht"? Oder hat die KI ihn gemacht und ihr habt nur Prompts eingegeben? Die Wahrheit liegt dazwischen: Eure Eigenleistung liegt in der Auswahl der Szenen, der Dramaturgie, der Promptgestaltung, der Iteration und der kritischen Bewertung. Ihr habt entschieden, welche Momente des Eintrags zu Panels werden — die Sehnsucht nach Peter, die Einsamkeit, das Versteckspiel der Gefühle. Aber diese Anteile müssen klar benannt werden — sonst wird aus Ko-Kreation eine Illusion.
+
+Drittens: Welche ethischen Grenzen werden berührt? Hier wird es besonders ernst: Ihr arbeitet mit dem Tagebuch einer realen Person — eines jüdischen Mädchens, das im Holocaust ermordet wurde. Dürft ihr Anne Franks intimste Gedanken visuell darstellen lassen? Wer hat die Deutungshoheit über ihre Worte? Wie stellt die KI Anne dar — stereotyp, historisch korrekt, verfremdet? Gibt es eine Darstellung, die ihrer Würde nicht gerecht wird? Und: Wie geht ihr damit um, wenn die KI ein Bild generiert, das Anne Franks Realität verzerrt oder trivialisiert? Diese Fragen sind keine Nebensache — sie sind der Kern der Übung. Generative KI wirft Fragen auf, die wir im Unterricht nicht ignorieren dürfen: Persönlichkeitsrechte, historische Verantwortung, Darstellungsmacht und die Grenzen der Visualisierung von Leid.
+
+Tragt eure Reflexion ins Logbuch ein. Seid ehrlich mit euch selbst — das ist kein Test, sondern eine Übung in professioneller Selbstreflexion. Und diskutiert in der Gruppe: Gibt es einen Punkt, an dem ihr sagt — das sollte man nicht mit KI visualisieren?`,
+
+      `Willkommen auf Insel 2: Wissensverdichtung.
+
+Hier geht es um eine der mächtigsten Anwendungen kooperativer KI-Nutzung: die Verdichtung komplexer Inhalte in neue Formate. Euer Auftrag: Erstellt mit NotebookLM einen Podcast aus einem langen Sachtext.
+
+So geht ihr vor: Wählt einen Sachtext — das kann ein Fachartikel sein, ein Kapitel aus einem Lehrbuch, ein wissenschaftlicher Bericht. Der Text sollte mindestens zwei Seiten lang sein, besser mehr.
+
+Ladet den Text in Google NotebookLM hoch. Nutzt die Podcast-Funktion, um eine Audio-Zusammenfassung generieren zu lassen. Hört euch das Ergebnis an.
+
+Und jetzt wird es spannend — denn jetzt beginnt eure eigentliche Arbeit:
+— Stimmt die Zusammenfassung inhaltlich?
+— Wurden wichtige Punkte weggelassen?
+— Wurden Nuancen vereinfacht oder gar verfälscht?
+— Ist die Gewichtung der Themen angemessen?
+
+Dokumentiert im Logbuch:
+— Welchen Text habt ihr verwendet?
+— Was hat NotebookLM daraus gemacht?
+— Welche Qualitätsprüfung habt ihr durchgeführt?
+— Was musstet ihr korrigieren oder ergänzen?
+
+Der Podcast klingt vielleicht beeindruckend — aber klingt gut ist nicht gleich inhaltlich korrekt. Genau das ist die Lektion dieser Insel.`,
+
+      `Euer KI-Podcast ist fertig. Jetzt reflektieren wir — drei Fragen für das Logbuch:
+
+Erstens: Welche Strukturierungsleistung habt ihr erbracht? Die KI hat den Text verdichtet — aber wer hat entschieden, ob die Verdichtung gut ist? Ihr. Wer hat den Ausgangstext ausgewählt? Ihr. Wer hat geprüft, ob nichts Wichtiges fehlt? Ihr. Die eigentliche intellektuelle Leistung liegt nicht in der Zusammenfassung, sondern in der Qualitätskontrolle und der Bewertung.
+
+Zweitens: Welche Qualitätskontrolle war nötig? Habt ihr den Podcast Wort für Wort mit dem Original abgeglichen? Oder nur stichprobenartig gehört? Wie gründlich muss die Prüfung sein? Das hängt vom Verwendungszweck ab: Für eine interne Notiz reicht eine Stichprobe. Für Unterrichtsmaterial, das Schülerinnen und Schüler nutzen, braucht es eine vollständige Prüfung.
+
+Drittens: Wo entstehen Verkürzungen? Jede Verdichtung verliert Information. Die Frage ist: Welche Information geht verloren — und ist das akzeptabel? Werden Gegenargumente verschluckt? Werden Unsicherheiten zu Gewissheiten? Wird Komplexität zu Einfachheit? Diese Verkürzungen sind nicht böswillig — sie sind systemisch. Und genau deshalb muss jede KI-gestützte Verdichtung professionell geprüft werden.
+
+Tragt eure Reflexion ins Logbuch ein. Ihr seid jetzt bereit für Insel 3.`,
+
+      `Willkommen auf Insel 3: Simulierter Dialog.
+
+Hier betreten wir pädagogisch spannendes, aber auch heikles Terrain. Euer Auftrag: Führt einen Dialog mit einer KI-Simulation, um historische Perspektiven zu erkunden.
+
+Das bedeutet: Ihr promptet eine KI so, dass sie in die Rolle einer historischen Person schlüpft — zum Beispiel Marie Curie, Martin Luther King oder Hannah Arendt. Stellt Fragen, führt ein Gespräch, erkundet Perspektiven.
+
+Aber Achtung — hier beginnen die Reflexionsfragen schon während der Übung:
+
+Erstens: Welche Fragen habt ihr gestellt — und warum? Habt ihr oberflächlich gefragt oder in die Tiefe gebohrt? Habt ihr versucht, die KI an ihre Grenzen zu bringen? Die Qualität des Dialogs hängt von euren Fragen ab, nicht von der KI.
+
+Zweitens: Wo stößt Simulation an Grenzen? Die KI „ist" nicht Marie Curie. Sie simuliert, basierend auf Texten über und von Marie Curie. Aber sie hat keine authentische Perspektive, keine echte Erfahrung, keine Emotionen. Was die KI liefert, ist eine statistische Rekonstruktion — plausibel, aber nicht authentisch. Wo wird das problematisch?
+
+Drittens: Ist das pädagogisch legitim? Dürfen wir historische Personen simulieren lassen? Was gewinnen Lernende dadurch — und was geht verloren? Besteht die Gefahr, dass Schülerinnen und Schüler die Simulation für die Realität halten? Wie rahmen wir das didaktisch ein?
+
+Dokumentiert im Logbuch: Eure Prompts, die KI-Antworten, eure Beobachtungen und eure pädagogische Bewertung. Seid kritisch — das ist die anspruchsvollste Insel.`,
+
+      `Ihr habt alle Inseln bereist. Ihr habt programmiert, transformiert, verdichtet und simuliert. Ihr habt dokumentiert und reflektiert. Jetzt kommt die finale Aufgabe — die Governance-Ebene.
+
+Das hier ist das Tor zur Freischaltung. Und es öffnet sich nur, wenn ihr verbindliche Steuerungsfragen für eure Einrichtung formuliert.
+
+Fünf Fragen, die ihr beantworten müsst:
+
+Eins: Wo ist KI kooperativ lernförderlich — und wo substituierend? Nicht jeder KI-Einsatz ist Kooperation. Manchmal ersetzt KI menschliches Denken, statt es zu erweitern. Wo liegt die Grenze?
+
+Zwei: Welche Transparenzregeln braucht das Referendariat? Wenn Referendarinnen und Referendare KI nutzen — wie muss das dokumentiert werden? Was muss offengelegt werden?
+
+Drei: Welche Prüfungsformate sichern Eigenleistung trotz KI? Wenn KI mitschreibt, mitdenkt, mitgestaltet — wie stellen wir sicher, dass wir die Kompetenz der Person prüfen, nicht die der Maschine?
+
+Vier: Welche ethischen Leitplanken müssen verbindlich sein? Nicht optional, nicht empfohlen — verbindlich. Was darf nie passieren? Was muss immer passieren?
+
+Fünf: Wie wird Kompetenzzuwachs sichtbar gemacht? Wenn der Prozess wichtiger ist als das Produkt — wie dokumentieren und bewerten wir den Prozess?
+
+Und jetzt die Escape-Bedingung — euer 3-Satz-Governance-Statement:
+
+Satz 1: „Lernen mit KI ist professionell, wenn …"
+Satz 2: „Lernen mit KI wird problematisch, wenn …"
+Satz 3: „Deshalb beschließen wir …"
+
+Formuliert dieses Statement gemeinsam. Diskutiert. Ringt um Formulierungen. Das ist keine Fleißaufgabe — das ist der Kern professioneller Governance.
+
+Tragt euer Statement ins Logbuch ein. Wenn ihr es habt — herzlichen Glückwunsch: Die Dimension „Lernen mit KI" ist freigeschaltet.`,
+    ],
+    /* ── Praxis-Übung + Wissens-Check (auskommentiert) ──
     exercise: {
       instruction:
         "Sortiere die Aufgaben: Was sollte der Mensch machen und wo kann KI unterstützen?",
@@ -978,6 +1382,7 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Beim Few-Shot Prompting werden der KI 2-5 Beispiele des gewünschten Formats gezeigt. Die KI erkennt das Muster und überträgt es auf neue Aufgaben. Das zeigt, dass KI Muster reproduziert statt zu verstehen — ein wichtiges KI-Literacy-Konzept.",
       },
     ],
+    ── Ende Praxis-Übung + Wissens-Check ── */
     challengeSummary:
       "Du verstehst jetzt den Unterschied zwischen Ko-Kreation und Delegation, beherrschst Prompt-Techniken wie Chain-of-Thought und Few-Shot, weißt warum Prompt-Dokumentation wichtig ist und kennst die Grundlagen professioneller KI-Governance — von der KMK-Empfehlung bis zum EU AI Act. Ab in die Challenge!",
   },
@@ -991,6 +1396,200 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
     introText:
       "KI kann beeindruckende Entwürfe liefern — Unterrichtspläne, Klausuren, Feedbacktexte. Aber formal starke Outputs können didaktisch schwach sein. In diesem Tutorial trainierst du, wie Lehrkräfte auch bei überzeugenden KI-Ausgaben professionell prüfen, begründen und verantworten. Es geht um die Fähigkeiten, die trotz (und gerade wegen) KI unverzichtbar bleiben.",
     videoUrl: "https://www.youtube-nocookie.com/embed/2ePf9rue1Ao",
+    hideEinstieg: true,
+    ltkLessons: [
+      { title: "Willkommen in der Dimension LTK", type: "video" },
+      { title: "Spielregeln & Leitfrage", type: "video" },
+      { title: "Schritt 1: Ersteinschätzung des KI-Entwurfs", type: "video" },
+      { title: "Schritt 2A: Analyse – Oberflächenqualität", type: "video" },
+      { title: "Schritt 2B: Analyse – Didaktische Tiefenstruktur", type: "video" },
+      { title: "Schritt 2C: Analyse – Situationsspezifik", type: "video" },
+      { title: "Schritt 3: Typische Problemkategorien bündeln", type: "video" },
+      { title: "Schritt 4: Leitfragen formulieren", type: "video" },
+      { title: "Schritt 5: Die professionelle Warum-Begründung", type: "video" },
+      { title: "Abschluss: Ergebnisse & Governance-Statement", type: "video" },
+    ],
+    ltkLessonsVideoUrls: ["", "", "", "", "", "", "", "", "", ""],
+    ltkLessonsScripts: [
+      `Willkommen in der Dimension „Lernen trotz KI"! Ich bin Toni und ich freue mich, dass du dabei bist.
+
+Diese Dimension stellt eine provokante Frage: Warum soll ich eigentlich noch lernen, einen Unterrichtsentwurf zu schreiben — Verlaufsplan, didaktische Analyse, methodische Begründung — wenn KI das scheinbar besser und schneller kann?
+
+Das ist keine rhetorische Frage. Das ist eine ernst gemeinte Herausforderung. Denn KI kann tatsächlich in Minuten einen Unterrichtsentwurf generieren, der formal überzeugend aussieht: klare Gliederung, passende Fachbegriffe, zeitliche Struktur, Differenzierungshinweise. Auf den ersten Blick — beeindruckend.
+
+Aber genau hier beginnt eure Arbeit. Denn „sieht gut aus" ist nicht dasselbe wie „funktioniert didaktisch". Und genau diesen Unterschied werdet ihr in dieser Dimension diagnostizieren, analysieren und begründen.
+
+Euer Ziel: Typische Schwächen KI-generierter Unterrichtsentwürfe identifizieren. Daraus Konsequenzen für Ausbildung und Prüfungen ableiten. Und am Ende eine professionelle Begründung formulieren — warum das eigene Schreiben von Unterrichtsentwürfen trotz KI unverzichtbar bleibt.
+
+Das ist keine Übung im KI-Bashing. Es ist eine Übung in professioneller Urteilskraft. Denn wer die Schwächen eines KI-Entwurfs nicht erkennt, kann ihn auch nicht verbessern — und genau das ist die Kompetenz, die trotz KI unverzichtbar bleibt.
+
+Also — los geht's!`,
+
+      `Bevor wir starten, die Spielregeln und die zentrale Leitfrage dieser Dimension.
+
+Die Leitfrage lautet: Warum soll ich lernen, einen Unterrichtsentwurf zu schreiben, wenn KI das scheinbar besser und schneller kann?
+
+Diese Frage begleitet euch durch alle Schritte. Am Ende werdet ihr sie nicht einfach beantworten — ihr werdet sie begründen. Dreifach. Professionell. Belastbar.
+
+Jetzt die Spielregeln:
+
+Regel Nummer 1: Arbeitet systematisch. Ihr bekommt ein Analyse-Raster mit drei Ebenen — Oberfläche, Tiefenstruktur, Situationsspezifik. Nutzt es konsequent.
+
+Regel Nummer 2: Dokumentiert alles im Logbuch. Eure Befunde, eure Bewertungen, eure Begründungen. Das Logbuch ist euer Nachweis professioneller Urteilskraft.
+
+Regel Nummer 3: Seid ehrlich. Wenn der KI-Entwurf etwas gut macht — benennt das. Wenn er versagt — benennt auch das. Differenzierung ist keine Schwäche, sondern Stärke.
+
+Regel Nummer 4: Am Ende steht ein Abschlussprodukt — fünf typische Failure-Modes, sechs Leitfragen, ein Why-Statement und eine konkrete Konsequenz. Das ist eure Escape-Bedingung.
+
+Nehmt euer Logbuch — es geht los mit der Ersteinschätzung.`,
+
+      `Schritt 1: Ersteinschätzung.
+
+Ihr bekommt jetzt einen KI-generierten Beispielentwurf für eine Unterrichtsstunde. Lest ihn vollständig durch — nehmt euch dafür etwa fünf Minuten.
+
+Während ihr lest, achtet auf euren ersten Eindruck. Nicht analysieren, noch nicht. Nur lesen und wahrnehmen.
+
+Wenn ihr fertig seid, beantwortet eine einzige Frage: Würde dieser Entwurf eine Lehrprobe bestehen? Bewertet auf einer Skala von 0 bis 10.
+
+0 bedeutet: Keine Chance.
+5 bedeutet: Mit erheblicher Überarbeitung vielleicht.
+10 bedeutet: Sofort einsetzbar, herausragend.
+
+Begründet eure Einschätzung stichpunktartig. Nicht ausformuliert — drei bis fünf Stichpunkte reichen. Was fällt euch auf? Was überzeugt? Was irritiert? Was fehlt?
+
+Tragt eure Bewertung und die Stichpunkte ins Logbuch ein.
+
+Wichtig: Es gibt hier kein richtig oder falsch. Es geht um eure professionelle Ersteinschätzung — euer Bauchgefühl, informiert durch eure Ausbildung und Erfahrung. Genau dieses Urteil werden wir in den nächsten Schritten systematisch überprüfen.
+
+Haltet eure Ersteinschätzung fest — wir werden am Ende darauf zurückkommen und sehen, ob sich eure Bewertung verändert hat.`,
+
+      `Schritt 2A: Analyse der Oberflächenqualität.
+
+Jetzt geht es in die systematische Analyse. Wir arbeiten mit einem dreistufigen Analyse-Raster. Die erste Ebene ist die Oberflächenqualität.
+
+Prüft den KI-Entwurf anhand von drei Kriterien:
+
+Erstens: Vollständigkeit und Struktur. Sind alle erwarteten Elemente vorhanden — Lernziele, Sachanalyse, didaktische Analyse, methodische Begründung, Verlaufsplan, Materialien? Ist die Gliederung logisch und nachvollziehbar? Fehlt etwas Wesentliches?
+
+Zweitens: Sprachliche Klarheit. Ist der Text verständlich und präzise formuliert? Oder gibt es Passagen, die zwar professionell klingen, aber bei genauerem Hinsehen vage bleiben? Achtet besonders auf Formulierungen wie „Die Schülerinnen und Schüler vertiefen ihr Verständnis" — das klingt gut, sagt aber nichts Konkretes.
+
+Drittens: Formale Stimmigkeit. Stimmen Zeitangaben? Sind Sozialformen konsistent benannt? Passen die Materialverweise? Gibt es Widersprüche zwischen Verlaufsplan und didaktischer Analyse?
+
+Die Oberfläche ist das, was KI typischerweise gut kann. Wenn hier schon Fehler auftreten, ist das ein klares Signal. Aber selbst wenn die Oberfläche perfekt ist — das sagt noch nichts über die didaktische Qualität aus.
+
+Tragt eure Befunde ins Logbuch ein. Für jedes Kriterium: Was ist gelungen? Was fehlt oder irritiert?`,
+
+      `Schritt 2B: Analyse der didaktischen Tiefenstruktur.
+
+Jetzt verlassen wir die Oberfläche und gehen in die Tiefe. Hier zeigt sich, ob ein Entwurf didaktisch tragfähig ist — oder nur so aussieht.
+
+Prüft den KI-Entwurf anhand von fünf Kriterien:
+
+Erstens: Ist die fachliche Sachanalyse tragfähig? Hat der Entwurf den Lerngegenstand wirklich durchdrungen — oder nur Oberflächen-Wissen zusammengestellt? Erkennt ihr fachliche Verkürzungen, Ungenauigkeiten oder fehlende Tiefe?
+
+Zweitens: Ist die Lernlogik nachvollziehbar begründet? Warum werden die Phasen in dieser Reihenfolge angeordnet? Gibt es eine erkennbare Progression — vom Einfachen zum Komplexen, vom Konkreten zum Abstrakten? Oder ist die Reihenfolge beliebig?
+
+Drittens: Ist die Antizipation von Schülerdenken erkennbar? Ein guter Entwurf zeigt, dass die Lehrkraft vorausdenkt: Wo werden Schüler stolpern? Welche Fehlvorstellungen sind wahrscheinlich? Welche Rückfragen kommen? KI-Entwürfe haben hier typischerweise eine massive Schwäche — sie kennen keine echten Schüler.
+
+Viertens: Ist die Differenzierung konkret oder generisch? „Leistungsstärkere Schüler erhalten anspruchsvollere Aufgaben" — das ist eine Nicht-Aussage. Konkrete Differenzierung benennt: Welche Aufgabe? Für wen? Warum?
+
+Fünftens: Passung von Zielen, Aufgaben und Sicherung. Führen die Aufgaben tatsächlich zum formulierten Lernziel? Sichert die Sicherungsphase, was erarbeitet wurde — oder wiederholt sie nur? Das ist der Kohärenz-Check.
+
+Tragt eure Befunde ins Logbuch ein. Hier werden die meisten Schwächen sichtbar.`,
+
+      `Schritt 2C: Analyse der Situationsspezifik.
+
+Die dritte Ebene ist die persönlichste — und die, die KI am wenigsten leisten kann.
+
+Prüft den KI-Entwurf anhand von drei Kriterien:
+
+Erstens: Berücksichtigung der Lerngruppe. Kennt der Entwurf die Klasse, für die er geschrieben ist? Gibt es Hinweise auf konkrete Schüler, auf Leistungsunterschiede, auf soziale Dynamiken, auf Vorkenntnisse? Oder könnte dieser Entwurf für jede beliebige Klasse geschrieben sein? Genau das ist der Punkt: KI schreibt für keine Klasse — sie schreibt für alle und damit für keine.
+
+Zweitens: Realistische Zeitplanung. Sind die Zeitangaben im Verlaufsplan realistisch? Fünf Minuten für einen Einstieg, der ein Video, eine Diskussion und eine Überleitung enthält — funktioniert das? Wer unterrichtet hat, weiß: Zeitplanung ist Erfahrungswissen. KI hat keine Unterrichtserfahrung.
+
+Drittens: Kontext- und Anschlussfähigkeit. Passt die Stunde in eine Reihe? Baut sie auf Vorwissen auf? Bereitet sie etwas vor? Oder steht sie isoliert da — ein perfektes Einzelstück ohne Zusammenhang?
+
+Tragt eure Befunde ins Logbuch ein. Die Situationsspezifik ist der stärkste Grund, warum eigenes Planen trotz KI unverzichtbar bleibt — weil nur ihr eure Klasse kennt.`,
+
+      `Schritt 3: Typische Problemkategorien bündeln.
+
+Ihr habt den KI-Entwurf auf drei Ebenen analysiert — Oberfläche, Tiefenstruktur, Situationsspezifik. Jetzt verdichtet ihr eure Befunde.
+
+Eure Aufgabe: Formuliert maximal fünf typische Problemfelder — die „Failure-Modes" KI-generierter Unterrichtsentwürfe. Das sind wiederkehrende Muster, nicht Einzelfehler.
+
+Hier sind fünf Kategorien als Orientierung — ihr könnt sie übernehmen, anpassen oder eigene formulieren:
+
+Erstens: Generisches Didaktisieren. Der Entwurf klingt professionell, passt aber auf jede Klasse, jedes Thema, jede Situation. Es fehlt das Spezifische.
+
+Zweitens: Pseudo-Begründungen. „Die Methode fördert die Schüleraktivierung" — das ist keine Begründung, das ist ein Buzzword. Echte Begründungen erklären warum, nicht nur was.
+
+Drittens: Fehlende Antizipation. Der Entwurf plant den Idealfall — aber nicht den Realfall. Keine Schülerfehler, keine Störungen, keine Nachfragen.
+
+Viertens: Prüfungslogische Unschärfe. Der Entwurf zeigt nicht, was die Lehrkraft selbst durchdacht hat. In einer Prüfung muss der Entwurf das eigene Denken sichtbar machen — KI-Entwürfe machen KI-Denken sichtbar.
+
+Fünftens: Normative Blindstellen. Der Entwurf trifft keine Wertentscheidungen — er benennt keine ethischen Abwägungen, keine pädagogischen Haltungen, keine bewussten Auslassungen.
+
+Tragt eure fünf Failure-Modes ins Logbuch ein. Belegt jeden mit einem konkreten Beispiel aus dem analysierten Entwurf.`,
+
+      `Schritt 4: Leitfragen formulieren.
+
+Ihr habt diagnostiziert, was KI-Entwürfe typischerweise nicht können. Jetzt leitet ihr daraus Konsequenzen ab — in Form von Leitfragen.
+
+Formuliert mindestens sechs Leitfragen in drei Bereichen:
+
+Bereich A — Ausbildungsziele: Was muss die Ausbildung sicherstellen, damit angehende Lehrkräfte die Schwächen von KI-Entwürfen erkennen und professionell damit umgehen können? Beispiel: „Welche diagnostischen Kompetenzen brauchen Referendarinnen und Referendare, um KI-Outputs didaktisch bewerten zu können?"
+
+Bereich B — Prüfungsvalidität: Wie müssen Prüfungsformate angepasst werden, damit sie Eigenleistung sichtbar machen — auch wenn KI-Tools verfügbar sind? Beispiel: „Wie kann eine Lehrprobe nachweisen, dass der Entwurf auf eigenem professionellem Denken basiert — und nicht auf KI-Output?"
+
+Bereich C — Governance und Transparenzregeln: Welche verbindlichen Regeln braucht es für den Umgang mit KI in der Ausbildung? Beispiel: „Muss offengelegt werden, wenn KI bei der Erstellung eines Unterrichtsentwurfs genutzt wurde? Und wenn ja — wie?"
+
+Formuliert mindestens zwei Leitfragen pro Bereich. Seid konkret — keine abstrakten Grundsatzfragen, sondern Fragen, die direkt in Ausbildungsrichtlinien übersetzt werden können.
+
+Tragt eure Leitfragen ins Logbuch ein.`,
+
+      `Schritt 5: Die professionelle Warum-Begründung.
+
+Jetzt kommt der Kern dieser Dimension. Ihr habt analysiert, diagnostiziert, Leitfragen formuliert. Jetzt beantwortet ihr die Ausgangsfrage — professionell, dreifach, belastbar.
+
+Warum soll ich einen Unterrichtsentwurf selbst schreiben, wenn KI das scheinbar kann?
+
+Formuliert eine dreifache Begründung:
+
+Erstens — das Professionalisierungsargument: Eigenes Planen trainiert Urteilskraft und Verantwortungsübernahme. Wer nur KI-Entwürfe übernimmt, entwickelt keine professionelle Identität als Lehrkraft. Das Schreiben eines Entwurfs ist kein Selbstzweck — es ist ein Denkprozess, der pädagogische Urteilskraft aufbaut.
+
+Zweitens — das Erkenntnisargument: Der Wert liegt nicht im Produkt, sondern im Prozess. Beim Schreiben eines Entwurfs durchdringt die Lehrkraft den Lerngegenstand, antizipiert Schülerdenken, trifft bewusste Entscheidungen. Diese kognitive Arbeit kann nicht delegiert werden, ohne den Lerneffekt zu verlieren.
+
+Drittens — das Prüfungsargument: Prüfungen müssen Eigenleistung nachweisen. Wenn ein Entwurf von KI stammt, prüft die Prüfung nicht die Kompetenz der Lehrkraft, sondern die Leistungsfähigkeit der KI. Das untergräbt die Validität jeder Prüfung.
+
+Formuliert euer Why-Statement: Maximal 90 Sekunden, wenn ihr es laut vorlest. Prägnant, argumentativ, dreifach begründet.
+
+Tragt es ins Logbuch ein.`,
+
+      `Abschluss: Ergebnisse zusammenführen und Governance-Statement.
+
+Ihr habt alle Schritte durchlaufen. Jetzt führt ihr eure Ergebnisse zusammen — das ist euer Abschlussprodukt und die Escape-Bedingung.
+
+Vier Elemente, die ihr im Logbuch haben müsst:
+
+Erstens: Fünf typische Failure-Modes KI-generierter Unterrichtsentwürfe — jeweils mit konkretem Beispiel aus eurer Analyse.
+
+Zweitens: Sechs Leitfragen für die Einrichtung — je zwei zu Ausbildungszielen, Prüfungsvalidität und Governance.
+
+Drittens: Euer Why-Statement — die dreifache Begründung, warum eigenes Schreiben trotz KI unverzichtbar bleibt. Maximal 90 Sekunden.
+
+Viertens: Eine konkrete Konsequenz für Ausbildung oder Prüfung. Nicht abstrakt, sondern umsetzbar. Zum Beispiel: „Lehrproben-Entwürfe müssen eine dokumentierte Reflexion enthalten, die den eigenen Denkprozess bei der Planung nachweist."
+
+Und jetzt die Escape-Bedingung — euer 3-Satz-Governance-Statement:
+
+Satz 1: „Lernen trotz KI bedeutet …"
+Satz 2: „Problematisch wird es, wenn …"
+Satz 3: „Deshalb beschließen wir …"
+
+Formuliert dieses Statement gemeinsam. Nutzt eure fünf Failure-Modes und sechs Leitfragen als Argumentationsgrundlage.
+
+Tragt alles ins Logbuch ein. Wenn alle vier Elemente und das Governance-Statement stehen — herzlichen Glückwunsch: Die Dimension „Lernen trotz KI" ist freigeschaltet.`,
+    ],
+    /* ── Kernwissen (auskommentiert) ──
     knowledgeBlocks: [
       {
         title: "Urteilskraft: Warum KI kein Urteil fällen kann",
@@ -1038,6 +1637,8 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Prüfen im KI-Zeitalter hat fünf Dimensionen — die professionelle Antwort ist Differenzierung, nicht Verbot oder blinde Erlaubnis.",
       },
     ],
+    ── Ende Kernwissen ── */
+    /* ── Praxis-Übung + Wissens-Check (auskommentiert) ──
     exercise: {
       instruction:
         "Sortiere die Aussagen: Was ist eine echte Grenze von KI und was ist ein verbreiteter Mythos?",
@@ -1262,6 +1863,7 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
           "Prozessorientierte Bewertung dokumentiert den Lernweg: Prompts, Chatverläufe, Entscheidungen und Reflexionen. So kann die Lehrkraft beurteilen, ob echtes Lernen stattgefunden hat — unabhängig davon, ob KI eingesetzt wurde. Es geht nicht um Verhinderung, sondern um Sichtbarmachung.",
       },
     ],
+    ── Ende Praxis-Übung + Wissens-Check ── */
     challengeSummary:
       "Du weißt jetzt, warum Urteilskraft, Tiefenstrukturanalyse und Prüfungsvalidität trotz KI unverzichtbar sind. Du kennst die Grenzen von KI-Erkennungstools und die fünf Dimensionen des Prüfens im KI-Zeitalter. In der Challenge zeigst du diese Fähigkeiten an den Lernstationen.",
   },
@@ -1293,30 +1895,60 @@ export default function CrewTutorialPage() {
   const tutorial = chapterId ? TUTORIALS[chapterId] : null;
   const accent = chapterId ? DIMENSION_ACCENT[chapterId] : null;
 
+  const hasEinstieg = !tutorial?.hideEinstieg;
+  const hasKnowledge = !!(tutorial?.knowledgeBlocks && tutorial.knowledgeBlocks.length > 0);
   const hasKnowledge2 = !!(tutorial?.knowledgeBlocks2);
   const hasKnowledge3 = !!(tutorial?.knowledgeBlocks3);
+  const hasMitLessons = !!(tutorial?.mitLessons);
+  const hasLdkLessons = !!(tutorial?.ldkLessons);
+  const hasLtkLessons = !!(tutorial?.ltkLessons);
+  const hasExercise = !!(tutorial?.exercise);
+  const hasQuiz = !!(tutorial?.quizQuestions && tutorial.quizQuestions.length > 0);
 
   const STEP_LABELS = useMemo(() => {
-    const extra: string[] = [];
-    if (hasKnowledge2) extra.push(tutorial?.knowledgeBlocks2Title || "Kernwissen 2");
-    if (hasKnowledge3) extra.push(tutorial?.knowledgeBlocks3Title || "Kernwissen 3");
-    return [...STEP_BASE.labels, ...extra, ...STEP_TAIL.labels];
-  }, [hasKnowledge2, hasKnowledge3, tutorial?.knowledgeBlocks2Title, tutorial?.knowledgeBlocks3Title]);
+    const labels: string[] = [];
+    if (hasEinstieg) labels.push("Einstieg");
+    if (hasMitLessons) labels.push("MIT");
+    if (hasLdkLessons) labels.push("LDK");
+    if (hasLtkLessons) labels.push("LTK");
+    if (hasKnowledge) labels.push("Kernwissen");
+    if (hasKnowledge2) labels.push(tutorial?.knowledgeBlocks2Title || "Kernwissen 2");
+    if (hasKnowledge3) labels.push(tutorial?.knowledgeBlocks3Title || "Kernwissen 3");
+    if (hasExercise) labels.push("Praxis-Übung");
+    if (hasQuiz) labels.push("Wissens-Check");
+    labels.push("Challenge-Start");
+    return labels;
+  }, [hasEinstieg, hasMitLessons, hasLdkLessons, hasLtkLessons, hasKnowledge, hasKnowledge2, hasKnowledge3, hasExercise, hasQuiz, tutorial?.knowledgeBlocks2Title, tutorial?.knowledgeBlocks3Title]);
 
   const STEP_ICONS = useMemo(() => {
-    const extra = [...(hasKnowledge2 ? [IconBook] : []), ...(hasKnowledge3 ? [IconBook] : [])];
-    return [...STEP_BASE.icons, ...extra, ...STEP_TAIL.icons];
-  }, [hasKnowledge2, hasKnowledge3]);
+    const icons: Array<typeof IconPlayerPlay> = [];
+    if (hasEinstieg) icons.push(IconPlayerPlay);
+    if (hasMitLessons) icons.push(IconUsers);
+    if (hasLdkLessons) icons.push(IconBolt);
+    if (hasLtkLessons) icons.push(IconShieldCheck);
+    if (hasKnowledge) icons.push(IconBook);
+    if (hasKnowledge2) icons.push(IconBook);
+    if (hasKnowledge3) icons.push(IconBook);
+    if (hasExercise) icons.push(IconPuzzle);
+    if (hasQuiz) icons.push(IconSparkles);
+    icons.push(IconRocket);
+    return icons;
+  }, [hasEinstieg, hasMitLessons, hasLdkLessons, hasLtkLessons, hasKnowledge, hasKnowledge2, hasKnowledge3, hasExercise, hasQuiz]);
 
   const maxStep = STEP_LABELS.length - 1;
 
-  // Step index mapping — knowledge steps shift exercise/quiz/challenge
-  const extraSteps = (hasKnowledge2 ? 1 : 0) + (hasKnowledge3 ? 1 : 0);
-  const STEP_KNOWLEDGE2 = hasKnowledge2 ? 2 : -1;
-  const STEP_KNOWLEDGE3 = hasKnowledge3 ? 2 + (hasKnowledge2 ? 1 : 0) : -1;
-  const STEP_EXERCISE = 2 + extraSteps;
-  const STEP_QUIZ = 3 + extraSteps;
-  const STEP_CHALLENGE = 4 + extraSteps;
+  // Step index mapping — dynamically computed based on which steps are present
+  let stepCounter = 0;
+  const STEP_EINSTIEG = hasEinstieg ? stepCounter++ : -1;
+  const STEP_MIT = hasMitLessons ? stepCounter++ : -1;
+  const STEP_LDK = hasLdkLessons ? stepCounter++ : -1;
+  const STEP_LTK = hasLtkLessons ? stepCounter++ : -1;
+  const STEP_KERNWISSEN = hasKnowledge ? stepCounter++ : -1;
+  const STEP_KNOWLEDGE2 = hasKnowledge2 ? stepCounter++ : -1;
+  const STEP_KNOWLEDGE3 = hasKnowledge3 ? stepCounter++ : -1;
+  const STEP_EXERCISE = hasExercise ? stepCounter++ : -1;
+  const STEP_QUIZ = hasQuiz ? stepCounter++ : -1;
+  const STEP_CHALLENGE = stepCounter;
 
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -1353,6 +1985,212 @@ export default function CrewTutorialPage() {
   const handleEinstiegBack = useCallback(() => {
     if (einstiegLesson > 0) setEinstiegLesson((l) => l - 1);
   }, [einstiegLesson]);
+
+  // Einstieg Logbuch state
+  const EINSTIEG_LOGBUCH_STORAGE_KEY = "ddki_escape_einstieg_logbuch_v1";
+  const [einstiegLogbuchEntries, setEinstiegLogbuchEntries] = useState<Record<number, string>>({});
+  const [einstiegLogbuchOpen, setEinstiegLogbuchOpen] = useState(true);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(EINSTIEG_LOGBUCH_STORAGE_KEY);
+      if (stored) setEinstiegLogbuchEntries(JSON.parse(stored));
+    } catch { /* ignore */ }
+  }, []);
+
+  const handleEinstiegLogbuchChange = useCallback((lessonIndex: number, value: string) => {
+    setEinstiegLogbuchEntries((prev) => {
+      const next = { ...prev, [lessonIndex]: value };
+      try { localStorage.setItem(EINSTIEG_LOGBUCH_STORAGE_KEY, JSON.stringify(next)); } catch { /* ignore */ }
+      return next;
+    });
+  }, []);
+
+  // Logbuch PDF generation state
+  const [pdfGenerating, setPdfGenerating] = useState(false);
+
+  const generateLogbuchPdf = useCallback(async (
+    entries: Record<number, string>,
+    lessonList: Array<{ title: string }>,
+    dimensionTitle: string,
+    accentColor: string,
+  ) => {
+    if (pdfGenerating) return;
+    setPdfGenerating(true);
+
+    try {
+      // Call AI review API
+      const lessonTitles = lessonList.map((l) => l.title);
+      const res = await fetch("/api/logbuch-review", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ entries, lessonTitles, dimensionTitle }),
+      });
+      const data = await res.json() as { review?: string; error?: string };
+      const review = data.review || "KI-Kommentar konnte nicht generiert werden.";
+
+      // Build HTML for PDF
+      const entryHtml = Object.entries(entries)
+        .filter(([, v]) => v.trim())
+        .sort(([a], [b]) => Number(a) - Number(b))
+        .map(([k, v]) => {
+          const title = lessonTitles[Number(k)] || `Lektion ${Number(k) + 1}`;
+          return `<div style="margin-bottom:14px"><h3 style="font-size:11px;color:${accentColor};margin:0 0 4px 0;text-transform:uppercase;letter-spacing:0.05em">${title}</h3><p style="font-size:11px;line-height:1.6;margin:0;white-space:pre-line">${v.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p></div>`;
+        })
+        .join("");
+
+      const reviewHtml = review
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .split("\n\n")
+        .map((p: string) => {
+          if (p.startsWith("Zusammenfassung") || p.startsWith("Fehlende Aspekte") || p.startsWith("Kritische Diskussion")) {
+            const [heading, ...rest] = p.split("\n");
+            return `<h3 style="font-size:12px;font-weight:bold;margin:10px 0 4px 0">${heading}</h3><p style="font-size:11px;line-height:1.6;margin:0">${rest.join("<br/>")}</p>`;
+          }
+          return `<p style="font-size:11px;line-height:1.6;margin:0 0 8px 0">${p.replace(/\n/g, "<br/>")}</p>`;
+        })
+        .join("");
+
+      const now = new Date();
+      const dateStr = `${now.getDate().toString().padStart(2, "0")}.${(now.getMonth() + 1).toString().padStart(2, "0")}.${now.getFullYear()}`;
+
+      const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Logbuch – ${dimensionTitle}</title><style>
+@page{size:A4;margin:20mm 18mm}
+*{box-sizing:border-box}
+body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1e293b;margin:0;padding:0}
+.header{border-bottom:3px solid ${accentColor};padding-bottom:10px;margin-bottom:16px}
+.header h1{font-size:16px;margin:0 0 2px 0}
+.header p{font-size:10px;color:#64748b;margin:0}
+.section-title{font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.08em;color:#334155;border-bottom:1px solid #e2e8f0;padding-bottom:4px;margin:18px 0 10px 0}
+.review-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:14px;margin-top:18px}
+.review-box .label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:${accentColor};font-weight:bold;margin-bottom:8px}
+.footer{margin-top:20px;padding-top:8px;border-top:1px solid #e2e8f0;font-size:9px;color:#94a3b8;text-align:center}
+</style></head><body>
+<div class="header"><h1>Logbuch — ${dimensionTitle}</h1><p>Erstellt am ${dateStr} · DeepDiveKI Escape Game</p></div>
+<div class="section-title">Deine Einträge</div>
+${entryHtml}
+<div class="review-box"><div class="label">KI-Kommentar</div>${reviewHtml}</div>
+<div class="footer">Dieses Dokument wurde automatisch generiert. Der KI-Kommentar dient als Reflexionsimpuls, nicht als Bewertung. · deepdive-ki.de</div>
+</body></html>`;
+
+      const printWindow = window.open("", "_blank");
+      if (printWindow) {
+        printWindow.document.write(html);
+        printWindow.document.close();
+        setTimeout(() => printWindow.print(), 400);
+      }
+    } catch {
+      alert("Fehler beim Generieren des Logbuch-PDFs. Bitte versuche es erneut.");
+    } finally {
+      setPdfGenerating(false);
+    }
+  }, [pdfGenerating]);
+
+  // MIT lesson player state
+  const [mitLesson, setMitLesson] = useState(0);
+  const [mitCompleted, setMitCompleted] = useState<Set<number>>(new Set());
+
+  const handleMitNext = useCallback(() => {
+    setMitCompleted((prev) => new Set(prev).add(mitLesson));
+    if (tutorial?.mitLessons && mitLesson < tutorial.mitLessons.length - 1) {
+      setMitLesson((l) => l + 1);
+    }
+  }, [mitLesson, tutorial?.mitLessons]);
+
+  const handleMitBack = useCallback(() => {
+    if (mitLesson > 0) setMitLesson((l) => l - 1);
+  }, [mitLesson]);
+
+  // Logbuch state — persisted per lesson in localStorage
+  const LOGBUCH_STORAGE_KEY = "ddki_escape_mit_logbuch_v1";
+  const [logbuchEntries, setLogbuchEntries] = useState<Record<number, string>>({});
+  const [logbuchOpen, setLogbuchOpen] = useState(true);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(LOGBUCH_STORAGE_KEY);
+      if (stored) setLogbuchEntries(JSON.parse(stored));
+    } catch { /* ignore */ }
+  }, []);
+
+  const handleLogbuchChange = useCallback((lessonIndex: number, value: string) => {
+    setLogbuchEntries((prev) => {
+      const next = { ...prev, [lessonIndex]: value };
+      try { localStorage.setItem(LOGBUCH_STORAGE_KEY, JSON.stringify(next)); } catch { /* ignore */ }
+      return next;
+    });
+  }, []);
+
+  // LDK lesson player state
+  const [ldkLesson, setLdkLesson] = useState(0);
+  const [ldkCompleted, setLdkCompleted] = useState<Set<number>>(new Set());
+
+  const handleLdkNext = useCallback(() => {
+    setLdkCompleted((prev) => new Set(prev).add(ldkLesson));
+    if (tutorial?.ldkLessons && ldkLesson < tutorial.ldkLessons.length - 1) {
+      setLdkLesson((l) => l + 1);
+    }
+  }, [ldkLesson, tutorial?.ldkLessons]);
+
+  const handleLdkBack = useCallback(() => {
+    if (ldkLesson > 0) setLdkLesson((l) => l - 1);
+  }, [ldkLesson]);
+
+  // LDK Logbuch state
+  const LDK_LOGBUCH_STORAGE_KEY = "ddki_escape_ldk_logbuch_v1";
+  const [ldkLogbuchEntries, setLdkLogbuchEntries] = useState<Record<number, string>>({});
+  const [ldkLogbuchOpen, setLdkLogbuchOpen] = useState(true);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(LDK_LOGBUCH_STORAGE_KEY);
+      if (stored) setLdkLogbuchEntries(JSON.parse(stored));
+    } catch { /* ignore */ }
+  }, []);
+
+  const handleLdkLogbuchChange = useCallback((lessonIndex: number, value: string) => {
+    setLdkLogbuchEntries((prev) => {
+      const next = { ...prev, [lessonIndex]: value };
+      try { localStorage.setItem(LDK_LOGBUCH_STORAGE_KEY, JSON.stringify(next)); } catch { /* ignore */ }
+      return next;
+    });
+  }, []);
+
+  // LTK lesson player state
+  const [ltkLesson, setLtkLesson] = useState(0);
+  const [ltkCompleted, setLtkCompleted] = useState<Set<number>>(new Set());
+
+  const handleLtkNext = useCallback(() => {
+    setLtkCompleted((prev) => new Set(prev).add(ltkLesson));
+    if (tutorial?.ltkLessons && ltkLesson < tutorial.ltkLessons.length - 1) {
+      setLtkLesson((l) => l + 1);
+    }
+  }, [ltkLesson, tutorial?.ltkLessons]);
+
+  const handleLtkBack = useCallback(() => {
+    if (ltkLesson > 0) setLtkLesson((l) => l - 1);
+  }, [ltkLesson]);
+
+  // LTK Logbuch state
+  const LTK_LOGBUCH_STORAGE_KEY = "ddki_escape_ltk_logbuch_v1";
+  const [ltkLogbuchEntries, setLtkLogbuchEntries] = useState<Record<number, string>>({});
+  const [ltkLogbuchOpen, setLtkLogbuchOpen] = useState(true);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(LTK_LOGBUCH_STORAGE_KEY);
+      if (stored) setLtkLogbuchEntries(JSON.parse(stored));
+    } catch { /* ignore */ }
+  }, []);
+
+  const handleLtkLogbuchChange = useCallback((lessonIndex: number, value: string) => {
+    setLtkLogbuchEntries((prev) => {
+      const next = { ...prev, [lessonIndex]: value };
+      try { localStorage.setItem(LTK_LOGBUCH_STORAGE_KEY, JSON.stringify(next)); } catch { /* ignore */ }
+      return next;
+    });
+  }, []);
 
   // Cookie consent for YouTube embeds (TTDSG)
   const hasFunctionalConsent = useCookieConsent();
@@ -1404,12 +2242,12 @@ export default function CrewTutorialPage() {
   // Knowledge block expand state
   const [expandedExamples, setExpandedExamples] = useState<Record<string | number, boolean>>({});
 
-  const allExerciseItemsAssigned = tutorial
+  const allExerciseItemsAssigned = tutorial?.exercise
     ? tutorial.exercise.items.every((item) => exerciseAssignments[item.id] !== undefined)
     : false;
 
   const allQuizCorrect = useMemo(() => {
-    if (!tutorial) return false;
+    if (!tutorial?.quizQuestions) return false;
     return tutorial.quizQuestions.every((q) => {
       const answerId = quizAnswers[q.id];
       if (!answerId) return false;
@@ -1419,14 +2257,14 @@ export default function CrewTutorialPage() {
   }, [tutorial, quizAnswers]);
 
   const allQuizChecked = useMemo(() => {
-    if (!tutorial) return false;
+    if (!tutorial?.quizQuestions) return false;
     return tutorial.quizQuestions.every((q) => quizChecked[q.id]);
   }, [tutorial, quizChecked]);
 
   const canAdvance = useCallback(
     (step: number): boolean => {
-      if (step === STEP_EXERCISE) return exerciseCorrect;
-      if (step === STEP_QUIZ) return allQuizCorrect && allQuizChecked;
+      if (STEP_EXERCISE !== -1 && step === STEP_EXERCISE) return exerciseCorrect;
+      if (STEP_QUIZ !== -1 && step === STEP_QUIZ) return allQuizCorrect && allQuizChecked;
       return true;
     },
     [exerciseCorrect, allQuizCorrect, allQuizChecked, STEP_EXERCISE, STEP_QUIZ]
@@ -1449,7 +2287,7 @@ export default function CrewTutorialPage() {
   };
 
   const handleExerciseCheck = () => {
-    if (!tutorial || !allExerciseItemsAssigned) return;
+    if (!tutorial?.exercise || !allExerciseItemsAssigned) return;
     const correct = tutorial.exercise.items.every(
       (item) => exerciseAssignments[item.id] === item.correctCategory
     );
@@ -1561,8 +2399,8 @@ export default function CrewTutorialPage() {
 
       {/* Step Content */}
       <section className="mx-auto max-w-5xl px-6 pb-16">
-        {/* ────── Step 0: Einstieg (Lesson Player) ────── */}
-        {currentStep === 0 && (
+        {/* ────── Einstieg (Lesson Player) ────── */}
+        {STEP_EINSTIEG !== -1 && currentStep === STEP_EINSTIEG && (
           <div className="space-y-4">
             {/* Progress bar */}
             <div className="border-4 border-black bg-white p-4 shadow-[6px_6px_0_#000]">
@@ -2151,6 +2989,51 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
               </div>
             )}
 
+            {/* Logbuch */}
+            <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
+              <div className="rounded border-2 border-amber-300 bg-amber-50 p-5">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-700">
+                    <IconNotebook className="h-4 w-4" /> Logbuch
+                  </div>
+                  <span className="text-[10px] text-amber-500">wird automatisch gespeichert</span>
+                </div>
+                <textarea
+                  value={einstiegLogbuchEntries[einstiegLesson] ?? ""}
+                  onChange={(e) => handleEinstiegLogbuchChange(einstiegLesson, e.target.value)}
+                  placeholder="Halte hier deine Notizen, Beobachtungen und Reflexionen fest …"
+                  className="w-full resize-y rounded border-2 border-amber-200 bg-white p-3 text-sm leading-relaxed text-slate-700 placeholder:text-slate-400 focus:border-amber-400 focus:outline-none"
+                  rows={5}
+                />
+                {Object.values(einstiegLogbuchEntries).some((v) => v.trim()) && (
+                  <button
+                    type="button"
+                    onClick={() => setEinstiegLogbuchOpen((o) => !o)}
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-amber-600 hover:text-amber-800"
+                  >
+                    <IconNotebook className="h-3 w-3" />
+                    {einstiegLogbuchOpen ? "Alle Einträge ausblenden" : "Alle Einträge anzeigen"}
+                  </button>
+                )}
+                {einstiegLogbuchOpen && Object.entries(einstiegLogbuchEntries).some(([k, v]) => Number(k) !== einstiegLesson && v.trim()) && (
+                  <div className="mt-3 space-y-2 border-t border-amber-200 pt-3">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-500">Bisherige Einträge</p>
+                    {Object.entries(einstiegLogbuchEntries)
+                      .filter(([k, v]) => Number(k) !== einstiegLesson && v.trim())
+                      .sort(([a], [b]) => Number(a) - Number(b))
+                      .map(([k, v]) => (
+                        <div key={k} className="rounded border border-amber-200 bg-white p-3">
+                          <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-amber-600">
+                            {einstiegLessons[Number(k)]?.title}
+                          </p>
+                          <p className="whitespace-pre-line text-xs leading-relaxed text-slate-600">{v}</p>
+                        </div>
+                      ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
             {/* Lesson navigation */}
             <div className="flex items-center justify-between">
               <button
@@ -2179,21 +3062,612 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
               ) : (
                 <button
                   type="button"
+                  disabled={pdfGenerating}
                   onClick={() => {
                     setEinstiegCompleted((prev) => new Set(prev).add(einstiegLesson));
+                    if (Object.values(einstiegLogbuchEntries).some((v) => v.trim())) {
+                      generateLogbuchPdf(
+                        einstiegLogbuchEntries,
+                        einstiegLessons,
+                        tutorial.title,
+                        accent.bg.includes("amber") ? "#f59e0b"
+                          : accent.bg.includes("emerald") ? "#10b981"
+                          : accent.bg.includes("sky") ? "#0ea5e9"
+                          : "#f43f5e",
+                      );
+                    }
                   }}
-                  className="inline-flex items-center gap-2 border-2 border-black bg-emerald-500 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-[3px_3px_0_#000] hover:opacity-90"
+                  className="inline-flex items-center gap-2 border-2 border-black bg-emerald-500 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-[3px_3px_0_#000] hover:opacity-90 disabled:opacity-50"
                 >
-                  <IconCheck className="h-4 w-4" />
-                  Einstieg abschließen
+                  {pdfGenerating ? (
+                    <>
+                      <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                      Logbuch wird erstellt…
+                    </>
+                  ) : (
+                    <>
+                      <IconCheck className="h-4 w-4" />
+                      Abschließen & Logbuch als PDF
+                    </>
+                  )}
                 </button>
               )}
             </div>
           </div>
         )}
 
-        {/* ────── Step 1: Kernwissen ────── */}
-        {currentStep === 1 && (
+        {/* ────── Step MIT: Lernen mit KI (Lesson Player) ────── */}
+        {hasMitLessons && currentStep === STEP_MIT && tutorial.mitLessons && (
+          <div className="space-y-4">
+            {/* Progress bar */}
+            <div className="border-4 border-black bg-white p-4 shadow-[6px_6px_0_#000]">
+              <div className="mb-2 flex items-center justify-between">
+                <span className={`text-xs font-bold uppercase tracking-widest ${accent.text}`}>
+                  Lektion {mitLesson + 1} von {tutorial.mitLessons.length}
+                </span>
+                <span className="text-xs text-slate-500">
+                  {mitCompleted.size} abgeschlossen
+                </span>
+              </div>
+              <div className="h-2 w-full rounded-full bg-slate-200">
+                <div
+                  className={`h-2 rounded-full ${accent.bg} transition-all duration-500`}
+                  style={{ width: `${(mitCompleted.size / tutorial.mitLessons.length) * 100}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Lesson list */}
+            <div className="border-4 border-black bg-white shadow-[6px_6px_0_#000]">
+              <button
+                type="button"
+                onClick={() => setExpandedExamples((prev) => ({ ...prev, mitList: !prev.mitList }))}
+                className="flex w-full items-center justify-between px-4 py-3 text-left"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-600">Kursübersicht</span>
+                <IconChevronRight className={`h-4 w-4 text-slate-400 transition-transform ${expandedExamples.mitList ? "rotate-90" : ""}`} />
+              </button>
+              {expandedExamples.mitList && (
+                <div className="border-t-2 border-black px-2 py-2">
+                  {tutorial.mitLessons.map((lesson, li) => {
+                    const isCompleted = mitCompleted.has(li);
+                    const isCurrent = li === mitLesson;
+                    return (
+                      <button
+                        key={li}
+                        type="button"
+                        onClick={() => {
+                          if (isCompleted || isCurrent || li <= mitLesson) setMitLesson(li);
+                        }}
+                        className={`flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm transition-colors ${
+                          isCurrent
+                            ? `${accent.light} ${accent.text} font-bold`
+                            : isCompleted
+                            ? "text-slate-600 hover:bg-slate-50"
+                            : "text-slate-300"
+                        }`}
+                      >
+                        <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                          isCompleted ? "bg-emerald-500 text-white" : isCurrent ? `${accent.bg} text-white` : "bg-slate-200 text-slate-400"
+                        }`}>
+                          {isCompleted ? <IconCheck className="h-3 w-3" /> : li + 1}
+                        </div>
+                        <span className="truncate">{lesson.title}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Current lesson content */}
+            <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
+              <h3 className={`mb-4 text-lg font-bold ${accent.text}`}>
+                {tutorial.mitLessons[mitLesson]?.title}
+              </h3>
+
+              {/* Video */}
+              {tutorial.mitLessonsVideoUrls?.[mitLesson] ? (
+                <div className="mb-6 overflow-hidden rounded border-2 border-black bg-black">
+                  {tutorial.mitLessonsVideoUrls[mitLesson].endsWith(".mp4") ? (
+                    <video
+                      controls
+                      className="w-full bg-black"
+                      preload="metadata"
+                      key={tutorial.mitLessonsVideoUrls[mitLesson]}
+                    >
+                      <source src={tutorial.mitLessonsVideoUrls[mitLesson]} type="video/mp4" />
+                      Dein Browser unterstützt keine Videowiedergabe.
+                    </video>
+                  ) : hasFunctionalConsent ? (
+                    <iframe
+                      src={tutorial.mitLessonsVideoUrls[mitLesson]}
+                      className="aspect-video w-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={tutorial.mitLessons[mitLesson]?.title}
+                    />
+                  ) : (
+                    <div className="flex aspect-video items-center justify-center bg-slate-900 text-center text-sm text-slate-400 p-4">
+                      Video wird nach Cookie-Zustimmung geladen.
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="mb-6 flex aspect-video items-center justify-center rounded border-2 border-dashed border-slate-300 bg-slate-50">
+                  <div className="text-center text-slate-400">
+                    <IconPlayerPlay className="mx-auto mb-2 h-10 w-10" />
+                    <p className="text-sm font-medium">Video kommt bald</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Script / Transcript */}
+              {tutorial.mitLessonsScripts?.[mitLesson] && (
+                <div className="rounded border-2 border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                    <IconBook className="h-4 w-4" /> Skript
+                  </div>
+                  <div className="text-sm leading-relaxed text-slate-700 whitespace-pre-line">
+                    {tutorial.mitLessonsScripts[mitLesson]}
+                  </div>
+                </div>
+              )}
+
+              {/* External tool link */}
+              {tutorial.mitLessonsLinks?.[mitLesson] && (
+                <div className="mt-6 flex justify-center">
+                  <a
+                    href={tutorial.mitLessonsLinks[mitLesson].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 border-2 border-black ${accent.bg} px-6 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-[4px_4px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0_#000]`}
+                  >
+                    <IconExternalLink className="h-4 w-4" />
+                    {tutorial.mitLessonsLinks[mitLesson].label}
+                  </a>
+                </div>
+              )}
+
+              {/* Logbuch */}
+              <div className="mt-6 rounded border-2 border-sky-300 bg-sky-50 p-5">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-700">
+                    <IconNotebook className="h-4 w-4" /> Logbuch
+                  </div>
+                  <span className="text-[10px] text-sky-500">wird automatisch gespeichert</span>
+                </div>
+                <textarea
+                  value={logbuchEntries[mitLesson] ?? ""}
+                  onChange={(e) => handleLogbuchChange(mitLesson, e.target.value)}
+                  placeholder="Halte hier deine Notizen, Beobachtungen und Reflexionen fest …"
+                  className="w-full resize-y rounded border-2 border-sky-200 bg-white p-3 text-sm leading-relaxed text-slate-700 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none"
+                  rows={5}
+                />
+                {Object.values(logbuchEntries).some((v) => v.trim()) && (
+                  <button
+                    type="button"
+                    onClick={() => setLogbuchOpen((o) => !o)}
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-sky-600 hover:text-sky-800"
+                  >
+                    <IconNotebook className="h-3 w-3" />
+                    {logbuchOpen ? "Alle Einträge ausblenden" : "Alle Einträge anzeigen"}
+                  </button>
+                )}
+                {logbuchOpen && Object.entries(logbuchEntries).some(([k, v]) => Number(k) !== mitLesson && v.trim()) && (
+                  <div className="mt-3 space-y-2 border-t border-sky-200 pt-3">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-sky-500">Bisherige Einträge</p>
+                    {Object.entries(logbuchEntries)
+                      .filter(([k, v]) => Number(k) !== mitLesson && v.trim())
+                      .sort(([a], [b]) => Number(a) - Number(b))
+                      .map(([k, v]) => (
+                        <div key={k} className="rounded border border-sky-200 bg-white p-3">
+                          <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-sky-600">
+                            {tutorial.mitLessons?.[Number(k)]?.title}
+                          </p>
+                          <p className="whitespace-pre-line text-xs leading-relaxed text-slate-600">{v}</p>
+                        </div>
+                      ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                onClick={handleMitBack}
+                disabled={mitLesson === 0}
+                className="flex items-center gap-1 border-2 border-black bg-white px-4 py-2 text-sm font-bold shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] disabled:opacity-30 disabled:hover:translate-x-0 disabled:hover:translate-y-0"
+              >
+                <IconChevronLeft className="h-4 w-4" /> Zurück
+              </button>
+              {mitLesson < tutorial.mitLessons.length - 1 ? (
+                <button
+                  type="button"
+                  onClick={handleMitNext}
+                  className={`flex items-center gap-1 border-2 border-black px-4 py-2 text-sm font-bold text-white shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] ${accent.bg}`}
+                >
+                  Weiter <IconChevronRight className="h-4 w-4" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  disabled={pdfGenerating}
+                  onClick={() => {
+                    handleMitNext();
+                    if (Object.values(logbuchEntries).some((v) => v.trim())) {
+                      generateLogbuchPdf(logbuchEntries, tutorial.mitLessons!, tutorial.title, "#0ea5e9");
+                    }
+                  }}
+                  className="flex items-center gap-1 border-2 border-black bg-emerald-500 px-4 py-2 text-sm font-bold text-white shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] disabled:opacity-50"
+                >
+                  {pdfGenerating ? (
+                    <><div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" /> Logbuch wird erstellt…</>
+                  ) : (
+                    <><IconCheck className="h-4 w-4" /> Abschließen & Logbuch als PDF</>
+                  )}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* ────── Step LDK: Lernen durch KI (Lesson Player) ────── */}
+        {hasLdkLessons && currentStep === STEP_LDK && tutorial.ldkLessons && (
+          <div className="space-y-4">
+            {/* Progress bar */}
+            <div className="border-4 border-black bg-white p-4 shadow-[6px_6px_0_#000]">
+              <div className="mb-2 flex items-center justify-between">
+                <span className={`text-xs font-bold uppercase tracking-widest ${accent.text}`}>
+                  Lektion {ldkLesson + 1} von {tutorial.ldkLessons.length}
+                </span>
+                <span className="text-xs text-slate-500">
+                  {ldkCompleted.size} abgeschlossen
+                </span>
+              </div>
+              <div className="h-2 w-full rounded-full bg-slate-200">
+                <div
+                  className={`h-2 rounded-full ${accent.bg} transition-all duration-500`}
+                  style={{ width: `${(ldkCompleted.size / tutorial.ldkLessons.length) * 100}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Lesson list */}
+            <div className="border-4 border-black bg-white shadow-[6px_6px_0_#000]">
+              <button
+                type="button"
+                onClick={() => setExpandedExamples((prev) => ({ ...prev, ldkList: !prev.ldkList }))}
+                className="flex w-full items-center justify-between px-4 py-3 text-left"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-600">Kursübersicht</span>
+                <IconChevronRight className={`h-4 w-4 text-slate-400 transition-transform ${expandedExamples.ldkList ? "rotate-90" : ""}`} />
+              </button>
+              {expandedExamples.ldkList && (
+                <div className="border-t-2 border-black px-2 py-2">
+                  {tutorial.ldkLessons.map((lesson, li) => {
+                    const isCompleted = ldkCompleted.has(li);
+                    const isCurrent = li === ldkLesson;
+                    return (
+                      <button
+                        key={li}
+                        type="button"
+                        onClick={() => {
+                          if (isCompleted || isCurrent || li <= ldkLesson) setLdkLesson(li);
+                        }}
+                        className={`flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm transition-colors ${
+                          isCurrent
+                            ? `${accent.light} ${accent.text} font-bold`
+                            : isCompleted
+                            ? "text-slate-600 hover:bg-slate-50"
+                            : "text-slate-300"
+                        }`}
+                      >
+                        <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                          isCompleted ? "bg-emerald-500 text-white" : isCurrent ? `${accent.bg} text-white` : "bg-slate-200 text-slate-400"
+                        }`}>
+                          {isCompleted ? <IconCheck className="h-3 w-3" /> : li + 1}
+                        </div>
+                        <span className="truncate">{lesson.title}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Current lesson content */}
+            <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
+              <h3 className={`mb-4 text-lg font-bold ${accent.text}`}>
+                {tutorial.ldkLessons[ldkLesson]?.title}
+              </h3>
+
+              {/* Video */}
+              {tutorial.ldkLessonsVideoUrls?.[ldkLesson] ? (
+                <div className="mb-6 overflow-hidden rounded border-2 border-black bg-black">
+                  {tutorial.ldkLessonsVideoUrls[ldkLesson].endsWith(".mp4") ? (
+                    <video
+                      controls
+                      className="w-full bg-black"
+                      preload="metadata"
+                      key={tutorial.ldkLessonsVideoUrls[ldkLesson]}
+                    >
+                      <source src={tutorial.ldkLessonsVideoUrls[ldkLesson]} type="video/mp4" />
+                      Dein Browser unterstützt keine Videowiedergabe.
+                    </video>
+                  ) : hasFunctionalConsent ? (
+                    <iframe
+                      src={tutorial.ldkLessonsVideoUrls[ldkLesson]}
+                      className="aspect-video w-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={tutorial.ldkLessons[ldkLesson]?.title}
+                    />
+                  ) : (
+                    <div className="flex aspect-video items-center justify-center bg-slate-900 text-center text-sm text-slate-400 p-4">
+                      Video wird nach Cookie-Zustimmung geladen.
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="mb-6 flex aspect-video items-center justify-center rounded border-2 border-dashed border-slate-300 bg-slate-50">
+                  <div className="text-center text-slate-400">
+                    <IconPlayerPlay className="mx-auto mb-2 h-10 w-10" />
+                    <p className="text-sm font-medium">Video kommt bald</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Script / Transcript */}
+              {tutorial.ldkLessonsScripts?.[ldkLesson] && (
+                <div className="rounded border-2 border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                    <IconBook className="h-4 w-4" /> Skript
+                  </div>
+                  <div className="text-sm leading-relaxed text-slate-700 whitespace-pre-line">
+                    {tutorial.ldkLessonsScripts[ldkLesson]}
+                  </div>
+                </div>
+              )}
+
+              {/* External tool link */}
+              {tutorial.ldkLessonsLinks?.[ldkLesson] && (
+                <div className="mt-6 flex justify-center">
+                  <a
+                    href={tutorial.ldkLessonsLinks[ldkLesson].url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 border-2 border-black ${accent.bg} px-6 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-[4px_4px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0_#000]`}
+                  >
+                    <IconExternalLink className="h-4 w-4" />
+                    {tutorial.ldkLessonsLinks[ldkLesson].label}
+                  </a>
+                </div>
+              )}
+
+              {/* Logbuch */}
+              <div className="mt-6 rounded border-2 border-emerald-300 bg-emerald-50 p-5">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-700">
+                    <IconNotebook className="h-4 w-4" /> Logbuch
+                  </div>
+                  <span className="text-[10px] text-emerald-500">wird automatisch gespeichert</span>
+                </div>
+                <textarea
+                  value={ldkLogbuchEntries[ldkLesson] ?? ""}
+                  onChange={(e) => handleLdkLogbuchChange(ldkLesson, e.target.value)}
+                  placeholder="Halte hier deine Notizen, Beobachtungen und Reflexionen fest …"
+                  className="w-full resize-y rounded border-2 border-emerald-200 bg-white p-3 text-sm leading-relaxed text-slate-700 placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none"
+                  rows={5}
+                />
+                {Object.values(ldkLogbuchEntries).some((v) => v.trim()) && (
+                  <button
+                    type="button"
+                    onClick={() => setLdkLogbuchOpen((o) => !o)}
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-emerald-600 hover:text-emerald-800"
+                  >
+                    <IconNotebook className="h-3 w-3" />
+                    {ldkLogbuchOpen ? "Alle Einträge ausblenden" : "Alle Einträge anzeigen"}
+                  </button>
+                )}
+                {ldkLogbuchOpen && Object.entries(ldkLogbuchEntries).some(([k, v]) => Number(k) !== ldkLesson && v.trim()) && (
+                  <div className="mt-3 space-y-2 border-t border-emerald-200 pt-3">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Bisherige Einträge</p>
+                    {Object.entries(ldkLogbuchEntries)
+                      .filter(([k, v]) => Number(k) !== ldkLesson && v.trim())
+                      .sort(([a], [b]) => Number(a) - Number(b))
+                      .map(([k, v]) => (
+                        <div key={k} className="rounded border border-emerald-200 bg-white p-3">
+                          <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-emerald-600">
+                            {tutorial.ldkLessons?.[Number(k)]?.title}
+                          </p>
+                          <p className="whitespace-pre-line text-xs leading-relaxed text-slate-600">{v}</p>
+                        </div>
+                      ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between">
+              <button
+                type="button"
+                onClick={handleLdkBack}
+                disabled={ldkLesson === 0}
+                className="flex items-center gap-1 border-2 border-black bg-white px-4 py-2 text-sm font-bold shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] disabled:opacity-30 disabled:hover:translate-x-0 disabled:hover:translate-y-0"
+              >
+                <IconChevronLeft className="h-4 w-4" /> Zurück
+              </button>
+              {ldkLesson < tutorial.ldkLessons.length - 1 ? (
+                <button
+                  type="button"
+                  onClick={handleLdkNext}
+                  className={`flex items-center gap-1 border-2 border-black px-4 py-2 text-sm font-bold text-white shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] ${accent.bg}`}
+                >
+                  Weiter <IconChevronRight className="h-4 w-4" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  disabled={pdfGenerating}
+                  onClick={() => {
+                    handleLdkNext();
+                    if (Object.values(ldkLogbuchEntries).some((v) => v.trim())) {
+                      generateLogbuchPdf(ldkLogbuchEntries, tutorial.ldkLessons!, tutorial.title, "#10b981");
+                    }
+                  }}
+                  className="flex items-center gap-1 border-2 border-black bg-emerald-500 px-4 py-2 text-sm font-bold text-white shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] disabled:opacity-50"
+                >
+                  {pdfGenerating ? (
+                    <><div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" /> Logbuch wird erstellt…</>
+                  ) : (
+                    <><IconCheck className="h-4 w-4" /> Abschließen & Logbuch als PDF</>
+                  )}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* ────── Step LTK: Lernen trotz KI (Lesson Player) ────── */}
+        {hasLtkLessons && currentStep === STEP_LTK && tutorial.ltkLessons && (
+          <div className="space-y-4">
+            <div className="border-4 border-black bg-white p-4 shadow-[6px_6px_0_#000]">
+              <div className="mb-2 flex items-center justify-between">
+                <span className={`text-xs font-bold uppercase tracking-widest ${accent.text}`}>
+                  Lektion {ltkLesson + 1} von {tutorial.ltkLessons.length}
+                </span>
+                <span className="text-xs text-slate-500">{ltkCompleted.size} abgeschlossen</span>
+              </div>
+              <div className="h-2 w-full rounded-full bg-slate-200">
+                <div className={`h-2 rounded-full ${accent.bg} transition-all duration-500`} style={{ width: `${(ltkCompleted.size / tutorial.ltkLessons.length) * 100}%` }} />
+              </div>
+            </div>
+
+            <div className="border-4 border-black bg-white shadow-[6px_6px_0_#000]">
+              <button type="button" onClick={() => setExpandedExamples((prev) => ({ ...prev, ltkList: !prev.ltkList }))} className="flex w-full items-center justify-between px-4 py-3 text-left">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-600">Kursübersicht</span>
+                <IconChevronRight className={`h-4 w-4 text-slate-400 transition-transform ${expandedExamples.ltkList ? "rotate-90" : ""}`} />
+              </button>
+              {expandedExamples.ltkList && (
+                <div className="border-t-2 border-black px-2 py-2">
+                  {tutorial.ltkLessons.map((lesson, li) => {
+                    const isCompleted = ltkCompleted.has(li);
+                    const isCurrent = li === ltkLesson;
+                    return (
+                      <button key={li} type="button" onClick={() => { if (isCompleted || isCurrent || li <= ltkLesson) setLtkLesson(li); }}
+                        className={`flex w-full items-center gap-3 rounded px-3 py-2 text-left text-sm transition-colors ${isCurrent ? `${accent.light} ${accent.text} font-bold` : isCompleted ? "text-slate-600 hover:bg-slate-50" : "text-slate-300"}`}>
+                        <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${isCompleted ? "bg-emerald-500 text-white" : isCurrent ? `${accent.bg} text-white` : "bg-slate-200 text-slate-400"}`}>
+                          {isCompleted ? <IconCheck className="h-3 w-3" /> : li + 1}
+                        </div>
+                        <span className="truncate">{lesson.title}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
+              <h3 className={`mb-4 text-lg font-bold ${accent.text}`}>{tutorial.ltkLessons[ltkLesson]?.title}</h3>
+
+              {tutorial.ltkLessonsVideoUrls?.[ltkLesson] ? (
+                <div className="mb-6 overflow-hidden rounded border-2 border-black bg-black">
+                  {tutorial.ltkLessonsVideoUrls[ltkLesson].endsWith(".mp4") ? (
+                    <video controls className="w-full bg-black" preload="metadata" key={tutorial.ltkLessonsVideoUrls[ltkLesson]}>
+                      <source src={tutorial.ltkLessonsVideoUrls[ltkLesson]} type="video/mp4" />
+                      Dein Browser unterstützt keine Videowiedergabe.
+                    </video>
+                  ) : hasFunctionalConsent ? (
+                    <iframe src={tutorial.ltkLessonsVideoUrls[ltkLesson]} className="aspect-video w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={tutorial.ltkLessons[ltkLesson]?.title} />
+                  ) : (
+                    <div className="flex aspect-video items-center justify-center bg-slate-900 text-center text-sm text-slate-400 p-4">Video wird nach Cookie-Zustimmung geladen.</div>
+                  )}
+                </div>
+              ) : (
+                <div className="mb-6 flex aspect-video items-center justify-center rounded border-2 border-dashed border-slate-300 bg-slate-50">
+                  <div className="text-center text-slate-400"><IconPlayerPlay className="mx-auto mb-2 h-10 w-10" /><p className="text-sm font-medium">Video kommt bald</p></div>
+                </div>
+              )}
+
+              {tutorial.ltkLessonsScripts?.[ltkLesson] && (
+                <div className="rounded border-2 border-slate-200 bg-slate-50 p-5">
+                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500"><IconBook className="h-4 w-4" /> Skript</div>
+                  <div className="text-sm leading-relaxed text-slate-700 whitespace-pre-line">{tutorial.ltkLessonsScripts[ltkLesson]}</div>
+                </div>
+              )}
+
+              {tutorial.ltkLessonsLinks?.[ltkLesson] && (
+                <div className="mt-6 flex justify-center">
+                  <a href={tutorial.ltkLessonsLinks[ltkLesson].url} target="_blank" rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 border-2 border-black ${accent.bg} px-6 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-[4px_4px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0_#000]`}>
+                    <IconExternalLink className="h-4 w-4" />{tutorial.ltkLessonsLinks[ltkLesson].label}
+                  </a>
+                </div>
+              )}
+
+              <div className="mt-6 rounded border-2 border-rose-300 bg-rose-50 p-5">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-rose-700"><IconNotebook className="h-4 w-4" /> Logbuch</div>
+                  <span className="text-[10px] text-rose-500">wird automatisch gespeichert</span>
+                </div>
+                <textarea value={ltkLogbuchEntries[ltkLesson] ?? ""} onChange={(e) => handleLtkLogbuchChange(ltkLesson, e.target.value)}
+                  placeholder="Halte hier deine Notizen, Beobachtungen und Reflexionen fest …"
+                  className="w-full resize-y rounded border-2 border-rose-200 bg-white p-3 text-sm leading-relaxed text-slate-700 placeholder:text-slate-400 focus:border-rose-400 focus:outline-none" rows={5} />
+                {Object.values(ltkLogbuchEntries).some((v) => v.trim()) && (
+                  <button type="button" onClick={() => setLtkLogbuchOpen((o) => !o)} className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-rose-600 hover:text-rose-800">
+                    <IconNotebook className="h-3 w-3" />{ltkLogbuchOpen ? "Alle Einträge ausblenden" : "Alle Einträge anzeigen"}
+                  </button>
+                )}
+                {ltkLogbuchOpen && Object.entries(ltkLogbuchEntries).some(([k, v]) => Number(k) !== ltkLesson && v.trim()) && (
+                  <div className="mt-3 space-y-2 border-t border-rose-200 pt-3">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-rose-500">Bisherige Einträge</p>
+                    {Object.entries(ltkLogbuchEntries).filter(([k, v]) => Number(k) !== ltkLesson && v.trim()).sort(([a], [b]) => Number(a) - Number(b)).map(([k, v]) => (
+                      <div key={k} className="rounded border border-rose-200 bg-white p-3">
+                        <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-rose-600">{tutorial.ltkLessons?.[Number(k)]?.title}</p>
+                        <p className="whitespace-pre-line text-xs leading-relaxed text-slate-600">{v}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <button type="button" onClick={handleLtkBack} disabled={ltkLesson === 0}
+                className="flex items-center gap-1 border-2 border-black bg-white px-4 py-2 text-sm font-bold shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] disabled:opacity-30 disabled:hover:translate-x-0 disabled:hover:translate-y-0">
+                <IconChevronLeft className="h-4 w-4" /> Zurück
+              </button>
+              {ltkLesson < tutorial.ltkLessons.length - 1 ? (
+                <button type="button" onClick={handleLtkNext}
+                  className={`flex items-center gap-1 border-2 border-black px-4 py-2 text-sm font-bold text-white shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] ${accent.bg}`}>
+                  Weiter <IconChevronRight className="h-4 w-4" />
+                </button>
+              ) : (
+                <button type="button" disabled={pdfGenerating}
+                  onClick={() => {
+                    handleLtkNext();
+                    if (Object.values(ltkLogbuchEntries).some((v) => v.trim())) {
+                      generateLogbuchPdf(ltkLogbuchEntries, tutorial.ltkLessons!, tutorial.title, "#f43f5e");
+                    }
+                  }}
+                  className="flex items-center gap-1 border-2 border-black bg-emerald-500 px-4 py-2 text-sm font-bold text-white shadow-[3px_3px_0_#000] transition-all hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0_#000] disabled:opacity-50">
+                  {pdfGenerating ? (
+                    <><div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" /> Logbuch wird erstellt…</>
+                  ) : (
+                    <><IconCheck className="h-4 w-4" /> Abschließen & Logbuch als PDF</>
+                  )}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* ────── Step Kernwissen ────── */}
+        {STEP_KERNWISSEN !== -1 && currentStep === STEP_KERNWISSEN && tutorial.knowledgeBlocks && (
           <div className="space-y-6">
             {tutorial.knowledgeBlocks.map((block, i) => (
               <div key={block.title} className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
@@ -2576,7 +4050,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
         )}
 
         {/* ────── Praxis-Übung ────── */}
-        {currentStep === STEP_EXERCISE && (
+        {STEP_EXERCISE !== -1 && currentStep === STEP_EXERCISE && tutorial.exercise && (
           <div className="space-y-6">
             <div className="border-4 border-black bg-white p-6 shadow-[6px_6px_0_#000]">
               <div className="mb-3 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-600">
@@ -2625,7 +4099,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                               : "border-slate-200 bg-white text-slate-500 hover:border-slate-400"
                           }`}
                         >
-                          {tutorial.exercise.categoryA}
+                          {tutorial.exercise!.categoryA}
                         </button>
                         <button
                           type="button"
@@ -2637,7 +4111,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                               : "border-slate-200 bg-white text-slate-500 hover:border-slate-400"
                           }`}
                         >
-                          {tutorial.exercise.categoryB}
+                          {tutorial.exercise!.categoryB}
                         </button>
                       </div>
                     </div>
@@ -2695,7 +4169,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
         )}
 
         {/* ────── Wissens-Check ────── */}
-        {currentStep === STEP_QUIZ && (
+        {STEP_QUIZ !== -1 && currentStep === STEP_QUIZ && tutorial.quizQuestions && (
           <div className="space-y-6">
             {tutorial.quizQuestions.map((q, qi) => {
               const answerId = quizAnswers[q.id];
@@ -2716,7 +4190,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                       )}
                     </div>
                     <span className="text-xs uppercase tracking-widest text-slate-500">
-                      Frage {qi + 1} von {tutorial.quizQuestions.length}
+                      Frage {qi + 1} von {tutorial.quizQuestions!.length}
                     </span>
                   </div>
 
