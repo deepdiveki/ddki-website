@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import EscapeGameContent from "./EscapeGameContent";
+import AccessGate from "./_components/AccessGate";
 
 export const metadata: Metadata = {
   title: "KI Escape Game – Spielerisch KI entdecken",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function EscapeGamePage() {
-  return <EscapeGameContent />;
+  return (
+    <AccessGate>
+      <EscapeGameContent />
+    </AccessGate>
+  );
 }
