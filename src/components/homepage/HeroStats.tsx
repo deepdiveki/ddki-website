@@ -14,8 +14,8 @@ export default function HeroStats() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.2 }}
+        viewport={{ once: true, margin: "100px" }}
+        transition={{ duration: 0.4 }}
         className="mx-auto flex max-w-304 flex-col items-center justify-between gap-10 px-4 py-8 md:flex-row xl:px-0"
       >
         <h2 className="max-w-125 text-display-sm text-text-primary lg:text-display-md xl:max-w-135.25">

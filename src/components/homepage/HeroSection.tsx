@@ -1,6 +1,6 @@
-import Image from "next/image";
 import ButtonLink from "../ui/button-link-fortbildung";
 import HeroStats from "./HeroStats";
+import HeroVideo from "./HeroVideo";
 
 export default function HeroSection() {
   return (
@@ -42,14 +42,7 @@ export default function HeroSection() {
                 </ButtonLink>
               </div>
             </div>
-            <Image
-              src="/images/hero-certificate.svg"
-              alt="Fortbildungszertifikat"
-              width={480}
-              height={600}
-              className="h-auto w-72 animate-in delay-500 duration-1000 fill-mode-both fade-in md:w-72 lg:w-96 xl:w-120"
-              priority
-            />
+            <HeroVideo />
           </div>
         </div>
       </section>
