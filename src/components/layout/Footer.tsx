@@ -41,7 +41,7 @@ const softwareLinks = [
       { name: "Über uns", href: "/software/about" },
       { name: "Kontakt", href: "/software/kontakt" },
       { name: "Jobs", href: "/jobs" },
-      { name: "Escape Game", href: "/software/escape-game" },
+      { name: "Escape Game", href: "/fortbildung/escape-game" },
       { name: "info@deepdive-ki.de", href: "mailto:info@deepdive-ki.de" },
     ],
   },
@@ -52,7 +52,7 @@ type FooterVariant = "fortbildung" | "software";
 export default function Footer({ variant = "fortbildung" }: { variant?: FooterVariant }) {
   const pathname = usePathname();
   const isSoftware = variant === "software";
-  const showPrivacySettings = pathname?.startsWith("/software/escape-game");
+  const showPrivacySettings = pathname?.startsWith("/fortbildung/escape-game");
   const infoLinks = isSoftware ? softwareLinks : fortbildungLinks;
   const sectionLabel = isSoftware ? "DDKI Software" : "DeepDive Fortbildungen";
   const aboutText = isSoftware

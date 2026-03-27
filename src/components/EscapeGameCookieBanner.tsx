@@ -6,7 +6,7 @@ import CookieBanner from "@/components/CookieBanner";
 /** Renders the cookie banner only on escape game pages (landing + tutorial). */
 export default function EscapeGameCookieBanner() {
   const pathname = usePathname();
-  const isEscapeGame = pathname?.startsWith("/software/escape-game");
+  const isEscapeGame = pathname?.startsWith("/fortbildung/escape-game");
 
   if (!isEscapeGame) return null;
 

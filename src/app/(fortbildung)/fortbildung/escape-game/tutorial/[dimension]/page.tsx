@@ -2318,7 +2318,7 @@ ${entryHtml}
           <h1 className={`${pixelFont.className} text-2xl`}>Tutorial nicht gefunden</h1>
           <p className="mt-4 text-sm text-slate-700">Dieses Tutorial existiert nicht.</p>
           <Link
-            href="/software/escape-game"
+            href="/fortbildung/escape-game"
             className="mt-6 inline-flex items-center gap-2 border-2 border-black bg-white px-4 py-2 text-xs uppercase tracking-[0.2em] shadow-[3px_3px_0_#000]"
           >
             <IconArrowLeft className="h-4 w-4" />
@@ -2335,7 +2335,7 @@ ${entryHtml}
       {/* Header */}
       <section className="mx-auto max-w-5xl px-6 pt-28 pb-4">
         <Link
-          href="/software/escape-game"
+          href="/fortbildung/escape-game"
           className="inline-flex items-center gap-2 border-2 border-black bg-white px-4 py-2 text-xs uppercase tracking-[0.2em] shadow-[3px_3px_0_#000] hover:bg-slate-50"
         >
           <IconArrowLeft className="h-4 w-4" />
@@ -4272,7 +4272,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
 
               <div className="mt-6 flex flex-col items-center gap-4">
                 <Link
-                  href={`/software/escape-game?chapter=${tutorial.id}&mode=challenge#ueber-quest`}
+                  href={`/fortbildung/escape-game?chapter=${tutorial.id}&mode=challenge#ueber-quest`}
                   className={`inline-flex items-center gap-3 border-2 border-black ${accent.bg} px-6 py-3 text-sm font-bold uppercase tracking-widest text-white shadow-[4px_4px_0_#000] hover:opacity-90`}
                 >
                   <IconRocket className="h-5 w-5" />
