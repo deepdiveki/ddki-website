@@ -23,29 +23,8 @@ import {
   IconShieldCheck,
   IconX,
 } from "@tabler/icons-react";
-import { Bungee, Press_Start_2P, Space_Mono } from "next/font/google";
-
-const pixelFont = Press_Start_2P({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-pixel",
-});
-
-const displayFont = Bungee({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display",
-});
-
-const bodyFont = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-body",
-});
-
-/* ─── Types ─── */
-
-type DimensionId = "ueber" | "durch" | "mit" | "trotz";
+import { pixelFont, displayFont, bodyFont } from "../../_lib/fonts";
+import type { DimensionId } from "../../_lib/types";
 
 type KnowledgeBlock = {
   title: string;
@@ -999,14 +978,14 @@ Tragt euer Statement ins Logbuch ein. Wenn ihr es habt — herzlichen Glückwuns
     mitLessonsVideoUrls: [
       "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Toni%20Intro.mp4",
       "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Spielregeln-%20Logbuch%20%26%20Transparenz.mp4",
-      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Level%201-%20Der%20digitale%20Wu%CC%88rfel%20%E2%80%93%20Auftrag.mp4",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Level%201-%20Der%20digitale%20W%C3%BCrfel%20%E2%80%93%20Auftrag.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Level%201-%20Der%20digitale%20W%C3%BCrfel%20%E2%80%93%20Reflexion.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Insel%201-%20Generative%20Transformation%20%E2%80%93%20Comic%20zu%20Anne%20Frank.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Insel%201-%20Generative%20Transformation%20%E2%80%93%20Reflexion.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Insel%202-%20Wissensverdichtung%20%E2%80%93%20Auftrag.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Insel%202-%20Wissensverdichtung%20%E2%80%93%20Reflexion.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Insel%203-%20Simulierter%20Dialog%20%E2%80%93%20Auftrag%20%26%20Reflexion.mp4",
+      "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Lernen%20mit%20KI/Governance-Ebene-%20Das%20Tor%20zur%20Freischaltung.mp4",
     ],
     mitLessonsLinks: {
       6: { url: "https://notebooklm.google.com/", label: "NotebookLM öffnen" },
