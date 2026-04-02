@@ -24,8 +24,8 @@ export default function UeberUnsPage() {
             Über uns
           </h1>
           <p className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
-            Wir entwickeln KI-Lösungen und Fortbildungen für Schulen –
-            praxisnah, datenschutzkonform und mit Fokus auf Mehrwert im
+            Wir entwickeln KI-Lösungen und Fortbildungen für Schulen.
+            Praxisnah, datenschutzkonform und mit Fokus auf Mehrwert im
             Schulalltag.
           </p>
         </div>

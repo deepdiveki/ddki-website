@@ -14,7 +14,7 @@ const HeroStaticSchulbuero = () => {
             KI-Schulbüro
           </h1>
           <p className="mx-auto mb-9 max-w-[600px] text-md font-light text-white/70">
-            Die intelligente Hilfe für Ihr Schulbüro – und zugleich die verlässliche Unterstützung, auf die Ihre Verwaltung jederzeit zählen kann.
+            Die intelligente Hilfe für Ihr Schulbüro und zugleich die verlässliche Unterstützung, auf die Ihre Verwaltung zählen kann.
           </p>
         </div>
       </div>

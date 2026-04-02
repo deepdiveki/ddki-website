@@ -4,7 +4,7 @@ import ChatbotToolAnimation from "@/components/animations/ChatbotToolAnimation";
 
 const DDKIChat = () => {
   const text =
-    "DeepChat ist dein All-in-One Tool für den Unterricht und schulische Organisation. Von der Unterrichtsplanung bis zur Verwaltung – alles in einem Chat.";
+    "DeepChat ist dein All-in-One Tool für den Unterricht und schulische Organisation. Von der Unterrichtsplanung bis zur Verwaltung, alles in einem Chat.";
 
   return (
     <section className="relative flex items-center justify-center pt-20">

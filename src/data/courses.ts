@@ -20,7 +20,7 @@ export const courses: Course[] = [
     slug: "deepdiveki-keynote",
     title: "DeepDive in die Welt von KI und Bildung",
     shortDescription:
-      "Vom Werkzeug zum Lernpartner – wie KI Lernen durch personalisierte Erklärungen, Feedback und Übungen unterstützen kann.",
+      "Vom Werkzeug zum Lernpartner. Wie KI Lernen durch personalisierte Erklärungen, Feedback und Übungen unterstützen kann.",
     description:
       "Diese Keynote zeigt, wie künstliche Intelligenz Lernen durch personalisierte Erklärungen, Feedback und Übungen unterstützen kann. Der Fokus liegt auf KI als Lernpartner unter Berücksichtigung von Didaktik, Transparenz und Datenschutz. Ideal als Einstieg für Kollegien, die sich erstmals mit KI in der Bildung auseinandersetzen.",
     categoryId: "ki",
@@ -39,7 +39,7 @@ export const courses: Course[] = [
   },
   {
     slug: "crash-kurs-ki",
-    title: "Crash Kurs KI – Unterstützung zum individualisierten Unterricht",
+    title: "Crash Kurs KI: Unterstützung zum individualisierten Unterricht",
     shortDescription:
       "Praktische KI-Werkzeuge und Unterrichtsmethoden kennenlernen und Team-Teaching-Modelle erproben.",
     description:
@@ -57,11 +57,11 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: true,
-    pdfUrl: "/pdfs/crash-kurs-ki.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI - CrashKurs.pdf",
   },
   {
     slug: "deep-dive-modul-3",
-    title: "Deep Dive Modul III – Chancen und Risiken von KI in Schule und Gesellschaft",
+    title: "Deep Dive Modul III: Chancen und Risiken von KI in Schule und Gesellschaft",
     shortDescription:
       "Chancen von KI erarbeiten, sinnvolle Nutzung diskutieren und Methoden zur KI-Einführung in Schulen kennenlernen.",
     description:
@@ -79,11 +79,11 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/deep-dive-modul-3.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI Modul III.pdf",
   },
   {
     slug: "deep-dive-modul-7",
-    title: "Deep Dive Modul VII – KI Bots für deinen Unterricht erstellen",
+    title: "Deep Dive Modul VII: KI Bots für deinen Unterricht erstellen",
     shortDescription:
       "Eigene KI-gestützte Bots entwickeln und Schritt für Schritt für den Unterricht anpassen.",
     description:
@@ -101,22 +101,22 @@ export const courses: Course[] = [
     prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: true,
-    pdfUrl: "/pdfs/deep-dive-modul-7.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI Modul VII.pdf",
   },
   {
     slug: "ki-grundkompetenzen-eu-ai-act",
-    title: "KI-Grundkompetenzen für Lehrkräfte – EU AI Act verstehen und umsetzen",
+    title: "KI-Grundkompetenzen für Lehrkräfte: EU AI Act verstehen und umsetzen",
     shortDescription:
-      "Was der EU AI Act für Lehrkräfte bedeutet und wie Sie die geforderten KI-Kompetenzen praxisnah aufbauen.",
+      "Was der EU-AI-Act für Lehrkräfte bedeutet und wie Sie die geforderten KI-Kompetenzen praxisnah aufbauen.",
     description:
-      "Der EU AI Act verpflichtet alle Landesbediensteten – einschließlich Lehrkräfte – zu grundlegenden KI-Kompetenzen. Diese Fortbildung vermittelt niedrigschwellig, was Lehrkräfte wissen müssen: Wie funktioniert KI? Welche Pflichten ergeben sich aus der Regulierung? Und wie setzen Sie KI-Tools verantwortungsvoll im Schulalltag ein?",
+      "Der EU-AI-Act verpflichtet u.a. Organisationen im Bildungsbereich, dafür zu sorgen, dass Lehrkräfte beim Einsatz von KI-Systemen über ausreichende KI-Kompetenzen verfügen. Diese Fortbildung vermittelt niedrigschwellig, was Lehrkräfte wissen müssen: Wie funktioniert KI? Welche Pflichten ergeben sich aus der Regulierung? Und wie setzen Sie KI-Tools verantwortungsvoll im Schulalltag ein?",
     categoryId: "ki",
     format: "Online",
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte aller Fächer und Schulformen",
     topics: [
       "Grundlagen: Was ist KI und wie funktioniert sie?",
-      "EU AI Act – Pflichten für den Bildungsbereich",
+      "EU AI Act: Pflichten für den Bildungsbereich",
       "Risikoklassifizierung von KI-Systemen",
       "Verantwortungsvoller KI-Einsatz im Schulalltag",
     ],
@@ -126,11 +126,11 @@ export const courses: Course[] = [
   },
   {
     slug: "prompt-engineering-fuer-lehrkraefte",
-    title: "Prompt Engineering für Lehrkräfte – KI gezielt und effektiv nutzen",
+    title: "Prompt Engineering für Lehrkräfte: KI gezielt und effektiv nutzen",
     shortDescription:
       "Lernen Sie, KI-Chatbots wie telli und DeepChat durch präzise Prompts optimal für Ihren Unterricht einzusetzen.",
     description:
-      "Prompt Engineering ist die Schlüsselkompetenz für den effektiven Einsatz von KI im Unterricht. In dieser Fortbildung lernen Lehrkräfte, wie sie durch gezielte Eingaben bessere Ergebnisse aus KI-Chatbots wie telli und DeepChat erhalten – von der Materialerstellung über die Differenzierung bis zur Feedback-Automatisierung.",
+      "Prompt Engineering ist die Schlüsselkompetenz für den effektiven Einsatz von KI im Unterricht. In dieser Fortbildung lernen Lehrkräfte, wie sie durch gezielte Eingaben bessere Ergebnisse aus KI-Chatbots wie telli und DeepChat erhalten. Von der Materialerstellung über die Differenzierung bis zur Feedback-Automatisierung.",
     categoryId: "ki",
     format: "Online",
     duration: "3 Stunden",
@@ -149,7 +149,7 @@ export const courses: Course[] = [
   // ─── Didaktik (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-1",
-    title: "Deep Dive Modul I – Unterrichtseinheiten konzipieren mit KI Tools",
+    title: "Deep Dive Modul I: Unterrichtseinheiten konzipieren mit KI Tools",
     shortDescription:
       "Unterricht mithilfe von KI konzipieren und sofort anwendbare Methoden und Materialien erhalten.",
     description:
@@ -167,11 +167,11 @@ export const courses: Course[] = [
     prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: true,
-    pdfUrl: "/pdfs/deep-dive-modul-1.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI Modul I.pdf",
   },
   {
     slug: "blended-learning-mit-ki",
-    title: "Blended Learning mit KI – Präsenz- und Digitalunterricht verzahnen",
+    title: "Blended Learning mit KI: Präsenz- und Digitalunterricht verzahnen",
     shortDescription:
       "Digitale und analoge Lernphasen didaktisch sinnvoll kombinieren und mit KI-Tools anreichern.",
     description:
@@ -192,11 +192,11 @@ export const courses: Course[] = [
   },
   {
     slug: "differenzierung-im-unterricht",
-    title: "Differenzierung im Unterricht – Mit KI alle Lernenden erreichen",
+    title: "Differenzierung im Unterricht: Mit KI alle Lernenden erreichen",
     shortDescription:
       "Heterogene Lerngruppen mit KI-gestützten Methoden individuell fördern und fordern.",
     description:
-      "Heterogene Klassen sind die Norm. Diese Fortbildung vermittelt praxiserprobte Strategien, wie Lehrkräfte mit Hilfe von KI-Tools differenzierte Aufgaben, gestufte Hilfen und individuelle Lernwege für verschiedene Leistungsniveaus erstellen – zeitsparend und effektiv.",
+      "Heterogene Klassen sind die Norm. Diese Fortbildung vermittelt praxiserprobte Strategien, wie Lehrkräfte mit Hilfe von KI-Tools differenzierte Aufgaben, gestufte Hilfen und individuelle Lernwege für verschiedene Leistungsniveaus erstellen, zeitsparend und effektiv.",
     categoryId: "didaktik",
     format: "Online",
     duration: "3 Stunden",
@@ -215,7 +215,7 @@ export const courses: Course[] = [
   // ─── Leistung (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-2",
-    title: "Deep Dive Modul II – Plagiate, Hausaufgaben und Klausuren in Zeiten von KI",
+    title: "Deep Dive Modul II: Plagiate, Hausaufgaben und Klausuren in Zeiten von KI",
     shortDescription:
       "KI-gestütztes Lernen und Lösungsverfahren sowie praktische Methoden zum Umgang mit KI bei Leistungsbewertung.",
     description:
@@ -226,14 +226,14 @@ export const courses: Course[] = [
     targetAudience: "Lehrkräfte",
     topics: [
       "Plagiate erkennen in Zeiten von KI",
-      "Hausaufgaben und KI – Herausforderungen und Lösungen",
+      "Hausaufgaben und KI: Herausforderungen und Lösungen",
       "Klausuren und Prüfungsformate neu denken",
       "Praktische Methoden für faire Leistungsbewertung",
     ],
     prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: true,
-    pdfUrl: "/pdfs/deep-dive-modul-2.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI Modul II.pdf",
   },
   {
     slug: "neue-pruefungsformate-ki",
@@ -241,7 +241,7 @@ export const courses: Course[] = [
     shortDescription:
       "Kompetenzorientierte Prüfungsformate entwickeln, die KI-Nutzung konstruktiv einbeziehen statt zu verbieten.",
     description:
-      "Klassische Prüfungen stoßen in Zeiten von KI an ihre Grenzen. Diese Fortbildung zeigt, wie Lehrkräfte kompetenzorientierte Prüfungsformate entwickeln, die KI-Nutzung produktiv einbeziehen – von mündlichen Reflexionen über Portfolioarbeit bis zu prozessbegleitenden Bewertungen.",
+      "Klassische Prüfungen stoßen in Zeiten von KI an ihre Grenzen. Diese Fortbildung zeigt, wie Lehrkräfte kompetenzorientierte Prüfungsformate entwickeln, die KI-Nutzung produktiv einbeziehen. Von mündlichen Reflexionen über Portfolioarbeit bis zu prozessbegleitenden Bewertungen.",
     categoryId: "leistung",
     format: "Online",
     duration: "3 Stunden",
@@ -250,7 +250,7 @@ export const courses: Course[] = [
       "Warum klassische Prüfungen überarbeitet werden müssen",
       "Kompetenzorientierte Aufgabenformate",
       "Portfolio- und Prozessbewertung",
-      "KI als Teil der Prüfung – nicht als Gegner",
+      "KI als Teil der Prüfung, nicht als Gegner",
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
@@ -258,11 +258,11 @@ export const courses: Course[] = [
   },
   {
     slug: "ki-gestuetztes-feedback",
-    title: "KI-gestütztes Feedback – Lernstände erkennen und individuell rückmelden",
+    title: "KI-gestütztes Feedback: Lernstände erkennen und individuell rückmelden",
     shortDescription:
       "Automatisiertes und personalisiertes Feedback mit KI-Tools effizient in den Unterricht integrieren.",
     description:
-      "Gutes Feedback ist einer der wirksamsten Faktoren für Lernfortschritt – aber auch einer der zeitaufwändigsten. Diese Fortbildung zeigt, wie Lehrkräfte KI-Tools nutzen können, um Lernstände schnell zu erfassen und individuelles, konstruktives Feedback zu generieren.",
+      "Gutes Feedback ist einer der wirksamsten Faktoren für Lernfortschritt, aber auch einer der zeitaufwändigsten. Diese Fortbildung zeigt, wie Lehrkräfte KI-Tools nutzen können, um Lernstände schnell zu erfassen und individuelles, konstruktives Feedback zu generieren.",
     categoryId: "leistung",
     format: "Online",
     duration: "3 Stunden",
@@ -281,9 +281,9 @@ export const courses: Course[] = [
   // ─── Inklusion (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-4",
-    title: "Deep Dive Modul IV – Inklusion und KI",
+    title: "Deep Dive Modul IV: Inklusion und KI",
     shortDescription:
-      "KI im Kontext von Inklusion nutzen – differenzierte Lernangebote erstellen und barrierefreieren Unterricht gestalten.",
+      "KI im Kontext von Inklusion nutzen: differenzierte Lernangebote erstellen und barrierefreieren Unterricht gestalten.",
     description:
       "Dieses Modul behandelt KI im Kontext von Inklusion. Lehrkräfte lernen, differenzierte Lernangebote zu erstellen und KI für barrierefreiere Unterrichtsgestaltung zu nutzen. Praxisnahe Beispiele zeigen, wie KI individuelle Förderung unterstützen kann.",
     categoryId: "inklusion",
@@ -299,11 +299,11 @@ export const courses: Course[] = [
     prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/deep-dive-modul-4.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI Modul IV.pdf",
   },
   {
     slug: "sprachfoerderung-daz-mit-ki",
-    title: "Sprachförderung und DaZ mit KI – Sprachsensiblen Unterricht digital gestalten",
+    title: "Sprachförderung und DaZ mit KI: Sprachsensiblen Unterricht digital gestalten",
     shortDescription:
       "KI-Tools für differenzierte Sprachförderung und Deutsch als Zweitsprache im Fachunterricht nutzen.",
     description:
@@ -324,11 +324,11 @@ export const courses: Course[] = [
   },
   {
     slug: "individuelle-lernwege-ki",
-    title: "Individuelle Lernwege mit KI – Fördern und Fordern in heterogenen Klassen",
+    title: "Individuelle Lernwege mit KI: Fördern und Fordern in heterogenen Klassen",
     shortDescription:
       "Adaptive Lernmaterialien und individuelle Förderpläne mit KI für Schüler:innen mit unterschiedlichem Unterstützungsbedarf.",
     description:
-      "In inklusiven Klassen treffen sehr unterschiedliche Lernvoraussetzungen aufeinander. Diese Fortbildung vermittelt, wie Lehrkräfte mit KI individuelle Lernwege gestalten – von der Diagnostik über die Materialerstellung bis zur Dokumentation von Lernfortschritten.",
+      "In inklusiven Klassen treffen sehr unterschiedliche Lernvoraussetzungen aufeinander. Diese Fortbildung vermittelt, wie Lehrkräfte mit KI individuelle Lernwege gestalten. Von der Diagnostik über die Materialerstellung bis zur Dokumentation von Lernfortschritten.",
     categoryId: "inklusion",
     format: "Online",
     duration: "3 Stunden",
@@ -347,7 +347,7 @@ export const courses: Course[] = [
   // ─── Medienkompetenz (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-8",
-    title: "Deep Dive Modul VIII – Datenschutz und Sicherheit im Internet",
+    title: "Deep Dive Modul VIII: Datenschutz und Sicherheit im Internet",
     shortDescription:
       "Online-Sicherheit, Fake News, Internetidentität und ethischer Umgang mit digitalen Technologien.",
     description:
@@ -365,15 +365,15 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/deep-dive-modul-8.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI Modul VIII.pdf",
   },
   {
     slug: "deepfakes-desinformation-unterricht",
-    title: "Deepfakes & Desinformation – Medienkritik im Zeitalter von KI unterrichten",
+    title: "Deepfakes & Desinformation: Medienkritik im Zeitalter von KI unterrichten",
     shortDescription:
       "Schüler:innen befähigen, KI-generierte Inhalte zu erkennen, einzuordnen und kritisch zu bewerten.",
     description:
-      "KI-generierte Bilder, Videos und Texte sind allgegenwärtig. Diese Fortbildung vermittelt Lehrkräften Methoden, um Medienkritik im KI-Zeitalter zu unterrichten – von der Erkennung von Deepfakes über Fact-Checking-Strategien bis zu Unterrichtseinheiten, die kritisches Denken fördern.",
+      "KI-generierte Bilder, Videos und Texte sind allgegenwärtig. Diese Fortbildung vermittelt Lehrkräften Methoden, um Medienkritik im KI-Zeitalter zu unterrichten. Von der Erkennung von Deepfakes über Fact-Checking-Strategien bis zu Unterrichtseinheiten, die kritisches Denken fördern.",
     categoryId: "medienkompetenz",
     format: "Online",
     duration: "3 Stunden",
@@ -390,7 +390,7 @@ export const courses: Course[] = [
   },
   {
     slug: "dsgvo-konformer-ki-einsatz",
-    title: "DSGVO-konformer KI-Einsatz in der Schule – Datenschutz praktisch umsetzen",
+    title: "DSGVO-konformer KI-Einsatz in der Schule: Datenschutz praktisch umsetzen",
     shortDescription:
       "Datenschutzkonform mit KI-Tools arbeiten: DSGVO-Grundlagen, telli, DeepChat und Einwilligungsmanagement.",
     description:
@@ -413,11 +413,11 @@ export const courses: Course[] = [
   // ─── Schulentwicklung (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-5",
-    title: "Deep Dive Modul V – KI in deiner Schule: Chancen für Schulleitung und Führungskräfte",
+    title: "Deep Dive Modul V: KI in deiner Schule: Chancen für Schulleitung und Führungskräfte",
     shortDescription:
       "Effektive KI-Einsätze zur Optimierung administrativer und pädagogischer Schulprozesse.",
     description:
-      "Dieses Modul zeigt Schulleitungen und Führungskräften effektive KI-Einsätze zur Optimierung administrativer und pädagogischer Schulprozesse. Von der Verwaltung bis zur strategischen Schulentwicklung – erfahren Sie, wie KI Ihre Arbeit unterstützen kann.",
+      "Dieses Modul zeigt Schulleitungen und Führungskräften effektive KI-Einsätze zur Optimierung administrativer und pädagogischer Schulprozesse. Von der Verwaltung bis zur strategischen Schulentwicklung erfahren Sie, wie KI Ihre Arbeit unterstützen kann.",
     categoryId: "schulentwicklung",
     format: "Online",
     duration: "3 Stunden",
@@ -431,15 +431,15 @@ export const courses: Course[] = [
     prerequisites: "Führungserfahrung im schulischen Kontext",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/deep-dive-modul-5.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI Modul V.pdf",
   },
   {
     slug: "medienbildungskonzept-mit-ki",
-    title: "Medienbildungskonzept mit KI – Schulentwicklung strategisch gestalten",
+    title: "Medienbildungskonzept mit KI: Schulentwicklung strategisch gestalten",
     shortDescription:
       "Ein zukunftsfähiges Medienbildungskonzept entwickeln, das KI-Kompetenzen systematisch verankert.",
     description:
-      "Schulen müssen Medienbildungskonzepte entwickeln – eine Voraussetzung für DigitalPakt-Förderung. Diese Fortbildung unterstützt Schulleitungen dabei, KI-Kompetenzen im Rahmen der Ziellinie 2030 systematisch im schulischen Medienbildungskonzept zu verankern.",
+      "Schulen müssen Medienbildungskonzepte entwickeln, eine Voraussetzung für DigitalPakt-Förderung. Diese Fortbildung unterstützt Schulleitungen dabei, KI-Kompetenzen im Rahmen der Ziellinie 2030 systematisch im schulischen Medienbildungskonzept zu verankern.",
     categoryId: "schulentwicklung",
     format: "Online",
     duration: "3 Stunden",
@@ -456,7 +456,7 @@ export const courses: Course[] = [
   },
   {
     slug: "change-management-ki-schule",
-    title: "Change Management – KI erfolgreich im Kollegium einführen",
+    title: "Change Management: KI erfolgreich im Kollegium einführen",
     shortDescription:
       "Widerstände abbauen, Multiplikatoren gewinnen und KI-Nutzung nachhaltig im Kollegium verankern.",
     description:
@@ -479,9 +479,9 @@ export const courses: Course[] = [
   // ─── Digitale Tools (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-6",
-    title: "Deep Dive Modul VI – DDKI Toolbox: Einführung und Anwendungsbeispiele",
+    title: "Deep Dive Modul VI: DDKI DeepChat: Einführung und Anwendungsbeispiele",
     shortDescription:
-      "Praxisorientierte Einführung in die DDKI Toolbox mit konkreten Anwendungsbeispielen für den Unterricht.",
+      "Praxisorientierte Einführung in den DDKI DeepChat mit konkreten Anwendungsbeispielen für den Unterricht.",
     description:
       "Dieses Modul bietet eine praxisorientierte Einführung in die DDKI Toolbox mit konkreten Anwendungsbeispielen für den Unterricht. Ziel ist eine effizientere und individualisierte Unterrichtsgestaltung durch den gezielten Einsatz digitaler Werkzeuge.",
     categoryId: "digitale-tools",
@@ -497,23 +497,23 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/deep-dive-modul-6.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI Modul VI.pdf",
   },
   {
-    slug: "telli-im-unterricht",
-    title: "telli im Unterricht – Den KI-Chatbot der Bildungscloud effektiv einsetzen",
+    slug: "KI-Chatbots-im-unterricht",
+    title: "Telli im Unterricht: KI-Chatbot effektiv einsetzen (unabhängige Fortbildung)",
     shortDescription:
-      "Praxisnahe Einführung in telli: den DSGVO-konformen KI-Chatbot, der allen niedersächsischen Schulen zur Verfügung steht.",
+      "Praxisnahe Einführung in KI-Chatbots im Unterricht am Beispiel von telli. Eine unabhängige Fortbildung ohne Verbindung zum Anbieter.",
     description:
-      "Seit Februar 2026 steht allen niedersächsischen Schulen der KI-Chatbot telli über die Bildungscloud zur Verfügung. Diese Fortbildung zeigt praxisnah, wie Lehrkräfte telli im Unterricht einsetzen – für Materialerstellung, Textgenerierung, Bildgenerierung und individualisiertes Lernen.",
+      "Seit Februar 2026 steht vielen Schulen in Deutschland der KI-Chatbot telli zur Verfügung. Diese Fortbildung zeigt praxisnah, wie Lehrkräfte telli im Unterricht einsetzen. Für Materialerstellung, Textgenerierung, Bildgenerierung und individualisiertes Lernen.",
     categoryId: "digitale-tools",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte in Niedersachsen",
+    targetAudience: "Lehrkräfte",
     topics: [
-      "telli einrichten und konfigurieren",
+      "KI-Tools wie telli einrichten und konfigurieren",
       "Text- und Bildgenerierung im Unterricht",
-      "Materialerstellung mit telli",
+      "Materialerstellung mit KI-Tools wie telli",
       "Best Practices und Limitationen",
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
@@ -522,11 +522,11 @@ export const courses: Course[] = [
   },
   {
     slug: "digitale-werkzeuge-fachunterricht",
-    title: "Digitale Werkzeuge im Fachunterricht – Von der App zum didaktischen Mehrwert",
+    title: "Digitale Werkzeuge im Fachunterricht. Von der App zum didaktischen Mehrwert",
     shortDescription:
       "Die besten digitalen Tools für verschiedene Fächer kennenlernen und didaktisch sinnvoll einsetzen.",
     description:
-      "Die Auswahl an digitalen Werkzeugen ist riesig – aber welche eignen sich wirklich für den Fachunterricht? Diese Fortbildung gibt einen strukturierten Überblick über bewährte Tools für verschiedene Fächer und zeigt, wie sie didaktisch sinnvoll eingesetzt werden.",
+      "Die Auswahl an digitalen Werkzeugen ist riesig, aber welche eignen sich wirklich für den Fachunterricht? Diese Fortbildung gibt einen strukturierten Überblick über bewährte Tools für verschiedene Fächer und zeigt, wie sie didaktisch sinnvoll eingesetzt werden.",
     categoryId: "digitale-tools",
     format: "Online",
     duration: "3 Stunden",
@@ -545,11 +545,11 @@ export const courses: Course[] = [
   // ─── Gesundheit & Professionalisierung (3 neu) ───
   {
     slug: "lehrergesundheit-ki-entlastung",
-    title: "Lehrergesundheit – Wie KI den Arbeitsalltag entlasten kann",
+    title: "Lehrergesundheit: Wie KI den Arbeitsalltag entlasten kann",
     shortDescription:
       "Zeitfresser identifizieren und KI-Tools gezielt für Entlastung bei Korrektur, Planung und Verwaltung nutzen.",
     description:
-      "Lehrkräfte arbeiten durchschnittlich deutlich über ihre Sollstunden. Diese Fortbildung zeigt, wie KI-Tools gezielt Zeitfresser im Arbeitsalltag reduzieren können – von der Korrekturentlastung über automatisierte Elternkommunikation bis zur effizienteren Unterrichtsplanung.",
+      "Lehrkräfte arbeiten durchschnittlich deutlich über ihre Sollstunden. Diese Fortbildung zeigt, wie KI-Tools gezielt Zeitfresser im Arbeitsalltag reduzieren können. Von der Korrekturentlastung über automatisierte Elternkommunikation bis zur effizienteren Unterrichtsplanung.",
     categoryId: "gesundheit",
     format: "Online",
     duration: "3 Stunden",
@@ -570,7 +570,7 @@ export const courses: Course[] = [
     shortDescription:
       "Strategien für psychische Gesundheit im Schulalltag entwickeln und Belastungen präventiv begegnen.",
     description:
-      "Der Lehrerberuf gehört zu den belastendsten Berufen. Diese Fortbildung vermittelt wissenschaftlich fundierte Strategien zur Stressbewältigung und Resilienzförderung – von Achtsamkeitstechniken über kollegiale Fallberatung bis hin zu digitalen Unterstützungsangeboten.",
+      "Der Lehrerberuf gehört zu den belastendsten Berufen. Diese Fortbildung vermittelt wissenschaftlich fundierte Strategien zur Stressbewältigung und Resilienzförderung. Von Achtsamkeitstechniken über kollegiale Fallberatung bis hin zu digitalen Unterstützungsangeboten.",
     categoryId: "gesundheit",
     format: "Online",
     duration: "3 Stunden",
@@ -587,11 +587,11 @@ export const courses: Course[] = [
   },
   {
     slug: "stark-starten-berufseinstieg",
-    title: "Stark Starten – Erfolgreich in den Lehrerberuf mit digitalen Kompetenzen",
+    title: "Stark Starten: Erfolgreich in den Lehrerberuf mit digitalen Kompetenzen",
     shortDescription:
       "Berufseinsteiger:innen beim Aufbau digitaler und KI-gestützter Routinen für den Unterrichtsalltag begleiten.",
     description:
-      "Der Berufseinstieg ist eine kritische Phase. Diese Fortbildung unterstützt Berufseinsteiger:innen dabei, von Anfang an effiziente digitale Routinen aufzubauen – von der Unterrichtsplanung mit KI über Klassenmanagement-Tools bis zur professionellen Selbstorganisation.",
+      "Der Berufseinstieg ist eine kritische Phase. Diese Fortbildung unterstützt Berufseinsteiger:innen dabei, von Anfang an effiziente digitale Routinen aufzubauen. Von der Unterrichtsplanung mit KI über Klassenmanagement-Tools bis zur professionellen Selbstorganisation.",
     categoryId: "gesundheit",
     format: "Online",
     duration: "3 Stunden",
@@ -610,7 +610,7 @@ export const courses: Course[] = [
   // ─── Team- und Beziehungsarbeit (3 neu) ───
   {
     slug: "multiprofessionelle-teams",
-    title: "Multiprofessionelle Teams im Ganztag – Zusammenarbeit digital gestalten",
+    title: "Multiprofessionelle Teams im Ganztag: Zusammenarbeit digital gestalten",
     shortDescription:
       "Lehrkräfte, Erzieher:innen und Sozialpädagog:innen vernetzen und die Zusammenarbeit mit digitalen Tools stärken.",
     description:
@@ -631,7 +631,7 @@ export const courses: Course[] = [
   },
   {
     slug: "kollegiale-zusammenarbeit-ki",
-    title: "Kollegiale Zusammenarbeit mit KI – Gemeinsam Material entwickeln und teilen",
+    title: "Kollegiale Zusammenarbeit mit KI: Gemeinsam Material entwickeln und teilen",
     shortDescription:
       "KI als Werkzeug für kollaborative Materialentwicklung nutzen und Sharing-Strukturen im Kollegium aufbauen.",
     description:
@@ -652,7 +652,7 @@ export const courses: Course[] = [
   },
   {
     slug: "elternkommunikation-digital",
-    title: "Elternkommunikation digital – Transparente Zusammenarbeit mit KI-Unterstützung",
+    title: "Elternkommunikation digital: Transparente Zusammenarbeit mit KI-Unterstützung",
     shortDescription:
       "Professionelle Elternkommunikation mit digitalen Tools und KI-gestützten Textvorlagen effizient gestalten.",
     description:
@@ -675,11 +675,11 @@ export const courses: Course[] = [
   // ─── Schülerinnenwelten & Gesellschaft (3 neu) ───
   {
     slug: "demokratiebildung-ki",
-    title: "Demokratiebildung und KI – Mündige Bürger:innen im digitalen Zeitalter",
+    title: "Demokratiebildung und KI: Mündige Bürger:innen im digitalen Zeitalter",
     shortDescription:
       "Demokratische Kompetenzen im Kontext von KI und Digitalisierung fördern und kritisches Denken stärken.",
     description:
-      "KI verändert unsere Demokratie – von Filterblasen über Deepfakes bis zu algorithmischer Meinungsbildung. Diese Fortbildung verbindet Demokratiebildung mit Medien- und KI-Kompetenz und zeigt, wie Lehrkräfte Schüler:innen zu mündigen digitalen Bürger:innen erziehen.",
+      "KI verändert unsere Demokratie. Von Filterblasen über Deepfakes bis zu algorithmischer Meinungsbildung. Diese Fortbildung verbindet Demokratiebildung mit Medien- und KI-Kompetenz und zeigt, wie Lehrkräfte Schüler:innen zu mündigen digitalen Bürger:innen erziehen.",
     categoryId: "schuelerwelten",
     format: "Online",
     duration: "3 Stunden",
@@ -696,7 +696,7 @@ export const courses: Course[] = [
   },
   {
     slug: "ki-ethik-im-unterricht",
-    title: "KI-Ethik im Unterricht – Philosophische und gesellschaftliche Perspektiven",
+    title: "KI-Ethik im Unterricht: Philosophische und gesellschaftliche Perspektiven",
     shortDescription:
       "Ethische Fragen rund um KI im Unterricht thematisieren und Schüler:innen zum kritischen Nachdenken anregen.",
     description:
@@ -717,11 +717,11 @@ export const courses: Course[] = [
   },
   {
     slug: "klimabildung-data-literacy",
-    title: "Klimabildung und Data Literacy – Mit Daten und KI Umweltthemen verstehen",
+    title: "Klimabildung und Data Literacy: Mit Daten und KI Umweltthemen verstehen",
     shortDescription:
-      "Klimadaten analysieren, visualisieren und im Unterricht nutzen – unterstützt durch KI und digitale Tools.",
+      "Klimadaten analysieren, visualisieren und im Unterricht nutzen, unterstützt durch KI und digitale Tools.",
     description:
-      "Klimabildung braucht Datenkompetenz. Diese Fortbildung zeigt, wie Lehrkräfte Klimadaten mit KI-Tools analysieren, visualisieren und im Unterricht einsetzen können – fächerübergreifend von Geographie über Naturwissenschaften bis Politik.",
+      "Klimabildung braucht Datenkompetenz. Diese Fortbildung zeigt, wie Lehrkräfte Klimadaten mit KI-Tools analysieren, visualisieren und im Unterricht einsetzen können. Fächerübergreifend von Geographie über Naturwissenschaften bis Politik.",
     categoryId: "schuelerwelten",
     format: "Online",
     duration: "3 Stunden",
@@ -740,7 +740,7 @@ export const courses: Course[] = [
   // ─── Startchancen (3 neu) ───
   {
     slug: "lesefoerderung-ki",
-    title: "Leseförderung mit KI – Lesekompetenz gezielt stärken",
+    title: "Leseförderung mit KI: Lesekompetenz gezielt stärken",
     shortDescription:
       "KI-gestützte Methoden zur Diagnose und Förderung der Lesekompetenz auf verschiedenen Niveaustufen.",
     description:
@@ -782,11 +782,11 @@ export const courses: Course[] = [
   },
   {
     slug: "chancengerechtigkeit-digitale-bildung",
-    title: "Chancengerechtigkeit durch digitale Bildung – Benachteiligung abbauen mit KI",
+    title: "Chancengerechtigkeit durch digitale Bildung: Benachteiligung abbauen mit KI",
     shortDescription:
       "Wie digitale Tools und KI gezielt Bildungsbenachteiligung reduzieren und individuelle Potenziale fördern können.",
     description:
-      "Das Startchancen-Programm erreicht rund 400 Schulen mit 122.000 Schüler:innen. Diese Fortbildung zeigt, wie digitale Bildung und KI gezielt eingesetzt werden können, um Bildungsbenachteiligung abzubauen – von sprachlicher Förderung bis zur individuellen Lernbegleitung.",
+      "Das Startchancen-Programm erreicht rund 400 Schulen mit 122.000 Schüler:innen. Diese Fortbildung zeigt, wie digitale Bildung und KI gezielt eingesetzt werden können, um Bildungsbenachteiligung abzubauen. Von sprachlicher Förderung bis zur individuellen Lernbegleitung.",
     categoryId: "startchancen",
     format: "Online",
     duration: "3 Stunden",
@@ -805,11 +805,11 @@ export const courses: Course[] = [
   // ─── Programmieren & Informatik (3 neu) ───
   {
     slug: "einstieg-programmieren-ki",
-    title: "Einstieg ins Programmieren – KI-gestützt Coding vermitteln",
+    title: "Einstieg ins Programmieren: KI-gestützt Coding vermitteln",
     shortDescription:
       "Programmiergrundlagen mit KI-Unterstützung vermitteln: Von Scratch bis Python mit intelligenter Hilfe.",
     description:
-      "Informatik ist Mangelfach – und Programmieren zunehmend gefragt. Diese Fortbildung zeigt, wie Lehrkräfte Programmiergrundlagen mit KI-Unterstützung vermitteln können: KI als Coding-Assistent, automatische Fehleranalyse und individualisierte Lernpfade vom Block-basierten bis zum textbasierten Programmieren.",
+      "Informatik ist Mangelfach und Programmieren zunehmend gefragt. Diese Fortbildung zeigt, wie Lehrkräfte Programmiergrundlagen mit KI-Unterstützung vermitteln können: KI als Coding-Assistent, automatische Fehleranalyse und individualisierte Lernpfade vom Block-basierten bis zum textbasierten Programmieren.",
     categoryId: "programmieren",
     format: "Online",
     duration: "3 Stunden",
@@ -817,7 +817,7 @@ export const courses: Course[] = [
     topics: [
       "Programmiergrundlagen mit KI vermitteln",
       "KI als Coding-Assistent im Unterricht",
-      "Von Scratch zu Python – Lernpfade gestalten",
+      "Von Scratch zu Python: Lernpfade gestalten",
       "Automatische Fehleranalyse und Feedback",
     ],
     prerequisites: "Keine Programmierkenntnisse erforderlich",
@@ -826,11 +826,11 @@ export const courses: Course[] = [
   },
   {
     slug: "data-literacy-schule",
-    title: "Data Literacy in der Schule – Datenkompetenz fächerübergreifend aufbauen",
+    title: "Data Literacy in der Schule: Datenkompetenz fächerübergreifend aufbauen",
     shortDescription:
-      "Schüler:innen den kompetenten Umgang mit Daten vermitteln – von der Erhebung über die Analyse bis zur Visualisierung.",
+      "Schüler:innen den kompetenten Umgang mit Daten vermitteln, von der Erhebung über die Analyse bis zur Visualisierung.",
     description:
-      "Datenkompetenz ist eine Schlüsselqualifikation des 21. Jahrhunderts. Diese Fortbildung vermittelt Lehrkräften, wie sie Data Literacy fächerübergreifend in den Unterricht integrieren – von der Datenerhebung über die Analyse mit KI-Tools bis zur kritischen Interpretation.",
+      "Datenkompetenz ist eine Schlüsselqualifikation des 21. Jahrhunderts. Diese Fortbildung vermittelt Lehrkräften, wie sie Data Literacy fächerübergreifend in den Unterricht integrieren. Von der Datenerhebung über die Analyse mit KI-Tools bis zur kritischen Interpretation.",
     categoryId: "programmieren",
     format: "Online",
     duration: "3 Stunden",
@@ -847,11 +847,11 @@ export const courses: Course[] = [
   },
   {
     slug: "algorithmisches-denken",
-    title: "Algorithmisches Denken – Problemlösen mit und ohne Computer",
+    title: "Algorithmisches Denken: Problemlösen mit und ohne Computer",
     shortDescription:
       "Computational Thinking als Grundkompetenz vermitteln und algorithmische Denkweisen im Unterricht fördern.",
     description:
-      "Algorithmisches Denken ist mehr als Programmieren – es ist eine Problemlösekompetenz. Diese Fortbildung zeigt, wie Lehrkräfte Computational Thinking in verschiedenen Fächern fördern können, von unplugged-Aktivitäten bis zu KI-gestützten Programmierumgebungen.",
+      "Algorithmisches Denken ist mehr als Programmieren, es ist eine Problemlösekompetenz. Diese Fortbildung zeigt, wie Lehrkräfte Computational Thinking in verschiedenen Fächern fördern können, von unplugged-Aktivitäten bis zu KI-gestützten Programmierumgebungen.",
     categoryId: "programmieren",
     format: "Online",
     duration: "3 Stunden",

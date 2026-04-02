@@ -14,7 +14,7 @@ const HeroStaticAbout = () => {
             Über uns
           </h1>
           <p className="mx-auto mb-9 max-w-[600px] text-md font-light text-white/70">
-            Wir entwickeln KI‑Lösungen und Fortbildungen für Schulen – praxisnah, datenschutzkonform und mit Fokus auf Mehrwert im Schulalltag.
+            Wir entwickeln KI-Lösungen und Fortbildungen für Schulen. Praxisnah, datenschutzkonform und mit Fokus auf Mehrwert im Schulalltag.
           </p>
         </div>
       </div>

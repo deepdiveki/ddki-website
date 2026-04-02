@@ -44,7 +44,7 @@ export default function TeamSection() {
         <SectionHeader className="mx-auto max-w-304 px-4 text-center xl:px-0">
           <HeaderTitle className="text-display-xs font-light -tracking-[0.72px] text-text-primary lg:text-display-sm">Unser Team</HeaderTitle>
           <HeaderSubtitle className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
-            Wir sind Lehrkräfte, Entwickler und Bildungsenthusiasten – vereint
+            Wir sind Lehrkräfte, Entwickler und Bildungsenthusiasten. Vereint
             durch die Vision, KI sinnvoll in den Schulalltag zu bringen.
           </HeaderSubtitle>
         </SectionHeader>

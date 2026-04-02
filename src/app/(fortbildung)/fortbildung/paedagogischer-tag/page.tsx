@@ -24,7 +24,7 @@ export default function PaedagogischerTagPage() {
               Pädagogischer Tag
             </h1>
             <p className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
-              Wir gestalten Ihren pädagogischen Tag – praxisnah, interaktiv und
+              Wir gestalten Ihren pädagogischen Tag praxisnah, interaktiv und
               individuell auf Ihre Schule zugeschnitten.
             </p>
           </div>
@@ -51,7 +51,7 @@ export default function PaedagogischerTagPage() {
                 Individuelle Planung
               </h3>
               <p className="mt-2 text-sm font-light text-text-secondary">
-                Wir stimmen Inhalte und Ablauf gemeinsam mit Ihnen ab – passend
+                Wir stimmen Inhalte und Ablauf gemeinsam mit Ihnen ab, passend
                 zu den Zielen Ihrer Schule.
               </p>
             </div>
@@ -131,7 +131,7 @@ export default function PaedagogischerTagPage() {
             Exemplarischer Ablauf
           </h2>
           <p className="mt-4 max-w-180 text-md font-light text-text-secondary">
-            So könnte ein pädagogischer Tag an Ihrer Schule aussehen – individuell
+            So könnte ein pädagogischer Tag an Ihrer Schule aussehen, individuell
             anpassbar an Ihre Bedürfnisse.
           </p>
 
@@ -171,7 +171,7 @@ export default function PaedagogischerTagPage() {
                   {
                     time: "13:00 - 15:00 Uhr",
                     module:
-                      "Deep Dive Modul II - Plagiate, Hausaufgaben und Klausuren in Zeiten von KI + Deep Dive Modul VII – KI Bots für deinen Unterricht erstellen",
+                      "Deep Dive Modul II - Plagiate, Hausaufgaben und Klausuren in Zeiten von KI + Deep Dive Modul VII - KI Bots für deinen Unterricht erstellen",
                     referent: "Björn Isenbiel und Tim Philipp",
                   },
                   {

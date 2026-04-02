@@ -14,7 +14,7 @@ const feedbackItems = [
   },
   {
     title: "Intuitive Bedienung",
-    description: "Das System ist super einfach zu bedienen – auch für technikferne Kolleg:innen.",
+    description: "Das System ist super einfach zu bedienen, auch für technikferne Kolleg:innen.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
       <div className="text-sm text-white/60 dark:text-neutral-500">Schulleiter, Hamburg</div>

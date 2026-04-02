@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import SectionTitle from "@/components/Common/SectionTitle";
 
 const feedbackLines = [
-  "Wir haben mit dem Deep-Dive Team wirklich gute Erfahrungen sammeln können. Im Rahmen des Startchencenprogramms haben wir unter anderem mit der angebotenen Schul-KI gearbeitet und uns unsere Homepage neu konzipieren lassen. Die neu konzipierte Homepage stellt uns sehr zufrieden, die Schul-KI wird von den Kolleginnen und Kollegen gut angenommen und erleichtert den datenschutzkonformen Unterricht sehr. Das Deep-Dive-Team ist gut erreichbar, Wünsche und Anliegen werden zeitnah umgesetzt.",
+  "Wir haben mit dem Deep-Dive Team wirklich gute Erfahrungen sammeln können. Im Rahmen des Startchancenprogramms haben wir unter anderem mit der angebotenen Schul-KI gearbeitet und uns unsere Homepage neu konzipieren lassen. Die neu konzipierte Homepage stellt uns sehr zufrieden, die Schul-KI wird von den Kolleginnen und Kollegen gut angenommen und erleichtert den datenschutzkonformen Unterricht sehr. Das Deep-Dive-Team ist gut erreichbar, Wünsche und Anliegen werden zeitnah umgesetzt.",
   "Wir können die Zusammenarbeit sehr empfehlen.",
 ];
 
@@ -21,7 +21,7 @@ const SchulFeedback = () => {
           <SectionTitle variant="software"
             subTitle="SchulFeedback"
             title="Was unserer Schulen sagen"
-            paragraph="Die besten Geschichten schreibt der Schulalltag. Hier erzählen unsere Schulen, wie sie unsere Lösungen einsetzen, was sie begeistert – und wie KI ihnen den Rücken im Alltag stärkt."
+            paragraph="Die besten Geschichten schreibt der Schulalltag. Hier erzählen unsere Schulen, wie sie unsere Lösungen einsetzen, was sie begeistert und wie KI ihnen den Rücken im Alltag stärkt."
           />
         </motion.div>
 

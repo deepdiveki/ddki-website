@@ -13,7 +13,7 @@ const Usecases = () => {
         <SectionTitle variant="software"
           subTitle="Produktvorschau"
           title="Anwendungsmöglichkeiten"
-          paragraph="Entdecken Sie die vielfältigen Einsatzmöglichkeiten des KI-Schulbüros – von Schülerinnen und Schülern, die sich über Mensakosten informieren, über Eltern, die aktuelle Veranstaltungen im Blick behalten möchten, bis hin zu Schulanmeldungen oder Krankmeldungen, die direkt über das KI-Schulbüro übermittelt werden."
+          paragraph="Entdecken Sie die vielfältigen Einsatzmöglichkeiten des KI-Schulbüros. Von Schülerinnen und Schülern, die sich über Mensakosten informieren, über Eltern, die aktuelle Veranstaltungen im Blick behalten möchten, bis hin zu Schulanmeldungen oder Krankmeldungen, die direkt über das KI-Schulbüro übermittelt werden."
         />
         <div className="mt-10">
           <ChatbotPreview />

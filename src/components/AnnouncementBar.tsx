@@ -63,10 +63,10 @@ export default function AnnouncementBar({ variant = "software" }: { variant?: "s
               </>
             ) : (
               <>
-                Alle Fortbildungen und Produkte sind förderfähig im Rahmen des{" "}
+                Unsere Fortbildungen und Produkte können im Rahmen des{" "}
                 <span className={highlightClass}>Startchancen-Programms</span>{" "}
                 und des{" "}
-                <span className={highlightClass}>DigitalPakts 2.0</span>
+                <span className={highlightClass}>DigitalPakts 2.0</span> gefördert werden!
               </>
             )}
           </p>

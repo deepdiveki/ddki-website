@@ -42,7 +42,7 @@ const TESTIMONIALS = [
   },
   {
     title: "Intuitive Bedienung",
-    quote: "Der DeepChat ist einfach zu bedienen – auch für technikferne Kolleg:innen. Gute Einführung von Björn und Tim.",
+    quote: "Der DeepChat ist einfach zu bedienen, auch für technikferne Kolleg:innen. Gute Einführung von Björn und Tim.",
     author: "Schulleiter, Hamburg",
   },
   {

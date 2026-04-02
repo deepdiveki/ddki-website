@@ -52,7 +52,7 @@ export default function InitiativbewerbungPage() {
                   Als Tim und ich angefangen haben, haben wir tausend Fehler
                   gemacht. Wir haben uns Dinge selbst beigebracht, anderen
                   zugehört, um Rat gefragt, Workflows aufgebaut und wieder
-                  verworfen, unter Schreibtischen geschlafen, uns gestritten –
+                  verworfen, unter Schreibtischen geschlafen, uns gestritten
                   und wieder vertragen.
                 </p>
                 <p className="mt-4 text-sm text-white/60 leading-relaxed">
@@ -61,8 +61,8 @@ export default function InitiativbewerbungPage() {
                   schwierig das manchmal ist.
                 </p>
                 <div className="mt-5 rounded-2xl border border-purple-900/40 bg-[#141126] px-4 py-3 text-sm text-white">
-                  Wenn du Bock hast, uns einfach mal kennenzulernen – ohne viel
-                  Business-Buzzwords – schreib uns. Wir melden uns.
+                  Wenn du Bock hast, uns einfach mal kennenzulernen, ohne viel
+                  Business-Buzzwords, schreib uns. Wir melden uns.
                 </div>
               </div>
             </div>

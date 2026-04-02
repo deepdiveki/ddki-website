@@ -28,8 +28,8 @@ export default function HeroSection() {
                 </h1>
                 <p className="animate-in text-md font-light text-text-secondary delay-300 duration-700 fill-mode-both fade-in slide-in-from-bottom-4">
                   Entdecken Sie praxisnahe Fortbildungen in den Bereichen KI,
-                  Digitalisierung, Pädagogik, Management und Gesundheit –
-                  individuell und zukunftsorientiert.
+                  Digitalisierung, Pädagogik, Management und Gesundheit.
+                  Individuell und zukunftsorientiert.
                 </p>
               </div>
 

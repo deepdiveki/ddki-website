@@ -40,7 +40,7 @@ const PricingGrids = () => {
         <SectionTitle variant="software"
           subTitle="Jetzt anfragen"
           title="Preise"
-          paragraph="Entdecken Sie den DeepChat – Ihre intelligente, funktionsreiche und datenschutzkonforme KI-Anwendung. Mit einer Vielzahl an Funktionalitäten, perfekt für den Unterricht oder als administrative Unterstützung und garantiert mit höchsten Datenschutzstandards. Ob für Schulen, Schulträger, Medienzentren, Bundesländer oder Hochschulen – profitieren Sie von einem maßgeschneiderten DeepChat, die flexibel und sicher sind."
+          paragraph="Entdecken Sie den DeepChat, Ihre intelligente, funktionsreiche und datenschutzkonforme KI-Anwendung. Mit einer Vielzahl an Funktionalitäten, perfekt für den Unterricht oder als administrative Unterstützung und mit höchsten Datenschutzstandards. Ob für Schulen, Schulträger, Medienzentren, Bundesländer oder Hochschulen, profitieren Sie von einem maßgeschneiderten DeepChat, die flexibel und sicher sind."
         />
         <div className="flex justify-center items-stretch gap-6 flex-wrap">
           {pricingData.map((price, index) => (

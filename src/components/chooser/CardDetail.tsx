@@ -54,7 +54,7 @@ const FORTBILDUNGEN_PRODUCTS = [
   {
     category: "Nachweis",
     title: "Zertifizierte Abschlüsse",
-    desc: "Anerkannte Fortbildungsnachweise für Ihr Portfolio. Dokumentierte Kompetenzen für Ihre berufliche Weiterentwicklung.",
+    desc: "Fortbildungsnachweise für Ihr Portfolio. Dokumentierte Kompetenzen für Ihre berufliche Weiterentwicklung.",
     href: "/fortbildung/fortbildungen",
   },
   {

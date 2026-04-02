@@ -101,7 +101,7 @@ const scenario: ScenarioContent = {
     {
       title: "Arbeitsphase (40 Min)",
       description:
-        "Björn korrigiert Hefte am Lehrertisch. 5–6 Kinder unterhalten sich und zeichnen statt zu schreiben. Knappe, abweisende Antworten auf Fragen. Nach 20 Min haben die Hälfte kaum etwas geschrieben",
+        "Björn korrigiert Hefte am Lehrertisch. 5-6 Kinder unterhalten sich und zeichnen statt zu schreiben. Knappe, abweisende Antworten auf Fragen. Nach 20 Min haben die Hälfte kaum etwas geschrieben",
       accent: "muted",
     },
     {

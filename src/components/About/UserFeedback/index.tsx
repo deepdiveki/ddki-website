@@ -80,7 +80,7 @@ const feedbackItems = [
   },
   {
     title: "Intuitive Bedienung",
-    description: "Der DeepChat ist einfach zu bedienen – auch für technikferne Kolleg:innen. Gute Einführung von Björn und Tim.",
+    description: "Der DeepChat ist einfach zu bedienen, auch für technikferne Kolleg:innen. Gute Einführung von Björn und Tim.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
       <div className="text-sm text-white/50">Schulleiter, Hamburg</div>
@@ -163,7 +163,7 @@ const UserFeedback = () => {
         <SectionTitle variant="software"
           subTitle="User Feedback"
           title="Was unsere Lehrer:innen sagen"
-          paragraph="Die besten Geschichten schreibt der Schulalltag. Hier erzählen Lehrer:innen, wie sie unsere Lösungen einsetzen, was sie begeistert – und wie KI ihnen den Rücken im Alltag stärkt."
+          paragraph="Die besten Geschichten schreibt der Schulalltag. Hier erzählen Lehrer:innen, wie sie unsere Lösungen einsetzen, was sie begeistert, und wie KI ihnen den Rücken im Alltag stärkt."
         />
 
         <div className="mt-10 mb-14 flex justify-center gap-12 perspective-[1000px]">

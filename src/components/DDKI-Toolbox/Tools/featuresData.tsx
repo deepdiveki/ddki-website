@@ -48,7 +48,7 @@ const ddkitools: Feature[] = [
     id: 23,
     title: "Chat Assistenten",
     description:
-      "Erstellen Sie einen Chat-Assistenten, den Sie mit eigenen Informationen erweitern können – für individuelle Lernwege oder zur Automatisierung wiederkehrender Aufgaben.",
+      "Erstellen Sie einen Chat-Assistenten, den Sie mit eigenen Informationen erweitern können, für individuelle Lernwege oder zur Automatisierung wiederkehrender Aufgaben.",
     icon: "/images/features/icon-04.svg",
     animationComponent: pdfChatAnimation,
     rotate: true,

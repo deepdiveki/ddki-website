@@ -14,7 +14,7 @@ const previews = [
   {
     title: "Ihr digitales Fortbildungszertifikat",
     description:
-      "Nach erfolgreichem Abschluss erhalten Sie ein anerkanntes Zertifikat – digital und sofort verfügbar für Ihre berufliche Weiterentwicklung.",
+      "Nach erfolgreichem Abschluss erhalten Sie ein Zertifikat, digital und sofort verfügbar für Ihre berufliche Weiterentwicklung.",
     imageSrc: "/images/certificate-preview.svg",
     imageAlt: "Digitales Fortbildungszertifikat Vorschau",
     reverse: false,
@@ -22,7 +22,7 @@ const previews = [
   {
     title: "Übersichtliche Kursstruktur",
     description:
-      "Behalten Sie den Überblick über Ihre Module, Fortschritte und nächsten Schritte – alles klar strukturiert und auf einen Blick verfügbar.",
+      "Behalten Sie den Überblick über Ihre Module, Fortschritte und nächsten Schritte, alles klar strukturiert und auf einen Blick verfügbar.",
     imageSrc: "/images/course-preview.svg",
     imageAlt: "Kursübersicht und Fortschrittsanzeige",
     reverse: true,
@@ -38,8 +38,8 @@ export default function CertificatePreviewSection() {
             Fortbildung, die sich auszahlt
           </HeaderTitle>
           <HeaderSubtitle>
-            Praxisnahe Inhalte, klare Strukturen und ein anerkanntes Zertifikat
-            – alles für Ihre berufliche Weiterentwicklung.
+            Praxisnahe Inhalte, klare Strukturen und ein Zertifikat
+            - alles für Ihre berufliche Weiterentwicklung.
           </HeaderSubtitle>
         </SectionHeader>
 

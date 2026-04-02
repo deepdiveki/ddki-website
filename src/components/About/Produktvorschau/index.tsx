@@ -15,7 +15,7 @@ const Produktvorschau = () => {
         <SectionTitle variant="software"
           subTitle="Produktvorschau"
           title="Anwendungsmöglichkeiten"
-          paragraph="Entdecken Sie die vielseitigen Möglichkeiten von DeepChat – von der schnellen Formulierung von Elternmails über die Gestaltung kompletter Unterrichtsstunden bis hin zur Entwicklung digitaler Lernhelfer."
+          paragraph="Entdecken Sie die vielseitigen Möglichkeiten von DeepChat, von der schnellen Formulierung von Elternmails über die Gestaltung kompletter Unterrichtsstunden bis hin zur Entwicklung digitaler Lernhelfer."
         />
         <DeepChatAnimationCarousel />
       </div>

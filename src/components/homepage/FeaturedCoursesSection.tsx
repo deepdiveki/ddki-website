@@ -29,7 +29,7 @@ export default function FeaturedCoursesSection() {
         <SectionHeader>
           <HeaderTitle>Empfohlene Fortbildungen</HeaderTitle>
           <HeaderSubtitle>
-            Unsere beliebtesten Kurse – von Experten entwickelt und von
+            Unsere beliebtesten Kurse, von Experten entwickelt und von
             Teilnehmern empfohlen.
           </HeaderSubtitle>
         </SectionHeader>

@@ -15,7 +15,7 @@ const schulbueroJsonLd = {
   "@type": "Product",
   name: "KI-Schulbüro",
   description:
-    "KI-Chatbot für Schulwebsites, der Fragen rund um Schule und Organisation beantwortet – z.B. Termine, Anmeldungen und Kontaktinformationen.",
+    "KI-Chatbot für Schulwebsites, der Fragen rund um Schule und Organisation beantwortet, z.B. Termine, Anmeldungen und Kontaktinformationen.",
   brand: {
     "@type": "Organization",
     name: "DeepDiveKI",

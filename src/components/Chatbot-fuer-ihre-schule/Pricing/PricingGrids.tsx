@@ -36,7 +36,7 @@ const PricingGrids = () => {
         <SectionTitle variant="software"
           subTitle="Jetzt anfragen"
           title="Preise"
-          paragraph="Entdecken Sie unser KI-Schulbüro – so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an."
+          paragraph="Entdecken Sie unser KI-Schulbüro, so individuell wie Ihr Bedarf! Neben Schulen bieten wir auch maßgeschneiderte Lösungen für Schulträger, Medienzentren, Bundesländer und Hochschulen an."
         />
         <div className="flex flex-col md:flex-row justify-center items-center gap-6">
           {pricingData.map((price, index) => (

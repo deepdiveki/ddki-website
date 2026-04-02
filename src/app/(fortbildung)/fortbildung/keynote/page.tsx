@@ -22,7 +22,7 @@ export default function KeynotePage() {
               Keynote
             </h1>
             <p className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
-              Inspirierende Vorträge zu KI in der Bildung – für Konferenzen,
+              Inspirierende Vorträge zu KI in der Bildung für Konferenzen,
               Schulveranstaltungen und pädagogische Tage.
             </p>
           </div>
@@ -37,7 +37,7 @@ export default function KeynotePage() {
           <p className="mt-4 max-w-180 text-md font-light text-text-secondary">
             Unsere Keynotes verbinden aktuelle Forschung mit praxisnahen
             Einblicken. Wir zeigen, wie Künstliche Intelligenz den Schulalltag
-            bereichern kann – verständlich, motivierend und mit konkreten
+            bereichern kann. Verständlich, motivierend und mit konkreten
             Beispielen.
           </p>
 
@@ -66,7 +66,7 @@ export default function KeynotePage() {
               </h3>
               <p className="mt-2 text-sm font-light text-text-secondary">
                 Verantwortungsvoller Umgang mit KI-Werkzeugen im schulischen
-                Kontext – was erlaubt ist und worauf man achten sollte.
+                Kontext. Was ist erlaubt und worauf sollte man achten?
               </p>
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function KeynotePage() {
               </h3>
               <p className="mt-2 text-sm font-light text-text-secondary">
                 Komplexe Themen rund um KI werden verständlich und anschaulich
-                aufbereitet – auch für Einsteiger.
+                aufbereitet, auch für Einsteiger.
               </p>
             </div>
             <div className="rounded-2xl border border-border-tertiary bg-white p-6">
@@ -103,7 +103,7 @@ export default function KeynotePage() {
               </h3>
               <p className="mt-2 text-sm font-light text-text-secondary">
                 Jede Keynote wird auf Ihr Publikum und Ihre Veranstaltung
-                zugeschnitten – vor Ort oder digital.
+                zugeschnitten, vor Ort oder digital.
               </p>
             </div>
             <div className="rounded-2xl border border-border-tertiary bg-white p-6">

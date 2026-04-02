@@ -18,7 +18,7 @@ const testimonials = [
   {
     title: "Intuitive Bedienung",
     quote:
-      "Der DeepChat ist einfach zu bedienen – auch für technikferne Kolleg:innen. Gute Einführung von Björn und Tim.",
+      "Der DeepChat ist einfach zu bedienen, auch für technikferne Kolleg:innen. Gute Einführung von Björn und Tim.",
     role: "Schulleiter, Hamburg",
   },
   {
@@ -155,7 +155,7 @@ export default function TestimonialsSection() {
           <HeaderSubtitle className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
             Die besten Geschichten schreibt der Schulalltag. Hier erzählen
             Lehrer:innen, wie sie unsere Lösungen einsetzen, was sie begeistert
-            – und wie KI ihnen den Rücken im Alltag stärkt.
+            und wie KI ihnen den Rücken im Alltag stärkt.
           </HeaderSubtitle>
         </SectionHeader>
       </motion.div>

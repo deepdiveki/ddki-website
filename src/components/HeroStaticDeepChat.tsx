@@ -14,7 +14,7 @@ const HeroStaticDeepChat = () => {
             DeepChat
           </h1>
           <p className="mx-auto mb-9 max-w-[600px] text-md font-light text-white/70">
-            Planen Sie Unterricht, erstellen Sie Materialien und organisieren Sie den Schulalltag – alles in einem Chat. Datenschutzkonform und performant.
+            Planen Sie Unterricht, erstellen Sie Materialien und organisieren Sie den Schulalltag, alles in einem Chat. Datenschutzkonform und performant.
           </p>
         </div>
       </div>

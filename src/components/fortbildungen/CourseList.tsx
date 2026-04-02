@@ -50,33 +50,33 @@ export default function CourseList() {
       {selectedCategory === "ki" && (
         <div className="space-y-4 text-text-secondary">
           <h3 className="text-xl font-semibold text-text-primary">
-            KI-Fortbildung für Lehrkräfte – praxisnah, direkt anwendbar
+            KI-Fortbildung für Lehrkräfte: praxisnah & direkt anwendbar
           </h3>
           <p>
             Von der ersten Orientierung bis zur gezielten Vertiefung: Unsere
-            Fortbildungsreihe stärkt Ihre KI-Kompetenz für den Schulalltag – mit
+            Fortbildungsreihe stärkt Ihre KI-Kompetenz für den Schulalltag, mit
             einem Crashkurs als Einstieg und acht Deep-Dive-Modulen zu Themen
             wie Unterrichtsplanung, Plagiatserkennung und KI-gestützter
             Unterrichtsdurchführung. Alle Module können auch einzeln besucht
-            werden – eine bestimmte Reihenfolge oder der Besuch anderer Module
+            werden. Eine bestimmte Reihenfolge oder der Besuch anderer Module
             ist nicht erforderlich.
           </p>
           <p>
             Sie lernen aktuelle KI-Tools kennen, erproben neue Formen des
             Team-Teachings und nehmen konkrete Methoden und Materialien mit, die
             Sie sofort im Unterricht einsetzen können. Unsere Fortbildung ist
-            bewusst herstellerunabhängig – wir geben Ihnen einen praxisnahen
+            bewusst herstellerunabhängig und wir geben Ihnen einen praxisnahen
             Überblick über die gesamte Bandbreite verfügbarer KI-Technologien.
           </p>
           <p>
-            Während der Fortbildung steht allen Teilnehmenden unser KI-Chat
-            DeepChat kostenlos zur Verfügung – DSGVO-konform und leistungsstark.
-            Auf Wunsch gestalten wir die Fortbildung auch gezielt rund um telli
-            – ideal für Schulen, die bereits mit dem Schul-KI-Chat arbeiten
+            Während der Fortbildung steht allen Teilnehmenden unser DSGVO-konformer KI-Chat
+            DeepChat kostenlos zur Verfügung.
+            Auf Wunsch gestalten wir die Fortbildung auch gezielt rund um telli.
+            Ideal für Schulen, die bereits mit dem Schul-KI-Chat arbeiten
             oder diesen einführen möchten.
           </p>
           <p>
-            Wir kommen auch gerne zu Ihnen – als SCHILF oder für einen
+            Wir kommen auch gerne zu Ihnen, als SCHILF oder für einen
             pädagogischen Tag.
           </p>
         </div>

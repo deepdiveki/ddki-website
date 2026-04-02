@@ -38,7 +38,7 @@ export function FAQSchema() {
         name: "Was ist DeepDiveKI?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "DeepDiveKI bietet DSGVO-konforme KI-Tools (DDKI Toolbox, KI-Chatbot) und praxisnahe Fortbildungen für Lehrkräfte an Schulen und Universitäten. Alle Produkte werden in Deutschland gehostet.",
+          text: "DeepDiveKI bietet DSGVO-konforme KI-Tools (DDKI Toolbox, KI-Chatbot) und praxisnahe Fortbildungen für Lehrkräfte an Schulen und Universitäten. Alle Produkte werden in Europa gehostet.",
         },
       },
       {
@@ -46,7 +46,7 @@ export function FAQSchema() {
         name: "Sind die KI-Tools von DeepDiveKI DSGVO-konform?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Ja, alle DeepDiveKI-Produkte sind vollständig DSGVO-konform. Die Daten werden auf deutschen bzw. europäischen Servern verarbeitet und gespeichert.",
+          text: "Ja, alle DeepDiveKI-Produkte sind DSGVO-konform. Die Daten werden auf deutschen bzw. europäischen Servern verarbeitet und gespeichert.",
         },
       },
       {
@@ -54,7 +54,7 @@ export function FAQSchema() {
         name: "Welche KI-Fortbildungen bietet DeepDiveKI an?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "DeepDiveKI bietet einen Crash Kurs sowie DeepDive Module I–VI an. Die Fortbildungen sind praxisnah und für alle Schulformen geeignet – von der Grundschule bis zum Gymnasium.",
+          text: "DeepDiveKI bietet einen Crash Kurs sowie DeepDive Module I-VI an. Die Fortbildungen sind praxisnah und für alle Schulformen geeignet, von der Grundschule bis zum Gymnasium.",
         },
       },
       {
@@ -62,7 +62,7 @@ export function FAQSchema() {
         name: "Kann ich DeepDiveKI über das Startchancenprogramm finanzieren?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Ja, die Produkte von DeepDiveKI sind über das Startchancenprogramm förderfähig. Kontaktieren Sie uns für weitere Informationen zur Finanzierung.",
+          text: "Ja, die Produkte von DeepDiveKI können im Rahmen des Startchancenprogramms förderfähig sein. Kontaktieren Sie uns für weitere Informationen zur Finanzierung.",
         },
       },
       {
@@ -70,7 +70,7 @@ export function FAQSchema() {
         name: "Was ist die DDKI Toolbox?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Die DDKI Toolbox ist eine Sammlung DSGVO-konformer KI-Tools für den Unterricht, darunter DeepChat (KI-Chat), Bildgenerierung und verschiedene Sprachmodelle – speziell für den Einsatz in Schulen entwickelt.",
+          text: "Die DDKI Toolbox ist eine Sammlung DSGVO-konformer KI-Tools für den Unterricht, darunter DeepChat (KI-Chat), Bildgenerierung und verschiedene Sprachmodelle, speziell für den Einsatz in Schulen entwickelt.",
         },
       },
       {

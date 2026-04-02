@@ -35,7 +35,7 @@ const faqs: Omit<FAQ, "id">[] = [
   {
     question: "Erhalte ich ein Zertifikat nach Abschluss?",
     answer:
-      "Ja, nach erfolgreicher Teilnahme an einer Fortbildung erhalten Sie ein Teilnahmezertifikat. Je nach Kurs kann dies auch als anerkannte Fortbildungsmaßnahme für Ihre berufliche Weiterbildung angerechnet werden.",
+      "Ja, nach erfolgreicher Teilnahme an einer Fortbildung erhalten Sie ein Teilnahmezertifikat. Je nach Kurs kann dies auch als Fortbildungsmaßnahme für Ihre berufliche Weiterbildung angerechnet werden.",
   },
   {
     question: "Können Fortbildungen auch für Teams gebucht werden?",
@@ -50,7 +50,7 @@ const faqs: Omit<FAQ, "id">[] = [
   {
     question: "Sind die Fortbildungen und Produkte förderfähig?",
     answer:
-      "Ja, alle unsere Fortbildungen und Produkte sind förderfähig im Rahmen des Startchancen-Programms und des DigitalPakts 2.0. Gerne unterstützen wir Sie bei der Beantragung der Fördermittel und beraten Sie zu den Möglichkeiten.",
+      "Ja, unsere Fortbildungen und Produkte können im Rahmen des Startchancen-Programms und des DigitalPakts 2.0 gefördert werden. Gerne unterstützen wir Sie bei der Beantragung der Fördermittel und beraten Sie zu den Möglichkeiten.",
   },
 ];
 
