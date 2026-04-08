@@ -216,75 +216,75 @@ const MIT: ParallaxConfig = [
   },
 ];
 
-/* ─── TROTZ — fortress / resilience ─── */
+/* ─── TROTZ — fortress / resilience (vorübergehend deaktiviert) ─── */
 
-const TROTZ: ParallaxConfig = [
-  {
-    factor: 0.15,
-    elements: [
-      // fortress wall crenellations
-      rect("tw1", 0, 250, 120, 8, "rgba(127,29,29,0.18)"),
-      rect("tw1a", 0, 242, 20, 8, "rgba(127,29,29,0.18)"),
-      rect("tw1b", 40, 242, 20, 8, "rgba(127,29,29,0.18)"),
-      rect("tw1c", 80, 242, 20, 8, "rgba(127,29,29,0.18)"),
-      rect("tw2", 300, 255, 130, 8, "rgba(127,29,29,0.16)"),
-      rect("tw2a", 300, 247, 22, 8, "rgba(127,29,29,0.16)"),
-      rect("tw2b", 344, 247, 22, 8, "rgba(127,29,29,0.16)"),
-      rect("tw2c", 388, 247, 22, 8, "rgba(127,29,29,0.16)"),
-      rect("tw3", 650, 248, 110, 8, "rgba(127,29,29,0.18)"),
-      rect("tw3a", 650, 240, 18, 8, "rgba(127,29,29,0.18)"),
-      rect("tw3b", 688, 240, 18, 8, "rgba(127,29,29,0.18)"),
-      rect("tw3c", 726, 240, 18, 8, "rgba(127,29,29,0.18)"),
-      rect("tw4", 1000, 252, 120, 8, "rgba(127,29,29,0.17)"),
-      rect("tw4a", 1000, 244, 20, 8, "rgba(127,29,29,0.17)"),
-      rect("tw4b", 1040, 244, 20, 8, "rgba(127,29,29,0.17)"),
-      rect("tw4c", 1080, 244, 20, 8, "rgba(127,29,29,0.17)"),
-      rect("tw5", 1400, 250, 115, 8, "rgba(127,29,29,0.18)"),
-      rect("tw6", 1800, 254, 125, 8, "rgba(127,29,29,0.16)"),
-      rect("tw7", 2200, 249, 110, 8, "rgba(127,29,29,0.18)"),
-      // pink clouds
-      cloud("tc1", 150, 20, 80, 24, "rgba(255,241,242,0.78)", "rgba(136,19,55,0.18)"),
-      cloud("tc2", 600, 30, 95, 28, "rgba(255,241,242,0.82)", "rgba(136,19,55,0.2)"),
-      cloud("tc3", 1100, 18, 85, 22, "rgba(255,241,242,0.76)", "rgba(136,19,55,0.16)"),
-      cloud("tc4", 1650, 25, 90, 26, "rgba(255,241,242,0.8)", "rgba(136,19,55,0.18)"),
-      cloud("tc5", 2400, 32, 80, 24, "rgba(255,241,242,0.78)", "rgba(136,19,55,0.17)"),
-    ],
-  },
-  {
-    factor: 0.35,
-    elements: [
-      // shield shapes
-      rect("tsh1", 200, 180, 22, 28, "rgba(248,113,113,0.15)", { borderRadius: "4px 4px 50% 50%", border: "2px solid rgba(248,113,113,0.22)" }),
-      rect("tsh2", 750, 190, 20, 26, "rgba(248,113,113,0.13)", { borderRadius: "4px 4px 50% 50%", border: "2px solid rgba(248,113,113,0.2)" }),
-      rect("tsh3", 1350, 175, 24, 30, "rgba(248,113,113,0.16)", { borderRadius: "4px 4px 50% 50%", border: "2px solid rgba(248,113,113,0.24)" }),
-      rect("tsh4", 2000, 185, 22, 28, "rgba(248,113,113,0.14)", { borderRadius: "4px 4px 50% 50%", border: "2px solid rgba(248,113,113,0.21)" }),
-      // clock faces
-      rect("tcl1", 450, 170, 20, 20, "rgba(254,226,226,0.3)", { borderRadius: "50%", border: "2px solid rgba(248,113,113,0.2)" }),
-      rect("tcl2", 1100, 185, 18, 18, "rgba(254,226,226,0.28)", { borderRadius: "50%", border: "2px solid rgba(248,113,113,0.18)" }),
-      rect("tcl3", 1800, 172, 22, 22, "rgba(254,226,226,0.32)", { borderRadius: "50%", border: "2px solid rgba(248,113,113,0.22)" }),
-      rect("tcl4", 2500, 180, 20, 20, "rgba(254,226,226,0.3)", { borderRadius: "50%", border: "2px solid rgba(248,113,113,0.2)" }),
-    ],
-  },
-  {
-    factor: 0.6,
-    elements: [
-      // book shapes
-      rect("tbk1", 300, 65, 18, 24, "rgba(248,113,113,0.12)", { border: "2px solid rgba(248,113,113,0.2)", borderRadius: "2px" }),
-      rect("tbk2", 900, 55, 16, 22, "rgba(248,113,113,0.1)", { border: "2px solid rgba(248,113,113,0.18)", borderRadius: "2px" }),
-      rect("tbk3", 1500, 70, 20, 26, "rgba(248,113,113,0.14)", { border: "2px solid rgba(248,113,113,0.22)", borderRadius: "2px" }),
-      rect("tbk4", 2100, 58, 18, 24, "rgba(248,113,113,0.12)", { border: "2px solid rgba(248,113,113,0.2)", borderRadius: "2px" }),
-      // pencil shapes
-      rect("tpc1", 550, 72, 4, 22, "rgba(217,119,6,0.2)", { borderRadius: "1px" }),
-      rect("tpc2", 1200, 62, 4, 20, "rgba(217,119,6,0.18)", { borderRadius: "1px" }),
-      rect("tpc3", 1850, 68, 4, 24, "rgba(217,119,6,0.22)", { borderRadius: "1px" }),
-      rect("tpc4", 2450, 60, 4, 20, "rgba(217,119,6,0.2)", { borderRadius: "1px" }),
-    ],
-  },
-];
+// const TROTZ: ParallaxConfig = [
+//   {
+//     factor: 0.15,
+//     elements: [
+//       // fortress wall crenellations
+//       rect("tw1", 0, 250, 120, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw1a", 0, 242, 20, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw1b", 40, 242, 20, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw1c", 80, 242, 20, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw2", 300, 255, 130, 8, "rgba(127,29,29,0.16)"),
+//       rect("tw2a", 300, 247, 22, 8, "rgba(127,29,29,0.16)"),
+//       rect("tw2b", 344, 247, 22, 8, "rgba(127,29,29,0.16)"),
+//       rect("tw2c", 388, 247, 22, 8, "rgba(127,29,29,0.16)"),
+//       rect("tw3", 650, 248, 110, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw3a", 650, 240, 18, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw3b", 688, 240, 18, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw3c", 726, 240, 18, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw4", 1000, 252, 120, 8, "rgba(127,29,29,0.17)"),
+//       rect("tw4a", 1000, 244, 20, 8, "rgba(127,29,29,0.17)"),
+//       rect("tw4b", 1040, 244, 20, 8, "rgba(127,29,29,0.17)"),
+//       rect("tw4c", 1080, 244, 20, 8, "rgba(127,29,29,0.17)"),
+//       rect("tw5", 1400, 250, 115, 8, "rgba(127,29,29,0.18)"),
+//       rect("tw6", 1800, 254, 125, 8, "rgba(127,29,29,0.16)"),
+//       rect("tw7", 2200, 249, 110, 8, "rgba(127,29,29,0.18)"),
+//       // pink clouds
+//       cloud("tc1", 150, 20, 80, 24, "rgba(255,241,242,0.78)", "rgba(136,19,55,0.18)"),
+//       cloud("tc2", 600, 30, 95, 28, "rgba(255,241,242,0.82)", "rgba(136,19,55,0.2)"),
+//       cloud("tc3", 1100, 18, 85, 22, "rgba(255,241,242,0.76)", "rgba(136,19,55,0.16)"),
+//       cloud("tc4", 1650, 25, 90, 26, "rgba(255,241,242,0.8)", "rgba(136,19,55,0.18)"),
+//       cloud("tc5", 2400, 32, 80, 24, "rgba(255,241,242,0.78)", "rgba(136,19,55,0.17)"),
+//     ],
+//   },
+//   {
+//     factor: 0.35,
+//     elements: [
+//       // shield shapes
+//       rect("tsh1", 200, 180, 22, 28, "rgba(248,113,113,0.15)", { borderRadius: "4px 4px 50% 50%", border: "2px solid rgba(248,113,113,0.22)" }),
+//       rect("tsh2", 750, 190, 20, 26, "rgba(248,113,113,0.13)", { borderRadius: "4px 4px 50% 50%", border: "2px solid rgba(248,113,113,0.2)" }),
+//       rect("tsh3", 1350, 175, 24, 30, "rgba(248,113,113,0.16)", { borderRadius: "4px 4px 50% 50%", border: "2px solid rgba(248,113,113,0.24)" }),
+//       rect("tsh4", 2000, 185, 22, 28, "rgba(248,113,113,0.14)", { borderRadius: "4px 4px 50% 50%", border: "2px solid rgba(248,113,113,0.21)" }),
+//       // clock faces
+//       rect("tcl1", 450, 170, 20, 20, "rgba(254,226,226,0.3)", { borderRadius: "50%", border: "2px solid rgba(248,113,113,0.2)" }),
+//       rect("tcl2", 1100, 185, 18, 18, "rgba(254,226,226,0.28)", { borderRadius: "50%", border: "2px solid rgba(248,113,113,0.18)" }),
+//       rect("tcl3", 1800, 172, 22, 22, "rgba(254,226,226,0.32)", { borderRadius: "50%", border: "2px solid rgba(248,113,113,0.22)" }),
+//       rect("tcl4", 2500, 180, 20, 20, "rgba(254,226,226,0.3)", { borderRadius: "50%", border: "2px solid rgba(248,113,113,0.2)" }),
+//     ],
+//   },
+//   {
+//     factor: 0.6,
+//     elements: [
+//       // book shapes
+//       rect("tbk1", 300, 65, 18, 24, "rgba(248,113,113,0.12)", { border: "2px solid rgba(248,113,113,0.2)", borderRadius: "2px" }),
+//       rect("tbk2", 900, 55, 16, 22, "rgba(248,113,113,0.1)", { border: "2px solid rgba(248,113,113,0.18)", borderRadius: "2px" }),
+//       rect("tbk3", 1500, 70, 20, 26, "rgba(248,113,113,0.14)", { border: "2px solid rgba(248,113,113,0.22)", borderRadius: "2px" }),
+//       rect("tbk4", 2100, 58, 18, 24, "rgba(248,113,113,0.12)", { border: "2px solid rgba(248,113,113,0.2)", borderRadius: "2px" }),
+//       // pencil shapes
+//       rect("tpc1", 550, 72, 4, 22, "rgba(217,119,6,0.2)", { borderRadius: "1px" }),
+//       rect("tpc2", 1200, 62, 4, 20, "rgba(217,119,6,0.18)", { borderRadius: "1px" }),
+//       rect("tpc3", 1850, 68, 4, 24, "rgba(217,119,6,0.22)", { borderRadius: "1px" }),
+//       rect("tpc4", 2450, 60, 4, 20, "rgba(217,119,6,0.2)", { borderRadius: "1px" }),
+//     ],
+//   },
+// ];
 
 export const PARALLAX_CONFIGS: Record<string, ParallaxConfig> = {
   ueber: UEBER,
   durch: DURCH,
   mit: MIT,
-  trotz: TROTZ,
+  // trotz: TROTZ,
 };

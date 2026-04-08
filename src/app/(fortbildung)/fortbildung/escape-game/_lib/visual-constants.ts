@@ -58,7 +58,7 @@ export const DIMENSION_COLORS = {
   ueber: { accent: "#f59e0b", soft: "#fef3c7", glow: "rgba(245,158,11,0.5)" },
   durch: { accent: "#06b6d4", soft: "#cffafe", glow: "rgba(6,182,212,0.5)" },
   mit: { accent: "#f472b6", soft: "#fce7f3", glow: "rgba(244,114,182,0.5)" },
-  trotz: { accent: "#f87171", soft: "#fee2e2", glow: "rgba(248,113,113,0.5)" },
+  // trotz: { accent: "#f87171", soft: "#fee2e2", glow: "rgba(248,113,113,0.5)" },
 } as const;
 
 export type { DimensionId } from "./types";

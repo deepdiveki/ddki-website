@@ -262,87 +262,81 @@ export const JUMP_RUN_CHAPTERS: Record<JumpRunChapterId, JumpRunChapterConfig> =
   },
 
   /* ════════════════════════════════════════════════════════════
-     TROTZ KI — Fragen referenzieren:
-       • 3-Ebenen-Analyseraster (Oberfläche / Tiefenstruktur / Situationsspezifik)
-       • 5 Failure-Modes KI-generierter Entwürfe
-       • KI-Detektoren (OpenAI 26%/9%, Stanford TOEFL-Studie)
-       • Joscha Falcks 5 Dimensionen des Prüfens
-       • Why-Statement (Professionalisierung, Erkenntnis, Prüfung)
-       • Prozessorientierte Leistungsbewertung
+     TROTZ KI — vorübergehend deaktiviert
      ════════════════════════════════════════════════════════════ */
-  trotz: {
-    id: "trotz",
-    title: "Lernen trotz KI",
-    mission:
-      "In der Welt der perfekten Entwürfe planen Menschen nicht mehr selbst. Baut eine professionelle Warum-Begründung gegen blinde Delegation.",
-    leitfragen: [
-      "Wo fehlt Urteilskraft im KI-Entwurf?",
-      "Wo verschwindet Verantwortung?",
-      "Welche normativen Leerstellen bleiben unsichtbar?",
-      "Welche 3-Satz-Position ist für das LI verbindlich?",
-    ],
-    stations: [
-      {
-        id: "daten-depot",
-        mapLabel: "Diagnose",
-        title: "Level 1: Diagnose KI-Entwurf",
-        learning:
-          "Im Tutorial habt ihr einen KI-generierten Unterrichtsentwurf mit dem 3-Ebenen-Analyseraster geprüft: Oberfläche (Struktur, Sprache, Formalia), Tiefenstruktur (Lernlogik, Antizipation von Schülerdenken, Ziel-Aufgaben-Kohärenz) und Situationsspezifik (Lerngruppe, Zeitplanung, Kontext). Die Tiefenstruktur ist die Ebene, wo die meisten KI-Schwächen sichtbar werden.",
-        question: "Im 3-Ebenen-Analyseraster aus eurem Tutorial: Auf welcher Ebene zeigen KI-generierte Entwürfe die meisten Schwächen — und warum?",
-        options: [
-          { id: "tiefe", label: "Tiefenstruktur — weil KI keine echten Schüler kennt und keine Lernlogik begründen kann, sondern nur Muster reproduziert.", correct: true },
-          { id: "oberflaeche", label: "Oberfläche — weil KI keine korrekte Gliederung erstellen kann.", correct: false },
-          { id: "form", label: "Formale Stimmigkeit — weil KI bei Zeitangaben systematisch versagt.", correct: false },
-        ],
-        reward: "Diagnose-Raster",
-      },
-      {
-        id: "prompt-parkour",
-        mapLabel: "Failure",
-        title: "Level 2: Failure-Modes bündeln",
-        learning:
-          "Im Tutorial habt ihr fünf typische Failure-Modes identifiziert: (1) Generisches Didaktisieren, (2) Pseudobegründungen ('fördert Schüleraktivierung' ohne zu erklären warum), (3) Fehlende Antizipation von Schülerfehlern, (4) Prüfungslogische Unschärfe und (5) Normative Blindstellen.",
-        question: "Einer der fünf Failure-Modes heißt 'Pseudobegründungen'. Was genau ist damit gemeint?",
-        options: [
-          { id: "pseudo", label: "Sätze wie 'fördert Schüleraktivierung' klingen professionell, erklären aber nicht warum die Methode hier zur Klasse und zum Ziel passt.", correct: true },
-          { id: "kurz", label: "Der Entwurf ist zu kurz und enthält zu wenig Text.", correct: false },
-          { id: "format", label: "Der Entwurf verwendet das falsche Dokumentenformat.", correct: false },
-        ],
-        reward: "Failure-Matrix",
-      },
-      {
-        id: "modell-motor",
-        mapLabel: "Leitfragen",
-        title: "Level 3: Leitfragen & Prüfungsvalidität",
-        learning:
-          "Im Tutorial habt ihr gelernt: OpenAI hat seinen eigenen KI-Detektor eingestellt — er erkannte nur 26% der KI-Texte und markierte 9% menschlicher Texte fälschlicherweise als KI. Eine Stanford-Studie zeigte: 97% der TOEFL-Aufsätze nicht-muttersprachlicher Schreibender wurden falsch markiert. Joscha Falcks Modell unterscheidet fünf Dimensionen: Prüfen OHNE, TROTZ, ÜBER, MIT und DURCH KI.",
-        question: "Warum sind KI-Erkennungstools laut eurem Tutorial als alleiniges Prüfungsinstrument ungeeignet?",
-        options: [
-          { id: "unzuverlaessig", label: "OpenAIs Detektor erkannte nur 26% der KI-Texte und diskriminiert systematisch nicht-muttersprachliche Schreibende (Stanford: 97% falsch markiert).", correct: true },
-          { id: "teuer", label: "Sie sind zu teuer für den Schulbetrieb.", correct: false },
-          { id: "langsam", label: "Die Analyse dauert zu lange für den Schulalltag.", correct: false },
-        ],
-        reward: "Leitfragen-Set",
-      },
-      {
-        id: "ethik-endboss",
-        mapLabel: "Warum",
-        title: "Level 4: Professionelle Warum-Begründung",
-        learning:
-          "Im Tutorial habt ihr die dreifache Warum-Begründung formuliert: (1) Professionalisierungsargument — eigenes Planen baut Urteilskraft auf. (2) Erkenntnisargument — der Wert liegt im Denkprozess, nicht im Produkt. (3) Prüfungsargument — Prüfungen müssen Eigenleistung nachweisen, nicht KI-Leistungsfähigkeit.",
-        question: "Eure dreifache Warum-Begründung aus dem Tutorial: Welches Argument erklärt, warum der Denkprozess beim Planen nicht delegiert werden kann?",
-        options: [
-          { id: "erkenntnis", label: "Das Erkenntnisargument: Beim Schreiben durchdringt die Lehrkraft den Lerngegenstand und antizipiert Schülerdenken — diese kognitive Arbeit IST der Lerneffekt.", correct: true },
-          { id: "zeit", label: "Das Zeitargument: Eigenes Planen dauert zwar länger, sieht aber besser aus.", correct: false },
-          { id: "tradition", label: "Das Traditionsargument: Lehrkräfte haben das schon immer so gemacht.", correct: false },
-        ],
-        reward: "Warum-Siegel",
-      },
-    ],
-    dangers: [
-      { id: "bias-banane", title: "Delegations-Banane", description: "Wenn KI den Entwurf liefert, rutscht Verantwortung weg.", tip: "Tipp: Erinnere dich an das Erkenntnisargument — der Denkprozess beim Planen IST die Kompetenzentwicklung." },
-      { id: "halluzinations-hologramm", title: "Perfekt-Entwurf-Hologramm", description: "Formal stark, didaktisch dünn.", tip: "Tipp: Nutze das 3-Ebenen-Raster: Oberfläche, Tiefenstruktur, Situationsspezifik — und prüfe die Kohärenz." },
-      { id: "prompt-piranhas", title: "Normen-Piranhas", description: "Normative Fragen verschwinden hinter glatten Formulierungen.", tip: "Tipp: Denke an die 5 Failure-Modes — Pseudobegründungen und normative Blindstellen gezielt aufdecken." },
-    ],
-  },
+  // trotz: {
+  //   id: "trotz",
+  //   title: "Lernen trotz KI",
+  //   mission:
+  //     "In der Welt der perfekten Entwürfe planen Menschen nicht mehr selbst. Baut eine professionelle Warum-Begründung gegen blinde Delegation.",
+  //   leitfragen: [
+  //     "Wo fehlt Urteilskraft im KI-Entwurf?",
+  //     "Wo verschwindet Verantwortung?",
+  //     "Welche normativen Leerstellen bleiben unsichtbar?",
+  //     "Welche 3-Satz-Position ist für das LI verbindlich?",
+  //   ],
+  //   stations: [
+  //     {
+  //       id: "daten-depot",
+  //       mapLabel: "Diagnose",
+  //       title: "Level 1: Diagnose KI-Entwurf",
+  //       learning:
+  //         "Im Tutorial habt ihr einen KI-generierten Unterrichtsentwurf mit dem 3-Ebenen-Analyseraster geprüft: Oberfläche (Struktur, Sprache, Formalia), Tiefenstruktur (Lernlogik, Antizipation von Schülerdenken, Ziel-Aufgaben-Kohärenz) und Situationsspezifik (Lerngruppe, Zeitplanung, Kontext). Die Tiefenstruktur ist die Ebene, wo die meisten KI-Schwächen sichtbar werden.",
+  //       question: "Im 3-Ebenen-Analyseraster aus eurem Tutorial: Auf welcher Ebene zeigen KI-generierte Entwürfe die meisten Schwächen — und warum?",
+  //       options: [
+  //         { id: "tiefe", label: "Tiefenstruktur — weil KI keine echten Schüler kennt und keine Lernlogik begründen kann, sondern nur Muster reproduziert.", correct: true },
+  //         { id: "oberflaeche", label: "Oberfläche — weil KI keine korrekte Gliederung erstellen kann.", correct: false },
+  //         { id: "form", label: "Formale Stimmigkeit — weil KI bei Zeitangaben systematisch versagt.", correct: false },
+  //       ],
+  //       reward: "Diagnose-Raster",
+  //     },
+  //     {
+  //       id: "prompt-parkour",
+  //       mapLabel: "Failure",
+  //       title: "Level 2: Failure-Modes bündeln",
+  //       learning:
+  //         "Im Tutorial habt ihr fünf typische Failure-Modes identifiziert: (1) Generisches Didaktisieren, (2) Pseudobegründungen ('fördert Schüleraktivierung' ohne zu erklären warum), (3) Fehlende Antizipation von Schülerfehlern, (4) Prüfungslogische Unschärfe und (5) Normative Blindstellen.",
+  //       question: "Einer der fünf Failure-Modes heißt 'Pseudobegründungen'. Was genau ist damit gemeint?",
+  //       options: [
+  //         { id: "pseudo", label: "Sätze wie 'fördert Schüleraktivierung' klingen professionell, erklären aber nicht warum die Methode hier zur Klasse und zum Ziel passt.", correct: true },
+  //         { id: "kurz", label: "Der Entwurf ist zu kurz und enthält zu wenig Text.", correct: false },
+  //         { id: "format", label: "Der Entwurf verwendet das falsche Dokumentenformat.", correct: false },
+  //       ],
+  //       reward: "Failure-Matrix",
+  //     },
+  //     {
+  //       id: "modell-motor",
+  //       mapLabel: "Leitfragen",
+  //       title: "Level 3: Leitfragen & Prüfungsvalidität",
+  //       learning:
+  //         "Im Tutorial habt ihr gelernt: OpenAI hat seinen eigenen KI-Detektor eingestellt — er erkannte nur 26% der KI-Texte und markierte 9% menschlicher Texte fälschlicherweise als KI. Eine Stanford-Studie zeigte: 97% der TOEFL-Aufsätze nicht-muttersprachlicher Schreibender wurden falsch markiert. Joscha Falcks Modell unterscheidet fünf Dimensionen: Prüfen OHNE, TROTZ, ÜBER, MIT und DURCH KI.",
+  //       question: "Warum sind KI-Erkennungstools laut eurem Tutorial als alleiniges Prüfungsinstrument ungeeignet?",
+  //       options: [
+  //         { id: "unzuverlaessig", label: "OpenAIs Detektor erkannte nur 26% der KI-Texte und diskriminiert systematisch nicht-muttersprachliche Schreibende (Stanford: 97% falsch markiert).", correct: true },
+  //         { id: "teuer", label: "Sie sind zu teuer für den Schulbetrieb.", correct: false },
+  //         { id: "langsam", label: "Die Analyse dauert zu lange für den Schulalltag.", correct: false },
+  //       ],
+  //       reward: "Leitfragen-Set",
+  //     },
+  //     {
+  //       id: "ethik-endboss",
+  //       mapLabel: "Warum",
+  //       title: "Level 4: Professionelle Warum-Begründung",
+  //       learning:
+  //         "Im Tutorial habt ihr die dreifache Warum-Begründung formuliert: (1) Professionalisierungsargument — eigenes Planen baut Urteilskraft auf. (2) Erkenntnisargument — der Wert liegt im Denkprozess, nicht im Produkt. (3) Prüfungsargument — Prüfungen müssen Eigenleistung nachweisen, nicht KI-Leistungsfähigkeit.",
+  //       question: "Eure dreifache Warum-Begründung aus dem Tutorial: Welches Argument erklärt, warum der Denkprozess beim Planen nicht delegiert werden kann?",
+  //       options: [
+  //         { id: "erkenntnis", label: "Das Erkenntnisargument: Beim Schreiben durchdringt die Lehrkraft den Lerngegenstand und antizipiert Schülerdenken — diese kognitive Arbeit IST der Lerneffekt.", correct: true },
+  //         { id: "zeit", label: "Das Zeitargument: Eigenes Planen dauert zwar länger, sieht aber besser aus.", correct: false },
+  //         { id: "tradition", label: "Das Traditionsargument: Lehrkräfte haben das schon immer so gemacht.", correct: false },
+  //       ],
+  //       reward: "Warum-Siegel",
+  //     },
+  //   ],
+  //   dangers: [
+  //     { id: "bias-banane", title: "Delegations-Banane", description: "Wenn KI den Entwurf liefert, rutscht Verantwortung weg.", tip: "Tipp: Erinnere dich an das Erkenntnisargument — der Denkprozess beim Planen IST die Kompetenzentwicklung." },
+  //     { id: "halluzinations-hologramm", title: "Perfekt-Entwurf-Hologramm", description: "Formal stark, didaktisch dünn.", tip: "Tipp: Nutze das 3-Ebenen-Raster: Oberfläche, Tiefenstruktur, Situationsspezifik — und prüfe die Kohärenz." },
+  //     { id: "prompt-piranhas", title: "Normen-Piranhas", description: "Normative Fragen verschwinden hinter glatten Formulierungen.", tip: "Tipp: Denke an die 5 Failure-Modes — Pseudobegründungen und normative Blindstellen gezielt aufdecken." },
+  //   ],
+  // },
 };

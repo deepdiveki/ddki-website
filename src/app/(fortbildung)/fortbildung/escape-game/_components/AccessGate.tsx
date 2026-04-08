@@ -186,7 +186,7 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
                 <div className="space-y-2">
                   <p className="text-sm leading-relaxed text-white/70">
                     Erhalte <span className="font-semibold text-white">14 Tage Zugang</span> zum
-                    KI Escape Game mit allen vier Dimensionen, Tutorials, Challenges und Materialien.
+                    KI Escape Game mit allen drei Dimensionen, Tutorials, Challenges und Materialien.
                   </p>
                   <p className="text-xs text-white/50">
                     Nach dem Kauf erhältst du deinen persönlichen Zugangscode per E-Mail.

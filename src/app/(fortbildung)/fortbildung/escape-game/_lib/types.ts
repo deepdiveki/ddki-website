@@ -1,6 +1,7 @@
 import type { ComponentType, ReactNode } from "react";
 
-export type DimensionId = "ueber" | "durch" | "mit" | "trotz";
+// export type DimensionId = "ueber" | "durch" | "mit" | "trotz";
+export type DimensionId = "ueber" | "durch" | "mit";
 
 export type Character = {
   id: DimensionId;
@@ -106,13 +107,18 @@ export type JumpRunPowerup = {
   spawnedByBlockId?: string;
 };
 
-export type JumpRunChapterId = "ueber" | "mit" | "durch" | "trotz";
+// export type JumpRunChapterId = "ueber" | "mit" | "durch" | "trotz";
+export type JumpRunChapterId = "ueber" | "mit" | "durch";
 
+// export type JumpRunMapId =
+//   | "ueber-citadel"
+//   | "mit-archipelago"
+//   | "durch-lab"
+//   | "trotz-fortress";
 export type JumpRunMapId =
   | "ueber-citadel"
   | "mit-archipelago"
-  | "durch-lab"
-  | "trotz-fortress";
+  | "durch-lab";
 
 export type JumpRunDifficultyId = "easy" | "normal" | "hard";
 

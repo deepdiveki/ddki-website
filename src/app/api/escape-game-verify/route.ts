@@ -6,7 +6,7 @@ const DIMENSION_CODES: Record<string, string> = {
   ueber: "470913",
   durch: "582604",
   mit: "736185",
-  trotz: "249357",
+  // trotz: "249357",
 };
 
 /** Fixed admin access code (for internal testing / live events). */

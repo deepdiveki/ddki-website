@@ -12,7 +12,7 @@ export const DIMENSION_ACCESS_CODES: Record<DimensionId, string> = {
   ueber: "470913",
   durch: "582604",
   mit: "736185",
-  trotz: "249357",
+  // trotz: "249357",
 };
 
 export const CHARACTERS: Character[] = [
@@ -49,17 +49,17 @@ export const CHARACTERS: Character[] = [
     badge: "bg-sky-300/90",
     icon: <IconUsers className="h-6 w-6" />,
   },
-  {
-    id: "trotz",
-    name: "Archivarin Analog",
-    title: "Lernen trotz KI",
-    role: "Die Wächterin",
-    focus: "Kritikfähigkeit, Resilienz, Offline-Kompetenz",
-    key: "Resilienz-Schlüssel",
-    accent: "from-rose-400 via-pink-300 to-rose-200",
-    badge: "bg-rose-300/90",
-    icon: <IconShieldCheck className="h-6 w-6" />,
-  },
+  // {
+  //   id: "trotz",
+  //   name: "Archivarin Analog",
+  //   title: "Lernen trotz KI",
+  //   role: "Die Wächterin",
+  //   focus: "Kritikfähigkeit, Resilienz, Offline-Kompetenz",
+  //   key: "Resilienz-Schlüssel",
+  //   accent: "from-rose-400 via-pink-300 to-rose-200",
+  //   badge: "bg-rose-300/90",
+  //   icon: <IconShieldCheck className="h-6 w-6" />,
+  // },
 ];
 
 export const WELTKARTE_DOWNLOADS: WeltkarteDownload[] = [
@@ -90,13 +90,13 @@ export const WELTKARTE_DOWNLOADS: WeltkarteDownload[] = [
     accent: "border-sky-500 bg-sky-100/70",
     icon: <IconUsers className="h-6 w-6" />,
   },
-  {
-    id: "trotz",
-    title: "Lernen trotz KI",
-    description:
-      "Materialien zu Urteilskraft, Tiefenstruktur-Analyse, Prüfungsvalidität und professioneller Haltung.",
-    pdfPath: "/downloads/ddki-trotz.pdf",
-    accent: "border-rose-500 bg-rose-100/70",
-    icon: <IconShieldCheck className="h-6 w-6" />,
-  },
+  // {
+  //   id: "trotz",
+  //   title: "Lernen trotz KI",
+  //   description:
+  //     "Materialien zu Urteilskraft, Tiefenstruktur-Analyse, Prüfungsvalidität und professioneller Haltung.",
+  //   pdfPath: "/downloads/ddki-trotz.pdf",
+  //   accent: "border-rose-500 bg-rose-100/70",
+  //   icon: <IconShieldCheck className="h-6 w-6" />,
+  // },
 ];

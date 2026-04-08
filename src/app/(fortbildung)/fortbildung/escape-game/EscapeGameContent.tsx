@@ -93,10 +93,15 @@ import "./escape-game.css";
 
 
 
-function EscapeGamePageContent() {
+type EscapeGameProps = {
+  gameOnly?: boolean;
+  forceChapterId?: JumpRunChapterId;
+};
+
+export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: EscapeGameProps = {}) {
   const searchParams = useSearchParams();
-  const chapterParam = searchParams.get("chapter");
-  const isChallengeMode = searchParams.get("mode") === "challenge";
+  const chapterParam = forceChapterId || searchParams.get("chapter");
+  const isChallengeMode = gameOnly || searchParams.get("mode") === "challenge";
   const [enteredCodes, setEnteredCodes] = useState<Record<DimensionId, string>>(() =>
     CHARACTERS.reduce((acc, character) => {
       acc[character.id] = "";
@@ -1473,10 +1478,9 @@ function EscapeGamePageContent() {
     selectedMapId,
   ]);
 
-
   return (
     <main
-      className={`${bodyFont.className} min-h-screen bg-[var(--sky)] text-slate-900`}
+      className={`${bodyFont.className} ${gameOnly ? "" : "min-h-screen bg-[var(--sky)]"} text-slate-900`}
       style={{
         "--sky": "#7dd3fc",
         "--grass": "#22c55e",
@@ -1485,6 +1489,7 @@ function EscapeGamePageContent() {
         "--shadow": "#1b1b1b",
       } as CSSProperties}
     >
+      {!gameOnly && (
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-6 top-10 h-14 w-32 rounded-full bg-white/80 shadow-[6px_6px_0_rgba(0,0,0,0.15)]" />
@@ -1498,7 +1503,7 @@ function EscapeGamePageContent() {
         <div className="relative z-10 mx-auto max-w-6xl px-6 pb-28 pt-28">
           <div className="inline-flex items-center gap-3 border-4 border-black bg-white px-4 py-2 text-xs uppercase tracking-[0.3em] shadow-[4px_4px_0_#000]">
             <IconMap2 className="h-4 w-4" />
-            LI Hamburg - Hauptseminarleitungsklausur
+            KI Escape Game
           </div>
 
           <h1
@@ -1507,10 +1512,10 @@ function EscapeGamePageContent() {
             Escape-Game: KI-Kompetenz-Quest
           </h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg">
-            Vier spielbare Chapter. Zwei Stunden Spielzeit. Eine klare Mission:
+            Drei spielbare Chapter. Zwei Stunden Spielzeit. Eine klare Mission:
             die Kompetenzen{" "}
             <span className="font-bold">
-              Lernen über, durch, mit und trotz KI
+              Lernen über, durch und mit KI
             </span>{" "}
             spielerisch erschließen und in handfeste Ergebnisse übersetzen.
           </p>
@@ -1520,7 +1525,7 @@ function EscapeGamePageContent() {
               {
                 icon: <IconClock className="h-5 w-5" />,
                 title: "2 Stunden",
-                text: "Escape-Game mit vier spielbaren Chaptern",
+                text: "Escape-Game mit drei spielbaren Chaptern",
               },
               {
                 icon: <IconFlag3 className="h-5 w-5" />,
@@ -1549,15 +1554,15 @@ function EscapeGamePageContent() {
 
           {/* ── Erklärvideo ── */}
           <div className="mt-8 border-4 border-black bg-white shadow-[6px_6px_0_#000]">
-            <div className="relative aspect-video w-full bg-slate-900">
-              {/* TODO: Ersetze VIDEO_ID_HIER durch die finale YouTube-Video-ID */}
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/VIDEO_ID_HIER"
-                title="Mission Briefing — So funktioniert das Escape Game"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full"
-              />
+            <div className="overflow-hidden bg-black">
+              <video
+                controls
+                preload="metadata"
+                className="w-full"
+              >
+                <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/DDKI%20Video%20EG%20Main/EscapeGameMainVideo_combined.mp4" type="video/mp4" />
+                Dein Browser unterstützt keine Videowiedergabe.
+              </video>
             </div>
             <div className="flex items-center gap-3 px-5 py-3">
               <IconPlayerPlay className="h-5 w-5 shrink-0 text-[var(--block)]" />
@@ -1588,7 +1593,9 @@ function EscapeGamePageContent() {
           </div>
         </div>
       </section>
+      )}
 
+      {!gameOnly && (
       <section id="crew" className="relative bg-[#fef9c3]">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -1617,7 +1624,7 @@ function EscapeGamePageContent() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2 xl:grid-cols-3">
             {CHARACTERS.map((character, index) => {
               const hasAcceptedCode = acceptedCodeByDimension[character.id];
               const hasEarnedCode = Boolean(earnedCodes[character.id]);
@@ -1687,15 +1694,17 @@ function EscapeGamePageContent() {
           </div>
         </div>
       </section>
+      )}
 
+      {!gameOnly && (
       <section id="map" className="relative bg-[#f8fafc]">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <h2 className={`${displayFont.className} text-2xl`}>Weltkarte</h2>
               <p className="mt-2 max-w-2xl text-sm text-slate-700">
-                Sobald alle vier Missions-Codes korrekt eingetragen sind, werden die
-                Materialien zu allen vier Dimensionen als PDF-Download freigeschaltet.
+                Sobald alle drei Missions-Codes korrekt eingetragen sind, werden die
+                Materialien zu allen drei Dimensionen als PDF-Download freigeschaltet.
               </p>
             </div>
             <div className="inline-flex items-center gap-2 border-4 border-black bg-white px-4 py-2 text-xs uppercase tracking-[0.2em] shadow-[4px_4px_0_#000]">
@@ -1751,16 +1760,18 @@ function EscapeGamePageContent() {
             {!allCodesAccepted && (
               <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-sm">
                 <div className="border-4 border-black bg-white px-6 py-4 text-center text-xs uppercase tracking-[0.3em] shadow-[6px_6px_0_#000]">
-                  Tragt alle vier Missions-Codes ein, um die Downloads freizuschalten
+                  Tragt alle drei Missions-Codes ein, um die Downloads freizuschalten
                 </div>
               </div>
             )}
           </div>
         </div>
       </section>
+      )}
 
+      {(isChallengeMode || gameOnly) && (
       <section id="ueber-quest" className="relative bg-[#fefce8]">
-        <div className="mx-auto max-w-6xl px-6 py-16">
+        <div className={`mx-auto px-6 py-16 ${gameOnly ? "" : "max-w-6xl"}`}>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <h2 className={`${displayFont.className} text-2xl`}>
@@ -1857,8 +1868,8 @@ function EscapeGamePageContent() {
                       const tufts = !isGround ? Math.max(2, Math.floor(platform.width / 40)) : 0;
                       const tuffColor = activeMap.chapterId === "durch"
                         ? "rgba(6,182,212,0.5)"
-                        : activeMap.chapterId === "trotz"
-                        ? "rgba(248,113,113,0.4)"
+                        // : activeMap.chapterId === "trotz"
+                        // ? "rgba(248,113,113,0.4)"
                         : activeMap.chapterId === "mit"
                         ? "rgba(234,179,8,0.5)"
                         : "rgba(34,197,94,0.5)";
@@ -2465,6 +2476,7 @@ function EscapeGamePageContent() {
           </div>
         </div>
       </section>
+      )}
 {/* REMOVED: Mini-Map, Timer & Bestzeit, Lern-Logbuch panels — decluttered in redesign */}
 
     </main>
@@ -2475,6 +2487,15 @@ export default function EscapeGamePage() {
   return (
     <Suspense fallback={null}>
       <EscapeGamePageContent />
+    </Suspense>
+  );
+}
+
+/** Standalone game component for embedding in tutorials. */
+export function JumpRunChallenge({ chapterId }: { chapterId: JumpRunChapterId }) {
+  return (
+    <Suspense fallback={null}>
+      <EscapeGamePageContent gameOnly forceChapterId={chapterId} />
     </Suspense>
   );
 }

@@ -71,33 +71,33 @@ export const PixelFaceCoLab = () => (
   </div>
 );
 
-export const PixelFaceAnalog = () => (
-  <div className="relative h-full w-full">
-    {/* Hair — neat bun on top */}
-    <div className="absolute left-[30%] top-[-4%] h-[20%] w-[40%] rounded-full border-2 border-black bg-rose-900" />
-    <div className="absolute left-[16%] top-[10%] h-[28%] w-[68%] rounded-t-[5px] border-2 border-black bg-rose-900" />
-    {/* Hair pin */}
-    <div className="absolute right-[24%] top-[2%] h-[12%] w-[3px] bg-rose-300" />
-    <div className="absolute right-[22%] top-[0%] h-[4%] w-[8%] rounded-full bg-rose-300" />
-    {/* Face */}
-    <div className="absolute left-[18%] top-[28%] h-[44%] w-[64%] rounded-[4px] border-2 border-black bg-[#ffd8b0]" />
-    {/* Eyes — focused, slightly stern */}
-    <div className="absolute left-[26%] top-[38%] h-[3%] w-[14%] bg-black" />
-    <div className="absolute right-[26%] top-[38%] h-[3%] w-[14%] bg-black" />
-    <div className="absolute left-[28%] top-[42%] h-[7%] w-[8%] rounded-full bg-black" />
-    <div className="absolute right-[28%] top-[42%] h-[7%] w-[8%] rounded-full bg-black" />
-    {/* Thin mouth — determined */}
-    <div className="absolute left-[34%] top-[58%] h-[3%] w-[32%] rounded-[1px] bg-rose-800" />
-    {/* High-collar jacket */}
-    <div className="absolute left-[14%] top-[72%] h-[6%] w-[72%] border-2 border-black bg-rose-200" />
-    <div className="absolute left-[16%] top-[76%] h-[20%] w-[68%] rounded-t-[2px] border-2 border-black bg-rose-700" />
-    <div className="absolute left-[44%] top-[78%] h-[4%] w-[12%] rounded-[1px] bg-rose-300" />
-  </div>
-);
+// export const PixelFaceAnalog = () => (
+//   <div className="relative h-full w-full">
+//     {/* Hair — neat bun on top */}
+//     <div className="absolute left-[30%] top-[-4%] h-[20%] w-[40%] rounded-full border-2 border-black bg-rose-900" />
+//     <div className="absolute left-[16%] top-[10%] h-[28%] w-[68%] rounded-t-[5px] border-2 border-black bg-rose-900" />
+//     {/* Hair pin */}
+//     <div className="absolute right-[24%] top-[2%] h-[12%] w-[3px] bg-rose-300" />
+//     <div className="absolute right-[22%] top-[0%] h-[4%] w-[8%] rounded-full bg-rose-300" />
+//     {/* Face */}
+//     <div className="absolute left-[18%] top-[28%] h-[44%] w-[64%] rounded-[4px] border-2 border-black bg-[#ffd8b0]" />
+//     {/* Eyes — focused, slightly stern */}
+//     <div className="absolute left-[26%] top-[38%] h-[3%] w-[14%] bg-black" />
+//     <div className="absolute right-[26%] top-[38%] h-[3%] w-[14%] bg-black" />
+//     <div className="absolute left-[28%] top-[42%] h-[7%] w-[8%] rounded-full bg-black" />
+//     <div className="absolute right-[28%] top-[42%] h-[7%] w-[8%] rounded-full bg-black" />
+//     {/* Thin mouth — determined */}
+//     <div className="absolute left-[34%] top-[58%] h-[3%] w-[32%] rounded-[1px] bg-rose-800" />
+//     {/* High-collar jacket */}
+//     <div className="absolute left-[14%] top-[72%] h-[6%] w-[72%] border-2 border-black bg-rose-200" />
+//     <div className="absolute left-[16%] top-[76%] h-[20%] w-[68%] rounded-t-[2px] border-2 border-black bg-rose-700" />
+//     <div className="absolute left-[44%] top-[78%] h-[4%] w-[12%] rounded-[1px] bg-rose-300" />
+//   </div>
+// );
 
 export const CREW_FACES: Record<string, () => ReactNode> = {
   ueber: PixelFaceAda,
   durch: PixelFaceNova,
   mit: PixelFaceCoLab,
-  trotz: PixelFaceAnalog,
+  // trotz: PixelFaceAnalog,
 };

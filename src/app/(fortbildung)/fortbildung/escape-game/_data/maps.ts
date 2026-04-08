@@ -23,7 +23,7 @@ import {
 const JUMP_RUN_WORLD_UEBER = { width: 3000, height: 360 };
 const JUMP_RUN_WORLD_MIT = { width: 3200, height: 360 };
 const JUMP_RUN_WORLD_DURCH = { width: 3400, height: 360 };
-const JUMP_RUN_WORLD_TROTZ = { width: 3100, height: 360 };
+// const JUMP_RUN_WORLD_TROTZ = { width: 3100, height: 360 };
 
 /* ─── Physics constants ─── */
 
@@ -98,13 +98,13 @@ const JUMP_RUN_THEMES: Record<JumpRunChapterId, JumpRunMapTheme> = {
     groundColor: "#1f2937", groundShadow: "rgba(2, 6, 23, 0.55)",
     platformColor: "#67e8f9", platformShadow: "#0f172a",
   },
-  trotz: {
-    skyTop: "#fee2e2", skyMid: "#fda4af", horizonTop: "#fecdd3", horizonBottom: "#e2e8f0",
-    gridColor: "rgba(159, 18, 57, 0.2)", cloudColor: "rgba(255, 241, 242, 0.82)",
-    cloudShadow: "rgba(136, 19, 55, 0.25)", auraColor: "rgba(254, 226, 226, 0.7)",
-    groundColor: "#7f1d1d", groundShadow: "rgba(69, 10, 10, 0.48)",
-    platformColor: "#fecdd3", platformShadow: "#3f3f46",
-  },
+  // trotz: {
+  //   skyTop: "#fee2e2", skyMid: "#fda4af", horizonTop: "#fecdd3", horizonBottom: "#e2e8f0",
+  //   gridColor: "rgba(159, 18, 57, 0.2)", cloudColor: "rgba(255, 241, 242, 0.82)",
+  //   cloudShadow: "rgba(136, 19, 55, 0.25)", auraColor: "rgba(254, 226, 226, 0.7)",
+  //   groundColor: "#7f1d1d", groundShadow: "rgba(69, 10, 10, 0.48)",
+  //   platformColor: "#fecdd3", platformShadow: "#3f3f46",
+  // },
 };
 
 /* ─── Maps ─── */
@@ -296,74 +296,74 @@ export const JUMP_RUN_MAPS: Record<JumpRunMapId, JumpRunMapConfig> = {
     finishZone: { id: "finish", label: "Ziel", x: 3340, y: 236, width: 50, height: 84 },
     backgroundClass: "bg-indigo-100",
   },
-  "trotz-fortress": {
-    id: "trotz-fortress", chapterId: "trotz", label: "Map Trotz: Resilienz-Festung",
-    theme: JUMP_RUN_THEMES.trotz, world: JUMP_RUN_WORLD_TROTZ,
-    start: { x: 38, y: JUMP_RUN_WORLD_TROTZ.height - JUMP_RUN_GROUND_HEIGHT - JUMP_RUN_PLAYER.height },
-    platforms: [
-      createGroundPlatform(JUMP_RUN_WORLD_TROTZ),
-      { id: "t-p1", x: 160, y: 254, width: 170, height: 16 },
-      { id: "t-p2", x: 420, y: 226, width: 170, height: 16 },
-      { id: "t-p3", x: 680, y: 198, width: 170, height: 16 },
-      { id: "t-p4", x: 940, y: 238, width: 170, height: 16 },
-      { id: "t-p5", x: 1190, y: 206, width: 170, height: 16 },
-      { id: "t-p6", x: 1460, y: 176, width: 170, height: 16 },
-      { id: "t-p7", x: 1710, y: 220, width: 170, height: 16 },
-      { id: "t-p8", x: 1980, y: 188, width: 170, height: 16 },
-      { id: "t-p9", x: 2240, y: 160, width: 170, height: 16 },
-      { id: "t-p10", x: 2510, y: 214, width: 170, height: 16 },
-      { id: "t-p11", x: 2780, y: 184, width: 170, height: 16 },
-    ],
-    stationZones: [
-      { id: "daten-depot", label: "Station 1", x: 190, y: 218, width: 110, height: 36 },
-      { id: "prompt-parkour", label: "Station 2", x: 970, y: 202, width: 110, height: 36 },
-      { id: "modell-motor", label: "Station 3", x: 1740, y: 184, width: 110, height: 36 },
-      { id: "ethik-endboss", label: "Station 4", x: 2270, y: 124, width: 120, height: 36 },
-    ],
-    hazardZones: [
-      { id: "t-h1", label: "Kritik-Rutsch", dangerId: "bias-banane", x: 560, y: 300, width: 60, height: 20, moving: { axis: "x", min: 510, max: 740, speed: 80, startDirection: 1 } },
-      { id: "t-h2", label: "Perfekt-Orb", dangerId: "halluzinations-hologramm", x: 1320, y: 138, width: 58, height: 20, moving: { axis: "y", min: 122, max: 236, speed: 57, startDirection: 1 } },
-      { id: "t-h3", label: "Normen-Schwarm", dangerId: "prompt-piranhas", x: 2100, y: 300, width: 66, height: 20, moving: { axis: "x", min: 2020, max: 2290, speed: 92, startDirection: -1 } },
-      { id: "t-h4", label: "Delegations-Rutsch", dangerId: "bias-banane", x: 2860, y: 300, width: 64, height: 20, moving: { axis: "x", min: 2790, max: 3010, speed: 100, startDirection: 1 } },
-    ],
-    collectibles: [
-      { id: "t-bit-1", label: "Datenbit 1", x: 120, y: 286, size: 14, points: 25 },
-      { id: "t-bit-2", label: "Datenbit 2", x: 240, y: 234, size: 14, points: 25 },
-      { id: "t-bit-3", label: "Datenbit 3", x: 470, y: 198, size: 14, points: 25 },
-      { id: "t-bit-4", label: "Datenbit 4", x: 730, y: 170, size: 14, points: 25 },
-      { id: "t-bit-5", label: "Datenbit 5", x: 980, y: 202, size: 14, points: 25 },
-      { id: "t-bit-6", label: "Datenbit 6", x: 1210, y: 170, size: 14, points: 25 },
-      { id: "t-bit-7", label: "Datenbit 7", x: 1480, y: 142, size: 14, points: 25 },
-      { id: "t-bit-8", label: "Datenbit 8", x: 1730, y: 186, size: 14, points: 25 },
-      { id: "t-bit-9", label: "Datenbit 9", x: 2000, y: 154, size: 14, points: 25 },
-      { id: "t-bit-10", label: "Datenbit 10", x: 2260, y: 122, size: 14, points: 25 },
-      { id: "t-bit-11", label: "Datenbit 11", x: 2520, y: 178, size: 14, points: 25 },
-      { id: "t-bit-12", label: "Datenbit 12", x: 2790, y: 150, size: 14, points: 25 },
-      { id: "t-bit-13", label: "Datenbit 13", x: 2950, y: 286, size: 14, points: 25 },
-      { id: "t-bit-14", label: "Datenbit 14", x: 3040, y: 286, size: 14, points: 25 },
-    ],
-    questionBlocks: [
-      { id: "t-q-1", label: "?-Block 1", x: 770, y: 168, width: 30, height: 30, powerupId: "t-m-1" },
-      { id: "t-q-2", label: "?-Block 2", x: 1540, y: 154, width: 30, height: 30, powerupId: "t-m-2" },
-      { id: "t-q-3", label: "?-Block 3", x: 2360, y: 150, width: 30, height: 30, powerupId: "t-m-3" },
-      { id: "t-q-4", label: "?-Block 4", x: 2980, y: 248, width: 30, height: 30, powerupId: "t-m-4" },
-    ],
-    powerups: [
-      { id: "t-m-1", label: "Super-Pilz 1", x: 771, y: 138, width: 28, height: 30, extraLives: 1, spawnedByBlockId: "t-q-1" },
-      { id: "t-m-2", label: "Super-Pilz 2", x: 1541, y: 124, width: 28, height: 30, extraLives: 1, spawnedByBlockId: "t-q-2" },
-      { id: "t-m-3", label: "Super-Pilz 3", x: 2361, y: 120, width: 28, height: 30, extraLives: 1, spawnedByBlockId: "t-q-3" },
-      { id: "t-m-4", label: "Super-Pilz 4", x: 2981, y: 218, width: 28, height: 30, extraLives: 1, spawnedByBlockId: "t-q-4" },
-    ],
-    finishZone: { id: "finish", label: "Ziel", x: 3048, y: 236, width: 46, height: 84 },
-    backgroundClass: "bg-rose-100",
-  },
+  // "trotz-fortress": {
+  //   id: "trotz-fortress", chapterId: "trotz", label: "Map Trotz: Resilienz-Festung",
+  //   theme: JUMP_RUN_THEMES.trotz, world: JUMP_RUN_WORLD_TROTZ,
+  //   start: { x: 38, y: JUMP_RUN_WORLD_TROTZ.height - JUMP_RUN_GROUND_HEIGHT - JUMP_RUN_PLAYER.height },
+  //   platforms: [
+  //     createGroundPlatform(JUMP_RUN_WORLD_TROTZ),
+  //     { id: "t-p1", x: 160, y: 254, width: 170, height: 16 },
+  //     { id: "t-p2", x: 420, y: 226, width: 170, height: 16 },
+  //     { id: "t-p3", x: 680, y: 198, width: 170, height: 16 },
+  //     { id: "t-p4", x: 940, y: 238, width: 170, height: 16 },
+  //     { id: "t-p5", x: 1190, y: 206, width: 170, height: 16 },
+  //     { id: "t-p6", x: 1460, y: 176, width: 170, height: 16 },
+  //     { id: "t-p7", x: 1710, y: 220, width: 170, height: 16 },
+  //     { id: "t-p8", x: 1980, y: 188, width: 170, height: 16 },
+  //     { id: "t-p9", x: 2240, y: 160, width: 170, height: 16 },
+  //     { id: "t-p10", x: 2510, y: 214, width: 170, height: 16 },
+  //     { id: "t-p11", x: 2780, y: 184, width: 170, height: 16 },
+  //   ],
+  //   stationZones: [
+  //     { id: "daten-depot", label: "Station 1", x: 190, y: 218, width: 110, height: 36 },
+  //     { id: "prompt-parkour", label: "Station 2", x: 970, y: 202, width: 110, height: 36 },
+  //     { id: "modell-motor", label: "Station 3", x: 1740, y: 184, width: 110, height: 36 },
+  //     { id: "ethik-endboss", label: "Station 4", x: 2270, y: 124, width: 120, height: 36 },
+  //   ],
+  //   hazardZones: [
+  //     { id: "t-h1", label: "Kritik-Rutsch", dangerId: "bias-banane", x: 560, y: 300, width: 60, height: 20, moving: { axis: "x", min: 510, max: 740, speed: 80, startDirection: 1 } },
+  //     { id: "t-h2", label: "Perfekt-Orb", dangerId: "halluzinations-hologramm", x: 1320, y: 138, width: 58, height: 20, moving: { axis: "y", min: 122, max: 236, speed: 57, startDirection: 1 } },
+  //     { id: "t-h3", label: "Normen-Schwarm", dangerId: "prompt-piranhas", x: 2100, y: 300, width: 66, height: 20, moving: { axis: "x", min: 2020, max: 2290, speed: 92, startDirection: -1 } },
+  //     { id: "t-h4", label: "Delegations-Rutsch", dangerId: "bias-banane", x: 2860, y: 300, width: 64, height: 20, moving: { axis: "x", min: 2790, max: 3010, speed: 100, startDirection: 1 } },
+  //   ],
+  //   collectibles: [
+  //     { id: "t-bit-1", label: "Datenbit 1", x: 120, y: 286, size: 14, points: 25 },
+  //     { id: "t-bit-2", label: "Datenbit 2", x: 240, y: 234, size: 14, points: 25 },
+  //     { id: "t-bit-3", label: "Datenbit 3", x: 470, y: 198, size: 14, points: 25 },
+  //     { id: "t-bit-4", label: "Datenbit 4", x: 730, y: 170, size: 14, points: 25 },
+  //     { id: "t-bit-5", label: "Datenbit 5", x: 980, y: 202, size: 14, points: 25 },
+  //     { id: "t-bit-6", label: "Datenbit 6", x: 1210, y: 170, size: 14, points: 25 },
+  //     { id: "t-bit-7", label: "Datenbit 7", x: 1480, y: 142, size: 14, points: 25 },
+  //     { id: "t-bit-8", label: "Datenbit 8", x: 1730, y: 186, size: 14, points: 25 },
+  //     { id: "t-bit-9", label: "Datenbit 9", x: 2000, y: 154, size: 14, points: 25 },
+  //     { id: "t-bit-10", label: "Datenbit 10", x: 2260, y: 122, size: 14, points: 25 },
+  //     { id: "t-bit-11", label: "Datenbit 11", x: 2520, y: 178, size: 14, points: 25 },
+  //     { id: "t-bit-12", label: "Datenbit 12", x: 2790, y: 150, size: 14, points: 25 },
+  //     { id: "t-bit-13", label: "Datenbit 13", x: 2950, y: 286, size: 14, points: 25 },
+  //     { id: "t-bit-14", label: "Datenbit 14", x: 3040, y: 286, size: 14, points: 25 },
+  //   ],
+  //   questionBlocks: [
+  //     { id: "t-q-1", label: "?-Block 1", x: 770, y: 168, width: 30, height: 30, powerupId: "t-m-1" },
+  //     { id: "t-q-2", label: "?-Block 2", x: 1540, y: 154, width: 30, height: 30, powerupId: "t-m-2" },
+  //     { id: "t-q-3", label: "?-Block 3", x: 2360, y: 150, width: 30, height: 30, powerupId: "t-m-3" },
+  //     { id: "t-q-4", label: "?-Block 4", x: 2980, y: 248, width: 30, height: 30, powerupId: "t-m-4" },
+  //   ],
+  //   powerups: [
+  //     { id: "t-m-1", label: "Super-Pilz 1", x: 771, y: 138, width: 28, height: 30, extraLives: 1, spawnedByBlockId: "t-q-1" },
+  //     { id: "t-m-2", label: "Super-Pilz 2", x: 1541, y: 124, width: 28, height: 30, extraLives: 1, spawnedByBlockId: "t-q-2" },
+  //     { id: "t-m-3", label: "Super-Pilz 3", x: 2361, y: 120, width: 28, height: 30, extraLives: 1, spawnedByBlockId: "t-q-3" },
+  //     { id: "t-m-4", label: "Super-Pilz 4", x: 2981, y: 218, width: 28, height: 30, extraLives: 1, spawnedByBlockId: "t-q-4" },
+  //   ],
+  //   finishZone: { id: "finish", label: "Ziel", x: 3048, y: 236, width: 46, height: 84 },
+  //   backgroundClass: "bg-rose-100",
+  // },
 };
 
 export const JUMP_RUN_CHAPTER_MAP: Record<JumpRunChapterId, JumpRunMapId> = {
   ueber: "ueber-citadel",
   mit: "mit-archipelago",
   durch: "durch-lab",
-  trotz: "trotz-fortress",
+  // trotz: "trotz-fortress",
 };
 
 export const JUMP_RUN_DIFFICULTIES: Record<JumpRunDifficultyId, JumpRunDifficultyConfig> = {
@@ -428,11 +428,11 @@ export const JUMP_RUN_HAZARD_VISUALS: Record<JumpRunChapterId, Record<JumpRunHaz
     ghost: { shellColor: "#c7d2fe", mainColor: "#818cf8", secondaryColor: "#6366f1", accentColor: "#312e81", minimapColor: "#6366f1", cardColor: "#eef2ff", tipColor: "#4338ca", sigil: "D" },
     piranha: { shellColor: "#a5f3fc", mainColor: "#06b6d4", secondaryColor: "#0e7490", accentColor: "#083344", minimapColor: "#06b6d4", cardColor: "#ecfeff", tipColor: "#0e7490", sigil: "D" },
   },
-  trotz: {
-    banana: { shellColor: "#ffe4e6", mainColor: "#fb7185", secondaryColor: "#e11d48", accentColor: "#881337", minimapColor: "#e11d48", cardColor: "#fff1f2", tipColor: "#be123c", sigil: "T" },
-    ghost: { shellColor: "#fecdd3", mainColor: "#fda4af", secondaryColor: "#fb7185", accentColor: "#9f1239", minimapColor: "#fb7185", cardColor: "#ffe4e6", tipColor: "#be185d", sigil: "T" },
-    piranha: { shellColor: "#fbcfe8", mainColor: "#ec4899", secondaryColor: "#be185d", accentColor: "#831843", minimapColor: "#db2777", cardColor: "#fdf2f8", tipColor: "#be185d", sigil: "T" },
-  },
+  // trotz: {
+  //   banana: { shellColor: "#ffe4e6", mainColor: "#fb7185", secondaryColor: "#e11d48", accentColor: "#881337", minimapColor: "#e11d48", cardColor: "#fff1f2", tipColor: "#be123c", sigil: "T" },
+  //   ghost: { shellColor: "#fecdd3", mainColor: "#fda4af", secondaryColor: "#fb7185", accentColor: "#9f1239", minimapColor: "#fb7185", cardColor: "#ffe4e6", tipColor: "#be185d", sigil: "T" },
+  //   piranha: { shellColor: "#fbcfe8", mainColor: "#ec4899", secondaryColor: "#be185d", accentColor: "#831843", minimapColor: "#db2777", cardColor: "#fdf2f8", tipColor: "#be185d", sigil: "T" },
+  // },
 };
 
 /* ─── Utility functions ─── */

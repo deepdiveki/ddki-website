@@ -1,9 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 import { useCookieConsent } from "@/hooks/use-cookie-consent";
+
+const JumpRunChallenge = dynamic(
+  () => import("../../EscapeGameContent").then((mod) => mod.JumpRunChallenge),
+  { ssr: false },
+);
 import {
   IconArrowLeft,
   IconArrowRight,
@@ -1377,6 +1383,12 @@ Tragt euer Statement ins Logbuch ein. Wenn ihr es habt — herzlichen Glückwuns
       "Du verstehst jetzt den Unterschied zwischen Ko-Kreation und Delegation, beherrschst Prompt-Techniken wie Chain-of-Thought und Few-Shot, weißt warum Prompt-Dokumentation wichtig ist und kennst die Grundlagen professioneller KI-Governance — von der KMK-Empfehlung bis zum EU AI Act. Ab in die Challenge!",
   },
 
+  // ── TROTZ vorübergehend deaktiviert ──
+  // trotz-Dimension ist in _TROTZ_TUTORIAL_BACKUP unten ausgelagert
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _TROTZ_TUTORIAL_BACKUP = {
   trotz: {
     id: "trotz",
     title: "Tutorial: Lernen trotz KI",
@@ -1857,6 +1869,7 @@ Tragt alles ins Logbuch ein. Wenn alle vier Elemente und das Governance-Statemen
     challengeSummary:
       "Du weißt jetzt, warum Urteilskraft, Tiefenstrukturanalyse und Prüfungsvalidität trotz KI unverzichtbar sind. Du kennst die Grenzen von KI-Erkennungstools und die fünf Dimensionen des Prüfens im KI-Zeitalter. In der Challenge zeigst du diese Fähigkeiten an den Lernstationen.",
   },
+  // ── Ende TROTZ deaktiviert ──
 };
 
 /* ─── Helpers ─── */
@@ -1868,12 +1881,13 @@ const DIMENSION_ACCENT: Record<DimensionId, { bg: string; border: string; light:
   ueber: { bg: "bg-amber-500", border: "border-amber-500", light: "bg-amber-50", text: "text-amber-700" },
   durch: { bg: "bg-emerald-500", border: "border-emerald-500", light: "bg-emerald-50", text: "text-emerald-700" },
   mit: { bg: "bg-sky-500", border: "border-sky-500", light: "bg-sky-50", text: "text-sky-700" },
-  trotz: { bg: "bg-rose-500", border: "border-rose-500", light: "bg-rose-50", text: "text-rose-700" },
+  // trotz: { bg: "bg-rose-500", border: "border-rose-500", light: "bg-rose-50", text: "text-rose-700" },
 };
 
 const getChapterId = (value: string | string[] | undefined): DimensionId | null => {
   if (typeof value !== "string") return null;
-  if (value === "ueber" || value === "durch" || value === "mit" || value === "trotz") return value;
+  // if (value === "ueber" || value === "durch" || value === "mit" || value === "trotz") return value;
+  if (value === "ueber" || value === "durch" || value === "mit") return value;
   return null;
 };
 
@@ -1941,6 +1955,7 @@ export default function CrewTutorialPage() {
   const STEP_CHALLENGE = stepCounter;
 
   const [currentStep, setCurrentStep] = useState(0);
+  const [showChallenge, setShowChallenge] = useState(false);
 
   // Einstieg lesson player state
   const [einstiegLesson, setEinstiegLesson] = useState(0);
@@ -2466,12 +2481,12 @@ ${entryHtml}
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mb-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mb-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">
 {`Herzlich willkommen zum Bereich „Lernen über KI"! Ich bin Björn von DeepDiveKI und ich freue mich, dass du dabei bist.
 
 Bevor wir loslegen, eine kurze Orientierung: In diesem Tutorial geht es darum, ein grundlegendes Verständnis davon aufzubauen, was Künstliche Intelligenz eigentlich ist — und was nicht. Wir schauen uns an, wie KI funktioniert, was sie kann, wo ihre Grenzen liegen und warum das für deinen Schulalltag relevant ist.
@@ -2482,7 +2497,7 @@ Am Ende dieses Einstiegs wirst du wissen, was hinter dem „Zauber" von ChatGPT 
 
 Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen gesamten Bereich begleiten wird.`}
                   </p>
-                </div>
+                </details>
                 <div className={`mb-4 inline-block rounded border-2 ${accent.border} ${accent.light} px-3 py-1 text-xs font-bold uppercase tracking-widest ${accent.text}`}>
                   Fokus-Frage
                 </div>
@@ -2504,15 +2519,15 @@ Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen ge
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="px-5 pb-5 text-sm leading-relaxed text-slate-700">
                     Okay, genug Theorie — jetzt wird ausprobiert! In der nächsten Lektion findest du Quickdraw, ein Zeichenspiel von Google. Du bekommst einen Begriff und hast 20 Sekunden, um ihn zu zeichnen — und eine KI versucht in Echtzeit zu erraten, was du malst. Klingt nach Spaß? Ist es auch. Aber dahinter steckt echte KI. Klick auf nächste Lektion und probier es einmal aus.
                   </p>
-                </div>
+                </details>
               </div>
             )}
 
@@ -2603,12 +2618,12 @@ Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen ge
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">
 {`Willkommen zurück! Du hast gerade Quickdraw ausprobiert — und dabei vielleicht zum ersten Mal ganz bewusst ein neuronales Netzwerk trainiert. Denn genau das ist passiert: Jedes Mal, wenn du einen Gegenstand gezeichnet hast, hat das System deine Zeichnung analysiert und versucht, sie zu erkennen. Dabei hat es nicht nur geraten — es hat aus deiner Interpretation gelernt.
 
 Das Spannende daran: Jeder Mensch zeichnet eine Katze, ein Fahrrad oder eine Brille anders. Deine Zeichnung ist deine persönliche Interpretation dieses Objekts. Und genau diese Vielfalt an Interpretationen ist es, die das neuronale Netzwerk hinter Quickdraw besser macht. Je mehr verschiedene Menschen zeichnen, desto mehr Varianten lernt das System — und desto zuverlässiger kann es in Zukunft erkennen, was gemeint ist.
@@ -2619,7 +2634,7 @@ Aber — und das ist wichtig — das System versteht nicht wirklich, was eine Ka
 
 Schauen wir uns jetzt an, wofür KI eigentlich eingesetzt wird — und was sie besonders gut kann.`}
                   </p>
-                </div>
+                </details>
                 <div className="mt-4">
                   <img
                     src="/images/escape-game/wofuer-ki-folie.png"
@@ -2643,12 +2658,12 @@ Schauen wir uns jetzt an, wofür KI eigentlich eingesetzt wird — und was sie b
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">
 {`Es gibt drei sehr grobe wissenschaftliche Theorien zu Künstlicher Intelligenz. Die klingen ein wenig, als hätte ein Kind sich diese Kategorien ausgedacht — aber sie helfen tatsächlich, das große Bild zu verstehen.
 
 Die erste Kategorie ist die sogenannte schwache KI. Klingt nicht besonders beeindruckend, oder? Aber genau das ist alles, was wir heute haben. Schwache KI sind Systeme, die auf eine ganz bestimmte Aufgabe spezialisiert sind: Bilder erkennen, Texte generieren, Sprache übersetzen, Schach spielen. Quickdraw, das du gerade ausprobiert hast, ist ein perfektes Beispiel — es kann Zeichnungen erkennen, aber es kann dir nicht sagen, was es zum Abendessen empfiehlt. Auch ChatGPT und Claude sind schwache KI: Sie sind Spezialisten für Sprachverarbeitung, keine universellen Denker.
@@ -2659,7 +2674,7 @@ Und dann gibt es noch die überlegene KI — die Superintelligenz. Eine KI, die 
 
 Also merk dir: Alles, was du heute nutzt — jedes KI-Tool, jeder Chatbot, jede Bilderkennung — ist schwache KI. Spezialisiert, leistungsstark in seinem Bereich, aber weit entfernt von menschlicher Intelligenz. Diese Unterscheidung hilft enorm, KI realistisch einzuordnen.`}
                   </p>
-                </div>
+                </details>
                 <div className="mt-4">
                   <img
                     src="/images/escape-game/ki-kategorien-folie.png"
@@ -2683,12 +2698,12 @@ Also merk dir: Alles, was du heute nutzt — jedes KI-Tool, jeder Chatbot, jede 
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">
 {`Schauen wir uns jetzt mal ganz konkret an, wie so ein moderner KI-Chatbot eigentlich aufgebaut ist. Denn wenn du ChatGPT öffnest, siehst du nicht einfach nur ein Textfeld — da steckt viel mehr dahinter.
 
 Oben links kannst du neue Chats starten und deine bisherigen Unterhaltungen durchsuchen. Das ist praktisch, weil du so an frühere Gespräche anknüpfen kannst.
@@ -2707,7 +2722,7 @@ Ich zeige dir das jetzt einmal live: Ich öffne Canvas, gebe einen Prompt ein �
 
 Und jetzt probier das einmal selber aus — öffne ChatGPT, aktiviere Canvas und erstelle dein eigenes Arbeitsblatt. Experimentier ruhig mit verschiedenen Fächern, Klassenstufen und Aufgabenformaten.`}
                   </p>
-                </div>
+                </details>
                 <div className="mt-4">
                   <img
                     src="/images/escape-game/eingabe-chatgpt-folie.png"
@@ -2762,12 +2777,12 @@ Und jetzt probier das einmal selber aus — öffne ChatGPT, aktiviere Canvas und
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">
 {`Und so sieht das Ganze bei Claude aus — dem KI-Assistenten von Anthropic. Auf den ersten Blick wirkt die Oberfläche etwas aufgeräumter, aber die Funktionen sind vergleichbar.
 
 Oben siehst du drei Modi: Chat, Cowork und Code. Chat ist der klassische Gesprächsmodus. Cowork ist Claudes Version eines Canvas-Fensters — hier kannst du gemeinsam mit der KI an Dokumenten arbeiten, Texte überarbeiten oder Ideen strukturieren. Und Code ist ein spezieller Modus für Programmierung.
@@ -2788,7 +2803,7 @@ Was jetzt passiert, ist anders als bei einem normalen Chat: Claude öffnet ein D
 
 Das ist der Unterschied zwischen Chat und Cowork: Im Chat bekommst du jedes Mal eine komplett neue Antwort. In Cowork arbeitest du iterativ an einem gemeinsamen Dokument — genau so, wie man es von der Ko-Kreation erwartet. Und jetzt probier das einmal selber aus.`}
                   </p>
-                </div>
+                </details>
                 <div className="mt-4">
                   <img
                     src="/images/escape-game/eingabe-claude-folie.png"
@@ -2843,12 +2858,12 @@ Das ist der Unterschied zwischen Chat und Cowork: Im Chat bekommst du jedes Mal 
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">
 {`Diese Ansicht kennst du natürlich: Du tippst eine Frage ein, drückst Enter — und die KI liefert eine Antwort. Hier haben wir ChatGPT gebeten, ein Gedicht im Duktus von Hermann Hesse zu schreiben, das Lehrerinnen und Lehrern LLMs erklärt. Und was wir zurückbekommen, klingt tatsächlich erstaunlich überzeugend — der Sprachrhythmus, die Wortwahl, sogar die melancholische Stimmung erinnern an Hesse.
 
 Links siehst du: Das ist eine unveränderte, vollautomatisch generierte Antwort von ChatGPT. Kein Mensch hat daran nachgebessert. Rechts die Begriffe, die wir gleich genauer anschauen: Oben der Prompt — also unsere Eingabe, unsere Anweisung an die KI. Und unten die Ausgabe — Token für Token vom Sprachmodell generiert.
@@ -2857,7 +2872,7 @@ Aber halt — wie macht die KI das eigentlich? Woher „weiß" sie, wie Hermann 
 
 Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir uns in der nächsten Lektion an: Wie ein Sprachmodell Wort für Wort — oder genauer: Token für Token — seine Antwort aufbaut. Klick auf „Nächste Lektion" — es wird spannend.`}
                   </p>
-                </div>
+                </details>
                 <div className="mt-4">
                   <img
                     src="/images/escape-game/ausgabe-chatgpt-folie.png"
@@ -2881,12 +2896,12 @@ Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir un
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">
 {`Okay, jetzt wird es richtig spannend. Wir schauen uns an, wie ein großes Sprachmodell — ein LLM — tatsächlich funktioniert. Und ich verspreche dir: Es ist einfacher, als du denkst.
 
 Ein LLM hat im Grunde genau eine Aufgabe: Das nächste Wort vorhersagen. Das ist alles. Kein Nachdenken, kein Verstehen, keine Meinung — nur die Frage: Welches Wort kommt wahrscheinlich als Nächstes?
@@ -2905,7 +2920,7 @@ Das ist die zentrale Erkenntnis: Ein LLM versteht nichts. Es berechnet Wahrschei
 
 In der nächsten Lektion kannst du das Ganze selbst ausprobieren — mit Soekia GPT, einem interaktiven Tool, das dir Token-Vorhersage live erleben lässt.`}
                   </p>
-                </div>
+                </details>
                 <div className="mt-4 space-y-4">
                   <img
                     src="/images/escape-game/llm-aufgabe-folie1.png"
@@ -2939,12 +2954,12 @@ In der nächsten Lektion kannst du das Ganze selbst ausprobieren — mit Soekia 
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
-                <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                     <IconBook className="h-4 w-4" />
-                    Skript
-                  </div>
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">
+                    Video-Skript
+                  </summary>
+                  <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">
 {`Jetzt bist du dran. In der letzten Lektion haben wir gesehen, wie ein LLM Token für Token seine Antwort aufbaut — immer das wahrscheinlichste nächste Wort. Aber wie fühlt sich das eigentlich an, wenn man selbst in die Rolle des Modells schlüpft?
 
 Genau das kannst du jetzt mit Soekia GPT ausprobieren. Das ist eine interaktive Lernumgebung, die von der Pädagogischen Hochschule St. Gallen entwickelt wurde. Du siehst dort einen Trainingstext — also die Daten, aus denen das Mini-Modell lernt — und kannst dann beobachten, wie es basierend auf diesen Daten das nächste Wort vorhersagt.
@@ -2957,7 +2972,7 @@ Probier es aus, experimentier mit verschiedenen Texten und beobachte, wie sich d
 
 Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — Muster erkennen und Wahrscheinlichkeiten berechnen — und du hast es selbst erlebt. Im nächsten Schritt, dem Kernwissen, vertiefen wir diese Grundlagen und schauen uns an, was das für den Schulkontext konkret bedeutet.`}
                   </p>
-                </div>
+                </details>
                 <div className="mt-4">
                   <img
                     src="/images/escape-game/soekia-gpt-folie.png"
@@ -3194,14 +3209,14 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
 
               {/* Script / Transcript */}
               {tutorial.mitLessonsScripts?.[mitLesson] && (
-                <div className="rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                    <IconBook className="h-4 w-4" /> Skript
-                  </div>
-                  <div className="text-sm leading-relaxed text-slate-700 whitespace-pre-line">
+                <details className="rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
+                    <IconBook className="h-4 w-4" /> Video-Skript
+                  </summary>
+                  <div className="px-5 pb-5 text-sm leading-relaxed text-slate-700 whitespace-pre-line">
                     {tutorial.mitLessonsScripts[mitLesson]}
                   </div>
-                </div>
+                </details>
               )}
 
               {/* External tool link */}
@@ -3412,14 +3427,14 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
 
               {/* Script / Transcript */}
               {tutorial.ldkLessonsScripts?.[ldkLesson] && (
-                <div className="rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                    <IconBook className="h-4 w-4" /> Skript
-                  </div>
-                  <div className="text-sm leading-relaxed text-slate-700 whitespace-pre-line">
+                <details className="rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
+                    <IconBook className="h-4 w-4" /> Video-Skript
+                  </summary>
+                  <div className="px-5 pb-5 text-sm leading-relaxed text-slate-700 whitespace-pre-line">
                     {tutorial.ldkLessonsScripts[ldkLesson]}
                   </div>
-                </div>
+                </details>
               )}
 
               {/* External tool link */}
@@ -3584,10 +3599,10 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
               )}
 
               {tutorial.ltkLessonsScripts?.[ltkLesson] && (
-                <div className="rounded border-2 border-slate-200 bg-slate-50 p-5">
-                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500"><IconBook className="h-4 w-4" /> Skript</div>
-                  <div className="text-sm leading-relaxed text-slate-700 whitespace-pre-line">{tutorial.ltkLessonsScripts[ltkLesson]}</div>
-                </div>
+                <details className="rounded border-2 border-slate-200 bg-slate-50">
+                  <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500"><IconBook className="h-4 w-4" /> Video-Skript</summary>
+                  <div className="px-5 pb-5 text-sm leading-relaxed text-slate-700 whitespace-pre-line">{tutorial.ltkLessonsScripts[ltkLesson]}</div>
+                </details>
               )}
 
               {tutorial.ltkLessonsLinks?.[ltkLesson] && (
@@ -3904,13 +3919,13 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                       )}
                     </div>
                     {intro.transcript && (
-                      <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                        <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                      <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                        <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                           <IconBook className="h-4 w-4" />
-                          Transkript
-                        </div>
-                        <p className="text-sm leading-relaxed text-slate-700">{intro.transcript}</p>
-                      </div>
+                          Video-Skript
+                        </summary>
+                        <p className="px-5 pb-5 text-sm leading-relaxed text-slate-700">{intro.transcript}</p>
+                      </details>
                     )}
                   </div>
                 );
@@ -3947,13 +3962,13 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                       )}
                     </div>
                     {vid.transcript && (
-                      <div className="mt-6 rounded border-2 border-slate-200 bg-slate-50 p-5">
-                        <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                      <details className="mt-6 rounded border-2 border-slate-200 bg-slate-50">
+                        <summary className="flex cursor-pointer items-center gap-2 p-5 text-xs font-bold uppercase tracking-widest text-slate-500">
                           <IconBook className="h-4 w-4" />
-                          Transkript
-                        </div>
-                        <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700">{vid.transcript}</p>
-                      </div>
+                          Video-Skript
+                        </summary>
+                        <p className="whitespace-pre-line px-5 pb-5 text-sm leading-relaxed text-slate-700">{vid.transcript}</p>
+                      </details>
                     )}
                   </div>
                 );
@@ -4260,19 +4275,28 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
               </div>
               <p className="text-sm leading-relaxed text-slate-700">{tutorial.challengeSummary}</p>
 
-              <div className="mt-6 flex flex-col items-center gap-4">
-                <Link
-                  href={`/fortbildung/escape-game?chapter=${tutorial.id}&mode=challenge#ueber-quest`}
-                  className={`inline-flex items-center gap-3 border-2 border-black ${accent.bg} px-6 py-3 text-sm font-bold uppercase tracking-widest text-white shadow-[4px_4px_0_#000] hover:opacity-90`}
-                >
-                  <IconRocket className="h-5 w-5" />
-                  Zur Jump-&-Run-Challenge
-                </Link>
-                <p className="text-xs text-slate-500">
-                  Meistere alle Lernstationen im Spiel, um deinen 6-stelligen Missions-Code zu erhalten.
-                </p>
-              </div>
+              {!showChallenge && (
+                <div className="mt-6 flex flex-col items-center gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowChallenge(true)}
+                    className={`inline-flex items-center gap-3 border-2 border-black ${accent.bg} px-6 py-3 text-sm font-bold uppercase tracking-widest text-white shadow-[4px_4px_0_#000] hover:opacity-90`}
+                  >
+                    <IconRocket className="h-5 w-5" />
+                    Zur Jump-&-Run-Challenge
+                  </button>
+                  <p className="text-xs text-slate-500">
+                    Meistere alle Lernstationen im Spiel, um deinen 6-stelligen Missions-Code zu erhalten.
+                  </p>
+                </div>
+              )}
             </div>
+
+            {showChallenge && (
+              <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen px-8">
+                <JumpRunChallenge chapterId={tutorial.id as "ueber" | "durch" | "mit"} />
+              </div>
+            )}
           </div>
         )}
 
@@ -4303,7 +4327,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                   : "bg-slate-100 text-slate-300"
               }`}
             >
-              Weiter
+              {currentStep + 1 === STEP_CHALLENGE ? "Zum Jump-and-Run-Spiel" : "Weiter"}
               <IconChevronRight className="h-4 w-4" />
             </button>
           )}
