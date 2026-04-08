@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import { FortbildungenDetail, SoftwareDetail } from "./CardDetail";
 import FortbildungenAnimation from "./FortbildungenAnimation";
 import PlatformSwitcher from "@/components/shared/PlatformSwitcher";
+import ContactFormSection from "@/components/Kontakt/ContactFormSection";
 
 const AIEngineMini = dynamic(() => import("./AIEngineMini"), { ssr: false });
 
@@ -805,6 +806,8 @@ export default function ChooserLanding() {
             </div>
           </motion.div>
         </div>
+
+        <ContactFormSection />
 
         {/* Footer */}
         <motion.footer
