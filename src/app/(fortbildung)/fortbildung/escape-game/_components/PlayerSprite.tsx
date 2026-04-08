@@ -117,7 +117,9 @@ export default function PlayerSprite({
         style={{
           transform: bodyTransform,
           transformOrigin: "center bottom",
-          transition: "transform 130ms ease-out, filter 130ms ease-out",
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+          transition: hitFlashActive ? "filter 110ms ease-out" : "none",
           filter: playerPoweredUp
             ? "drop-shadow(0 0 6px rgba(250, 204, 21, 0.8))"
             : undefined,

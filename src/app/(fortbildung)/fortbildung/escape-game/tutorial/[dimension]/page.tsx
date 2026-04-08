@@ -2024,6 +2024,11 @@ export default function CrewTutorialPage() {
     setPdfGenerating(true);
 
     try {
+      const escapeHtml = (value: string) => value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
       // Call AI review API
       const lessonTitles = lessonList.map((l) => l.title);
       const res = await fetch("/api/logbuch-review", {
@@ -2035,25 +2040,39 @@ export default function CrewTutorialPage() {
       const review = data.review || "KI-Kommentar konnte nicht generiert werden.";
 
       // Build HTML for PDF
-      const entryHtml = Object.entries(entries)
+      const sortedEntries = Object.entries(entries)
         .filter(([, v]) => v.trim())
-        .sort(([a], [b]) => Number(a) - Number(b))
-        .map(([k, v]) => {
-          const title = lessonTitles[Number(k)] || `Lektion ${Number(k) + 1}`;
-          return `<div style="margin-bottom:14px"><h3 style="font-size:11px;color:${accentColor};margin:0 0 4px 0;text-transform:uppercase;letter-spacing:0.05em">${title}</h3><p style="font-size:11px;line-height:1.6;margin:0;white-space:pre-line">${v.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p></div>`;
-        })
-        .join("");
+        .sort(([a], [b]) => Number(a) - Number(b));
+
+      const entryHtml = sortedEntries.length
+        ? sortedEntries
+          .map(([k, v], index) => {
+            const title = lessonTitles[Number(k)] || `Lektion ${Number(k) + 1}`;
+            return `<article class="entry-card">
+  <div class="entry-meta">Eintrag ${index + 1}</div>
+  <h3 class="entry-title">${escapeHtml(title)}</h3>
+  <p class="entry-text">${escapeHtml(v).replace(/\n/g, "<br/>")}</p>
+</article>`;
+          })
+          .join("")
+        : `<div class="empty-state">Noch keine Logbuch-Einträge vorhanden.</div>`;
 
       const reviewHtml = review
+        .trim()
+        .replace(/^\s*[-*]\s+/gm, "• ")
+        .replace(/^\s*\d+\.\s+/gm, "• ")
+        .replace(/\s*\n{3,}\s*/g, "\n\n")
+        .replace(/\n{2,}/g, "\n\n")
+        .replace(/^\s+|\s+$/g, "")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .split("\n\n")
         .map((p: string) => {
           if (p.startsWith("Zusammenfassung") || p.startsWith("Fehlende Aspekte") || p.startsWith("Kritische Diskussion")) {
             const [heading, ...rest] = p.split("\n");
-            return `<h3 style="font-size:12px;font-weight:bold;margin:10px 0 4px 0">${heading}</h3><p style="font-size:11px;line-height:1.6;margin:0">${rest.join("<br/>")}</p>`;
+            return `<h3 class="review-heading">${heading}</h3><p class="review-text">${rest.join("<br/>")}</p>`;
           }
-          return `<p style="font-size:11px;line-height:1.6;margin:0 0 8px 0">${p.replace(/\n/g, "<br/>")}</p>`;
+          return `<p class="review-text">${p.replace(/\n/g, "<br/>")}</p>`;
         })
         .join("");
 
@@ -2061,22 +2080,49 @@ export default function CrewTutorialPage() {
       const dateStr = `${now.getDate().toString().padStart(2, "0")}.${(now.getMonth() + 1).toString().padStart(2, "0")}.${now.getFullYear()}`;
 
       const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Logbuch – ${dimensionTitle}</title><style>
-@page{size:A4;margin:20mm 18mm}
+@page{size:A4;margin:16mm 14mm}
 *{box-sizing:border-box}
-body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1e293b;margin:0;padding:0}
-.header{border-bottom:3px solid ${accentColor};padding-bottom:10px;margin-bottom:16px}
-.header h1{font-size:16px;margin:0 0 2px 0}
-.header p{font-size:10px;color:#64748b;margin:0}
-.section-title{font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.08em;color:#334155;border-bottom:1px solid #e2e8f0;padding-bottom:4px;margin:18px 0 10px 0}
-.review-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:14px;margin-top:18px}
-.review-box .label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:${accentColor};font-weight:bold;margin-bottom:8px}
-.footer{margin-top:20px;padding-top:8px;border-top:1px solid #e2e8f0;font-size:9px;color:#94a3b8;text-align:center}
+body{font-family:Inter,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a;margin:0;padding:0;background:#ffffff}
+.doc{max-width:180mm;margin:0 auto}
+.header{border:1px solid #d8e2ec;border-left:5px solid ${accentColor};background:#f8fafc;border-radius:10px;padding:12px 14px;margin-bottom:16px}
+.header h1{font-size:20px;line-height:1.25;margin:0 0 6px 0;color:#0f172a}
+.meta{display:flex;gap:8px;flex-wrap:wrap;font-size:10px;color:#475569}
+.meta-chip{display:inline-block;border:1px solid #d1dbe7;border-radius:999px;padding:3px 8px;background:#ffffff}
+.section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:#334155;margin:0 0 10px 0}
+.entry-grid{display:grid;grid-template-columns:1fr;gap:8px}
+.entry-card{border:1px solid #e2e8f0;border-radius:8px;padding:10px 11px;background:#ffffff;break-inside:avoid}
+.entry-meta{font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;margin-bottom:5px}
+.entry-title{font-size:12px;line-height:1.4;margin:0 0 6px 0;color:${accentColor};text-transform:uppercase;letter-spacing:0.03em}
+.entry-text{font-size:11px;line-height:1.7;margin:0;color:#1e293b;white-space:pre-wrap;word-break:break-word}
+.empty-state{font-size:11px;color:#64748b;border:1px dashed #cbd5e1;border-radius:8px;padding:12px;background:#f8fafc}
+.review-box{margin-top:16px;background:#f8fafc;border:1px solid #dbe4ee;border-radius:10px;padding:12px 13px}
+.review-label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:${accentColor};font-weight:700;margin-bottom:8px}
+.review-heading{font-size:12px;font-weight:700;margin:12px 0 6px 0;color:#0f172a}
+.review-text{font-size:11px;line-height:1.7;margin:0 0 8px 0;color:#1e293b}
+.footer{margin-top:18px;padding-top:8px;border-top:1px solid #e2e8f0;font-size:9px;color:#64748b;text-align:center}
+@media print{
+  .entry-card,.review-box{break-inside:avoid}
+}
 </style></head><body>
-<div class="header"><h1>Logbuch — ${dimensionTitle}</h1><p>Erstellt am ${dateStr} · DeepDiveKI Escape Game</p></div>
-<div class="section-title">Deine Einträge</div>
-${entryHtml}
-<div class="review-box"><div class="label">KI-Kommentar</div>${reviewHtml}</div>
-<div class="footer">Dieses Dokument wurde automatisch generiert. Der KI-Kommentar dient als Reflexionsimpuls, nicht als Bewertung. · deepdive-ki.de</div>
+<div class="doc">
+<header class="header">
+  <h1>Logbuch — ${escapeHtml(dimensionTitle)}</h1>
+  <div class="meta">
+    <span class="meta-chip">Erstellt am ${dateStr}</span>
+    <span class="meta-chip">DeepDiveKI Escape Game</span>
+    <span class="meta-chip">${sortedEntries.length} Einträge</span>
+  </div>
+</header>
+<section>
+  <h2 class="section-title">Deine Einträge</h2>
+  <div class="entry-grid">${entryHtml}</div>
+</section>
+<section class="review-box">
+  <div class="review-label">KI-Kommentar</div>
+  ${reviewHtml}
+</section>
+<footer class="footer">Dieses Dokument wurde automatisch generiert. Der KI-Kommentar dient als Reflexionsimpuls, nicht als Bewertung. · deepdive-ki.de</footer>
+</div>
 </body></html>`;
 
       const printWindow = window.open("", "_blank");

@@ -119,6 +119,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
   const [difficultyId, setDifficultyId] = useState<JumpRunDifficultyId>(
     DEFAULT_DIFFICULTY_ID
   );
+  const [hasHydratedAccessCodes, setHasHydratedAccessCodes] = useState(false);
   useEffect(() => {
     if (!chapterParam) return;
     if (chapterParam in JUMP_RUN_CHAPTERS) {
@@ -128,26 +129,34 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    const emptyEnteredCodes = CHARACTERS.reduce((acc, character) => {
+      acc[character.id] = "";
+      return acc;
+    }, {} as Record<DimensionId, string>);
     const raw = window.localStorage.getItem(ACCESS_CODE_STORAGE_KEY);
-    if (!raw) return;
+    if (!raw) {
+      setEnteredCodes(emptyEnteredCodes);
+      setEarnedCodes({});
+      setHasHydratedAccessCodes(true);
+      return;
+    }
     try {
       const parsed = JSON.parse(raw) as {
         entered?: Partial<Record<DimensionId, string>>;
         earned?: Partial<Record<DimensionId, string>>;
       };
-      if (parsed.entered) {
-        setEnteredCodes((prev) => ({ ...prev, ...parsed.entered }));
-      }
-      if (parsed.earned) {
-        setEarnedCodes(parsed.earned);
-      }
+      setEnteredCodes({ ...emptyEnteredCodes, ...(parsed.entered ?? {}) });
+      setEarnedCodes(parsed.earned ?? {});
     } catch {
-      // ignore malformed local storage
+      setEnteredCodes(emptyEnteredCodes);
+      setEarnedCodes({});
     }
+    setHasHydratedAccessCodes(true);
   }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    if (!hasHydratedAccessCodes) return;
     window.localStorage.setItem(
       ACCESS_CODE_STORAGE_KEY,
       JSON.stringify({
@@ -155,7 +164,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
         earned: earnedCodes,
       })
     );
-  }, [enteredCodes, earnedCodes]);
+  }, [enteredCodes, earnedCodes, hasHydratedAccessCodes]);
 
   useEffect(() => {
     const chapterMapId = JUMP_RUN_CHAPTER_MAP[selectedChapterId];
@@ -220,8 +229,9 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
   const playerRef = useRef(player);
   const keysRef = useRef({ left: false, right: false });
   const virtualKeysRef = useRef({ left: false, right: false });
-  const jumpQueuedRef = useRef(false);
+  const jumpQueuedUntilRef = useRef(0);
   const jumpLockRef = useRef(false);
+  const lastGroundedAtRef = useRef(0);
   const checkpointRef = useRef({ x: activeMap.start.x, y: activeMap.start.y });
   const invulnerableUntilRef = useRef(0);
   const lastFrameRef = useRef<number | null>(null);
@@ -531,7 +541,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
 
   const triggerVirtualJump = () => {
     if (jumpLockRef.current) return;
-    jumpQueuedRef.current = true;
+    jumpQueuedUntilRef.current = performance.now() + 120;
     jumpLockRef.current = true;
     setTouchState((prev) => ({ ...prev, jump: true }));
     window.setTimeout(() => {
@@ -688,8 +698,9 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
     checkpointRef.current = { x: activeMap.start.x, y: activeMap.start.y };
     keysRef.current = { left: false, right: false };
     virtualKeysRef.current = { left: false, right: false };
-    jumpQueuedRef.current = false;
+    jumpQueuedUntilRef.current = 0;
     jumpLockRef.current = false;
+    lastGroundedAtRef.current = 0;
     runStartRef.current = null;
     invulnerableUntilRef.current = 0;
     runnerLivesRef.current = difficultyConfig.lives;
@@ -743,7 +754,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
       }
       if (key === "ArrowUp" || key === " ") {
         if (!jumpLockRef.current) {
-          jumpQueuedRef.current = true;
+          jumpQueuedUntilRef.current = performance.now() + 120;
           jumpLockRef.current = true;
         }
         return;
@@ -944,14 +955,17 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
       const jumpVelocity = JUMP_RUN_PHYSICS.jumpVelocity * difficultyConfig.jumpMultiplier;
       let vx = moveDirection * moveSpeed;
       let vy = current.vy;
-      if (jumpQueuedRef.current && current.onGround) {
+      const hasBufferedJump = timestamp <= jumpQueuedUntilRef.current;
+      const canUseCoyoteJump =
+        current.onGround || timestamp - lastGroundedAtRef.current <= 90;
+      if (hasBufferedJump && canUseCoyoteJump) {
         vy = jumpVelocity;
         playSfx("jump");
-        jumpQueuedRef.current = false;
+        jumpQueuedUntilRef.current = 0;
       }
       vy += gravity * dt;
 
-      if (runStartRef.current === null && (moveDirection !== 0 || jumpQueuedRef.current)) {
+      if (runStartRef.current === null && (moveDirection !== 0 || hasBufferedJump)) {
         runStartRef.current = timestamp;
         setRunElapsedMs(0);
       } else if (runStartRef.current !== null) {
@@ -1427,6 +1441,9 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
           ...spawnDust(playerFeetX, playerFeetY, 4),
         ].slice(-cap);
       }
+      if (onGround) {
+        lastGroundedAtRef.current = timestamp;
+      }
       prevOnGroundRef.current = onGround;
 
       // Running trail
@@ -1539,7 +1556,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
               },
             ].map((item, index) => (
               <div
-                key={item.title}
+                key={`${item.title}-${index}`}
                 className="animate__animated animate__fadeInUp border-4 border-black bg-white px-5 py-4 shadow-[6px_6px_0_#000]"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
@@ -2029,7 +2046,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                             width: `${collectible.size}px`,
                             height: `${collectible.size}px`,
                             animation: !collected ? ANIM.bob : undefined,
-                            animationDelay: `${(collectible.x % 400) / 400}s`,
+                            animationDelay: !collected ? `${(collectible.x % 400) / 400}s` : undefined,
                             boxShadow: !collected
                               ? "2px 2px 0 #000, 0 0 8px 2px rgba(250,204,21,0.4)"
                               : undefined,
@@ -2161,8 +2178,8 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                     )}
 
                     <PlayerSprite
-                      x={player.x}
-                      y={player.y}
+                      x={Math.round(player.x)}
+                      y={Math.round(player.y)}
                       width={JUMP_RUN_PLAYER.width}
                       height={JUMP_RUN_PLAYER.height}
                       vx={player.vx}
@@ -2375,6 +2392,15 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                   Mission-Code freigeschaltet:{" "}
                   <span className="font-bold tracking-[0.2em]">{recentlyEarnedCode}</span>
                 </div>
+              )}
+              {runnerFinished && gameOnly && (
+                <Link
+                  href="/fortbildung/escape-game#crew"
+                  className="mt-3 inline-flex items-center gap-2 border-2 border-black bg-white px-3 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-[2px_2px_0_#000] hover:-translate-y-0.5"
+                >
+                  <IconUsers className="h-4 w-4" />
+                  Zur Code Eingabe
+                </Link>
               )}
             </div>
 
