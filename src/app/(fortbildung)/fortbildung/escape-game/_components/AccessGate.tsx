@@ -6,7 +6,7 @@ import { IconLock, IconKey, IconArrowRight, IconShoppingCart, IconRocket } from 
 const STORAGE_KEY = "escape-game-access";
 
 /** Set to `true` to show the "Lizenz kaufen" tab with Stripe checkout. */
-const PURCHASE_ENABLED = false;
+const PURCHASE_ENABLED = true;
 
 type Tab = "code" | "buy";
 
