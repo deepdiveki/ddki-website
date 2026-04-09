@@ -16,6 +16,7 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
   const [activeTab, setActiveTab] = useState<Tab>("code");
   const [code, setCode] = useState("");
   const [codeError, setCodeError] = useState("");
+  const [checkoutInfo, setCheckoutInfo] = useState("");
   const [loading, setLoading] = useState(false);
   const [buyLoading, setBuyLoading] = useState(false);
 
@@ -23,6 +24,23 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
     const stored = sessionStorage.getItem(STORAGE_KEY);
     if (stored === "true") setAuthorized(true);
     setChecked(true);
+  }, []);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const checkoutState = url.searchParams.get("checkout");
+    if (!checkoutState) return;
+
+    if (checkoutState === "success") {
+      setCheckoutInfo("Danke für Ihren Kauf! Ihren Zugangscode haben wir per E-Mail gesendet. Bitte hier eingeben:");
+    } else if (checkoutState === "cancelled") {
+      setCheckoutInfo("Bezahlung abgebrochen. Sie können es erneut versuchen oder einen vorhandenen Code eingeben.");
+    }
+
+    setActiveTab("code");
+
+    url.searchParams.delete("checkout");
+    window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
   }, []);
 
   function grant() {
@@ -141,6 +159,11 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
                   <label htmlFor="secret-code" className="mb-1.5 block text-sm font-medium text-white/70">
                     Zugangscode
                   </label>
+                  {checkoutInfo && (
+                    <p className="mb-3 rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-200">
+                      {checkoutInfo}
+                    </p>
+                  )}
                   <input
                     id="secret-code"
                     type="text"
