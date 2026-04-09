@@ -62,7 +62,7 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
       if (data.valid) {
         grant();
       } else {
-        setCodeError("Ungültiger oder abgelaufener Code. Bitte versuche es erneut.");
+        setCodeError("Ungültiger oder abgelaufener Code. Bitte versuchen Sie erneut oder kontaktieren Sie uns unter support@deepdive-ki.de.");
       }
     } catch {
       setCodeError("Fehler bei der Überprüfung. Bitte versuche es erneut.");
