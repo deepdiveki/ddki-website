@@ -68,7 +68,7 @@ export const WELTKARTE_DOWNLOADS: WeltkarteDownload[] = [
     title: "Lernen über KI",
     description:
       "Materialien zu Systemverständnis, Mustererkennung, Bias und Halluzination — Grundlagen für den professionellen KI-Einsatz.",
-    pdfPath: "/downloads/ddki-ueber.pdf",
+    pdfPath: "/pdfs/Escape Game - Lernen ueber KI.pdf",
     accent: "border-amber-500 bg-amber-100/70",
     icon: <IconBrain className="h-6 w-6" />,
   },
@@ -77,7 +77,7 @@ export const WELTKARTE_DOWNLOADS: WeltkarteDownload[] = [
     title: "Lernen durch KI",
     description:
       "Materialien zu KI-Feedback, adaptiven Lernsystemen und menschlicher Steuerungsverantwortung.",
-    pdfPath: "/downloads/ddki-durch.pdf",
+    pdfPath: "/pdfs/Escape Game - Lernen durch KI.pdf",
     accent: "border-emerald-500 bg-emerald-100/70",
     icon: <IconSparkles className="h-6 w-6" />,
   },
@@ -86,7 +86,7 @@ export const WELTKARTE_DOWNLOADS: WeltkarteDownload[] = [
     title: "Lernen mit KI",
     description:
       "Materialien zu Ko-Kreation, Prompt-Iteration, Transparenz und Governance-Regeln.",
-    pdfPath: "/downloads/ddki-mit.pdf",
+    pdfPath: "/pdfs/Escape Game - Lernen mit KI.pdf",
     accent: "border-sky-500 bg-sky-100/70",
     icon: <IconUsers className="h-6 w-6" />,
   },

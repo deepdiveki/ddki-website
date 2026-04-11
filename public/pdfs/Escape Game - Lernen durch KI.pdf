@@ -1,0 +1,862 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 6734
+>>
+stream
+0.5670000000000001 w
+0 G
+0.02 0.71 0.83 rg
+0. 841.8899999999999864 595.2755905511811534 -99.2125984251968589 re
+f
+BT
+/F2 20 Tf
+23. TL
+1. g
+42.5196850393700814 790.8663779527558972 Td
+(Lernen durch KI) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+1. g
+42.5196850393700814 762.5199212598424765 Td
+(KI als Lernsystem analysieren) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 714.3309448818897636 Td
+(Leitfrage: Wie steuert KI Lernprozesse — und wo braucht es menschliche Verantwortung?) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.024 0.714 0.831 rg
+42.5196850393700814 686.5514173228345953 Td
+(Teil 1: KI-gestütztes Lernen verstehen) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 663.8742519685039269 Td
+(1. KI-Feedback: Zwischen Spezifität und Schablone) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 645.4490551181102092 Td
+(KI kann schnell Feedback generieren, doch die Qualität variiert stark. Gutes Feedback ist kriterial, spezifisch und) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 631.8427559055118081 Td
+(handlungsorientiert. KI-Feedback klingt oft professionell, bleibt aber häufig generisch — es wiederholt Muster aus) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 618.2364566929134071 Td
+(Trainingsdaten, ohne den konkreten Lernstand zu kennen.) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 598.9608661417322537 Td
+(Takeaway: Professionelles Feedback ist spezifisch, kriterial und handlungsorientiert — nicht nur freundlich) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 585.3545669291338527 Td
+(formuliert.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 560.4096850393700606 Td
+(2. Algorithmische Steuerung in adaptiven Systemen) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 541.9844881889764565 Td
+(Adaptive Lernsysteme passen Schwierigkeit, Inhalte und Tempo automatisch an. Die Logik basiert auf Diagnosemodellen,) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 528.3781889763779418 Td
+(die Lernende kategorisieren. Algorithmen treffen oft unsichtbare Vorauswahlen, die Lernwege bevorzugen oder) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 514.7718897637795408 Td
+(ausschließen können.) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 495.4962992125984442 Td
+(Takeaway: Adaptive Systeme steuern Lernwege nach algorithmischer Logik. Diese Logik muss für Lehrkräfte) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 481.8900000000000432 Td
+(sichtbar und hinterfragbar sein.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 456.9451181102361943 Td
+(3. Menschliche Letztverantwortung) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 438.5199212598425333 Td
+(Die pädagogische Verantwortung bleibt bei der Lehrkraft — auf drei Ebenen: Lernziele \(Was soll gelernt werden?\),) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 424.9136220472440755 Td
+(Bewertungskriterien \(Was gilt als gute Leistung?\) und ethische Dimension \(Welche Daten werden erhoben und wie) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 411.3073228346456176 Td
+(genutzt?\). KI kann unterstützen, aber nicht verantworten.) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 392.0317322834644642 Td
+(Takeaway: Lernziele, Bewertung und Verantwortung bleiben menschliche Aufgaben — KI liefert Daten, nicht) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 378.4254330708660063 Td
+(Urteile.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 353.4805511811021574 Td
+(4. Das Feedback-Modell nach Hattie & Timperley) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 335.0553543307084965 Td
+(Drei Leitfragen: 'Feed Up' \(Wo will ich hin?\), 'Feed Back' \(Wo stehe ich?\), 'Feed Forward' \(Was ist der nächste Schritt?\).) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 321.4490551181099818 Td
+(Vier Feedback-Ebenen: Aufgabenebene, Prozessebene, Selbstregulationsebene, Selbstebene. Die Selbstebene \('Du bist) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 307.8427559055115807 Td
+(toll!'\) ist am wenigsten lernwirksam — obwohl KI-Systeme häufig genau dieses Lob produzieren.) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 288.5671653543304274 Td
+(Takeaway: Lernwirksames Feedback beantwortet: Wo hin? Wo stehe ich? Was kommt als Nächstes? — nicht:) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 274.9608661417319126 Td
+('Du bist toll!') Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 250.0159842519681206 Td
+(5. Blooms 2-Sigma-Problem und KI-Tutoring) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 231.5907874015744028 Td
+(Benjamin Bloom zeigte 1984: Schüler mit 1:1-Tutoring schneiden 2 Standardabweichungen besser ab. Problem: nicht) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 217.9844881889760018 Td
+(skalierbar. KI-Tutoring erreicht 0,73-1,3 Sigma — vielversprechend, aber unter menschlichem Niveau. Blooms Effekt) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 204.3781889763774871 Td
+(entstand durch die Kombination aus Tutoring, häufigem Feedback und mehr Lernzeit.) Tj
+ET
+BT
+/F4 9.5 Tf
+10.9249999999999989 TL
+0.314 g
+51.0236220472441033 185.1025984251964474 Td
+(Takeaway: KI-Tutoring schließt die 2-Sigma-Lücke teilweise. Die Kombination Mensch + KI ist entscheidend.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.024 0.714 0.831 rg
+42.5196850393700814 160.1577165354325416 Td
+(Übung: Feedback sortieren) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 137.4805511811018732 Td
+(Sortiere: Welches Feedback ist spezifisch & professionell \(A\), welches generisch & oberflächlich \(B\)?) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 118.2049606299207198 Td
+([A] "Dein Argument in Absatz 2 braucht einen konkreten Beleg — z.B. eine Statistik oder ein Zitat.") Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 98.9293700787396801 Td
+([B] "Guter Text! Weiter so!") Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 79.6537795275585268 Td
+([A] "Die These ist klar, aber die Gegenposition fehlt. Ergänze eine alternative Sichtweise.") Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.588 g
+42.5196850393700814 19.8427559055116944 Td
+(DeepDiveKI — Lernen durch KI — Seite 1/3) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 5660
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 771.0238582677164914 Td
+([B] "Du hast Verbesserungspotenzial in einigen Bereichen.") Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 751.7482677165354517 Td
+([A] "Die Überleitung zwischen Absatz 3 und 4 fehlt. Formuliere einen verbindenden Satz.") Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 732.4726771653542983 Td
+([B] "Deine Arbeit zeigt Engagement und Kreativität.") Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 713.1970866141732586 Td
+([A] "Prüfe die Jahreszahl in Zeile 5 — die Quelle nennt 1989, nicht 1998.") Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 693.9214960629921052 Td
+([B] "Insgesamt eine solide Leistung.") Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.024 0.714 0.831 rg
+42.5196850393700814 666.1419685039370506 Td
+(Wissenscheck) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 643.4648031496062686 Td
+(Frage 1: Woran erkennt man professionelles KI-Feedback?) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 625.0396062992125508 Td
+('   E s   i s t   k r i t e r i a l ,   s p e z i f i s c h   u n d   z e i g t   d e n   n ä c h s t e n   L e r n s c h r i t t   a u f .) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 605.7640157480313974 Td
+(  Es ist möglichst lang und detailliert.) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 586.4884251968503577 Td
+(  Es motiviert mit Lob und Ermutigung.) Tj
+ET
+BT
+/F3 9 Tf
+10.3499999999999996 TL
+0.392 g
+51.0236220472441033 567.212834645669318 Td
+(Professionelles Feedback: kriterial + spezifisch + Handlungsempfehlung.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 540.2837007874015853 Td
+(Frage 2: Warum muss die Steuerungslogik adaptiver Systeme transparent sein?) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 521.8585039370078675 Td
+(  Weil das Interface besser aussieht.) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 502.582913385826771 Td
+('   W e i l   a l g o r i t h m i s c h e   E n t s c h e i d u n g e n   L e r n w e g e   e i n s c h r ä n k e n   k ö n n e n   u n d   L e h r k r ä f t e   d i e s   p r ü f e n   m ü s s e n .) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 483.3073228346456744 Td
+(  Weil Eltern das fordern.) Tj
+ET
+BT
+/F3 9 Tf
+10.3499999999999996 TL
+0.392 g
+51.0236220472441033 464.0317322834645779 Td
+(Unsichtbare algorithmische Entscheidungen können Lernende systematisch benachteiligen.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 437.1025984251968453 Td
+(Frage 3: Welche Aufgabenverteilung ist beim Lernen durch KI professionell?) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 418.6774015748031275 Td
+(  KI übernimmt Diagnose und Feedback vollständig.) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 399.4018110236220309 Td
+('   K I   l i e f e r t   D a t e n   u n d   V o r s c h l ä g e ,   d e r   M e n s c h   v e r a n t w o r t e t   Z i e l e ,   B e w e r t u n g   u n d   E n t s c h e i d u n g e n .) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 380.1262204724408775 Td
+(  Der Mensch nutzt KI nur zur Zeitersparnis.) Tj
+ET
+BT
+/F3 9 Tf
+10.3499999999999996 TL
+0.392 g
+51.0236220472441033 360.8506299212597241 Td
+(KI unterstützt mit Daten und Feedback. Verantwortung bleibt beim Menschen.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 333.9214960629919915 Td
+(Frage 4: Welche Feedback-Ebene nach Hattie & Timperley ist am WENIGSTEN lernwirksam?) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 315.4962992125982737 Td
+(  Aufgabenebene: 'Du hast 3 von 5 richtig.') Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 296.2207086614171203 Td
+(  Prozessebene: 'Versuche eine Mindmap.') Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 276.9451181102360806 Td
+('   S e l b s t e b e n e :   ' D u   b i s t   e i n   k l u g e r   S c h ü l e r ! ') Tj
+ET
+BT
+/F3 9 Tf
+10.3499999999999996 TL
+0.392 g
+51.0236220472441033 257.6695275590549272 Td
+(Die Selbstebene enthält keine aufgabenbezogene Information. KI-Systeme neigen zu genau diesem unspezifischen Lob.) Tj
+ET
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 230.7403937007871946 Td
+(Frage 5: Was besagt Blooms 2-Sigma-Problem in Bezug auf KI-Tutoring?) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 212.3151968503934768 Td
+(  KI-Tutoren sind doppelt so effektiv wie Lehrkräfte.) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 193.0396062992123234 Td
+('   1 : 1 - T u t o r i n g   f ü h r t   z u   m a s s i v e n   L e i s t u n g s s t e i g e r u n g e n   —   K I   k ö n n t e   d i e   L ü c k e   t e i l w e i s e   s c h l i e ß e n .) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 173.76401574803117 Td
+(  Nach 2 Stunden KI-Tutoring sind alle gleich.) Tj
+ET
+BT
+/F3 9 Tf
+10.3499999999999996 TL
+0.392 g
+51.0236220472441033 154.4884251968500166 Td
+(Bloom zeigte: tutorierte Schüler übertreffen 98% der Klasse. KI erreicht 0,73-1,3 Sigma — vielversprechend, aber nicht 2) Tj
+ET
+BT
+/F3 9 Tf
+10.3499999999999996 TL
+0.392 g
+51.0236220472441033 141.7325196850390512 Td
+(Sigma.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.588 g
+42.5196850393700814 19.8427559055116944 Td
+(DeepDiveKI — Lernen durch KI — Seite 2/3) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 2103
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 11 Tf
+12.6499999999999986 TL
+0.235 g
+42.5196850393700814 771.0238582677164914 Td
+(Frage 6: Was unterscheidet formatives von summativem KI-Feedback?) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 752.5986614173227736 Td
+(  Formativ = nur am Ende, summativ = während des Lernens.) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 733.3230708661417339 Td
+('   F o r m a t i v   b e g l e i t e t   d e n   P r o z e s s   u n d   e r m ö g l i c h t   Ü b e r a r b e i t u n g ;   s u m m a t i v   b e w e r t e t   d a s   E n d e r g e b n i s .) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 714.0474803149605805 Td
+(  Es gibt keinen Unterschied.) Tj
+ET
+BT
+/F3 9 Tf
+10.3499999999999996 TL
+0.392 g
+51.0236220472441033 694.7718897637795408 Td
+(Formatives Feedback unterstützt den Lernprozess iterativ. Summatives bewertet nach Abschluss.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.024 0.714 0.831 rg
+42.5196850393700814 667.8427559055118081 Td
+(Interaktive Tools) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 645.1655905511811397 Td
+(• PEER AI Tutor \(TU München\): KI-Textfeedback live testen — peer-ai-tutor.streamlit.app) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 625.8899999999999864 Td
+(• FelloFish: DSGVO-konformes KI-Feedback-Tool für die Schule — www.fellofish.com) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0.024 0.714 0.831 rg
+42.5196850393700814 598.1104724409449318 Td
+(Zusammenfassung) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 575.4333070866141497 Td
+(Du kannst jetzt KI-Feedback mit dem Hattie-Timperley-Modell professionell bewerten, kennst Blooms 2-Sigma-Problem) Tj
+ET
+BT
+/F1 9.5 Tf
+10.9249999999999989 TL
+0.196 g
+42.5196850393700814 561.8270078740157487 Td
+(und die Grenzen von KI-Tutoring, und weißt, wo menschliche Verantwortung unverzichtbar bleibt.) Tj
+ET
+BT
+/F1 8 Tf
+9.1999999999999993 TL
+0.588 g
+42.5196850393700814 19.8427559055116944 Td
+(DeepDiveKI — Lernen durch KI — Seite 3/3) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R ]
+/Count 3
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 9 0 R
+/F2 10 0 R
+/F3 11 0 R
+/F4 12 0 R
+/F5 13 0 R
+/F6 14 0 R
+/F7 15 0 R
+/F8 16 0 R
+/F9 17 0 R
+/F10 18 0 R
+/F11 19 0 R
+/F12 20 0 R
+/F13 21 0 R
+/F14 22 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+23 0 obj
+<<
+/Producer (jsPDF 4.2.1)
+/CreationDate (D:20260410230148+02'00')
+>>
+endobj
+24 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 25
+0000000000 65535 f 
+0000015079 00000 n 
+0000016912 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000006938 00000 n 
+0000007075 00000 n 
+0000012787 00000 n 
+0000012924 00000 n 
+0000015148 00000 n 
+0000015273 00000 n 
+0000015404 00000 n 
+0000015538 00000 n 
+0000015676 00000 n 
+0000015800 00000 n 
+0000015929 00000 n 
+0000016061 00000 n 
+0000016197 00000 n 
+0000016325 00000 n 
+0000016452 00000 n 
+0000016581 00000 n 
+0000016714 00000 n 
+0000016816 00000 n 
+0000017164 00000 n 
+0000017250 00000 n 
+trailer
+<<
+/Size 25
+/Root 24 0 R
+/Info 23 0 R
+/ID [ <913227A9C3F5E2828A69C75ACBE3538C> <913227A9C3F5E2828A69C75ACBE3538C> ]
+>>
+startxref
+17354
+%%EOF
