@@ -1,0 +1,74 @@
+WEBVTT
+
+00:00.000 --> 00:08.560
+Jetzt bist aber du dann. In der letzten Lektion haben wir gesehen, wie ein Lasch-Rengage-Model
+
+00:08.560 --> 00:14.680
+Token für Token seine Antwort aufbaut. Immer das wahrscheinlichste Wort. Aber wie fühlt
+
+00:14.680 --> 00:19.560
+sich das eigentlich an, wenn man selbst in die Rolle des Modells schläft? Genau das
+
+00:19.560 --> 00:25.840
+kannst du jetzt mit SökiagPC einmal ausprobieren. Das ist eine interaktive Lernumgebung, die
+
+00:25.840 --> 00:30.960
+von der pädagogischen Hochschule St. Gallen entwickelt wurde. Du siehst dort einen Trainingstext,
+
+00:30.960 --> 00:36.760
+also die Daten, aus denen das Minimodell lernt und kannst dann beobachten, wie es basierend auf
+
+00:36.760 --> 00:42.240
+diesen Daten das nächste Wort vorher sagt. Das Besondere, du kannst den Trainingstext
+
+00:42.240 --> 00:48.320
+verändern. Füge neue Sätze hinzu, entferne welche oder verändere die Gewichtung und schau,
+
+00:48.320 --> 00:54.920
+was passiert. Plötzlich ändert sich die Vorhersage und genau hier wird es spannend. Wenn der Trainingstext
+
+00:54.920 --> 01:00.520
+einseitig ist, wird auch die Vorhersage einseitig. Das ist der Bayer's. Nicht weil das Modell
+
+01:00.520 --> 01:05.920
+voreingenommen ist, sondern weil die Daten es sind. Und wenn das Modell eine Antwort generiert,
+
+01:05.920 --> 01:11.800
+die plausibel klingt, aber im Trainingstext gar nicht so vorkommt, dann hast du eine Halluzination
+
+01:11.800 --> 01:17.160
+live erlebt. Das Modell füllt Lücken mit statistischem Wahrscheinlichem, aber falschen
+
+01:17.160 --> 01:23.680
+Informationen. Probiere es aus, experimentiere mit verschiedenen Texten und beobachte, wie sich die
+
+01:23.680 --> 01:30.120
+Vorhersagen verändern. Du wirst danach ein viel intuitiveres Verständnis dafür haben, warum
+
+01:30.120 --> 01:36.080
+künstliche Intelligenz manchmal überraschen gut und manchmal überraschend falsch riecht. Hier
+
+01:36.080 --> 01:42.320
+siehst du auch beispielsweise, wenn wir hier auf automatisch fortsetzen drücken, dass man diesen
+
+01:42.320 --> 01:48.960
+Effekt, den wir in der vorherigen Lektion eher theoretisch auf der Präsentationsfolie wiederholen
+
+01:48.960 --> 01:55.480
+haben, hier einmal live nachvollziehen können. Der höchste Ausschlag ist gleichzusetzen mit der
+
+01:55.480 --> 02:01.320
+höchsten berechneten Wahrscheinlichkeit für den nächsten Token, die dann in die Wortsekwenz
+
+02:01.320 --> 02:07.520
+eingesetzt wird. Damit hast du den Einstieg geschafft. Du weißt jetzt, was künstliche
+
+02:07.520 --> 02:13.400
+Intelligenz im Kern macht, Muster erkennen und Wahrscheinlichkeiten berechnen. Und du hast
+
+02:13.400 --> 02:19.400
+es selbst erlebt. Nächsten Schritt, dem Kernwissen, vertiefen wir diese Grundlagen und schauen uns an,
+
+02:19.400 --> 02:23.840
+was das für den Schulkontext für dich konkret bedeuten kann.
+

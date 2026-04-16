@@ -1,0 +1,56 @@
+WEBVTT
+
+00:00.000 --> 00:09.000
+Ihr habt alle drei Aufgaben durchlaufen, KI Feedback erlebt, ein adaptives System analysiert
+
+00:09.000 --> 00:12.080
+und einen eigenen KI Tutor gebaut.
+
+00:12.080 --> 00:17.400
+Jetzt bringen wir alles zusammen in eine 2x2 Matrix mit folgenden Dimensionen.
+
+00:17.400 --> 00:22.680
+Eine horizontale Achse, die die menschliche Steuerung von niedrig bis hoch abbildet und
+
+00:22.680 --> 00:27.600
+eine vertikale Achse, die die algorithmische Steuerung von niedrig bis hoch abbildet.
+
+00:27.600 --> 00:30.080
+Das ergibt dann vier Quadranten.
+
+00:30.080 --> 00:35.600
+Oben links bedeutet hoher algorithmische Steuerung niedrige menschliche Steuerung, das heißt
+
+00:35.600 --> 00:39.720
+die KI steuert den Prozess weitgehend autonom.
+
+00:39.720 --> 00:45.800
+Oben rechts ist eine hoher algorithmische Steuerung, aber auch eine hohe menschliche Steuerung.
+
+00:45.800 --> 00:48.560
+KI und Mensch steuern gemeinsam.
+
+00:48.560 --> 00:53.680
+Und links wird die niedrige algorithmische Steuerung und niedrige menschliche Steuerung
+
+00:53.680 --> 00:57.480
+abgebildet, weder KI noch Mensch steuern aktiv.
+
+00:57.480 --> 01:02.320
+Und unten rechts wird die niedrige algorithmische Steuerung, aber auch hohe menschliche Steuerung
+
+01:02.320 --> 01:06.480
+abgebildet, der Mensch steuert und die KI unterstützt nur punktuell.
+
+01:06.480 --> 01:09.600
+Ordnt jetzt eurer Erfahrung aus den drei Aufgaben ein.
+
+01:09.600 --> 01:15.320
+Wo steht der PIER KI Tutor, wo Westermann Smart Response und wo steht euer selbst gebaute
+
+01:15.320 --> 01:16.800
+Megapromptutor?
+
+01:16.800 --> 01:18.360
+Begründet jede Platzierung.
+

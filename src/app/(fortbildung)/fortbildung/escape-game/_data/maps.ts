@@ -62,6 +62,7 @@ export const JUMP_RUN_PLAYER_POWER_EFFECT = {
 export const JUMP_RUN_MAX_LIVES = 6;
 
 export const JUMP_RUN_BEST_TIME_STORAGE_KEY = "ddki_jump_run_best_times_v2";
+export const JUMP_RUN_HIGH_SCORE_STORAGE_KEY = "ddki_jump_run_high_scores_v1";
 export const ACCESS_CODE_STORAGE_KEY = "ddki_escape_access_codes_v1";
 
 /* ─── Helpers ─── */
@@ -456,6 +457,16 @@ export const bestTimeKey = (
   mapId: JumpRunMapId,
   difficultyId: JumpRunDifficultyId,
 ) => `${chapterId}:${mapId}:${difficultyId}`;
+
+export const highScoreKey = bestTimeKey;
+
+export const JUMP_RUN_SCORE = {
+  dataBit: 100,
+  station: 250,
+  lifeBonus: 150,
+  timeBaseBonus: 500,
+  timePenaltyPerSec: 2,
+} as const;
 
 export const buildRuntimeHazards = (
   map: JumpRunMapConfig,

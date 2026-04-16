@@ -32,6 +32,11 @@ import {
 import { pixelFont, displayFont, bodyFont } from "../../_lib/fonts";
 import type { DimensionId } from "../../_lib/types";
 
+/** Derive a .vtt subtitle URL from a .mp4 video URL. */
+function vttUrl(mp4: string): string {
+  return mp4.replace(/\.mp4$/, ".vtt");
+}
+
 type KnowledgeBlock = {
   title: string;
   content: string;
@@ -496,7 +501,7 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
       "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game%20LDK/Governance-Ebene-%20Das%20Tor%20zur%20Freischaltung.mp4",
     ],
     ldkLessonsLinks: {
-      2: { url: "https://unterrichten.digital/2025/09/08/peer-ki-tutor-feedback-schule-unterricht/", label: "PEER KI-Tutor öffnen" },
+      2: { url: "https://peer-ai-tutor.streamlit.app", label: "PEER KI-Tutor öffnen" },
       4: { url: "https://smartresponse.westermann.de/klasse-7/wortschatz/wortschatz/wortschatz-menschen-und-gefuehle-people/", label: "Westermann Smart Response öffnen" },
       6: { url: "https://digitaleprofis.de/kuenstliche-intelligenz/chatgpt/mega-prompts/chatgpt-mega-prompt-4-der-tutor-prompt/", label: "Mega-Prompt Tutor öffnen" },
     },
@@ -2522,8 +2527,10 @@ body{font-family:Inter,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Einsieg%20Lernen%20ueber%20KI%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Einsieg%20Lernen%20ueber%20KI%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -2560,8 +2567,10 @@ Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen ge
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/So%20geht%20es%20los%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/So%20geht%20es%20los%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -2659,8 +2668,10 @@ Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen ge
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Wof%C3%BCr%20eigentlich%20KI%3F%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Wof%C3%BCr%20eigentlich%20KI%3F%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -2699,8 +2710,10 @@ Schauen wir uns jetzt an, wofür KI eigentlich eingesetzt wird — und was sie b
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Von%20speziellen%20Aufgaben%20zu%20genereller%20KI%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Von%20speziellen%20Aufgaben%20zu%20genereller%20KI%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -2739,8 +2752,10 @@ Also merk dir: Alles, was du heute nutzt — jedes KI-Tool, jeder Chatbot, jede 
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Eingabe%20bei%20ChatGPT%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Eingabe%20bei%20ChatGPT%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -2818,8 +2833,10 @@ Und jetzt probier das einmal selber aus — öffne ChatGPT, aktiviere Canvas und
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/oder%20bei%20Claude%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/oder%20bei%20Claude%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -2899,8 +2916,10 @@ Das ist der Unterschied zwischen Chat und Cowork: Im Chat bekommst du jedes Mal 
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Ausgabe%20bei%20ChatGPT%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Ausgabe%20bei%20ChatGPT%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -2937,8 +2956,10 @@ Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir un
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Aufgabe%20eines%20LLM%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Aufgabe%20eines%20LLM%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -2995,8 +3016,10 @@ In der nächsten Lektion kannst du das Ganze selbst ausprobieren — mit Soekia 
                     controls
                     className="w-full bg-black"
                     preload="metadata"
+                    crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Soekia%20GPT%20%E2%80%93%20Ausprobieren%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
+                    <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Soekia%20GPT%20%E2%80%93%20Ausprobieren%20(mit%20Intro%20und%20Outro).vtt" srcLang="de" label="Deutsch" />
                     Dein Browser unterstützt keine Videowiedergabe.
                   </video>
                 </div>
@@ -3225,9 +3248,11 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                       controls
                       className="w-full bg-black"
                       preload="metadata"
+                      crossOrigin="anonymous"
                       key={tutorial.mitLessonsVideoUrls[mitLesson]}
                     >
                       <source src={tutorial.mitLessonsVideoUrls[mitLesson]} type="video/mp4" />
+                      <track kind="subtitles" src={vttUrl(tutorial.mitLessonsVideoUrls[mitLesson])} srcLang="de" label="Deutsch" />
                       Dein Browser unterstützt keine Videowiedergabe.
                     </video>
                   ) : hasFunctionalConsent ? (
@@ -3443,9 +3468,11 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                       controls
                       className="w-full bg-black"
                       preload="metadata"
+                      crossOrigin="anonymous"
                       key={tutorial.ldkLessonsVideoUrls[ldkLesson]}
                     >
                       <source src={tutorial.ldkLessonsVideoUrls[ldkLesson]} type="video/mp4" />
+                      <track kind="subtitles" src={vttUrl(tutorial.ldkLessonsVideoUrls[ldkLesson])} srcLang="de" label="Deutsch" />
                       Dein Browser unterstützt keine Videowiedergabe.
                     </video>
                   ) : hasFunctionalConsent ? (
@@ -3628,8 +3655,9 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
               {tutorial.ltkLessonsVideoUrls?.[ltkLesson] ? (
                 <div className="mb-6 overflow-hidden rounded border-2 border-black bg-black">
                   {tutorial.ltkLessonsVideoUrls[ltkLesson].endsWith(".mp4") ? (
-                    <video controls className="w-full bg-black" preload="metadata" key={tutorial.ltkLessonsVideoUrls[ltkLesson]}>
+                    <video controls className="w-full bg-black" preload="metadata" crossOrigin="anonymous" key={tutorial.ltkLessonsVideoUrls[ltkLesson]}>
                       <source src={tutorial.ltkLessonsVideoUrls[ltkLesson]} type="video/mp4" />
+                      <track kind="subtitles" src={vttUrl(tutorial.ltkLessonsVideoUrls[ltkLesson])} srcLang="de" label="Deutsch" />
                       Dein Browser unterstützt keine Videowiedergabe.
                     </video>
                   ) : hasFunctionalConsent ? (

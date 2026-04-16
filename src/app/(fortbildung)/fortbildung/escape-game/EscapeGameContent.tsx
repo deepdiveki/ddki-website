@@ -76,6 +76,8 @@ import {
   JUMP_RUN_PLAYER_POWER_EFFECT,
   JUMP_RUN_MAX_LIVES,
   JUMP_RUN_BEST_TIME_STORAGE_KEY,
+  JUMP_RUN_HIGH_SCORE_STORAGE_KEY,
+  JUMP_RUN_SCORE,
   JUMP_RUN_GROUND_HEIGHT,
   ACCESS_CODE_STORAGE_KEY,
   DEFAULT_CHAPTER_ID,
@@ -85,6 +87,7 @@ import {
   buildPlayfieldStyle,
   formatTime,
   bestTimeKey,
+  highScoreKey,
   buildRuntimeHazards,
   buildInitialPowerupPositions,
   buildInitialRevealedPowerups,
@@ -92,6 +95,21 @@ import {
 import "./escape-game.css";
 
 
+
+/** Deterministic shuffle seeded by a string key (Fisher-Yates with simple hash). */
+function seededShuffle<T>(arr: readonly T[], seed: string): T[] {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) {
+    h = (Math.imul(31, h) + seed.charCodeAt(i)) | 0;
+  }
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    h = (Math.imul(h, 1103515245) + 12345) | 0;
+    const j = ((h >>> 0) % (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
 
 type EscapeGameProps = {
   gameOnly?: boolean;
@@ -210,6 +228,8 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
   const [activeStationId, setActiveStationId] = useState<string | null>(null);
   const [runElapsedMs, setRunElapsedMs] = useState(0);
   const [bestTimes, setBestTimes] = useState<Record<string, number>>({});
+  const [highScores, setHighScores] = useState<Record<string, number>>({});
+  const [currentScore, setCurrentScore] = useState(0);
   const [cameraX, setCameraX] = useState(0);
   const [hitFlashActive, setHitFlashActive] = useState(false);
   const [hitFlashDirection, setHitFlashDirection] = useState<1 | -1>(1);
@@ -252,6 +272,8 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
   const usedQuestionBlocksRef = useRef(usedQuestionBlocks);
   const runtimeHazardsRef = useRef(runtimeHazards);
   const bestTimesRef = useRef(bestTimes);
+  const highScoresRef = useRef(highScores);
+  const currentScoreRef = useRef(currentScore);
   const soundEnabledRef = useRef(soundEnabled);
   const audioContextRef = useRef<AudioContext | null>(null);
   const hitFlashTimeoutRef = useRef<number | null>(null);
@@ -336,6 +358,13 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
     : JUMP_RUN_STATION_DEFAULT_VISUAL;
   const activeStationSolved = activeStation ? stationSolved[activeStation.id] : false;
   const activeStationAnswer = activeStation ? stationAnswers[activeStation.id] ?? "" : "";
+  const shuffledOptionsMap = useMemo(
+    () =>
+      Object.fromEntries(
+        activeStations.map((s) => [s.id, seededShuffle(s.options, s.id)])
+      ),
+    [activeStations]
+  );
   const activeStationZoneMap = useMemo(
     () =>
       activeMap.stationZones.reduce((acc, zone) => {
@@ -414,6 +443,14 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
   }, [bestTimes]);
 
   useEffect(() => {
+    highScoresRef.current = highScores;
+  }, [highScores]);
+
+  useEffect(() => {
+    currentScoreRef.current = currentScore;
+  }, [currentScore]);
+
+  useEffect(() => {
     soundEnabledRef.current = soundEnabled;
   }, [soundEnabled]);
 
@@ -428,6 +465,16 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
     } catch {
       setBestTimes({});
       bestTimesRef.current = {};
+    }
+    try {
+      const raw = window.localStorage.getItem(JUMP_RUN_HIGH_SCORE_STORAGE_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw) as Record<string, number>;
+      setHighScores(parsed);
+      highScoresRef.current = parsed;
+    } catch {
+      setHighScores({});
+      highScoresRef.current = {};
     }
   }, []);
 
@@ -649,9 +696,11 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
           y: zone.y - JUMP_RUN_PLAYER.height - 4,
         };
       }
+      currentScoreRef.current += JUMP_RUN_SCORE.station;
+      setCurrentScore(currentScoreRef.current);
       playSfx("collect");
-      setStationFeedback(`Richtig! ${station.reward} eingesammelt.`);
-      setRunnerMessage(`Lernstern erhalten: ${station.reward}.`);
+      setStationFeedback(`Richtig! ${station.reward} eingesammelt. +${JUMP_RUN_SCORE.station}`);
+      setRunnerMessage(`Lernstern erhalten: ${station.reward}. +${JUMP_RUN_SCORE.station}`);
     } else {
       setStationFeedback("Noch nicht. Schau dir den Lernhinweis oben an.");
     }
@@ -680,6 +729,8 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
     setRunnerFinished(false);
     setRecentlyEarnedCode(null);
     setRunElapsedMs(0);
+    setCurrentScore(0);
+    currentScoreRef.current = 0;
     setStationAnswers({});
     setStationSolved({});
     setCollectedBits({});
@@ -846,6 +897,37 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
         checkpoint: checkpointRef.current,
       };
       setStationFeedback(null);
+    };
+
+    const calculateFinalScore = (finalTimeMs: number) => {
+      const timeSeconds = finalTimeMs / 1000;
+      const timeBonus = Math.max(
+        0,
+        JUMP_RUN_SCORE.timeBaseBonus - Math.floor(timeSeconds) * JUMP_RUN_SCORE.timePenaltyPerSec
+      );
+      const lifeBonus = runnerLivesRef.current * JUMP_RUN_SCORE.lifeBonus;
+      const finalScore = currentScoreRef.current + timeBonus + lifeBonus;
+      currentScoreRef.current = finalScore;
+      setCurrentScore(finalScore);
+      return { finalScore, timeBonus, lifeBonus };
+    };
+
+    const maybeUpdateHighScore = (finalScore: number) => {
+      const key = highScoreKey(selectedChapterId, selectedMapId, difficultyId);
+      const currentHigh = highScoresRef.current[key];
+      const isNewHigh = currentHigh === undefined || finalScore > currentHigh;
+      if (!isNewHigh) return false;
+
+      const updated = { ...highScoresRef.current, [key]: finalScore };
+      highScoresRef.current = updated;
+      setHighScores(updated);
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(
+          JUMP_RUN_HIGH_SCORE_STORAGE_KEY,
+          JSON.stringify(updated)
+        );
+      }
+      return true;
     };
 
     const maybeUpdateBestTime = (finalTimeMs: number) => {
@@ -1265,11 +1347,14 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
           collectedBitsRef.current = next;
           return next;
         });
+        const bitPoints = collectedThisFrame.length * JUMP_RUN_SCORE.dataBit;
+        currentScoreRef.current += bitPoints;
+        setCurrentScore(currentScoreRef.current);
         playSfx("collect");
         setRunnerMessage(
           collectedThisFrame.length > 1
-            ? `${collectedThisFrame.length} Datenbits eingesammelt!`
-            : "Datenbit eingesammelt!"
+            ? `${collectedThisFrame.length} Datenbits eingesammelt! +${bitPoints}`
+            : `Datenbit eingesammelt! +${JUMP_RUN_SCORE.dataBit}`
         );
         // Collect sparkle particles
         for (const id of collectedThisFrame) {
@@ -1390,11 +1475,14 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
           setRecentlyEarnedCode(accessCode);
           setEarnedCodes((prev) => ({ ...prev, [selectedChapterId]: accessCode }));
           const hasNewBest = maybeUpdateBestTime(finalTimeMs);
+          const { finalScore, timeBonus, lifeBonus } = calculateFinalScore(finalTimeMs);
+          const isNewHighScore = maybeUpdateHighScore(finalScore);
           playSfx("finish");
+          const scoreLine = `Punkte: ${finalScore} (+${timeBonus} Zeit, +${lifeBonus} Leben)`;
+          const highScoreLine = isNewHighScore ? " Neuer High Score!" : "";
+          const bestTimeLine = hasNewBest ? " Neue Bestzeit!" : "";
           setRunnerMessage(
-            hasNewBest
-              ? `Neue Bestzeit! Ziel erreicht in ${formatTime(finalTimeMs)}. Code: ${accessCode}`
-              : `Ziel erreicht in ${formatTime(finalTimeMs)}. Code: ${accessCode}`
+            `Ziel erreicht in ${formatTime(finalTimeMs)}.${bestTimeLine}${highScoreLine} ${scoreLine}. Code: ${accessCode}`
           );
         } else {
           setRunnerMessage("Das Ziel bleibt verriegelt. Sammle alle Lernsterne.");
@@ -1576,8 +1664,10 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                 controls
                 preload="metadata"
                 className="w-full"
+                crossOrigin="anonymous"
               >
                 <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/DDKI%20Video%20EG%20Main/EscapeGameMainVideo_combined.mp4" type="video/mp4" />
+                <track kind="subtitles" src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/DDKI%20Video%20EG%20Main/EscapeGameMainVideo_combined.vtt" srcLang="de" label="Deutsch" />
                 Dein Browser unterstützt keine Videowiedergabe.
               </video>
             </div>
@@ -1845,6 +1935,9 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                   </span>
                   <span className="border-2 border-black bg-amber-100 px-2 py-1 text-[10px] uppercase tracking-[0.25em]">
                     Stationen {completedStations}/{activeStations.length}
+                  </span>
+                  <span className="border-2 border-black bg-emerald-100 px-2 py-1 text-[10px] uppercase tracking-[0.25em]">
+                    Score {currentScore}
                   </span>
                   <button
                     type="button"
@@ -2393,6 +2486,31 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                   <span className="font-bold tracking-[0.2em]">{recentlyEarnedCode}</span>
                 </div>
               )}
+              {runnerFinished && (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="border-2 border-black bg-emerald-50 px-3 py-2 text-xs">
+                    <span className="font-bold">Score:</span> {currentScore}
+                  </div>
+                  {(() => {
+                    const key = highScoreKey(selectedChapterId, selectedMapId, difficultyId);
+                    const hs = highScores[key];
+                    return hs !== undefined ? (
+                      <div className="border-2 border-black bg-yellow-100 px-3 py-2 text-xs">
+                        <span className="font-bold">High Score:</span> {hs}
+                      </div>
+                    ) : null;
+                  })()}
+                  {(() => {
+                    const key = bestTimeKey(selectedChapterId, selectedMapId, difficultyId);
+                    const bt = bestTimes[key];
+                    return bt !== undefined ? (
+                      <div className="border-2 border-black bg-sky-50 px-3 py-2 text-xs">
+                        <span className="font-bold">Bestzeit:</span> {formatTime(bt)}
+                      </div>
+                    ) : null;
+                  })()}
+                </div>
+              )}
               {runnerFinished && gameOnly && (
                 <Link
                   href="/fortbildung/escape-game#crew"
@@ -2442,7 +2560,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                     </div>
 
                     <div className="space-y-2">
-                      {activeStation.options.map((option) => {
+                      {(shuffledOptionsMap[activeStation.id] ?? activeStation.options).map((option) => {
                         const isSelected = activeStationAnswer === option.id;
                         return (
                           <button

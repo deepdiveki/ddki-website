@@ -1,0 +1,95 @@
+WEBVTT
+
+00:00.000 --> 00:07.620
+Okay, jetzt wird es richtig spannend. Wir schauen uns an, wie ein großes Sprachmodell
+
+00:07.620 --> 00:12.100
+ein Large-Language-Model tatsächlich funktioniert. Und ich verspreche dir, es ist einfacher
+
+00:12.100 --> 00:17.460
+als du denkst. Ein Large-Language-Model hat im Grunde genommen eine Aufgabe, das nächste
+
+00:17.460 --> 00:22.740
+Wortvorherrssag. Das ist alles. Kein Nachdenken, kein Verstehen, keine Meinung, nur die Frage,
+
+00:22.740 --> 00:28.020
+welches Wort kommt wahrscheinlich als nächstes. Schauen wir uns das an einem Beispiel an.
+
+00:28.020 --> 00:33.740
+Nehmen wir den berühmten Satz, justen wir haben ein, was kommt als nächstes? Dein Bauchgefühl
+
+00:33.740 --> 00:39.580
+sagt wahrscheinlich sofort ein Problem. Und genauso funktioniert ein Large-Language-Model.
+
+00:39.580 --> 00:44.460
+Es bekommt die bisherigen Worte als Input, das ist der Kontext, und schickt sie durch
+
+00:44.460 --> 00:51.460
+das Modell und berechnet, welches Wort folgt am wahrscheinlichsten. Aber das Modell gibt
+
+00:51.460 --> 00:58.340
+nicht einfach ein einzelnes Wort aus. Es berechnet für jedes mögliche Wort in seinem
+
+00:58.340 --> 01:06.740
+Wortschatz eine Wahrscheinlichkeit. In unserem Beispiel ein bekommt 90, eine bekommt 5, seine
+
+01:06.740 --> 01:13.140
+2, deine 1 und Wörter wie du oder Atlanta liegen praktisch bei 9. Das Modell wählt
+
+01:13.140 --> 01:18.140
+dann das Wort mit der höchsten Wahrscheinlichkeit aus. Und jetzt kommt der entscheidende Trick.
+
+01:18.140 --> 01:25.460
+Das gewählte Wort wird an den bisherigen Text angehängt und der gesamte Text geht
+
+01:25.460 --> 01:33.180
+wieder als neuer Input in das Modell. Aus justen wir haben wird justen wir haben ein und das
+
+01:33.180 --> 01:38.940
+Modell berechnet erneut. Was kommt als nächstes? Wahrscheinlich Problem. Und so weiter und
+
+01:38.940 --> 01:44.460
+so weiter. Token für Token Wort für Wort. Diesen Kreislauf siehst du auf der dritten
+
+01:44.460 --> 01:51.820
+Folie. Der Output wird zum Input. Das Modell baut seine Antwort Stück für Stück auf wie
+
+01:51.820 --> 01:59.180
+eine Perlenkette, bei der jede neue Perle von allen vorherigen abhängt. Und jetzt verstehst
+
+01:59.180 --> 02:04.420
+du auch, warum das Hessegedicht zu überzeugen kleint. Das Modell hat in seinen Trainingsdaten
+
+02:04.420 --> 02:10.060
+Millionen von Texten gelesen. Darunter auch Gedichte von Hesse und Überhesse. Es hat
+
+02:10.060 --> 02:15.860
+gelernt, welche Wörter in einem bestimmten Kontext wahrscheinlich aufeinander folgen. Wenn
+
+02:15.860 --> 02:21.700
+der Prond im Duktus von Hermann Hesse enthält, verschiebt sich die Wahrscheinlichkeitsverteilung
+
+02:21.700 --> 02:27.660
+in Richtung poetischer, melancholischer Sprache. Nicht weil die KI Hesse wirklich versteht,
+
+02:27.660 --> 02:33.300
+sondern weil sie statistische Muster seiner Sprache gelernt hat. Das ist die zentrale
+
+02:33.300 --> 02:39.620
+Erkenntnis. Ein Large Language Modell versteht nichts, es berechnet Wahrscheinlichkeiten. Aber es
+
+02:39.620 --> 02:44.860
+tut das so gut, dass die Ergebnisse täuschend echt intelligent wirken. Und genau deshalb
+
+02:44.860 --> 02:50.700
+ist es so wichtig, dass wir als Menschen die Ergebnisse kritisch prüfen. Denn Plausibilität
+
+02:50.700 --> 02:56.340
+ist kein Beweich für Korrektheit. In der nächsten Lektion kannst du das Ganze selbst
+
+02:56.340 --> 03:03.020
+einmal ausprobieren. Mit Sylvia GPT, einem interaktiven Tool, das dir Token vorhersagen
+
+03:03.020 --> 03:04.500
+live erleben lässt.
+
