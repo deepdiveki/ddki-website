@@ -217,9 +217,9 @@ export const courses: Course[] = [
     slug: "deep-dive-modul-2",
     title: "Deep Dive Modul II: Plagiate, Hausaufgaben und Klausuren in Zeiten von KI",
     shortDescription:
-      "KI-gestütztes Lernen und Lösungsverfahren sowie praktische Methoden zum Umgang mit KI bei Leistungsbewertung.",
+      "Praktische Methoden für Lernen, Aufgaben, Prüfungen und faire Leistungsbewertung mit KI im Unterricht.",
     description:
-      "Dieses Modul behandelt KI-gestütztes Lernen und Lösungsverfahren. Es vermittelt praktische Methoden zum Umgang mit KI im Unterricht und schafft Awareness für den KI-Einsatz bei Leistungsbewertung. Wie gehen wir mit Hausaufgaben, Klausuren und Plagiaten in Zeiten von KI um?",
+      "Dieses Modul vermittelt praktische Methoden für den Umgang mit KI im Unterricht und in der Leistungsbewertung. Im Fokus stehen Hausaufgaben, Klausuren, Plagiate und faire Bewertungsformen in Zeiten von KI.",
     categoryId: "leistung",
     format: "Online",
     duration: "3 Stunden",
