@@ -1,13 +1,13 @@
 "use client";
 
-import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { IconArrowLeft, IconArrowRight, IconVolume, IconVolumeOff } from "@tabler/icons-react";
 
 const videoSlides = [
   {
-    title: "DeepChat im Unterricht",
-    src: "/video/Basketball.mp4",
+    title: "Dokumente erstellen",
+    src: "/video/Dokument-erstellen.mp4",
     features: [
       "🧠 Automatische Analyse von Lernfortschritten",
       "⚡ Interaktive Unterrichtsplanung in Sekunden",
@@ -15,16 +15,16 @@ const videoSlides = [
     ],
   },
   {
-    title: "Individuelle Förderung",
-    src: "/video/Matritzen.mp4",
+    title: "KI-Assistent DDKI DeepChat",
+    src: "/video/KI-Assistent-DDKI-DeepChat.mp4",
     features: [
       "🎯 Maßgeschneiderte Aufgaben für Lernniveaus",
       "📊 Adaptive Lernanalysen in Echtzeit",
     ],
   },
   {
-    title: "Interaktive Inhalte erstellen",
-    src: "/video/Elternbrief2.mp4",
+    title: "Klassenraumfunktion",
+    src: "/video/Klassenraumfunktion.mp4",
     features: [
       "🧩 Interaktive Quiz- und Übungsgeneratoren",
       "🎨 Kreative Tools für differenzierte Inhalte",
@@ -34,6 +34,20 @@ const videoSlides = [
 
 export default function DeepChatAnimationCarousel() {
   const [active, setActive] = useState(0);
+  const [muted, setMuted] = useState(true);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+      video.currentTime = 0;
+      if (index === active) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [active]);
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % videoSlides.length);
@@ -45,56 +59,40 @@ export default function DeepChatAnimationCarousel() {
 
   const isActive = (index: number) => index === active;
 
-  const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
-
   return (
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-5xl md:px-8 lg:px-12 text-white">
       <div className="flex flex-col gap-20">
-        <div className="relative w-full aspect-video max-h-[600px]">
-          <AnimatePresence>
-            {videoSlides.map((slide, index) => (
-              <motion.div
+        <div className="relative w-full aspect-[2036/1080] max-h-[600px]">
+          {videoSlides.map((slide, index) => (
+            <motion.div
+              key={slide.src}
+              initial={false}
+              animate={{
+                opacity: isActive(index) ? 1 : 0,
+                scale: isActive(index) ? 1 : 0.98,
+                zIndex: isActive(index) ? 40 : 0,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-0 flex items-center justify-center"
+              style={{ pointerEvents: isActive(index) ? "auto" : "none" }}
+            >
+              <video
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
                 key={slide.src}
-                initial={{
-                  opacity: 0,
-                  scale: 0.9,
-                  z: -100,
-                  rotate: randomRotateY(),
-                }}
-                animate={{
-                  opacity: isActive(index) ? 1 : 0.7,
-                  scale: isActive(index) ? 1 : 0.95,
-                  z: isActive(index) ? 0 : -100,
-                  rotate: isActive(index) ? 0 : randomRotateY(),
-                  zIndex: isActive(index)
-                    ? 40
-                    : videoSlides.length + 2 - index,
-                  y: isActive(index) ? [0, -40, 0] : 0,
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.9,
-                  z: 100,
-                  rotate: randomRotateY(),
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0 origin-bottom overflow-hidden rounded-xl border border-white shadow-xl bg-white"
-              >
-                <video
-                  key={slide.src}
-                  src={slide.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-contain"
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                src={slide.src}
+                autoPlay
+                muted={muted || !isActive(index)}
+                loop
+                playsInline
+                className="max-w-full max-h-full object-contain rounded-3xl shadow-xl"
+              />
+            </motion.div>
+          ))}
         </div>
 
         <div className="flex justify-center gap-4 pt-1">
@@ -109,6 +107,17 @@ export default function DeepChatAnimationCarousel() {
             className="group/button flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
           >
             <IconArrowRight className="h-5 w-5 text-white group-hover/button:-rotate-12 transition-transform" />
+          </button>
+          <button
+            onClick={() => setMuted((m) => !m)}
+            aria-label={muted ? "Ton einschalten" : "Ton ausschalten"}
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+          >
+            {muted ? (
+              <IconVolumeOff className="h-5 w-5 text-white" />
+            ) : (
+              <IconVolume className="h-5 w-5 text-white" />
+            )}
           </button>
         </div>
       </div>
