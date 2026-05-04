@@ -4,7 +4,6 @@ import Image from "next/image";
 
 const clients = [
   { id: 1, image: "/images/clients/client-01.svg", alt: "Partnerschule 1" },
-  { id: 2, image: "/images/clients/client-02.svg", alt: "Partnerschule 2" },
   { id: 3, image: "/images/clients/client-03.svg", alt: "Partnerschule 3" },
   { id: 4, image: "/images/clients/client-04.svg", alt: "Partnerschule 4" },
   { id: 5, image: "/images/clients/client-05.svg", alt: "Partnerschule 5" },

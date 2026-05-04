@@ -6,10 +6,6 @@ const clientsData: Client[] = [
     image: "/images/clients/client-01.svg",
   },
   {
-    id: 4,
-    image: "/images/clients/client-02.svg",
-  },
-  {
     id: 407,
     image: "/images/clients/client-03.svg",
   },
@@ -34,10 +30,6 @@ const clientsData: Client[] = [
     image: "/images/clients/client-01.svg",
   },
   {
-    id: 92,
-    image: "/images/clients/client-02.svg",
-  },
-  {
     id: 87,
     image: "/images/clients/client-03.svg",
   },
@@ -60,10 +52,6 @@ const clientsData: Client[] = [
   {
     id: 32,
     image: "/images/clients/client-01.svg",
-  },
-  {
-    id: 13,
-    image: "/images/clients/client-02.svg",
   },
   {
     id: 35,
