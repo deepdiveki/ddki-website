@@ -83,6 +83,33 @@ const TESTIMONIALS = [
   },
 ];
 
+const SCHOOL_TESTIMONIALS: {
+  quote: string;
+  highlight?: string;
+  author: string;
+  role: string;
+}[] = [
+  {
+    quote:
+      "Wir haben mit dem Deep-Dive Team wirklich gute Erfahrungen sammeln können. Die Schul-KI wird von den Kolleginnen und Kollegen gut angenommen und erleichtert den datenschutzkonformen Unterricht sehr. Das Deep-Dive-Team ist gut erreichbar, Wünsche und Anliegen werden zeitnah umgesetzt.",
+    highlight: "Wir können die Zusammenarbeit sehr empfehlen.",
+    author: "C. Weller",
+    role: "Rektorin der DBR in Hannover",
+  },
+  {
+    quote:
+      "Björn Isenbiel und Tim Philipp haben eine schulinterne Lehrerfortbildung an der Robert-Koch-Schule Clausthal-Zellerfeld durchgeführt. Auch die beteiligten Kollegien des Ratsgymnasiums Goslar sowie des Oberharzgymnasiums Braunlage waren von der Sachkompetenz, der Praxisnähe und der Vielfalt der vorgestellten Anwendungen und Möglichkeiten überzeugt.",
+    author: "Jens Wachsmuth",
+    role: "Ständiger Vertreter des Schulleiters",
+  },
+  {
+    quote:
+      "Die KI-Fortbildung hat uns alle inspiriert und tatsächlich – wie der Name schon sagt – in die Tiefen der KI (incl. Escape Game) geführt. Es ist wirklich sehr beeindruckend, wie differenziert und multiperspektivisch die Chancen und Grenzen von KI dabei erfahrbar wurden. Danke für die Expertise und die lehrreichen Tage.",
+    author: "Anne Schumann",
+    role: "Leiterin des Studienseminars f. d. Lehramt an Gymnasien Göttingen",
+  },
+];
+
 const CLIENTS = [
   { id: 1, image: "/images/clients/client-01.svg", alt: "Partnerschule 1" },
   { id: 3, image: "/images/clients/client-03.svg", alt: "Partnerschule 3" },
@@ -651,47 +678,29 @@ export default function ChooserLanding() {
             className="mt-16 w-full lg:mt-20"
           >
             <p className="mb-8 text-center text-sm font-medium tracking-wide text-text-tertiary uppercase">
-              Was unsere Schulen sagen
+              Was unsere Schulen und Institutionen sagen
             </p>
-            <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border border-border-tertiary bg-white p-6 shadow-sm lg:p-8">
-                <Quote className="mb-3 size-5 text-primary-base opacity-40" />
-                <p className="text-sm font-light leading-relaxed text-text-secondary">
-                  &ldquo;Wir haben mit dem Deep-Dive Team wirklich gute
-                  Erfahrungen sammeln können. Die Schul-KI wird von den
-                  Kolleginnen und Kollegen gut angenommen und erleichtert den
-                  datenschutzkonformen Unterricht sehr. Das Deep-Dive-Team ist
-                  gut erreichbar, Wünsche und Anliegen werden zeitnah
-                  umgesetzt.&rdquo;
-                </p>
-                <p className="mt-2 text-sm font-light italic text-text-secondary">
-                  &ldquo;Wir können die Zusammenarbeit sehr empfehlen.&rdquo;
-                </p>
-                <p className="mt-4 text-sm font-semibold text-text-primary">
-                  C. Weller
-                </p>
-                <p className="text-xs text-text-tertiary">
-                  Rektorin der DBR in Hannover
-                </p>
-              </div>
-              <div className="rounded-2xl border border-border-tertiary bg-white p-6 shadow-sm lg:p-8">
-                <Quote className="mb-3 size-5 text-primary-base opacity-40" />
-                <p className="text-sm font-light leading-relaxed text-text-secondary">
-                  &ldquo;Björn Isenbiel und Tim Philipp haben eine schulinterne
-                  Lehrerfortbildung an der Robert-Koch-Schule
-                  Clausthal-Zellerfeld durchgeführt. Auch die beteiligten
-                  Kollegien des Ratsgymnasiums Goslar sowie des
-                  Oberharzgymnasiums Braunlage waren von der Sachkompetenz, der
-                  Praxisnähe und der Vielfalt der vorgestellten Anwendungen und
-                  Möglichkeiten überzeugt.&rdquo;
-                </p>
-                <p className="mt-4 text-sm font-semibold text-text-primary">
-                  Jens Wachsmuth
-                </p>
-                <p className="text-xs text-text-tertiary">
-                  Ständiger Vertreter des Schulleiters
-                </p>
-              </div>
+            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {SCHOOL_TESTIMONIALS.map((t) => (
+                <div
+                  key={t.author}
+                  className="flex h-full flex-col rounded-2xl border border-border-tertiary bg-white p-6 shadow-sm lg:p-8"
+                >
+                  <Quote className="mb-3 size-5 text-primary-base opacity-40" />
+                  <p className="text-sm font-light leading-relaxed text-text-secondary">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  {t.highlight && (
+                    <p className="mt-2 text-sm font-light italic text-text-secondary">
+                      &ldquo;{t.highlight}&rdquo;
+                    </p>
+                  )}
+                  <p className="mt-auto pt-4 text-sm font-semibold text-text-primary">
+                    {t.author}
+                  </p>
+                  <p className="text-xs text-text-tertiary">{t.role}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
 
