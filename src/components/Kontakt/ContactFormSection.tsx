@@ -6,7 +6,10 @@ import ContactForm from "./ContactForm";
 
 export default function ContactFormSection() {
   return (
-    <section className="bg-background-secondary px-4 pt-28 pb-10 md:pt-43.25 md:pb-14 lg:px-4 lg:pb-20 xl:px-28">
+    <section
+      id="kontaktformular"
+      className="bg-background-secondary px-4 pt-28 pb-10 md:pt-43.25 md:pb-14 lg:px-4 lg:pb-20 xl:px-28"
+    >
       <div className="mx-auto flex max-w-304 flex-col items-start justify-between gap-y-10 lg:mb-0 lg:flex-row lg:items-start lg:gap-x-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}

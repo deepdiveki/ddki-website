@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import CookieBannerContainer from "@/components/CookieBannerContainer";
 import "../styles/animate.css";
 import "../styles/prism-vsc-dark-plus.css";
 import "../styles/star.css";
@@ -58,6 +59,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="de">
       <head>
+        {/*
+          Google Ads / gtag deaktiviert (DSGVO/TDDDG).
+          Darf erst nach aktiver Einwilligung (Marketing-Cookies) geladen werden.
+          Reaktivieren über consent-basiertes Laden via CookieBanner.
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18037716280"
           strategy="afterInteractive"
@@ -70,9 +75,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             gtag('config', 'AW-18037716280');
           `}
         </Script>
+        */}
       </head>
       <body>
         {children}
+        <CookieBannerContainer />
       </body>
     </html>
   );

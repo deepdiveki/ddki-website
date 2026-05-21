@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
+import Link from "next/link";
+import Button from "@/components/ui/button-fortbildung";
 import {
   HeaderSubtitle,
   HeaderTitle,
   SectionHeader,
 } from "@/components/ui/section-header-fortbildung";
+import { useCookieConsent } from "@/hooks/use-cookie-consent";
 
 declare global {
   interface Window {
@@ -33,18 +36,34 @@ function initializeCalendlyWidget(container: HTMLDivElement | null) {
   });
 }
 
+function setFunctionalConsent(value: boolean) {
+  try {
+    const next = { essential: true, functional: value };
+    localStorage.setItem("cookieConsent", JSON.stringify(next));
+    window.dispatchEvent(
+      new CustomEvent("cookieConsentUpdated", { detail: next }),
+    );
+  } catch (error) {
+    console.error("Cookie-Consent konnte nicht gespeichert werden:", error);
+  }
+}
+
 export default function CalendlySection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const hasFunctionalConsent = useCookieConsent();
+  const [scriptReady, setScriptReady] = useState(false);
 
   useEffect(() => {
-    initializeCalendlyWidget(containerRef.current);
+    if (hasFunctionalConsent && scriptReady) {
+      initializeCalendlyWidget(containerRef.current);
+    }
 
     return () => {
       if (containerRef.current) {
         containerRef.current.innerHTML = "";
       }
     };
-  }, []);
+  }, [hasFunctionalConsent, scriptReady]);
 
   return (
     <>
@@ -58,22 +77,87 @@ export default function CalendlySection() {
             </HeaderSubtitle>
           </SectionHeader>
 
-          <div className="overflow-hidden rounded-[20px] border border-border-tertiary bg-white p-2 shadow-sm md:p-3">
-            <div
-              ref={containerRef}
-              className="calendly-inline-widget w-full"
-              data-url={CALENDLY_URL}
-              style={{ minWidth: "320px", height: "700px" }}
-            />
-          </div>
+          {hasFunctionalConsent ? (
+            <>
+              <div className="overflow-hidden rounded-[20px] border border-border-tertiary bg-white p-2 shadow-sm md:p-3">
+                <div
+                  ref={containerRef}
+                  className="calendly-inline-widget w-full"
+                  data-url={CALENDLY_URL}
+                  style={{ minWidth: "320px", height: "700px" }}
+                />
+              </div>
+              <p className="mt-4 text-center text-xs text-text-tertiary">
+                Calendly-Einbindung aktiv.{" "}
+                <button
+                  type="button"
+                  onClick={() => setFunctionalConsent(false)}
+                  className="underline hover:text-text-primary"
+                >
+                  Einwilligung widerrufen
+                </button>
+              </p>
+            </>
+          ) : (
+            <ConsentPlaceholder loading={hasFunctionalConsent === null} />
+          )}
         </div>
       </section>
 
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="afterInteractive"
-        onReady={() => initializeCalendlyWidget(containerRef.current)}
-      />
+      {hasFunctionalConsent && (
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="afterInteractive"
+          onReady={() => {
+            setScriptReady(true);
+            initializeCalendlyWidget(containerRef.current);
+          }}
+        />
+      )}
     </>
+  );
+}
+
+function ConsentPlaceholder({ loading }: { loading: boolean }) {
+  return (
+    <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 rounded-[20px] border border-border-tertiary bg-white p-8 text-center shadow-sm md:p-10">
+      <h3 className="text-lg font-semibold text-text-primary">
+        Terminbuchung über Calendly
+      </h3>
+      <p className="text-sm leading-relaxed text-text-secondary">
+        Um direkt online einen Termin zu buchen, binden wir das Widget des
+        US-Anbieters <strong>Calendly</strong> ein. Dabei werden personenbezogene
+        Daten (u. a. IP-Adresse, Browserdaten) an Calendly in die USA übertragen
+        und Cookies gesetzt. Eine Datenübermittlung erfolgt nur auf Grundlage
+        Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG).
+        Sie können die Einwilligung jederzeit widerrufen.
+      </p>
+      <p className="text-xs text-text-tertiary">
+        Weitere Informationen finden Sie in unserer{" "}
+        <Link
+          href="/datenschutz"
+          className="underline hover:text-text-primary"
+        >
+          Datenschutzerklärung
+        </Link>
+        .
+      </p>
+      <div className="flex flex-col items-center gap-3">
+        <Button
+          type="button"
+          variant="primary"
+          onClick={() => setFunctionalConsent(true)}
+          disabled={loading}
+        >
+          Calendly aktivieren und Termin buchen
+        </Button>
+        <a
+          href="#kontaktformular"
+          className="text-sm font-medium text-text-secondary underline hover:text-text-primary"
+        >
+          Alternativ: Termin über Kontaktformular anfragen
+        </a>
+      </div>
+    </div>
   );
 }

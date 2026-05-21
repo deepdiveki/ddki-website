@@ -258,6 +258,14 @@ const Kontakt = () => {
                     >
                       {loader ? "Sending..." : "Nachricht senden"}
                     </button>
+                    <p className="mt-4 text-xs text-white/60">
+                      Mit Absenden des Formulars werden Ihre Angaben zur
+                      Bearbeitung Ihrer Anfrage verarbeitet. Details in unserer{" "}
+                      <a href="/datenschutz" className="underline hover:text-white">
+                        Datenschutzerklärung
+                      </a>
+                      .
+                    </p>
                   </div>
                 </div>
               </div>

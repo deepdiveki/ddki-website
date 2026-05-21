@@ -32,11 +32,13 @@ export default function ContactForm() {
       if (res.ok) {
         setSubmitted(true);
         form.reset();
-        window.gtag?.('event', 'conversion', {
-          'send_to': 'AW-18037716280/dXYcCMOAxo4cELjqhplD',
-          'value': 1.0,
-          'currency': 'EUR'
-        });
+        // Google-Ads-Conversion-Tracking deaktiviert (DSGVO/TDDDG).
+        // Nur nach aktiver Einwilligung erneut aktivieren.
+        // window.gtag?.('event', 'conversion', {
+        //   'send_to': 'AW-18037716280/dXYcCMOAxo4cELjqhplD',
+        //   'value': 1.0,
+        //   'currency': 'EUR'
+        // });
         setTimeout(() => setSubmitted(false), 5000);
       } else {
         const json = await res.json().catch(() => ({}));
@@ -132,6 +134,15 @@ export default function ContactForm() {
         >
           Nachricht senden
         </Button>
+
+        <p className="text-xs text-text-tertiary">
+          Mit Absenden des Formulars werden Ihre Angaben zur Bearbeitung Ihrer
+          Anfrage verarbeitet. Details in unserer{" "}
+          <a href="/datenschutz" className="underline hover:text-text-primary">
+            Datenschutzerklärung
+          </a>
+          .
+        </p>
       </form>
     </div>
   );

@@ -5,8 +5,6 @@ import CallToAction from "@/components/CallToAction";
 import Features from "@/components/Home/Features";
 import { Metadata } from "next";
 import Kontakt from "@/components/KontaktSinglePage";
-import CookieBanner from "@/components/CookieBanner";
-
 
 export const metadata: Metadata = {
   title: "Kontakt – Sprechen Sie uns an",

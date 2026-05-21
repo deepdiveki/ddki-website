@@ -4,7 +4,6 @@ import Logo from "@/components/shared/Logo";
 import ButtonLink from "@/components/ui/button-link-fortbildung";
 import { Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const fortbildungLinks = [
   {
@@ -50,9 +49,7 @@ const softwareLinks = [
 type FooterVariant = "fortbildung" | "software";
 
 export default function Footer({ variant = "fortbildung" }: { variant?: FooterVariant }) {
-  const pathname = usePathname();
   const isSoftware = variant === "software";
-  const showPrivacySettings = pathname?.startsWith("/fortbildung/escape-game");
   const infoLinks = isSoftware ? softwareLinks : fortbildungLinks;
   const sectionLabel = isSoftware ? "DDKI Software" : "DeepDive Fortbildungen";
   const aboutText = isSoftware
@@ -103,7 +100,7 @@ export default function Footer({ variant = "fortbildung" }: { variant?: FooterVa
           </ul>
         </div>
 
-        <Copyright sectionLabel={sectionLabel} isSoftware={isSoftware} showPrivacySettings={showPrivacySettings} />
+        <Copyright sectionLabel={sectionLabel} isSoftware={isSoftware} />
       </div>
     </footer>
   );
@@ -143,11 +140,14 @@ function CompanyInfo({ tagline, logoLabel, isSoftware }: { tagline: string; logo
   );
 }
 
-function Copyright({ sectionLabel, isSoftware, showPrivacySettings }: { sectionLabel: string; isSoftware: boolean; showPrivacySettings: boolean }) {
+function Copyright({ sectionLabel, isSoftware }: { sectionLabel: string; isSoftware: boolean }) {
   const handleOpenPrivacySettings = (e: React.MouseEvent) => {
     e.preventDefault();
     window.dispatchEvent(new CustomEvent("openCookieBanner"));
   };
+
+  const linkClass = `text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`;
+  const separatorClass = isSoftware ? "text-white/70" : "text-text-secondary";
 
   return (
     <div className="mt-10 flex flex-col-reverse items-center justify-between px-4 md:mt-16 md:flex-row md:px-0">
@@ -156,33 +156,23 @@ function Copyright({ sectionLabel, isSoftware, showPrivacySettings }: { sectionL
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-        {showPrivacySettings && (
-          <>
-            <button
-              type="button"
-              onClick={handleOpenPrivacySettings}
-              className={`text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`}
-            >
-              Privatsphäre-Einstellungen
-            </button>
-            <span className={isSoftware ? "text-white/70" : "text-text-secondary"} aria-hidden="true">
-              |
-            </span>
-          </>
-        )}
-        <Link
-          href="/impressum"
-          className={`text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`}
+        <button
+          type="button"
+          onClick={handleOpenPrivacySettings}
+          className={`${linkClass} cursor-pointer`}
         >
-          Impressum
-        </Link>
-        <span className={isSoftware ? "text-white/70" : "text-text-secondary"} aria-hidden="true">
+          Privatsphäre-Einstellungen
+        </button>
+        <span className={separatorClass} aria-hidden="true">
           |
         </span>
-        <Link
-          href="/datenschutz"
-          className={`text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`}
-        >
+        <Link href="/impressum" className={linkClass}>
+          Impressum
+        </Link>
+        <span className={separatorClass} aria-hidden="true">
+          |
+        </span>
+        <Link href="/datenschutz" className={linkClass}>
           Datenschutz
         </Link>
       </div>

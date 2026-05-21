@@ -72,7 +72,7 @@ export default function HeroVideo() {
           {/* Video */}
           <video
             ref={videoRef}
-            preload="metadata"
+            preload="none"
             playsInline
             poster="/images/hero-video-poster.jpg"
             onTimeUpdate={handleTimeUpdate}

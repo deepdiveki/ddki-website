@@ -317,10 +317,11 @@ export default function WebsitesPage() {
                 <div className="relative rounded-xl overflow-hidden">
                   <video
                     src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/DBR%20Website%20KI-Schulbu%CC%88ro%20Einsatz.mp4"
-                    autoPlay
+                    controls
                     loop
                     muted
                     playsInline
+                    preload="none"
                     className="w-full h-auto object-cover"
                   />
                 </div>
@@ -346,10 +347,11 @@ export default function WebsitesPage() {
                 <div className="relative rounded-xl overflow-hidden">
                   <video
                     src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/KI-Schulbu%CC%88ro%20DBR%20Iphone.mp4"
-                    autoPlay
+                    controls
                     loop
                     muted
                     playsInline
+                    preload="none"
                     className="w-full h-auto object-cover"
                   />
                 </div>

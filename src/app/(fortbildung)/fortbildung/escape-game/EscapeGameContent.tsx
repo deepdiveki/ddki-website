@@ -1662,7 +1662,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
             <div className="overflow-hidden bg-black">
               <video
                 controls
-                preload="metadata"
+                preload="none"
                 className="w-full"
                 crossOrigin="anonymous"
               >

@@ -2248,7 +2248,7 @@ body{font-family:Inter,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
     });
   }, []);
 
-  // Cookie consent for YouTube embeds (TTDSG)
+  // Cookie consent for YouTube embeds (TDDDG)
   const hasFunctionalConsent = useCookieConsent();
 
   // Lesson player state (Kernwissen 3 / Über uns)
@@ -2526,7 +2526,7 @@ body{font-family:Inter,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Einsieg%20Lernen%20ueber%20KI%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -2566,7 +2566,7 @@ Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen ge
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/So%20geht%20es%20los%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -2667,7 +2667,7 @@ Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen ge
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Wof%C3%BCr%20eigentlich%20KI%3F%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -2709,7 +2709,7 @@ Schauen wir uns jetzt an, wofür KI eigentlich eingesetzt wird — und was sie b
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Von%20speziellen%20Aufgaben%20zu%20genereller%20KI%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -2751,7 +2751,7 @@ Also merk dir: Alles, was du heute nutzt — jedes KI-Tool, jeder Chatbot, jede 
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Eingabe%20bei%20ChatGPT%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -2832,7 +2832,7 @@ Und jetzt probier das einmal selber aus — öffne ChatGPT, aktiviere Canvas und
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/oder%20bei%20Claude%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -2915,7 +2915,7 @@ Das ist der Unterschied zwischen Chat und Cowork: Im Chat bekommst du jedes Mal 
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Ausgabe%20bei%20ChatGPT%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -2955,7 +2955,7 @@ Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir un
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Aufgabe%20eines%20LLM%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -3015,7 +3015,7 @@ In der nächsten Lektion kannst du das Ganze selbst ausprobieren — mit Soekia 
                   <video
                     controls
                     className="w-full bg-black"
-                    preload="metadata"
+                    preload="none"
                     crossOrigin="anonymous"
                   >
                     <source src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/Videos%20Escape%20Game/Soekia%20GPT%20%E2%80%93%20Ausprobieren%20(mit%20Intro%20und%20Outro).mp4" type="video/mp4" />
@@ -3247,7 +3247,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                     <video
                       controls
                       className="w-full bg-black"
-                      preload="metadata"
+                      preload="none"
                       crossOrigin="anonymous"
                       key={tutorial.mitLessonsVideoUrls[mitLesson]}
                     >
@@ -3467,7 +3467,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                     <video
                       controls
                       className="w-full bg-black"
-                      preload="metadata"
+                      preload="none"
                       crossOrigin="anonymous"
                       key={tutorial.ldkLessonsVideoUrls[ldkLesson]}
                     >
@@ -3655,7 +3655,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
               {tutorial.ltkLessonsVideoUrls?.[ltkLesson] ? (
                 <div className="mb-6 overflow-hidden rounded border-2 border-black bg-black">
                   {tutorial.ltkLessonsVideoUrls[ltkLesson].endsWith(".mp4") ? (
-                    <video controls className="w-full bg-black" preload="metadata" crossOrigin="anonymous" key={tutorial.ltkLessonsVideoUrls[ltkLesson]}>
+                    <video controls className="w-full bg-black" preload="none" crossOrigin="anonymous" key={tutorial.ltkLessonsVideoUrls[ltkLesson]}>
                       <source src={tutorial.ltkLessonsVideoUrls[ltkLesson]} type="video/mp4" />
                       <track kind="subtitles" src={vttUrl(tutorial.ltkLessonsVideoUrls[ltkLesson])} srcLang="de" label="Deutsch" />
                       Dein Browser unterstützt keine Videowiedergabe.

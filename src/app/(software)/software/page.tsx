@@ -4,7 +4,6 @@ import FeaturesList from "@/components/Home/FeaturesList";
 import Hero from "@/components/Home/Hero";
 import SchulFeedback from "@/components/Home/SchulFeedback";
 import { Metadata } from "next";
-import CookieBanner from "@/components/CookieBanner";
 import Kontakt from "@/components/Kontakt";
 import JsonLd from "@/components/JsonLd";
 import { FAQSchema } from "./schema";
@@ -55,7 +54,6 @@ export default function Home() {
       <SchulFeedback />
       <Kontakt />
       <CallToAction />
-      {/* <CookieBanner />; */}
 
       {/* Chatbot Widget */}
       {/* <FloatingChatbotWidget
