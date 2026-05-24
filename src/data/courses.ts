@@ -15,31 +15,9 @@ export type Course = {
 };
 
 export const courses: Course[] = [
-  // ─── KI (4 bestehend + 2 neu = 6) ───
-  {
-    slug: "deepdiveki-keynote",
-    title: "DeepDive in die Welt von KI und Bildung",
-    shortDescription:
-      "Vom Werkzeug zum Lernpartner. Wie KI Lernen durch personalisierte Erklärungen, Feedback und Übungen unterstützen kann.",
-    description:
-      "Diese Keynote zeigt, wie künstliche Intelligenz Lernen durch personalisierte Erklärungen, Feedback und Übungen unterstützen kann. Der Fokus liegt auf KI als Lernpartner unter Berücksichtigung von Didaktik, Transparenz und Datenschutz. Ideal als Einstieg für Kollegien, die sich erstmals mit KI in der Bildung auseinandersetzen.",
-    categoryId: "ki",
-    format: "Online",
-    duration: "1 Stunde",
-    targetAudience: "Lehrkräfte und Schulleitung",
-    topics: [
-      "KI als Lernpartner im Unterricht",
-      "Personalisierte Erklärungen und Feedback mit KI",
-      "Didaktische Einbettung von KI-Tools",
-      "Transparenz und Datenschutz",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: true,
-  },
   {
     slug: "crash-kurs-ki",
-    title: "Crash Kurs KI: Unterstützung zum individualisierten Unterricht",
+    title: "Crash Kurs KI: Der kompakte Einstieg in KI für Schule und Unterricht",
     shortDescription:
       "Praktische KI-Werkzeuge und Unterrichtsmethoden kennenlernen und Team-Teaching-Modelle erproben.",
     description:
@@ -47,7 +25,7 @@ export const courses: Course[] = [
     categoryId: "ki",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Überblick KI-basierter Werkzeuge für den Unterricht",
       "Team-Teaching-Modelle mit KI",
@@ -57,7 +35,7 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: true,
-    pdfUrl: "/pdfs/DeepDiveKI - CrashKurs.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI - Crash Kurs.pdf",
   },
   {
     slug: "deep-dive-modul-3",
@@ -69,7 +47,7 @@ export const courses: Course[] = [
     categoryId: "ki",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Schulleitung",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Chancen von KI in der Bildung",
       "Risiken und Herausforderungen",
@@ -79,11 +57,11 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/DeepDiveKI Modul III.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI - Modul III.pdf",
   },
   {
     slug: "deep-dive-modul-7",
-    title: "Deep Dive Modul VII: KI Bots für deinen Unterricht erstellen",
+    title: "KI-Bots für deinen Unterricht erstellen",
     shortDescription:
       "Eigene KI-gestützte Bots entwickeln und Schritt für Schritt für den Unterricht anpassen.",
     description:
@@ -91,7 +69,7 @@ export const courses: Course[] = [
     categoryId: "ki",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte mit Interesse an aktiver KI-Gestaltung",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Grundlagen der Bot-Erstellung",
       "Schritt-für-Schritt-Anleitung für Unterrichtsbots",
@@ -101,28 +79,7 @@ export const courses: Course[] = [
     prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: true,
-    pdfUrl: "/pdfs/DeepDiveKI Modul VII.pdf",
-  },
-  {
-    slug: "ki-grundkompetenzen-eu-ai-act",
-    title: "KI-Grundkompetenzen für Lehrkräfte: EU AI Act verstehen und umsetzen",
-    shortDescription:
-      "Was der EU-AI-Act für Lehrkräfte bedeutet und wie Sie die geforderten KI-Kompetenzen praxisnah aufbauen.",
-    description:
-      "Der EU-AI-Act verpflichtet u.a. Organisationen im Bildungsbereich, dafür zu sorgen, dass Lehrkräfte beim Einsatz von KI-Systemen über ausreichende KI-Kompetenzen verfügen. Diese Fortbildung vermittelt niedrigschwellig, was Lehrkräfte wissen müssen: Wie funktioniert KI? Welche Pflichten ergeben sich aus der Regulierung? Und wie setzen Sie KI-Tools verantwortungsvoll im Schulalltag ein?",
-    categoryId: "ki",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte aller Fächer und Schulformen",
-    topics: [
-      "Grundlagen: Was ist KI und wie funktioniert sie?",
-      "EU AI Act: Pflichten für den Bildungsbereich",
-      "Risikoklassifizierung von KI-Systemen",
-      "Verantwortungsvoller KI-Einsatz im Schulalltag",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: true,
+    pdfUrl: "/pdfs/DeepDiveKI - KI-Bots.pdf",
   },
   {
     slug: "prompt-engineering-fuer-lehrkraefte",
@@ -134,7 +91,7 @@ export const courses: Course[] = [
     categoryId: "ki",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Grundlagen des Prompt Engineerings",
       "Prompts für Materialerstellung und Aufgabendesign",
@@ -157,7 +114,7 @@ export const courses: Course[] = [
     categoryId: "didaktik",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Unterrichtsplanung mit KI-Unterstützung",
       "Erstellung von Unterrichtsmaterialien mit KI",
@@ -167,32 +124,11 @@ export const courses: Course[] = [
     prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: true,
-    pdfUrl: "/pdfs/DeepDiveKI Modul I.pdf",
-  },
-  {
-    slug: "blended-learning-mit-ki",
-    title: "Blended Learning mit KI: Präsenz- und Digitalunterricht verzahnen",
-    shortDescription:
-      "Digitale und analoge Lernphasen didaktisch sinnvoll kombinieren und mit KI-Tools anreichern.",
-    description:
-      "Blended Learning ist seit der Pandemie fester Bestandteil des Schulalltags. Diese Fortbildung zeigt, wie Lehrkräfte Präsenz- und Online-Phasen didaktisch sinnvoll miteinander verzahnen und dabei KI-Tools für individualisierte Lernpfade, automatisiertes Feedback und adaptive Übungen einsetzen können.",
-    categoryId: "didaktik",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
-    topics: [
-      "Grundlagen des Blended Learning",
-      "Didaktische Modelle für hybrides Lernen",
-      "KI-gestützte Lernpfade gestalten",
-      "Praxisbeispiele aus dem Schulalltag",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Modul I.pdf",
   },
   {
     slug: "differenzierung-im-unterricht",
-    title: "Differenzierung im Unterricht: Mit KI alle Lernenden erreichen",
+    title: "Differenzierung und Individualisierung: Mit KI alle Lernenden erreichen",
     shortDescription:
       "Heterogene Lerngruppen mit KI-gestützten Methoden individuell fördern und fordern.",
     description:
@@ -200,7 +136,7 @@ export const courses: Course[] = [
     categoryId: "didaktik",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Differenzierungsstrategien für heterogene Klassen",
       "KI-gestützte Aufgabenvarianten erstellen",
@@ -223,7 +159,7 @@ export const courses: Course[] = [
     categoryId: "leistung",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Plagiate erkennen in Zeiten von KI",
       "Hausaufgaben und KI: Herausforderungen und Lösungen",
@@ -233,7 +169,7 @@ export const courses: Course[] = [
     prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: true,
-    pdfUrl: "/pdfs/DeepDiveKI Modul II.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI - Modul II.pdf",
   },
   {
     slug: "neue-pruefungsformate-ki",
@@ -245,7 +181,7 @@ export const courses: Course[] = [
     categoryId: "leistung",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Warum klassische Prüfungen überarbeitet werden müssen",
       "Kompetenzorientierte Aufgabenformate",
@@ -266,7 +202,7 @@ export const courses: Course[] = [
     categoryId: "leistung",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Prinzipien wirksamen Feedbacks",
       "KI-Tools für automatisierte Rückmeldungen",
@@ -281,7 +217,7 @@ export const courses: Course[] = [
   // ─── Inklusion (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-4",
-    title: "Deep Dive Modul IV: Inklusion und KI",
+    title: "Inklusion und KI",
     shortDescription:
       "KI im Kontext von Inklusion nutzen: differenzierte Lernangebote erstellen und barrierefreieren Unterricht gestalten.",
     description:
@@ -289,7 +225,7 @@ export const courses: Course[] = [
     categoryId: "inklusion",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte im inklusiven Unterricht",
+    targetAudience: "Lehrkräfte aller Fächer und Schulformen",
     topics: [
       "KI-gestützte Differenzierung im inklusiven Unterricht",
       "Barrierefreie Unterrichtsgestaltung mit KI",
@@ -299,7 +235,7 @@ export const courses: Course[] = [
     prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/DeepDiveKI Modul IV.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI - Inklusion.pdf",
   },
   {
     slug: "sprachfoerderung-daz-mit-ki",
@@ -311,7 +247,7 @@ export const courses: Course[] = [
     categoryId: "inklusion",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte aller Fächer, DaZ-Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal, insb. DaZ-Lehrkräfte",
     topics: [
       "Sprachsensiblen Unterricht mit KI unterstützen",
       "Texte automatisch an Sprachniveaus anpassen",
@@ -322,32 +258,11 @@ export const courses: Course[] = [
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
   },
-  {
-    slug: "individuelle-lernwege-ki",
-    title: "Individuelle Lernwege mit KI: Fördern und Fordern in heterogenen Klassen",
-    shortDescription:
-      "Adaptive Lernmaterialien und individuelle Förderpläne mit KI für Schüler:innen mit unterschiedlichem Unterstützungsbedarf.",
-    description:
-      "In inklusiven Klassen treffen sehr unterschiedliche Lernvoraussetzungen aufeinander. Diese Fortbildung vermittelt, wie Lehrkräfte mit KI individuelle Lernwege gestalten. Von der Diagnostik über die Materialerstellung bis zur Dokumentation von Lernfortschritten.",
-    categoryId: "inklusion",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, Sonderpädagog:innen",
-    topics: [
-      "Lernausgangslagen mit digitalen Tools erfassen",
-      "Adaptive Materialien mit KI generieren",
-      "Förderpläne KI-gestützt erstellen und anpassen",
-      "Lernfortschritte dokumentieren und visualisieren",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-
+  
   // ─── Medienkompetenz (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-8",
-    title: "Deep Dive Modul VIII: Datenschutz und Sicherheit im Internet",
+    title: "Datenschutz und Sicherheit im Internet",
     shortDescription:
       "Online-Sicherheit, Fake News, Internetidentität und ethischer Umgang mit digitalen Technologien.",
     description:
@@ -355,7 +270,7 @@ export const courses: Course[] = [
     categoryId: "medienkompetenz",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Online-Sicherheit und Datenschutz",
       "Fake News erkennen und einordnen",
@@ -365,55 +280,13 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/DeepDiveKI Modul VIII.pdf",
-  },
-  {
-    slug: "deepfakes-desinformation-unterricht",
-    title: "Deepfakes & Desinformation: Medienkritik im Zeitalter von KI unterrichten",
-    shortDescription:
-      "Schüler:innen befähigen, KI-generierte Inhalte zu erkennen, einzuordnen und kritisch zu bewerten.",
-    description:
-      "KI-generierte Bilder, Videos und Texte sind allgegenwärtig. Diese Fortbildung vermittelt Lehrkräften Methoden, um Medienkritik im KI-Zeitalter zu unterrichten. Von der Erkennung von Deepfakes über Fact-Checking-Strategien bis zu Unterrichtseinheiten, die kritisches Denken fördern.",
-    categoryId: "medienkompetenz",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
-    topics: [
-      "Deepfakes erkennen und einordnen",
-      "KI-generierte Texte identifizieren",
-      "Fact-Checking-Methoden für den Unterricht",
-      "Unterrichtseinheiten zur Medienkritik gestalten",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-  {
-    slug: "dsgvo-konformer-ki-einsatz",
-    title: "DSGVO-konformer KI-Einsatz in der Schule: Datenschutz praktisch umsetzen",
-    shortDescription:
-      "Datenschutzkonform mit KI-Tools arbeiten: DSGVO-Grundlagen, telli, DeepChat und Einwilligungsmanagement.",
-    description:
-      "Datenschutz ist die größte Hürde beim KI-Einsatz in Schulen. Diese Fortbildung vermittelt praxisnah, welche KI-Tools DSGVO-konform nutzbar sind, wie personenbezogene Daten geschützt werden und wie Lehrkräfte den datenschutzkonformen Einsatz von telli und DeepChat im Unterricht umsetzen.",
-    categoryId: "medienkompetenz",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, Datenschutzbeauftragte",
-    topics: [
-      "DSGVO-Grundlagen für den KI-Einsatz",
-      "Datenschutzkonforme Tools: telli, DeepChat & Co.",
-      "Umgang mit personenbezogenen Daten und KI",
-      "Einwilligungsmanagement und Dokumentation",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Datenschutz.pdf",
   },
 
   // ─── Schulentwicklung (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-5",
-    title: "Deep Dive Modul V: KI in deiner Schule: Chancen für Schulleitung und Führungskräfte",
+    title: "KI in Ihrer Schule: Chancen für Schulleitung und Führungskräfte",
     shortDescription:
       "Effektive KI-Einsätze zur Optimierung administrativer und pädagogischer Schulprozesse.",
     description:
@@ -431,65 +304,23 @@ export const courses: Course[] = [
     prerequisites: "Führungserfahrung im schulischen Kontext",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/DeepDiveKI Modul V.pdf",
-  },
-  {
-    slug: "medienbildungskonzept-mit-ki",
-    title: "Medienbildungskonzept mit KI: Schulentwicklung strategisch gestalten",
-    shortDescription:
-      "Ein zukunftsfähiges Medienbildungskonzept entwickeln, das KI-Kompetenzen systematisch verankert.",
-    description:
-      "Schulen müssen Medienbildungskonzepte entwickeln, eine Voraussetzung für DigitalPakt-Förderung. Diese Fortbildung unterstützt Schulleitungen dabei, KI-Kompetenzen im Rahmen der Ziellinie 2030 systematisch im schulischen Medienbildungskonzept zu verankern.",
-    categoryId: "schulentwicklung",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Schulleitung, Medienbeauftragte",
-    topics: [
-      "Orientierungsrahmen Medienbildung und Ziellinie 2030",
-      "KI-Kompetenzraster in der Schulentwicklung",
-      "Medienbildungskonzept Schritt für Schritt erstellen",
-      "DigitalPakt-Förderung und Dokumentation",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-  {
-    slug: "change-management-ki-schule",
-    title: "Change Management: KI erfolgreich im Kollegium einführen",
-    shortDescription:
-      "Widerstände abbauen, Multiplikatoren gewinnen und KI-Nutzung nachhaltig im Kollegium verankern.",
-    description:
-      "Die Einführung von KI in der Schule ist ein Veränderungsprozess. Diese Fortbildung richtet sich an Schulleitungen und zeigt erprobte Strategien für Change Management: Wie gewinne ich das Kollegium? Wie baue ich Widerstände ab? Wie schaffe ich nachhaltige Strukturen für KI-Nutzung?",
-    categoryId: "schulentwicklung",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Schulleitung und Führungskräfte",
-    topics: [
-      "Change Management im schulischen Kontext",
-      "Multiplikator:innen-Konzepte aufbauen",
-      "Widerstände verstehen und konstruktiv begegnen",
-      "Nachhaltige KI-Strukturen verankern",
-    ],
-    prerequisites: "Führungserfahrung im schulischen Kontext",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Schulleitung.pdf",
   },
 
   // ─── Digitale Tools (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-6",
-    title: "Deep Dive Modul VI: DDKI DeepChat: Einführung und Anwendungsbeispiele",
+    title: "DDKI DeepChat: Einführung und Anwendungsbeispiele",
     shortDescription:
       "Praxisorientierte Einführung in den DDKI DeepChat mit konkreten Anwendungsbeispielen für den Unterricht.",
     description:
-      "Dieses Modul bietet eine praxisorientierte Einführung in die DDKI Toolbox mit konkreten Anwendungsbeispielen für den Unterricht. Ziel ist eine effizientere und individualisierte Unterrichtsgestaltung durch den gezielten Einsatz digitaler Werkzeuge.",
+      "Dieses Modul bietet eine praxisorientierte Einführung in den DeepChat mit konkreten Anwendungsbeispielen für den Unterricht. Ziel ist eine effizientere und individualisierte Unterrichtsgestaltung durch den gezielten Einsatz digitaler Werkzeuge.",
     categoryId: "digitale-tools",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
-      "Einführung in die DDKI Toolbox",
+      "Einführung in den DeepChat",
       "Konkrete Anwendungsbeispiele im Unterricht",
       "Effizientere Unterrichtsgestaltung",
       "Individualisierung mit digitalen Werkzeugen",
@@ -497,7 +328,7 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-    pdfUrl: "/pdfs/DeepDiveKI Modul VI.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI - DeepChat.pdf",
   },
   {
     slug: "KI-Chatbots-im-unterricht",
@@ -509,7 +340,7 @@ export const courses: Course[] = [
     categoryId: "digitale-tools",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "KI-Tools wie telli einrichten und konfigurieren",
       "Text- und Bildgenerierung im Unterricht",
@@ -530,7 +361,7 @@ export const courses: Course[] = [
     categoryId: "digitale-tools",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte aller Fächer",
+    targetAudience: "Lehrkräfte einzelner Fächer und Schulformen",
     topics: [
       "Toolauswahl: Kriterien für gute digitale Werkzeuge",
       "Fachspezifische Tools im Überblick",
@@ -553,7 +384,7 @@ export const courses: Course[] = [
     categoryId: "gesundheit",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Zeitfresser im Lehreralltag identifizieren",
       "KI-gestützte Korrekturentlastung",
@@ -574,7 +405,7 @@ export const courses: Course[] = [
     categoryId: "gesundheit",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Schulleitung",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Stressoren im Schulalltag erkennen",
       "Resilienzfaktoren stärken",
@@ -585,28 +416,7 @@ export const courses: Course[] = [
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
   },
-  {
-    slug: "stark-starten-berufseinstieg",
-    title: "Stark Starten: Erfolgreich in den Lehrerberuf mit digitalen Kompetenzen",
-    shortDescription:
-      "Berufseinsteiger:innen beim Aufbau digitaler und KI-gestützter Routinen für den Unterrichtsalltag begleiten.",
-    description:
-      "Der Berufseinstieg ist eine kritische Phase. Diese Fortbildung unterstützt Berufseinsteiger:innen dabei, von Anfang an effiziente digitale Routinen aufzubauen. Von der Unterrichtsplanung mit KI über Klassenmanagement-Tools bis zur professionellen Selbstorganisation.",
-    categoryId: "gesundheit",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Berufseinsteigende Lehrkräfte, Referendar:innen",
-    topics: [
-      "Digitale Routinen von Anfang an aufbauen",
-      "KI-Tools für effiziente Unterrichtsplanung",
-      "Klassenmanagement mit digitalen Werkzeugen",
-      "Professionelle Selbstorganisation und Work-Life-Balance",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-
+  
   // ─── Team- und Beziehungsarbeit (3 neu) ───
   {
     slug: "multiprofessionelle-teams",
@@ -618,7 +428,7 @@ export const courses: Course[] = [
     categoryId: "team",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, Erzieher:innen, Sozialpädagog:innen",
+    targetAudience: "Lehrkräfte und Bildungspersonal, insb. Erzieher:innen, Sozialpädagog:innen",
     topics: [
       "Multiprofessionelle Zusammenarbeit im Ganztag",
       "Digitale Kommunikationstools für Teams",
@@ -639,7 +449,7 @@ export const courses: Course[] = [
     categoryId: "team",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, Fachschaftsleitungen",
+    targetAudience: "Lehrkräfte und Bildungspersonal, insb. Fachschaftsleitungen",
     topics: [
       "Kollaborative Materialentwicklung mit KI",
       "Sharing-Strukturen im Kollegium aufbauen",
@@ -660,77 +470,12 @@ export const courses: Course[] = [
     categoryId: "team",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, Klassenleitungen",
+    targetAudience: "Lehrkräfte und Bildungspersonal, insb. Klassenleitungen",
     topics: [
       "Professionelle Elternbriefe mit KI-Unterstützung",
       "Gesprächsprotokolle effizient erstellen",
       "Mehrsprachige Kommunikation mit Übersetzungs-KI",
       "Digitale Plattformen für die Elternarbeit",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-
-  // ─── Schülerinnenwelten & Gesellschaft (3 neu) ───
-  {
-    slug: "demokratiebildung-ki",
-    title: "Demokratiebildung und KI: Mündige Bürger:innen im digitalen Zeitalter",
-    shortDescription:
-      "Demokratische Kompetenzen im Kontext von KI und Digitalisierung fördern und kritisches Denken stärken.",
-    description:
-      "KI verändert unsere Demokratie. Von Filterblasen über Deepfakes bis zu algorithmischer Meinungsbildung. Diese Fortbildung verbindet Demokratiebildung mit Medien- und KI-Kompetenz und zeigt, wie Lehrkräfte Schüler:innen zu mündigen digitalen Bürger:innen erziehen.",
-    categoryId: "schuelerwelten",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, insb. Politik, Gesellschaft, Ethik",
-    topics: [
-      "Algorithmische Meinungsbildung verstehen",
-      "Filterblasen und Echokammern im Unterricht thematisieren",
-      "Demokratische Partizipation im digitalen Raum",
-      "Unterrichtseinheiten zur digitalen Demokratiebildung",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-  {
-    slug: "ki-ethik-im-unterricht",
-    title: "KI-Ethik im Unterricht: Philosophische und gesellschaftliche Perspektiven",
-    shortDescription:
-      "Ethische Fragen rund um KI im Unterricht thematisieren und Schüler:innen zum kritischen Nachdenken anregen.",
-    description:
-      "Darf eine KI über Schulnoten entscheiden? Wer ist verantwortlich, wenn ein Algorithmus diskriminiert? Diese Fortbildung liefert Lehrkräften Unterrichtsmaterial und Methoden, um ethische Fragen rund um KI altersgerecht mit Schüler:innen zu diskutieren.",
-    categoryId: "schuelerwelten",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, insb. Ethik, Religion, Philosophie",
-    topics: [
-      "Ethische Grundfragen zu KI",
-      "Bias und Diskriminierung in Algorithmen",
-      "Verantwortung und Transparenz bei KI-Entscheidungen",
-      "Unterrichtsmethoden für ethische Diskussionen",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-  {
-    slug: "klimabildung-data-literacy",
-    title: "Klimabildung und Data Literacy: Mit Daten und KI Umweltthemen verstehen",
-    shortDescription:
-      "Klimadaten analysieren, visualisieren und im Unterricht nutzen, unterstützt durch KI und digitale Tools.",
-    description:
-      "Klimabildung braucht Datenkompetenz. Diese Fortbildung zeigt, wie Lehrkräfte Klimadaten mit KI-Tools analysieren, visualisieren und im Unterricht einsetzen können. Fächerübergreifend von Geographie über Naturwissenschaften bis Politik.",
-    categoryId: "schuelerwelten",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, insb. MINT, Geographie, Politik",
-    topics: [
-      "Klimadaten finden und aufbereiten",
-      "Datenvisualisierung mit digitalen Tools",
-      "KI-gestützte Analyse von Umweltdaten",
-      "Fächerübergreifende Unterrichtsprojekte",
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
@@ -748,7 +493,7 @@ export const courses: Course[] = [
     categoryId: "startchancen",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, insb. Grundschule und Sek I",
+    targetAudience: "Lehrkräfte und Bildungspersonal, insb. Grundschule und Sek I",
     topics: [
       "Lesekompetenz mit digitalen Tools diagnostizieren",
       "Lesetexte KI-gestützt an Niveaustufen anpassen",
@@ -769,33 +514,12 @@ export const courses: Course[] = [
     categoryId: "startchancen",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, insb. Mathematik",
+    targetAudience: "Mathematiklehrkräfte und Bildungspersonal",
     topics: [
       "Lernstandsdiagnose in Mathematik",
       "Adaptive Übungsaufgaben mit KI erstellen",
       "Visualisierungen und Erklärungen generieren",
       "Förderpläne für mathematische Basiskompetenzen",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-  {
-    slug: "chancengerechtigkeit-digitale-bildung",
-    title: "Chancengerechtigkeit durch digitale Bildung: Benachteiligung abbauen mit KI",
-    shortDescription:
-      "Wie digitale Tools und KI gezielt Bildungsbenachteiligung reduzieren und individuelle Potenziale fördern können.",
-    description:
-      "Das Startchancen-Programm erreicht rund 400 Schulen mit 122.000 Schüler:innen. Diese Fortbildung zeigt, wie digitale Bildung und KI gezielt eingesetzt werden können, um Bildungsbenachteiligung abzubauen. Von sprachlicher Förderung bis zur individuellen Lernbegleitung.",
-    categoryId: "startchancen",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte an Startchancen-Schulen",
-    topics: [
-      "Bildungsbenachteiligung erkennen und verstehen",
-      "Digitale Tools für individuelle Förderung",
-      "KI-gestützte Lernbegleitung",
-      "Best Practices aus dem Startchancen-Programm",
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
@@ -813,7 +537,7 @@ export const courses: Course[] = [
     categoryId: "programmieren",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte, insb. Informatik und MINT",
+    targetAudience: "Informatiklehrkräfte und Bildungspersonal",
     topics: [
       "Programmiergrundlagen mit KI vermitteln",
       "KI als Coding-Assistent im Unterricht",
@@ -821,48 +545,6 @@ export const courses: Course[] = [
       "Automatische Fehleranalyse und Feedback",
     ],
     prerequisites: "Keine Programmierkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-  {
-    slug: "data-literacy-schule",
-    title: "Data Literacy in der Schule: Datenkompetenz fächerübergreifend aufbauen",
-    shortDescription:
-      "Schüler:innen den kompetenten Umgang mit Daten vermitteln, von der Erhebung über die Analyse bis zur Visualisierung.",
-    description:
-      "Datenkompetenz ist eine Schlüsselqualifikation des 21. Jahrhunderts. Diese Fortbildung vermittelt Lehrkräften, wie sie Data Literacy fächerübergreifend in den Unterricht integrieren. Von der Datenerhebung über die Analyse mit KI-Tools bis zur kritischen Interpretation.",
-    categoryId: "programmieren",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte aller Fächer",
-    topics: [
-      "Was ist Data Literacy und warum ist sie wichtig?",
-      "Daten erheben, analysieren und visualisieren",
-      "KI-Tools für die Datenanalyse",
-      "Fächerübergreifende Unterrichtsbeispiele",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-  {
-    slug: "algorithmisches-denken",
-    title: "Algorithmisches Denken: Problemlösen mit und ohne Computer",
-    shortDescription:
-      "Computational Thinking als Grundkompetenz vermitteln und algorithmische Denkweisen im Unterricht fördern.",
-    description:
-      "Algorithmisches Denken ist mehr als Programmieren, es ist eine Problemlösekompetenz. Diese Fortbildung zeigt, wie Lehrkräfte Computational Thinking in verschiedenen Fächern fördern können, von unplugged-Aktivitäten bis zu KI-gestützten Programmierumgebungen.",
-    categoryId: "programmieren",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte aller Fächer",
-    topics: [
-      "Computational Thinking als Grundkompetenz",
-      "Unplugged-Aktivitäten für algorithmisches Denken",
-      "Algorithmische Problemlösung in verschiedenen Fächern",
-      "KI-gestützte Programmierumgebungen nutzen",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
   },
