@@ -146,6 +146,7 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Differenzierung.pdf",
   },
 
   // ─── Leistung (1 bestehend + 2 neu = 3) ───
@@ -191,6 +192,7 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Prüfungsformate.pdf",
   },
   {
     slug: "ki-gestuetztes-feedback",
@@ -236,27 +238,6 @@ export const courses: Course[] = [
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - Inklusion.pdf",
-  },
-  {
-    slug: "sprachfoerderung-daz-mit-ki",
-    title: "Sprachförderung und DaZ mit KI: Sprachsensiblen Unterricht digital gestalten",
-    shortDescription:
-      "KI-Tools für differenzierte Sprachförderung und Deutsch als Zweitsprache im Fachunterricht nutzen.",
-    description:
-      "Sprachbildung ist Aufgabe aller Lehrkräfte in allen Fächern. Diese Fortbildung zeigt, wie KI-Tools die Sprachförderung unterstützen: von automatischer Textanpassung an verschiedene Sprachniveaus über die Erstellung von DaZ-Materialien bis hin zu individuellen Wortschatz-Übungen.",
-    categoryId: "inklusion",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Bildungspersonal, insb. DaZ-Lehrkräfte",
-    topics: [
-      "Sprachsensiblen Unterricht mit KI unterstützen",
-      "Texte automatisch an Sprachniveaus anpassen",
-      "DaZ-Materialien mit KI erstellen",
-      "Individualisierte Wortschatz- und Grammatikübungen",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
   },
   
   // ─── Medienkompetenz (1 bestehend + 2 neu = 3) ───
@@ -387,122 +368,62 @@ export const courses: Course[] = [
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
       "Zeitfresser im Lehreralltag identifizieren",
-      "KI-gestützte Korrekturentlastung",
+      "Resilienz und Stressmanagement",
       "Automatisierte Kommunikation und Verwaltung",
       "Selbstmanagement und digitale Routinen",
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-  },
-  {
-    slug: "resilienz-und-stressmanagement",
-    title: "Resilienz und Stressmanagement für Lehrkräfte",
-    shortDescription:
-      "Strategien für psychische Gesundheit im Schulalltag entwickeln und Belastungen präventiv begegnen.",
-    description:
-      "Der Lehrerberuf gehört zu den belastendsten Berufen. Diese Fortbildung vermittelt wissenschaftlich fundierte Strategien zur Stressbewältigung und Resilienzförderung. Von Achtsamkeitstechniken über kollegiale Fallberatung bis hin zu digitalen Unterstützungsangeboten.",
-    categoryId: "gesundheit",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Bildungspersonal",
-    topics: [
-      "Stressoren im Schulalltag erkennen",
-      "Resilienzfaktoren stärken",
-      "Achtsamkeit und Selbstfürsorge im Berufsalltag",
-      "Kollegiale Unterstützungsstrukturen aufbauen",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Lehrergesundheit.pdf",
   },
   
   // ─── Team- und Beziehungsarbeit (3 neu) ───
   {
-    slug: "multiprofessionelle-teams",
-    title: "Multiprofessionelle Teams im Ganztag: Zusammenarbeit digital gestalten",
+    slug: "eltern-kollegium-multiprofessionelle-teams-ki",
+    title: "Eltern, Kollegium und Multiprofessionelle Teams: Transparente Zusammenarbeit mit KI-Unterstützung",
     shortDescription:
-      "Lehrkräfte, Erzieher:innen und Sozialpädagog:innen vernetzen und die Zusammenarbeit mit digitalen Tools stärken.",
+      "KI und digitale Tools nutzen, um Absprachen, Übergaben, Elternkommunikation und gemeinsame Planung transparenter und effizienter zu gestalten.",
     description:
-      "Der Rechtsanspruch auf Ganztagsbetreuung ab 2026 erfordert neue Formen der Zusammenarbeit. Diese Fortbildung zeigt, wie multiprofessionelle Teams digitale Tools für Kommunikation, Dokumentation und gemeinsame Planung nutzen können.",
+      "Diese Fortbildung zeigt Lehrkräften, wie Künstliche Intelligenz dabei hilft, Belastungen zu reduzieren und Zeit für das Wesentliche zurückzugewinnen. Im Mittelpunkt stehen das Automatisieren wiederkehrender Routineaufgaben, etwa bei Vorbereitung, Korrektur, Elternkommunikation und Organisation, sowie ein bewusster, gesundheitsförderlicher Umgang mit digitalen Werkzeugen. Die Teilnehmenden erproben praxisnah, wie sie mit KI typische Zeitfresser verkleinern, Absprachen und Informationsflüsse im multiprofessionellen Team strukturieren und gemeinsame Materialien effizient teilen und weiterentwickeln können. Besonderer Wert liegt auf dem direkten Praxistransfer, der Erprobung datenschutzkonformer Tools und der unmittelbaren Anwendbarkeit im Schulalltag.",
     categoryId: "team",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Bildungspersonal, insb. Erzieher:innen, Sozialpädagog:innen",
+    targetAudience: "Lehrkräfte und Bildungspersonal aller Schulformen",
     topics: [
-      "Multiprofessionelle Zusammenarbeit im Ganztag",
-      "Digitale Kommunikationstools für Teams",
-      "Gemeinsame Dokumentation und Planung",
-      "Rollen und Verantwortlichkeiten klären",
+      "Die Teilnehmer*innen erhalten einen kompakten Überblick über die Funktionsweise von KI und digitalen Tools für die Zusammenarbeit im multiprofessionellen Team.",
+      "Die Teilnehmer*innen erproben im Seminar konkrete Werkzeuge, um Absprachen, Übergaben und Informationsflüsse zu organisieren.",
+      "Die Teilnehmer*innen entwickeln eigene digitale Abläufe, erste gemeinsame Materialien und Vorlagen für die gemeinsame Planung.",
+      "Die Teilnehmer*innen lernen, wie sie mit KI Material effizient teilen und weiterentwickeln und sich so gegenseitig entlasten.",
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
-  },
-  {
-    slug: "kollegiale-zusammenarbeit-ki",
-    title: "Kollegiale Zusammenarbeit mit KI: Gemeinsam Material entwickeln und teilen",
-    shortDescription:
-      "KI als Werkzeug für kollaborative Materialentwicklung nutzen und Sharing-Strukturen im Kollegium aufbauen.",
-    description:
-      "Guter Unterricht entsteht oft im Team. Diese Fortbildung zeigt, wie Fachschaften und Kollegien KI-Tools nutzen können, um gemeinsam Materialien zu entwickeln, Best Practices zu teilen und eine schulweite Wissensbasis aufzubauen.",
-    categoryId: "team",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Bildungspersonal, insb. Fachschaftsleitungen",
-    topics: [
-      "Kollaborative Materialentwicklung mit KI",
-      "Sharing-Strukturen im Kollegium aufbauen",
-      "Fachschaftsarbeit digital organisieren",
-      "Gemeinsame Prompt-Bibliotheken erstellen",
-    ],
-    prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
-  },
-  {
-    slug: "elternkommunikation-digital",
-    title: "Elternkommunikation digital: Transparente Zusammenarbeit mit KI-Unterstützung",
-    shortDescription:
-      "Professionelle Elternkommunikation mit digitalen Tools und KI-gestützten Textvorlagen effizient gestalten.",
-    description:
-      "Elternkommunikation ist zeitaufwändig und anspruchsvoll. Diese Fortbildung zeigt, wie Lehrkräfte mit digitalen Tools und KI-Unterstützung Elternbriefe, Gesprächsprotokolle und Informationsschreiben professionell und zeitsparend erstellen können.",
-    categoryId: "team",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Bildungspersonal, insb. Klassenleitungen",
-    topics: [
-      "Professionelle Elternbriefe mit KI-Unterstützung",
-      "Gesprächsprotokolle effizient erstellen",
-      "Mehrsprachige Kommunikation mit Übersetzungs-KI",
-      "Digitale Plattformen für die Elternarbeit",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn Isenbiel und Tim Philipp",
-    featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Multiprofessionelle Teams.pdf",
   },
 
   // ─── Startchancen (3 neu) ───
   {
-    slug: "lesefoerderung-ki",
-    title: "Leseförderung mit KI: Lesekompetenz gezielt stärken",
+    slug: "lese-und-sprachfoerderung-mit-ki",
+    title: "Lese- und Sprachförderung mit KI: Sprachsensibel unterrichten und Schüler*innen individuell begleiten",
     shortDescription:
-      "KI-gestützte Methoden zur Diagnose und Förderung der Lesekompetenz auf verschiedenen Niveaustufen.",
+      "KI-Tools zur gezielten Förderung von Lesekompetenz, Sprachbildung und individueller Unterstützung im Unterricht nutzen.",
     description:
-      "Im Rahmen des Startchancen-Programms ist Leseförderung eine zentrale Säule. Diese Fortbildung zeigt, wie Lehrkräfte KI-Tools nutzen können, um Lesekompetenz zu diagnostizieren, individualisierte Lesetexte zu generieren und Lesemotivation gezielt zu fördern.",
+      "Diese Fortbildung vermittelt Lehrkräften, wie Künstliche Intelligenz gezielt zur Förderung von Lesekompetenz und Sprachbildung eingesetzt werden kann. Im Mittelpunkt stehen die Erstellung sprachsensibler, differenzierter und mehrsprachiger Materialien sowie die Anpassung von Texten an unterschiedliche Sprachniveaus und Lesefähigkeiten. Die Teilnehmenden erproben praxisnah, wie sie mit KI Lesetexte vereinfachen oder anreichern, Wortschatzübungen, Verständnisfragen, Lesebegleitungen und Sprachhilfen erstellen sowie individuelle Lernwege für Schüler*innen ermöglichen können. Besonderer Wert liegt auf dem direkten Praxistransfer, der datenschutzkonformen Nutzung geeigneter Tools und der fächerübergreifenden Anwendbarkeit im Schulalltag.",
     categoryId: "startchancen",
     format: "Online",
     duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Bildungspersonal, insb. Grundschule und Sek I",
+    targetAudience: "Lehrkräfte und Bildungspersonal aller Schulformen",
     topics: [
-      "Lesekompetenz mit digitalen Tools diagnostizieren",
-      "Lesetexte KI-gestützt an Niveaustufen anpassen",
-      "Lesemotivation mit personalisierten Inhalten fördern",
-      "Integration in den Fachunterricht",
+      "Die Teilnehmer*innen erhalten einen kompakten Überblick über die Funktionsweise von KI und ihre Einsatzmöglichkeiten in der Lese- und Sprachförderung.",
+      "Die Teilnehmer*innen erproben konkrete KI-Tools, um Texte sprachsensibel, niveaudifferenziert und mehrsprachig anzupassen.",
+      "Die Teilnehmer*innen entwickeln eigene Lese- und Sprachfördermaterialien für den direkten Einsatz im Unterricht.",
+      "Die Teilnehmer*innen reflektieren, wie KI individuelle Förderung ermöglicht und gleichzeitig bei der Materialerstellung entlasten kann.",
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Sprachförderung.pdf",
   },
   {
     slug: "mathematische-basiskompetenzen-ki",
@@ -524,6 +445,7 @@ export const courses: Course[] = [
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Mathematik.pdf",
   },
 
   // ─── Programmieren & Informatik (3 neu) ───
