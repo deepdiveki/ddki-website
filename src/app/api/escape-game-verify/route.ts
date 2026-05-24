@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getStripe, isWithinDays } from "@/lib/stripe";
+import { matchTrialCode, notifyTrialRedemption } from "@/lib/escapeGameTrial";
 
 /** Fixed codes for dimension unlocking (earned in-game). */
 const DIMENSION_CODES: Record<string, string> = {
@@ -8,9 +9,6 @@ const DIMENSION_CODES: Record<string, string> = {
   mit: "736185",
   // trotz: "249357",
 };
-
-/** Fixed admin access code (for internal testing / live events). */
-const ADMIN_ACCESS_CODE = process.env.ESCAPE_GAME_ADMIN_CODE || "2309";
 
 const LICENSE_VALIDITY_DAYS = 14;
 
@@ -62,12 +60,15 @@ export async function POST(request: Request) {
 
     // --- Access code validation ---
 
-    // 1) Check admin code first (fast, no API call)
-    if (trimmedCode === ADMIN_ACCESS_CODE.toUpperCase()) {
+    // 1) Check trial prefix codes (notify by email with 1h cooldown)
+    if (matchTrialCode(trimmedCode)) {
+      notifyTrialRedemption(trimmedCode, request).catch((err) =>
+        console.error("Trial notify failed:", err),
+      );
       return NextResponse.json({ valid: true });
     }
 
-    // 2) Check Stripe-issued codes (7-day TTL)
+    // 2) Check Stripe-issued codes (14-day TTL)
     const stripeValid = await verifyStripeCode(trimmedCode);
     return NextResponse.json({ valid: stripeValid });
   } catch {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
-import { useCookieConsent } from "@/hooks/use-cookie-consent";
+import YouTubeEmbed from "@/components/YouTubeEmbed";
 
 const JumpRunChallenge = dynamic(
   () => import("../../EscapeGameContent").then((mod) => mod.JumpRunChallenge),
@@ -2248,9 +2248,6 @@ body{font-family:Inter,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
     });
   }, []);
 
-  // Cookie consent for YouTube embeds (TDDDG)
-  const hasFunctionalConsent = useCookieConsent();
-
   // Lesson player state (Kernwissen 3 / Über uns)
   const [currentLesson, setCurrentLesson] = useState(0);
   const [completedLessons, setCompletedLessons] = useState<Set<number>>(new Set());
@@ -3255,18 +3252,11 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                       <track kind="subtitles" src={vttUrl(tutorial.mitLessonsVideoUrls[mitLesson])} srcLang="de" label="Deutsch" />
                       Dein Browser unterstützt keine Videowiedergabe.
                     </video>
-                  ) : hasFunctionalConsent ? (
-                    <iframe
+                  ) : (
+                    <YouTubeEmbed
                       src={tutorial.mitLessonsVideoUrls[mitLesson]}
-                      className="aspect-video w-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
                       title={tutorial.mitLessons[mitLesson]?.title}
                     />
-                  ) : (
-                    <div className="flex aspect-video items-center justify-center bg-slate-900 text-center text-sm text-slate-400 p-4">
-                      Video wird nach Cookie-Zustimmung geladen.
-                    </div>
                   )}
                 </div>
               ) : (
@@ -3475,18 +3465,11 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                       <track kind="subtitles" src={vttUrl(tutorial.ldkLessonsVideoUrls[ldkLesson])} srcLang="de" label="Deutsch" />
                       Dein Browser unterstützt keine Videowiedergabe.
                     </video>
-                  ) : hasFunctionalConsent ? (
-                    <iframe
+                  ) : (
+                    <YouTubeEmbed
                       src={tutorial.ldkLessonsVideoUrls[ldkLesson]}
-                      className="aspect-video w-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
                       title={tutorial.ldkLessons[ldkLesson]?.title}
                     />
-                  ) : (
-                    <div className="flex aspect-video items-center justify-center bg-slate-900 text-center text-sm text-slate-400 p-4">
-                      Video wird nach Cookie-Zustimmung geladen.
-                    </div>
                   )}
                 </div>
               ) : (
@@ -3660,10 +3643,8 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                       <track kind="subtitles" src={vttUrl(tutorial.ltkLessonsVideoUrls[ltkLesson])} srcLang="de" label="Deutsch" />
                       Dein Browser unterstützt keine Videowiedergabe.
                     </video>
-                  ) : hasFunctionalConsent ? (
-                    <iframe src={tutorial.ltkLessonsVideoUrls[ltkLesson]} className="aspect-video w-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={tutorial.ltkLessons[ltkLesson]?.title} />
                   ) : (
-                    <div className="flex aspect-video items-center justify-center bg-slate-900 text-center text-sm text-slate-400 p-4">Video wird nach Cookie-Zustimmung geladen.</div>
+                    <YouTubeEmbed src={tutorial.ltkLessonsVideoUrls[ltkLesson]} title={tutorial.ltkLessons[ltkLesson]?.title} />
                   )}
                 </div>
               ) : (
@@ -3973,16 +3954,11 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                     <p className={`${displayFont.className} mt-2 text-base ${accent.text}`}>{intro.subheading}</p>
                     <div className="mt-6 overflow-hidden rounded border-2 border-black bg-black">
                       {intro.videoUrl ? (
-                        hasFunctionalConsent ? (
-                          <iframe title="Intro Video" src={intro.videoUrl} className="h-64 w-full md:h-80" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                        ) : (
-                          <div className="flex h-64 w-full flex-col items-center justify-center gap-3 bg-slate-900 px-4 md:h-80">
-                            <IconPlayerPlay className="h-12 w-12 text-slate-400" />
-                            <p className="text-center text-sm font-bold uppercase tracking-widest text-slate-400">
-                              Video laden: Bitte aktiviere funktionale Cookies über die Privatsphäre-Einstellungen im Footer.
-                            </p>
-                          </div>
-                        )
+                        <YouTubeEmbed
+                          title="Intro Video"
+                          src={intro.videoUrl}
+                          className="h-64 w-full md:h-80"
+                        />
                       ) : (
                         <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
                           <div className="flex flex-col items-center gap-3 text-slate-400">
@@ -4016,16 +3992,11 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                     )}
                     <div className="overflow-hidden rounded border-2 border-black bg-black">
                       {vid.videoUrl ? (
-                        hasFunctionalConsent ? (
-                          <iframe title={vid.title || `Video`} src={vid.videoUrl} className="h-64 w-full md:h-80" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                        ) : (
-                          <div className="flex h-64 w-full flex-col items-center justify-center gap-3 bg-slate-900 px-4 md:h-80">
-                            <IconPlayerPlay className="h-12 w-12 text-slate-400" />
-                            <p className="text-center text-sm font-bold uppercase tracking-widest text-slate-400">
-                              Video laden: Bitte aktiviere funktionale Cookies über die Privatsphäre-Einstellungen im Footer.
-                            </p>
-                          </div>
-                        )
+                        <YouTubeEmbed
+                          title={vid.title || `Video`}
+                          src={vid.videoUrl}
+                          className="h-64 w-full md:h-80"
+                        />
                       ) : (
                         <div className="flex h-64 w-full items-center justify-center bg-slate-900 md:h-80">
                           <div className="flex flex-col items-center gap-3 text-slate-400">

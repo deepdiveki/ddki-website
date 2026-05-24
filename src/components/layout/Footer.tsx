@@ -141,9 +141,21 @@ function CompanyInfo({ tagline, logoLabel, isSoftware }: { tagline: string; logo
 }
 
 function Copyright({ sectionLabel, isSoftware }: { sectionLabel: string; isSoftware: boolean }) {
-  const handleOpenPrivacySettings = (e: React.MouseEvent) => {
+  const handleRevokeConsent = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.dispatchEvent(new CustomEvent("openCookieBanner"));
+    try {
+      const next = { essential: true, functional: false };
+      localStorage.setItem("cookieConsent", JSON.stringify(next));
+      window.dispatchEvent(
+        new CustomEvent("cookieConsentUpdated", { detail: next }),
+      );
+      window.alert(
+        "Ihre Einwilligung in die Einbindung von Drittanbietern (YouTube, Calendly) wurde widerrufen. Die Seite wird neu geladen.",
+      );
+      window.location.reload();
+    } catch (error) {
+      console.error("Cookie-Consent konnte nicht zurückgesetzt werden:", error);
+    }
   };
 
   const linkClass = `text-sm font-medium tracking-[0.28px] duration-300 ${isSoftware ? "text-white/70 hover:text-white" : "text-text-secondary hover:text-primary-base"}`;
@@ -158,10 +170,11 @@ function Copyright({ sectionLabel, isSoftware }: { sectionLabel: string; isSoftw
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
         <button
           type="button"
-          onClick={handleOpenPrivacySettings}
+          onClick={handleRevokeConsent}
           className={`${linkClass} cursor-pointer`}
+          title="Drittanbieter-Einwilligungen (YouTube, Calendly) zurücksetzen"
         >
-          Privatsphäre-Einstellungen
+          Einwilligungen widerrufen
         </button>
         <span className={separatorClass} aria-hidden="true">
           |

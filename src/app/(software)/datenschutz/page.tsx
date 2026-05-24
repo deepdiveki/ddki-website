@@ -113,15 +113,15 @@ Wir analysieren außerdem das Leseverhalten und die Öffnungsraten unseres Newsl
 Zum anderen werten wir auch die bei Abruf und Nutzung dieser E-Mails durch Sie entstehenden Daten (Öffnungszeitpunkt, angeklickte Hyperlinks, heruntergeladene Dokumente) sowie Bewegungsdaten auf nachgelagerten Websiten personenbezogen in Verbindung mit Ihrer E-Mail-Adresse aus, um Ihnen auch auf dieser Basis künftig individualisierte Informationen zukommen zu lassen, die Ihre Interessen und Bedürfnisse bestmöglich berücksichtigen. Die erhobenen anonymen sowie personenbezogenen Daten nutzen wir, um Ihnen in unseren werblichen E-Mails und nachgelagerten Websiten personalisierte Inhalte und individualisierte Informationen bereitzustellen. Rechtsgrundlage für die Datenverarbeitung im Rahmen von E-Mails ist Art. 6 Abs. 1 Buchst. a DSGVO. Die erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen, etwa über den „Austragen“-Link im Newsletter oder indem Sie uns über die oben genannten Kanäle kontaktieren.</p>
           */}
 
-          <h3 className="text-lg font-semibold">4.     Cookies
+          <h3 className="text-lg font-semibold">4.     Cookies und vergleichbare Technologien
           </h3>
-          <p>Wir verwenden auf unserer Website Cookies und vergleichbare Technologien („Cookies“). Bei Cookies handelt es sich um kleine Datensätze, die durch Ihren Browser gespeichert werden, wenn Sie eine Website besuchen. Hierdurch wird der verwendete Browser gekennzeichnet und kann durch Webserver wiedererkannt werden. Sie haben durch Ihren Browser die volle Kontrolle über die Verwendung von Cookies. Sie können die Cookies in den Sicherheitseinstellungen Ihres Browsers jederzeit löschen. Sie können der Verwendung von Cookies durch Ihre Browsereinstellungen grundsätzlich oder für bestimmte Fälle widersprechen.
-
-Die Verwendung von Cookies ist zum Teil für den Betrieb unserer Website technisch notwendig und damit ohne die Einwilligung des Nutzers zulässig. Außerdem verwenden wir möglicherweise Cookies, um besondere Funktionen und Inhalte anzubieten sowie zu Analyse- und Marketingzwecken. Darunter können auch Cookies von Drittanbietern (sog. Third Party Cookies) sein. Solche technisch nicht notwendigen Cookies verwenden wir nur mit Ihrer Einwilligung gemäß § 25 Abs. 1 TDDDG und ggf. Art. 6 Abs. 1 Buchst. a DSGVO. Hinweise zu den Zwecken, Anbietern, eingesetzten Technologien, gespeicherten Daten und der Speicherdauer einzelner Cookies finden Sie in den Privatsphäre-Einstellungen unseres Consent Management Tools.
-
-Die Einwilligung kann jederzeit über den Link „Privatsphäre-Einstellungen“ im Footer der Website widerrufen oder angepasst werden. Der Widerruf ist so einfach möglich wie die Erteilung der Einwilligung. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.
-
-</p>
+          <p>Wir verwenden auf unserer Website Cookies und vergleichbare Technologien („Cookies“) nur im technisch erforderlichen Umfang. Bei Cookies handelt es sich um kleine Datensätze, die durch Ihren Browser gespeichert werden, wenn Sie eine Website besuchen. Sie haben durch Ihren Browser die volle Kontrolle über die Verwendung von Cookies und können diese in den Sicherheitseinstellungen Ihres Browsers jederzeit löschen oder ihrer Verwendung widersprechen.</p>
+          <p>
+            Beim bloßen Aufruf unserer Seiten setzen wir <strong>keine</strong> nicht-essentiellen Cookies und laden <strong>keine</strong> Drittanbieter-Skripte. Aus diesem Grund verzichten wir bewusst auf einen seitenweiten Cookie-Banner. Cookies und Inhalte von Drittanbietern (insbesondere Calendly auf der Kontaktseite sowie eingebettete YouTube-Videos in den Tutorials) werden ausschließlich nach Ihrem ausdrücklichen, ortsbezogenen Klick („Click&#8209;to&#8209;Load") geladen. Rechtsgrundlage hierfür ist Ihre Einwilligung gemäß § 25 Abs. 1 TDDDG i.V.m. Art. 6 Abs. 1 Buchst. a DSGVO.
+          </p>
+          <p>
+            Eine einmal erteilte Einwilligung kann optional („Für diese Website merken") im lokalen Speicher Ihres Browsers (<code>localStorage</code>, Schlüssel <code>cookieConsent</code>) gespeichert werden, damit Sie nicht bei jedem Video erneut zustimmen müssen. Sie können diese Einwilligung jederzeit über den Link „Einwilligungen widerrufen" im Footer der Website oder direkt am jeweiligen eingebetteten Inhalt (z.&nbsp;B. Calendly) zurücknehmen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.
+          </p>
 
           <h3 className="text-lg font-semibold">5. Online-Terminbuchung (Calendly)</h3>
           <p>
