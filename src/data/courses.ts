@@ -383,9 +383,9 @@ export const courses: Course[] = [
     slug: "eltern-kollegium-multiprofessionelle-teams-ki",
     title: "Eltern, Kollegium und Multiprofessionelle Teams: Transparente Zusammenarbeit mit KI-Unterstützung",
     shortDescription:
-      "KI und digitale Tools nutzen, um Absprachen, Übergaben, Elternkommunikation und gemeinsame Planung transparenter und effizienter zu gestalten.",
+      "KI und digitale Tools nutzen, um Zusammenarbeit mit Eltern, Kollegium und multiprofessionellen Teams transparenter, strukturierter und zeitsparender zu gestalten.",
     description:
-      "Diese Fortbildung zeigt Lehrkräften, wie Künstliche Intelligenz dabei hilft, Belastungen zu reduzieren und Zeit für das Wesentliche zurückzugewinnen. Im Mittelpunkt stehen das Automatisieren wiederkehrender Routineaufgaben, etwa bei Vorbereitung, Korrektur, Elternkommunikation und Organisation, sowie ein bewusster, gesundheitsförderlicher Umgang mit digitalen Werkzeugen. Die Teilnehmenden erproben praxisnah, wie sie mit KI typische Zeitfresser verkleinern, Absprachen und Informationsflüsse im multiprofessionellen Team strukturieren und gemeinsame Materialien effizient teilen und weiterentwickeln können. Besonderer Wert liegt auf dem direkten Praxistransfer, der Erprobung datenschutzkonformer Tools und der unmittelbaren Anwendbarkeit im Schulalltag.",
+      "Diese Fortbildung zeigt Lehrkräften und Bildungspersonal, wie Künstliche Intelligenz und digitale Tools die Zusammenarbeit mit Eltern, im Kollegium und in multiprofessionellen Teams transparenter, strukturierter und zeitsparender gestalten können. Im Mittelpunkt stehen klare Absprachen, organisierte Übergaben, verlässliche Informationsflüsse sowie die gemeinsame Planung und Weiterentwicklung von Materialien. Die Teilnehmenden erproben praxisnah, wie KI bei Elternkommunikation, Dokumentation, Organisation und Teamprozessen unterstützen kann. Besonderer Wert liegt auf dem direkten Praxistransfer, der Erprobung datenschutzkonformer Tools und der unmittelbaren Anwendbarkeit im Schulalltag.",
     categoryId: "team",
     format: "Online",
     duration: "3 Stunden",
