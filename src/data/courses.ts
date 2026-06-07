@@ -12,6 +12,12 @@ export type Course = {
   instructor: string;
   featured: boolean;
   pdfUrl?: string;
+  /**
+   * Explizite Cross-References. Wenn gesetzt, überschreibt das die automatische
+   * „same category"-Logik in CourseDetail. Sonst fallen wir auf Auto-Derivation
+   * (selbe Kategorie, bis zu 3) zurück.
+   */
+  relatedSlugs?: string[];
 };
 
 export const courses: Course[] = [
@@ -147,6 +153,7 @@ export const courses: Course[] = [
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - Differenzierung.pdf",
+    relatedSlugs: ["ki-und-neurodivergenz", "deep-dive-modul-4"],
   },
 
   // ─── Leistung (1 bestehend + 2 neu = 3) ───
@@ -238,8 +245,32 @@ export const courses: Course[] = [
     instructor: "Björn Isenbiel und Tim Philipp",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - Inklusion.pdf",
+    relatedSlugs: ["ki-und-neurodivergenz", "differenzierung-im-unterricht"],
   },
-  
+  {
+    slug: "ki-und-neurodivergenz",
+    title: "KI und Neurodivergenz: Unterrichtsentlastung und Inklusion",
+    shortDescription:
+      "Verstehen, anpassen, entlasten — KI für neurodivergente Lernende.",
+    description:
+      "Dieses Modul verbindet Grundlagenwissen zu Neurodivergenz mit konkreten KI-Anwendungen für den Schulalltag. Lehrkräfte lernen, wie sich ADHS und Autismus bei Lernenden im Unterricht zeigen – und wie KI bei Differenzierung, Kommunikation und Planung gezielt entlasten kann. Praxisnahe Szenarien machen deutlich, wie individuelle Unterstützung realistisch umsetzbar wird.",
+    categoryId: "inklusion",
+    format: "Online",
+    duration: "3 Stunden",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
+    topics: [
+      "Einsatz von KI zur Unterstützung individueller Lernprozesse und Perspektivenvielfalt",
+      "Neurodivergenz im Schulkontext verstehen: ADHS und Autismus bei Lernenden",
+      "KI-gestützte Differenzierung und Unterrichtsanpassung",
+      "Praxisbeispiele und Formulierungshilfen für den Schulalltag mit KI-Einsatz",
+    ],
+    prerequisites: "Keine Vorkenntnisse erforderlich",
+    instructor: "Janne Schmidt",
+    featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - KI Neurodivergenz.pdf",
+    relatedSlugs: ["differenzierung-im-unterricht", "deep-dive-modul-4"],
+  },
+
   // ─── Medienkompetenz (1 bestehend + 2 neu = 3) ───
   {
     slug: "deep-dive-modul-8",

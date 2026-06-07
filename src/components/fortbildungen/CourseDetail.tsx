@@ -21,11 +21,16 @@ import CourseCard from "./CourseCard";
 
 export default function CourseDetail({ course }: { course: Course }) {
   const category = categories.find((c) => c.id === course.categoryId);
-  const relatedCourses = courses
-    .filter(
-      (c) => c.categoryId === course.categoryId && c.slug !== course.slug,
-    )
-    .slice(0, 3);
+  const relatedCourses = course.relatedSlugs && course.relatedSlugs.length > 0
+    ? course.relatedSlugs
+        .map((slug) => courses.find((c) => c.slug === slug))
+        .filter((c): c is Course => Boolean(c))
+        .slice(0, 3)
+    : courses
+        .filter(
+          (c) => c.categoryId === course.categoryId && c.slug !== course.slug,
+        )
+        .slice(0, 3);
 
   return (
     <div className="min-h-screen">

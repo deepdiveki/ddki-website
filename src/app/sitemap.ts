@@ -13,6 +13,7 @@ const excludedRoutes = new Set([
   "/software/error",
   "/software/error/verify",
   "/software/unauthorized",
+  "/fortbildung/ki-praxis-komplettkurs",
 ]);
 
 const collectRoutes = () => {
