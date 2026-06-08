@@ -208,7 +208,7 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
                 </div>
                 <div className="space-y-2">
                   <p className="text-sm leading-relaxed text-white/70">
-                    Erhalte <span className="font-semibold text-white">14 Tage Zugang</span> zum
+                    Erhalte <span className="font-semibold text-white">3 Monate Zugang</span> zum
                     KI Escape Game mit allen drei Dimensionen, Tutorials, Challenges und Materialien.
                   </p>
                   <p className="text-xs text-white/50">

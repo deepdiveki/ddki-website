@@ -58,7 +58,7 @@ export async function POST(request: Request) {
               <div style="background: #1a1a2e; color: #c6bdfa; font-size: 32px; font-weight: bold; letter-spacing: 6px; text-align: center; padding: 24px; border-radius: 12px; margin: 24px 0;">
                 ${accessCode}
               </div>
-              <p><strong>Gültigkeit:</strong> 14 Tage ab jetzt.</p>
+              <p><strong>Gültigkeit:</strong> 3 Monate ab jetzt.</p>
               <p>Gehe auf <a href="https://www.deepdive-ki.de/fortbildung/escape-game" style="color: #6366f1;">deepdive-ki.de/fortbildung/escape-game</a> und gib den Code im Zugangsfeld ein.</p>
               <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
               <p style="font-size: 12px; color: #94a3b8;">Bei Fragen erreichst du uns unter info@deepdive-ki.de</p>

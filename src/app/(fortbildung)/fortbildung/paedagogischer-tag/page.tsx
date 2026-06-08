@@ -1,10 +1,11 @@
+import ExemplarySchedule from "@/components/paedagogischer-tag/ExemplarySchedule";
 import ImageSlideshow from "@/components/paedagogischer-tag/ImageSlideshow";
 import CtaCard from "@/components/shared/CtaCard";
 import LogoSlider from "@/components/shared/LogoSlider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pädagogischer Tag – Maßgeschneidert für Ihre Schule",
+  title: "Pädagogischer Tag: Maßgeschneidert für Ihre Schule",
   description:
     "Gestalten Sie Ihren pädagogischen Tag mit maßgeschneiderten Fortbildungen rund um KI im Schulalltag – praxisnah, interaktiv und individuell.",
   openGraph: {
@@ -135,73 +136,7 @@ export default function PaedagogischerTagPage() {
             anpassbar an Ihre Bedürfnisse.
           </p>
 
-          <div className="mt-10 overflow-x-auto rounded-2xl border border-border-tertiary">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b border-border-tertiary bg-background-secondary">
-                  <th className="px-6 py-4 text-sm font-medium text-text-primary">
-                    Uhrzeit
-                  </th>
-                  <th className="px-6 py-4 text-sm font-medium text-text-primary">
-                    Module
-                  </th>
-                  <th className="px-6 py-4 text-sm font-medium text-text-primary">
-                    Referenten
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  {
-                    time: "08:30 - 09:00 Uhr",
-                    module: "Keynote",
-                    referent: "Björn Isenbiel und Tim Philipp",
-                  },
-                  {
-                    time: "09:00 - 12:00 Uhr",
-                    module:
-                      "Crash Kurs KI - Unterstützung zum individualisierten Unterricht + Deep Dive Modul I - Unterrichtseinheiten konzipieren mit KI Tools",
-                    referent: "Björn Isenbiel und Tim Philipp",
-                  },
-                  {
-                    time: "Pause",
-                    module: "Pause",
-                    referent: "Pause",
-                  },
-                  {
-                    time: "13:00 - 15:00 Uhr",
-                    module:
-                      "Deep Dive Modul II - Plagiate, Hausaufgaben und Klausuren in Zeiten von KI + Deep Dive Modul VII - KI Bots für deinen Unterricht erstellen",
-                    referent: "Björn Isenbiel und Tim Philipp",
-                  },
-                  {
-                    time: "15:00 - 15:30 Uhr",
-                    module: "Reflexion und Abschluss",
-                    referent: "",
-                  },
-                ].map((row, index) => (
-                  <tr
-                    key={index}
-                    className={
-                      row.time === "Pause"
-                        ? "border-b border-border-tertiary bg-background-secondary"
-                        : "border-b border-border-tertiary last:border-b-0"
-                    }
-                  >
-                    <td className="whitespace-nowrap px-6 py-4 align-top text-sm font-light text-text-secondary">
-                      {row.time}
-                    </td>
-                    <td className="px-6 py-4 align-top text-sm font-light text-text-primary">
-                      {row.module}
-                    </td>
-                    <td className="px-6 py-4 align-top text-sm font-light text-text-secondary">
-                      {row.referent}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <ExemplarySchedule />
         </div>
       </section>
 

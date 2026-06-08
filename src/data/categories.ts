@@ -2,14 +2,8 @@ import {
   BarChart3,
   Brain,
   Building2,
-  Code,
-  Globe,
-  Handshake,
-  HeartPulse,
   Laptop,
   MonitorPlay,
-  PenTool,
-  Rocket,
   Users,
   type LucideIcon,
 } from "lucide-react";
@@ -24,99 +18,51 @@ export type Category = {
 
 export const categories: Category[] = [
   {
-    id: "inklusion",
-    name: "Inklusion, Differenzierung & Sprachbildung",
+    id: "ki-grundlagen",
+    name: "KI Grundlagen",
     description:
-      "Heterogene Lerngruppen fördern und sprachsensiblen Unterricht gestalten.",
-    icon: Users,
-    courseCount: 3,
-  },
-  {
-    id: "gesundheit",
-    name: "Gesundheit & Professionalisierung",
-    description:
-      "Gesundheitsförderung und professionelle Weiterentwicklung für Lehrkräfte.",
-    icon: HeartPulse,
-    courseCount: 3,
-  },
-  {
-    id: "leistung",
-    name: "Leistung, Feedback & Lernstand",
-    description:
-      "Lernstände erfassen, konstruktives Feedback geben und Leistung fair bewerten.",
-    icon: BarChart3,
-    courseCount: 3,
-  },
-  {
-    id: "medienkompetenz",
-    name: "Medienkompetenz & Medienkritik",
-    description:
-      "Medienkompetenz vermitteln und kritischen Umgang mit Medien fördern.",
-    icon: MonitorPlay,
-    courseCount: 3,
-  },
-  {
-    id: "didaktik",
-    name: "Didaktik & Unterrichtsdesign",
-    description:
-      "Innovative Lehr- und Lernmethoden für zeitgemäßen Unterricht entwickeln.",
-    icon: PenTool,
-    courseCount: 3,
-  },
-  {
-    id: "team",
-    name: "Team- und Beziehungsarbeit",
-    description:
-      "Zusammenarbeit im Kollegium stärken und Beziehungen zu Lernenden gestalten.",
-    icon: Handshake,
-    courseCount: 3,
-  },
-  {
-    id: "schulentwicklung",
-    name: "Schulentwicklung & Leadership",
-    description:
-      "Schulen zukunftsfähig gestalten und Führungskompetenzen ausbauen.",
-    icon: Building2,
-    courseCount: 3,
-  },
-  {
-    id: "ki",
-    name: "Künstliche Intelligenz",
-    description:
-      "Grundlagen und Anwendungen von KI im schulischen Alltag verstehen und nutzen.",
+      "Einstieg in KI, Unterrichtsplanung und verantwortungsvoller Umgang mit Künstlicher Intelligenz.",
     icon: Brain,
-    courseCount: 6,
+    courseCount: 4,
   },
   {
-    id: "digitale-tools",
-    name: "Digitale Tools & Anwendungen",
+    id: "ki-tools-chatbots",
+    name: "KI-Tools, Chatbots & eigene Assistenten",
     description:
-      "Digitale Werkzeuge kennenlernen und effektiv im Unterricht einsetzen.",
+      "DeepChat, Chatbots und eigene KI-Assistenten praxisnah im Unterricht einsetzen.",
     icon: Laptop,
     courseCount: 3,
   },
   {
-    id: "schuelerwelten",
-    name: "Schülerinnenwelten & Gesellschaft",
+    id: "foerderung-inklusion",
+    name: "Individuelle Förderung & Inklusion",
     description:
-      "Lebenswelten von Schüler:innen verstehen und gesellschaftliche Themen aufgreifen.",
-    icon: Globe,
+      "Differenzierung, Inklusion und gezielte Förderung mit KI-Unterstützung gestalten.",
+    icon: Users,
+    courseCount: 5,
+  },
+  {
+    id: "pruefen-bewerten-feedback",
+    name: "Prüfen, Bewerten & Feedback",
+    description:
+      "Leistungsbewertung, Prüfungsformate und konstruktives Feedback in Zeiten von KI.",
+    icon: BarChart3,
     courseCount: 3,
   },
   {
-    id: "startchancen",
-    name: "Startchancen",
+    id: "schule-zusammenarbeit",
+    name: "Schule entwickeln & Zusammenarbeit gestalten",
     description:
-      "Chancengerechtigkeit fördern und Bildungsbenachteiligung abbauen.",
-    icon: Rocket,
+      "Schulentwicklung, Teamarbeit und Entlastung im pädagogischen Alltag mit KI.",
+    icon: Building2,
     courseCount: 3,
   },
   {
-    id: "programmieren",
-    name: "Programmieren & Informatik",
+    id: "fachunterricht-medien-informatik",
+    name: "Fachunterricht, Medien & Informatik",
     description:
-      "Grundlagen der Informatik und Programmierung praxisnah vermitteln.",
-    icon: Code,
-    courseCount: 3,
+      "Digitale Werkzeuge, Medienkompetenz, fachübergreifende Impulse und Programmieren.",
+    icon: MonitorPlay,
+    courseCount: 5,
   },
 ];

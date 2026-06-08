@@ -71,7 +71,7 @@ export default function CourseList() {
           <p>
             Während der Fortbildung steht allen Teilnehmenden unser DSGVO-konformer KI-Chat
             DeepChat kostenlos zur Verfügung.
-            Auf Wunsch gestalten wir die Fortbildung auch gezielt rund um telli.
+            Auf Wunsch gestalten wir die Fortbildung auch gezielt rund um den AIS.chat.
             Ideal für Schulen, die bereits mit dem Schul-KI-Chat arbeiten
             oder diesen einführen möchten.
           </p>
