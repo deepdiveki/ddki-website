@@ -19,6 +19,14 @@ const slides = [
     src: "/images/paedagogischer-tag/slide-3.jpg",
     alt: "Pädagogischer Tag – Impression 3",
   },
+  {
+    src: "/images/paedagogischer-tag/slide-4.jpg",
+    alt: "Pädagogischer Tag – Impression 4",
+  },
+  {
+    src: "/images/paedagogischer-tag/slide-5.jpg",
+    alt: "Pädagogischer Tag – Impression 5",
+  },
 ];
 
 export default function ImageSlideshow() {
@@ -61,6 +69,7 @@ export default function ImageSlideshow() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1216px) 100vw, 1216px"
+                  quality={95}
                   priority={current === 0}
                 />
               </motion.div>
