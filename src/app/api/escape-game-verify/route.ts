@@ -10,7 +10,7 @@ const DIMENSION_CODES: Record<string, string> = {
   // trotz: "249357",
 };
 
-const LICENSE_VALIDITY_DAYS = 14;
+const LICENSE_VALIDITY_DAYS = 30;
 
 /**
  * Search Stripe PaymentIntents for a matching escape game code.

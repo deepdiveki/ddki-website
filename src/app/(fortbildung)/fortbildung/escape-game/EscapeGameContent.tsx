@@ -43,6 +43,7 @@ import ParallaxBackground from "./_components/ParallaxBackground";
 import PlayerSprite from "./_components/PlayerSprite";
 import ParticleSystem from "./_components/ParticleSystem";
 import { CREW_FACES } from "./_components/PixelFaces";
+import AccessGate from "./_components/AccessGate";
 import { pixelFont, displayFont, bodyFont } from "./_lib/fonts";
 import type {
   DimensionId,
@@ -92,7 +93,9 @@ import {
   buildInitialPowerupPositions,
   buildInitialRevealedPowerups,
 } from "./_data/maps";
-import "./escape-game.css";
+
+const ESCAPE_GAME_ACCESS_STORAGE_KEY = "escape-game-access";
+const ESCAPE_GAME_ACCESS_GRANTED_EVENT = "escape-game-access-granted";
 
 
 
@@ -138,6 +141,24 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
     DEFAULT_DIFFICULTY_ID
   );
   const [hasHydratedAccessCodes, setHasHydratedAccessCodes] = useState(false);
+  const [hasEscapeGameAccess, setHasEscapeGameAccess] = useState(false);
+  const [accessGateOpen, setAccessGateOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const updateAccessState = () => {
+      setHasEscapeGameAccess(
+        window.sessionStorage.getItem(ESCAPE_GAME_ACCESS_STORAGE_KEY) === "true"
+      );
+    };
+
+    updateAccessState();
+    window.addEventListener(ESCAPE_GAME_ACCESS_GRANTED_EVENT, updateAccessState);
+    return () =>
+      window.removeEventListener(ESCAPE_GAME_ACCESS_GRANTED_EVENT, updateAccessState);
+  }, []);
+
   useEffect(() => {
     if (!chapterParam) return;
     if (chapterParam in JUMP_RUN_CHAPTERS) {
@@ -1594,6 +1615,14 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
         "--shadow": "#1b1b1b",
       } as CSSProperties}
     >
+      <AccessGate
+        open={accessGateOpen}
+        onOpenChange={setAccessGateOpen}
+        passthrough
+      >
+        {null}
+      </AccessGate>
+
       {!gameOnly && (
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0">
@@ -1663,6 +1692,7 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
               <video
                 controls
                 preload="none"
+                poster="/images/escape-game/video-poster-pink.svg"
                 className="w-full"
                 crossOrigin="anonymous"
               >
@@ -1731,7 +1761,22 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
             </div>
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {!hasEscapeGameAccess && (
+            <div className="mx-auto mt-10 max-w-[34rem] xl:hidden">
+              <div className="border-4 border-black bg-white p-4 text-center shadow-[6px_6px_0_#000]">
+                <button
+                  type="button"
+                  onClick={() => setAccessGateOpen(true)}
+                  className="mx-auto block border-4 border-black bg-[var(--block)] px-8 py-3 text-xs font-bold uppercase tracking-[0.24em] shadow-[5px_5px_0_#000] transition hover:-translate-y-0.5"
+                >
+                  Mission starten
+                </button>
+              </div>
+            </div>
+          )}
+
+          <div className="relative mx-auto mt-10 max-w-4xl">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {CHARACTERS.map((character, index) => {
               const hasAcceptedCode = acceptedCodeByDimension[character.id];
               const hasEarnedCode = Boolean(earnedCodes[character.id]);
@@ -1759,7 +1804,11 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                     <span className="text-xs font-semibold">{character.key}</span>
                     <Link
                       href={`/fortbildung/escape-game/tutorial/${character.id}`}
-                      className="border-2 border-black bg-white px-3 py-1 text-[10px] uppercase tracking-[0.2em] shadow-[3px_3px_0_#000] transition hover:-translate-y-0.5"
+                      className={`border-2 border-black bg-white px-3 py-1 text-[10px] uppercase tracking-[0.2em] shadow-[3px_3px_0_#000] transition hover:-translate-y-0.5 ${
+                        hasEscapeGameAccess ? "" : "pointer-events-none"
+                      }`}
+                      aria-disabled={!hasEscapeGameAccess}
+                      tabIndex={hasEscapeGameAccess ? undefined : -1}
                     >
                       Tutorial
                     </Link>
@@ -1774,8 +1823,9 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                         onChange={(event) =>
                           handleCodeInput(character.id, event.target.value)
                         }
+                        disabled={!hasEscapeGameAccess}
                         placeholder="000000"
-                        className="w-24 border-2 border-black px-2 py-1 text-right font-bold tracking-[0.2em]"
+                        className="w-24 border-2 border-black px-2 py-1 text-right font-bold tracking-[0.2em] disabled:bg-white disabled:text-slate-400"
                       />
                     </label>
                     {hasAcceptedCode ? (
@@ -1798,6 +1848,20 @@ export function EscapeGamePageContent({ gameOnly = false, forceChapterId }: Esca
                 </div>
               );
             })}
+          </div>
+            {!hasEscapeGameAccess && (
+              <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 hidden justify-center px-5 xl:flex">
+                <div className="pointer-events-auto flex min-h-38 w-full items-center justify-center border-4 border-black bg-white px-8 py-4 shadow-[6px_6px_0_#000]">
+                  <button
+                    type="button"
+                    onClick={() => setAccessGateOpen(true)}
+                    className="border-4 border-black bg-[var(--block)] px-12 py-3 text-xs font-bold uppercase tracking-[0.24em] shadow-[5px_5px_0_#000] transition hover:-translate-y-0.5"
+                  >
+                    Mission starten
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

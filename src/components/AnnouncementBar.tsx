@@ -2,19 +2,45 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const ESCAPE_GAME_ACCESS_STORAGE_KEY = "escape-game-access";
+const ESCAPE_GAME_ACCESS_GRANTED_EVENT = "escape-game-access-granted";
 
 export default function AnnouncementBar({ variant = "software" }: { variant?: "software" | "fortbildung" }) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      if (window.scrollY > 100) {
+        setScrolled(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const isEscapeGameRoute = pathname?.startsWith("/fortbildung/escape-game") ?? false;
+
+    const updateHidden = () => {
+      setHidden(
+        isEscapeGameRoute &&
+          sessionStorage.getItem(ESCAPE_GAME_ACCESS_STORAGE_KEY) === "true"
+      );
+    };
+
+    updateHidden();
+    window.addEventListener(ESCAPE_GAME_ACCESS_GRANTED_EVENT, updateHidden);
+    return () => window.removeEventListener(ESCAPE_GAME_ACCESS_GRANTED_EVENT, updateHidden);
+  }, [pathname]);
+
+  if (hidden) return null;
   if (dismissed) return null;
 
   const isFortbildung = variant === "fortbildung";

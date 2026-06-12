@@ -2,6 +2,7 @@
 
 import Logo from "@/components/shared/Logo";
 import ButtonLink from "@/components/ui/button-link-fortbildung";
+import { useCookieConsent } from "@/hooks/use-cookie-consent";
 import { Instagram, Linkedin } from "lucide-react";
 import Link from "next/link";
 
@@ -141,6 +142,8 @@ function CompanyInfo({ tagline, logoLabel, isSoftware }: { tagline: string; logo
 }
 
 function Copyright({ sectionLabel, isSoftware }: { sectionLabel: string; isSoftware: boolean }) {
+  const hasFunctionalConsent = useCookieConsent();
+
   const handleRevokeConsent = (e: React.MouseEvent) => {
     e.preventDefault();
     try {
@@ -148,9 +151,6 @@ function Copyright({ sectionLabel, isSoftware }: { sectionLabel: string; isSoftw
       localStorage.setItem("cookieConsent", JSON.stringify(next));
       window.dispatchEvent(
         new CustomEvent("cookieConsentUpdated", { detail: next }),
-      );
-      window.alert(
-        "Ihre Einwilligung in die Einbindung von Drittanbietern (YouTube, Calendly) wurde widerrufen. Die Seite wird neu geladen.",
       );
       window.location.reload();
     } catch (error) {
@@ -168,17 +168,21 @@ function Copyright({ sectionLabel, isSoftware }: { sectionLabel: string; isSoftw
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-        <button
-          type="button"
-          onClick={handleRevokeConsent}
-          className={`${linkClass} cursor-pointer`}
-          title="Drittanbieter-Einwilligungen (YouTube, Calendly) zurücksetzen"
-        >
-          Einwilligungen widerrufen
-        </button>
-        <span className={separatorClass} aria-hidden="true">
-          |
-        </span>
+        {hasFunctionalConsent && (
+          <>
+            <button
+              type="button"
+              onClick={handleRevokeConsent}
+              className={`${linkClass} cursor-pointer`}
+              title="Drittanbieter-Einwilligungen (YouTube, Calendly) zurücksetzen"
+            >
+              Einwilligungen widerrufen
+            </button>
+            <span className={separatorClass} aria-hidden="true">
+              |
+            </span>
+          </>
+        )}
         <Link href="/impressum" className={linkClass}>
           Impressum
         </Link>

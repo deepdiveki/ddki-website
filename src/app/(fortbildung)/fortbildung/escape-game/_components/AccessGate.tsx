@@ -1,16 +1,29 @@
 "use client";
 
 import { useState, useEffect, type FormEvent } from "react";
-import { IconLock, IconKey, IconArrowRight, IconShoppingCart, IconRocket } from "@tabler/icons-react";
+import { IconLock, IconKey, IconArrowRight, IconShoppingCart, IconRocket, IconX } from "@tabler/icons-react";
 
 const STORAGE_KEY = "escape-game-access";
+const ACCESS_GRANTED_EVENT = "escape-game-access-granted";
 
 /** Set to `true` to show the "Lizenz kaufen" tab with Stripe checkout. */
 const PURCHASE_ENABLED = true;
 
 type Tab = "code" | "buy";
 
-export default function AccessGate({ children }: { children: React.ReactNode }) {
+type AccessGateProps = {
+  children: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  passthrough?: boolean;
+};
+
+export default function AccessGate({
+  children,
+  open,
+  onOpenChange,
+  passthrough = false,
+}: AccessGateProps) {
   const [authorized, setAuthorized] = useState(false);
   const [checked, setChecked] = useState(false);
   const [activeTab, setActiveTab] = useState<Tab>("code");
@@ -38,14 +51,17 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
     }
 
     setActiveTab("code");
+    onOpenChange?.(true);
 
     url.searchParams.delete("checkout");
     window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
-  }, []);
+  }, [onOpenChange]);
 
   function grant() {
     sessionStorage.setItem(STORAGE_KEY, "true");
+    window.dispatchEvent(new Event(ACCESS_GRANTED_EVENT));
     setAuthorized(true);
+    onOpenChange?.(false);
   }
 
   async function handleCodeSubmit(e: FormEvent) {
@@ -90,26 +106,43 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
     }
   }
 
-  if (!checked) return null;
+  if (!checked) return passthrough ? <>{children}</> : null;
 
   if (authorized) return <>{children}</>;
 
+  if (passthrough && !open) return <>{children}</>;
+
   return (
     <>
+      {passthrough && children}
+
       {/* Static placeholder background */}
-      <div
-        className="pointer-events-none select-none"
-        aria-hidden="true"
-        style={{
-          position: "fixed",
-          inset: 0,
-          background: "linear-gradient(180deg, #7dd3fc 0%, #22c55e 70%, #9a5a1e 100%)",
-        }}
-      />
+      {!passthrough && (
+        <div
+          className="pointer-events-none select-none"
+          aria-hidden="true"
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "linear-gradient(180deg, #7dd3fc 0%, #22c55e 70%, #9a5a1e 100%)",
+          }}
+        />
+      )}
 
       {/* Overlay */}
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-[2px]">
-        <div className="mx-4 w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-[#1a1a2e]/90 shadow-2xl backdrop-blur-md">
+        <div className="relative mx-4 w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-[#1a1a2e]/90 shadow-2xl backdrop-blur-md">
+          {passthrough && onOpenChange && (
+            <button
+              type="button"
+              onClick={() => onOpenChange(false)}
+              className="absolute right-4 top-4 z-10 rounded-full p-1.5 text-white/50 transition-colors hover:bg-white/10 hover:text-white"
+              aria-label="Zugangsdialog schliessen"
+            >
+              <IconX size={18} />
+            </button>
+          )}
+
           {/* Header */}
           <div className="flex flex-col items-center gap-3 bg-gradient-to-b from-[#2a2a4a] to-transparent px-6 pt-8 pb-4">
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#c6bdfa]/20">

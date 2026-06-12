@@ -120,23 +120,14 @@ export default function CalendlySection() {
 
 function ConsentPlaceholder({ loading }: { loading: boolean }) {
   return (
-    <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 rounded-[20px] border border-border-tertiary bg-white p-8 text-center shadow-sm md:p-10">
-      <h3 className="text-lg font-semibold text-text-primary">
-        Terminbuchung über Calendly
-      </h3>
+    <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-[20px] border border-border-tertiary bg-white p-6 text-center shadow-sm md:p-8">
       <p className="text-sm leading-relaxed text-text-secondary">
-        Um direkt online einen Termin zu buchen, binden wir das Widget des
-        US-Anbieters <strong>Calendly</strong> ein. Dabei werden personenbezogene
-        Daten (u. a. IP-Adresse, Browserdaten) an Calendly in die USA übertragen
-        und Cookies gesetzt. Eine Datenübermittlung erfolgt nur auf Grundlage
-        Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG).
-        Sie können die Einwilligung jederzeit widerrufen.
-      </p>
-      <p className="text-xs text-text-tertiary">
-        Weitere Informationen finden Sie in unserer{" "}
+        Calendly wird erst nach Ihrer Einwilligung geladen. 
+        <br />
+        Details finden Sie in der{" "}
         <Link
           href="/datenschutz"
-          className="underline hover:text-text-primary"
+          className="underline underline-offset-2 hover:text-text-primary"
         >
           Datenschutzerklärung
         </Link>
@@ -153,9 +144,9 @@ function ConsentPlaceholder({ loading }: { loading: boolean }) {
         </Button>
         <a
           href="#kontaktformular"
-          className="text-sm font-medium text-text-secondary underline hover:text-text-primary"
+          className="text-xs text-text-tertiary underline-offset-2 hover:text-text-primary hover:underline"
         >
-          Alternativ: Termin über Kontaktformular anfragen
+          Oder Termin über Kontaktformular anfragen
         </a>
       </div>
     </div>
