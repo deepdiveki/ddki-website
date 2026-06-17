@@ -1,40 +1,42 @@
-import ImageSlideshow from "@/components/paedagogischer-tag/ImageSlideshow";
+import ContactFormSection from "@/components/Kontakt/ContactFormSection";
+import NiedersachsenVisitNotifier from "@/components/niedersachsen/NiedersachsenVisitNotifier";
+import NlcTrainingOverview from "@/components/niedersachsen/NlcTrainingOverview";
 import PaedagogischerTagContent from "@/components/paedagogischer-tag/PaedagogischerTagContent";
 import CtaCard from "@/components/shared/CtaCard";
-import LogoSlider from "@/components/shared/LogoSlider";
 import type { Metadata } from "next";
 
+
 export const metadata: Metadata = {
-  title: "Pädagogischer Tag: Maßgeschneidert für Ihre Schule",
+  title: "Fortbildungen",
   description:
-    "Gestalten Sie Ihren pädagogischen Tag mit maßgeschneiderten Fortbildungen rund um KI im Schulalltag – praxisnah, interaktiv und individuell.",
+    "Kontaktieren Sie uns für Fragen zu unseren Fortbildungsangeboten. Wir beraten Sie gerne persönlich.",
   openGraph: {
-    title: "Pädagogischer Tag | DeepDive Fortbildungen",
+    title: "Fortbildungen | DeepDive",
     description:
-      "Maßgeschneiderte KI-Fortbildungen für Ihr gesamtes Kollegium – von der Planung bis zur Nachbereitung.",
+      "Fragen zu Fortbildungen, Keynotes oder dem pädagogischen Tag? Wir beraten Sie gerne.",
   },
 };
 
-export default function PaedagogischerTagPage() {
+export default function NiedersachsenPage() {
   return (
     <div className="min-h-screen">
+      <NiedersachsenVisitNotifier />
       <section className="bg-[linear-gradient(180deg,#DDD7FE_0%,#FFF_100%)] pt-31.5 pb-10 lg:pt-38 lg:pb-14">
         <div className="bg-[url('/images/bg-gradient.svg')] bg-cover bg-center">
           <div className="mx-auto max-w-304 px-4 text-center xl:px-0">
             <h1 className="text-display-sm font-light -tracking-[0.96px] text-text-primary lg:text-display-lg">
-              Pädagogischer Tag
+              Fortbildungen von DeepDiveKI
             </h1>
             <p className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
-              Wir gestalten Ihren pädagogischen Tag praxisnah, interaktiv und
-              individuell auf Ihre Schule zugeschnitten.
+              Wir unterstützen Schulen mit praxisnahen Lehrerfortbildungen sowohl als Online-Fortbildung im
+              NLC als auch als pädagogischer Tag.
             </p>
           </div>
         </div>
       </section>
-
-      <ImageSlideshow />
+      <NlcTrainingOverview />
       <PaedagogischerTagContent />
-      <LogoSlider />
+      <ContactFormSection />
       <CtaCard />
     </div>
   );
