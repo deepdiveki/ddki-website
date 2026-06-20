@@ -12,7 +12,7 @@ const Features = () => {
         <SectionTitle variant="software"
           subTitle="KI-Schulbüro"
           title="Der Techstack vom KI-Schulbüro im Überblick"
-          paragraph="Spezifische Informationen zu den Funktionen, Technologien und genutzen API's unserers KI-Schulbüro's finden Sie hier:"
+          paragraph="Spezifische Informationen zu den Funktionen, Technologien und genutzen API's unserers KI-Schulbüros finden Sie hier:"
         />
 
         <div className="relative">

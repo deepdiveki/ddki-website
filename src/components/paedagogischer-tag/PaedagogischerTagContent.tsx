@@ -29,7 +29,10 @@ export default function PaedagogischerTagContent() {
     <>
       <section className="bg-white px-4 py-10 md:py-14 lg:py-20 xl:px-0">
         <div className="mx-auto max-w-304">
-          <h2 className="text-display-xs font-light -tracking-[0.96px] text-text-primary lg:text-display-md">
+          <p className="text-sm font-medium uppercase tracking-[0.12em] text-primary-base">
+            Pädagogischer Tag
+          </p>
+          <h2 className="mt-3 text-display-xs font-light -tracking-[0.96px] text-text-primary lg:text-display-md">
             Unser Angebot
           </h2>
           <p className="mt-4 max-w-180 text-md font-light text-text-secondary">

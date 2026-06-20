@@ -88,7 +88,7 @@ const feedbackItems = [
   },
   {
     title: "Enorme Zeitersparnis",
-    description: "Ich spare mit dem DeepChat viel Zeit bei administrtiven Aufgaben .",
+    description: "Ich spare mit dem DeepChat viel Zeit bei administrativen Aufgaben .",
     icon: <Sparkles className="h-5 w-5 text-green-400" />,
     header: (
       <div className="text-sm text-white/50">Lehrkraft, NRW</div>
@@ -128,7 +128,7 @@ const feedbackItems = [
   },
   {
     title: "Schilf mit DeepDiveKI",
-    description: "Björn und Tim waren bei uns an der Schule. Das waren super Workshops. Cool das man viel ausprobiern konnte.",
+    description: "Björn und Tim waren bei uns an der Schule. Das waren super Workshops. Cool dass man viel ausprobiern konnte.",
     icon: <Sparkles className="h-5 w-5 text-blue-400" />,
     header: (
       <div className="text-sm text-white/50">Didaktische Leitung, Niedersachsen</div>

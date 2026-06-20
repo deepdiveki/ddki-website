@@ -19,7 +19,7 @@ const AboutSection = () => {
               DeepDiveKI als Partner für Schulen und Universitäten
             </h2>
             <p className="mb-9 text-md font-light text-white/70">
-              DeepDiveKI wurden von Lehrenden für Lehrende entwickelt. Mit unserem benutzerfreundlichen DeepChat können Lehrkräfte den Lernprozess effizienter gestalten, individuelle Förderung ermöglichen und kreative Lehrmethoden entwickeln. Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte.
+              DeepDiveKI wurde von Lehrenden für Lehrende entwickelt. Mit unserem benutzerfreundlichen DeepChat können Lehrkräfte den Lernprozess effizienter gestalten, individuelle Förderung ermöglichen und kreative Lehrmethoden entwickeln. Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte.
             </p>
 
             <a

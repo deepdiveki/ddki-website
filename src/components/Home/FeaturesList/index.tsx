@@ -28,7 +28,7 @@ const FeaturesList = () => {
                       Unsere Produkte im Überblick
                     </span>
                     <h3 id="ddki-toolbox" className="mb-4.5 text-heading-4 font-bold text-white">
-                      Mit dem DeepChat in Ihre Schule oder Universitäten Künstliche Intelligenz integrieren.
+                      Mit dem DeepChat Künstliche Intelligenz in Ihre Schule oder Universitäten integrieren.
                     </h3>
                     <p className="mb-10 font-light text-white/70">
                       Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte – unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.
@@ -85,7 +85,7 @@ const FeaturesList = () => {
                     KI-Schulbüro
                   </h3>
                   <p className="mb-10 font-light text-white/70">
-                    Mit unserem KI-Schulbüro haben Sie die Möglichkeit, in Ihrer Schulwebsite einen KI-Chatbot zu integrieren. Damit verbessern Sie den Informationsfluss zu Ihren Schülerinnen und Schülern, Eltern und Lehrkräften.
+                    Mit unserem KI-Schulbüro haben Sie die Möglichkeit, in Ihre Schulwebsite einen KI-Chatbot zu integrieren. Damit verbessern Sie den Informationsfluss zu Ihren Schülerinnen und Schülern, Eltern und Lehrkräften.
                   </p>
                   <Link
                     href={`${BASE_PATH}/chatbot-fuer-ihre-schule`}

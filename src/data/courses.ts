@@ -27,7 +27,7 @@ export const courses: Course[] = [
     shortDescription:
       "Praktische KI-Werkzeuge und Unterrichtsmethoden kennenlernen und Team-Teaching-Modelle erproben.",
     description:
-      "Dieser Crash Kurs vermittelt praktische KI-Werkzeuge und Unterrichtsmethoden. Teilnehmende lernen verschiedene KI-basierte Werkzeuge kennen und erproben Team-Teaching-Modelle. DeepChat steht allen Teilnehmenden datenschutzkonform und kostenlos zur Verfügung.",
+      "Dieser Crash Kurs vermittelt praktische KI-Werkzeuge und Unterrichtsmethoden. Teilnehmende lernen verschiedene KI-basierte Werkzeuge kennen und erproben Team-Teaching-Modelle. Der KI-Chatbot DeepChat kann allen Teilnehmenden datenschutzkonform zur Verfügung gestellt werden.",
     categoryId: "ki-grundlagen",
     format: "Online",
     duration: "3 Stunden",
@@ -115,7 +115,7 @@ export const courses: Course[] = [
     shortDescription:
       "Unterricht mithilfe von KI konzipieren und sofort anwendbare Methoden und Materialien erhalten.",
     description:
-      "Dieses Modul fokussiert auf die Konzeption von Unterricht mithilfe von KI. Teilnehmende erhalten praktische, sofort anwendbare Unterrichtsmethoden und Material. Sie lernen, wie KI-Tools den Planungsprozess unterstützen und beschleunigen können.",
+      "In diesem Modul liegt der Fokus auf der Konzeption von Unterricht mithilfe von KI. Teilnehmende erhalten praktische, sofort anwendbare Unterrichtsmethoden und Material. Sie lernen, wie KI-Tools den Planungsprozess unterstützen und beschleunigen können.",
     categoryId: "ki-grundlagen",
     format: "Online",
     duration: "3 Stunden",

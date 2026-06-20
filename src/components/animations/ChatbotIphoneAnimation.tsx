@@ -185,7 +185,7 @@ const SchoolWebsite = ({ onChatButtonClick }: { onChatButtonClick: () => void })
       <ul className="list-disc ml-4 text-white/60">
         <li>
           bei uns am Alstercampus, wie wir hier in Hamburg zu unserer Schule sagen. Das Gymnasium Alster hat Vieles für
-          viele zu bieten. Ich lade Sie ganz herzlich ein, uns kennenzulernen. Surfen Sie auf unseren Seiten durch die bunte Welt einer Schule für Alle. Von der 5. Klasse bis zum Abitur lernen hier alle an einem Ort.
+          viele zu bieten. Ich lade Sie ganz herzlich ein, uns kennenzulernen. Surfen Sie auf unseren Seiten durch die bunte Welt einer Schule für alle. Von der 5. Klasse bis zum Abitur lernen hier alle an einem Ort.
         </li>
       </ul>
     </section>

@@ -1,22 +1,23 @@
 import { ArrowUpRight, CalendarDays, Clock } from "lucide-react";
 
-const nlcEventUrl = "https://nlc.info/app/edb/event/54719";
-
 const nlcTrainings = [
   {
     date: "25.08.2026",
-    time: "15:00 - 18:00 Uhr",
+    time: "16:00 - 19:00 Uhr",
     name: "Deep Dive Modul II: Plagiate, Hausaufgaben und Klausuren in Zeiten von KI",
+    url: "https://nlc.info/app/edb/event/55620",
   },
   {
     date: "31.08.2026",
     time: "16:00 - 19:00 Uhr",
     name: "Datenschutz und Sicherheit im Internet",
+    url: "https://nlc.info/app/edb/event/53839",
   },
   {
     date: "08.09.2026",
     time: "16:00 - 19:00 Uhr",
     name: "Crash Kurs KI: Unterstützung zum individualisierten Unterricht",
+    url: "https://nlc.info/app/edb/event/55619",
   },
 ];
 
@@ -33,7 +34,7 @@ export default function NlcTrainingOverview() {
           </h2>
           <p className="mt-4 text-md font-light text-text-secondary">
             Melden Sie sich direkt über das Niedersächsische LernCenter an. Die
-            Termine führen aktuell auf dieselbe NLC-Veranstaltungsseite.
+            Termine führen jeweils zur passenden NLC-Veranstaltungsseite.
           </p>
         </div>
 
@@ -41,7 +42,7 @@ export default function NlcTrainingOverview() {
           {nlcTrainings.map((training) => (
             <a
               key={`${training.date}-${training.name}`}
-              href={nlcEventUrl}
+              href={training.url}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex h-full flex-col rounded-lg border border-border-tertiary bg-white p-5 transition hover:-translate-y-1 hover:border-primary-base hover:shadow-lg"

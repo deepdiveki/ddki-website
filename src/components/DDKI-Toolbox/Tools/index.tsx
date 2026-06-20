@@ -12,7 +12,7 @@ const Features = () => {
         <SectionTitle variant="software"
           subTitle="DeepChat Funktionalitäten"
           title="Unsere Features"
-          paragraph="Diese Feature findest du in unserer DeepChat
+          paragraph="Diese Features findest du in unserer DeepChat
 :"
         />
 

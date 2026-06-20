@@ -73,7 +73,7 @@ const TESTIMONIALS = [
   },
   {
     title: "Schilf mit DeepDiveKI",
-    quote: "Björn und Tim waren bei uns an der Schule. Das waren super Workshops. Cool das man viel ausprobieren konnte.",
+    quote: "Björn und Tim waren bei uns an der Schule. Das waren super Workshops. Cool dass man viel ausprobieren konnte.",
     author: "Didaktische Leitung, Niedersachsen",
   },
   {
@@ -104,7 +104,7 @@ const SCHOOL_TESTIMONIALS: {
   },
   {
     quote:
-      "Die KI-Fortbildung hat uns alle inspiriert und tatsächlich – wie der Name schon sagt – in die Tiefen der KI (incl. Escape Game) geführt. Es ist wirklich sehr beeindruckend, wie differenziert und multiperspektivisch die Chancen und Grenzen von KI dabei erfahrbar wurden. Danke für die Expertise und die lehrreichen Tage.",
+      "Die KI-Fortbildung hat uns alle inspiriert und tatsächlich – wie der Name schon sagt – in die Tiefen der KI (inkl. Escape Game) geführt. Es ist wirklich sehr beeindruckend, wie differenziert und multiperspektivisch die Chancen und Grenzen von KI dabei erfahrbar wurden. Danke für die Expertise und die lehrreichen Tage.",
     author: "Anne Schumann",
     role: "Leiterin des Studienseminars f. d. Lehramt an Gymnasien Göttingen",
   },

@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 
-const VISIT_STORAGE_KEY = "ddki-niedersachsen-visit-notified";
-const EXIT_STORAGE_KEY = "ddki-niedersachsen-exit-notified";
+const COMBINED_STORAGE_KEY = "ddki-niedersachsen-visit-exit-notified";
 const TRACKING_ENDPOINT = "/api/niedersachsen-visit";
 
-type TrackingEventType = "visit" | "link_click" | "tab_hidden" | "page_unload";
+type TrackingEventType = "visited_and_left";
+type ExitTrigger = "link_click" | "tab_hidden" | "page_unload";
 
 type TrackingPayload = {
   eventType: TrackingEventType;
@@ -14,17 +14,8 @@ type TrackingPayload = {
   currentPath: string;
   durationSeconds?: number;
   nextUrl?: string;
+  exitTrigger: ExitTrigger;
 };
-
-function postTrackingEvent(payload: TrackingPayload) {
-  return fetch(TRACKING_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
-}
 
 function sendBeaconEvent(payload: TrackingPayload) {
   const body = JSON.stringify(payload);
@@ -50,43 +41,32 @@ export default function NiedersachsenVisitNotifier() {
   useEffect(() => {
     const startedAt = Date.now();
     let lastClickedUrl = "";
-    let exitSent = sessionStorage.getItem(EXIT_STORAGE_KEY) === "true";
+    let combinedEventSent = sessionStorage.getItem(COMBINED_STORAGE_KEY) === "true";
 
     const getCurrentPath = () =>
       `${window.location.pathname}${window.location.search}${window.location.hash}`;
     const getDurationSeconds = () => Math.max(0, Math.round((Date.now() - startedAt) / 1000));
 
-    if (!sessionStorage.getItem(VISIT_STORAGE_KEY)) {
-      sessionStorage.setItem(VISIT_STORAGE_KEY, "true");
-
-      postTrackingEvent({
-        eventType: "visit",
-        message: "Ein Besucher hat die Niedersachsen-Seite geoeffnet.",
-        currentPath: getCurrentPath(),
-      }).catch(() => {
-        sessionStorage.removeItem(VISIT_STORAGE_KEY);
-      });
-    }
-
-    const sendExitEvent = (eventType: Exclude<TrackingEventType, "visit">) => {
-      if (exitSent) {
+    const sendCombinedEvent = (exitTrigger: ExitTrigger) => {
+      if (combinedEventSent) {
         return;
       }
 
-      exitSent = true;
-      sessionStorage.setItem(EXIT_STORAGE_KEY, "true");
+      combinedEventSent = true;
+      sessionStorage.setItem(COMBINED_STORAGE_KEY, "true");
 
       const sent = sendBeaconEvent({
-        eventType,
-        message: "Ein Besucher hat die Niedersachsen-Seite verlassen.",
+        eventType: "visited_and_left",
+        message: "Ein Besucher hat die Niedersachsen-Seite besucht und wieder verlassen.",
         currentPath: getCurrentPath(),
         durationSeconds: getDurationSeconds(),
         nextUrl: lastClickedUrl || undefined,
+        exitTrigger,
       });
 
       if (!sent) {
-        sessionStorage.removeItem(EXIT_STORAGE_KEY);
-        exitSent = false;
+        sessionStorage.removeItem(COMBINED_STORAGE_KEY);
+        combinedEventSent = false;
       }
     };
 
@@ -102,17 +82,17 @@ export default function NiedersachsenVisitNotifier() {
       }
 
       lastClickedUrl = link.href;
-      sendExitEvent("link_click");
+      sendCombinedEvent("link_click");
     };
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === "hidden") {
-        sendExitEvent("tab_hidden");
+        sendCombinedEvent("tab_hidden");
       }
     };
 
     const handlePageHide = () => {
-      sendExitEvent("page_unload");
+      sendCombinedEvent("page_unload");
     };
 
     document.addEventListener("click", handleLinkClick, true);

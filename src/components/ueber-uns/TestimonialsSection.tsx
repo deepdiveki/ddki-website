@@ -54,7 +54,7 @@ const testimonials = [
   {
     title: "Schilf mit DeepDiveKI",
     quote:
-      "Björn und Tim waren bei uns an der Schule. Das waren super Workshops. Cool das man viel ausprobieren konnte.",
+      "Björn und Tim waren bei uns an der Schule. Das waren super Workshops. Cool dass man viel ausprobieren konnte.",
     role: "Didaktische Leitung, Niedersachsen",
   },
   {

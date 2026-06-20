@@ -207,7 +207,7 @@ export default function ChatbotPreview() {
           <section className="mb-4">
             <h3 className="text-white font-semibold mb-1">Herzlich Willkommen</h3>
             <ul className="list-disc ml-4 text-white/70">
-              <li>bei uns am Alstercampus, wie wir hier in Hamburg zu unserer Schule sagen. Das Gymnasium Alster hat Vieles für viele zu bieten. Ich lade Sie ganz herzlich ein, uns kennenzulernen. Surfen Sie auf unseren Seiten durch die bunte Welt einer Schule für Alle. Von der 5. Klasse bis zum Abitur lernen hier alle an einem Ort.</li>
+              <li>bei uns am Alstercampus, wie wir hier in Hamburg zu unserer Schule sagen. Das Gymnasium Alster hat viel für viele zu bieten. Ich lade Sie ganz herzlich ein, uns kennenzulernen. Surfen Sie auf unseren Seiten durch die bunte Welt einer Schule für alle. Von der 5. Klasse bis zum Abitur lernen hier alle an einem Ort.</li>
             </ul>
           </section>
           <section className="mb-4">
