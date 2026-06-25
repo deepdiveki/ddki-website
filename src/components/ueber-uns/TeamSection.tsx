@@ -1,5 +1,6 @@
 "use client";
 
+import teamData from "@/components/About/Team/teamData";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -8,29 +9,6 @@ import {
   HeaderTitle,
   SectionHeader,
 } from "../ui/SectionHeader";
-
-const teamMembers = [
-  {
-    name: "Björn Isenbiel",
-    designation: "Geschäftsführer\nLehrkraft für PGW, Informatik & Sport",
-    image: "/images/team/team-01.png",
-  },
-  {
-    name: "Tim Philipp",
-    designation: "Geschäftsführer\nLehrkraft für Informatik & Sport",
-    image: "/images/team/team-02.png",
-  },
-{
-    name: "Dr. Nora Schröder",
-    designation: "Learning Experience Designer\nand Teaching Consultant",
-    image: "/images/team/team-06.png",
-  },
-  {
-    name: "Tim Maximilian Baum",
-    designation: "Full Stack Software Engineer",
-    image: "/images/team/team-05.png",
-  },
-];
 
 export default function TeamSection() {
   return (
@@ -42,7 +20,9 @@ export default function TeamSection() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <SectionHeader className="mx-auto max-w-304 px-4 text-center xl:px-0">
-          <HeaderTitle className="text-display-xs font-light -tracking-[0.72px] text-text-primary lg:text-display-sm">Unser Team</HeaderTitle>
+          <HeaderTitle className="text-display-xs font-light -tracking-[0.72px] text-text-primary lg:text-display-sm">
+            Unser Team
+          </HeaderTitle>
           <HeaderSubtitle className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
             Wir sind Lehrkräfte, Entwickler und Bildungsenthusiasten. Vereint
             durch die Vision, KI sinnvoll in den Schulalltag zu bringen.
@@ -50,8 +30,8 @@ export default function TeamSection() {
         </SectionHeader>
       </motion.div>
 
-      <div className="mx-auto mt-10 grid max-w-304 grid-cols-1 gap-8 px-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 xl:px-0">
-        {teamMembers.map((member, index) => (
+      <div className="mx-auto mt-10 grid max-w-304 grid-cols-1 gap-8 px-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-5 xl:px-0">
+        {teamData.map((member, index) => (
           <motion.div
             key={member.name}
             initial={{ opacity: 0, y: 40 }}
@@ -66,11 +46,7 @@ export default function TeamSection() {
           >
             <div
               className={cn(
-                "relative size-40 overflow-hidden rounded-full bg-background-secondary",
-                (member.image === "/images/team/team-01.png" ||
-                  member.image === "/images/team/team-02.png" ||
-                  member.image === "/images/team/team-05.png") &&
-                  "border-2 border-black"
+                "relative size-40 overflow-hidden rounded-full bg-background-secondary border-2 border-black",
               )}
             >
               <Image
@@ -81,7 +57,9 @@ export default function TeamSection() {
                   "object-cover",
                   (member.image === "/images/team/team-01.png" ||
                     member.image === "/images/team/team-02.png") &&
-                    "scale-125"
+                    "scale-125",
+                  member.image === "/images/team/team-06.png" &&
+                    "object-[center_35%]",
                 )}
               />
             </div>

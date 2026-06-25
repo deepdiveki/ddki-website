@@ -543,6 +543,7 @@ export const courses: Course[] = [
     prerequisites: "Keine Programmierkenntnisse erforderlich",
     instructor: "Björn und Tim",
     featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Programmierung.pdf",
   },
 ];
 
