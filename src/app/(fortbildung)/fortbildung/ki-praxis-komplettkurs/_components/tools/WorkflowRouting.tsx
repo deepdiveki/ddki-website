@@ -73,6 +73,7 @@ export default function WorkflowRouting() {
             <button
               key={t.key}
               type="button"
+              aria-pressed={isSelected}
               onClick={() => setSelected(t.key)}
               className={`rounded-xl border-2 px-4 py-3 text-left text-sm transition ${
                 isSelected ? "border-purple bg-purple-light-5" : "border-border-secondary bg-white hover:border-purple"
@@ -84,11 +85,12 @@ export default function WorkflowRouting() {
         })}
       </div>
 
+      <div aria-live="polite">
       {task && (
         <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
           <div className="flex items-start gap-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple text-white">
-              <Workflow className="h-5 w-5" />
+              <Workflow aria-hidden="true" className="h-5 w-5" />
             </div>
             <div className="flex-1">
               <p className="text-xs font-semibold uppercase tracking-wider text-purple-dark">Empfohlene Tool-Reihenfolge</p>
@@ -104,7 +106,7 @@ export default function WorkflowRouting() {
                   <p className="text-sm font-semibold text-text-primary">{s.tool}</p>
                   <p className="text-xs text-text-secondary">{s.why}</p>
                 </div>
-                {i < task.steps.length - 1 && <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-text-tertiary" />}
+                {i < task.steps.length - 1 && <ArrowRight aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-text-tertiary" />}
               </li>
             ))}
           </ol>
@@ -114,6 +116,7 @@ export default function WorkflowRouting() {
           </p>
         </div>
       )}
+      </div>
     </ToolShell>
   );
 }

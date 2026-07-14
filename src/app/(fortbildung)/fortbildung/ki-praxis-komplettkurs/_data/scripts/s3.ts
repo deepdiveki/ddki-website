@@ -23,7 +23,9 @@ Erstens: Du unterrichtest vielleicht kein Geschichte und keine zwölfte Klasse. 
 
 [3:00] Take-away: Wir bauen eine echte UE. Mit echten Prompts. Mit echten Ergebnissen. Du nimmst alles als Vorlage mit — und passt es auf dein Fach an.
 
-[END 4:00]`,
+[4:00] In der nächsten Lektion starten wir mit einer Inspirations-Tour: Was uns an KI erstaunen lässt.
+
+[END 4:15]`,
 
   "s3-2": `[0:00] Bevor wir mit Konzeptionsarbeit anfangen, eine kurze Inspirations-Pause. Sechs Minuten, vier Beispiele.
 
@@ -41,7 +43,9 @@ Erstens: Du unterrichtest vielleicht kein Geschichte und keine zwölfte Klasse. 
 
 [4:10] Drei Reflexionsfragen: 1) Welches Beispiel hat dich am meisten überrascht? 2) Welches könntest du thematisieren? 3) Welches macht dir Sorgen — und ist genau deshalb wichtig?
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion klären wir, wie KI sinnvoll in den Unterricht integriert wird.
+
+[END 6:15]`,
 
   "s3-3": `[0:00] Diese Lektion sortiert die drei Ebenen, auf denen KI im Unterricht andocken kann.
 
@@ -57,7 +61,9 @@ Erstens: Du unterrichtest vielleicht kein Geschichte und keine zwölfte Klasse. 
 
 [3:50] Take-away: Drei Ebenen. KI für dich. KI für die SuS. KI als Thema.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion beginnt Phase 1: die Themenfindung mit KI.
+
+[END 5:15]`,
 
   "s3-4": `[0:00] Jede Unterrichtseinheit beginnt mit: Was unterrichten wir eigentlich? Lehrplan, Schulbuch, Kollegium-Erwartungen, eigene Ideen — daraus eine klare Themenidee destillieren.
 
@@ -86,7 +92,9 @@ Erstens: Du unterrichtest vielleicht kein Geschichte und keine zwölfte Klasse. 
 
 [5:15] Take-away: KI ist kein Themen-Lieferant. Sie ist dein Sparringspartner, der dir mehr Optionen zeigt als du allein hättest.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion holen wir Kolleg:innen ins Boot — E-Mail-Kollaboration.
+
+[END 6:15]`,
 
   "s3-5": `[0:00] Eine Mini-Hürde, die viele vom Anfangen abhält: zwanzig Minuten E-Mail an die Fachschaft. Hier hilft KI — drei Minuten, fertig.
 
@@ -106,14 +114,18 @@ Wenn du hundert kleine Reibungen pro Woche um je fünfzehn Minuten verkürzt —
 
 [4:10] Take-away: KI ist die Reibungs-Verminderung deines Alltags.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion startet Phase 2: die UE-Strukturierung mit dem Erstprompt.
+
+[END 5:15]`,
 
   "s3-6": `[0:00] Wir strukturieren die gesamte UE in einem Prompt. Drei Lektionen behandeln die Strukturierung: heute Erstprompt, 3.7 Verfeinern, 3.8 Quellen.
 
 [0:40] Mein Prompt:
 > "Du bist erfahrene Geschichtslehrkraft an einem deutschen Gymnasium. Erstelle eine Unterrichtseinheit zur Französischen Revolution. Rahmen: 10 Sitzungen á 2 Stunden, Studienstufe Klasse 12, Leistungskurs. Schwerpunkt: politisch-sozialer Zugang mit kulturellen Einschüben. Leitfragen — [Liste der 5 Leitfragen]. Bitte gib pro Sitzung an: Thema, Lernziele, Phasen mit Methode, vorgeschlagenes Material, Hausaufgabe. Berücksichtige Quellenarbeit, Diskussion, Schreibaufgaben."
 
-[1:35] Sechs Bausteine eines guten Prompts:
+[1:35] Kurzer Rückbezug: Im Crash-Kurs hattest du vier Prompt-Bausteine — Rolle, Aufgabe, Kontext, Format. Das ist kein neues System, sondern dieselbe Logik, nur verfeinert: Bei einer großen Aufgabe wie einer ganzen UE fächert sich der eine Baustein „Kontext" in drei auf — Rahmen, Schwerpunkt, Leitfragen. Aus vier werden sechs.
+
+Sechs Bausteine eines guten UE-Prompts:
 1. Rolle — „Du bist erfahrene Geschichtslehrkraft" (aktiviert Antwort-Vokabular)
 2. Aufgabe — „Erstelle eine UE zur Französischen Revolution" (klar, knapp)
 3. Rahmen — 10 Sitzungen, 2 Stunden, Studienstufe
@@ -131,7 +143,9 @@ Wenn du hundert kleine Reibungen pro Woche um je fünfzehn Minuten verkürzt —
 
 [5:55] Take-away: Sechs Bausteine. Rolle, Aufgabe, Rahmen, Schwerpunkt, Leitfragen, Output-Format.
 
-[END 7:00]`,
+[7:00] Direkt unter diesem Video wartet der **UE-Builder** — bau deinen eigenen Erstprompt aus den sechs Bausteinen.
+
+[END 7:15]`,
 
   "s3-7": `[0:00] Selber Chat. Drei konkrete Verfeinerungs-Schritte.
 
@@ -153,7 +167,9 @@ Lebendiger: Debatte zu „Wann wird Revolution gerechtfertigt?", Stationenlernen
 
 [5:20] Take-away: Drei bis fünf Iterationen verwandeln eine generische UE in einen Plan, der zu deiner Lerngruppe passt.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion kontrollieren wir die Quellen — Teil 3 der Strukturierung.
+
+[END 6:15]`,
 
   "s3-8": `[0:00] Bevor du KI-generierte UE in den Unterricht trägst — Quellenkontrolle.
 
@@ -171,7 +187,9 @@ Lebendiger: Debatte zu „Wann wird Revolution gerechtfertigt?", Stationenlernen
 
 [5:35] Take-away: Jede konkrete Faktenangabe muss außerhalb der KI verifiziert sein.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion generieren wir eine Übersichtstabelle für die ganze UE.
+
+[END 6:15]`,
 
   "s3-9": `[0:00] UE-Plan auf drei Seiten Text wird nicht gelesen. Als Tabelle wird er gelesen, diskutiert, akzeptiert.
 
@@ -187,7 +205,9 @@ Lebendiger: Debatte zu „Wann wird Revolution gerechtfertigt?", Stationenlernen
 
 [4:10] Take-away: Mache aus jedem UE-Plan eine Tabelle.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion überträgst du den Stundenplan auf dein eigenes Fach.
+
+[END 5:15]`,
 
   "s3-10": `[0:00] Wir transferieren die UE-Strukturierung in vier andere Fächer.
 
@@ -209,7 +229,9 @@ Output: Wassertropfen-Geschichte, Experiment mit Glasdose, Forschertagebuch, The
 
 [5:15] Take-away: Die Bausteine sind überall dieselben — Rolle, Aufgabe, Rahmen, Schwerpunkt, Leitfragen, Output-Format. Nur die Inhalte ändern sich.
 
-[END 6:00]`,
+[6:00] Direkt unter diesem Video wartet der **Fach-Transfer-Generator** — erstelle einen Stundenplan-Prompt für dein eigenes Fach.
+
+[END 6:15]`,
 
   "s3-11": `[0:00] Ich starte konkret mit Sitzung 1: dichter Einstieg mit Schülervorträgen — fünf Minuten pro Vortrag, fünf SuS, die in den nächsten Wochen jeweils ein Thema betreuen.
 
@@ -234,18 +256,20 @@ Output: Karikatur-Vortrag → „kreative SuS" → „Erstelle eigene Karikatur 
 
 [5:15] Take-away: KI liefert thematischen Bogen in zwei Minuten. Du anpasst an die konkrete Klasse, individuelle Aufgabenstellung, didaktische Einbettung.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion lernst du den Brief als Einstiegs-Methode kennen.
+
+[END 6:15]`,
 
   "s3-12": `[0:00] Vor den Vorträgen ein emotionaler Einstieg: ein Brief aus der Zeit. Vor KI: zwei Stunden Recherche, eine Stunde Schreiben. Mit KI: drei Minuten.
 
-[0:45] Prompt:
-> "Schreibe einen fiktiven Brief, der zwischen zwei meiner Schülerinnen — Zeynep und Julia — in der Zeit der Französischen Revolution spielt. Sie sind beide etwa 17 Jahre alt. Zeynep schreibt aus Paris im Juni 1789, Julia ist gerade in einem Landgut bei Versailles. Inhalt: Zeynep erzählt von der allgemeinen Stimmung, Julia von der Hofgesellschaft. Stil: zeittypisch, aber für heutige Sek-II-SuS zugänglich. Länge: etwa 400 Wörter. Eingebaut: drei konkrete historische Bezüge (Stände, Schwur im Ballsaal, Hungersnot)."
+[0:45] Prompt — beachte: im Prompt stehen nur Platzhalter, keine echten Namen:
+> "Schreibe einen fiktiven Brief, der zwischen zwei Schülerinnen — Schülerin A und Schülerin B — in der Zeit der Französischen Revolution spielt. Sie sind beide etwa 17 Jahre alt. Schülerin A schreibt aus Paris im Juni 1789, Schülerin B ist gerade in einem Landgut bei Versailles. Inhalt: Schülerin A erzählt von der allgemeinen Stimmung, Schülerin B von der Hofgesellschaft. Stil: zeittypisch, aber für heutige Sek-II-SuS zugänglich. Länge: etwa 400 Wörter. Eingebaut: drei konkrete historische Bezüge (Stände, Schwur im Ballsaal, Hungersnot)."
 
-[1:50] Vier-hundert-Wörter-Brief mit echten Schülerinnen-Namen — Personalisierung macht Inhalt erlebbar (Antonius' Sprachdidaktik).
+[1:50] Vier-hundert-Wörter-Brief. Erst NACH der Generierung ersetze ich „Schülerin A/B" per Suchen-und-Ersetzen durch die echten Namen — Personalisierung macht den Inhalt erlebbar (Antonius' Sprachdidaktik), ohne dass ein einziger echter Name in die KI wandert.
 
 [CUT TO: Talking Head]
 
-[2:45] Datenschutz-Caveat: Bei echten Namen — transparent machen, im Unterricht vorher fragen. Namen erst NACH der Generierung einsetzen. Im Prompt nur Platzhalter „Schülerin A/B". So gehen keine personenbezogenen Daten in KI-Trainingsdaten.
+[2:45] Datenschutz-Grundregel, die wir gerade vorgemacht haben: Im Prompt nur Platzhalter „Schülerin A/B", echte Namen erst hinterher im fertigen Text. So gehen keine personenbezogenen Daten in die KI. Und wenn du personalisierte Briefe mit echten Namen im Unterricht einsetzt: transparent machen und die SuS vorher fragen.
 
 [3:35] Drei Brief-Varianten:
 1. Historisch-monologisch: „Robespierre an seine Schwester"
@@ -256,7 +280,9 @@ Output: Karikatur-Vortrag → „kreative SuS" → „Erstelle eigene Karikatur 
 
 [5:00] Take-away: Briefe — universelle Einstiegs-Methode. Mit KI 3 Minuten generierbar. Mit Personalisierung emotional verankerbar. Mit Methodenwechsel sprachsensibel.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion überträgst du die Brief-Methode auf andere Fächer.
+
+[END 6:15]`,
 
   "s3-13": `[0:00] Brief-Methode ist eine Wunder-Methode — Personifizierung macht's möglich. Fünf Beispiele:
 
@@ -272,7 +298,9 @@ Output: Karikatur-Vortrag → „kreative SuS" → „Erstelle eigene Karikatur 
 
 [4:30] Take-away: Brief-Methode universell — vom Sprachunterricht bis Mathematik.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion holen wir Schülerfeedback mit KI ein.
+
+[END 5:15]`,
 
   "s3-14": `[0:00] Feedback geben — wichtigstes Werkzeug, zeitaufwendigstes. KI hilft, ohne dass du einen Nachmittag investierst.
 
@@ -306,7 +334,9 @@ Output: Karikatur-Vortrag → „kreative SuS" → „Erstelle eigene Karikatur 
 
 [6:15] Take-away: KI ist dein Feedback-Beschleuniger — nicht dein Feedback-Geber. Du beobachtest. Du bewertest. KI formuliert. Du polierst.
 
-[END 7:00]`,
+[7:00] In der nächsten Lektion bauen wir einen Multiple-Choice-Test.
+
+[END 7:15]`,
 
   "s3-15": `[0:00] Gut gemachte MC-Tests sind schwer zu erstellen, aber pädagogisch wertvoll. Schlecht gemachte frustrierend. Wir bauen einen MC-Test zur Erklärung der Menschen- und Bürgerrechte 1789.
 
@@ -334,7 +364,9 @@ KI direkt fragen:
 
 [6:00] Take-away: Ein guter MC-Test wird für die Diskussion gebaut, nicht für die Klausur.
 
-[END 7:00]`,
+[7:00] Direkt unter diesem Video wartet der **Distraktor-Checker** — prüf deine MC-Fragen auf schwache Distraktoren.
+
+[END 7:15]`,
 
   "s3-16": `[0:00] MC-Tests in Grundschule, Sek I und Sek II — sehr unterschiedlich.
 
@@ -350,7 +382,9 @@ KI direkt fragen:
 
 [5:15] Take-away: Ein Prompt-Muster — beliebig viele Schulformen.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion wird's lebendig: ein Dialog mit Robespierre.
+
+[END 6:15]`,
 
   "s3-17": `[0:00] Eine meiner Lieblingssitzungen: SuS sprechen mit einer historischen Figur — Maximilien de Robespierre. Faszinierend und gefährlich zugleich.
 
@@ -379,7 +413,9 @@ KI direkt fragen:
 
 [6:25] Take-away: Vor-Gespräch über Methodik. Quellen-Check während des Gesprächs. Reflexion am Ende.
 
-[END 7:00]`,
+[7:00] Direkt unter diesem Video wartet der **Rollen-Prompt-Builder** — bau einen Dialog-Prompt für deine historische Figur.
+
+[END 7:15]`,
 
   "s3-18": `[0:00] Der Dialog allein produziert keinen Lerneffekt. Das Arbeitsblatt strukturiert.
 
@@ -401,7 +437,9 @@ Reflexion: Was hast du über Robespierre gelernt — und über KI?
 
 [5:10] Take-away: Drei Blöcke — Verständnis, Bewertung, Vergleich — plus Reflexionsfrage. KI baut das in 5 Minuten.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion überträgst du die Dialog-Methode auf andere Fächer.
+
+[END 6:15]`,
 
   "s3-19": `[0:00] Dialog-Methode auf erstaunlich viele Fächer übertragbar.
 
@@ -417,7 +455,9 @@ Reflexion: Was hast du über Robespierre gelernt — und über KI?
 
 [4:15] Take-away: Dialog-Methode universell. Drei Caveats immer mit: Methodik vorab, Quellenkontrolle, Reflexion.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion geht's um Inklusion: Einfache Sprache mit KI.
+
+[END 5:15]`,
 
   "s3-20": `[0:00] Wir übersetzen die Erklärung der Menschen- und Bürgerrechte in einfache Sprache — erreichen SuS mit Förderbedarf, DaZ, Lese-Schwierigkeiten. Antonius hat diese Methode in Englisch/Deutsch ausgebaut.
 
@@ -432,11 +472,13 @@ Reflexion: Was hast du über Robespierre gelernt — und über KI?
 
 [3:20] Andere Anwendungsfälle: Eltern-Kommunikation (B1) · Fachsprache übersetzen · eigene Texte verständlicher machen.
 
-[4:05] Wichtiger Hinweis von Nora: Einfache Sprache ≠ Leichte Sprache. Leichte Sprache ist standardisiert (Trennstriche, Bilder, Zielgruppen-Prüfung). Für wirkliche Leichte Sprache → spezialisierte Tools (Forschungsstelle Leichte Sprache Uni Hildesheim).
+[4:05] Wichtiger Hinweis: Einfache Sprache ≠ Leichte Sprache. Leichte Sprache ist standardisiert (Trennstriche, Bilder, Zielgruppen-Prüfung). Für wirkliche Leichte Sprache → spezialisierte Tools (Forschungsstelle Leichte Sprache Uni Hildesheim).
 
 [4:50] Take-away: Einfache Sprache mit KI macht jeden Text inklusiver in Minuten. Drei Niveau-Stufen. Bei Leichter Sprache spezialisierte Anbieter.
 
-[END 6:00]`,
+[6:00] Direkt unter diesem Video wartet der **Niveau-Empfehler** — finde das passende Sprachniveau für deine Lerngruppe: A1, A2 oder B1.
+
+[END 6:15]`,
 
   "s3-21": `[0:00] Was wäre, wenn Ludwig XVI. nicht hingerichtet worden wäre? Interaktives Spiel mit Entscheidungspfaden. Werkzeug: Twine (twinery.org, Open Source, browserbasiert).
 
@@ -459,7 +501,9 @@ Reflexion: Was hast du über Robespierre gelernt — und über KI?
 
 [6:15] Take-away: Twine + KI macht aus Geschichte Spiel, aus Spiel Lernen, aus Lernen Reflexion.
 
-[END 7:00]`,
+[7:00] In der nächsten Lektion generieren wir Bilder für eine Propaganda-Analyse.
+
+[END 7:15]`,
 
   "s3-22": `[0:00] Statt nur historische Bilder zu analysieren, lassen wir SuS eigene Propaganda-Bilder generieren und reflektieren die Mechanik. Propaganda machen statt nur sehen.
 
@@ -483,7 +527,9 @@ Reflexion: Was hast du über Robespierre gelernt — und über KI?
 
 [6:10] Take-away: KI-Bildgeneration macht die Mechanik von Propaganda erfahrbar. Stil verändert Botschaft. SuS lernen das durch Selbermachen + Reflexion.
 
-[END 7:00]`,
+[7:00] In der nächsten Lektion überträgst du Bildgeneration auf Sachunterricht und Kunst.
+
+[END 7:15]`,
 
   "s3-23": `[0:00] Vier Anwendungsfelder aus anderen Fächern.
 
@@ -499,7 +545,9 @@ Reflexion: Was hast du über Robespierre gelernt — und über KI?
 
 [4:30] Take-away: Bildgeneration universell — für visuelle Lerner:innen ein Geschenk. Für jeden Bilderwunsch 30-Sekunden-Lösung.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion reflektieren wir die UE mit einem KI-Assistenten — eine Vorschau auf Modul IV.
+
+[END 5:15]`,
 
   "s3-24": `[0:00] Letzte Sitzung der UE — Brückenschlag zu Modul IV. KI-Assistent („Histo-Reflektor") für SuS-Reflexion.
 
@@ -521,7 +569,9 @@ Assistent: „Schön, dass du nachfragst. Lass uns das gemeinsam sortieren. Erz�
 
 [4:40] Take-away: Aus dem Werkzeug Prompt wird ein wiederverwendbarer Reflexionsbegleiter.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion differenzierst du mit der Canvas-Funktion.
+
+[END 5:15]`,
 
   "s3-25": `[0:00] Canvas in ChatGPT (ähnlich Claude Artifacts) — mein Lieblings-Werkzeug für Differenzierung.
 
@@ -543,7 +593,9 @@ Assistent: „Schön, dass du nachfragst. Lass uns das gemeinsam sortieren. Erz�
 
 [4:10] Take-away: Schnellste Differenzierungs-Methode. Eine Aufgabe, vier Niveaus, zwei Minuten. Wenn Plus-Account — nutz das ab heute.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion bist du dran: Plane deine eigene UE.
+
+[END 5:15]`,
 
   "s3-26": `[0:00] Praxis-Aufgabe Modul I: Plane deine eigene KI-gestützte UE.
 
@@ -565,5 +617,7 @@ Assistent: „Schön, dass du nachfragst. Lass uns das gemeinsam sortieren. Erz�
 
 [5:20] Take-away: Methodik kennst du. Materialien generierbar. Padlet wartet.
 
-[END 6:00]`,
+[6:00] Und teste dein Wissen aus Modul I anschließend im **Modul-Quiz** direkt unter diesem Video.
+
+[END 6:15]`,
 };

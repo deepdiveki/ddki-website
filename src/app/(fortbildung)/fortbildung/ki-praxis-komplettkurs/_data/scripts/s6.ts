@@ -8,10 +8,10 @@ export const s6Scripts: Record<string, string> = {
 
 [CUT TO: Talking Head]
 
-**[1:20]** **Konkretes Beispiel — "Feedback-Bot Aufsatz".** Schüleressay rein, strukturierte Erstanalyse nach meinen Bewertungskriterien raus. Aufwand Bau: 2 Std einmalig. Ersparnis pro Aufsatz: 10 Min. Bei 100 Aufsätzen/Halbjahr: **1000 Min gespart minus 2 Std Bau = 13 Std Lebenszeit**.
+**[1:20]** **Konkretes Beispiel — "Feedback-Bot Aufsatz".** Schüleressay rein, strukturierte Erstanalyse nach meinen Bewertungskriterien raus. Aufwand Bau: 2 Std einmalig. Ersparnis pro Aufsatz: 10 Min. Bei 100 Aufsätzen/Halbjahr: **1000 Min (≈ 16,7 Std) gespart minus 2 Std Bau = knapp 15 Std Lebenszeit**.
 
 **[2:00]** **Was wir in den nächsten drei Stunden machen:**
-1. **Grundlagen** — wie funktionieren Assistenten? Bausteine?
+1. **Grundlagen** — wie funktionieren Assistenten? Aus welchen Komponenten bestehen sie?
 2. **Drei Plattformen** — Custom GPTs (ChatGPT), Claude Projects, Gemini Gems
 3. **Fünf Beispiel-Assistenten** zum Mitnehmen
 4. **Workflows und Best Practices**
@@ -21,16 +21,18 @@ export const s6Scripts: Record<string, string> = {
 
 **[3:35]** Take-away: **Assistenten sind wiederverwendbare, spezialisierte, teilbare KI-Konfigurationen. Modul IV ist die Investition mit der höchsten Zeit-Rendite.**
 
-[END 5:00]`,
+**[5:00]** In der nächsten Lektion klären wir die konzeptionellen Grundlagen: die Komponenten jedes Assistenten.
 
-  "s6-2": `**[0:00]** Jeder Assistent — egal welche Plattform — besteht aus denselben **vier Bausteinen**.
+[END 5:15]`,
 
-**[0:35]** **Baustein 1 — System-Prompt (Instructions).** Rolle und Persönlichkeit. Was tun, wie reden, was nicht.
+  "s6-2": `**[0:00]** Jeder Assistent — egal welche Plattform — besteht aus denselben **Komponenten**. (Bewusst nicht „Bausteine" — das Wort haben wir für die Prompt- und UE-Bausteine reserviert. Hier reden wir über die Architektur eines Assistenten.)
+
+**[0:35]** **Komponente 1 — System-Prompt (Instructions).** Rolle und Persönlichkeit. Was tun, wie reden, was nicht.
 > *"Du bist eine Feedback-Hilfe für Geschichtslehrkräfte. Du analysierst Schüleressays anhand vorgegebener Kriterien. Du gibst keine Noten. Du formulierst freundlich, präzise, mit konkreten Verbesserungsvorschlägen."*
 
 Die Seele des Assistenten.
 
-**[1:25]** **Baustein 2 — Knowledge (Wissensbasis).** Dokumente, auf die der Assistent zugreift:
+**[1:25]** **Komponente 2 — Knowledge (Wissensbasis).** Dokumente, auf die der Assistent zugreift:
 - Dein Bewertungs-Raster als PDF
 - Lehrwerk-Auszüge
 - Operatoren-Liste für Klausuren
@@ -38,7 +40,7 @@ Die Seele des Assistenten.
 
 **Wichtig:** Knowledge ≠ trainieren. KI lernt dauerhaft nichts dazu. Sie **schaut beim Antworten auf die Dokumente**.
 
-**[2:15]** **Baustein 3 — Tools (Aktionen).** Manche können mehr als reden:
+**[2:15]** **Komponente 3 — Tools (Aktionen).** Manche können mehr als reden:
 - Web-Suche
 - Code ausführen
 - Bilder generieren
@@ -47,7 +49,7 @@ Die Seele des Assistenten.
 
 Custom GPTs am meisten Optionen, Claude etwas weniger, Gemini im Standard begrenzter.
 
-**[3:00]** **Baustein 4 — Memory (Gedächtnis).** Manche merken sich Infos aus früheren Gesprächen. **Vorsicht — datenschutzrechtlich sensibel.** Niemals persönliche SuS-Daten in Memory.
+**[3:00]** **Komponente 4 — Memory (Gedächtnis).** Achtung, die wackelt je nach Plattform: Bei Gemini Gems ist Memory fest eingebaut, bei ChatGPT ist es eine Account-Funktion (nicht pro Custom GPT konfigurierbar), Claude Projects kennt es in der Form gar nicht. Also keine universelle Komponente wie die ersten drei, sondern plattformabhängig. Wo es existiert: **Vorsicht — datenschutzrechtlich sensibel.** Niemals persönliche SuS-Daten in Memory.
 
 [CUT TO: Talking Head]
 
@@ -56,13 +58,15 @@ Custom GPTs am meisten Optionen, Claude etwas weniger, Gemini im Standard begren
 2. Wissensbasis durchsuchen
 3. Tools nutzen wenn nötig
 4. Memory berücksichtigen
-5. Antwort generieren, geformt durch alle vier Bausteine
+5. Antwort generieren, geformt durch alle Komponenten
 
 **[4:30]** Mit diesem mentalen Modell hast du **80 %** des Wissens. Rest = Bedienung der Plattform.
 
-**[4:55]** Take-away: **Vier Bausteine — System-Prompt, Knowledge, Tools, Memory. Auf jeder Plattform dieselben.**
+**[4:55]** Take-away: **Drei Komponenten hat jeder Assistent — System-Prompt, Knowledge, Tools. Die vierte, Memory, ist plattformabhängig.**
 
-[END 6:00]`,
+**[6:00]** In der nächsten Lektion bauen wir den ersten Custom GPT — wir starten mit dem Setup.
+
+[END 6:15]`,
 
   "s6-3": `**[0:00]** Wir bauen **deinen ersten Custom GPT**. Plus-Account nötig. Mit Free: zuschauen, später nachholen.
 
@@ -81,14 +85,14 @@ Custom GPTs am meisten Optionen, Claude etwas weniger, Gemini im Standard begren
 - "Erstelle mir ein MC-Quiz zu Thema Y."
 
 **[2:50]** **Schritt 4 — Instructions (System-Prompt).**
-> *"Du bist eine erfahrene Geschichtslehrkraft, die anderen Lehrkräften bei der UE-Konzeption hilft. Du fragst nach Klassenstufe, Schwerpunkt, Stundenzahl, bevor du Vorschläge machst. Du gibst Optionen, nicht fertige Lösungen. Du arbeitest nach dem 6-Bausteine-Prompt-Schema. Du nennst niemals Quellen, die du nicht verifizieren kannst."*
+> *"Du bist eine erfahrene Geschichtslehrkraft, die anderen Lehrkräften bei der UE-Konzeption hilft. Du fragst nach Klassenstufe, Schwerpunkt, Stundenzahl, bevor du Vorschläge machst. Du gibst Optionen, nicht fertige Lösungen. Du arbeitest nach den 6 UE-Bausteinen aus Modul I (Rolle, Aufgabe, Rahmen, Schwerpunkt, Leitfragen, Output-Format). Du nennst niemals Quellen, die du nicht verifizieren kannst."*
 
 **[3:35]** **Schritt 5 — Knowledge hochladen.** Z.B. Hamburger Bildungsplan Geschichte + Operatoren-Liste als PDFs.
 
 **[4:05]** **Schritt 6 — Capabilities:**
-- **Web Browsing** — Live-Recherche → aktivieren
-- **DALL-E** — Bilder → aktivieren
-- **Code Interpreter** — Datenanalyse → optional
+- **Web-Suche** — Live-Recherche → aktivieren
+- **Bildgenerierung** — Bilder → aktivieren
+- **Code Interpreter / Datenanalyse** → optional
 
 **[4:35]** **Schritt 7 — Speichern.** Drei Sharing-Optionen: **Nur ich** / **Über Link teilbar** / **Öffentlich im GPT Store**. Anfangs "Nur ich" oder "Link teilbar".
 
@@ -103,7 +107,9 @@ Custom GPTs am meisten Optionen, Claude etwas weniger, Gemini im Standard begren
 
 **[6:25]** Take-away: **Sieben Schritte, ~15 Min beim ersten Mal. Name, Beschreibung, Starter, Instructions, Knowledge, Capabilities, Speichern. Dann testen und iterieren.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion schreiben wir die Instructions.
+
+[END 7:15]`,
 
   "s6-4": `**[0:00]** Instructions sind das, was deinen GPT von normalem ChatGPT unterscheidet. **Bewährtes Sechs-Block-Schema:**
 
@@ -143,7 +149,9 @@ Schützt vor Halluzinationen.
 
 **[6:30]** Take-away: **Instructions in sechs Blöcken — Rolle, Aufgabe, Vorgehen, Stil, Quellen, Don'ts. 300–800 Wörter. Iterativ verfeinern.**
 
-[END 7:00]`,
+**[7:00]** Direkt unter diesem Video wartet der **Instructions-Builder** — bau deine eigenen Instructions aus den sechs Blöcken.
+
+[END 7:15]`,
 
   "s6-5": `**[0:00]** Knowledge-Files machen deinen Assistenten **wirklich smart** — eigene Dokumente statt nur Welt-Wissen. Aber tückisch.
 
@@ -182,7 +190,9 @@ Schützt vor Halluzinationen.
 
 **[6:30]** Take-away: **3–5 Dateien pro Assistent. Sauber strukturiert, anonymisiert. Lehrplan, Operatoren, Beispiel-Material.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion verbinden wir den Assistenten mit Actions und externen Tools.
+
+[END 7:15]`,
 
   "s6-6": `**[0:00]** Mit **Actions** kann ein GPT externe Dienste ansteuern — Website besuchen, API aufrufen, andere App. Technisch anspruchsvoller.
 
@@ -203,7 +213,7 @@ Schützt vor Halluzinationen.
 [CUT TO: Talking Head]
 
 **[2:30]** **Drei praktische Action-Use-Cases:**
-1. **Bildgenerierung im Workflow** — DALL-E direkt im GPT
+1. **Bildgenerierung im Workflow** — direkt im GPT
 2. **Recherche mit Quellen** — Web Browsing + Links
 3. **Daten-Analyse** — Code Interpreter mit Excel-Tabelle (Anonymisierung Pflicht!)
 
@@ -212,13 +222,15 @@ Schützt vor Halluzinationen.
 - Drittanbieter-Actions: vor Aktivierung prüfen
 - Schul-Setup: mit Datenschutz abstimmen
 
-**[4:10]** **Ohne Actions** baust du schon mächtige Assistenten mit den eingebauten Capabilities — Web Browsing, DALL-E, Code Interpreter, File Upload.
+**[4:10]** **Ohne Actions** baust du schon mächtige Assistenten mit den eingebauten Capabilities — Web-Suche, Bildgenerierung, Code Interpreter, File Upload.
 
 **[4:55]** **Mein Rat:** Erst Standard-Capabilities ausreizen (Wochen). Dann ggf. Actions lernen oder Hilfe holen. GPT Store beobachten.
 
 **[5:25]** Take-away: **Actions sind mächtig, aber technisch anspruchsvoll. Für die meisten Lehrkräfte reichen die eingebauten Capabilities.**
 
-[END 6:00]`,
+**[6:00]** In der nächsten Lektion wechseln wir zu Claude Projects — Setup und Custom Instructions.
+
+[END 6:15]`,
 
   "s6-7": `**[0:00]** Anthropic-Variante: **Claude Projects**. In manchen Aspekten besser, in anderen schwächer als Custom GPTs.
 
@@ -304,7 +316,9 @@ Was kann ein Artifact sein?
 
 **[5:35]** Take-away: **Claude Projects + Artifacts = riesiger Werkzeugkasten für Lehrkräfte. Interaktive Materialien und Druckvorlagen direkt im Chat.**
 
-[END 6:00]`,
+**[6:00]** In der nächsten Lektion erstellst du Gemini Gems.
+
+[END 6:15]`,
 
   "s6-9": `**[0:00]** Dritte Plattform: **Gemini Gems** von Google. Im Workspace tief integriert.
 
@@ -321,7 +335,7 @@ Was kann ein Artifact sein?
 **[3:10]** **Schritt 5 — Tools:**
 - **Google Suche** — bessere Quellen-Verbindung
 - **Workspace-Integration** — Docs schreiben, Sheets-Tabellen, Gmail-Vorbereitung
-- **Imagen** — Bildgenerierung wie DALL-E
+- **Bildgenerierung** — integriert (Imagen)
 
 **[3:40]** **Schritt 6 — Testen.** Frage: *"Erstelle einen Stundenverlaufsplan für eine 90-Minuten-Stunde Mathematik 8. Klasse zum Thema 'Lineare Funktionen — Einstieg'."*
 
@@ -356,7 +370,9 @@ Was kann ein Artifact sein?
 
 **[6:25]** Take-away: **Gemini Gems — Google-Variante mit tiefer Workspace-Integration. Stark bei Recherche, Tabellen, Mail-Workflows. Oft in Schul-Lizenzen schon enthalten.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion vergleichen wir: Welches Tool für welchen Zweck?
+
+[END 7:15]`,
 
   "s6-10": `**[0:00]** Entscheidungshilfe.
 
@@ -367,7 +383,7 @@ Was kann ein Artifact sein?
 | Ökosystem | Größtes | Mittel | Kleinstes |
 | Sprachqualität | Sehr gut | Hervorragend | Sehr gut |
 | Kontext-Fenster | Mittelgroß | Sehr groß | Mittelgroß |
-| Bildgenerierung | DALL-E (gut) | Keine native | Imagen (gut) |
+| Bildgenerierung | ja (gut) | Keine native | ja (gut) |
 | Code/HTML | Gut (Code Interp.) | Sehr gut (Artifacts) | Gut |
 | Workspace-Integration | Schwach | Schwach | Hervorragend |
 | Sharing | Sehr einfach | Mittel | Schwierig (außer Workspace) |
@@ -380,7 +396,7 @@ Was kann ein Artifact sein?
 - **Ökosystem** — Custom GPTs am verbreitetsten. Im Internet Tausende fertige.
 - **Sprachqualität** — Claude **etwas reflektierter**. Für nuancierte Texte oft besser.
 - **Kontext-Fenster** — Claude längste Eingaben. Bücher/lange Lektüren möglich.
-- **Bildgenerierung** — ChatGPT (DALL-E) und Gemini (Imagen). Claude nicht.
+- **Bildgenerierung** — ChatGPT und Gemini generieren Bilder, Claude nicht.
 
 **[2:35]** **Drei typische Lehrer-Use-Cases:**
 1. **Schreibhilfe + Aufsatz-Feedback** → **Claude Projects** (Sprache, lange Texte, Artifacts)
@@ -405,7 +421,9 @@ Keine Eile. Wirklich gut werden in dem, was du nutzt.
 
 **[5:30]** Take-away: **Drei Tools, drei Stärken. Custom GPTs für Vielfalt, Claude für Sprache und Artifacts, Gemini für Workspace-Integration.**
 
-[END 6:00]`,
+**[6:00]** Direkt unter diesem Video wartet der **Plattform-Wizard** — finde die richtige Plattform für deinen Assistenten.
+
+[END 6:15]`,
 
   "s6-11": `**[0:00]** Wir bauen ab dieser Lektion fünf konkrete Beispiel-Assistenten. Jeder eine **Vorlage**. Wir starten mit dem **Lernhelfer für Begabtenförderung** — Original aus DeepDiveKI-Material: *"Erstelle einen KI-Assistenten, der einem Schüler mit Hochbegabung Aufgaben deutlich komplexer gestaltet."*
 
@@ -432,7 +450,7 @@ Keine Eile. Wirklich gut werden in dem, was du nutzt.
 - Liste von Aufgabentypen für Begabtenförderung pro Fach
 - Liste von Wettbewerben/Olympiaden mit Klassenstufen und Themen
 
-**[4:25]** **Capabilities:** Web Browsing ja (aktuelle Wettbewerbe), DALL-E nein, Code Interpreter ja (Berechnungs-Aufgaben).
+**[4:25]** **Capabilities:** Web-Suche ja (aktuelle Wettbewerbe), Bildgenerierung nein, Code Interpreter ja (Berechnungs-Aufgaben).
 
 **[4:50]** **Test:**
 > *"Hier eine Aufgabe für Mathe Klasse 8: 'Eine Gerade hat die Steigung 2 und schneidet die y-Achse bei -3. Bestimme den x-Wert für y = 7.' Bitte für Begabtenförderung erweitern."*
@@ -452,7 +470,9 @@ Mit Lernzielen, Dauer und Lehrplan-Bezug.
 
 **[7:20]** Take-away: **Lernhelfer Begabtenförderung — Bauzeit ~30 Min. Pro Anwendung 20+ Min gespart. Skaliert über das Schuljahr.**
 
-[END 8:00]`,
+**[8:00]** In der nächsten Lektion bauen wir Assistent 2: einen Helfer für mündliche Prüfungen.
+
+[END 8:15]`,
 
   "s6-12": `**[0:00]** Aus DeepDiveKI-Original: *"Erstelle einen KI-Assistenten, der dir bei der Vorbereitung mündlicher Prüfungen hilft. Er muss das Curriculum berücksichtigen und verschiedene Erwartungshorizonte erstellen."*
 
@@ -492,7 +512,9 @@ Mit Lernzielen, Dauer und Lehrplan-Bezug.
 
 **[7:00]** Take-away: **Strukturiert nach Anforderungsbereichen, mit Erwartungshorizonten und Rückfragen. Spart 60 Min pro Prüfung.**
 
-[END 8:00]`,
+**[8:00]** In der nächsten Lektion bauen wir Assistent 3: den SuS-Profil-Differenzierer.
+
+[END 8:15]`,
 
   "s6-13": `**[0:00]** **Datenschutz-sensibelster** der fünf Assistenten. Original-Aufgabe: *"Erstelle einen KI-Assistenten, der bestimmte Profile von SuS hält und dein Arbeitsmaterial anpasst."* — **mit dem Zusatz: "Keine Angabe des Namens des SuS!"**
 
@@ -542,7 +564,9 @@ Plus Hinweise zur Lehrkraft-Steuerung — "Bei Profil C bietet sich eine Begleit
 
 **[7:50]** Take-away: **Differenzierung in drei Versionen pro Minute. Mit anonymisierten Lerntyp-Profilen. Datenschutz strukturell eingebaut.**
 
-[END 8:00]`,
+**[8:00]** In der nächsten Lektion bauen wir Assistent 4: einen Feedback-Bot für Aufsätze.
+
+[END 8:15]`,
 
   "s6-14": `**[0:00]** Diesmal in **Claude Projects** statt Custom GPT — längere Texte, Claude-Stärke. Antonius hat den Bot mit mir entwickelt — nutzt ihn intensiv für Erstanalyse von Sek-II-Essays.
 
@@ -585,7 +609,9 @@ Plus Hinweise zur Lehrkraft-Steuerung — "Bei Profil C bietet sich eine Begleit
 
 **[6:30]** Take-away: **Strukturierte Erstanalyse in 30 Sek. Spart 15 Min pro Aufsatz. Bewertung bleibt bei dir. Anonymisierung Pflicht.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion bauen wir Assistent 5: einen Fach-Tutor für Latein und Mathe.
+
+[END 7:15]`,
 
   "s6-15": `**[0:00]** Andere Zielgruppe: **SuS nutzen den Assistenten**. Fach-Tutor hilft bei Übungs-Aufgaben — **ohne Lösungen zu schenken**. Beispiel: Latein. Logik überträgt sich auf Mathe, Physik, Chemie.
 
@@ -647,7 +673,9 @@ Schritt für Schritt — bis SuS selbst übersetzt hat.
 
 **[6:40]** Take-away: **Sokratisches Lernen statt Lösungs-Lieferung. Pädagogisch hochwertig. Datenschutz vor Einsatz klären. Übertragbar auf alle Fächer.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion machst du Silowissen mit NotebookLM nutzbar.
+
+[END 7:15]`,
 
   "s6-16": `**[0:00]** NotebookLM = **Wissens-Workbench**. Dokumente rein, durchsuchbare und befragbare Wissensbasis raus. Stark für Schulleitungen, Kollegien, Unterrichts-Materialien.
 
@@ -690,7 +718,9 @@ Schritt für Schritt — bis SuS selbst übersetzt hat.
 
 **[6:40]** Take-away: **Wissens-Workbench für eigene Dokumente. Quellen-strikt, Audio-Summary, Mindmaps. Riesiger Nutzen für Schulleitungen und Lehrkräfte mit großem Materialfundus.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion baust du deine eigene Prompt-Library auf.
+
+[END 7:15]`,
 
   "s6-17": `**[0:00]** Erkenntnis nach zwei Jahren KI-Nutzung: **Gute Prompts sind ein Schatz, der wiederverwendet werden muss.** Wer jeden Prompt neu schreibt, verschwendet Zeit.
 
@@ -737,7 +767,9 @@ Schritt für Schritt — bis SuS selbst übersetzt hat.
 
 **[5:30]** Take-away: **Prompt-Library ist nicht optional bei ernsthafter KI-Nutzung. Strukturierte Sammlung mit Kategorien, Variationen, Metadaten.**
 
-[END 6:00]`,
+**[6:00]** In der nächsten Lektion teilst du deine Prompt-Library im Kollegium.
+
+[END 6:15]`,
 
   "s6-18": `**[0:00]** Eigene Library gut. **Gemeinsame Schul-Library** exponentiell besser. 15 Lehrkräfte × 30 Prompts = 400+ geprüfte Prompts.
 
@@ -775,7 +807,9 @@ Schritt für Schritt — bis SuS selbst übersetzt hat.
 
 **[4:30]** Take-away: **Schul-Library ist Skaleneffekt. Definierte Rollen, Quality Gates, regelmäßiger Rhythmus. Wer initiativ wird, baut etwas Bleibendes für seine Schule auf.**
 
-[END 5:00]`,
+**[5:00]** In der nächsten Lektion kombinierst du Bild, Text und Stimme zu multimodalen Workflows.
+
+[END 5:15]`,
 
   "s6-19": `**[0:00]** Multimodal = mehrere Modalitäten in einem Workflow. Standard in ChatGPT, Claude, Gemini.
 
@@ -820,7 +854,9 @@ In 15 Min für jeden Lerntyp passendes Material.
 
 **[6:40]** Take-away: **Multimodal Standard 2026. Bild, Text, Audio, Video in einem Workflow. Spart die meiste Zeit gegenüber Single-Mode.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion kombinierst du mehrere KI-Tools sinnvoll.
+
+[END 7:15]`,
 
   "s6-20": `**[0:00]** Effizienteste Nutzer:innen sind **nicht** Mono-Tool-Loyale — sondern strategisch Wechselnde.
 
@@ -851,7 +887,7 @@ In 15 Min für jeden Lerntyp passendes Material.
 | UE-Brainstorming | ChatGPT | Claude für Vertiefung |
 | Aufsatz-Feedback | Claude | ChatGPT für Vergleichs-Analyse |
 | Recherche mit Quellen | Perplexity | ChatGPT für Synthese |
-| Bildgenerierung | ChatGPT (DALL-E) | Midjourney für höhere Qualität |
+| Bildgenerierung | ChatGPT | Midjourney für höhere Qualität |
 | Email-Drafting | Gemini (Workspace) | Claude für Schliff |
 | Datenanalyse | ChatGPT (Code Interpreter) | Claude für Interpretation |
 
@@ -869,7 +905,9 @@ Findet oft Schwächen, die du übersehen hast.
 
 **[5:30]** Take-away: **Tool-Switching ist Strategie, nicht Untreue. Jedes Tool hat Stärken. Workflow-Logik vor Tool-Loyalität.**
 
-[END 6:00]`,
+**[6:00]** Direkt unter diesem Video wartet das **Workflow-Routing** — spiel durch, welches Tool wann dran ist.
+
+[END 6:15]`,
 
   "s6-21": `**[0:00]** Eine der Lektionen mit der **höchsten Zeitersparnis** im ganzen Kurs. Bewertungs-Workflow für Hausaufgaben/Übungs-Materialien mit klaren Datenschutz- und Verantwortungs-Grenzen. Antonius hat diesen Workflow mit mir entwickelt.
 
@@ -911,7 +949,9 @@ Pro Analyse: 1–2 Min. Bei 25 SuS: 25–50 Min kritisches Lesen.
 
 **[6:40]** Take-away: **Sechs Schritte. Anonymisierung, KI-Erstanalyse, kritische Prüfung, persönliches Feedback. 50–65 % Zeitersparnis. Datenschutz und pädagogische Verantwortung bleiben gewahrt.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion wenden wir den Bewertungs-Workflow an — inklusive Qualitätssicherung.
+
+[END 7:15]`,
 
   "s6-22": `**[0:00]** Was passiert, wenn die KI **danebenliegt**? Qualitätssicherung, ohne die der Workflow nicht professionell ist.
 
@@ -959,7 +999,9 @@ Mein Vorgehen: KI-Analyse für diesen Aspekt **ignorieren**, kulturelle Eigenhei
 
 **[6:25]** Take-away: **Vier QS-Mechanismen — Stichproben, Eigenbewertung vor KI, Zwei-KI-Check, Transparenz. Fünf typische KI-Fehler kennen.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion nutzt du Notion als Organisationstool.
+
+[END 7:15]`,
 
   "s6-23": `**[0:00]** Eine Lektion zu **Notion** — Mischung aus Notizbuch, Datenbank, Wiki, Projektmanagement. Natürliche Heimat für KI-Workflows.
 
@@ -1014,7 +1056,9 @@ Logik überall ähnlich. Notion am leichtesten zu starten.
 
 **[5:30]** Take-away: **Notion = natürliche Heimat für KI-Workflows. Strukturiert, verlinkt, teilbar, mit eingebauter KI.**
 
-[END 6:00]`,
+**[6:00]** In der nächsten Lektion ziehen wir ethische Leitplanken für eigene Assistenten.
+
+[END 6:15]`,
 
   "s6-24": `**[0:00]** Werkzeug = Verantwortung. **Sechs ethische Leitplanken** bei jedem Assistenten anlegen.
 
@@ -1061,7 +1105,9 @@ Vermeide Einbettung in Systeme ohne deine Kontrolle.
 
 **[5:45]** Take-away: **Sechs Leitplanken — Bias, Datenschutz, Transparenz, Notausgang, Verantwortung, Reversibility. Vor jedem Sharing prüfen. Im Zweifel zurückhalten.**
 
-[END 6:00]`,
+**[6:00]** Direkt unter diesem Video wartet der **Ethik-Check** — lass deinen Assistenten vor dem Teilen einmal durchlaufen.
+
+[END 6:15]`,
 
   "s6-25": `**[0:00]** Jetzt bist du dran. Wir haben fünf Assistenten gemeinsam gebaut — jetzt **dein erster eigener**.
 
@@ -1120,7 +1166,9 @@ Drei × "ja" → veröffentlichungsreif.
 
 **[6:30]** Take-away: **Dein erster Assistent — ~2 Std Investition. Klarer Use-Case, 6 Blöcke Instructions, Knowledge, Testen, Ethik-Check. Padlet einreichen.**
 
-[END 7:00]`,
+**[7:00]** In der nächsten Lektion bekommst du Optimierungs-Tipps und Best Practices.
+
+[END 7:15]`,
 
   "s6-26": `**[0:00]** Erster Assistent läuft. Sieben Optimierungs-Tipps für nächstes Level.
 
@@ -1142,7 +1190,7 @@ Negative Beispiele klären Grenzen besser als Regeln allein.
 Konsistente Outputs ohne Nachbearbeitung.
 
 **[3:10]** **Tipp 5 — Feedback-Sammler einbauen.**
-> *"Am Ende jeder Konversation fragst du: 'War diese Antwort hilfreich? Wenn nicht, was hätte besser sein können?' Antworten speicherst du in deinem Memory."*
+> *"Am Ende jeder Konversation fragst du: 'War diese Antwort hilfreich? Wenn nicht, was hätte besser sein können?'"* Die Rückmeldungen sammelst du selbst (Notiz, Tabelle) und lässt sie in die nächste Version der Instructions einfließen — auf Plattformen mit Memory kann der Assistent sie auch dort ablegen.
 
 Systematische Verbesserungs-Hinweise.
 
@@ -1164,7 +1212,9 @@ Systematische Verbesserungs-Hinweise.
 
 **[5:30]** Take-away: **Sieben Optimierungs-Tipps — A/B, Beispiele, negative Beispiele, Format-Vorlagen, Feedback-Sammler, Iteration, Kollegium-Evaluation.**
 
-[END 6:00]`,
+**[6:00]** In der nächsten Lektion werfen wir einen Ausblick: Wohin entwickelt sich der Assistant-Trend?
+
+[END 6:15]`,
 
   "s6-27": `**[0:00]** Letzte inhaltliche Lektion. Ausblick auf 2027/2028.
 
@@ -1205,5 +1255,7 @@ Für Schulen revolutionär: KI-Lösung auf **Schul-Server**. Keine Daten ins Aus
 
 **[5:35]** Take-away: **Fünf Trends — Agenten, Multi-Agent, persönliche Assistenten, Multimodalität, Open Source. Grundkompetenzen übertragen sich. Jährliche Reflexion einbauen.**
 
-[END 6:00]`,
+**[6:00]** Und sichere dein Wissen aus Modul IV im **Modul-Quiz** direkt unter diesem Video.
+
+[END 6:15]`,
 };

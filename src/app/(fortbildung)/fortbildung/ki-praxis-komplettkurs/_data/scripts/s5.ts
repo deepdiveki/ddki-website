@@ -55,7 +55,7 @@ Take-away für diesen Einstieg:
 [CUT TO: Talking Head]
 
 **[4:55]**
-Eine kleine Bemerkung zur Tonalität dieses Moduls — Nora hat mir bei der inhaltlichen Strukturierung viel geholfen, weil sie auf der wissenschaftlichen Seite tief drin ist. Wenn ich Studien zitiere oder von der Forschungslage rede, kommt das oft aus ihrem Bereich. Du siehst sie nicht im Bild — sie ist aber gewissermaßen in den Argumenten **mit drin**.
+Eine kleine Bemerkung zur Tonalität dieses Moduls — es ist bewusst wissenschaftlich unterfüttert. Wenn ich Studien zitiere oder von der Forschungslage rede, stützt sich das auf die Forschungsarbeit hinter dem Kurs. Die Argumente stehen also auf einem soliden **wissenschaftlichen Fundament**.
 
 **[5:25]**
 In der nächsten Lektion: Disruption konkret. Was passiert gerade in der Politik, in der Wirtschaft, in einzelnen Branchen?
@@ -142,7 +142,9 @@ Im Download findest du eine **Branchen-Map** mit konkreten Beispielen für KI-Di
 **[5:50]**
 In der nächsten Lektion ein Gegenpol — wir schauen uns an, wo KI als **Werkzeug für Inklusion** wirklich Großes leistet.
 
-[END 6:00]`,
+**[6:00]** Und direkt unter diesem Video wartet der **Beruf-Resilienz-Check** — schätze ein, wie KI-fest ein Beruf ist.
+
+[END 6:15]`,
 
   "s5-3": `[VISUAL: Slide-Titel "Inklusion durch KI"]
 
@@ -357,7 +359,7 @@ Und sie hat keine **emotionale Intelligenz** im menschlichen Sinne. Sie kann Emo
 [CUT TO: Talking Head]
 
 **[4:25]**
-**Daraus folgt — und Nora bringt das wissenschaftlich auf den Punkt:**
+**Daraus folgt — wissenschaftlich auf den Punkt gebracht:**
 
 Was KI gut kann, ist **Hilfsarbeit zu menschlicher Kompetenz**. Was Menschen besser bleiben werden, sind die **kreativen, intuitiven, emotionalen Aufgaben**. Und das ist nicht romantisch — das ist strukturell.
 
@@ -612,7 +614,7 @@ Bias ist ein **starkes pädagogisches Thema** — weil es konkret, fühlbar und 
 
 **Drei Unterrichtsideen:**
 
-**Idee 1 — Bias-Recherche.** Die SuS testen selbst. Sie generieren mit ChatGPT, DALL-E oder Midjourney 10 Bilder zu einem bestimmten Beruf, einer Tätigkeit, einer Personengruppe. Sie analysieren: Wo sind Verzerrungen?
+**Idee 1 — Bias-Recherche.** Die SuS testen selbst. Sie generieren mit ChatGPT, Gemini oder Midjourney 10 Bilder zu einem bestimmten Beruf, einer Tätigkeit, einer Personengruppe. Sie analysieren: Wo sind Verzerrungen?
 
 **Idee 2 — Bias-Vorhersage.** Bevor die SuS Bilder generieren, **sagen sie voraus**, welche Verzerrungen sie erwarten. Dann generieren. Dann vergleichen. Sie lernen über ihre eigenen Erwartungen — und über die der KI.
 
@@ -625,7 +627,7 @@ Bias ist ein **starkes pädagogisches Thema** — weil es konkret, fühlbar und 
 
 Mehrere Strategien. Trainingsdaten breiter machen. Filter einbauen, die einseitige Outputs reduzieren. Post-Processing-Algorithmen, die für Vielfalt sorgen.
 
-**Aber:** Das löst das Grundproblem nicht. Wenn deine Trainingsdaten verzerrt sind, bleibt das System verzerrt — auch wenn du Filter darauflegst. Die Filter werden manchmal zur eigenen Witzfigur, etwa wenn DALL-E historische Persönlichkeiten "diversifiziert" und plötzlich "George Washington als schwarzer Mann" generiert.
+**Aber:** Das löst das Grundproblem nicht. Wenn deine Trainingsdaten verzerrt sind, bleibt das System verzerrt — auch wenn du Filter darauflegst. Die Filter werden manchmal zur eigenen Witzfigur, etwa als Google Gemini 2024 historische Persönlichkeiten "diversifizierte" und plötzlich ethnisch gemischte "Gründerväter der USA" oder historisch falsche Bilder generierte.
 
 Das ist eine **bewusste Korrektur**, die ihre eigenen Probleme schafft. Es gibt keinen einfachen Weg raus.
 
@@ -650,7 +652,9 @@ Im Download findest du die **Bias-Beispielsammlung** mit zehn weiteren Fällen, 
 **[6:50]**
 In der nächsten Lektion bündeln wir die großen Risiken jenseits von Bias: Datenschutz, Urheberrecht, Abhängigkeit.
 
-[END 7:00]`,
+**[7:00]** Und direkt unter diesem Video wartet das **Bias-Vorhersage-Spiel** — sag KI-Verzerrungen voraus, bevor du sie siehst.
+
+[END 7:15]`,
 
   "s5-9": `[VISUAL: Slide-Titel "Drei große Risikofelder"]
 
@@ -751,14 +755,82 @@ Take-away:
 **Drei Risikofelder — Datenschutz, Urheberrecht, Abhängigkeit. Strukturell bedeutend, aber managbar. Bewusste Nutzung schützt. Im Download das Risikofelder-PDF mit Argumentations-Hilfen für Eltern und Kollegium.**
 
 **[6:40]**
-In der nächsten Lektion eine politische Diskussion, die bald in der Öffentlichkeit ansteht: Soll ChatGPT Pro für alle Staatsbürger:innen kostenfrei sein?
+Ein Risikofeld fehlt noch — eins, das in der Debatte oft untergeht: der **ökologische Fußabdruck** von KI. Genau darum geht es in der nächsten Lektion.
 
 [END 7:00]`,
 
-  "s5-10": `[VISUAL: Slide-Titel "ChatGPT Pro für alle Bürger:innen?"]
+  "s5-9b": `[VISUAL: Slide-Titel "Der ökologische Fußabdruck von KI"]
 
 **[0:00]**
-Eine Frage, die in den letzten Monaten zunehmend diskutiert wird und die in den nächsten Jahren bildungspolitisch relevant wird: **Sollte der Staat KI-Pro-Zugänge für alle Bürger:innen bezahlen?**
+Datenschutz, Urheberrecht, Abhängigkeit — die haben wir gerade behandelt. Es gibt ein weiteres Risikofeld, das in vielen KI-Fortbildungen komplett fehlt: der **Energie- und Wasserverbrauch**. Und weil SuS genau danach fragen — "Herr Isenbiel, ist KI nicht total schlecht fürs Klima?" — solltest du hier sprechfähig sein. Nicht mit Panik, sondern mit Zahlen und Augenmaß.
+
+[VISUAL: Slide "Zwei Phasen: Training vs. Nutzung"]
+
+**[0:40]**
+Das wichtigste mentale Modell zuerst: KI verbraucht Energie in **zwei sehr unterschiedlichen Phasen.**
+
+**Phase 1 — Training.** Ein großes Modell einmal zu trainieren, ist extrem energieintensiv — das läuft wochen- bis monatelang auf tausenden Spezial-Chips. Für ältere Modelle wurden Schätzungen im Bereich von mehreren hundert bis über tausend Megawattstunden genannt — grob der Jahresverbrauch von hunderten Haushalten. Das passiert aber **einmalig** pro Modell.
+
+**Phase 2 — Nutzung (Inferenz).** Deine einzelne Anfrage kostet dagegen **sehr wenig** — Schätzungen liegen im Bereich weniger Wattstunden, ungefähr so viel wie eine Handvoll Websuchen oder eine LED-Lampe, die ein paar Minuten brennt. Das Problem ist nicht die eine Anfrage — es ist die **Masse**: hunderte Millionen Menschen, viele Male am Tag.
+
+[VISUAL: Slide "Wasser & Rechenzentren"]
+
+**[2:00]**
+Zwei Dinge, die oft vergessen werden.
+
+**Wasser.** Rechenzentren müssen gekühlt werden, und Kühlung braucht Wasser. Eine viel zitierte — und in der Forschung durchaus umstrittene — Schätzung besagt: eine kurze Abfolge von KI-Anfragen kann grob im Bereich eines halben Liters Wasser liegen. Die genaue Zahl ist unsicher und hängt stark vom Standort und der Jahreszeit ab. Wichtig ist das Prinzip: KI hat nicht nur einen Strom-, sondern auch einen **Wasser-Fußabdruck.**
+
+**Rechenzentren insgesamt.** Rechenzentren verbrauchen laut Internationaler Energieagentur grob **ein bis zwei Prozent** des weltweiten Stroms — Tendenz durch KI steigend. Das ist viel, aber zur Einordnung: In derselben Größenordnung liegen andere digitale Alltags-Aktivitäten, allen voran Video-Streaming.
+
+[CUT TO: Talking Head]
+
+**[3:20]**
+Und jetzt das Gegengewicht — sonst wäre es einseitig.
+
+Erstens: Modelle werden **pro Anfrage rasant effizienter.** Was heute eine Antwort kostet, ist ein Bruchteil dessen von vor zwei Jahren — bessere Chips, kleinere spezialisierte Modelle, optimierte Rechenzentren.
+
+Zweitens: Viele Anbieter kaufen zunehmend **erneuerbare Energie** ein und bauen Rechenzentren an kühlen, wasserreichen Standorten.
+
+Drittens — und das ist die ehrliche didaktische Botschaft: Der Fußabdruck **einer** Unterrichtsvorbereitung mit KI ist winzig gegen eine einzige Autofahrt zur Schule. KI-Verzicht "fürs Klima" spart real fast nichts — bewusster Umgang aber schon.
+
+[VISUAL: Slide "Bewusste Nutzung — konkret"]
+
+**[4:20]**
+Was heißt bewusste Nutzung konkret?
+
+- **Text schlägt Bild schlägt Video.** Ein Bild zu generieren kostet ein Vielfaches einer Textantwort, ein Video noch weit mehr. Also nicht aus Spielerei zwanzig Varianten eines Bildes erzeugen.
+- **In einem Chat bleiben statt zwanzig Mal neu anzusetzen** — jede Neu-Generierung kostet.
+- **Gezielt prompten** statt wild raten: Ein guter Prompt spart Iterationen — und damit Energie.
+
+Das ist dieselbe Botschaft wie im ganzen Kurs: **Bewusste Nutzung statt naiver Nutzung** — hier zahlt sie sogar doppelt ein.
+
+[VISUAL: Slide "Unterrichtsidee"]
+
+**[5:10]**
+Und das Beste: Das ist eine **hervorragende Unterrichtseinheit** — für Geographie, PGW, NuT, Ethik oder fächerübergreifend.
+
+- SuS recherchieren selbst Zahlen zum KI-Energieverbrauch — und stoßen dabei auf **widersprüchliche Angaben.** Genau das ist der Lerneffekt: Quellen prüfen, Größenordnungen einordnen, Panik-Schlagzeilen von belastbaren Daten trennen.
+- Vergleichsrechnung: KI-Anfrage vs. Streaming-Stunde vs. Autofahrt vs. Rindfleisch-Burger. Was überrascht?
+- Ethische Debatte: Rechtfertigt der Nutzen den Verbrauch? Wo ist KI-Einsatz sinnvoll, wo Verschwendung?
+
+Du brauchst nicht die eine richtige Zahl. Du brauchst die Fähigkeit, deine SuS zum **differenzierten Abwägen** zu bringen.
+
+[VISUAL: Take-away-Slide]
+
+**[6:00]**
+Take-away:
+
+**KI hat einen realen Energie- und Wasser-Fußabdruck — das Training ist teuer, die einzelne Anfrage billig, die Masse macht's. Modelle werden rasant effizienter, und der Verzicht spart real kaum etwas. Bewusste Nutzung statt Panik: Text vor Bild vor Video, weniger Wegwerf-Generierungen. Und ein starkes fächerübergreifendes Unterrichtsthema. Zahlen und Vergleiche findest du im Umwelt-Faktenblatt im Download.**
+
+**[6:25]**
+In der nächsten Lektion eine politische Diskussion, die bald in der Öffentlichkeit ansteht: Soll Premium-KI für alle Staatsbürger:innen kostenfrei sein?
+
+[END 6:45]`,
+
+  "s5-10": `[VISUAL: Slide-Titel "Premium-KI für alle Bürger:innen?"]
+
+**[0:00]**
+Eine Frage, die in den letzten Monaten zunehmend diskutiert wird und die in den nächsten Jahren bildungspolitisch relevant wird: **Sollte der Staat Premium-KI-Zugänge für alle Bürger:innen bezahlen?** (Also die kostenpflichtigen Tarife wie ChatGPT Plus oder Claude Pro — nicht zu verwechseln mit dem sehr teuren „ChatGPT Pro"-Tarif für Power-User.)
 
 Die Frage klingt utopisch. Sie ist aber sehr konkret. In Estland und in Schweden gibt es erste Initiativen. In Deutschland werden Pilotprojekte für Schulen verhandelt. Das ist eine **Bildungsgerechtigkeits-Frage**.
 
@@ -956,22 +1028,20 @@ Drei Gründe.
 
 **Drittens** — Was in der Grundschule erfahrungsbasiert gelernt wird, kann in der Mittelstufe konzeptionalisiert und in der Oberstufe kritisch analysiert werden. **Das ist genuine spirale Bildung.**
 
-[VISUAL: Slide "Fünf Stufen"]
+[VISUAL: Slide "Vier Stufen"]
 
 **[1:35]**
-**Wir strukturieren in fünf Stufen.**
+**Wir strukturieren in vier Stufen.**
 
 **Stufe 1 — Grundschule (Klasse 3–4).** Erstkontakt, spielerisch.
 
 **Stufe 2 — Unterstufe (Klasse 5–6).** Begriff "KI" einführen, erste Reflexion.
 
-**Stufe 3 — Mittelstufe (Klasse 7–8).** Funktionsweise verstehen, Ethik anbahnen.
+**Stufe 3 — Mittelstufe (Klasse 7–9).** Funktionsweise verstehen, Ethik anbahnen, Tools kritisch nutzen.
 
-**Stufe 4 — Vorstufe (Klasse 9–10).** Tools beherrschen, kritisch nutzen.
+**Stufe 4 — Oberstufe (Klasse 10–13).** Vertiefung, eigene Position, projektorientiert.
 
-**Stufe 5 — Oberstufe (Klasse 11–13).** Vertiefung, eigene Position, projektorientiert.
-
-Ich gehe die Stufen in den nächsten vier Lektionen einzeln durch — mit **konkreten Materialien**, die du sofort nutzen kannst.
+Ich gehe die vier Stufen in den nächsten vier Lektionen einzeln durch — mit **konkreten Materialien**, die du sofort nutzen kannst.
 
 [CUT TO: Talking Head]
 
@@ -1006,9 +1076,9 @@ Beispiel-Schul-Strategie:
 **[4:10]**
 Take-away:
 
-**Spiralcurriculum heißt: Mehrmals durchs Thema, jedes Mal tiefer. Fünf Stufen von Grundschule bis Oberstufe. Konkret machbar in 50 Stunden Gesamt-Schulzeit, verteilt.**
+**Spiralcurriculum heißt: Mehrmals durchs Thema, jedes Mal tiefer. Vier Stufen von Grundschule bis Oberstufe. Konkret machbar in 50 Stunden Gesamt-Schulzeit, verteilt.**
 
-Im Download findest du eine **Spiralcurriculum-Map** als Übersicht aller fünf Stufen.
+Im Download findest du eine **Spiralcurriculum-Map** als Übersicht aller vier Stufen.
 
 **[4:40]**
 In den nächsten vier Lektionen gehen wir die Stufen einzeln durch — mit konkreten, sofort einsatzbaren Materialien.
@@ -1160,7 +1230,7 @@ In der nächsten Lektion: Mittelstufe, mit zwei sehr besonderen Materialien — 
   "s5-15": `[VISUAL: Slide-Titel "Mittelstufe — Ethik und ML offline"]
 
 **[0:00]**
-Stufe 3: Mittelstufe, 7. und 8. Klasse. Hier wird's spannender. Zwei Materialien, die ich besonders empfehle: **MoralMachine** für die Ethik-Seite und **AI Unplugged** für die Funktionsweise.
+Stufe 3: Mittelstufe, 7. bis 9. Klasse. Hier wird's spannender. Zwei Materialien, die ich besonders empfehle: **MoralMachine** für die Ethik-Seite und **AI Unplugged** für die Funktionsweise.
 
 [VISUAL: Screencast moralmachine.net]
 
@@ -1236,7 +1306,7 @@ In der nächsten Lektion: Oberstufe, mit zwei vertiefenden Materialien.
   "s5-16": `[VISUAL: Slide-Titel "Oberstufe — Vertiefung"]
 
 **[0:00]**
-Stufe 5: Oberstufe, 11. bis 13. Klasse. Hier wird's anspruchsvoll. Zwei Materialien für die Vertiefung: **KI_Campus Datenschule** und **RAAbits NI vs. KI**.
+Stufe 4: Oberstufe, 10. bis 13. Klasse. Hier wird's anspruchsvoll. Zwei Materialien für die Vertiefung: **KI_Campus Datenschule** und **RAAbits NI vs. KI**.
 
 [VISUAL: Screencast — KI_Campus Datenschule]
 
@@ -1309,7 +1379,9 @@ Im Download findest du das **Material-Datenblatt Oberstufe** mit Vorschlag für 
 **[4:40]**
 In der nächsten Lektion: Wie wird das Ganze rechtlich verankert? Wir schauen das Hamburger Curriculum an.
 
-[END 5:00]`,
+**[5:00]** Und direkt unter diesem Video wartet der **Schulstufen-Material-Finder** — finde passendes Material für deine Schulstufe.
+
+[END 5:15]`,
 
   "s5-17": `[VISUAL: Slide-Titel "Rechtliche Verankerung"]
 
@@ -1458,7 +1530,9 @@ Take-away:
 **[4:55]**
 In der nächsten Lektion: Wie redest du mit Eltern über KI?
 
-[END 5:00]`,
+**[5:00]** Und direkt unter diesem Video wartet der **Einwand-Konter** — trainiere Antworten auf typische Skeptiker-Einwände.
+
+[END 5:15]`,
 
   "s5-19": `[VISUAL: Slide-Titel "KI und Eltern"]
 

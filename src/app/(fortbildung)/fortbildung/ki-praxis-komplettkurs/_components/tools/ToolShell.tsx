@@ -1,6 +1,7 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { Check, Copy } from "lucide-react";
 
 export default function ToolShell({
   title,
@@ -30,20 +31,37 @@ export default function ToolShell({
 }
 
 export function CopyButton({ value, label = "In Zwischenablage kopieren" }: { value: string; label?: string }) {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return;
+    const t = setTimeout(() => setCopied(false), 2000);
+    return () => clearTimeout(t);
+  }, [copied]);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+    } catch {
+      /* Clipboard nicht verfügbar – still ignorieren */
+    }
+  };
+
   return (
-    <button
-      type="button"
-      onClick={async () => {
-        try {
-          await navigator.clipboard.writeText(value);
-        } catch {
-          /* silent */
-        }
-      }}
-      disabled={!value}
-      className="rounded-lg bg-purple px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-dark disabled:cursor-not-allowed disabled:opacity-40"
-    >
-      {label}
-    </button>
+    <div className="flex items-center gap-3">
+      <button
+        type="button"
+        onClick={handleCopy}
+        disabled={!value}
+        className="flex items-center gap-2 rounded-lg bg-purple px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-dark disabled:cursor-not-allowed disabled:opacity-40"
+      >
+        {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
+        {copied ? "Kopiert!" : label}
+      </button>
+      <span role="status" aria-live="polite" className="sr-only">
+        {copied ? "In die Zwischenablage kopiert." : ""}
+      </span>
+    </div>
   );
 }

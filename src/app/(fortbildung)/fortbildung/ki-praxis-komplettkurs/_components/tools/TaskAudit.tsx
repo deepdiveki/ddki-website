@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { CheckCircle2, Circle, ShieldCheck } from "lucide-react";
 import ToolShell from "./ToolShell";
 
@@ -40,6 +40,7 @@ const PRINCIPLES: { key: PrincipleKey; name: string; checks: string[]; tip: stri
 ];
 
 export default function TaskAudit() {
+  const taskId = useId();
   const [task, setTask] = useState("");
   const [checks, setChecks] = useState<Record<string, boolean>>({});
 
@@ -60,8 +61,9 @@ export default function TaskAudit() {
 
   return (
     <ToolShell title="Aufgaben-Audit: 5 Grundsätze prüfen" description="Trage deine Klausur- oder Hausaufgabe ein und hake die erfüllten Kriterien ab. Am Ende: KI-Resistenz-Score plus konkrete To-Dos für die schwachen Grundsätze.">
-      <label className="block text-sm font-semibold text-text-primary">Deine Aufgabe (optional zum Mitschreiben)</label>
+      <label htmlFor={taskId} className="block text-sm font-semibold text-text-primary">Deine Aufgabe (optional zum Mitschreiben)</label>
       <textarea
+        id={taskId}
         value={task}
         onChange={(e) => setTask(e.target.value)}
         placeholder="z.B. „Verfasse einen Aufsatz zu den Ursachen der Französischen Revolution. 800 Wörter."
@@ -81,10 +83,12 @@ export default function TaskAudit() {
                   <li key={key}>
                     <button
                       type="button"
+                      role="checkbox"
+                      aria-checked={isChecked}
                       onClick={() => setChecks((prev) => ({ ...prev, [key]: !prev[key] }))}
                       className="flex w-full items-start gap-3 text-left"
                     >
-                      {isChecked ? <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" /> : <Circle className="mt-0.5 h-5 w-5 shrink-0 text-text-tertiary" />}
+                      {isChecked ? <CheckCircle2 aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" /> : <Circle aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-text-tertiary" />}
                       <span className={`text-sm ${isChecked ? "text-text-primary" : "text-text-secondary"}`}>{c}</span>
                     </button>
                   </li>
@@ -95,10 +99,10 @@ export default function TaskAudit() {
         ))}
       </ol>
 
-      <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
+      <div aria-live="polite" className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
         <div className="flex items-start gap-4">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-purple text-white">
-            <ShieldCheck className="h-6 w-6" />
+            <ShieldCheck aria-hidden="true" className="h-6 w-6" />
           </div>
           <div className="flex-1">
             <div className="flex items-baseline gap-3">

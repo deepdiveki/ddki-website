@@ -13,7 +13,9 @@ export const s2Scripts: Record<string, string> = {
 
 [3:35] Take-away: Der Crash-Kurs ist die gemeinsame Startrampe. Danach sind wir alle bereit für die Module.
 
-[END 4:00]`,
+[4:00] In der nächsten Lektion klären wir die Grundfrage: Was ist KI eigentlich? Ein einfaches mentales Modell.
+
+[END 4:15]`,
 
   "s2-2": `[0:00] Bevor wir irgendetwas tippen, brauchst du ein mentales Modell. Nicht, um Informatiker:in zu werden — sondern um zu verstehen, warum die KI sich so verhält, wie sie sich verhält.
 
@@ -31,7 +33,9 @@ export const s2Scripts: Record<string, string> = {
 
 [5:10] Take-away: Sprachmodell = Vervollständigungs-Maschine, die das wahrscheinlichste nächste Wort wählt. Genial mit Sprache, kein Wahrheits-Automat.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion schauen wir genauer hin: Wie „arbeitet“ so ein Sprachmodell eigentlich?
+
+[END 6:15]`,
 
   "s2-3": `[0:00] Ein bisschen tiefer — aber keine Sorge, weiterhin ohne Mathe. Ich will, dass du nach dieser Lektion ein Gefühl dafür hast, warum die KI tut, was sie tut.
 
@@ -51,7 +55,9 @@ export const s2Scripts: Record<string, string> = {
 
 [5:15] Take-away: Drei Regeln — Kontext entscheidet, Antworten sind jedes Mal neu, ein Chat ist ein Gedächtnis. Das erklärt 90 % des KI-Verhaltens.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion lernst du die drei großen Plattformen kennen: ChatGPT, Claude und Gemini.
+
+[END 6:15]`,
 
   "s2-4": `[0:00] Es gibt drei große Plattformen, die du kennen solltest. Alle drei können fast alles, was wir in diesem Kurs brauchen. Du musst dich nicht festlegen — aber es hilft, die Unterschiede zu kennen.
 
@@ -71,7 +77,9 @@ export const s2Scripts: Record<string, string> = {
 
 [5:20] Take-away: ChatGPT, Claude, Gemini — alle drei taugen. Nimm eine, fang an. Für diesen Kurs: ChatGPT, kostenlos.
 
-[END 6:00]`,
+[6:00] Direkt unter diesem Video wartet der **Plattform-Finder** — finde heraus, welche der drei Plattformen zu dir passt.
+
+[END 6:15]`,
 
   "s2-5": `[0:00] Jetzt wird's praktisch. Wir legen gemeinsam einen Account an und ich zeige dir die Oberfläche. Pausier das Video und mach parallel mit.
 
@@ -93,7 +101,9 @@ export const s2Scripts: Record<string, string> = {
 
 [4:40] Take-away: Account anlegen, Eingabefeld finden, „Neuer Chat" für neue Themen. Mehr brauchst du fürs Erste nicht.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion schreibst du live deinen ersten Prompt.
+
+[END 5:15]`,
 
   "s2-6": `[0:00] Jetzt der Moment, auf den es ankommt: dein erster echter Prompt. Ich tippe live, du guckst mir über die Schulter — und danach machst du es selbst.
 
@@ -122,7 +132,9 @@ Die KI baut den Text um. Das ist der Kern: Es ist ein Dialog, kein einmaliger Kn
 
 [6:15] Take-away: Einfach anfangen. Im Gespräch bleiben. Nachsteuern. Du kannst nichts kaputtmachen.
 
-[END 7:00]`,
+[7:00] In der nächsten Lektion zerlegen wir, was einen wirklich guten Prompt ausmacht.
+
+[END 7:15]`,
 
   "s2-7": `[0:00] In der letzten Lektion haben wir einfach drauflos getippt — und das ist genau richtig zum Starten. Jetzt machen wir deine Prompts systematisch besser. Es gibt vier Bausteine, die fast jeden Prompt verbessern.
 
@@ -147,7 +159,9 @@ Die KI baut den Text um. Das ist der Kern: Es ist ein Dialog, kein einmaliger Kn
 
 [6:40] Take-away: Rolle, Aufgabe, Kontext, Format. Vier Bausteine. Bei schlechten Ergebnissen fehlt fast immer einer davon.
 
-[END 7:00]`,
+[7:00] Direkt unter diesem Video wartet der **Prompt-Builder** — bau deinen ersten Prompt aus genau diesen vier Bausteinen.
+
+[END 7:15]`,
 
   "s2-8": `[0:00] Die wichtigste Fähigkeit im Umgang mit KI ist nicht der perfekte erste Prompt. Es ist das Nachsteuern. Profis erkennt man daran, dass sie nach der ersten Antwort weitermachen.
 
@@ -167,7 +181,9 @@ Dann dreht die KI den Spieß um und fragt dich — und plötzlich wird das Ergeb
 
 [4:30] Take-away: Die erste Antwort ist ein Entwurf, kein Endprodukt. Iterieren ist die eigentliche Kernkompetenz.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion geht's um den wichtigsten Stolperstein: Wenn die KI Unsinn behauptet — Halluzinationen.
+
+[END 5:15]`,
 
   "s2-9": `[0:00] Diese Lektion ist die wichtigste der ganzen Sektion. Wenn du nur eine Sache aus dem Crash-Kurs mitnimmst, dann diese: KI kann selbstbewusst Dinge behaupten, die schlicht falsch sind. Man nennt das „Halluzinationen".
 
@@ -187,7 +203,9 @@ Dann dreht die KI den Spieß um und fragt dich — und plötzlich wird das Ergeb
 
 [6:10] Take-away: KI klingt immer überzeugt — auch wenn sie falsch liegt. Jede konkrete Faktenangabe wird außerhalb der KI geprüft. „Bist du sicher?" hilft nicht.
 
-[END 7:00]`,
+[7:00] Direkt unter diesem Video wartet der **Halluzinations-Trainer** — schätze acht Szenarien ein und teste dein Gespür.
+
+[END 7:15]`,
 
   "s2-10": `[0:00] Kurzer, aber wichtiger Stopp. Im Crash-Kurs gehen wir bewusst nicht tief ins Thema Datenschutz — das ist zu groß für hier und hat seinen eigenen Platz in den späteren Modulen. Aber fünf Minuten Grundregeln brauchst du, bevor du loslegst.
 
@@ -205,7 +223,9 @@ Dann dreht die KI den Spieß um und fragt dich — und plötzlich wird das Ergeb
 
 [4:45] Take-away: Keine personenbezogenen Daten in die KI. Anonymisieren, echte Namen erst hinterher einsetzen. Der Rest folgt in den Modulen.
 
-[END 5:00]`,
+[5:00] In der nächsten Lektion wird's konkret: deine ersten Lehrer-Use-Cases, die sofort entlasten.
+
+[END 5:15]`,
 
   "s2-11": `[0:00] Jetzt der Teil, für den du hier bist: Womit entlastest du dich ab morgen? Ich zeige dir fünf Use-Cases live, die sofort Zeit sparen. Alle mit den vier Prompt-Bausteinen aus Lektion 2.7.
 
@@ -234,7 +254,9 @@ Inklusion und Differenzierung in Sekunden — dazu gleich mehr in Lektion 2.12.
 
 [6:20] Take-away: Einstiege, E-Mails, Vereinfachen, Feedback, Quiz — fünf Use-Cases, die ab morgen Zeit sparen. KI killt die kleinen Reibungen.
 
-[END 7:00]`,
+[7:00] In der nächsten Lektion geht's um Differenzierung — Individualisierung in Minuten.
+
+[END 7:15]`,
 
   "s2-12": `[0:00] Der vielleicht stärkste Hebel von KI für den Unterricht: Differenzierung. Das, wofür im Alltag oft die Zeit fehlt, geht jetzt in Minuten.
 
@@ -252,13 +274,15 @@ Inklusion und Differenzierung in Sekunden — dazu gleich mehr in Lektion 2.12.
 
 [CUT TO: Talking Head]
 
-[4:00] Ein Hinweis von Nora aus unserem Team, der mir wichtig ist: Einfache Sprache ist nicht dasselbe wie Leichte Sprache. Leichte Sprache ist ein geprüfter Standard mit eigenen Regeln. Für den schnellen Alltag ist KI-„einfache Sprache" großartig — für offizielle Leichte-Sprache-Dokumente brauchst du spezialisierte Anbieter. Mehr dazu in Modul I.
+[4:00] Ein Hinweis, der mir wichtig ist: Einfache Sprache ist nicht dasselbe wie Leichte Sprache. Leichte Sprache ist ein geprüfter Standard mit eigenen Regeln. Für den schnellen Alltag ist KI-„einfache Sprache" großartig — für offizielle Leichte-Sprache-Dokumente brauchst du spezialisierte Anbieter. Mehr dazu in Modul I.
 
 [4:55] Der Gewinn ist riesig: Differenzierung scheitert im Alltag fast nie am Wollen, sondern an der Zeit. Genau die gibt dir KI zurück — und am Ende profitieren die Schüler:innen, weil jede:r Material auf dem passenden Niveau bekommt.
 
 [5:30] Take-away: Eine Aufgabe, drei Niveaus, ein Prompt. Differenzierung scheitert nicht mehr an der Zeit.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion gehen wir über den Text hinaus: Bild, Stimme, Recherche.
+
+[END 6:15]`,
 
   "s2-13": `[0:00] Bisher haben wir nur getippt. Aber moderne KI kann viel mehr als Text. Ich gebe dir einen schnellen Überblick — damit du weißt, was es gibt. Tief eintauchen werden wir später, vor allem in Modul IV.
 
@@ -278,7 +302,9 @@ Inklusion und Differenzierung in Sekunden — dazu gleich mehr in Lektion 2.12.
 
 [5:40] Take-away: KI kann Bild, Stimme und Live-Recherche — nicht nur Text. Überblick reicht jetzt; die Tiefe kommt in den Modulen.
 
-[END 6:00]`,
+[6:00] In der nächsten Lektion bekommst du deinen Crash-Kurs-Praxisauftrag.
+
+[END 6:15]`,
 
   "s2-14": `[0:00] Wissen wird erst durch Tun zu Können. Darum schließen wir den Crash-Kurs mit einem kleinen, machbaren Praxisauftrag ab.
 
@@ -296,5 +322,7 @@ Inklusion und Differenzierung in Sekunden — dazu gleich mehr in Lektion 2.12.
 
 [4:30] Take-away: Ein echtes Material, vier Bausteine, einmal nachsteuern, Fakten prüfen, ins Padlet. Dann bist du startklar für die Module.
 
-[END 5:00]`,
+[5:00] Und danach kannst du dein Crash-Kurs-Wissen im **Quiz** direkt unter diesem Video überprüfen.
+
+[END 5:15]`,
 };

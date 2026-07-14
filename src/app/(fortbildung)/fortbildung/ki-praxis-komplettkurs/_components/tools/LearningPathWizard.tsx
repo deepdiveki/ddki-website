@@ -81,13 +81,14 @@ export default function LearningPathWizard() {
             <p className="text-sm font-semibold text-text-primary">
               {i + 1}. {q.text}
             </p>
-            <div className="mt-2 flex flex-col gap-2">
+            <div className="mt-2 flex flex-col gap-2" role="group" aria-label={q.text}>
               {q.options.map((opt) => {
                 const isSelected = answers[q.key] === opt.id;
                 return (
                   <button
                     key={opt.id}
                     type="button"
+                    aria-pressed={isSelected}
                     onClick={() => setAnswers((prev) => ({ ...prev, [q.key]: opt.id }))}
                     className={`rounded-xl border-2 px-4 py-3 text-left text-sm transition ${
                       isSelected
@@ -104,23 +105,25 @@ export default function LearningPathWizard() {
         ))}
       </ol>
 
-      {result && (
-        <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
-          <div className="flex items-start gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple text-white">
-              <Route className="h-5 w-5" />
-            </div>
-            <div className="flex-1">
-              <p className="text-xs font-semibold uppercase tracking-wider text-purple-dark">
-                Deine Empfehlung
-              </p>
-              <p className="text-xl font-bold text-purple-dark">{result.name}</p>
-              <p className="mt-2 text-sm font-mono text-text-primary">{result.order}</p>
-              <p className="mt-3 text-sm text-text-secondary">{result.why}</p>
+      <div aria-live="polite">
+        {result && (
+          <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple text-white">
+                <Route className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs font-semibold uppercase tracking-wider text-purple-dark">
+                  Deine Empfehlung
+                </p>
+                <p className="text-xl font-bold text-purple-dark">{result.name}</p>
+                <p className="mt-2 text-sm font-mono text-text-primary">{result.order}</p>
+                <p className="mt-3 text-sm text-text-secondary">{result.why}</p>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {allAnswered && (
         <div className="mt-4">
@@ -129,7 +132,7 @@ export default function LearningPathWizard() {
             onClick={() => setAnswers({})}
             className="flex items-center gap-2 text-sm font-semibold text-purple hover:underline"
           >
-            <RotateCcw className="h-4 w-4" />
+            <RotateCcw className="h-4 w-4" aria-hidden="true" />
             Neu starten
           </button>
         </div>

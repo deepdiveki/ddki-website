@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { Shield } from "lucide-react";
 import ToolShell from "./ToolShell";
 
@@ -12,6 +12,7 @@ const CRITERIA = [
 ];
 
 export default function CareerResilience() {
+  const careerId = useId();
   const [career, setCareer] = useState("");
   const [scores, setScores] = useState<Record<string, number>>({});
 
@@ -28,8 +29,9 @@ export default function CareerResilience() {
 
   return (
     <ToolShell title="Beruf-Resilienz-Check" description="Trag einen Beruf ein und bewerte ihn anhand von vier Kriterien. Das Ergebnis ist ein KI-Resilienz-Score plus Einordnung.">
-      <label className="block text-sm font-semibold text-text-primary">Beruf</label>
+      <label htmlFor={careerId} className="block text-sm font-semibold text-text-primary">Beruf</label>
       <input
+        id={careerId}
         type="text"
         value={career}
         onChange={(e) => setCareer(e.target.value)}
@@ -44,11 +46,12 @@ export default function CareerResilience() {
             <div key={c.key}>
               <p className="text-sm font-semibold text-text-primary">{c.label}</p>
               <p className="mt-1 text-xs text-text-tertiary">{c.description}</p>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex gap-2" role="group" aria-label={c.label}>
                 {[0, 1, 2, 3].map((v) => (
                   <button
                     key={v}
                     type="button"
+                    aria-pressed={value === v}
                     onClick={() => setScores((p) => ({ ...p, [c.key]: v }))}
                     className={`flex h-10 flex-1 items-center justify-center rounded-lg border-2 text-sm font-semibold transition ${
                       value === v
@@ -65,11 +68,12 @@ export default function CareerResilience() {
         })}
       </div>
 
+      <div aria-live="polite">
       {Object.keys(scores).length > 0 && (
         <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
           <div className="flex items-start gap-4">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-purple text-white">
-              <Shield className="h-6 w-6" />
+              <Shield className="h-6 w-6" aria-hidden="true" />
             </div>
             <div className="flex-1">
               <div className="flex items-baseline gap-3">
@@ -82,6 +86,7 @@ export default function CareerResilience() {
           </div>
         </div>
       )}
+      </div>
     </ToolShell>
   );
 }

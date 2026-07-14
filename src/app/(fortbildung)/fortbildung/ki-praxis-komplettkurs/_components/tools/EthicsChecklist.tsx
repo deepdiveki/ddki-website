@@ -29,12 +29,14 @@ export default function EthicsChecklist() {
             <li key={l.key}>
               <button
                 type="button"
+                role="checkbox"
+                aria-checked={checked}
                 onClick={() => setChecks((p) => ({ ...p, [l.key]: !p[l.key] }))}
                 className={`flex w-full items-start gap-3 rounded-xl border-2 px-4 py-3 text-left transition ${
                   checked ? "border-emerald-200 bg-emerald-50" : "border-border-secondary bg-white hover:border-purple"
                 }`}
               >
-                {checked ? <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" /> : <Circle className="mt-0.5 h-5 w-5 shrink-0 text-text-tertiary" />}
+                {checked ? <CheckCircle2 aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" /> : <Circle aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-text-tertiary" />}
                 <div className="flex-1">
                   <p className={`text-sm font-semibold ${checked ? "text-emerald-900" : "text-text-primary"}`}>{l.name}</p>
                   <p className={`mt-1 text-xs ${checked ? "text-emerald-800" : "text-text-secondary"}`}>{l.description}</p>
@@ -45,10 +47,10 @@ export default function EthicsChecklist() {
         })}
       </ol>
 
-      <div className={`mt-6 rounded-2xl border-2 p-5 ${ready ? "border-emerald-500 bg-emerald-50" : "border-purple bg-purple-light-5"}`}>
+      <div aria-live="polite" className={`mt-6 rounded-2xl border-2 p-5 ${ready ? "border-emerald-500 bg-emerald-50" : "border-purple bg-purple-light-5"}`}>
         <div className="flex items-start gap-4">
           <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white ${ready ? "bg-emerald-500" : "bg-purple"}`}>
-            {ready ? <ShieldCheck className="h-6 w-6" /> : <ShieldAlert className="h-6 w-6" />}
+            {ready ? <ShieldCheck aria-hidden="true" className="h-6 w-6" /> : <ShieldAlert aria-hidden="true" className="h-6 w-6" />}
           </div>
           <div className="flex-1">
             <div className="flex items-baseline gap-3">

@@ -71,13 +71,14 @@ export default function PlatformFinder() {
           Was beschreibt dich am besten?
         </p>
 
-        <div className="mt-3 flex flex-col gap-2">
+        <div className="mt-3 flex flex-col gap-2" role="group" aria-label="Was beschreibt dich am besten?">
           {PLATFORMS.map((platform) => {
             const isSelected = pick === platform.key;
             return (
               <button
                 key={platform.key}
                 type="button"
+                aria-pressed={isSelected}
                 onClick={() => setPick(platform.key)}
                 className={`rounded-xl border-2 px-4 py-3 text-left text-sm transition ${
                   isSelected
@@ -91,11 +92,12 @@ export default function PlatformFinder() {
           })}
         </div>
 
+        <div aria-live="polite">
         {recommendation && (
           <div className="mt-6">
             <div className="flex items-start gap-4 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple text-white">
-                <Sparkles className="h-5 w-5" />
+                <Sparkles className="h-5 w-5" aria-hidden="true" />
               </div>
               <div className="flex-1">
                 <p className="text-xs font-semibold uppercase tracking-wider text-purple-dark">
@@ -109,7 +111,7 @@ export default function PlatformFinder() {
             </div>
 
             <div className="mt-4 flex items-start gap-3 rounded-xl border border-purple-light-3 bg-purple-light-5 p-4">
-              <Info className="mt-0.5 h-5 w-5 shrink-0 text-purple" />
+              <Info className="mt-0.5 h-5 w-5 shrink-0 text-purple" aria-hidden="true" />
               <p className="text-sm text-text-primary">
                 <span className="font-semibold">Egal wie du wählst:</span> Für diesen Kurs zeige ich die meisten Demos in{" "}
                 <span className="font-semibold">ChatGPT</span>. Alle drei haben kostenlose Versionen, die fürs Erste völlig reichen.
@@ -117,6 +119,7 @@ export default function PlatformFinder() {
             </div>
           </div>
         )}
+        </div>
 
         <div className="mt-7 overflow-x-auto">
           <table className="w-full border-collapse text-left text-sm">

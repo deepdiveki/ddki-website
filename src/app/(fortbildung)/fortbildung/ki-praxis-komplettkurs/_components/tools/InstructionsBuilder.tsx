@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { Check, Copy, RotateCcw } from "lucide-react";
 import ToolShell from "./ToolShell";
 
@@ -16,6 +16,7 @@ const FIELDS: { key: Key; label: string; hint: string; placeholder: string }[] =
 ];
 
 export default function InstructionsBuilder() {
+  const baseId = useId();
   const [values, setValues] = useState<Record<Key, string>>({ rolle: "", aufgabe: "", vorgehen: "", stil: "", quellen: "", donts: "" });
   const [copied, setCopied] = useState(false);
 
@@ -44,9 +45,10 @@ export default function InstructionsBuilder() {
     <ToolShell title="6-Block-Instructions-Builder" description="Bau deine Custom-GPT- / Claude-Project- / Gemini-Gem-Instructions Block für Block. Am Ende: fertig zum Einfügen, mit Längen-Hinweis.">
       {FIELDS.map((f) => (
         <div key={f.key} className="mt-4 first:mt-0">
-          <label className="block text-sm font-semibold text-text-primary">{f.label}</label>
+          <label htmlFor={`${baseId}-${f.key}`} className="block text-sm font-semibold text-text-primary">{f.label}</label>
           <p className="mt-1 text-xs text-text-tertiary">{f.hint}</p>
           <textarea
+            id={`${baseId}-${f.key}`}
             value={values[f.key]}
             onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))}
             placeholder={f.placeholder}
@@ -56,7 +58,7 @@ export default function InstructionsBuilder() {
         </div>
       ))}
 
-      <div className="mt-6 rounded-xl border border-dashed border-border-tertiary bg-background-secondary p-4">
+      <div className="mt-6 rounded-xl border border-dashed border-border-tertiary bg-background-secondary p-4" aria-live="polite">
         <div className="flex items-center justify-between">
           <p className="text-[11px] font-bold uppercase tracking-wider text-text-tertiary">Deine Instructions</p>
           {lengthHint && (
@@ -70,13 +72,14 @@ export default function InstructionsBuilder() {
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <button type="button" onClick={handleCopy} disabled={!instructions} className="flex items-center gap-2 rounded-lg bg-purple px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-dark disabled:cursor-not-allowed disabled:opacity-40">
-          {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+          {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
           {copied ? "Kopiert!" : "In Zwischenablage kopieren"}
         </button>
         <button type="button" onClick={() => setValues({ rolle: "", aufgabe: "", vorgehen: "", stil: "", quellen: "", donts: "" })} className="flex items-center gap-2 rounded-lg border-2 border-border-secondary bg-white px-4 py-2.5 text-sm font-semibold text-text-secondary transition hover:border-purple hover:text-purple">
-          <RotateCcw className="h-4 w-4" />
+          <RotateCcw className="h-4 w-4" aria-hidden="true" />
           Zurücksetzen
         </button>
+        <span className="sr-only" role="status" aria-live="polite">{copied ? "Kopiert!" : ""}</span>
       </div>
     </ToolShell>
   );

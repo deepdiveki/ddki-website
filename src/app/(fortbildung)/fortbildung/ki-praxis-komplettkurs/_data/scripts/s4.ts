@@ -33,7 +33,7 @@ Schauen wir uns an, **was** SuS konkret machen.
 
 **[3:15]**
 Du fragst dich vielleicht: **Tun sie das alle?** Nein, nicht alle. Aber: SuS, die KI nutzen, sind in **jeder** Klasse vertreten. Und es werden mehr — nicht weniger.
-Eine wichtige Beobachtung von Nora aus der Forschung: Es gibt einen **Gerechtigkeits-Effekt**. SuS aus Familien mit hohem digitalem Kapital nutzen KI gezielter und früher. SuS aus weniger privilegierten Häusern nutzen sie später und oberflächlicher — manchmal so, dass sie schneller erwischt werden.
+Eine wichtige Beobachtung aus der Forschung: Es gibt einen **Gerechtigkeits-Effekt**. SuS aus Familien mit hohem digitalem Kapital nutzen KI gezielter und früher. SuS aus weniger privilegierten Häusern nutzen sie später und oberflächlicher — manchmal so, dass sie schneller erwischt werden.
 Das heißt: **Wer KI im Unterricht ignoriert, verstärkt unbeabsichtigt Bildungsungleichheiten.** Wer KI im Unterricht thematisiert, bringt Chancengleichheit zurück.
 
 [VISUAL: Slide "Drei Lehrer-Reaktionen"]
@@ -215,7 +215,9 @@ Take-away:
 **[6:50]**
 In der nächsten Lektion schauen wir kurz, **welche Tools** die SuS überhaupt nutzen. Realitäts-Check.
 
-[END 7:00]`,
+**[7:00]** Und direkt unter diesem Video wartet eine Übung: das **„SuS oder KI?“-Quiz** — teste dich selbst.
+
+[END 7:15]`,
 
   "s4-4": `[VISUAL: Slide-Titel "Was nutzen die SuS wirklich?"]
 
@@ -486,7 +488,7 @@ Wenn du das für eine **Notengebung** nutzen würdest — du hättest pro Klasse
 **Mein praktischer Umgang mit GPTZero:**
 
 **Erstens** — Ich nutze es **als Indiz**, nicht als Beweis. Wenn der Score über 85 Prozent ist, schaue ich mir den Text genauer an.
-**Zweitens** — Ich nutze es **nicht zur Notengebung**. Wenn ich KI-Verdacht habe, suche ich das **Gespräch** mit der SuS. Ich lasse sie den Text erklären. Wenn sie ihn nicht erklären kann — auch das ist kein Beweis, aber ein Hinweis.
+**Zweitens** — Ich nutze es **nicht zur Notengebung**. Wenn ich KI-Verdacht habe, suche ich das **Gespräch** mit der/dem Schüler:in. Ich lasse den Text erklären. Wenn das nicht gelingt — auch das ist kein Beweis, sondern nur ein Hinweis. Und Vorsicht: „kann es nicht erklären" trifft genau dieselben Gruppen wie der Detektor-Bias — schüchterne, sprachlich schwächere oder nicht-muttersprachliche SuS. Ein solches Gespräch ist ein **pädagogisches** Gespräch, keine Grundlage für eine schlechtere Note oder ein Täuschungsverfahren. Formale Konsequenzen brauchen belastbare Belege und laufen über das Schul- und Prüfungsrecht (Anhörung, Verfahren) — nicht über ein Bauchgefühl aus der Nachbefragung.
 **Drittens** — Ich nutze es **als Lernanlass im Unterricht**. Wir schauen uns zusammen an, wie der Detektor reagiert auf verschiedene Texte. Das ist die ehrlichste Variante: Du nimmst den SuS die Mystik und sie sehen die Grenzen mit eigenen Augen.
 
 [VISUAL: Take-away-Slide]
@@ -737,7 +739,9 @@ Im Download findest du die **Rechtshinweise-PDF** mit konkreten Empfehlungen fü
 **[5:50]**
 In der nächsten Lektion entzaubern wir eine sehr verbreitete "Notlösung", die viele Lehrkräfte heimlich noch hoffen: **Handgeschriebenes**.
 
-[END 6:00]`,
+**[6:00]** Und direkt unter diesem Video wartet der **Detektor-Trainer** — erlebe selbst, wie schnell ein False-Positive entsteht.
+
+[END 6:15]`,
 
   "s4-11": `[VISUAL: Slide "Handgeschriebenes — die naive Lösung?"]
 
@@ -758,7 +762,7 @@ Du denkst, du hast die Klausur aufsichtssicher gemacht — aber unter dem Tisch 
 **[1:15]**
 **Grund zwei — neue Hardware.**
 
-Es wird noch schwieriger. Seit etwa 2024 gibt es **Ray-Ban Meta Sunglasses** — eine Brille von Meta mit eingebauter KI. Du fragst die Brille per Sprache, sie antwortet dir per Knochenleitungs-Lautsprecher in den Ohren.
+Es wird noch schwieriger. Seit etwa 2024 gibt es **Ray-Ban Meta Sunglasses** — eine Brille von Meta mit eingebauter KI. Du fragst die Brille per Sprache, sie antwortet dir über kleine offene Lautsprecher in den Bügeln — leise, direkt am Ohr, für Umstehende kaum hörbar.
 Eine SuS könnte mit dieser Brille im Klausurraum sitzen. Sie schaut auf die Aufgabe. Die Brille **sieht** die Aufgabe. Sie flüstert "Hilf mir mit Aufgabe 3" — und bekommt eine Antwort ins Ohr geflüstert.
 Das ist nicht Science Fiction. Das ist 2026.
 Wir vertiefen das in Lektion 4.19.
@@ -784,7 +788,7 @@ Was Handgeschriebenes **kann** ist, eine bestimmte **Form** der Kontrolle wieder
 
 **Erstens — Aufgaben prozessorientiert gestalten.** Statt einer fertigen Klausur — eine Aufgabe, bei der der Weg dokumentiert wird. Quellenarbeit, eigene Vorrecherche, schriftlich vorbereitete Argumente, Klausur als Synthese.
 
-**Zweitens — Mündliche Komponenten kombinieren.** Wer KI-Texte abgegeben hat, kann sie oft nicht erklären. Eine kurze mündliche Nachbefragung — drei Minuten pro SuS — bringt das schnell ans Licht.
+**Zweitens — Mündliche Komponenten kombinieren.** Wer KI-Texte abgegeben hat, kann sie oft nicht erklären. Eine kurze mündliche Nachbefragung — drei Minuten pro SuS — gibt dir schnell ein Gespür. Wichtig: Das ist ein diagnostisches Gespräch, kein Beweismittel — es trifft auch nervöse oder sprachlich schwächere SuS. Baue die mündliche Komponente deshalb von vornherein als **regulären, benoteten Prüfungsteil** ein (für alle gleich), statt sie nur bei Verdachtsfällen einzusetzen.
 
 **Drittens — Aufgaben so umgestalten, dass KI sie nicht oder schlechter löst.** Das ist Step 3 — und Thema der nächsten Lektion.
 
@@ -968,7 +972,9 @@ Im Download findest du die **Reverse-Engineering-Anleitung** als 1-Seiten-PDF mi
 **[6:50]**
 In der nächsten Lektion bekommst du die **5 Grundsätze**, mit denen du jede Aufgabe systematisch verbessern kannst.
 
-[END 7:00]`,
+**[7:00]** Und direkt unter diesem Video wartet der **Vulnerabilitäts-Check** — prüf, wie KI-anfällig deine eigene Aufgabe ist.
+
+[END 7:15]`,
 
   "s4-14": `[VISUAL: Slide-Titel "Die 5 Grundsätze"]
 
@@ -1084,7 +1090,9 @@ Im Download findest du das **5-Grundsätze-Poster** als druckfertiges PDF.
 **[6:55]**
 In der nächsten Lektion: Flipped Classroom mit KI — eine Methode, die durch KI erst richtig praktikabel wird.
 
-[END 7:00]`,
+**[7:00]** Und direkt unter diesem Video wartet das **Aufgaben-Audit** — prüf deine Aufgabe gegen die fünf Grundsätze.
+
+[END 7:15]`,
 
   "s4-15": `[VISUAL: Slide "Flipped Classroom — der KI-Booster"]
 
@@ -1328,7 +1336,7 @@ Die Aufgabe ist nicht nur schwerer KI-lösbar — sie ist auch **didaktisch reic
 **Grundsatz 2 — Persönlicher Bezug:** "Nicht zwingend die deiner Gruppe". Eigenes Urteil **gegen** die Erwartung möglicher Gruppenmehrheit.
 **Grundsatz 3 — Lokaler Kontext:** "Strategien aus unserer letzten Stunde". KI hat keinen Zugriff.
 **Grundsatz 4 — Reflexion:** "Begründe deine Wahl". Eigene Begründung im Vordergrund.
-**Plus:** "Setze in Bezug zu aktueller Diskussion" — KI hat nur Wissen bis Wissens-Stichtag. Aktuelle Diskussion entkoppelt sie weiter.
+**Plus:** "Setze in Bezug zu unserer Diskussion aus der letzten Stunde" — nicht zu "aktuellen Nachrichten". Achtung, ein verbreiteter Irrtum: Der Wissens-Stichtag der KI ist **kein** verlässlicher Schutz mehr, weil ChatGPT, Gemini & Co. live im Netz suchen. Was die KI aber nicht kennt, ist euer Klassenraum — der konkrete Tafelanschrieb, die Wortmeldung, das Beispiel aus **eurer** Stunde. Genau dieser lokale Bezug trägt, nicht die Aktualität an sich.
 **Plus:** "Was du selbst tun könntest" — sehr persönlich, sehr eigene Antwort.
 
 [VISUAL: Slide "Gesamt-Bilanz"]
@@ -1448,7 +1456,9 @@ Im Download findest du die **Format-Sammlung** mit Bewertungsrastern für alle f
 **[6:00]**
 In der nächsten Lektion zeige ich dir, womit du heute schon im Klausurraum konfrontiert bist — Ray-Ban Meta und andere unauffällige Tech.
 
-[END 6:00]`,
+**[6:00]** Und direkt unter diesem Video wartet der **Format-Finder** — finde das passende Prüfungsformat für dein Ziel.
+
+[END 6:15]`,
 
   "s4-19": `[VISUAL: Slide "Die Hardware in der Klausur"]
 
@@ -1463,12 +1473,12 @@ Was ich dir in dieser Lektion zeige, ist nicht überspitzt. Es ist **Realität 2
 Das ist eine Sonnenbrille. Sie sieht aus wie eine ganz normale Ray-Ban. Sie kostet etwa 350 Euro. In ihr stecken:
 - Eine Kamera
 - Mehrere Mikrofone
-- Knochenleitungs-Lautsprecher
+- Offene Mini-Lautsprecher in den Bügeln (direkt am Ohr, ohne Stöpsel)
 - Eine KI-Verbindung — Meta AI oder direkt zu ChatGPT
 
 **Wie funktioniert das in einer Klausur?**
 
-Die SuS trägt die Brille — vielleicht weil "die Sonne durchs Fenster scheint" oder weil "die Augen müde sind". Sie sagt leise: "Hey Meta, schau mal." Die Brille fotografiert die Klausur. Die KI antwortet ihr per Knochenleitung **direkt ins Ohr**.
+Die SuS trägt die Brille — vielleicht weil "die Sonne durchs Fenster scheint" oder weil "die Augen müde sind". Sie sagt leise: "Hey Meta, schau mal." Die Brille fotografiert die Klausur. Die KI antwortet ihr über die offenen Lautsprecher **direkt ins Ohr**.
 Du als Lehrkraft hörst nichts. Du siehst nichts. Du erkennst es nicht.
 
 [CUT TO: Talking Head]
@@ -1891,5 +1901,7 @@ Take-away:
 Im Download findest du die **KI-Vereinbarung als DOCX-Vorlage** — fertig zum Ausdrucken und Anpassen.
 Damit ist Modul II abgeschlossen. Ich hoffe, es hat dir das Gefühl gegeben, das KI-Thema in deiner Klasse aktiv gestalten zu können — statt es passiv zu erleiden. In der nächsten Lektion: das Modul-Quiz.
 
-[END 5:00]`,
+**[5:00]** Und direkt unter diesem Video wartet der **KI-Vereinbarungs-Builder** — bau dir deine eigene Klassen-Vereinbarung.
+
+[END 5:15]`,
 };

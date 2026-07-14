@@ -56,13 +56,14 @@ export default function ExamFormatFinder() {
         {QUESTIONS.map((q, i) => (
           <li key={q.key}>
             <p className="text-sm font-semibold text-text-primary">{i + 1}. {q.text}</p>
-            <div className="mt-2 flex flex-col gap-2">
+            <div className="mt-2 flex flex-col gap-2" role="group" aria-label={q.text}>
               {q.options.map((opt) => {
                 const isSelected = answers[q.key] === opt.id;
                 return (
                   <button
                     key={opt.id}
                     type="button"
+                    aria-pressed={isSelected}
                     onClick={() => setAnswers((p) => ({ ...p, [q.key]: opt.id }))}
                     className={`rounded-xl border-2 px-4 py-3 text-left text-sm transition ${
                       isSelected ? "border-purple bg-purple-light-5" : "border-border-secondary bg-white hover:border-purple"
@@ -76,11 +77,12 @@ export default function ExamFormatFinder() {
           </li>
         ))}
       </ol>
+      <div aria-live="polite">
       {result && (
         <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
           <div className="flex items-start gap-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple text-white">
-              <ClipboardCheck className="h-5 w-5" />
+              <ClipboardCheck className="h-5 w-5" aria-hidden="true" />
             </div>
             <div className="flex-1">
               <p className="text-xs font-semibold uppercase tracking-wider text-purple-dark">Empfohlenes Format</p>
@@ -90,6 +92,7 @@ export default function ExamFormatFinder() {
           </div>
         </div>
       )}
+      </div>
     </ToolShell>
   );
 }

@@ -78,11 +78,12 @@ export default function SchoolStageFinder() {
 
   return (
     <ToolShell title="Schulstufen-Material-Finder" description="Wähle eine Klassenstufe — du siehst passende KI-Aktivitäten und konkrete Materialien mit Direkt-Links.">
-      <div className="flex flex-wrap gap-2">
+      <div role="group" aria-label="Schulstufe wählen" className="flex flex-wrap gap-2">
         {STAGES.map((s) => (
           <button
             key={s.key}
             type="button"
+            aria-pressed={stage === s.key}
             onClick={() => setStage(s.key)}
             className={`flex-1 min-w-32 rounded-xl border-2 px-4 py-3 text-sm font-semibold transition ${
               stage === s.key ? "border-purple bg-purple text-white" : "border-border-secondary bg-white text-text-primary hover:border-purple"
@@ -96,7 +97,7 @@ export default function SchoolStageFinder() {
       <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
         <div className="flex items-start gap-4">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-purple text-white">
-            <GraduationCap className="h-6 w-6" />
+            <GraduationCap aria-hidden="true" className="h-6 w-6" />
           </div>
           <div className="flex-1">
             <p className="text-xs font-semibold uppercase tracking-wider text-purple-dark">Ziel dieser Stufe</p>
@@ -125,7 +126,7 @@ export default function SchoolStageFinder() {
                 <p className="text-sm font-semibold text-text-primary">{m.name}</p>
                 {m.link && (
                   <a href={m.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs font-semibold text-purple hover:underline">
-                    Öffnen <ExternalLink className="h-3 w-3" />
+                    Öffnen <ExternalLink aria-hidden="true" className="h-3 w-3" />
                   </a>
                 )}
               </div>

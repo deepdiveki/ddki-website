@@ -32,7 +32,7 @@ Wenn du diese Lektion siehst, hast du etwas Großes geschafft. Über die letzten
 [VISUAL: Sektion 6 leuchtet auf]
 
 **[2:55]**
-**Sektion 6 — Modul IV.** Die größte Sektion. Hier hast du gelernt, **eigene KI-Assistenten** zu bauen. Du kennst die vier Bausteine, die drei großen Plattformen, fünf Beispiel-Assistenten als Vorlagen. Du hast eigene Workflows aufgebaut — Bewertungs-Pipeline, Prompt-Library, Tool-Switching.
+**Sektion 6 — Modul IV.** Die größte Sektion. Hier hast du gelernt, **eigene KI-Assistenten** zu bauen. Du kennst die Komponenten eines Assistenten, die drei großen Plattformen, fünf Beispiel-Assistenten als Vorlagen. Du hast eigene Workflows aufgebaut — Bewertungs-Pipeline, Prompt-Library, Tool-Switching.
 
 [VISUAL: Abschluss leuchtet auf]
 
@@ -152,7 +152,7 @@ Drei bis vier Stunden Vorbereitung statt einem Wochenende. So:
 **Schritt 1 — Brainstorming in ChatGPT.** Fünf Zugänge zur UE. 10 Minuten.
 **Schritt 2 — Recherche in Perplexity.** Aktuelle Quellen mit Links. 15 Minuten.
 **Schritt 3 — Vertiefung in Claude.** Detaillierte UE-Strukturierung. 20 Minuten.
-**Schritt 4 — Materialien generieren** — Arbeitsblätter in Claude (Artifacts), Bilder in ChatGPT (DALL-E), Quizzes in einem Custom GPT. 60 Minuten.
+**Schritt 4 — Materialien generieren** — Arbeitsblätter in Claude (Artifacts), Bilder in ChatGPT, Quizzes in einem Custom GPT. 60 Minuten.
 **Schritt 5 — Ablage in Notion.** UE-Tabelle, alle Materialien verlinkt. 10 Minuten.
 **Schritt 6 — Letzter Polish in Canva.** Drucktauglich machen. 30 Minuten.
 **Gesamt:** etwa zwei Stunden für eine UE, die früher ein ganzes Wochenende gefressen hat.

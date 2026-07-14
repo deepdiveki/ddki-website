@@ -26,10 +26,9 @@ export const downloadsContent: Record<string, DownloadContent> = {
 - **LinkedIn:** DeepDiveKI
 
 ## Team
-- **Björn Isenbiel** – Geschäftsführer (Informatik, PGW, Geschichte, Sport)
-- **Tim Philipp** – Geschäftsführer (Informatik, Sport)
-- **Dr. Nora Schröder** – Dozentin KI, Learning Experience Designer
-- **Dr. Antonius Baehr-Oliva** – Dozent KI & Sprache (Englisch, Deutsch)`,
+- **Björn Isenbiel** – CEO (Informatik, PGW, Geschichte, Sport); wiss. Mitarbeiter Leuphana Universität Lüneburg, Dissertation zu KI in der Bildung
+- **Tim Philipp** – CEO (Informatik, Sport)
+- **Dr. Antonius Baehr-Oliva** – Dozent KI & Sprache (Englisch, Deutsch); Hauptseminarleiter am Lehrerinstitut Hamburg`,
   },
 
   "lernpfad-uebersicht-pdf": {
@@ -94,28 +93,6 @@ Module einzeln in beliebiger Reihenfolge — jedes Modul steht für sich.
 - **Flinga** — Brainstorming
 
 **Hinweis:** Du brauchst nicht alle. Wähl 2–3, die zu deinem Fach passen, und werde dort wirklich gut.`,
-  },
-
-  "padlet-link-vorstellungsrunde": {
-    title: "Padlet — Vorstellungsrunde",
-    intro: "Stell dich der Kurs-Community vor. Pseudonym ist okay.",
-    body: `## So geht's
-1. Padlet öffnen (Link unten)
-2. Auf das **„+"** klicken
-3. Drei Sätze schreiben:
-   - Wer bin ich? (Vorname oder Pseudonym)
-   - Welches Fach / welche Schulform unterrichte ich?
-   - Was erhoffe ich mir vom Kurs?
-
-## Padlet-Link
-> 🔗 *Hier den Padlet-Link einsetzen, sobald die Pinnwand eingerichtet ist.*
-
-## Warum mitmachen?
-- Du siehst, dass du nicht allein bist — andere Lehrkräfte haben dieselben Fragen
-- Später teilst du auf ähnlichen Pinnwänden eigene Materialien und lernst von anderen
-- Community-Lernen ist effizienter als Solo-Lernen
-
-**Datenschutz:** Persönliche Daten sind freiwillig. Du kannst auch nur einen Vornamen oder ein Pseudonym nennen.`,
   },
 
 
@@ -2442,6 +2419,40 @@ Diesen Text in Word kopieren → eigenes Logo + Schul-Daten ergänzen → DOCX e
   // Sektion 5 – Modul III (Chancen & Risiken)
   // ============================================================
 
+  "umwelt-faktenblatt-ki": {
+    title: "Umwelt-Faktenblatt KI",
+    intro: "Zahlen, Größenordnungen und Vergleiche zum Energie- und Wasser-Fußabdruck von KI – zum Einordnen statt Erschrecken.",
+    body: `## Das mentale Modell: zwei Phasen
+- **Training (einmalig pro Modell):** wochen- bis monatelanges Rechnen auf tausenden Spezial-Chips. Sehr energieintensiv – ältere Modelle wurden auf mehrere hundert bis über tausend Megawattstunden geschätzt (grob der Jahresverbrauch hunderter Haushalte). Passiert **einmal** pro Modell.
+- **Nutzung / Inferenz (jede Anfrage):** pro Abfrage **sehr wenig** – Schätzungen im Bereich weniger Wattstunden, vergleichbar mit einer Handvoll Websuchen. Das Gewicht entsteht durch die **Masse** an Nutzung.
+
+## Wasser
+- Rechenzentren werden gekühlt, Kühlung braucht Wasser.
+- Eine **viel zitierte, aber wissenschaftlich umstrittene** Schätzung: eine kurze Abfolge von KI-Anfragen kann grob im Bereich eines halben Liters Wasser liegen.
+- Stark abhängig von Standort, Kühltechnik und Jahreszeit. Prinzip merken, exakte Zahl mit Vorsicht behandeln.
+
+## Rechenzentren insgesamt
+- Laut Internationaler Energieagentur (IEA) grob **1–2 %** des weltweiten Stromverbrauchs – durch KI steigend.
+- Zur Einordnung: Video-Streaming liegt in ähnlicher Größenordnung.
+
+## Das Gegengewicht (für Ausgewogenheit)
+- **Effizienz steigt rasant:** Energie pro Anfrage sinkt schnell – bessere Chips, kleinere Spezialmodelle, optimierte Rechenzentren.
+- **Erneuerbare Energie:** viele Anbieter kaufen zunehmend Grünstrom, bauen an kühlen/wasserreichen Standorten.
+- **Verhältnismäßigkeit:** Der Fußabdruck **einer** KI-Unterrichtsvorbereitung ist winzig gegen eine einzige Autofahrt. Verzicht „fürs Klima" spart real fast nichts – bewusster Umgang schon.
+
+## Bewusste Nutzung – konkret
+- **Text vor Bild vor Video:** Ein Bild kostet ein Vielfaches einer Textantwort, ein Video noch weit mehr.
+- **In einem Chat bleiben** statt vieler Neu-Ansätze – jede Neu-Generierung kostet.
+- **Gezielt prompten:** Ein guter Prompt spart Iterationen und damit Energie.
+
+## Unterrichtsidee (Geo / PGW / NuT / Ethik)
+- SuS recherchieren selbst Zahlen – und stoßen auf **widersprüchliche Angaben**. Lerneffekt: Quellen prüfen, Größenordnungen einordnen, Schlagzeile ≠ Datenlage.
+- Vergleichsrechnung: KI-Anfrage vs. Streaming-Stunde vs. Autofahrt vs. Rindfleisch-Burger.
+- Ethische Debatte: Rechtfertigt der Nutzen den Verbrauch? Wo ist Einsatz sinnvoll, wo Verschwendung?
+
+**Hinweis:** Alle Zahlen sind Schätzungen mit großer Spannbreite und veralten schnell. Nutze sie als Größenordnung und Diskussionsanlass, nicht als exakte Wahrheit.`,
+  },
+
   "branchen-map": {
     title: "Branchen-Map — KI-Disruption",
     intro: "Welche Branchen werden gerade umgewälzt.",
@@ -2563,16 +2574,15 @@ Diesen Text in Word kopieren → eigenes Logo + Schul-Daten ergänzen → DOCX e
 
   "spiralcurriculum-karte": {
     title: "Spiralcurriculum-Karte — KI von Grundschule bis Abi",
-    intro: "Fünf Stufen, 50 Stunden über die Schulzeit verteilt.",
+    intro: "Vier Stufen, 50 Stunden über die Schulzeit verteilt.",
     body: `## Übersicht
 
 | Stufe | Klasse | Fokus | Stunden |
 |---|---|---|---|
 | 1 | 3–4 | Erstkontakt, spielerisch | 4 |
 | 2 | 5–6 | Begriff, Beispiele, erste Reflexion | 6 |
-| 3 | 7–8 | Funktionsweise, Ethik anbahnen | 8 |
-| 4 | 9–10 | Tools beherrschen, kritisch nutzen | 12 |
-| 5 | 11–13 | Vertiefung, eigene Projekte | 20 |
+| 3 | 7–9 | Funktionsweise, Ethik, Tools kritisch nutzen | 8 |
+| 4 | 10–13 | Vertiefung, eigene Position, Projekte | 32 |
 | **Gesamt** | | | **~50** |
 
 ## Stufe 1 — Grundschule
@@ -2592,17 +2602,13 @@ Diesen Text in Word kopieren → eigenes Logo + Schul-Daten ergänzen → DOCX e
 - AI Unplugged (ML ohne Computer)
 - MoralMachine (ethische Dilemmata)
 - Bias als Thema
+- Tools beherrschen und kritisch nutzen
 
-## Stufe 4 — Vorstufe
-- Reverse Engineering
-- Aufgaben KI-resistent gestalten
-- Klausuren neu denken
-- Eigene Position entwickeln
-
-## Stufe 5 — Oberstufe
+## Stufe 4 — Oberstufe
+- Reverse Engineering, KI-resistente Aufgaben, Klausuren neu denken (Einstieg Klasse 10)
 - KI_Campus Datenschule (eigene ML-Modelle)
 - NI vs. KI (Biologie + Philosophie)
-- Eigene Projekte
+- Eigene Projekte, eigene Position
 - EU AI Act, Berufsorientierung
 
 ## Schul-Strategie
@@ -4766,7 +4772,7 @@ den **Praxiskurs DeepDiveKI** absolviert hat.
 ---
 
 **Björn Isenbiel**
-*Geschäftsführer DeepDiveKI · Lehrer in Hamburg*
+*CEO DeepDiveKI · Lehrer in Hamburg · wiss. Mitarbeiter Leuphana Universität Lüneburg*
 
 [Unterschrift]
 

@@ -91,6 +91,7 @@ export default function AiAgreementBuilder() {
                 <button
                   key={opt.id}
                   type="button"
+                  aria-pressed={isSelected}
                   onClick={() => setSelections((p) => ({ ...p, [section.key]: opt.id }))}
                   className={`rounded-xl border-2 px-4 py-3 text-left text-sm transition ${
                     isSelected ? "border-purple bg-purple-light-5" : "border-border-secondary bg-white hover:border-purple"
@@ -105,7 +106,7 @@ export default function AiAgreementBuilder() {
         </div>
       ))}
 
-      <div className="mt-6 rounded-xl border border-dashed border-border-tertiary bg-background-secondary p-4">
+      <div className="mt-6 rounded-xl border border-dashed border-border-tertiary bg-background-secondary p-4" aria-live="polite">
         <p className="text-[11px] font-bold uppercase tracking-wider text-text-tertiary">Deine KI-Vereinbarung</p>
         <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed text-text-primary">
           {allDone ? agreement : <span className="text-text-tertiary">Wähle für jeden Abschnitt eine Variante — dann erscheint hier die fertige Vereinbarung.</span>}
@@ -113,9 +114,10 @@ export default function AiAgreementBuilder() {
       </div>
 
       <button type="button" onClick={handleCopy} disabled={!allDone} className="mt-4 flex items-center gap-2 rounded-lg bg-purple px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-dark disabled:cursor-not-allowed disabled:opacity-40">
-        {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+        {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
         {copied ? "Kopiert!" : "Vereinbarung kopieren"}
       </button>
+      <span className="sr-only" role="status" aria-live="polite">{copied ? "Kopiert!" : ""}</span>
     </ToolShell>
   );
 }

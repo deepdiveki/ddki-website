@@ -102,17 +102,19 @@ export const courseContent: Section[] = [
   {
     id: "s1",
     title: "Sektion 1 – Einstieg / Kennenlernen",
-    totalDuration: "ca. 33 Min",
+    totalDuration: "ca. 30 Min",
     lessons: [
       {
         id: "s1-1",
         title: "Herzlich willkommen",
         type: "video",
-        duration: "4 Min",
+        duration: "5 Min",
         format: "Talking Head + Titel-Slide",
         hook: "Vielleicht bist du gerade ein bisschen skeptisch oder überfordert vom ganzen KI-Hype — das ist normal, und genau hier setzen wir an.",
         lernziel: "Du verstehst, worum es im Kurs geht und kannst dich praxisnah auf das KI-Lernabenteuer einlassen.",
         takeaway: "Willkommen — dieser Kurs macht dich Schritt für Schritt fit für KI im Schulalltag, ganz ohne Vorkenntnisse.",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%201%20-%20Einstieg%20/final-abschnitt-1-sektion-1.mp4",
       },
       {
         id: "s1-2",
@@ -121,8 +123,10 @@ export const courseContent: Section[] = [
         duration: "4 Min",
         format: "Talking Head + Team-Slide",
         hook: "Bevor wir loslegen, kurz zu uns — denn du sollst wissen, von wem du hier lernst.",
-        lernziel: "Du weißt, wer hinter DeepDiveKI steckt und kannst dem vierköpfigen Lehrer-Team aus Hamburg vertrauen.",
+        lernziel: "Du weißt, wer hinter DeepDiveKI steckt und kannst dem dreiköpfigen Lehrer-Team aus Hamburg vertrauen.",
         takeaway: "Du lernst von einem aktiven Lehrer-Team aus Hamburg — Praxis, die im echten Klassenraum erprobt wurde.",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%201%20-%20Einstieg%20/final-abschnitt-1-sektion-2.mp4",
         downloads: [{ name: "Link-Karte deepdive-ki.de", url: "/fortbildung/ki-praxis-komplettkurs/downloads/link-karte-deepdive-ki-de" }],
       },
       {
@@ -134,6 +138,8 @@ export const courseContent: Section[] = [
         hook: "Damit du gleich weißt, ob du hier richtig bist: Für wen ist dieser Kurs eigentlich gemacht?",
         lernziel: "Du kannst einschätzen, ob und wie der Kurs zu deiner Schulform, deinem Fach und deinem Vorkenntnis-Niveau passt.",
         takeaway: "Alle Schulformen, alle Fächer, jedes Vorkenntnis-Niveau — praxisorientiert statt technisch-theoretisch.",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%201%20-%20Einstieg%20/final-abschnitt-1-sektion-3.mp4",
       },
       {
         id: "s1-4",
@@ -144,6 +150,8 @@ export const courseContent: Section[] = [
         hook: "Dieser Kurs ist groß — rund 13 Stunden Video, aber du musst nicht alles strikt der Reihe nach machen.",
         lernziel: "Du kennst die drei Lernpfade und kannst denjenigen wählen, der zu deinem Vorwissen und deinen Zielen passt.",
         takeaway: "Drei Pfade — Komplett, Schnellstart, Themen-Pfad. Wähl deinen, und vor allem: mach aktiv mit.",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%201%20-%20Einstieg%20/final-abschnitt-1-sektion-4.mp4",
         downloads: [{ name: "Lernpfad-Übersicht-PDF", url: "/fortbildung/ki-praxis-komplettkurs/downloads/lernpfad-uebersicht-pdf" }],
       },
       {
@@ -163,7 +171,8 @@ export const courseContent: Section[] = [
         hook: "Lass uns kurz ans Ende denken: Was kannst du eigentlich, wenn du diesen Kurs durch hast?",
         lernziel: "Du verstehst die vier zentralen Lernergebnisse des Kurses — von Unterrichtsvorbereitung bis zu eigenen KI-Assistenten.",
         takeaway: "Am Ende bereitest du Unterricht mit KI vor, gehst souverän mit Klausuren und Plagiaten um, hast eigene KI-Assistenten gebaut und kannst KI reflektiert einordnen.",
-        videoUrl: "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Was%20du%20am%20Ende%20kannst.mp4",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%201%20-%20Einstieg%20/final-abschnitt-1-sektion-5.mp4",
       },
       {
         id: "s1-6",
@@ -174,18 +183,9 @@ export const courseContent: Section[] = [
         hook: "Kurz zu dem, womit wir arbeiten — damit du weißt, was auf dich zukommt und was du brauchst.",
         lernziel: "Du kennst die wichtigsten KI-Tools und Plattformen und weißt, dass du den Kurs komplett kostenlos durcharbeiten kannst.",
         takeaway: "Drei Hauptplattformen plus ergänzende Tools, alles auch kostenlos machbar — und zu jeder Lektion Downloads für deine Praxis.",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%201%20-%20Einstieg%20/final-abschnitt-1-sektion-6.mp4",
         downloads: [{ name: "Tool-Liste-PDF", url: "/fortbildung/ki-praxis-komplettkurs/downloads/tool-liste-pdf" }],
-      },
-      {
-        id: "s1-7",
-        title: "Kennenlernen: Stell dich vor",
-        type: "video",
-        duration: "4 Min",
-        format: "Talking Head + Padlet-Screencast",
-        hook: "Ein Online-Kurs muss kein einsames Erlebnis sein — werde Teil unserer kleinen Lern-Community.",
-        lernziel: "Du hast dich im Padlet vorgestellt und bist Teil der Kurs-Community.",
-        takeaway: "Werde Teil der Community — stell dich kurz im Padlet vor. Gemeinsam lernt es sich leichter.",
-        downloads: [{ name: "Padlet-Link Vorstellungsrunde", url: "/fortbildung/ki-praxis-komplettkurs/downloads/padlet-link-vorstellungsrunde" }],
       },
       {
         id: "s1-8",
@@ -196,6 +196,8 @@ export const courseContent: Section[] = [
         hook: "Du hast es durch die Einstiegssektion geschafft — jetzt geht's an die Substanz.",
         lernziel: "Du weißt, wie es weitergeht und kannst neugierig und geduldig in den Crash-Kurs starten.",
         takeaway: "Jetzt geht's los — als Nächstes der Crash-Kurs. Sei neugierig, sei geduldig, und mach aktiv mit.",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%201%20-%20Einstieg%20/final-abschnitt-1-sektion-7.mp4",
       },
     ],
   },
@@ -1332,7 +1334,7 @@ export const courseContent: Section[] = [
   {
     id: "s5",
     title: "Sektion 5 – Modul III: Chancen & Risiken",
-    totalDuration: "ca. 114 Min",
+    totalDuration: "ca. 121 Min",
     lessons: [
       {
         id: "s5-1",
@@ -1444,12 +1446,23 @@ export const courseContent: Section[] = [
         takeaway: "Vielfalt der Tools (ChatGPT + Claude + Open Source). EU-Hosting bevorzugen, wo möglich.",
       },
       {
+        id: "s5-9b",
+        title: "Der ökologische Fußabdruck von KI",
+        type: "video",
+        duration: "7 Min",
+        format: "Slides + Talking Head",
+        hook: "Verbraucht KI nicht Unmengen Strom und Wasser? Die Frage stellen SuS garantiert – hier wirst du sprechfähig, mit Zahlen statt Panik.",
+        lernziel: "Du kannst den Energie- und Wasser-Fußabdruck von KI (Training vs. Nutzung) einordnen, Größenordnungen realistisch vergleichen und das Thema als fächerübergreifende Unterrichtseinheit nutzen.",
+        takeaway: "Training teuer, einzelne Anfrage billig, die Masse macht's. Modelle werden rasant effizienter, Verzicht spart real kaum etwas – bewusste Nutzung statt Panik: Text vor Bild vor Video.",
+        downloads: [{ name: "Umwelt-Faktenblatt KI", url: "/fortbildung/ki-praxis-komplettkurs/downloads/umwelt-faktenblatt-ki" }],
+      },
+      {
         id: "s5-10",
         title: "Diskussion: Kollektives Abo?",
         type: "video",
         duration: "6 Min",
         format: "Pro/Contra-Slides",
-        hook: "Was, wenn die Schule ChatGPT Pro für alle SuS abonniert? Eine Pro-Contra-Debatte für PGW/Wirtschaft.",
+        hook: "Was, wenn der Staat Premium-KI-Zugänge für alle SuS bezahlt? Eine Pro-Contra-Debatte für PGW/Wirtschaft.",
         lernziel: "Du kannst Pro- und Contra-Argumente eines kollektiven KI-Abos in der Schule abwägen.",
         takeaway: "Klassische Pro-Contra-Debatte für PGW/Wirtschaft.",
       },

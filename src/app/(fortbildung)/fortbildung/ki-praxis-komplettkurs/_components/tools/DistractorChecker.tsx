@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { AlertTriangle, CheckCircle2 } from "lucide-react";
 import ToolShell from "./ToolShell";
 
@@ -33,7 +33,8 @@ const RULES: { key: string; check: (opts: Option[]) => boolean; pass: string; fa
   },
   {
     key: "no-negation",
-    check: (opts) => !/[Ww]as.*\b(?:nicht|kein|niemals)\b/.test((document.title ?? "") + ""),
+    // Echte Negations-Prüfung erfolgt im useMemo (hasNegationInQuestion); dieser Platzhalter wird nie ausgeführt.
+    check: () => true,
     pass: "Frage enthält keine Verneinung ✓",
     fail: 'Verneinungen ("Welches steht NICHT?") verwirren. Frage positiv formulieren.',
   },
@@ -46,6 +47,7 @@ const RULES: { key: string; check: (opts: Option[]) => boolean; pass: string; fa
 ];
 
 export default function DistractorChecker() {
+  const questionId = useId();
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState<Option[]>([
     { id: "A", text: "", correct: false },
@@ -80,8 +82,9 @@ export default function DistractorChecker() {
 
   return (
     <ToolShell title="Distraktor-Checker" description="Trag deine MC-Frage und 4 Antworten ein. Wir prüfen sie gegen Tims 5 Distraktor-Regeln und zeigen, wo sie schwächeln.">
-      <label className="block text-sm font-semibold text-text-primary">Frage</label>
+      <label htmlFor={questionId} className="block text-sm font-semibold text-text-primary">Frage</label>
       <textarea
+        id={questionId}
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
         placeholder="z.B. „Welches Prinzip steht im Zentrum von Artikel 1 der Erklärung der Menschen- und Bürgerrechte?"
@@ -113,26 +116,28 @@ export default function DistractorChecker() {
         ))}
       </div>
 
-      {!allEmpty && (
-        <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
-          <div className="flex items-baseline gap-3">
-            <p className="text-3xl font-bold text-purple-dark">{passedCount}/{RULES.length}</p>
-            <p className="text-xs font-semibold text-purple-dark">Distraktor-Regeln erfüllt</p>
+      <div aria-live="polite">
+        {!allEmpty && (
+          <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
+            <div className="flex items-baseline gap-3">
+              <p className="text-3xl font-bold text-purple-dark">{passedCount}/{RULES.length}</p>
+              <p className="text-xs font-semibold text-purple-dark">Distraktor-Regeln erfüllt</p>
+            </div>
+            <ul className="mt-4 space-y-2">
+              {results.map((r) => (
+                <li key={r.key} className="flex items-start gap-2 text-sm">
+                  {r.passed
+                    ? <CheckCircle2 aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                    : <AlertTriangle aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />}
+                  <span className={r.passed ? "text-emerald-900" : "text-amber-900"}>
+                    {r.passed ? r.pass : r.fail}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="mt-4 space-y-2">
-            {results.map((r) => (
-              <li key={r.key} className="flex items-start gap-2 text-sm">
-                {r.passed
-                  ? <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                  : <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />}
-                <span className={r.passed ? "text-emerald-900" : "text-amber-900"}>
-                  {r.passed ? r.pass : r.fail}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+        )}
+      </div>
     </ToolShell>
   );
 }

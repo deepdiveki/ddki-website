@@ -154,7 +154,7 @@ export default function PromptBuilder() {
           </div>
         ))}
 
-        <div className="mt-6 rounded-xl border border-dashed border-border-tertiary bg-background-secondary p-4">
+        <div className="mt-6 rounded-xl border border-dashed border-border-tertiary bg-background-secondary p-4" aria-live="polite">
           <p className="text-[11px] font-bold uppercase tracking-wider text-text-tertiary">
             Dein Prompt
           </p>
@@ -173,7 +173,7 @@ export default function PromptBuilder() {
             onClick={handleCopy}
             className="flex items-center gap-2 rounded-lg bg-purple px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-dark"
           >
-            {message === "✓ Kopiert!" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+            {message === "✓ Kopiert!" ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
             In Zwischenablage kopieren
           </button>
           <button
@@ -181,14 +181,14 @@ export default function PromptBuilder() {
             onClick={handleReset}
             className="flex items-center gap-2 rounded-lg border-2 border-border-secondary bg-white px-4 py-2.5 text-sm font-semibold text-text-secondary transition hover:border-purple hover:text-purple"
           >
-            <RotateCcw className="h-4 w-4" />
+            <RotateCcw className="h-4 w-4" aria-hidden="true" />
             Zurücksetzen
           </button>
-          {message && <span className="text-sm text-text-secondary">{message}</span>}
+          <span className="text-sm text-text-secondary" role="status" aria-live="polite">{message}</span>
         </div>
 
         <div className="mt-5 flex items-start gap-3 rounded-xl border border-purple-light-3 bg-purple-light-5 p-4">
-          <Lightbulb className="mt-0.5 h-5 w-5 shrink-0 text-purple" />
+          <Lightbulb className="mt-0.5 h-5 w-5 shrink-0 text-purple" aria-hidden="true" />
           <p className="text-sm text-text-primary">
             <span className="font-semibold">Faustregel:</span> Du musst nicht immer alle vier nutzen. Enttäuscht ein Ergebnis, fehlt fast immer{" "}
             <span className="font-semibold">Kontext</span> oder{" "}

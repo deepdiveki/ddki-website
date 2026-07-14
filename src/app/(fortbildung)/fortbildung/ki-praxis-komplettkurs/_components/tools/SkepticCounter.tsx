@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { ChevronRight, MessageSquare } from "lucide-react";
 import ToolShell from "./ToolShell";
 
@@ -58,6 +58,7 @@ const OBJECTIONS = [
 ];
 
 export default function SkepticCounter() {
+  const panelBaseId = useId();
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
   const selected = OBJECTIONS.find((o) => o.key === selectedKey);
 
@@ -70,23 +71,25 @@ export default function SkepticCounter() {
             <button
               key={o.key}
               type="button"
+              aria-expanded={isSelected}
+              aria-controls={`${panelBaseId}-${o.key}`}
               onClick={() => setSelectedKey(isSelected ? null : o.key)}
               className={`flex items-start justify-between gap-3 rounded-xl border-2 px-4 py-3 text-left transition ${
                 isSelected ? "border-purple bg-purple-light-5" : "border-border-secondary bg-white hover:border-purple"
               }`}
             >
               <p className="text-sm font-semibold text-text-primary">{o.objection}</p>
-              <ChevronRight className={`h-5 w-5 shrink-0 text-text-tertiary transition-transform ${isSelected ? "rotate-90" : ""}`} />
+              <ChevronRight aria-hidden="true" className={`h-5 w-5 shrink-0 text-text-tertiary transition-transform ${isSelected ? "rotate-90" : ""}`} />
             </button>
           );
         })}
       </div>
 
       {selected && (
-        <div className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
+        <div id={`${panelBaseId}-${selected.key}`} className="mt-6 rounded-2xl border-2 border-purple bg-purple-light-5 p-5">
           <div className="flex items-start gap-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple text-white">
-              <MessageSquare className="h-5 w-5" />
+              <MessageSquare aria-hidden="true" className="h-5 w-5" />
             </div>
             <div className="flex-1">
               <p className="text-xs font-semibold uppercase tracking-wider text-purple-dark">Konstruktive Antwort</p>
