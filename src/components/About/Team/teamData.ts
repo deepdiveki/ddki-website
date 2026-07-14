@@ -16,8 +16,14 @@ const teamData: Team[] = [
   {
     id: 89,
     name: "Dr. Nora Schröder",
-    designation: "Learning Experience Designer\nand Teaching Consultant",
+    designation: "Learning Experience Designer and Teaching Consultant",
     image: "/images/team/team-06.png",
+  },
+  {
+    id: 90,
+    name: "Alexander Renner",
+    designation: "Dozent für Künstliche Intelligenz",
+    image: "/images/team/team-07.png",
   },
   {
     id: 91,

@@ -2,6 +2,7 @@
 
 import AnimationErrorBoundary from "@/components/shared/AnimationErrorBoundary";
 import ButtonLink from "@/components/ui/ButtonLink";
+import teamData from "@/components/About/Team/teamData";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Maximize2, Quote } from "lucide-react";
@@ -726,91 +727,40 @@ export default function ChooserLanding() {
               </p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {/* Björn Isenbiel */}
-              <div className="flex flex-col items-center text-center">
-                <div className="size-32 overflow-hidden rounded-full lg:size-40">
-                  <Image
-                    src="/images/team/team-01.png"
-                    alt="Björn Isenbiel"
-                    width={160}
-                    height={160}
-                    className="size-full object-cover"
-                  />
+            <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
+              {teamData.map((member) => (
+                <div
+                  key={member.id}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div
+                    className={cn(
+                      "size-32 overflow-hidden rounded-full lg:size-40 border-2 border-black",
+                    )}
+                  >
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={160}
+                      height={160}
+                      className={cn(
+                        "size-full object-cover",
+                        (member.image === "/images/team/team-01.png" ||
+                          member.image === "/images/team/team-02.png") &&
+                          "scale-125",
+                        member.image === "/images/team/team-06.png" &&
+                          " object-[center_35%]",
+                      )}
+                    />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-text-primary">
+                    {member.name}
+                  </h3>
+                  <p className="mt-1 whitespace-pre-line text-sm font-light text-text-secondary">
+                    {member.designation}
+                  </p>
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-text-primary">
-                  Björn Isenbiel
-                </h3>
-                <p className="mt-1 text-sm font-light text-text-secondary">
-                  Geschäftsführer
-                </p>
-                <p className="text-sm font-light text-text-secondary">
-                  Lehrkraft für PGW, Informatik & Sport
-                </p>
-              </div>
-
-              {/* Tim Philipp */}
-              <div className="flex flex-col items-center text-center">
-                <div className="size-32 overflow-hidden rounded-full lg:size-40">
-                  <Image
-                    src="/images/team/team-02.png"
-                    alt="Tim Philipp"
-                    width={160}
-                    height={160}
-                    className="size-full object-cover"
-                  />
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-text-primary">
-                  Tim Philipp
-                </h3>
-                <p className="mt-1 text-sm font-light text-text-secondary">
-                  Geschäftsführer
-                </p>
-                <p className="text-sm font-light text-text-secondary">
-                  Lehrkraft für Informatik & Sport
-                </p>
-              </div>
-
-              {/* Dr. Nora Schröder */}
-              <div className="flex flex-col items-center text-center">
-                <div className="size-32 overflow-hidden rounded-full lg:size-40">
-                  <Image
-                    src="/images/team/team-06.png"
-                    alt="Dr. Nora Schröder"
-                    width={160}
-                    height={160}
-                    className="size-full object-cover"
-                  />
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-text-primary">
-                  Dr. Nora Schröder
-                </h3>
-                <p className="mt-1 text-sm font-light text-text-secondary">
-                  Learning Experience Designer
-                </p>
-                <p className="text-sm font-light text-text-secondary">
-                  and Teaching Consultant
-                </p>
-              </div>
-
-              {/* Tim Maximilian Baum */}
-              <div className="flex flex-col items-center text-center">
-                <div className="size-32 overflow-hidden rounded-full border-2 border-black lg:size-40">
-                  <Image
-                    src="/images/team/team-05.png"
-                    alt="Tim Maximilian Baum"
-                    width={160}
-                    height={160}
-                    className="size-full object-cover"
-                  />
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-text-primary">
-                  Tim Maximilian Baum
-                </h3>
-                <p className="mt-1 text-sm font-light text-text-secondary">
-                  Full Stack Software Engineer
-                </p>
-              </div>
+              ))}
             </div>
           </motion.div>
         </div>
