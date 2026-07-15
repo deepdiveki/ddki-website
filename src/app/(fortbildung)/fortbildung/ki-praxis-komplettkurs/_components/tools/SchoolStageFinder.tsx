@@ -36,7 +36,7 @@ const STAGES: { key: Stage; name: string; goal: string; activities: string[]; ma
     ],
     materials: [
       { name: 'RAAbits "Was ist KI?"', description: "Unterrichtseinheit für Klasse 5–7, RAAbits-Reihe (kostenpflichtig, in vielen Schulen lizenziert)" },
-      { name: "SoekiaGPT", link: "https://soekia.de", description: "Browser-Demo eines Mini-Sprachmodells, ideal um Mechanik sichtbar zu machen" },
+      { name: "SoekiaGPT", link: "https://soekia.ch", description: "Browser-Demo eines Mini-Sprachmodells, ideal um Mechanik sichtbar zu machen" },
     ],
   },
   {

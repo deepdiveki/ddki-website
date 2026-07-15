@@ -1,328 +1,567 @@
+// Aufnahme-Skripte pro Video-Lektion — automatisch aus den tatsächlichen Aufnahmen
+// (Whisper-Transkript, Marken/Bindestriche normalisiert). Stand: 2026-07-15.
+
 export const s2Scripts: Record<string, string> = {
-  "s2-1": `[0:00] Willkommen im Crash-Kurs KI. Diese Sektion hat eine einzige Aufgabe: Egal, wo du startest — am Ende dieser 85 Minuten stehen wir alle auf derselben Startlinie.
+  "s2-1": `[0:01] Willkommen im Crashkurs KI. Diese Sektion hat eine einzige Aufgabe. Egal wo du startest, am Ende dieser 85 Minuten stehen wir alle auf derselben Startlinie.
 
-[0:35] Dieser Kurs hat ein Mischpublikum. Manche von euch nutzen ChatGPT seit zwei Jahren täglich. Andere haben sich gerade erst getraut, sich überhaupt einen Account anzulegen. Beides ist völlig in Ordnung. Wenn du schon Profi bist: Sieh den Crash-Kurs als schnelles Aufwärmen und spring danach direkt in Modul I.
+[0:11] Dieser Kurs hat ein Mischpublikum. Manche von euch nutzen ChatGPT schon seit Jahren, andere haben gerade erst getraut, sich überhaupt einen Account anzulegen.
 
-[1:20] Was wir in dieser Sektion machen: Erst ein mentales Modell — was KI eigentlich ist und was ein Sprachmodell tut. Dann die drei großen Plattformen ChatGPT, Claude und Gemini. Dann gehen wir live ins Tool — dein erster Account, dein erster Prompt. Und zum Schluss die ersten echten Lehrer-Use-Cases, mit denen du dich ab morgen entlastest.
+[0:20] Beides ist völlig in Ordnung. Wenn du schon Profi bist, sieh den Crashkurs als schnelles Aufwärmen und springe danach direkt in Modul 1.
 
-[CUT TO: Talking Head]
+[0:27] Was wir in dieser Sektion machen, erst ein mentales Modell, was künstliche Intelligenz eigentlich ist und was ein Sprachmodell so tut.
 
-[2:15] Drei Versprechen für diese Sektion. Erstens: Wir bleiben praktisch. Du guckst mir über die Schulter — viel ausprobieren, viel sehen. Zweitens: Wir bleiben ehrlich. Ich zeige dir auch, wo KI Mist baut. Drittens: Du brauchst keinerlei Vorkenntnisse und kein bezahltes Abo. Alles geht mit kostenlosen Versionen.
+[0:36] Dann die drei großen Plattformen, ChatGPT, Claude und Gemini. Dann gehen wir live ins Tool.
 
-[3:10] Eine Sache noch: Mach diesen Kurs mit offenem Laptop oder Tablet. Nicht nur zuschauen — mitmachen. Pausiere, wann immer du willst, und probier es selbst.
+[0:43] Dein erster Account, dein erster Prompt und zum Schluss die ersten echten Lehrer-Use-Cases, mit denen du dich ab morgen entlasten kannst.
 
-[3:35] Take-away: Der Crash-Kurs ist die gemeinsame Startrampe. Danach sind wir alle bereit für die Module.
+[0:49] Drei Versprechen für diese Sektion. Erstens, wir bleiben praktisch. Du guckst mir über die Schulter, wir werden viel ausprobieren, ihr werdet viel sehen.
 
-[4:00] In der nächsten Lektion klären wir die Grundfrage: Was ist KI eigentlich? Ein einfaches mentales Modell.
+[1:00] Zweitens, wir bleiben ehrlich. Ich zeige dir auch, wo künstliche Intelligenz missbaut und wo es problematisch werden kann.
 
-[END 4:15]`,
+[1:08] Drittens, du brauchst keinerlei Vorkenntnisse und kein bezahltes Abo. Alles geht mit den kostenlosen Versionen oder mit dem AIS-Chat.
 
-  "s2-2": `[0:00] Bevor wir irgendetwas tippen, brauchst du ein mentales Modell. Nicht, um Informatiker:in zu werden — sondern um zu verstehen, warum die KI sich so verhält, wie sie sich verhält.
+[1:17] Eine Sache noch, mach diesen Kurs mit offenem Laptop oder Tablet. Nicht nur zuschauen, mitmachen ist besser.
 
-[0:40] „Künstliche Intelligenz" ist ein riesiger Oberbegriff. Für diesen Kurs interessiert uns vor allem ein Ausschnitt davon: die sogenannten Sprachmodelle — auf Englisch Large Language Models, kurz LLMs. ChatGPT, Claude und Gemini sind alle Sprachmodelle.
+[1:24] Pausiere, wann immer du willst und probiere selber eigene Ideen aus. Take-away. Der Crashkurs ist die gemeinsame Startrampe.
 
-[1:30] Hier das einfachste Bild, das funktioniert: Ein Sprachmodell ist eine extrem gut trainierte Vervollständigungs-Maschine. Es hat unfassbar viel Text gelesen — Bücher, Webseiten, Artikel — und dabei eine einzige Sache gelernt: Welches Wort kommt als Nächstes am wahrscheinlichsten?
+[1:34] Danach sind wir alle bereit für die Module. In der nächsten Lektion klären wir die Grundfrage, was ist künstliche Intelligenz eigentlich?
 
-[CUT TO: Talking Head]
+[1:42] Ein einfaches mentales Modell.
 
-[2:20] Das klingt erstmal banal. Aber aus dieser einen Fähigkeit — das nächste Wort vorhersagen — entsteht etwas Erstaunliches: Die Maschine kann formulieren, zusammenfassen, übersetzen, erklären, umschreiben. Nicht, weil sie „versteht" wie ein Mensch — sondern weil sie Sprache statistisch meisterhaft beherrscht.
+[END 1:46]`,
 
-[3:15] Warum ist dieses Bild für dich als Lehrkraft wichtig? Weil es zwei Dinge sofort erklärt. Erstens: warum KI so sprachgewandt ist — Sprache ist genau ihre Kernkompetenz. Zweitens: warum sie manchmal selbstbewusst Unsinn behauptet — dazu kommen wir in Lektion 2.9.
+  "s2-2": `[0:01] Bevor wir irgendwas tippen, brauchst du ein mentales Modell. Nicht um Informatikerin oder Informatiker zu werden, sondern um zu verstehen, warum die künstliche Intelligenz sich so verhält, wie sie sich verhält.
 
-[4:10] Was KI nicht ist: Sie ist keine Suchmaschine mit Datenbank, in der die Wahrheit steht. Sie ist kein Mensch mit Meinung und Gewissen. Und sie ist kein Taschenrechner, der immer exakt rechnet. Sie ist ein Sprach-Werkzeug — und wie jedes Werkzeug ist sie nur so gut wie die Hand, die es führt.
+[0:13] Künstliche Intelligenz ist ein riesiger Oberbegriff. Für diesen Kurs interessiert uns vor allem ein Ausschnitt davon.
 
-[5:10] Take-away: Sprachmodell = Vervollständigungs-Maschine, die das wahrscheinlichste nächste Wort wählt. Genial mit Sprache, kein Wahrheits-Automat.
+[0:19] Die sogenannten Sprachmodelle. Auf Englisch Large Language Models, kurz LLNs. ChattyBT, Claude und Gemini sind alles Sprachmodelle.
 
-[6:00] In der nächsten Lektion schauen wir genauer hin: Wie „arbeitet“ so ein Sprachmodell eigentlich?
+[0:28] Bevor wir das Bild schärfen, probiere KI einmal selbst aus. Es dauert nur eine Minute. Öffne hier Quickdraw with Google und zeichne ein paar Dinge.
 
-[END 6:15]`,
+[0:41] Die künstliche Intelligenz rät in Echtzeit, was du malst. Das macht Spaß und es zeigt, auch das ist künstliche Intelligenz.
 
-  "s2-3": `[0:00] Ein bisschen tiefer — aber keine Sorge, weiterhin ohne Mathe. Ich will, dass du nach dieser Lektion ein Gefühl dafür hast, warum die KI tut, was sie tut.
+[0:49] Aber Achtung, das ist ein anderer Typ künstlicher Intelligenz. Bild- und Mustererkennung, kein Sprachmodell. Uns geht es in diesem Kurs um die Sprachmodelle.
 
-[0:35] Stell dir vor, ich sage: „Die Hauptstadt von Frankreich ist…" — und du ergänzt automatisch „Paris". Genau das macht die KI, nur in riesigem Maßstab und für jede erdenkliche Satzfortsetzung. Wort für Wort, immer das wahrscheinlichste als Nächstes.
+[0:57] Wie die arbeiten, machen wir gleich sichtbar. Hier das einfachste Bild, das funktioniert. Ein Sprachmodell ist eine extrem gut trainierte Vervollständigungsmaschine.
 
-[1:30] Daraus folgen drei praktische Eigenschaften, die du kennen musst.
+[1:07] Es hat unfassbar viele Texte gelesen, Bücher, Webseiten, Artikel und dabei eine einzige Sache gelernt.
 
-[1:50] Erstens — Kontext ist alles. Die KI sieht nur, was im Gespräch steht. Je klarer und vollständiger dein Input, desto besser der Output. „Müll rein, Müll raus" gilt hier doppelt.
+[1:14] Welches Wort kommt als nächstes am wahrscheinlichsten? Das klingt erstmal banal, aber aus dieser einen Fähigkeit, das nächste Wort vorherzusagen, entsteht etwas Erstaunliches.
 
-[2:40] Zweitens — jede Antwort ist neu gewürfelt. Stell dieselbe Frage zweimal und du bekommst zwei leicht unterschiedliche Antworten. Das ist kein Fehler, das ist eingebaut. Praktisch heißt das: Wenn dir eine Antwort nicht gefällt, lass einfach neu generieren.
+[1:25] Die Maschine kann formulieren, zusammenfassen, übersetzen, erklären, umschreiben und so weiter und so weiter.
 
-[3:30] Drittens — die KI hat ein Gedächtnis-Limit. Innerhalb eines Chats erinnert sie sich an das Gesagte. Aber in einem ganz neuen Chat fängt sie bei null an. Für Zusammenhängendes also: im selben Chat bleiben.
+[1:33] Nicht, weil sie versteht wie ein Mensch, sondern weil sie Sprache statistisch meisterhaft beherrscht.
 
-[CUT TO: Talking Head]
+[1:39] Warum ist dieses Bild für dich als Lehrkraft wichtig? Weil es zwei Dinge sofort erklärt. Erstens, warum künstliche Intelligenz so gewandt ist.
 
-[4:25] Und ein wichtiger Punkt zum Wissensstand: Jedes Modell hat einen Trainings-Stichtag. Über Ereignisse danach weiß es von sich aus nichts — es sei denn, das Tool kann live im Internet nachschauen. Manche können das, manche nicht. Dazu mehr in Lektion 2.13.
+[1:48] Sprache ist genau ihre Kernkompetenz. Zweitens, warum sie manchmal selbstbewusst völligen Unsinn behauptet.
 
-[5:15] Take-away: Drei Regeln — Kontext entscheidet, Antworten sind jedes Mal neu, ein Chat ist ein Gedächtnis. Das erklärt 90 % des KI-Verhaltens.
+[1:55] Dazu aber mehr in einer weiteren Lektion. Was künstliche Intelligenz nicht ist, sie ist keine Suchmaschine mit Datenbanken, in der die Wahrheit steht.
 
-[6:00] In der nächsten Lektion lernst du die drei großen Plattformen kennen: ChatGPT, Claude und Gemini.
+[2:05] Sie ist kein Mensch mit Meinung und Gewissen. Und sie ist kein Taschenrechner, der immer exakt rechnet.
 
-[END 6:15]`,
+[2:11] Sie ist ein Sprachwerkzeug und wie jedes Werkzeug ist sie nur so gut wie die Hand, die es führt.
 
-  "s2-4": `[0:00] Es gibt drei große Plattformen, die du kennen solltest. Alle drei können fast alles, was wir in diesem Kurs brauchen. Du musst dich nicht festlegen — aber es hilft, die Unterschiede zu kennen.
+[2:16] Take-away. Sprachmodell ist gleich die Vervollständigungsmaschine, die das wahrscheinlichste nächste Wort wählt.
 
-[0:40] ChatGPT von OpenAI. Der bekannteste Name, quasi das „Standardwerkzeug". Sehr ausgereift, riesiges Ökosystem, viele Zusatzfunktionen. Wenn du nur einen Account anlegst, ist das ein sicherer Start.
+[2:27] Genial mit Sprache, kein Wahrheitsautomat. In der nächsten Lektion machen wir genau das sichtbar, an einem winzigen Sprachmodell, das du selbst ausprobieren kannst.
 
-[1:30] Claude von Anthropic. Stark beim Schreiben, beim Umgang mit langen Texten und bei sorgfältigen, durchdachten Antworten. Viele Lehrkräfte mögen Claude für Formulierungs- und Korrekturaufgaben.
+[2:37] Wie arbeitet so ein Sprachmodell eigentlich?
 
-[2:20] Gemini von Google. Tief in die Google-Welt integriert — Docs, Gmail, Drive. Wenn deine Schule mit Google Workspace arbeitet, ist Gemini oft naheliegend.
+[END 2:41]`,
 
-[CUT TO: Talking Head]
+  "s2-3": `[0:01] Jetzt steigen wir ein bisschen tiefer ein. Aber keine Sorge, weiterhin ohne Mathe. Ich will, dass du nach dieser Lektion ein Gefühl dafür hast, warum künstliche Intelligenz tut, was sie tut.
 
-[3:10] Welche solltest du nehmen? Meine ehrliche Antwort: Es ist weniger wichtig, als du denkst. Die Unterschiede sind für den Schulalltag klein. Wichtiger als die Wahl ist, dass du eine auswählst und damit anfängst.
+[0:12] Stelle dir vor, ich sage, die Hauptstadt von Frankreich ist und du ergänzt automatisch in deinem Kopf Paris.
 
-[3:55] Mein Tipp für diesen Kurs: Leg dir ChatGPT an, weil ich die meisten Demos dort zeige. Wenn du später Lust hast, probier eine zweite aus — gerade beim Faktencheck ist es sogar nützlich, zwei KIs gegeneinander antreten zu lassen. Das sehen wir in Modul I.
+[0:19] Genau das macht ein Sprachmodell, nur in riesigem Maßstab und für jede erdenkliche Satzfortsetzung.
 
-[4:45] Alle drei haben kostenlose Versionen, die für den Einstieg völlig ausreichen. Die Bezahl-Abos (oft „Plus" oder „Pro" genannt) geben dir leistungsstärkere Modelle und mehr Funktionen — aber das brauchst du jetzt noch nicht.
+[0:25] Ich zeige dir das einmal Schritt für Schritt. Nimm zum Beispiel den Satzanfang Houston wir haben.
 
-[5:20] Take-away: ChatGPT, Claude, Gemini — alle drei taugen. Nimm eine, fang an. Für diesen Kurs: ChatGPT, kostenlos.
+[0:33] Genau diesen Kontext bekommt das Modell als Eingabe. Seine einzige Aufgabe ist, das nächste Wort bzw.
 
-[6:00] Direkt unter diesem Video wartet der **Plattform-Finder** — finde heraus, welche der drei Plattformen zu dir passt.
+[0:42] den nächsten Token vorherzusagen. Hier wäre das ein. Wie entscheidet es sich? Es gibt jedem möglichen nächsten Wort eine Wahrscheinlichkeit.
 
-[END 6:15]`,
+[0:53] Ein bekommt vielleicht 90 Prozent, eine fünf, seine zwei und tausende andere Wörter winzige Reste dieser Wahrscheinlichkeitsberechnung.
 
-  "s2-5": `[0:00] Jetzt wird's praktisch. Wir legen gemeinsam einen Account an und ich zeige dir die Oberfläche. Pausier das Video und mach parallel mit.
+[1:04] Dann hängt es das wahrscheinlichste Wort an, ein, und fängt von vorne an. Jetzt lautet der Kontext Houston wir haben ein und das Modell sagt das nächste Wort voraus.
 
-[0:30] Ich gehe auf chatgpt.com, klicke auf „Anmelden" und registriere mich mit einer E-Mail-Adresse. Tipp: Nutz dafür am besten nicht deine dienstliche, sondern eine private oder eigens angelegte Adresse — das hält Privates und Schulisches sauber getrennt.
+[1:17] Problem. Wort für Wort, immer wieder, so entsteht die ganze Antwort. Diese ständige Wiederholung ist übrigens der Grund, warum Chet Chibiti seine Antworten früher so stotternd beziehungsweise Stück für Stück ausgegeben hat, da diese Berechnung recht viel Zeit gebraucht hat.
 
-[CUT TO: Screencast]
+[1:34] Willst du das mit eigenen Augen sehen? Gehe auf soekia. ch, ein winziges Sprachmodell, das direkt im Browser läuft.
 
-[1:20] So sieht die Oberfläche aus. In der Mitte das Eingabefeld — hier tippst du deine Frage oder Anweisung. Das nennt man einen Prompt.
+[1:41] Du gibst einen Satzanfang ein und das zeigt dir Schritt für Schritt, welches Wortbaustein bzw.
 
-[1:55] Links die Chat-Liste. Jedes Gespräch wird gespeichert. Erinnerst du dich an Lektion 2.3? Ein Chat = ein Gedächtnis. Für ein neues Thema klickst du oben auf „Neuer Chat".
+[1:48] welcher Token es als nächstes für am wahrscheinlichsten hält samt der Alternativen, die es verwirft.
 
-[2:40] Oben siehst du oft die Modell-Auswahl. In der kostenlosen Version musst du dich darum meist nicht kümmern — die Standardeinstellung ist gut. Merk dir nur: Wenn du mal die Wahl hast, sind die Modelle mit höheren Nummern in der Regel die stärkeren.
+[1:55] Genau das, nur millionenfach größer, passiert in Chet Chibiti oder Claude. Wenn du dieses Würfeln einmal gesehen hast, verstehst du den Rest des Kurses vielleicht leichter.
 
-[3:25] Ganz unten oder im Menü findest du oft Symbole für Datei-Upload, Bild und Spracheingabe. Die schauen wir uns in Lektion 2.13 genauer an.
+[2:06] Daraus folgen drei praktische Eigenschaften, die du kennen musst. 1. Kontext ist alles. Die künstliche Intelligenz sieht nur, was im Gespräch steht.
 
-[CUT TO: Talking Head]
+[2:17] Je klarer und vollständiger dein Input, desto besser der Output. Müll rein, Müll raus gilt hier doppelt.
 
-[4:10] Das war's schon. Die Oberfläche ist mit Absicht simpel: ein Eingabefeld, eine Liste alter Gespräche, fertig. Lass dich davon nicht einschüchtern — die ganze Magie passiert im Gespräch, nicht in den Menüs.
+[2:25] 2. Jede Antwort ist neu gewürfelt. Stell dieselbe Frage zweimal und du bekommst zwei leicht unterschiedliche Antworten.
 
-[4:40] Take-away: Account anlegen, Eingabefeld finden, „Neuer Chat" für neue Themen. Mehr brauchst du fürs Erste nicht.
+[2:33] Das ist kein Fehler, das ist eingebaut. Praktisch heißt das, wenn dir eine Antwort nicht gefällt, lass einfach neu generieren.
 
-[5:00] In der nächsten Lektion schreibst du live deinen ersten Prompt.
+[2:41] 3. Die künstliche Intelligenz hat ein Gedächtnislimit. Innerhalb eines Chats erinnert sie sich an das Gesagte, aber in einem neuen Chat fängt sie häufig bei Null an.
 
-[END 5:15]`,
+[2:53] Für Zusammenhängendes also immer erstmal im selben Chat bleiben. Und ein wichtiger Punkt zum Wissensstand.
 
-  "s2-6": `[0:00] Jetzt der Moment, auf den es ankommt: dein erster echter Prompt. Ich tippe live, du guckst mir über die Schulter — und danach machst du es selbst.
+[3:01] Jedes Modell hat einen Trainingsstichtag. Über Ereignisse danach weiß es von sich aus nichts.
 
-[0:35] Ich fange bewusst simpel an:
-> „Erkläre mir in drei Sätzen, was Photosynthese ist — so, dass es eine 7. Klasse versteht."
-Und schon kommt eine saubere, altersgerechte Erklärung. Schau dir an, wie schnell das ging.
+[3:08] Es sei denn, das Tool kann live im Internet suchen und Informationen nachschlagen. Manche können das, manche aber auch nicht.
 
-[1:30] Jetzt der entscheidende Schritt, den Anfänger:innen oft vergessen: Ich bin nicht fertig. Ich bleibe im Gespräch und verfeinere:
-> „Danke. Mach es noch einfacher und bau ein Alltagsbeispiel ein."
-Die KI baut den Text um. Das ist der Kern: Es ist ein Dialog, kein einmaliger Knopfdruck.
+[3:17] Mehr dazu in einer weiteren Lektion. Take-away. Drei Regeln. Kontext entscheidet, Antworten sind jedes Mal neu, ein Chat ist ein Gedächtnis.
 
-[CUT TO: Talking Head]
+[3:28] Das erklärt 90 Prozent des KI-Verhaltens. In der nächsten Lektion lernst du die drei großen Plattformen kennen.
 
-[2:30] Siehst du, was gerade passiert ist? Ich musste nicht den perfekten Prompt von Anfang an treffen. Ich habe angefangen und dann nachgesteuert. Das nimmt enorm den Druck raus. Du kannst gar nichts kaputtmachen.
+[3:35] ChatGBT, Claude und Gemini.
 
-[3:15] Zurück ins Tool. Lass uns drei weitere typische Einstiege ausprobieren:
-> „Formuliere diese E-Mail freundlicher: [Text einfügen]."
-> „Gib mir 5 Ideen für einen spannenden Stundeneinstieg zum Thema Vulkane."
-> „Fasse diesen Text in fünf Stichpunkten zusammen: [Text einfügen]."
+[END 3:39]`,
 
-[4:40] Achte darauf, wie unterschiedlich die Aufgaben sind — erklären, umformulieren, Ideen liefern, zusammenfassen. Das sind schon vier der häufigsten Lehrer-Anwendungen, und du beherrschst sie nach fünf Minuten.
+  "s2-kontext-tempo": `[0:00] Kurze Zwischenfrage, bevor wir zu den Plattformen kommen. Warum redet die ganze Welt über künstliche Intelligenz?
 
-[CUT TO: Talking Head]
+[0:06] Zwei Bilder machen das tempogreifbar. Schaue auf die Entwicklung der Sprachmodelle. 2017 die Grundidee, der sogenannte Transformer.
 
-[5:30] Jetzt du. Pausier das Video. Öffne deinen Chat. Tipp irgendetwas ein, das dich aus deinem Fach interessiert. Es gibt kein Falsch. Wenn die Antwort nicht passt, sag der KI einfach, was du anders willst.
+[0:17] 2018 das erste GPT mit 117 Millionen Parametern. Grob gesagt die Stellschrauben im Modell.
 
-[6:15] Take-away: Einfach anfangen. Im Gespräch bleiben. Nachsteuern. Du kannst nichts kaputtmachen.
+[0:26] Und dann geht es Schlag auf Schlag. Hunderte Millionen, Milliarden und heute schätzt man beim Spitzenmodell rund 1,8 Billionen.
 
-[7:00] In der nächsten Lektion zerlegen wir, was einen wirklich guten Prompt ausmacht.
+[0:35] Du musst dir die Namen und die Parameter nicht merken. Der Punkt ist alleine die Geschwindigkeit. Und genauso rasant die Verbreitung.
 
-[END 7:15]`,
+[0:43] Netflix hat dreieinhalb Jahre gebraucht, um 100 Millionen Nutzer zu erreichen. Instagram zweieinhalb Monate, Chat-GPT nur zwei Monate.
 
-  "s2-7": `[0:00] In der letzten Lektion haben wir einfach drauflos getippt — und das ist genau richtig zum Starten. Jetzt machen wir deine Prompts systematisch besser. Es gibt vier Bausteine, die fast jeden Prompt verbessern.
+[0:53] Die allererste Million war sogar schon nach fünf Tagen da. Die am schnellsten verbreitete Consumer App aller Zeiten.
 
-[0:45] Baustein 1 — die Rolle. Sag der KI, wer sie sein soll. „Du bist eine erfahrene Grundschullehrerin" oder „Du bist Lektor für Schulbücher". Das aktiviert genau den richtigen Tonfall und Wortschatz.
+[1:00] Warum ist das für dich als Lehrkraft wichtig? Weil deine Schülerinnen und Schüler längst mittendrin sind.
 
-[1:35] Baustein 2 — die Aufgabe. Klar und konkret. Nicht „etwas zu Brüchen", sondern „Erstelle fünf Übungsaufgaben zur Addition von Brüchen".
+[1:06] Und weil sich die Werkzeuge so schnell verbessern, dass es sich lohnt jetzt einzusteigen. Du musst nicht alles können, aber dabei sein zahlt sich mittlerweile aus.
 
-[2:20] Baustein 3 — der Kontext. Für wen, in welcher Situation? „Für eine 6. Klasse, eher leistungsschwach, als Hausaufgabe." Je mehr relevanter Kontext, desto passender das Ergebnis.
+[1:16] Take-away. In wenigen Jahren von 117 Millionen auf geschätzte 1,8 Billionen Parameter. Und die schnellste Verbreitung, die es je gab.
 
-[3:10] Baustein 4 — das Format. Wie soll das Ergebnis aussehen? „Als Tabelle." „In Stichpunkten." „Maximal 200 Wörter." „Mit Lösungen am Ende."
+[1:26] KI ist keine Modeerscheinung, sondern hier, um zu bleiben. In der nächsten Lektion schauen wir uns die drei großen Plattformen an, mit denen du arbeiten wirst.
 
-[CUT TO: Screencast]
+[END 1:37]`,
 
-[4:00] Schauen wir den Unterschied. Erst der schwache Prompt: „Mach was zu Brüchen." — Das Ergebnis ist beliebig. Jetzt mit allen vier Bausteinen:
-> „Du bist eine erfahrene Mathematiklehrerin (Rolle). Erstelle fünf Übungsaufgaben zur Addition von Brüchen (Aufgabe). Für eine 6. Klasse, eher leistungsschwach, als Hausaufgabe (Kontext). Format: nummerierte Liste, steigende Schwierigkeit, Lösungen am Ende (Format)."
+  "s2-4": `[0:00] Es gibt drei große Plattformen, die du kennen solltest. Alle drei können fast alles, was wir in diesem Kurs brauchen.
 
-[5:20] Schau dir den Unterschied an — das zweite Ergebnis ist sofort einsetzbar. Vier Bausteine, ein paar Sekunden mehr Tipparbeit, ein riesiger Qualitätssprung.
+[0:06] Du musst dich nicht festlegen, aber es hilft, die Unterschiede grob zu kennen. ChetGPT von OpenAI. Der bekannteste Name, quasi das Standardwerkzeug.
 
-[CUT TO: Talking Head]
+[0:16] Sehr ausgereift, großes Ökosystem, viele Zusatzfunktionen. Wenn du nur einen Account anlegen willst, ist das ein relativ sicherer Start.
 
-[6:10] Du musst nicht immer alle vier nutzen. Aber wenn ein Ergebnis enttäuscht, frag dich: Welcher Baustein hat gefehlt? Meistens war es Kontext oder Format.
+[0:26] Claude von Anthropic. Stark beim Schreiben, beim Umgang mit langen Texten und bei sorgfältigen, durchdachten Antworten.
 
-[6:40] Take-away: Rolle, Aufgabe, Kontext, Format. Vier Bausteine. Bei schlechten Ergebnissen fehlt fast immer einer davon.
+[0:34] Viele Lehrkräfte mögen Claude für Formulierungs- und Korrekturaufgaben. Gemini von Google.
 
-[7:00] Direkt unter diesem Video wartet der **Prompt-Builder** — bau deinen ersten Prompt aus genau diesen vier Bausteinen.
+[0:40] Tief in die Google-Welt integriert. Docs, Gmail und Drive. Wenn deine Schule mit Google Workspace arbeitet, ist Gemini oft naheliegend.
 
-[END 7:15]`,
+[0:48] In Deutschland allerdings eher die Ausnahme. Welche solltest du nehmen? Meine ehrliche Antwort, es ist weniger wichtig, als du denkst.
 
-  "s2-8": `[0:00] Die wichtigste Fähigkeit im Umgang mit KI ist nicht der perfekte erste Prompt. Es ist das Nachsteuern. Profis erkennt man daran, dass sie nach der ersten Antwort weitermachen.
+[0:58] Die Unterschiede sind für den Schulalltag relativ klein. Wichtiger als die Wahl ist, dass du eine auswählst und damit anfängst und das User Interface und das Handling zu dir passt.
 
-[0:40] Hier sind die nützlichsten Nachsteuer-Sätze, die du dir merken solltest. Ich nenne sie meine Iterations-Sätze:
+[1:13] Mein Tipp für diesen Kurs, leg dir ChetGPT oder Claude an, weil ich da die meisten Demos zeige.
 
-[1:05] „Mach es kürzer / länger." — Länge anpassen. „Mach es einfacher / anspruchsvoller." — Niveau anpassen. „Gib mir drei Varianten zur Auswahl." — Optionen erzeugen. „Ändere den Ton zu wertschätzend / sachlich / locker." — Tonfall justieren.
+[1:19] Wenn du später Lust hast, probiere weitere aus. Gerade beim Faktencheck ist es sogar nützlich, zwei oder drei künstliche Intelligenzen gegeneinander antreten zu lassen.
 
-[2:10] Und mein Lieblingssatz, wenn ich selbst nicht weiterweiß:
-> „Welche Informationen brauchst du noch von mir, um ein besseres Ergebnis zu liefern?"
-Dann dreht die KI den Spieß um und fragt dich — und plötzlich wird das Ergebnis viel besser.
+[1:29] Das sehen wir aber noch in Modul 1. Alle drei haben kostenlose Versionen, die für den Einstieg völlig ausreichen.
 
-[CUT TO: Talking Head]
+[1:37] Die Bezahlabos, oft Plus oder Pro genannt, geben dir leistungsstärkere Modelle und mehr Funktionen.
 
-[3:00] Ein Denkfehler, den ich oft sehe: Leute bekommen eine mittelmäßige Antwort, sind enttäuscht und schließen den Chat. Das ist, als würdest du nach der ersten Antwort eines Kollegen das Gespräch abbrechen. Bleib dran. Die zweite und dritte Runde sind oft die guten.
+[1:44] Aber das brauchst du jetzt an dieser Stelle noch nicht. Take-away. ChetGPT, Claude, Gemini.
 
-[3:50] Wichtig: Bleib für ein Thema im selben Chat. Die KI erinnert sich dann an alles Vorherige und du musst nicht ständig den Kontext wiederholen. Erst für ein komplett neues Thema einen neuen Chat öffnen.
+[1:51] Alle drei taugen. Nimm eine und fang an. Direkt unter diesem Video wartet der Plattformfinder auf dich.
 
-[4:30] Take-away: Die erste Antwort ist ein Entwurf, kein Endprodukt. Iterieren ist die eigentliche Kernkompetenz.
+[1:59] Der Plattformfinder gibt dir eine grobe Orientierung, welche dieser drei Plattformen ganz gut zu dir passen könnten.
 
-[5:00] In der nächsten Lektion geht's um den wichtigsten Stolperstein: Wenn die KI Unsinn behauptet — Halluzinationen.
+[2:07] Viel Spaß beim Ausprobieren.
 
-[END 5:15]`,
+[END 2:11]`,
 
-  "s2-9": `[0:00] Diese Lektion ist die wichtigste der ganzen Sektion. Wenn du nur eine Sache aus dem Crash-Kurs mitnimmst, dann diese: KI kann selbstbewusst Dinge behaupten, die schlicht falsch sind. Man nennt das „Halluzinationen".
+  "s2-5": `[0:00] Jetzt wird es praktisch. Wir legen gemeinsam einen Account an und ich zeige dir die Oberfläche.
 
-[0:45] Erinnerst du dich an unser mentales Modell aus Lektion 2.2? Die KI wählt das wahrscheinlichste nächste Wort. Sie strebt nach einem Text, der plausibel klingt — nicht zwingend nach einem, der wahr ist. Meistens fällt beides zusammen. Manchmal nicht. Und genau dann wird es gefährlich, weil die falsche Antwort genauso überzeugt klingt wie die richtige.
+[0:05] Pausiere das Video und mach parallel mit. Gehe auf ChatGPT. com, klicke auf Anmelden und registriere dich mit einer E-Mail-Adresse.
 
-[CUT TO: Screencast]
+[0:14] Tipp, nutze dafür am besten nicht eine dienstliche, sondern eine private oder eigens angelegte Adresse.
 
-[1:50] Ich zeige dir das live. Ich frage nach einer Quellenangabe oder einem Zitat zu einem Nischenthema — und schau: Die KI liefert einen Buchtitel mit Autor und Jahreszahl, der absolut echt aussieht. Wenn ich danach suche, existiert er gar nicht. Frei erfunden, aber perfekt formatiert.
+[0:19] Das hält Privates und Schulisches sauber getrennt. So sieht die Oberfläche aus. In der Mitte das Eingabefeld. Hier tippst du deine Fragen und Anweisungen.
 
-[3:00] Besonders fehleranfällig sind: konkrete Fakten (Zahlen, Daten, Namen), Quellen und Zitate, Mathematik und alles, was nach dem Trainings-Stichtag passiert ist.
+[0:28] Das nennt man einen Prompt. Links die Chat-Leiste. Jedes Gespräch wird hier gespeichert. Erinnerst du dich noch an die vorangegangene Lektion Ein Chat, ein Gedächtnis?
 
-[CUT TO: Talking Head]
+[0:39] Für ein neues Thema klickst du oben auf Neuen Chat. Oben siehst du oft die Modellauswahl. In der kostenlosen Version musst du dich allerdings meistens nicht darum kümmern.
 
-[3:50] Was du dagegen tust — drei einfache Regeln. Erstens: Behandle jede konkrete Faktenangabe als unbestätigt, bis du sie geprüft hast. Zweitens: Verifiziere außerhalb der KI — über eine Suchmaschine, ein Schulbuch, eine vertrauenswürdige Seite. Drittens — ganz wichtig: Frag die KI nicht „Bist du dir sicher?". Das funktioniert nicht. Sie wird genauso überzeugt zustimmen oder sich entschuldigen — beides sagt nichts über die Wahrheit aus.
+[0:51] Die Standardeinstellung ist für die meisten Vorhaben absolut ausreichend. Merke dir, wenn du mal die Wahl hast, sind die Modelle mit höheren Nummern in der Regel die stärkeren.
 
-[5:15] Die gute Nachricht: Für viele Schul-Aufgaben spielt das kaum eine Rolle. Wenn du einen Text umformulieren, Ideen sammeln oder eine E-Mail freundlicher machen lässt, kann nichts „halluziniert" werden. Das Risiko steckt vor allem in Fakten, die du selbst nicht überblickst. Genau da musst du Lehrkraft bleiben.
+[1:01] Ganz unten oder im Menü findest du oft Symbole für Datei-Uploads, Bilder und Spracheingaben.
 
-[6:10] Take-away: KI klingt immer überzeugt — auch wenn sie falsch liegt. Jede konkrete Faktenangabe wird außerhalb der KI geprüft. „Bist du sicher?" hilft nicht.
+[1:06] Die schauen wir uns in einer anderen Lektion noch genauer an. Das war's schon. Die Oberfläche ist mit Absicht simpel. Ein Eingabefeld, eine Liste alter Gespräche, fertig.
 
-[7:00] Direkt unter diesem Video wartet der **Halluzinations-Trainer** — schätze acht Szenarien ein und teste dein Gespür.
+[1:17] Lass dich davon nicht einschüchtern. Die ganze Magie passiert im Gespräch, nicht in den Menüs.
 
-[END 7:15]`,
+[1:23] Take-away. Account anlegen, Eingabefeld finden, neuer Chat für neue Themen. Mehr brauchst du fürs Erste noch nicht.
 
-  "s2-10": `[0:00] Kurzer, aber wichtiger Stopp. Im Crash-Kurs gehen wir bewusst nicht tief ins Thema Datenschutz — das ist zu groß für hier und hat seinen eigenen Platz in den späteren Modulen. Aber fünf Minuten Grundregeln brauchst du, bevor du loslegst.
+[1:31] In der nächsten Lektion schreibst du live deinen ersten Prompt.
 
-[0:45] Die eine goldene Regel: Gib keine personenbezogenen Daten von Schüler:innen, Eltern oder Kolleg:innen in die KI ein. Keine echten Namen, keine Adressen, keine Noten mit Namen, keine Gesundheitsdaten.
+[END 1:35]`,
 
-[1:40] Der einfache Trick dafür heißt Anonymisieren. Statt „Mareike Schulz aus der 7b" schreibst du „eine Schülerin der 7. Klasse". Die KI macht trotzdem genau, was du willst — und du setzt die echten Namen erst nachher im fertigen Text wieder ein.
+  "s2-6": `[0:01] Jetzt der Moment, auf den es ankommt, dein erster echter Prompt. Ich tippe live und du guckst mir über die Schulter und danach machst du es selbst.
 
-[CUT TO: Talking Head]
+[0:10] Ich fange bewusst simpel an. So, erkläre mir in drei Sätzen, was Photosynthese ist, sodass es eine siebte Klasse versteht.
 
-[2:40] Warum das Ganze? Vereinfacht: Was du in viele kostenlose KI-Dienste eingibst, kann zur Verbesserung der Systeme weiterverwendet werden. Schülerdaten haben dort einfach nichts zu suchen. Das ist kein Grund zur Panik — nur ein Grund zur Sorgfalt.
+[0:20] Und dann lösen wir einmal aus und nach einer kurzen Zeit kommt schon eine saubere und altersgerechte Erklärung.
 
-[3:30] Zwei weitere Schnell-Tipps: Erstens, in den Einstellungen vieler Tools kannst du das Mitlernen aus deinen Chats abschalten — ein Blick lohnt sich. Zweitens, halte dich an das, was deine Schule und dein Bundesland freigegeben haben; die Vorgaben unterscheiden sich.
+[0:30] Schau, wie schnell das geht. Jetzt der entscheidende Schritt, den Anfänger oft vergessen. Ich bin noch nicht fertig, ich bleibe im Gespräch und verfeinere.
 
-[4:20] Mehr dazu — rechtssicher und konkret — kommt in den späteren Modulen. Für jetzt reicht: anonymisieren, keine Schülerdaten, im erlaubten Rahmen bleiben.
+[0:40] Danke, mach es noch einfacher und baue ein Alltagsbeispiel ein. Die KI baut den Text um. Das ist der Kern. Es ist ein Dialog, kein einmaliger Knopfdruck.
 
-[4:45] Take-away: Keine personenbezogenen Daten in die KI. Anonymisieren, echte Namen erst hinterher einsetzen. Der Rest folgt in den Modulen.
+[0:53] Siehst du, was gerade passiert ist? Ich musste nicht den perfekten Prompt von Anfang an treffen.
 
-[5:00] In der nächsten Lektion wird's konkret: deine ersten Lehrer-Use-Cases, die sofort entlasten.
+[0:58] Ich habe angefangen und dann nachgesteuert. Das nimmt enormen Druck raus. Du kannst gar nichts kaputt machen.
 
-[END 5:15]`,
+[1:04] Zurück ins Tool. Lass uns drei weitere typische Einstiege ausprobieren. Möglichkeit 1 Formuliere diese E-Mail freundlicher.
 
-  "s2-11": `[0:00] Jetzt der Teil, für den du hier bist: Womit entlastest du dich ab morgen? Ich zeige dir fünf Use-Cases live, die sofort Zeit sparen. Alle mit den vier Prompt-Bausteinen aus Lektion 2.7.
+[1:13] Ich schreibe als Sportkollege oder vielleicht auch als Klassenlehrer eine E-Mail an meine Eltern.
 
-[0:40] Use-Case 1 — Stundeneinstiege.
-> „Du bist erfahrene Biologielehrkraft. Gib mir 5 kreative Stundeneinstiege zum Thema Ökosystem Wald für eine 6. Klasse. Pro Einstieg: ein Satz Beschreibung und das benötigte Material."
-In zehn Sekunden hast du fünf Ideen, von denen mindestens eine zündet.
+[1:20] Und es geht um den klassischen Fall, dass die Kids die Sportklamotten oder dass viele die Trinkflaschen im Sportunterricht nicht mit dabei sind oder verloren gegangen sind.
 
-[1:40] Use-Case 2 — E-Mails und Elternkommunikation.
-> „Formuliere eine freundliche, sachliche E-Mail an Eltern zur Ankündigung eines Wandertags. Inhalt: Datum, Treffpunkt, Verpflegung selbst mitbringen, Rückkehr 14 Uhr. Kurz halten."
-Die tägliche Mail-Reibung — von zwanzig Minuten auf drei.
+[1:34] Ich möchte jetzt die Eltern einmal schnell darüber informieren, dass die Sachen wichtig sind für den Sportunterricht.
 
-[2:40] Use-Case 3 — Texte vereinfachen.
-> „Vereinfache diesen Sachtext für eine 5. Klasse, Niveau A2. Kurze Sätze, schwierige Wörter erklären: [Text einfügen]."
-Inklusion und Differenzierung in Sekunden — dazu gleich mehr in Lektion 2.12.
+[1:40] Ich möchte aber jetzt nicht diese E-Mail ausformulieren, deshalb könnte ich so etwas probieren.
 
-[CUT TO: Talking Head]
+[1:46] Wir gucken einmal rein. Über diesen Button können wir sehr gut diese E-Mail kopieren und dann in das E-Mail-Programm unserer Wahl überführen.
 
-[3:40] Use-Case 4 — Feedback formulieren. Wichtig: Du bewertest, die KI formuliert nur. Du gibst Stichworte, sie macht wertschätzenden Fließtext daraus. (Anonymisiert — erinnerst du dich an Lektion 2.10.) Das vertiefen wir in Modul I.
+[1:53] Eine zweite Möglichkeit wäre beispielsweise, sich eine gewisse Inspirationshilfe geben zu lassen, zum Beispiel zum Thema Stundeneinstiege.
 
-[4:30] Use-Case 5 — Quiz und Übungen erstellen.
-> „Erstelle ein kurzes Quiz mit 5 Multiple-Choice-Fragen zum Thema Wasserkreislauf, 4. Klasse. Pro Frage 3 Antwortmöglichkeiten, eine richtig, Lösungen am Ende."
+[2:02] Und vielleicht unterrichtet man in Geografie gerade das Thema Vulkane und könnte zum Beispiel einmal prompten, gib mir fünf Ideen für einen spannenden Stundeneinstieg zum Thema Vulkane.
 
-[CUT TO: Talking Head]
+[2:15] Und hier seht ihr, das geht dann direkt los und es werden unterschiedliche Möglichkeiten von der künstlichen Intelligenz angeboten.
 
-[5:30] Merk dir den Mind-Shift dahinter — der ist von Tim und mir der wichtigste Satz aus unseren Fortbildungen: KI ist nicht für die großen Würfe da, sondern für die vielen kleinen Reibungen deines Alltags. Hundert kleine Aufgaben, je um zehn Minuten verkürzt — das ist ein ganzer Schultag pro Woche, den du zurückbekommst.
+[2:23] Die KI gibt einem fünf spannende Ideen für einen Unterrichtseinstieg zum Thema Vulkane aus.
 
-[6:20] Take-away: Einstiege, E-Mails, Vereinfachen, Feedback, Quiz — fünf Use-Cases, die ab morgen Zeit sparen. KI killt die kleinen Reibungen.
+[2:30] Das dritte Beispiel wäre, fasse diesen Text in fünf Stichpunkten zusammen. Ich habe hier einmal einen Text über wichtige Regeln im Fußball genommen und ich möchte das jetzt in fünf Stichpunkten zusammengefasst haben und dann kann ich quasi diese Funktion auch nutzen und direkt beispielsweise kopierte Webseiten oder PDF-Dokumente einmal in diesen Chat einzufügen und dann mit der Frage zu versehen, fasse diesen Text in fünf Stichpunkten zusammen.
 
-[7:00] In der nächsten Lektion geht's um Differenzierung — Individualisierung in Minuten.
+[3:03] Und so habe ich die Möglichkeit, künstliche Intelligenz so zu nutzen, dass es mir eine Zusammenfassarbeit erleichtert.
 
-[END 7:15]`,
+[3:10] Achtet darauf, wie unterschiedlich die Aufgaben sind. Erklären, umformulieren, Ideen liefern, zusammenfassen.
 
-  "s2-12": `[0:00] Der vielleicht stärkste Hebel von KI für den Unterricht: Differenzierung. Das, wofür im Alltag oft die Zeit fehlt, geht jetzt in Minuten.
+[3:18] Das sind schon vier der häufigsten Lehrereinwendungen und du beherrschst sie nach fünf Minuten.
 
-[0:40] Das Grundprinzip ist simpel: eine Aufgabe — drei Niveaus. Ich nehme eine bestehende Aufgabe und lasse sie mir in mehreren Schwierigkeitsstufen ausgeben.
+[3:25] Jetzt du, pausiere das Video, öffne deinen Chat, tippe irgendetwas ein, das dich aus deinem Fach interessiert.
 
-[CUT TO: Screencast]
+[3:33] Es gibt kein Falsch. Wenn die Antwort nicht passt, sag der künstlichen Intelligenz einfach, was du anders möchtest.
 
-[1:20] Ich starte mit einer normalen Aufgabe und prompte:
-> „Hier ist eine Aufgabe für meine 7. Klasse: [Aufgabe einfügen]. Gib mir drei Varianten: eine vereinfachte für leistungsschwächere SuS, das Original, und eine anspruchsvollere mit Transfer für leistungsstarke SuS."
+[3:39] Jetzt einmal Pause und ausprobieren. Take-away. Einfach anfangen, im Gespräch bleiben, nachsteuern, du kannst nichts kaputt machen.
 
-[2:30] In einem Schritt habe ich Material für die ganze Bandbreite einer Lerngruppe. Vorher hätte ich dafür drei Arbeitsblätter einzeln gebaut.
+[3:48] In der nächsten Lektion zerlegen wir, was einen wirklich guten Prompt ausmacht.
 
-[3:10] Das geht auch sprachlich. Für DaZ-Schüler:innen oder Inklusion:
-> „Gib mir denselben Text zusätzlich auf Sprachniveau A2 — kurze Sätze, einfacher Wortschatz."
+[END 3:56]`,
 
-[CUT TO: Talking Head]
+  "s2-7": `[0:00] In der letzten Lektion haben wir einfach drauf losgetippt und das ist genau richtig zum Starten.
 
-[4:00] Ein Hinweis, der mir wichtig ist: Einfache Sprache ist nicht dasselbe wie Leichte Sprache. Leichte Sprache ist ein geprüfter Standard mit eigenen Regeln. Für den schnellen Alltag ist KI-„einfache Sprache" großartig — für offizielle Leichte-Sprache-Dokumente brauchst du spezialisierte Anbieter. Mehr dazu in Modul I.
+[0:05] Jetzt machen wir deine Prompts systematisch besser. Es gibt vier Bausteine, die fast jeden Prompt verbessern.
 
-[4:55] Der Gewinn ist riesig: Differenzierung scheitert im Alltag fast nie am Wollen, sondern an der Zeit. Genau die gibt dir KI zurück — und am Ende profitieren die Schüler:innen, weil jede:r Material auf dem passenden Niveau bekommt.
+[0:12] Baustein 1. Die Rolle. Sagt der künstlichen Intelligenz, wer sie sein soll. Du bist eine erfahrene Grundschullehrerin oder du bist Lektor für Schulbücher.
 
-[5:30] Take-away: Eine Aufgabe, drei Niveaus, ein Prompt. Differenzierung scheitert nicht mehr an der Zeit.
+[0:24] Das aktiviert genau den richtigen Tonfall und Wortschatz. Baustein 2. Die Aufgabe. Klar und konkret. Nicht etwas zu brüchen, sondern erstelle fünf Übungsaufgaben zur Addition von Brüchen.
 
-[6:00] In der nächsten Lektion gehen wir über den Text hinaus: Bild, Stimme, Recherche.
+[0:40] Baustein 3. Der Kontext. Für wen? In welcher Situation? Zum Beispiel für eine sechste Klasse, eher leistungsschwach als Hausaufgabe.
 
-[END 6:15]`,
+[0:50] Je mehr relevanter Kontext, desto passender das Ergebnis. Baustein 4. Das Format. Wie soll das Ergebnis aussehen? Als Tabelle, in Stichpunkten, maximal 200 Wörter, mit Lösung am Ende.
 
-  "s2-13": `[0:00] Bisher haben wir nur getippt. Aber moderne KI kann viel mehr als Text. Ich gebe dir einen schnellen Überblick — damit du weißt, was es gibt. Tief eintauchen werden wir später, vor allem in Modul IV.
+[1:05] Schaue dir den Unterschied an. Erst der schwache Prompt. Mach was zu Brüchen. Das Ergebnis ist relativ beliebig.
 
-[0:40] Bild. KI kann Bilder erzeugen — von der Illustration fürs Arbeitsblatt bis zur Karikatur für den Geschichtsunterricht. Ein Prompt wie „kindgerechtes Schaubild zum Wasserkreislauf, beschriftet" liefert in 30 Sekunden, was sonst eine Stunde in einem Grafikprogramm kostet.
+[1:12] Jetzt mit allen vier Bausteinen. Du bist eine erfahrene Mathematiklehrerin. Erstelle fünf Übungsaufgaben zur Addition von Brüchen.
 
-[1:40] Bild verstehen. Umgekehrt kannst du der KI auch ein Foto geben — etwa von einem Tafelbild oder einem Arbeitsblatt — und sie wertet es aus, transkribiert oder erklärt es. Das ist riesig für die Nachbereitung.
+[1:20] Für eine sechste Klasse, eher leistungsschwach als Hausaufgabe. Format, nummerierte Liste, steigende Schwierigkeit, Lösung am Ende.
 
-[2:30] Stimme. Du kannst mit der KI sprechen statt tippen — praktisch unterwegs. Und es gibt Tools, die Texte in natürlich klingende Sprache verwandeln, etwa für Hörverstehens-Übungen.
+[1:30] Schaue dir den Unterschied an. Das zweite Ergebnis ist sofort einsetzbar. Vier Bausteine, ein paar Sekunden mehr Tipparbeit, ein riesiger Qualitätssprung.
 
-[CUT TO: Talking Head]
+[1:41] Du musst nicht immer alle vier nutzen. Aber wenn ein Ergebnis enttäuscht, frag dich, welcher Baustein hat eventuell gefehlt.
 
-[3:20] Recherche & aktuelle Infos. Erinnerst du dich an den Trainings-Stichtag aus Lektion 2.3? Manche Tools können das umgehen, weil sie live im Internet suchen. Perplexity ist dafür bekannt, und ChatGPT, Claude und Gemini können es je nach Version auch. Der große Vorteil: Sie zeigen dir Quellen-Links, die du anklicken und prüfen kannst — ein direktes Gegenmittel gegen Halluzinationen.
+[1:48] Meistens war es Kontext oder Format. Nimm dir kurz fünf Minuten Zeit und probiere das für dein eigenes Beispiel aus.
 
-[4:30] Dann gibt es noch spezialisierte Schul-Tools wie MagicSchool, Fobizz oder NotebookLM, die für den Bildungsbereich gebaut sind. Die schauen wir uns im Verlauf des Kurses an — du musst sie jetzt nicht kennen.
+[1:56] Take-away. Rolle, Aufgabe, Kontext, Format. Vier Bausteine, bei schlechten Ergebnissen fehlt fast immer einer davon.
 
-[5:15] Lass dich von der Fülle nicht erschlagen. Der Kern bleibt immer derselbe: ein klarer Prompt, im Dialog nachsteuern, Fakten prüfen. Alles andere ist Variation.
+[2:06] Direkt unter diesem Video wartet der Promptbilder auf dich. Baue deinen ersten Prompt aus genau diesen vier Bausteinen.
 
-[5:40] Take-away: KI kann Bild, Stimme und Live-Recherche — nicht nur Text. Überblick reicht jetzt; die Tiefe kommt in den Modulen.
+[2:13] Viel Spaß beim Ausprobieren.
 
-[6:00] In der nächsten Lektion bekommst du deinen Crash-Kurs-Praxisauftrag.
+[END 2:14]`,
 
-[END 6:15]`,
+  "s2-8": `[0:01] Die wichtigste Fähigkeit im Umgang mit künstlicher Intelligenz ist nicht der perfekte erste Prompt.
 
-  "s2-14": `[0:00] Wissen wird erst durch Tun zu Können. Darum schließen wir den Crash-Kurs mit einem kleinen, machbaren Praxisauftrag ab.
+[0:07] Es ist das Nachsteuern. Profis erkennt man darin, dass sie nach der ersten Antwort weitermachen.
 
-[0:35] Deine Aufgabe: Erstelle mit KI ein Material, das du in deiner nächsten Unterrichtswoche wirklich gebrauchen kannst. Frei nach Wahl — ein Stundeneinstieg, ein kurzes Quiz, eine vereinfachte Textfassung, eine Eltern-E-Mail. Irgendetwas Echtes aus deinem Alltag.
+[0:13] Hier sind die nützlichsten Nachsteuersätze, die du dir merken solltest. Ich nenne sie meine Iterationssätze.
 
-[1:20] Drei Vorgaben dabei: Erstens, nutz bewusst die vier Prompt-Bausteine aus Lektion 2.7 — Rolle, Aufgabe, Kontext, Format. Zweitens, bleib im Dialog und steuere mindestens einmal nach. Drittens, wenn Fakten drinstecken: prüf sie außerhalb der KI.
+[0:20] Mach es kürzer, mach es länger, länger anpassen, mach es einfacher, anspruchsvoller, Niveau anpassen, gib mir drei Varianten zur Auswahl, erzeuge Optionen, ändere den Ton zu wertschätzend, sachlich oder logfähig.
 
-[CUT TO: Talking Head]
+[0:35] Und mein Lieblingssatz, wenn ich selbst nicht weiter weiß, welche Informationen brauchst du noch von mir, um ein besseres Ergebnis zu liefern?
 
-[2:20] Das Ziel ist nicht Perfektion. Das Ziel ist, dass du einmal den kompletten Weg gegangen bist — vom Prompt über das Nachsteuern bis zum fertigen, geprüften Material. Dieser eine Durchlauf nimmt dir die letzte Hemmschwelle.
+[0:43] Dann dreht die künstliche Intelligenz den Spieß um und fragt dich. Und plötzlich wird das Ergebnis viel besser.
 
-[3:05] Teilen im Padlet. Lad dein Ergebnis bei uns ins Padlet — mit Vorname oder Pseudonym, deinem Fach und der Klassenstufe. Warum? Weil du von den Materialien der anderen genauso lernst wie sie von deinen. So entsteht eine kleine Community.
+[0:49] Ein Denkfehler, den ich oft sehe, Leute bekommen eine mittelmäßige Antwort, sind enttäuscht und schließen den Chat.
 
-[3:50] Und keine Sorge, wenn beim ersten Mal nicht alles glatt läuft. Genau das ist der Sinn der Übung. Die wirklich tiefen Sachen — eine ganze Unterrichtseinheit bauen, KI-Assistenten erstellen, mit Plagiaten umgehen — kommen jetzt in den Modulen. Du hast ab hier das Fundament.
+[0:56] Das ist, als würdest du nach der ersten Antwort eines Kollegen direkt immer das Gespräch abbrechen.
 
-[4:30] Take-away: Ein echtes Material, vier Bausteine, einmal nachsteuern, Fakten prüfen, ins Padlet. Dann bist du startklar für die Module.
+[1:02] Bleib dran, die zweite und dritte Runde sind oft die besseren. Wichtig, bleib für ein Thema im selben Chat.
 
-[5:00] Und danach kannst du dein Crash-Kurs-Wissen im **Quiz** direkt unter diesem Video überprüfen.
+[1:08] Die künstliche Intelligenz erinnert sich dann an alles Vorherige und du musst nicht ständig den Kontext wiederholen.
 
-[END 5:15]`,
+[1:14] Erst für ein komplett neues Thema öffne einen neuen Chat. Take-away, die erste Antwort ist ein Entwurf, kein Endprodukt.
+
+[1:23] Iterieren ist die eigentliche Kernkompetenz im Umgang mit künstlicher Intelligenz. In der nächsten Lektion geht es um den wichtigsten Stolperstein, wenn die künstliche Intelligenz Unsinn behauptet.
+
+[1:36] Halluzination.
+
+[END 1:37]`,
+
+  "s2-9": `[0:00] Diese Lektion ist die wichtigste der ganzen Sektionen. Wenn du nur eine Sache aus dem Crash-Kurs mitnimmst, dann diese.
+
+[0:05] KI kann selbstbewusst Dinge behaupten, die schlicht falsch sind. Man nennt das Halluzination. Erinnerst du dich an unser mentales Modell aus den vergangenen Lektionen?
+
+[0:15] Die künstliche Intelligenz wählt das wahrscheinlichste nächste Wort. Sie strebt nach einem Text, der plausibel klingt, nicht zwingend nach einem, der wahr ist.
+
+[0:25] Meistens fällt beides zusammen. Manchmal aber auch nicht. Und genau dann wird es gefährlich, weil die falsche Antwort genauso überzeugend klingt, wie die richtige.
+
+[0:35] Ich frage nach einer Quellenangabe oder einem Zitat zu einem Nischenthema. Und schau, die KI liefert einen Buchtitel mit Auto und Jahreszahl, der absolut echt aussieht.
+
+[0:47] Wenn ich danach suche, existiert er aber gar nicht. Frei erfunden, aber perfekt formatiert.
+
+[0:52] Besonders fehleranfällig sind konkrete Fakten, Zahlen, Daten, Namen, Quellen und Zitate, Mathematik und alles, was nach dem Trainingsstichtag passiert ist.
+
+[1:05] Was du dagegen tust? Drei einfache Regeln. 1. Behandle jede konkrete Faktenangabe als unbestätigt, bis du sie geprüft hast.
+
+[1:15] 2. Verifiziere außerhalb der KI über eine Suchmaschine, ein Schulbuch oder eine vertrauenswürdige Seite.
+
+[1:24] 3. Ganz wichtig. Frag die KI nicht, bist du sicher. Das funktioniert nicht. Sie wird genauso überzeugend zustimmen oder sich entschuldigen.
+
+[1:35] Beides sagt aber nichts über die Wahrheit aus. Die gute Nachricht, für viele Schulaufgaben spielt das kaum noch eine Rolle.
+
+[1:43] Wenn du einen Text umformulierst, Ideen sammelst oder eine E-Mail freundlicher machen lässt, kann nicht halluziniert werden.
+
+[1:49] Das Risiko steckt vor allem in Fakten, die du selbst nicht überblickst. Genau da musst du Lehrkraft bleiben.
+
+[1:56] Take-away. Künstliche Intelligenz klingt immer überzeugend, auch wenn sie falsch liegt. Jede konkrete Faktenangabe musst du außerhalb der KI prüfen.
+
+[2:07] Bist du dir sicher, hilft nicht. Direkt unter diesem Video wartet der Halluzinationstrainer.
+
+[2:13] Schätze 8 Szenarien ein und teste dein Gespür. Viel Erfolg!
+
+[END 2:20]`,
+
+  "s2-10": `[0:01] Kurzer, aber wichtiger Stopp. Im Crashkurs gehen wir bewusst nicht tief ins Thema Datenschutz.
+
+[0:06] Das ist zu groß für hier und hat seinen eigenen Platz in den späteren Modulen. Aber 5 Minuten Grundregeln brauchst du, bevor wir loslegen.
+
+[0:15] Eine goldene Regel. Gib keine personenbezogenen Daten von Schülerinnen, Eltern oder Kolleginnen oder auch dir in die künstliche Intelligenz ein.
+
+[0:24] Keine echten Namen, Adressen, keine Noten mit Namen, keine Gesundheitsdaten. Der einfache Trick dafür heißt anonymisieren.
+
+[0:33] Statt Mareike Schulz aus der 7b schreibst du einen Schülerin der siebten Klasse. Die künstliche Intelligenz macht trotzdem genau das, was du willst.
+
+[0:42] Und du setzt die echten Namen erst nachher im fertigen Text wieder ein. Warum das Ganze? Vereinfacht, was du in viele kostenlose KI-Dienste eingibst, kann zur Verbesserung der Systeme weiterverwendet werden.
+
+[0:55] Schülerdaten haben dort einfach nichts zu suchen. Das ist kein Grund zur Panik, nur ein Grund zur Sorgfalt.
+
+[1:00] Zwei weitere schnelle Tipps. Erstens, in den Einstellungen vieler Tools kannst du das Mitlernen aus deinen Chats abschalten.
+
+[1:09] Ein Blick lohnt sich. Zweitens, halte dich an das, was deine Schule und dein Bundesland freigegeben haben.
+
+[1:16] Die Vorgaben unterscheiden sich zum Teil sehr stark von Bundesland zu Bundesland. Mehr dazu, rechtssicher und konkret, kommt in den späteren Modulen.
+
+[1:26] Für jetzt reicht anonymisieren, keine Schülerdaten im erlaubten Rahmen bleiben. Take-away. Keine personenbezogenen Daten in die KI.
+
+[1:35] Anonymisieren, echte Namen erst hinterher einsetzen. Der Rest folgt in den weiteren Modulen.
+
+[1:41] In der nächsten Lektion wird es jetzt aber konkret. Deine ersten Lehrer-Use-Cases, die sofort entlasten.
+
+[1:47] Bis gleich!
+
+[END 1:50]`,
+
+  "s2-kontext-nutzung": `[0:00] Bevor du gleich deine ersten eigenen Anwendungsfälle baust, ein kurzer, ehrlicher Blick nach draußen.
+
+[0:05] Wofür nutzen Menschen künstliche Intelligenz eigentlich? Dazu gibt es eine große Untersuchung von 2025.
+
+[0:13] 1. Die schiere Menge. Innerhalb eines Jahres ist die Zahl der KI-Nachrichten pro Tag von rund 450 Millionen auf 2,6 Milliarden gestiegen.
+
+[0:23] Etwa das Sechsfache. Und immer mehr davon ist privat statt beruflich. Von gut der Hälfte auf fast drei Viertel.
+
+[0:31] KI wandert vom Büro in den Alltag. 2. Wofür? Ganz oben stehen praktische Anleitungen, Informationen suchen und schreiben.
+
+[0:42] Und, für uns besonders spannend, Tutoring und Lehren machen rund 10% der gesamten Nutzung aus.
+
+[0:49] Eine der größten Einzelkategorien weltweit. Das heißt, genau das, was wir gleich üben, erklären, formulieren, Material erstellen, Dinge verständlicher machen, ist längst eine der häufigsten Anwendungsfälle überhaupt.
+
+[1:02] Du bist damit nicht am Rand, sondern mitten im Trend. Take-away. Künstliche Intelligenz wird immer mehr privat genutzt.
+
+[1:11] Und Anleiten, Informieren, Schreiben und Lehren steht ganz oben. Deine Use-Cases als Lehrkraft treffen also genau den Kern.
+
+[1:19] Jetzt wird es konkret. In der nächsten Lektion baust du deine ersten 5 Use-Cases, die sofort entlasten.
+
+[END 1:27]`,
+
+  "s2-11": `[0:00] Jetzt der Teil für den du hier bist. Womit entlastest du dich ab morgen? Ich zeige dir fünf Use-Cases für den Unterricht und zum Schluss einen aus der Verwaltung, die sofort Zeit sparen.
+
+[0:11] Alle mit den vier Promptbausteinen aus den vergangenen Lektionen. Wir starten mit dem ersten Use-Case, dem Stundeneinstieg.
+
+[0:18] Hier können wir beispielsweise probieren zu sagen, du bist eine erfahrene Biologie Lehrkraft, gib mir fünf kreative Stundeneinstiege zum Thema Ökosystem, Wald für eine sechste Klasse.
+
+[0:29] Pro Einstieg ein Satz, Beschreibung und das benötigte Material. Hier sehen wir jetzt die aufgeblätterten Ergebnisse.
+
+[0:36] Das sollte soweit erstmal ganz gut passen und ermöglicht uns fünf kreative Stundeneinstiege.
+
+[0:46] Use-Case zwei, Elternkommunikation und E-Mails. Hier können wir uns beispielsweise bei der Erstellung einer E-Mail unterstützen Formuliere eine freundliche, sachliche E-Mail an Eltern zur Ankündigung eines Wandertags.
+
+[0:57] Hier seht ihr jetzt, wir haben eine vorgefertigte E-Mail erhalten und haben die Möglichkeit beispielsweise die Nachricht zu kopieren und dann weiter zu verwenden.
+
+[1:10] Use-Case drei, Texte vereinfachen und Anfänge von Differenzierung. Ihr erinnert euch noch an den Text zu den Fußballregeln.
+
+[1:20] Wir möchten jetzt diesen Text für die Unterstufe vereinfachen. Hier haben wir jetzt die Möglichkeit zu sagen, vereinfache diesen Sachtext für eine fünfte Klasse.
+
+[1:31] Niveau A2, kurze Sätze, schwierige Wörter erklären. Hier seht ihr direkt eine tolle Funktion von Claude.
+
+[1:37] Er hat uns jetzt diese Aufgabe bearbeitet und hat den vereinfachten Sachtext in ein neues Dokument überführt, was wir jetzt kopieren oder auch herunterladen können.
+
+[1:50] Use-Case vier, Feedback formulieren. Wir haben mit künstlicher Intelligenz auch die Möglichkeit, relativ schnell zum Teil umfangreiches Feedback zu formulieren.
+
+[2:02] Wir können uns zum Beispiel gezielt einen Schüler heraussuchen mit der Aufgabe, ihm ein schriftliches Feedback zu geben.
+
+[2:10] Schreibe mir ein nettes und freundliches Feedback für einen Schüler. Hierbei wichtig, weiter so gute Leistung, weniger mit dem Nachbarn quatschen und nicht einfach während des Unterrichts aufstehen.
+
+[2:19] Also ein wenig der Klassiker. Wir schauen einmal, wie uns künstliche Intelligenz dabei helfen kann.
+
+[2:25] Und wir sehen direkt in der Antwort, hier haben wir ein solides Feedback formuliert, was wir, wenn wir den Namen noch einfügen, gut im Unterricht verwenden können.
+
+[2:36] Use-Case fünf, Quiz und Übungen erstellen. Wir haben mit künstlicher Intelligenz auch die tolle Möglichkeit, relativ schnell Quizzes und Überprüfungen zu erstellen.
+
+[2:48] Hier könnten wir als Beispiel nehmen, erstelle mir ein kurzes Quiz mit fünf Multiple-Choice-Fragen zum Thema Wasserkreislauf.
+
+[2:54] Vierte Klasse. Pro Frage drei Antwortenmöglichkeiten, eine richtige und die Lösung am Ende.
+
+[3:00] Wir schauen, was künstliche Intelligenz daraus macht. Und wir sehen das Quiz mit den entsprechenden richtigen Lösungen am Ende.
+
+[3:06] Auch haben wir die Möglichkeit, das als Word-Dokument uns ausgeben zu lassen oder auch in die Überprüfungsportale unserer Schule oder unseres Vertrauens zu überführen.
+
+[3:17] Dazu aber in den weiteren Lektionen in Modul 1 mehr. Und jetzt der Perspektivwechsel, der oft vergessen wird.
+
+[3:25] KI entlastet nicht nur beim Unterrichten, sondern genauso bei Organisation und Verwaltung.
+
+[3:30] Den Aufgaben, die dir abends die Zeit stehen. Use-Case sechs, die Klassenfahrt. Hier haben wir beispielsweise eine typische Situation.
+
+[3:40] Als Lehrkraft, man muss eine Klassenfahrt planen, vielleicht nach Weimar. 28 Schülerinnen und Schüler, achte Klasse.
+
+[3:48] Und neben dem Tagesplan brauchen wir auch eine Packliste, einen Elterninfo-Brief und so weiter und so weiter.
+
+[3:56] Und wir versuchen uns hier einmal mit künstlicher Intelligenz zu entlasten. Hier seht ihr beispielsweise die große Stärke auch von Claude.
+
+[4:04] Wir bekommen nicht nur eine komplette Planung unserer Klassenreise inklusive Budget- Population und Co.
+
+[4:09] als dazu gelagerte Dokumente, sondern auch sachdienliche Hinweise, was gut zu einer Klasse passen würde und was aufgrund des Alters vielleicht noch nicht so angemessen ist.
+
+[4:23] Auch ein Elternbrief ist in den entsprechenden Dokumenten zu finden. Somit hat man sich relativ gut vorentlastet für die Klassenreise.
+
+[4:32] Du merkst direkt, wie diese Aufgaben dich entlasten können. Hunderte kleine Aufgaben je um 10 Minuten verkürzt.
+
+[4:39] Das ist ein ganzer Schultag pro Woche, den du zurückbekommst. Take-away. Einstiege, E-Mails vereinfachen, Feedbacks, Quizzes und sogar die Klassenfahrtplanung.
+
+[4:47] Künstliche Intelligenz killt die kleinen Reibungen im Unterricht wie in der Verwaltung. In der nächsten Lektion geht es um Differenzierung und Individualisierung in Minuten.
+
+[END 5:05]`,
+
+  "s2-12": `[0:01] Der vielleicht stärkste Hebel von künstlicher Intelligenz für den Unterricht, Differenzierung und Individualisierung.
+
+[0:07] Das, wofür im Alltag oft die Zeit fehlt, geht jetzt in Minuten. Das Grundprinzip ist simpel. Eine Aufgabe, drei Niveaus. Ich nehme eine bestehende Aufgabe und lasse sie mir in mehreren Schwierigkeitsstufen ausgeben.
+
+[0:21] Ich starte mit einer normalen Aufgabe und prompte, erstelle mir eine Aufgabe für eine 7. Klasse zum Thema Französische Revolution.
+
+[0:30] Er gibt mir drei Varianten. Vereinfachte für leistungsschwächere Schüler, das Original und eine anspruchsvollere.
+
+[0:37] Also quasi zwei Differenzierungsstufen vom Original. Und ihr seht direkt, wir haben hier unterschiedliches Material bekommen.
+
+[0:45] Eine wichtige Zusatzfunktion. Hier kann man beispielsweise den Inhalt kopieren. Man kann ihn aber auch direkt herunterladen als PDF-Dokument oder als Word-Dokument, wenn man noch eigenständige Änderungen an dem Inhalt vornehmen möchte.
+
+[0:58] Man hat aber auch immer die Möglichkeit, über diesen Bearbeiten-Button selbst noch sozusagen mit künstlicher Intelligenz Änderungen vorzunehmen.
+
+[1:04] Und wir gucken über die Ergebnisse. Das ist ganz schön. Wir sehen hier, es gibt insgesamt drei Varianten in unterschiedlichen Anforderungsniveaus.
+
+[1:14] Jetzt möchten wir aber vielleicht auch noch differenzieren für DaZ-Schülerinnen oder Inklusion und haben hier die Möglichkeit zu sagen, ihr denselben Text zusätzlich auf Sprachniveau A2, kurze Sätze, einfacher Wortschatz.
+
+[1:28] Und wir sehen direkt, wir haben unterschiedliche Fassungen bekommen auf dem Sprachniveau A2.
+
+[1:33] Und genau, das sieht soweit ganz gut aus. Ein Hinweis, der mir wichtig ist. Einfache Sprache ist nicht dasselbe wie leichte Sprache.
+
+[1:42] Leichte Sprache ist ein geprüfter Standard mit eigenen Regeln. Für den schnellen Alltag ist KI einfache Sprache großartig.
+
+[1:49] Für offizielle leichte Sprachedokumente brauchst du spezialisierte Anbieter. Dazu aber mehr in Modul 1.
+
+[1:56] Grundsätzlich ist der Gewinn aber riesig. Differenzierung scheitert im Alltag fast nie am Wollen, sondern eher an der Zeit.
+
+[2:04] Genau die gibt dir künstliche Intelligenz zurück. Und am Ende profitieren die Schülerinnen und Schüler, weil jeder Material auf dem passenden Niveau bekommt.
+
+[2:13] Take-away. Eine Aufgabe, drei Niveaus, ein Prompt. Differenzierung scheitert nicht mehr an der Zeit.
+
+[2:20] In der nächsten Lektion gehen wir den Text hinaus. Bild, Stimme und Recherche.
+
+[END 2:27]`,
+
+  "s2-13": `[0:03] Bisher haben wir nur getippt, aber moderne künstliche Intelligenz kann viel mehr als Text.
+
+[0:09] Ich gebe dir einen schnellen Überblick, damit du weißt, was es gibt. Tief eintauchen werden wir später, vor allem in Modul 4.
+
+[0:16] Bild Künstliche Intelligenz kann Bilder erzeugen, von der Illustration für Arbeitsblätter bis zur Karikatur für den Geschichtsunterricht.
+
+[0:23] Ein prompt wie kindgerechtes Schaubild zum Wasserkreislaufbeschriften liefert in 30 Sekunden, was sonst eine Stunde in einem Grafikprogramm gekostet hätte.
+
+[0:34] Bild verstehen Umgekehrt kannst du Künstliche Intelligenz auch ein Foto geben, etwa von einem Tafelbild oder einem Arbeitsblatt, und sie wertet es aus, transkribiert oder erklärt es.
+
+[0:45] Das ist riesig für die Nachbereitung. Stimme Du kannst mit der Künstlichen Intelligenz sprechen statt tippen, praktisch die ganze Zeit, und es gibt Tools, die Texte in natürlich klingende Sprache verwandeln können.
+
+[0:57] Und etwas sehr Praktisches, das oft übersehen wird. Du bist nicht auf den Chattext festgelegt.
+
+[1:04] Bitte die Künstliche Intelligenz einfach dir das Ergebnis im passenden Dateiformat auszugeben.
+
+[1:09] Als Word-Dokument zum Weiterbearbeiten, als Excel-Tabelle für Listen und Kalkulationen oder als fertiges PDF zum Ausdrucken.
+
+[1:16] Gib mir die Materialliste als Excel-Tabelle oder mach daraus ein sauberes PDF-Arbeitsblatt.
+
+[1:22] Und du lädst es direkt herunter und nutzt es weiter. Ihr findet hier auch verlinkt einen Speech-to-Text-Tipp von mir, den ich häufig nutze, wenn ich lange E-Mails schreiben möchte oder wenn ich lange Dokumente erstelle.
+
+[1:35] Recherche und aktuelle Infos Erinnerst du dich an den Trainingsstichtag aus den vorherigen Lektionen?
+
+[1:43] Manche Tools können das umgehen, weil sie live im Internet suchen. Perplexity ist dafür bekannt, aber ChatGPT, Claude und Gemini können es mittlerweile auch sehr gut.
+
+[1:54] Der große Vorteil, sie zeigen dir Quellenlinks, die du anklicken und prüfen kannst. Ein direktes Gegenmittel gegen Halluzinationen. Dann gibt es noch spezialisierte Schultools wie Magic School, Fobizz oder NotebookLM, die für den Bildungsbereich gebaut sind.
+
+[2:10] Die schauen wir uns im Verlauf des Kurses an. Du musst sie jetzt nicht direkt kennenlernen. Lass dich von der Fülle nicht erschlagen. Der Kern bleibt immer derselbe.
+
+[2:20] Ein klarer Prompt, im Dialog nachsteuern, Fakten prüfen. Alles andere sind Variationen. Take-away Künstliche Intelligenz kann Bild, Stimme, Live-Recherche und Ausgabe als Word, Excel oder PDF.
+
+[2:34] Nicht nur als Chattext. Der Crashkurs kommt an sein Ende. Die Tiefe kommt in den Modulen. In der nächsten Lektion bekommst du noch einen letzten Crashkursauftrag.
+
+[END 2:49]`,
+
+  "s2-14": `[0:00] Wissen wird erst durch Tun zu Können. Darum schließen wir den Crashkurs mit einem kleinen, machbaren Praxisauftrag ab.
+
+[0:07] Deine Aufgabe – erstelle mit künstlicher Intelligenz ein Material, das du in deiner nächsten Unterrichtswoche wirklich gebrauchen kannst.
+
+[0:15] Frei nach Wahl – ein Stundeneinstieg, ein kurzes Quiz, eine vereinfachte Textfassung, eine Eltern-E-Mail, irgendwas Echtes aus deinem Alltag.
+
+[0:23] Drei Vorgaben dabei. 1. Nutze bewusst die vier Prompt-Bausteine aus den vorherigen Lektionen – Rolle, Aufgabe, Kontext, Format.
+
+[0:32] 2. Bleib im Dialog und steuere mindestens einmal nach. 3. Wenn Fakten da drinstehen, prüfe sie außerhalb der künstlichen Intelligenz.
+
+[0:43] Das Ziel ist nicht Perfektion, das Ziel ist, dass du einmal den kompletten Weg gegangen bist – vom Prompt über das Nachsteuern bis zum fertigen, geprüften Material.
+
+[0:53] Dieser eine Durchlauf nimmt dir die letzte Hemmschwelle. Und keine Sorge, wenn beim ersten Mal nicht alles glattläuft.
+
+[1:00] Genau das ist Sinn der Übung. Die wirklich tiefen Sachen – eine ganze Unterrichtseinheit bauen, KI-Assistenten erstellen, mit Plagiaten umgehen – kommen in den nächsten Modulen.
+
+[1:10] Du hast aber ab hier das Fundament. Take-away. Ein echtes Material, vier Bausteine, einmal nachsteuern, Fakten prüfen, dann bist du startklar für die Module.
+
+[1:21] Danach kannst du dein Crashkurs-Wissen im Quiz direkt unter diesem Video überprüfen. Ich drücke dir die Daumen für die erste Leistungsüberprüfung im KI-Komplettkurs.
+
+[END 1:32]`,
+
 };

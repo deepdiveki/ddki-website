@@ -28,6 +28,7 @@ import remarkGfm from "remark-gfm";
 import { courseContent, courseSubtitle, courseTitle, type Lesson, type Section, type ToolKey } from "../_data/courseContent";
 import { courseScripts } from "../_data/courseScripts";
 import Quiz from "./Quiz";
+import LessonVideo from "./LessonVideo";
 import PromptBuilder from "./tools/PromptBuilder";
 import HallucinationTrainer from "./tools/HallucinationTrainer";
 import PlatformFinder from "./tools/PlatformFinder";
@@ -188,6 +189,8 @@ export default function CoursePlayer() {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(["s1"]));
   const [completedLessons, setCompletedLessons] = useState<Set<string>>(new Set());
   const [currentLessonId, setCurrentLessonId] = useState<string>("s1-1");
+  // Steuert das automatische Abspielen des nächsten Videos (Udemy-Verhalten).
+  const [autoplay, setAutoplay] = useState(false);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [ratings, setRatings] = useState<Record<string, number>>({});
   const [quizScores, setQuizScores] = useState<Record<string, QuizScore>>({});
@@ -254,8 +257,9 @@ export default function CoursePlayer() {
     }));
   };
 
-  const jumpToLesson = (id: string) => {
+  const jumpToLesson = (id: string, keepAutoplay = false) => {
     if (!allLessonIds.has(id)) return;
+    if (!keepAutoplay) setAutoplay(false);
     setCurrentLessonId(id);
     const section = courseContent.find((s) =>
       s.lessons.some((l) => l.id === id),
@@ -267,6 +271,22 @@ export default function CoursePlayer() {
         next.add(section.id);
         return next;
       });
+    }
+  };
+
+  // Udemy-Verhalten: Video zu Ende → Häkchen setzen → zur nächsten Lektion
+  // springen und (falls Video) automatisch starten.
+  const handleVideoEnded = () => {
+    if (currentLesson && !completedLessons.has(currentLesson.id)) {
+      setCompletedLessons((prev) => {
+        const next = new Set(prev);
+        next.add(currentLesson.id);
+        return next;
+      });
+    }
+    if (nextLesson) {
+      setAutoplay(true);
+      jumpToLesson(nextLesson.id, true);
     }
   };
 
@@ -332,6 +352,9 @@ export default function CoursePlayer() {
               return next;
             })
           }
+          onVideoEnded={handleVideoEnded}
+          autoplayVideo={autoplay}
+          onVideoPlay={() => setAutoplay(false)}
         />
 
         {sidebarOpen && (
@@ -353,6 +376,7 @@ export default function CoursePlayer() {
               quizScores={quizScores}
               currentLessonId={currentLessonId}
               onSelectLesson={(id) => {
+                setAutoplay(false);
                 setCurrentLessonId(id);
                 if (typeof window !== "undefined" && window.innerWidth < 1024) {
                   setSidebarOpen(false);
@@ -406,6 +430,9 @@ function MainColumn({
   totalLessons,
   progressPercent,
   onCompleteCurrentLesson,
+  onVideoEnded,
+  autoplayVideo,
+  onVideoPlay,
 }: {
   currentLesson: Lesson | undefined;
   activeTab: Tab;
@@ -425,6 +452,9 @@ function MainColumn({
   totalLessons: number;
   progressPercent: number;
   onCompleteCurrentLesson: () => void;
+  onVideoEnded: () => void;
+  autoplayVideo: boolean;
+  onVideoPlay: () => void;
 }) {
   const isQuiz = currentLesson?.type === "quiz" && currentLesson.questions;
   const isTool = currentLesson?.type === "tool" && currentLesson.tool;
@@ -466,14 +496,13 @@ function MainColumn({
         <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black">
           {currentLesson?.videoUrl ? (
             isDirectVideoUrl(currentLesson.videoUrl) ? (
-              <video
+              <LessonVideo
                 key={currentLesson.id}
                 src={currentLesson.videoUrl}
                 title={currentLesson.title}
-                controls
-                preload="metadata"
-                playsInline
-                className="absolute inset-0 h-full w-full"
+                autoPlay={autoplayVideo}
+                onEnded={onVideoEnded}
+                onPlay={onVideoPlay}
               />
             ) : (
               <iframe

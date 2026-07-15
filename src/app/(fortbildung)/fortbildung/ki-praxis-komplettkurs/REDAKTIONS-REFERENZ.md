@@ -46,6 +46,17 @@ Das Wort **„Bausteine"** meint im Kurs an drei Stellen etwas Verschiedenes. Da
 - Aufzählungen: „Erstens / Zweitens / **Drittens** / Viertens" (nicht „Dritte").
 - Plattformnamen: **ChatGPT, Claude, Gemini** (keine Versionsnummern — siehe Regel 4.1).
 
+### 1.4 Tool-Doppelrolle: Quickdraw & SoekiaGPT
+
+Beide Tools erscheinen **an zwei Stellen mit unterschiedlicher Rolle** — das ist Absicht, kein Widerspruch:
+
+| Tool | Crash-Kurs (Sektion 2) — *Selbst-Ausprobieren zum Verstehen* | Modul III (Sektion 5) — *Unterrichts-Einsatz nach Schulstufe* |
+|---|---|---|
+| **Quickdraw** (`quickdraw.withgoogle.com`) | **s2-2**: spielerischer KI-Erstkontakt; dient der **Abgrenzung** „KI-Oberbegriff (Mustererkennung) ≠ Sprachmodell". | Grundschule (SchoolStageFinder, Elternabend) als spielerische Methode. |
+| **SoekiaGPT** (`soekia.ch`) | **s2-3**: Hands-on-Demo der **Nächstes-Wort-/Token-Mechanik** eines LLM. | Sek I (SchoolStageFinder) als Sprachmodell-Mechanik-Demo. |
+
+**Regeln:** Quickdraw immer klar als *Bild-/Mustererkennung, kein Sprachmodell* einordnen (sonst falsches mentales Modell). SoekiaGPT = **SoekiaGPT** schreiben (nicht „Soekia GPT"). Links nur in Downloads/On-Screen-Karten, nicht als Versionsnummer/Preis (Regel 4.1).
+
 ---
 
 ## 2. Zahlen-Faktenblatt
@@ -90,6 +101,19 @@ Das Wort **„Bausteine"** meint im Kurs an drei Stellen etwas Verschiedenes. Da
 | Memory (Cross-Chat) | Account-Funktion | ❌ (nicht in der Form) | ✅ (in Gems) |
 
 > **Produktnamen vermeiden:** funktional „Bildgenerierung" statt „DALL-E", „Web-Suche" statt „Web Browsing". UI-Labels veralten quartalsweise.
+
+### 2.5 KI-Kontextzahlen (Crash-Kurs `s2-kontext-tempo` / `s2-kontext-nutzung`)
+
+Grafiken: Compositions `ModellZeitstrahl`, `AdoptionSpeed`, `PrivatVsArbeit`, `NutzungWofuer` (im ddki-videos-Projekt). **Volatil — als „ca."/Stand 2026 behandeln, in den Grafiken pflegen, nicht ins Skript festbrennen (Regel 4.1).**
+
+| Fakt | Kanonischer Wert | Hinweis / Korrektur |
+|---|---|---|
+| Parameter-Wachstum | GPT-1 **117 Mio** → GPT-2 **1,5 Mrd** → GPT-3 **175 Mrd** → GPT-4 **~1,8 Bio (geschätzt)** | „170 Bio" war falsch; GPT-4 nicht offiziell, ~1,8 Bio geschätzt. GPT-4 = **März 2023** (nicht 2022). |
+| Zeitstrahl aktuell halten | Transformer 2017 · … · **DeepSeek** (01/2025) · **GPT-5** (2025) · **Gemini 3** (11/2025) | Claude/Gemini/GPT-5 ergänzt; bis 2026 fortgeschrieben. |
+| 100 Mio Nutzer | Netflix 3,5 J · Twitter 2 J · Facebook 10 Mon · Spotify 5 Mon · Instagram 2,5 Mon · **ChatGPT 2 Mon** | **„5 Tage" gilt für 1 Mio, nicht 100 Mio.** 100 Mio ≈ 2 Monate (Jan 2023) — trotzdem **schnellste Consumer-App aller Zeiten** (UBS). „5 Tage" nur als 1-Mio-Callout. |
+| KI-Nachrichten/Tag | **451 Mio → 2,6 Mrd** (Jun 2024 → Jun 2025, ~6×) | Quelle: OpenAI-Studie. |
+| Arbeit/Privat | Nicht-Arbeit **53 % → 73 %** | „Privat überholt Arbeit". |
+| Top-Nutzungsgründe | Praktische Anleitung **28,8 %** · Info **24,4 %** · Schreiben **23,9 %** · **Tutoring/Lehren ~10 %** | Quelle: **OpenAI, „How People Use ChatGPT" (15.09.2025)** — Chatterji, Cunningham, Deming et al. (OpenAI/Duke/Harvard). |
 
 ---
 

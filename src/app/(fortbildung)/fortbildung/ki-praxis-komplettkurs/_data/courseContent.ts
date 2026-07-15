@@ -213,6 +213,8 @@ export const courseContent: Section[] = [
       {
         id: "s2-1",
         title: "Was dich im Crash-Kurs erwartet",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-1.mp4",
         type: "video",
         duration: "4 Min",
         format: "Talking Head + Übersichts-Slide",
@@ -224,28 +226,52 @@ export const courseContent: Section[] = [
       {
         id: "s2-2",
         title: "Was ist KI? Ein mentales Modell",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-2.mp4",
         type: "video",
-        duration: "6 Min",
+        duration: "7 Min",
         format: "Slides mit Schaubildern + Talking Head",
         hook: "Bevor wir irgendetwas tippen, brauchst du ein mentales Modell, das erklärt, warum die KI sich so verhält, wie sie sich verhält.",
         lernziel: "Du verstehst, dass ein Sprachmodell eine Vervollständigungs-Maschine ist, die das wahrscheinlichste nächste Wort wählt.",
         takeaway: "Sprachmodell = Vervollständigungs-Maschine, die das wahrscheinlichste nächste Wort wählt. Genial mit Sprache, kein Wahrheits-Automat.",
-        downloads: [{ name: "Schaubild KI-Landkarte", url: "/fortbildung/ki-praxis-komplettkurs/downloads/schaubild-ki-landkarte" }],
+        downloads: [
+          { name: "Schaubild KI-Landkarte", url: "/fortbildung/ki-praxis-komplettkurs/downloads/schaubild-ki-landkarte" },
+          { name: "Quickdraw ausprobieren", url: "https://quickdraw.withgoogle.com" },
+        ],
       },
       {
         id: "s2-3",
         title: "Wie ein Sprachmodell „arbeitet“",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-3.mp4",
         type: "video",
-        duration: "6 Min",
-        format: "Screencast Demo + Slides",
+        duration: "8 Min",
+        format: "Animation „Aufgabe eines LLM“ + Screencast Demo + Slides",
         hook: "Ich will, dass du nach dieser Lektion ein Gefühl dafür hast, warum die KI tut, was sie tut.",
         lernziel: "Du kennst die drei Grundregeln — Kontext entscheidet, Antworten sind jedes Mal neu, ein Chat ist ein Gedächtnis.",
         takeaway: "Drei Regeln — Kontext entscheidet, Antworten sind jedes Mal neu, ein Chat ist ein Gedächtnis. Das erklärt 90 % des KI-Verhaltens.",
-        downloads: [{ name: "Merkblatt So tickt die KI", url: "/fortbildung/ki-praxis-komplettkurs/downloads/merkblatt-so-tickt-die-ki" }],
+        downloads: [
+          { name: "Merkblatt So tickt die KI", url: "/fortbildung/ki-praxis-komplettkurs/downloads/merkblatt-so-tickt-die-ki" },
+          { name: "SoekiaGPT ausprobieren", url: "https://soekia.ch" },
+        ],
+      },
+      {
+        id: "s2-kontext-tempo",
+        title: "KI in Zahlen: Tempo & Verbreitung",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-4.mp4",
+        type: "video",
+        duration: "4 Min",
+        format: "Animierte Grafiken + Talking Head",
+        hook: "Warum ist KI gerade jetzt überall? Ein kurzer Blick auf zwei Zahlen, die das Tempo greifbar machen.",
+        lernziel: "Du kannst einordnen, wie rasant KI-Modelle größer geworden sind und wie beispiellos schnell sich ChatGPT verbreitet hat.",
+        takeaway: "In wenigen Jahren von 117 Mio auf ~1,8 Bio Parameter — und ChatGPT ist die am schnellsten verbreitete Consumer-App aller Zeiten.",
       },
       {
         id: "s2-4",
         title: "Die drei großen Plattformen: ChatGPT, Claude, Gemini",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-5.mp4",
         type: "video",
         duration: "6 Min",
         format: "Slides Vergleich + Talking Head",
@@ -265,6 +291,8 @@ export const courseContent: Section[] = [
       {
         id: "s2-5",
         title: "Dein erster Account & die Oberfläche",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-7.mp4",
         type: "video",
         duration: "5 Min",
         format: "Screencast (Anmeldung + UI-Tour)",
@@ -276,6 +304,8 @@ export const courseContent: Section[] = [
       {
         id: "s2-6",
         title: "Dein erster Prompt (live)",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-8.mp4",
         type: "video",
         duration: "7 Min",
         format: "Screencast (live Prompting)",
@@ -287,6 +317,8 @@ export const courseContent: Section[] = [
       {
         id: "s2-7",
         title: "Die Anatomie eines guten Prompts",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-9.mp4",
         type: "video",
         duration: "7 Min",
         format: "Slides + Screencast",
@@ -306,6 +338,8 @@ export const courseContent: Section[] = [
       {
         id: "s2-8",
         title: "Im Dialog bleiben: Iterieren & Nachfragen",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-11.mp4",
         type: "video",
         duration: "5 Min",
         format: "Screencast + Talking Head",
@@ -317,6 +351,8 @@ export const courseContent: Section[] = [
       {
         id: "s2-9",
         title: "Wenn die KI Unsinn behauptet: Halluzinationen",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-12.mp4",
         type: "video",
         duration: "7 Min",
         format: "Screencast (Live-Beispiel) + Talking Head",
@@ -336,6 +372,8 @@ export const courseContent: Section[] = [
       {
         id: "s2-10",
         title: "Datenschutz in 5 Minuten: das Nötigste",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-14.mp4",
         type: "video",
         duration: "5 Min",
         format: "Talking Head + Checkliste-Slide",
@@ -345,41 +383,62 @@ export const courseContent: Section[] = [
         downloads: [{ name: "Datenschutz-Minimal-Checkliste", url: "/fortbildung/ki-praxis-komplettkurs/downloads/datenschutz-minimal-checkliste" }],
       },
       {
+        id: "s2-kontext-nutzung",
+        title: "Wie die Welt KI wirklich nutzt",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-15.mp4",
+        type: "video",
+        duration: "4 Min",
+        format: "Animierte Grafiken + Talking Head",
+        hook: "Bevor wir loslegen: Wofür nutzen Menschen KI eigentlich — und was heißt das für dich als Lehrkraft?",
+        lernziel: "Du kennst aktuelle Nutzungszahlen (OpenAI-Studie 2025): KI wandert ins Private, und Lehren/Tutoring ist eine der größten Nutzungskategorien.",
+        takeaway: "KI wird immer mehr privat genutzt — und Anleiten, Informieren, Schreiben und Lehren stehen ganz oben. Genau das üben wir gleich.",
+        downloads: [{ name: "Studie: How People Use ChatGPT (OpenAI, 2025)", url: "https://cdn.openai.com/pdf/a253471f-8260-40c6-a2cc-aa93fe9f142e/economic-research-chatgpt-usage-paper.pdf" }],
+      },
+      {
         id: "s2-11",
         title: "Deine ersten Lehrer-Use-Cases: Entlastung sofort",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-16.mp4",
         type: "video",
-        duration: "7 Min",
+        duration: "8 Min",
         format: "Screencast (mehrere Live-Demos)",
         hook: "Jetzt der Teil, für den du hier bist: Womit entlastest du dich ab morgen?",
-        lernziel: "Du kannst fünf konkrete Lehrer-Use-Cases mit KI umsetzen — von Stundeneinstiegen bis Quiz-Erstellung.",
-        takeaway: "Einstiege, E-Mails, Vereinfachen, Feedback, Quiz — fünf Use-Cases, die ab morgen Zeit sparen. KI killt die kleinen Reibungen.",
+        lernziel: "Du kannst konkrete Lehrer-Use-Cases mit KI umsetzen — von Stundeneinstiegen bis Quiz — und auch administrative Aufgaben wie eine Klassenfahrt-Planung inkl. Fahrtkosten-Kalkulation entlasten.",
+        takeaway: "Einstiege, E-Mails, Vereinfachen, Feedback, Quiz — und sogar die Klassenfahrt-Planung. KI killt die kleinen Reibungen, im Unterricht wie in der Verwaltung.",
         downloads: [{ name: "10 Sofort-Prompts für den Schulalltag", url: "/fortbildung/ki-praxis-komplettkurs/downloads/10-sofort-prompts-fuer-den-schulalltag" }],
       },
       {
         id: "s2-12",
         title: "Individualisierung: Differenzierung in Minuten",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-17.mp4",
         type: "video",
-        duration: "6 Min",
+        duration: "7 Min",
         format: "Screencast + Talking Head",
         hook: "Der vielleicht stärkste Hebel von KI für den Unterricht: Differenzierung, die im Alltag oft an der Zeit scheitert.",
-        lernziel: "Du kannst mit einem Prompt eine Aufgabe in mehreren Niveaustufen differenzieren und kennst den Unterschied zu Leichter Sprache.",
-        takeaway: "Eine Aufgabe, drei Niveaus, ein Prompt. Differenzierung scheitert nicht mehr an der Zeit.",
+        lernziel: "Du kannst mit einem Prompt eine Aufgabe in mehreren Niveaustufen differenzieren, ein Arbeitsblatt mit der Canvas-Funktion Absatz für Absatz anpassen und kennst den Unterschied zu Leichter Sprache.",
+        takeaway: "Eine Aufgabe, drei Niveaus, ein Prompt — und mit der Canvas-Funktion feilst du das Arbeitsblatt sogar Absatz für Absatz zurecht. Differenzierung scheitert nicht mehr an der Zeit.",
         downloads: [{ name: "Differenzierungs-Prompt-Set", url: "/fortbildung/ki-praxis-komplettkurs/downloads/differenzierungs-prompt-set" }],
       },
       {
         id: "s2-13",
         title: "Über den Text hinaus: Bild, Stimme, Recherche",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-18.mp4",
         type: "video",
-        duration: "6 Min",
+        duration: "7 Min",
         format: "Slides + kurze Screencast-Schnipsel",
         hook: "Bisher haben wir nur getippt — aber moderne KI kann viel mehr als Text.",
-        lernziel: "Du hast einen Überblick über KI-Funktionen für Bild, Stimme und Live-Recherche und weißt, wo die Tiefe später kommt.",
-        takeaway: "KI kann Bild, Stimme und Live-Recherche — nicht nur Text. Überblick reicht jetzt; die Tiefe kommt in den Modulen.",
+        lernziel: "Du hast einen Überblick über KI-Funktionen für Bild, Stimme und Live-Recherche und weißt, dass du dir Ergebnisse auch als Word, Excel oder PDF ausgeben lassen kannst.",
+        takeaway: "KI kann Bild, Stimme, Live-Recherche und Ausgabe als Word, Excel oder PDF — nicht nur Chat-Text. Überblick reicht jetzt; die Tiefe kommt in den Modulen.",
         downloads: [{ name: "Tool-Landkarte", url: "/fortbildung/ki-praxis-komplettkurs/downloads/tool-landkarte" }],
       },
       {
         id: "s2-14",
         title: "Dein Crash-Kurs-Praxisauftrag",
+        videoUrl:
+          "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/Sektion%202%20-%20Crash%20Kurs%20KI/final-abschnitt-2-sektion-19.mp4",
         type: "video",
         duration: "5 Min",
         format: "Talking Head + Aufgaben-Slide",
