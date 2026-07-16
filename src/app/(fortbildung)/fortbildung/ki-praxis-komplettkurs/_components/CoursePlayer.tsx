@@ -360,7 +360,7 @@ export default function CoursePlayer() {
         {sidebarOpen && (
           <>
             <div
-              className="fixed inset-0 z-30 bg-black/40 backdrop-blur-[2px] lg:hidden"
+              className="fixed inset-0 z-[55] bg-black/40 backdrop-blur-[2px] lg:hidden"
               onClick={() => setSidebarOpen(false)}
               aria-hidden="true"
             />
@@ -546,11 +546,12 @@ function MainColumn({
             aria-hidden="true"
           />
         </div>
-        <nav className="flex items-center gap-1 overflow-x-auto px-2 sm:px-4">
+        <div className="relative">
+        <nav className="flex items-center gap-1 overflow-x-auto px-2 [scrollbar-width:none] sm:px-4 [&::-webkit-scrollbar]:hidden">
           <button
             type="button"
             onClick={onOpenSearch}
-            className="flex h-12 w-12 shrink-0 items-center justify-center text-text-tertiary hover:text-text-primary"
+            className="flex h-12 w-10 shrink-0 items-center justify-center text-text-tertiary hover:text-text-primary sm:w-12"
             aria-label="Inhalt durchsuchen"
           >
             <Search className="h-4 w-4" />
@@ -558,7 +559,7 @@ function MainColumn({
           <button
             type="button"
             onClick={onOpenNotesOverview}
-            className="flex h-12 w-12 shrink-0 items-center justify-center text-text-tertiary hover:text-text-primary"
+            className="flex h-12 w-10 shrink-0 items-center justify-center text-text-tertiary hover:text-text-primary sm:w-12"
             aria-label="Alle Notizen anzeigen"
             title="Alle Notizen"
           >
@@ -586,6 +587,12 @@ function MainColumn({
             {progressPercent} % · {completedCount}/{totalLessons}
           </div>
         </nav>
+        {/* Scroll-Hinweis rechts (nur mobil, wenn Tabs überlaufen) */}
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent sm:hidden"
+          aria-hidden="true"
+        />
+        </div>
       </div>
 
       <div className="px-4 py-8 sm:px-8 lg:px-12">
@@ -1084,8 +1091,8 @@ function CourseSidebar({
   onSelectLesson: (id: string) => void;
 }) {
   return (
-    <aside className="fixed inset-y-0 right-0 z-40 flex w-[88%] max-w-[400px] flex-col border-l border-border-secondary bg-white shadow-2xl lg:static lg:z-auto lg:w-auto lg:max-w-none lg:shadow-none lg:sticky lg:top-28 lg:h-[calc(100vh-7rem)]">
-      <div className="flex items-center justify-between border-b border-border-secondary px-4 pt-4">
+    <aside className="fixed inset-y-0 right-0 z-[60] flex w-[92%] max-w-[400px] flex-col border-l border-border-secondary bg-white shadow-2xl lg:static lg:z-auto lg:w-auto lg:max-w-none lg:shadow-none lg:sticky lg:top-28 lg:h-[calc(100vh-7rem)]">
+      <div className="flex items-center justify-between border-b border-border-secondary px-4 pb-0 pt-[max(1rem,env(safe-area-inset-top))] lg:pt-4">
         <div className="flex items-end gap-4">
           {SIDEBAR_TABS.map((tab) => {
             const isActive = tab === activeSidebarTab;

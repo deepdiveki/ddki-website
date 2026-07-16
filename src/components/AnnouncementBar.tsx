@@ -40,6 +40,8 @@ export default function AnnouncementBar({ variant = "software" }: { variant?: "s
     return () => window.removeEventListener(ESCAPE_GAME_ACCESS_GRANTED_EVENT, updateHidden);
   }, [pathname]);
 
+  // Auf der KI-Praxis-Komplettkurs-Seite den Förder-Hinweis immer ausblenden.
+  if (pathname?.startsWith("/fortbildung/ki-praxis-komplettkurs")) return null;
   if (hidden) return null;
   if (dismissed) return null;
 
