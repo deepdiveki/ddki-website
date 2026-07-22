@@ -7,6 +7,9 @@ import { Metadata } from "next";
 import Kontakt from "@/components/KontaktChatbot";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/software/kontakt-chat-bot",
+  },
   title: "Kontakt-Chatbot – Fragen Sie unseren KI-Assistenten",
   description:
     "Stellen Sie Ihre Fragen direkt an unseren KI-Chatbot. Erhalten Sie sofortige Antworten zu DeepDiveKI-Produkten, Preisen und Funktionen.",

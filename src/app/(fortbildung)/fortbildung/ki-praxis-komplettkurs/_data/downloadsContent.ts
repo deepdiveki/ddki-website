@@ -574,29 +574,30 @@ Keine echten Schülerdaten im Material lassen. Anonymisieren ist Pflicht.`,
 Die Bausteine sind überall dieselben — nur die Inhalte ändern sich.`,
   },
 
-  "inspirations-link-sammlung": {
-    title: "Inspirations-Link-Sammlung",
-    intro: "Aktuelle KI-Beispiele zum Staunen und Diskutieren.",
-    body: `## KI in der Politik
-- **US-Wahlkampf 2024** — gefälschte Audio-Mitschnitte
-- **Bundestagswahl 2025** — Deepfakes von Politikern
-- Diskussion: Wie unterrichten wir Medienkompetenz?
+  "tool-link-sammlung": {
+    title: "Tool-Link-Sammlung",
+    intro: "Vier praktische Helfer für deinen KI-Alltag — mit Links.",
+    body: `## KI-Assistenten — einmal einrichten, immer wieder nutzen
+- **ChatGPT „GPTs“** — [chatgpt.com](https://chatgpt.com)
+- **Claude „Projekte“** — [claude.ai](https://claude.ai)
+- **Gemini „Gems“** — [gemini.google.com](https://gemini.google.com)
+- Wie du dir eigene baust, kommt ausführlich in **Modul IV**.
 
-## Inklusion durch KI
-- **Seeing AI** (Microsoft) — kostenlose App
-- **Neuralink / Noland Arbaugh** — YouTube-Interviews
-- **Livian** — Gebärdensprach-Übersetzung
+## Perplexity — KI-Suche mit Quellen
+- **[perplexity.ai](https://www.perplexity.ai)** — Antworten mit anklickbaren Quellenlinks. Ideal für belegte Recherche (Gegenmittel gegen Halluzinationen).
 
-## Bildung der Zukunft
-- **NotebookLM Audio-Summary** — Podcast aus eigenen Quellen
-- **ChatGPT Live-Modus** — Bildschirm-Sharing mit KI
+## Superwhisper — Sprechen statt Tippen (Mac)
+- **[superwhisper.com](https://superwhisper.com)** — Diktat in jedem Programm, Erkennung läuft lokal.
+- Windows-Alternativen: Windows-Spracheingabe (Win + H), Whisper-basierte Tools.
 
-## Drei Reflexionsfragen
-1. Welches Beispiel überrascht dich?
-2. Welches könntest du im Unterricht thematisieren?
-3. Welches macht dir Sorgen — und ist genau deshalb wichtig?
+## Shottr — Screenshots direkt in die KI (Mac)
+- **[shottr.cc](https://shottr.cc)** — kostenlos; Text aus Bildern (OCR), Annotationen, Scroll-Screenshots.
+- Windows-Alternativen: Snipping Tool, ShareX.
 
-> 🔗 Links werden vor Kurs-Start aktualisiert (Tools entwickeln sich schnell).`,
+## Mein Tipp
+Nimm dir **ein** Tool raus — genau das, bei dem du gerade am meisten Zeit verlierst — und probier es diese Woche.
+
+> 🔗 Tools entwickeln sich schnell — Links werden bei Bedarf aktualisiert.`,
   },
 
   "drei-ebenen-grafik": {

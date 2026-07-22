@@ -7,6 +7,9 @@ import ShannonExperiment from "@/components/ShannonExperiment";
 import IntroFBQuiz from "@/components/IntroFBQuiz";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/software/intro_fb",
+  },
   title: "Intro Fortbildungen",
   description:
     "30-Minuten-Intro zur Vorbereitung auf die DeepDiveKI Fortbildungen.",

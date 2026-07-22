@@ -17,8 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!course) return { title: "Kurs nicht gefunden" };
 
   return {
-    title: `${course.title} | DeepDive Fortbildungen`,
+    // Marke nicht doppeln: das Root-Layout hängt bereits "| DeepDiveKI" an.
+    title: course.title,
     description: course.shortDescription,
+    alternates: {
+      canonical: `/fortbildung/fortbildungen/${course.slug}`,
+    },
   };
 }
 

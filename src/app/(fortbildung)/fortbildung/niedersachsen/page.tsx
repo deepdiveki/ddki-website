@@ -7,6 +7,9 @@ import type { Metadata } from "next";
 
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/fortbildung/niedersachsen",
+  },
   title: "Fortbildungen",
   description:
     "Kontaktieren Sie uns für Fragen zu unseren Fortbildungsangeboten. Wir beraten Sie gerne persönlich.",

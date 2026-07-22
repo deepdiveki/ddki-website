@@ -3,6 +3,9 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/fortbildung/fortbildungen",
+  },
   title: "Alle Fortbildungen im Überblick",
   description:
     "Entdecken Sie unser vielfältiges Angebot an Fortbildungen in den Bereichen KI, Digitalisierung, Pädagogik, Management und Gesundheit.",

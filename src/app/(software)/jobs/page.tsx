@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/jobs",
+  },
   title: "Jobs bei DeepDiveKI | KI für Bildung mitgestalten",
   description:
     "Werde Teil von DeepDiveKI und entwickle KI-Lösungen für Schulen und Hochschulen. Entdecke offene Stellen, Benefits und unseren Bewerbungsprozess.",

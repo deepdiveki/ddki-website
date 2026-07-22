@@ -5,6 +5,9 @@ import FAQSection from "@/components/shared/FaqSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/fortbildung/kontakt",
+  },
   title: "Kontakt",
   description:
     "Kontaktieren Sie uns für Fragen zu unseren Fortbildungsangeboten. Wir beraten Sie gerne persönlich.",

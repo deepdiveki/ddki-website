@@ -5,6 +5,9 @@ import LogoSlider from "@/components/shared/LogoSlider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/fortbildung/paedagogischer-tag",
+  },
   title: "Pädagogischer Tag: Maßgeschneidert für Ihre Schule",
   description:
     "Gestalten Sie Ihren pädagogischen Tag mit maßgeschneiderten Fortbildungen rund um KI im Schulalltag – praxisnah, interaktiv und individuell.",

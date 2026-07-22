@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import fs from "node:fs";
 import path from "node:path";
+import { courses } from "@/data/courses";
 
 const siteUrl = process.env.SITE_URL || "https://www.deepdive-ki.de";
 const siteAppDir = path.join(process.cwd(), "src/app");
@@ -14,6 +15,16 @@ const excludedRoutes = new Set([
   "/software/error/verify",
   "/software/unauthorized",
   "/fortbildung/ki-praxis-komplettkurs",
+  // Interne bzw. Demo-Seiten ohne Suchwert – kosten nur Crawl-Budget.
+  "/fortbildung/feedback",
+  "/software/feedback",
+  "/software/intro_fb",
+  "/software/material/fragebogen",
+  "/software/till-eulenspiegel-schule-2",
+  "/software/scenarios/scenario-antonia",
+  "/software/scenarios/scenario-bjoern",
+  "/software/scenarios/scenario-marc",
+  "/software/scenarios/scenario-tim",
 ]);
 
 const collectRoutes = () => {
@@ -46,10 +57,18 @@ const collectRoutes = () => {
     .filter((route) => {
       if (excludedRoutes.has(route)) return false;
       const segments = route.split("/").filter(Boolean);
+      // Dynamic-Route-Ordner ([slug], [dimension]) sind keine echten URLs –
+      // sie landeten sonst wörtlich als 404er in der Sitemap.
+      if (segments.some((segment) => segment.startsWith("["))) return false;
       return !segments.some((segment) => excludedSegments.has(segment));
     });
 
-  return Array.from(new Set(routes)).sort();
+  // Kursdetailseiten aus den Daten expandieren statt aus dem Dateisystem.
+  const courseRoutes = courses.map(
+    (course) => `/fortbildung/fortbildungen/${course.slug}`,
+  );
+
+  return Array.from(new Set([...routes, ...courseRoutes])).sort();
 };
 
 const priorityMap: Record<string, number> = {
@@ -57,7 +76,8 @@ const priorityMap: Record<string, number> = {
   "/software": 1.0,
   "/software/ddki-toolbox": 0.8,
   "/software/chatbot-fuer-ihre-schule": 0.8,
-  "/software/fortbildungen": 0.9,
+  "/fortbildung": 0.9,
+  "/fortbildung/fortbildungen": 0.9,
   "/software/about": 0.7,
   "/software/websites": 0.7,
   "/software/playground": 0.7,
@@ -72,7 +92,8 @@ const frequencyMap: Record<string, MetadataRoute.Sitemap[number]["changeFrequenc
   "/software": "weekly",
   "/software/ddki-toolbox": "monthly",
   "/software/chatbot-fuer-ihre-schule": "monthly",
-  "/software/fortbildungen": "weekly",
+  "/fortbildung": "weekly",
+  "/fortbildung/fortbildungen": "weekly",
   "/software/about": "monthly",
   "/software/websites": "monthly",
   "/software/playground": "monthly",

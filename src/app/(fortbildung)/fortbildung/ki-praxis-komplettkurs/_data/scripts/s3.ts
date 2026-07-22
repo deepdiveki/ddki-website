@@ -27,23 +27,23 @@ Erstens: Du unterrichtest vielleicht kein Geschichte und keine zwölfte Klasse. 
 
 [END 4:15]`,
 
-  "s3-2": `[0:00] Bevor wir mit Konzeptionsarbeit anfangen, eine kurze Inspirations-Pause. Sechs Minuten, vier Beispiele.
+  "s3-2": `[0:00] Bevor wir in die Konzeptionsarbeit starten, eine kurze Tool-Pause. Vier kleine Helfer, die mir den Alltag mit KI enorm erleichtern. Ein Hinweis vorweg: Nicht alles davon ist im engeren Sinn „KI“ — aber alles macht das Arbeiten mit KI schneller und ist auch sonst richtig praktisch.
 
-[0:30] Erstens — KI in der Politik. In den USA gab es 2024 die ersten Wahlkampf-Spots, in denen Politiker mit KI-Stimmen gefälscht wurden. Frage: Wie unterrichten wir Medienkompetenz, wenn man Audio und Video nicht mehr trauen kann?
+[0:35] Erstens — KI-Assistenten. Statt jeden Prompt neu zu tippen, richtest du dir einmal einen spezialisierten Helfer ein: einen „Elternbrief-Assistenten“, einen „Klausur-Ersteller“, einen „Feedback-Coach“. Du gibst ihm einmal Rolle, Aufgabe und Format — und rufst ihn danach immer wieder auf. In ChatGPT heißen die „GPTs“, bei Claude „Projekte“, bei Gemini „Gems“. Wie du dir eigene baust, zeige ich dir ausführlich in Modul IV — hier soll es dich erst mal neugierig machen.
 
-[1:15] Zweitens — Neuralink und Noland Arbaugh. Noland ist vom Hals abwärts gelähmt und steuert seinen Computer mit Gedanken. Auf YouTube findest du ein neunminütiges Video. Inklusion durch KI — die Grenze zwischen Technik und Mensch verschwimmt.
+[1:40] Zweitens — Perplexity. Eine KI-Suchmaschine: Du stellst eine Frage in normaler Sprache und bekommst eine Antwort — aber, und das ist der Punkt, mit Quellenangaben und anklickbaren Links. Damit umgehst du das Halluzinations-Problem aus dem Crash-Kurs: Du siehst sofort, woher eine Aussage kommt, und kannst sie prüfen. Für die Recherche zu einem Unterrichtsthema ist das Gold wert.
 
-[2:05] Drittens — Seeing AI. Kostenlose App von Microsoft. Smartphone auf Umgebung halten, App beschreibt in Echtzeit: „Eine Person, die lächelt. Etwa 35 Jahre alt. Trägt eine rote Jacke." Auch ChatGPT und Gemini können das per Foto.
+[2:50] Drittens — Superwhisper. Ein Diktier-Tool für den Mac: Du drückst eine Taste, sprichst — und dein Wort erscheint als sauberer Text, in jedem Programm. Prompts, E-Mails, Elternnachrichten, ganze Arbeitsblätter — vieles geht gesprochen drei Mal schneller als getippt. Die Erkennung läuft lokal, also datenschutzfreundlich. Auf Windows gibt es Ähnliches über die eingebaute Spracheingabe oder Whisper-basierte Tools.
 
-[2:50] Viertens — der Blick über die Schulter. Du kannst in modernen KI-Tools deinen Bildschirm live teilen. Stell dir vor, ein:e Schüler:in sitzt vor einer Aufgabe und kommt nicht weiter — die KI stellt eine Rückfrage statt einer Lösung. Eine Art Tutor on-demand.
+[4:05] Viertens — Shottr. Ein blitzschnelles Screenshot-Tool für den Mac, kostenlos. Zwei Dinge machen es für die KI-Arbeit stark: Erstens erkennt es Text in Bildern — du fotografierst ein Arbeitsblatt oder eine Buchseite und hast den Text sofort als Kopie für die KI. Zweitens kannst du direkt annotieren, Dinge unkenntlich machen und lange Seiten am Stück aufnehmen. Screenshot machen, in die KI ziehen, weiterarbeiten. Auf Windows übernehmen das Snipping Tool oder ShareX.
 
 [CUT TO: Talking Head]
 
-[3:35] Nicht jedes Beispiel landet in deinem Unterricht. Aber jedes sollte dich an einer Stelle berühren — didaktisch oder ethisch.
+[5:05] Nicht alles davon ist KI — aber alles macht dich im Umgang mit KI schneller und souveräner. Und das Schöne: Die meisten sind kostenlos oder günstig.
 
-[4:10] Drei Reflexionsfragen: 1) Welches Beispiel hat dich am meisten überrascht? 2) Welches könntest du thematisieren? 3) Welches macht dir Sorgen — und ist genau deshalb wichtig?
+[5:35] Mein Tipp: Such dir für den Anfang genau eins raus — am besten das, bei dem du gerade am meisten Zeit verlierst — und probier es diese Woche einmal aus. Die Links zu allen vieren findest du unter diesem Video.
 
-[6:00] In der nächsten Lektion klären wir, wie KI sinnvoll in den Unterricht integriert wird.
+[6:00] In der nächsten Lektion klären wir, wie KI überhaupt sinnvoll in den Unterricht integriert wird.
 
 [END 6:15]`,
 
@@ -118,30 +118,22 @@ Wenn du hundert kleine Reibungen pro Woche um je fünfzehn Minuten verkürzt —
 
 [END 5:15]`,
 
-  "s3-6": `[0:00] Wir strukturieren die gesamte UE in einem Prompt. Drei Lektionen behandeln die Strukturierung: heute Erstprompt, 3.7 Verfeinern, 3.8 Quellen.
+  "s3-6": `[0:00] Jetzt möchten wir uns einmal angucken, wie wir noch ein wenig mehr Struktur in diese Unterrichtseinheit bringen können — vor allem, was den grundsätzlichen Überblick angeht.
 
-[0:40] Mein Prompt:
-> "Du bist erfahrene Geschichtslehrkraft an einem deutschen Gymnasium. Erstelle eine Unterrichtseinheit zur Französischen Revolution. Rahmen: 10 Sitzungen á 2 Stunden, Studienstufe Klasse 12, Leistungskurs. Schwerpunkt: politisch-sozialer Zugang mit kulturellen Einschüben. Leitfragen — [Liste der 5 Leitfragen]. Bitte gib pro Sitzung an: Thema, Lernziele, Phasen mit Methode, vorgeschlagenes Material, Hausaufgabe. Berücksichtige Quellenarbeit, Diskussion, Schreibaufgaben."
+[0:13] Ich würde zum Beispiel jetzt an der Stelle einmal prompten:
+> „Kannst du mir einmal einen strukturierten Überblick über die Unterrichtseinheit geben und mir die Stundentitel in tabellarischer Form hier anzeigen — und bitte einmal als Excel-Tabelle zum Runterladen."
 
-[1:35] Kurzer Rückbezug: Im Crash-Kurs hattest du vier Prompt-Bausteine — Rolle, Aufgabe, Kontext, Format. Das ist kein neues System, sondern dieselbe Logik, nur verfeinert: Bei einer großen Aufgabe wie einer ganzen UE fächert sich der eine Baustein „Kontext" in drei auf — Rahmen, Schwerpunkt, Leitfragen. Aus vier werden sechs.
+[0:26] Wir lösen das einmal aus und bekommen einen relativ guten tabellarischen Überblick, mit dem wir weiterarbeiten und uns grundsätzliche Gedanken um die Struktur unserer Unterrichtseinheit machen können.
 
-Sechs Bausteine eines guten UE-Prompts:
-1. Rolle — „Du bist erfahrene Geschichtslehrkraft" (aktiviert Antwort-Vokabular)
-2. Aufgabe — „Erstelle eine UE zur Französischen Revolution" (klar, knapp)
-3. Rahmen — 10 Sitzungen, 2 Stunden, Studienstufe
-4. Inhaltlicher Schwerpunkt — politisch-sozial
-5. Leitfragen — die fünf aus 3.4
-6. Output-Format — „Pro Sitzung: Thema, Lernziele, Phasen, Material, HA"
+[0:44] Hier seht ihr beispielsweise: Claude hat die Excel-Tabelle so aufgebaut, dass es erst einen Überblick über die Unterrichtseinheit gibt und dann einen relativ spezifischen Verlaufsplan — untergliedert in Stundentitel, Leitfragen und methodische Highlights.
 
-[3:20] Beispiel Sitzung 5 „Der Große Terror": Thema Robespierre/Jakobinerherrschaft · drei Lernziele mit Operatoren · Phasen Quelleneinstieg → Gruppenarbeit → Diskussion · Material Quellenauszüge + Karikaturen · HA Recherche.
+[1:03] Das sieht erstmal ganz gut aus. Wir gucken gleich noch stärker rein und schauen, dass wir gegebenenfalls noch eine Akzentsetzung vornehmen.
 
 [CUT TO: Talking Head]
 
-[4:20] Erster Output nicht perfekt — Vorschläge generisch, Methoden wiederholen sich. Aber das ist das Grundgerüst.
+[1:18] Take-away: Nutzt auf jeden Fall immer die Funktion, dass ihr euch die unterschiedlichen Formate in der KI ausgeben lasst. Gerade in der Planung einer Unterrichtseinheit ist es deutlich angenehmer und übersichtlicher, zum Beispiel in Tabellenform zu arbeiten.
 
-[4:55] Drei Dinge jetzt: Markier dir Sitzungen, die überraschen · formuliere im Kopf, was du anders willst · lass Chat offen — wir verfeinern im selben Chat.
-
-[5:55] Take-away: Sechs Bausteine. Rolle, Aufgabe, Rahmen, Schwerpunkt, Leitfragen, Output-Format.
+[1:37] Als Nächstes findet ihr eine kleine Zwischenübung: Mit dem UE-Builder könnt ihr einen guten, klaren und auch etwas komplexeren großen Prompt zur Strukturierung eurer Unterrichtseinheit entwickeln. Viel Spaß beim Ausprobieren.
 
 [7:00] Direkt unter diesem Video wartet der **UE-Builder** — bau deinen eigenen Erstprompt aus den sechs Bausteinen.
 
@@ -190,24 +182,6 @@ Lebendiger: Debatte zu „Wann wird Revolution gerechtfertigt?", Stationenlernen
 [6:00] In der nächsten Lektion generieren wir eine Übersichtstabelle für die ganze UE.
 
 [END 6:15]`,
-
-  "s3-9": `[0:00] UE-Plan auf drei Seiten Text wird nicht gelesen. Als Tabelle wird er gelesen, diskutiert, akzeptiert.
-
-[0:30] Prompt:
-> "Erstelle aus dem bisherigen UE-Plan eine kompakte Übersichtstabelle. Spalten: Sitzung, Thema, Lernziele (max. 2 Stichpunkte), zentrale Methode, Material, Hausaufgabe. Format: Markdown-Tabelle."
-
-[1:35] Drei Tabellen-Tricks:
-1. Format wählen: Markdown funktioniert in Notion, Texteditoren, Word. Word-kompatibel → explizit fragen.
-2. CSV für Excel: „Gib mir CSV mit Komma-Trennzeichen, deutscher Schreibweise."
-3. Filterbare Versionen: Zusätzliche Spalten für „Status", „Materialdatei", „Verantwortlich" — Projektliste.
-
-[3:25] Tabelle ist Kommunikations-Trigger. Statt „schau ich später" kommt „Ach, Sitzung 7 finde ich klasse".
-
-[4:10] Take-away: Mache aus jedem UE-Plan eine Tabelle.
-
-[5:00] In der nächsten Lektion überträgst du den Stundenplan auf dein eigenes Fach.
-
-[END 5:15]`,
 
   "s3-10": `[0:00] Wir transferieren die UE-Strukturierung in vier andere Fächer.
 

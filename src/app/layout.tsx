@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   },
   description:
     "DSGVO-konforme KI-Tools und Fortbildungen für Schulen: DeepChat, KI-Schulbüro & praxisnahe Lehrerfortbildungen. Made in Hamburg. Jetzt kostenlos testen.",
-  alternates: {
-    canonical: "/",
-  },
+  // Kein `alternates.canonical` hier: Next.js merged Metadata feldweise, d.h.
+  // jede Page ohne eigenes `alternates` würde diesen Wert erben und damit auf
+  // die Startseite kanonisieren. Canonicals werden pro Page gesetzt.
   robots: {
     index: true,
     follow: true,

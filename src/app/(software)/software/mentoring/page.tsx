@@ -3,6 +3,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/software/mentoring",
+  },
   title: "Mentoring Simulator",
   description:
     "Trainieren Sie Ihre Gesprächsführung als Mentor:in mit realistischen Szenarien.",

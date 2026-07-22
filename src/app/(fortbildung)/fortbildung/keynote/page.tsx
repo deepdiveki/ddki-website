@@ -2,6 +2,9 @@ import CtaCard from "@/components/shared/CtaCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/fortbildung/keynote",
+  },
   title: "Keynote – KI in der Bildung",
   description:
     "Inspirierende Keynotes rund um Künstliche Intelligenz in der Bildung – für Konferenzen, Schulveranstaltungen und pädagogische Tage.",

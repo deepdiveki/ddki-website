@@ -4,6 +4,9 @@ import CtaCard from "@/components/shared/CtaCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/fortbildung/ueber-uns",
+  },
   title: "Über uns – Das Team hinter DDKI",
   description:
     "Lernen Sie Björn Isenbiel und Tim Philipp kennen – das Team hinter DeepDive Fortbildungen. KI-Lösungen und Fortbildungen für Schulen aus Hamburg.",

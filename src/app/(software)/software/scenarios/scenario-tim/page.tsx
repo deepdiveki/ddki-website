@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import MentoringScenarioPage, { type ScenarioContent } from "@/components/MentoringScenarioPage";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "/software/scenarios/scenario-tim",
+  },
   title: "Szenario Tim",
   description:
     "Training im Mentoring Simulator: Nachbesprechung einer Sportlektion mit Tim.",
