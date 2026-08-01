@@ -5,36 +5,28 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import teamData from "@/components/About/Team/teamData";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Maximize2, Quote } from "lucide-react";
+import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FortbildungenDetail, SoftwareDetail } from "./CardDetail";
-import FortbildungenAnimation from "./FortbildungenAnimation";
 import PlatformSwitcher from "@/components/shared/PlatformSwitcher";
 import ContactFormSection from "@/components/Kontakt/ContactFormSection";
+import SchulbueroMockup from "./SchulbueroMockup";
 
+const CardShaderBackground = dynamic(() => import("./CardShaderBackground"), {
+  ssr: false,
+});
+const HeadlineShaderBackground = dynamic(
+  () => import("./HeadlineShaderBackground"),
+  { ssr: false },
+);
 const AIEngineMini = dynamic(() => import("./AIEngineMini"), { ssr: false });
 
 /* ─── Constants ─── */
 
 const AFTER_INTRO = 0.15;
-
-const FORTBILDUNGEN_PILLS = [
-  "Inklusion, Differenzierung & Sprachbildung",
-  "Künstliche Intelligenz",
-  "Leistung, Feedback & Lernstand",
-  "Digitale Tools & Anwendungen",
-];
-
-const SOFTWARE_PILLS = [
-  "DeepChat",
-  "KI-Schulbüro",
-  "Schulwebsites",
-  "DSGVO-konform",
-];
-
 
 const TESTIMONIALS = [
   {
@@ -112,20 +104,40 @@ const SCHOOL_TESTIMONIALS: {
 ];
 
 const CLIENTS = [
-  { id: 1, image: "/images/clients/client-01.svg", alt: "Partnerschule 1" },
-  { id: 3, image: "/images/clients/client-03.svg", alt: "Partnerschule 3" },
-  { id: 4, image: "/images/clients/client-04.svg", alt: "Partnerschule 4" },
-  { id: 5, image: "/images/clients/client-05.svg", alt: "Partnerschule 5" },
-  { id: 6, image: "/images/clients/client-06.svg", alt: "Partnerschule 6" },
-  { id: 7, image: "/images/clients/client-07.svg", alt: "Partnerschule 7" },
+  {
+    id: 1,
+    image: "/images/clients/ostfriesische-landschaft.png",
+    alt: "Ostfriesische Landschaft",
+  },
+  {
+    id: 2,
+    image: "/images/clients/leuphana.png",
+    alt: "Leuphana Universität Lüneburg",
+  },
+  {
+    id: 3,
+    image: "/images/clients/kla.png",
+    alt: "Kaufmännische Lehranstalten Bremerhaven",
+  },
+  {
+    id: 4,
+    image: "/images/clients/uni-hildesheim.png",
+    alt: "Universität Hildesheim",
+  },
+  {
+    id: 5,
+    image: "/images/clients/ema-bonn.png",
+    alt: "Ernst-Moritz-Arndt-Gymnasium Bonn",
+  },
+  {
+    id: 6,
+    image: "/images/clients/igs-linden.png",
+    alt: "IGS Linden Hannover",
+  },
 ];
 
 const BG_NEUTRAL =
   "linear-gradient(180deg, #DDD7FE 0%, #F9F8FB 50%, #F9F8FB 100%)";
-const BG_FORTBILDUNGEN =
-  "linear-gradient(180deg, #D4CFFC 0%, #EDE9FE 40%, #F9F8FB 100%)";
-const BG_SOFTWARE =
-  "linear-gradient(180deg, #C8C0F8 0%, #E0DBF9 40%, #F9F8FB 100%)";
 
 /* ─── Intro Overlay ─── */
 
@@ -173,120 +185,184 @@ function IntroOverlay({ onComplete }: { onComplete: () => void }) {
   );
 }
 
-/* ─── Feature Pills ─── */
+/* ─── Typewriter (rotating audiences) ─── */
 
-function FeaturePills({
-  pills,
-  visible,
-  variant,
-}: {
-  pills: string[];
-  visible: boolean;
-  variant: "light" | "dark";
-}) {
-  return (
-    <div className="mt-4 flex h-[28px] flex-wrap gap-2 overflow-hidden">
-      <AnimatePresence>
-        {visible &&
-          pills.map((pill, i) => (
-            <motion.span
-              key={pill}
-              initial={{ opacity: 0, y: 8, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 4, scale: 0.95 }}
-              transition={{ duration: 0.25, delay: i * 0.05, ease: "easeOut" }}
-              className={cn(
-                "rounded-full px-3 py-1 text-xs font-medium",
-                variant === "light"
-                  ? "bg-primary-light/30 text-primary-darker"
-                  : "bg-[#8646F4]/15 text-[#C4B5FD]",
-              )}
-            >
-              {pill}
-            </motion.span>
-          ))}
-      </AnimatePresence>
-    </div>
-  );
-}
+function TypewriterWords({ words }: { words: string[] }) {
+  const [index, setIndex] = useState(0);
+  const [count, setCount] = useState(0);
+  const [deleting, setDeleting] = useState(false);
 
-/* ─── Glow Card Wrapper ─── */
+  const current = words[index % words.length];
+  const display = current.slice(0, count);
 
-function GlowCard({
-  children,
-  isHovered,
-  variant,
-  className,
-}: {
-  children: React.ReactNode;
-  isHovered: boolean;
-  variant: "light" | "dark";
-  className?: string;
-}) {
-  const glowColor =
-    variant === "light"
-      ? "rgba(140, 113, 246, 0.4)"
-      : "rgba(134, 70, 244, 0.5)";
+  // Widest word reserves the space so the centered line never reflows.
+  const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    if (!deleting && count === current.length) {
+      timeout = setTimeout(() => setDeleting(true), 1800);
+    } else if (deleting && count === 0) {
+      setDeleting(false);
+      setIndex((i) => (i + 1) % words.length);
+    } else {
+      timeout = setTimeout(
+        () => setCount((c) => c + (deleting ? -1 : 1)),
+        deleting ? 38 : 70,
+      );
+    }
+    return () => clearTimeout(timeout);
+  }, [count, deleting, current, words.length]);
 
   return (
-    <div className={cn("relative rounded-2xl", className)}>
-      <motion.div
-        className="pointer-events-none absolute -inset-[1px] rounded-2xl"
-        animate={{
-          boxShadow: isHovered
-            ? `0 0 20px 2px ${glowColor}, inset 0 0 20px 2px ${glowColor}`
-            : `0 0 0px 0px transparent, inset 0 0 0px 0px transparent`,
-        }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-      />
-      <motion.div
-        className="pointer-events-none absolute -inset-[1px] overflow-hidden rounded-2xl"
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        style={{
-          background:
-            variant === "light"
-              ? "linear-gradient(135deg, #C6BDFA, #8C71F6, #DCD5FF, #8C71F6)"
-              : "linear-gradient(135deg, #8646F4, #A78BFA, #6D28D9, #A78BFA)",
-          backgroundSize: "300% 300%",
-          animation: isHovered
-            ? "border-glow-shift 3s linear infinite"
-            : "none",
-          padding: "1.5px",
-          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          maskComposite: "exclude",
-          WebkitMask:
-            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          WebkitMaskComposite: "xor",
-        }}
-      />
-      {children}
-    </div>
+    <span className="relative inline-block whitespace-nowrap align-baseline font-medium">
+      {/* Invisible sizer: widest word + caret width */}
+      <span aria-hidden className="invisible">
+        {longest}
+        <span className="ml-0.5 inline-block w-[2px]" />
+      </span>
+      {/* Visible typed text, overlaid so it doesn't shift the layout */}
+      <span className="absolute top-0 left-0 whitespace-nowrap">
+        <span className="bg-gradient-to-r from-primary-dark to-primary-darker bg-clip-text text-transparent">
+          {display}
+        </span>
+        <span
+          aria-hidden
+          className="typewriter-caret ml-0.5 inline-block h-[0.95em] w-[2px] translate-y-[0.12em] rounded-full bg-primary-dark"
+        />
+      </span>
+    </span>
   );
 }
 
 /* ─── Expand Button ─── */
 
-function ExpandButton({
-  onClick,
-  variant,
+/* ─── Section Header (eyebrow + two-tone headline) ─── */
+
+function SectionHeader({
+  eyebrow,
+  title,
+  muted,
+  subtitle,
+  className,
 }: {
-  onClick: (e: React.MouseEvent) => void;
-  variant: "light" | "dark";
+  eyebrow: string;
+  title: string;
+  muted?: string;
+  subtitle?: string;
+  className?: string;
 }) {
   return (
-    <button
-      onClick={onClick}
-      className={cn(
-        "absolute top-3 right-3 z-10 flex size-9 items-center justify-center rounded-xl opacity-0 transition-all duration-200 group-hover:opacity-100",
-        variant === "light"
-          ? "bg-white/80 text-text-secondary shadow-sm backdrop-blur-sm hover:bg-white hover:text-primary-darker"
-          : "bg-white/10 text-white/50 backdrop-blur-sm hover:bg-white/20 hover:text-white",
-      )}
-      aria-label="Details anzeigen"
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={cn("mx-auto max-w-2xl text-center", className)}
     >
-      <Maximize2 className="size-4" />
-    </button>
+      <p className="mb-3 text-sm font-medium tracking-[0.14em] text-primary-base uppercase">
+        {eyebrow}
+      </p>
+      <h2 className="text-display-xs font-semibold -tracking-[0.5px] text-text-primary md:text-display-sm lg:text-display-md">
+        {title}
+        {muted && (
+          <>
+            {" "}
+            <span className="font-semibold text-text-primary">{muted}</span>
+          </>
+        )}
+      </h2>
+      {subtitle && (
+        <p className="mx-auto mt-4 max-w-xl text-md font-light leading-relaxed text-text-secondary lg:text-lg">
+          {subtitle}
+        </p>
+      )}
+    </motion.div>
+  );
+}
+
+/* ─── Stacked Glass Cards (3D signature visual) ─── */
+
+function StackedGlassCards() {
+  const layers = [
+    {
+      label: "DeepChat",
+      background: "linear-gradient(135deg, #DCD5FF 0%, #8C71F6 100%)",
+      tz: 88,
+    },
+    {
+      label: "KI-Schulbüro",
+      background: "linear-gradient(135deg, #C6BDFA 0%, #2547D0 100%)",
+      tz: 44,
+    },
+    {
+      label: "Schulwebsites",
+      background: "linear-gradient(135deg, #CBD5FF 0%, #5B6BFF 100%)",
+      tz: 0,
+    },
+    {
+      label: "Materialien & Tools",
+      background: "linear-gradient(135deg, #E1E4EA 0%, #B7ADF5 100%)",
+      tz: -44,
+    },
+    {
+      label: "Fortbildungen",
+      background: "linear-gradient(135deg, #D6C8FF 0%, #6D4BD6 100%)",
+      tz: -88,
+    },
+  ];
+
+  const pills = [
+    "Kuratiertes Prompting",
+    "DSGVO-konform gehostet",
+    "KI-Assistent im Unterricht",
+    "Materialien direkt integriert",
+  ];
+
+  return (
+    <div className="relative flex h-[380px] w-full items-center justify-center [perspective:1500px] lg:h-[440px]">
+      <motion.div
+        animate={{ y: [0, -14, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div
+          className="relative h-[280px] w-[280px] [transform-style:preserve-3d]"
+          style={{ transform: "rotateX(55deg) rotateZ(-42deg)" }}
+        >
+          {layers.map((l, i) => (
+            <div
+              key={l.label}
+              className="absolute inset-0 flex flex-col justify-end rounded-[28px] border border-white/50 p-5"
+              style={{
+                transform: `translateZ(${l.tz}px)`,
+                background: l.background,
+                boxShadow: "0 40px 70px -25px rgba(37,71,208,0.45)",
+              }}
+            >
+              <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/85">
+                {l.label}
+              </span>
+
+              {/* Floating status pills sit on the top layer */}
+              {i === 0 && (
+                <div className="absolute inset-0 p-5">
+                  {pills.map((p, j) => (
+                    <span
+                      key={p}
+                      className="absolute left-5 flex items-center gap-2 rounded-full bg-white/25 px-3 py-1.5 text-[11px] font-medium whitespace-nowrap text-white backdrop-blur-sm"
+                      style={{ top: `${18 + j * 42}px` }}
+                    >
+                      <span className="size-1.5 shrink-0 rounded-full bg-emerald-300" />
+                      {p}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
@@ -299,20 +375,13 @@ export default function ChooserLanding() {
     }
     return false;
   });
-  const [hovered, setHovered] = useState<"fortbildungen" | "software" | null>(
-    null,
-  );
   const [expanded, setExpanded] = useState<
     "fortbildungen" | "software" | null
   >(null);
   const testimonialRef = useRef<HTMLDivElement>(null);
 
-  const bgGradient =
-    hovered === "fortbildungen"
-      ? BG_FORTBILDUNGEN
-      : hovered === "software"
-        ? BG_SOFTWARE
-        : BG_NEUTRAL;
+  // Stable background — no colour shift on hover (calmer, more cohesive)
+  const bgGradient = BG_NEUTRAL;
 
   // Lock scroll when detail is open
   useEffect(() => {
@@ -371,8 +440,10 @@ export default function ChooserLanding() {
         </motion.header>
 
         {/* Main Content */}
-        <div className="flex flex-1 flex-col items-center justify-center px-4 pt-28 pb-12 lg:pt-32">
+        <div className="relative z-10 flex flex-1 flex-col items-center px-4 pt-24 pb-12">
           <div className="mx-auto flex w-full max-w-304 flex-col items-center">
+            {/* Hero — near full-height */}
+            <div className="flex min-h-[calc(100dvh-8rem)] w-full flex-col items-center justify-center">
             {/* Hero Text */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -382,18 +453,57 @@ export default function ChooserLanding() {
                 delay: AFTER_INTRO + 0.1,
                 ease: "easeOut",
               }}
-              className="max-w-3xl text-left"
+              className="relative mx-auto max-w-4xl text-center"
             >
-              <h1 className="text-display-sm font-light -tracking-[0.96px] text-text-primary md:text-display-md lg:text-display-lg">
-                DeepDiveKI ist Ihr Partner in Sachen{" "}
-                <span className="font-semibold">Fortbildungen</span> und{" "}
-                <span className="font-semibold">Software-Lösungen</span>{" "}
-                <span className="text-text-secondary">
-                  für Lehrkräfte, Schüler, Eltern, Schulen und
-                  Universitäten.
+              {/* Shader backdrop behind headline — enlarged, pulsing */}
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[760px] w-[1320px] max-w-[140vw] -translate-x-1/2 -translate-y-1/2 overflow-hidden blur-[14px]"
+                style={{
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse at center, black 0%, transparent 68%)",
+                  maskImage:
+                    "radial-gradient(ellipse at center, black 0%, transparent 68%)",
+                }}
+                initial={{ opacity: 0.5, scale: 1 }}
+                animate={{
+                  opacity: [0.45, 0.62, 0.45],
+                  scale: [1, 1.08, 1],
+                }}
+                transition={{
+                  duration: 7,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+              >
+                <HeadlineShaderBackground />
+              </motion.div>
+
+              <h1 className="text-display-md font-light -tracking-[0.96px] text-text-primary md:text-display-lg lg:text-display-xl">
+                DeepDiveKI ist Ihr Partner für{" "}
+                <span className="bg-gradient-to-r from-primary-dark to-primary-darker bg-clip-text font-semibold text-transparent">
+                  Fortbildungen
+                </span>{" "}
+                &amp;{" "}
+                <span className="bg-gradient-to-r from-primary-dark to-primary-darker bg-clip-text font-semibold text-transparent">
+                  Software-Lösungen
                 </span>
               </h1>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+
+              <p className="mx-auto mt-7 max-w-2xl text-lg font-light text-text-secondary lg:text-xl">
+                Praxisnah &amp; DSGVO-konform – für{" "}
+                <TypewriterWords
+                  words={[
+                    "Lehrkräfte",
+                    "Schüler",
+                    "Eltern",
+                    "Schulen",
+                    "Universitäten",
+                  ]}
+                />
+              </p>
+
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
                 <Link
                   href="/fortbildung/kontakt"
                   className="inline-flex items-center gap-2 rounded-[10px] border border-white/10 px-4 py-2.5 font-inter text-sm font-medium -tracking-[0.084px] text-white transition-colors duration-300 hover:bg-gray-700 [background:linear-gradient(180deg,rgba(255,255,255,0.16)0%,rgba(255,255,255,0)100%),#181B25] [box-shadow:0_1px_2px_0_rgba(21,14,27,0.24),_0_0_0_1px_#000]"
@@ -409,17 +519,15 @@ export default function ChooserLanding() {
                 </a>
               </div>
             </motion.div>
+            </div>
 
             {/* Section Label */}
             <motion.p
               initial={{ opacity: 0 }}
-              animate={introComplete ? { opacity: 1 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: AFTER_INTRO + 0.2,
-                ease: "easeOut",
-              }}
-              className="mt-14 text-center text-sm font-medium tracking-wide text-text-tertiary uppercase lg:mt-18"
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="mt-4 text-center text-sm font-medium tracking-[0.14em] text-primary-base uppercase"
             >
               Wählen Sie Ihren Bereich
             </motion.p>
@@ -435,60 +543,47 @@ export default function ChooserLanding() {
                   delay: AFTER_INTRO + 0.25,
                   ease: "easeOut",
                 }}
-                onMouseEnter={() => setHovered("fortbildungen")}
-                onMouseLeave={() => setHovered(null)}
-                className="transition-transform duration-300"
+                className="h-full"
               >
-                <GlowCard
-                  isHovered={hovered === "fortbildungen"}
-                  variant="light"
-                  className="h-full"
+                <Link
+                  href="/fortbildung"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl [background:linear-gradient(150deg,#b9a7fb_0%,#8c71f6_46%,#5f5bef_100%)] lg:p-8"
                 >
-                  <Link
-                    href="/fortbildung"
-                    className={cn(
-                      "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-tertiary bg-white/60 shadow-sm backdrop-blur-md transition-shadow duration-300",
-                      "hover:shadow-xl",
-                    )}
+                  {/* Gradient shader background */}
+                  <div className="absolute inset-0 z-0">
+                    <AnimationErrorBoundary>
+                      <CardShaderBackground variant="fortbildungen" />
+                    </AnimationErrorBoundary>
+                  </div>
+
+                  {/* Slowly rotating logo watermark */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center overflow-hidden"
                   >
-                    {/* Expand button */}
-                    <ExpandButton
-                      variant="light"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setExpanded("fortbildungen");
-                      }}
+                    <Image
+                      src="/images/logo/logo.svg"
+                      alt=""
+                      width={440}
+                      height={440}
+                      className="animate-logo-spin size-[52%] max-w-none opacity-[0.14] brightness-0 invert"
                     />
+                  </div>
 
-                    {/* Visual header */}
-                    <div className="relative h-48 bg-gradient-to-br from-primary-light/30 to-primary-base/10 lg:h-56">
-                      <AnimationErrorBoundary>
-                        <FortbildungenAnimation />
-                      </AnimationErrorBoundary>
+                  {/* Content */}
+                  <div className="relative z-[2] mt-6 flex flex-1 flex-col justify-end">
+                    <h2 className="text-display-xs font-semibold tracking-tight lg:text-display-sm">
+                      Fortbildungen
+                    </h2>
+                    <p className="mt-2 min-h-[3em] text-md font-light text-white/80 lg:text-lg">
+                      Praxisnahe Lehrerfortbildungen in KI, Digitalisierung &amp;
+                      Pädagogik
+                    </p>
+                    <div className="mt-6 flex items-center justify-end">
+                      <ArrowRight className="size-6 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
-
-                    {/* Content */}
-                    <div className="flex flex-1 flex-col justify-between p-6 lg:p-8">
-                      <div>
-                        <h2 className="text-display-xs font-semibold tracking-tight text-text-primary lg:text-display-sm">
-                          Fortbildungen
-                        </h2>
-                        <p className="mt-2 text-md font-light text-text-secondary lg:text-lg">
-                          Praxisnahe Lehrerfortbildungen in KI, Digitalisierung
-                          & Pädagogik
-                        </p>
-                        <FeaturePills
-                          pills={FORTBILDUNGEN_PILLS}
-                          visible={hovered === "fortbildungen"}
-                          variant="light"
-                        />
-                      </div>
-                      <div className="mt-6 flex items-center justify-end">
-                        <ArrowRight className="size-6 text-primary-darker transition-transform duration-300 group-hover:translate-x-1" />
-                      </div>
-                    </div>
-                  </Link>
-                </GlowCard>
+                  </div>
+                </Link>
               </motion.div>
 
               {/* ── Software Card ── */}
@@ -500,92 +595,154 @@ export default function ChooserLanding() {
                   delay: AFTER_INTRO + 0.4,
                   ease: "easeOut",
                 }}
-                onMouseEnter={() => setHovered("software")}
-                onMouseLeave={() => setHovered(null)}
-                className="transition-transform duration-300"
+                className="h-full"
               >
-                <GlowCard
-                  isHovered={hovered === "software"}
-                  variant="dark"
-                  className="h-full"
+                <Link
+                  href="/software"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl [background:linear-gradient(160deg,#241150_0%,#100826_100%)] lg:p-8"
                 >
-                  <Link
-                    href="/software"
-                    className={cn(
-                      "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-purple-500/30 bg-[#030014] shadow-sm transition-shadow duration-300",
-                      "hover:shadow-[0_0_30px_rgba(134,70,244,0.2)]",
-                    )}
-                  >
-                    {/* Expand button */}
-                    <ExpandButton
-                      variant="dark"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setExpanded("software");
-                      }}
-                    />
+                  {/* Coloured glow */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 z-0"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 65% 55% at 60% 44%, rgba(134,70,244,0.32) 0%, rgba(140,113,246,0.08) 45%, transparent 72%)",
+                    }}
+                  />
+                  {/* Grid optic */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 z-0"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(140,113,246,0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(140,113,246,0.09) 1px, transparent 1px)",
+                      backgroundSize: "26px 26px",
+                    }}
+                  />
+                  {/* 3D AI engine */}
+                  <div className="absolute inset-0 z-0">
+                    <AnimationErrorBoundary>
+                      <AIEngineMini />
+                    </AnimationErrorBoundary>
+                  </div>
+                  {/* Legibility fade toward the title */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 z-[1]"
+                    style={{
+                      background:
+                        "linear-gradient(to top right, rgba(16,8,38,0.88) 0%, rgba(16,8,38,0.25) 35%, transparent 62%)",
+                    }}
+                  />
 
-                    {/* Visual header — AIEngine */}
-                    <div className="relative h-48 lg:h-56 bg-[#030014]">
-                      {/* Colored glow behind icon — contrast to dark background */}
-                      <div
-                        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-                        style={{
-                          background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(134,70,244,0.25) 0%, rgba(140,113,246,0.08) 40%, transparent 70%)",
-                        }}
-                      />
-                      <div
-                        className="pointer-events-none absolute inset-0"
-                        style={{
-                          backgroundImage: `
-                            linear-gradient(rgba(140,113,246,0.06) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(140,113,246,0.06) 1px, transparent 1px)
-                          `,
-                          backgroundSize: "20px 20px",
-                        }}
-                      />
-                      <div className="absolute inset-0">
-                        <AnimationErrorBoundary>
-                          <AIEngineMini />
-                        </AnimationErrorBoundary>
-                      </div>
-                      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#030014] to-transparent" />
+                  {/* Content */}
+                  <div className="relative z-[2] mt-6 flex flex-1 flex-col justify-end">
+                    <h2 className="text-display-xs font-semibold tracking-tight lg:text-display-sm">
+                      Software
+                    </h2>
+                    <p className="mt-2 min-h-[3em] text-md font-light text-white/80 lg:text-lg">
+                      DeepChat, KI-Schulbüro &amp; digitale Lösungen für Schulen
+                    </p>
+                    <div className="mt-6 flex items-center justify-end">
+                      <ArrowRight className="size-6 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
-
-                    {/* Content — slightly different shade for visual separation from icon area */}
-                    <div className="flex flex-1 flex-col justify-between border-t border-purple-500/20 bg-[#0a0525] p-6 lg:p-8">
-                      <div>
-                        <h2 className="text-display-xs font-semibold tracking-tight text-white lg:text-display-sm">
-                          Software
-                        </h2>
-                        <p className="mt-2 text-md font-light text-white/70 lg:text-lg">
-                          DeepChat, KI-Schulbüro & digitale Lösungen für Schulen
-                        </p>
-                        <FeaturePills
-                          pills={SOFTWARE_PILLS}
-                          visible={hovered === "software"}
-                          variant="dark"
-                        />
-                      </div>
-                      <div className="mt-6 flex items-center justify-end">
-                        <ArrowRight className="size-6 text-purple-light transition-transform duration-300 group-hover:translate-x-1" />
-                      </div>
-                    </div>
-                  </Link>
-                </GlowCard>
+                  </div>
+                </Link>
               </motion.div>
             </div>
           </div>
 
+          {/* Platform Showcase */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-24 w-full lg:mt-32"
+          >
+            <div className="mx-auto grid max-w-304 grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div className="text-center lg:text-left">
+                <p className="mb-3 text-sm font-medium tracking-[0.14em] text-primary-base uppercase">
+                  Die DeepDiveKI-Plattform
+                </p>
+                <h2 className="text-display-xs font-semibold -tracking-[0.5px] text-text-primary md:text-display-sm lg:text-display-md">
+                  Eine Plattform –{" "}
+                  <span className="font-semibold text-text-primary">
+                    alles an einem Ort.
+                  </span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-md font-light leading-relaxed text-text-secondary lg:mx-0 lg:text-lg">
+                  Fortbildungen, DeepChat, KI-Schulbüro, Schulwebsites und
+                  kuratierte Materialien greifen ineinander – DSGVO-konform
+                  gehostet und direkt im Unterricht einsetzbar.
+                </p>
+                <ul className="mx-auto mt-6 flex max-w-md flex-col gap-3 text-left lg:mx-0">
+                  {[
+                    "Moderne Technologie und starke LLM's",
+                    "KI-Assistent, der Aufgaben & Material erstellt",
+                    "Datenschutzkonform für den Schulalltag",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-md font-light text-text-secondary"
+                    >
+                      <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary-light/60">
+                        <span className="size-2 rounded-full bg-primary-dark" />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <AnimationErrorBoundary>
+                <StackedGlassCards />
+              </AnimationErrorBoundary>
+            </div>
+          </motion.div>
+
+          {/* DeepChat in action — grainy gradient mockup */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-24 w-full lg:mt-32"
+          >
+            <div className="mx-auto grid max-w-304 grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div className="order-2 lg:order-1">
+                <SchulbueroMockup />
+              </div>
+              <div className="order-1 text-center lg:order-2 lg:text-left">
+                <p className="mb-3 text-sm font-medium tracking-[0.14em] text-primary-base uppercase">
+                  KI-Schulbüro in Aktion
+                </p>
+                <h2 className="text-display-xs font-semibold -tracking-[0.5px] text-text-primary md:text-display-sm lg:text-display-md">
+                  Von der E-Mail zur{" "}
+                  <span className="font-semibold text-text-primary">
+                    erledigten Aufgabe.
+                  </span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-md font-light leading-relaxed text-text-secondary lg:mx-0 lg:text-lg">
+                  Das KI-Schulbüro erfasst Anfragen automatisch – ordnet sie zu,
+                  pflegt sie ins System ein, benachrichtigt die richtigen
+                  Personen und archiviert alles rechtssicher.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Logo Banner */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={introComplete ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: AFTER_INTRO + 0.5 }}
-            className="mt-16 w-full lg:mt-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-24 w-full lg:mt-32"
           >
-            <p className="mb-6 text-center text-sm font-medium tracking-wide text-text-tertiary uppercase">
-              Vertraut von Schulen & Institutionen
+            <p className="mb-10 text-center text-sm font-medium tracking-[0.14em] text-primary-base uppercase">
+              Vertraut von Schulen &amp; Institutionen
             </p>
             <div className="relative overflow-hidden">
               <span className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[#F9F8FB] to-transparent md:w-28" />
@@ -596,14 +753,14 @@ export default function ChooserLanding() {
                   .map((client, i) => (
                     <div
                       key={`${client.id}-${i}`}
-                      className="flex w-36 shrink-0 items-center justify-center px-5 md:w-44 md:px-7"
+                      className="flex w-40 shrink-0 items-center justify-center px-5 md:w-52 md:px-8"
                     >
                       <Image
                         src={client.image}
                         alt={client.alt}
                         width={120}
                         height={48}
-                        className="h-9 w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 md:h-11"
+                        className="h-11 w-auto object-contain opacity-70 transition-all duration-300 hover:scale-105 hover:opacity-100 md:h-14"
                       />
                     </div>
                   ))}
@@ -613,14 +770,18 @@ export default function ChooserLanding() {
 
           {/* Testimonials */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={introComplete ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: AFTER_INTRO + 0.6 }}
-            className="mt-16 w-full lg:mt-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-24 w-full lg:mt-32"
           >
-            <p className="mb-8 text-center text-sm font-medium tracking-wide text-text-tertiary uppercase">
-              Was Lehrkräfte sagen
-            </p>
+            <SectionHeader
+              eyebrow="Stimmen aus der Praxis"
+              title="Was Lehrkräfte"
+              muted="über uns sagen"
+              className="mb-10"
+            />
             <div className="relative">
               {/* Left arrow */}
               <button
@@ -648,12 +809,17 @@ export default function ChooserLanding() {
               {/* Scrollable track */}
               <div
                 ref={testimonialRef}
-                className="scrollbar-hide flex gap-4 overflow-x-auto px-12 scroll-smooth"
+                className="scrollbar-hide flex gap-4 overflow-x-auto px-12 py-5 scroll-smooth"
               >
-                {TESTIMONIALS.map((t) => (
-                  <div
+                {TESTIMONIALS.map((t, i) => (
+                  <motion.div
                     key={t.title}
-                    className="w-72 shrink-0 rounded-xl border border-border-tertiary bg-white p-5 shadow-sm md:w-80"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
+                    whileHover={{ y: -6 }}
+                    className="w-72 shrink-0 rounded-xl border border-border-tertiary bg-white p-5 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-primary-base/60 hover:shadow-md md:w-80"
                   >
                     <Quote className="mb-2 size-4 text-primary-base opacity-40" />
                     <p className="text-sm font-semibold text-text-primary">
@@ -665,7 +831,7 @@ export default function ChooserLanding() {
                     <p className="mt-3 text-xs font-medium text-text-tertiary">
                       — {t.author}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -673,19 +839,28 @@ export default function ChooserLanding() {
 
           {/* School Testimonials */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={introComplete ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: AFTER_INTRO + 0.7 }}
-            className="mt-16 w-full lg:mt-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-24 w-full lg:mt-32"
           >
-            <p className="mb-8 text-center text-sm font-medium tracking-wide text-text-tertiary uppercase">
-              Was unsere Schulen und Institutionen sagen
-            </p>
+            <SectionHeader
+              eyebrow="Referenzen"
+              title="Was Schulen &"
+              muted="Institutionen sagen"
+              className="mb-10"
+            />
             <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {SCHOOL_TESTIMONIALS.map((t) => (
-                <div
+              {SCHOOL_TESTIMONIALS.map((t, i) => (
+                <motion.div
                   key={t.author}
-                  className="flex h-full flex-col rounded-2xl border border-border-tertiary bg-white p-6 shadow-sm lg:p-8"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.55, delay: i * 0.1, ease: "easeOut" }}
+                  whileHover={{ y: -6 }}
+                  className="flex h-full flex-col rounded-2xl border border-border-tertiary bg-white p-6 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-primary-base/60 hover:shadow-lg lg:p-8"
                 >
                   <Quote className="mb-3 size-5 text-primary-base opacity-40" />
                   <p className="text-sm font-light leading-relaxed text-text-secondary">
@@ -700,58 +875,53 @@ export default function ChooserLanding() {
                     {t.author}
                   </p>
                   <p className="text-xs text-text-tertiary">{t.role}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
           {/* Über uns */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={introComplete ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: AFTER_INTRO + 0.8 }}
-            className="mt-16 w-full lg:mt-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-24 w-full lg:mt-32"
           >
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="mb-2 text-sm font-medium tracking-wide text-text-tertiary uppercase">
-                Über uns
-              </p>
-              <h2 className="text-display-xs font-semibold tracking-tight text-text-primary lg:text-display-sm">
-                Unser Team
-              </h2>
-              <p className="mt-3 text-md font-light leading-relaxed text-text-secondary lg:text-lg">
-                Wir sind ein junges Team aus Hamburg mit einer Leidenschaft für
-                Künstliche Intelligenz und Bildung. Unsere Vision ist es, KI für
-                alle zugänglich zu machen und den Einsatz von KI im
-                Bildungsbereich zu fördern.
-              </p>
-            </div>
+            <SectionHeader
+              eyebrow="Über uns"
+              title="Unser"
+              muted="Team"
+              subtitle="Wir sind ein junges Team aus Hamburg mit einer Leidenschaft für Künstliche Intelligenz und Bildung. Unsere Vision ist es, KI für alle zugänglich zu machen und den Einsatz von KI im Bildungsbereich zu fördern."
+            />
 
             <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
-              {teamData.map((member) => (
-                <div
+              {teamData.map((member, i) => (
+                <motion.div
                   key={member.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
                   className="flex flex-col items-center text-center"
                 >
-                  <div
-                    className={cn(
-                      "size-32 overflow-hidden rounded-full lg:size-40 border-2 border-black",
-                    )}
-                  >
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={160}
-                      height={160}
-                      className={cn(
-                        "size-full object-cover",
-                        (member.image === "/images/team/team-01.png" ||
-                          member.image === "/images/team/team-02.png") &&
-                          "scale-125",
-                        member.image === "/images/team/team-06.png" &&
-                          " object-[center_35%]",
-                      )}
-                    />
+                  <div className="rounded-full bg-gradient-to-br from-primary-base via-primary-dark to-primary-darker p-[3px] shadow-md transition-transform duration-300 hover:scale-105">
+                    <div className="size-32 overflow-hidden rounded-full bg-white lg:size-40">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={160}
+                        height={160}
+                        className={cn(
+                          "size-full object-cover",
+                          (member.image === "/images/team/team-01.png" ||
+                            member.image === "/images/team/team-02.png") &&
+                            "scale-125",
+                          member.image === "/images/team/team-06.png" &&
+                            " object-[center_35%]",
+                        )}
+                      />
+                    </div>
                   </div>
                   <h3 className="mt-4 text-lg font-semibold text-text-primary">
                     {member.name}
@@ -759,7 +929,7 @@ export default function ChooserLanding() {
                   <p className="mt-1 whitespace-pre-line text-sm font-light text-text-secondary">
                     {member.designation}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
