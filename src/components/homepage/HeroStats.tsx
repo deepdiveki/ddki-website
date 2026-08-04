@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const heroStats = [
   { value: 254, suffix: "+", subtitle: "Fortbildungen" },
-  { value: 12, suffix: "", subtitle: "Themenbereiche" },
+  { value: 6, suffix: "", subtitle: "Themenbereiche" },
   { value: 98, suffix: " %", subtitle: "Zufriedenheit" },
 ];
 

@@ -26,32 +26,6 @@ export default function PaedagogischerTagContent() {
                 Wissensstand Ihrer Schule abgestimmt ist.
               </p>
             </div>
-            <GrainCard gradient="aurora">
-              <GlassPanel>
-                <p className="text-sm font-medium text-white">
-                  Ihr pädagogischer Tag mit DeepDiveKI
-                </p>
-                <div className="my-3 h-px w-full bg-white/20" />
-                <div className="flex flex-col gap-2.5">
-                  <GlassStep>Auftakt-Keynote: KI im Schulalltag</GlassStep>
-                  <GlassStep>Parallele Praxis-Workshops nach Fachgruppen</GlassStep>
-                  <GlassStep>Transfer-Phase: nächste Schritte fürs Kollegium</GlassStep>
-                  <GlassStep>Materialpaket für alle Lehrkräfte</GlassStep>
-                </div>
-              </GlassPanel>
-              <div className="flex items-center justify-between gap-2 rounded-2xl border border-white/25 bg-white/10 p-3 text-center backdrop-blur-md">
-                {[
-                  ["1 Tag", "vor Ort"],
-                  ["100 %", "Kollegium"],
-                  ["0", "Vorwissen nötig"],
-                ].map(([value, label]) => (
-                  <div key={label} className="flex-1">
-                    <p className="text-lg font-semibold text-white">{value}</p>
-                    <p className="text-xs text-white/70">{label}</p>
-                  </div>
-                ))}
-              </div>
-            </GrainCard>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

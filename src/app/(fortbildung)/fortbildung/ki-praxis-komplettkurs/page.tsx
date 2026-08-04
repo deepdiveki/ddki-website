@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import CoursePlayer from "./_components/CoursePlayer";
-import KursAccessGate from "./_components/KursAccessGate";
 
 export const metadata: Metadata = {
   title: "KI-Praxis Komplettkurs",
@@ -21,8 +20,8 @@ export const metadata: Metadata = {
 
 export default function KiPraxisKomplettkursPage() {
   return (
-    <KursAccessGate>
+
       <CoursePlayer />
-    </KursAccessGate>
+
   );
 }

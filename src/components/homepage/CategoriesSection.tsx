@@ -23,7 +23,7 @@ export default function CategoriesSection() {
           <HeaderEyebrow>Themen, die Schule bewegen</HeaderEyebrow>
           <HeaderTitle>Unsere Themenbereiche</HeaderTitle>
           <HeaderSubtitle>
-            Wählen Sie aus zwölf Themenbereichen und finden Sie die passende
+            Wählen Sie aus sechs Themenbereichen und finden Sie die passende
             Fortbildung für Ihre berufliche Entwicklung.
           </HeaderSubtitle>
         </SectionHeader>

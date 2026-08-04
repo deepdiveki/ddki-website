@@ -3,6 +3,7 @@
 import KomplettkursMockup from "@/components/chooser/KomplettkursMockup";
 import { GlassStep, GrainCard } from "@/components/fortbildungen/GrainCard";
 import ButtonLink from "@/components/ui/button-link-fortbildung";
+import { Modal } from "@/components/ui/modal";
 import {
   HeaderEyebrow,
   HeaderSubtitle,
@@ -10,16 +11,26 @@ import {
   SectionHeader,
 } from "@/components/ui/section-header-fortbildung";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   Award,
   BadgeCheck,
   Clock,
   Download,
+  MessageCircle,
   MonitorPlay,
   NotebookPen,
+  ShoppingCart,
   Sparkles,
+  X,
 } from "lucide-react";
+
+const KAUF_LINK = "https://buy.stripe.com/6oUdRa3EB8JffCvcAafYY03";
+const LOGIN_LINK = "https://plattform.deepdive-ki.de/ki-komplettkurs";
+
+const triggerBtnClass =
+  "inline-flex cursor-pointer items-center justify-center gap-1 rounded-[10px] border px-4 py-2.5 font-inter text-sm font-medium -tracking-[0.084px] transition-colors duration-300 focus-visible:outline-0 border-white/10 text-white [background:linear-gradient(180deg,rgba(255,255,255,0.16)0%,rgba(255,255,255,0)100%),#181B25] [box-shadow:0_1px_2px_0_rgba(21,14,27,0.24),_0_0_0_1px_#000] hover:bg-gray-700";
 
 const STATS = [
   { icon: MonitorPlay, value: 65, suffix: "", label: "Videos" },
@@ -152,6 +163,8 @@ function CountUp({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export default function VideoKursContent() {
+  const [accessOpen, setAccessOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
@@ -170,11 +183,15 @@ export default function VideoKursContent() {
               Plagiate, Hausaufgaben und Klausuren entwickeln.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <ButtonLink href="/fortbildung/kontakt">
+              <button
+                type="button"
+                onClick={() => setAccessOpen(true)}
+                className={triggerBtnClass}
+              >
                 Zugang anfragen
-              </ButtonLink>
+              </button>
               <ButtonLink
-                href="/fortbildung/ki-praxis-komplettkurs"
+                href="https://plattform.deepdive-ki.de/ki-komplettkurs"
                 variant="secondary"
               >
                 Ich habe bereits Zugang
@@ -321,11 +338,15 @@ export default function VideoKursContent() {
               in Ihrem Tempo, wie KI Ihren Unterricht bereichert.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3 lg:mt-11">
-              <ButtonLink href="/fortbildung/kontakt">
+              <button
+                type="button"
+                onClick={() => setAccessOpen(true)}
+                className={triggerBtnClass}
+              >
                 Zugang anfragen
-              </ButtonLink>
+              </button>
               <ButtonLink
-                href="/fortbildung/ki-praxis-komplettkurs"
+                href="https://plattform.deepdive-ki.de/ki-komplettkurs"
                 variant="secondary"
               >
                 Zum Kurs-Login
@@ -334,6 +355,78 @@ export default function VideoKursContent() {
           </div>
         </motion.div>
       </section>
+
+      <Modal
+        open={accessOpen}
+        onClose={() => setAccessOpen(false)}
+        className="h-auto max-h-[90vh] max-w-[480px]"
+      >
+        <div className="relative rounded-2xl bg-white p-7 shadow-2xl">
+          <button
+            type="button"
+            onClick={() => setAccessOpen(false)}
+            aria-label="Schließen"
+            className="absolute right-4 top-4 rounded-full p-1.5 text-text-tertiary transition hover:bg-background-secondary hover:text-text-primary"
+          >
+            <X className="size-4.5" />
+          </button>
+
+          <p className="text-sm font-medium tracking-[0.14em] text-primary-base uppercase">
+            Video-KI-Komplettkurs
+          </p>
+          <h2
+            id="search-dialog-title"
+            className="mt-2 text-xl font-semibold text-text-primary"
+          >
+            Zugang zum Kurs
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+            Kaufen Sie Ihren Zugang direkt online oder nehmen Sie Kontakt mit uns
+            auf.
+          </p>
+
+          <div className="mt-6 flex flex-col gap-3">
+            <a
+              href={KAUF_LINK}
+              className="flex items-center justify-center gap-2 rounded-xl bg-primary-base px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
+            >
+              <ShoppingCart className="size-4.5" />
+              Jetzt kaufen
+            </a>
+
+            <Link
+              href="/fortbildung/kontakt"
+              onClick={() => setAccessOpen(false)}
+              className="flex items-center justify-center gap-2 rounded-xl border border-border-secondary bg-white px-4 py-3 text-sm font-semibold text-text-primary transition hover:bg-background-secondary"
+            >
+              <MessageCircle className="size-4.5" />
+              Zum Kontaktformular
+            </Link>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-border-secondary bg-background-secondary/60 p-4">
+            <p className="text-sm leading-relaxed text-text-secondary">
+              Sie haben Ihren Zugang bereits über eine andere Plattform erworben?
+              Dann ist nur noch ein{" "}
+              <a
+                href={LOGIN_LINK}
+                className="font-medium text-primary-base underline underline-offset-2 hover:text-primary-dark"
+              >
+                Login
+              </a>{" "}
+              nötig. Sollte etwas nicht funktionieren, melden Sie sich einfach{" "}
+              <Link
+                href="/fortbildung/kontakt"
+                onClick={() => setAccessOpen(false)}
+                className="font-medium text-primary-base underline underline-offset-2 hover:text-primary-dark"
+              >
+                bei uns
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

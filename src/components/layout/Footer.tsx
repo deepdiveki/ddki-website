@@ -10,9 +10,9 @@ const fortbildungLinks = [
   {
     title: "Angebot",
     links: [
+      { name: "Keynote", href: "/fortbildung/keynote" },
       { name: "Fortbildungen", href: "/fortbildung/fortbildungen" },
       { name: "Pädagogischer Tag", href: "/fortbildung/paedagogischer-tag" },
-      { name: "Keynote", href: "/fortbildung/keynote" },
       { name: "Video-KI-Komplettkurs", href: "/fortbildung/video-ki-komplettkurs" },
       { name: "Escape Game", href: "/fortbildung/escape-game" },
     ],
@@ -22,6 +22,7 @@ const fortbildungLinks = [
     links: [
       { name: "Über uns", href: "/fortbildung/ueber-uns" },
       { name: "Häufige Fragen", href: "/fortbildung#faq" },
+      { name: "Jobs", href: "/jobs" },
       { name: "Kontakt", href: "/fortbildung/kontakt" },
     ],
   },
@@ -36,16 +37,15 @@ const softwareLinks = [
       { name: "Websites", href: "/software/websites" },
       { name: "Fortbildungen", href: "/fortbildung" },
       { name: "Mentoring", href: "/software/mentoring" },
+      { name: "Escape Game", href: "/fortbildung/escape-game" },
     ],
   },
   {
     title: "Informationen",
     links: [
       { name: "Über uns", href: "/software/about" },
-      { name: "Kontakt", href: "/software/kontakt" },
       { name: "Jobs", href: "/jobs" },
-      { name: "Escape Game", href: "/fortbildung/escape-game" },
-      { name: "info@deepdive-ki.de", href: "mailto:info@deepdive-ki.de" },
+      { name: "Kontakt", href: "/software/kontakt" },
     ],
   },
 ];

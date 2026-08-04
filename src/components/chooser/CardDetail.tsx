@@ -140,7 +140,7 @@ export function FortbildungenDetail({ onClose }: { onClose: () => void }) {
           className="mx-auto flex w-full max-w-md justify-between"
         >
           {[
-            { value: "40+", label: "Kursthemen" },
+            { value: "19+", label: "Kursthemen" },
             { value: "500+", label: "Teilnehmer" },
             { value: "98%", label: "Zufriedenheit" },
           ].map((stat) => (

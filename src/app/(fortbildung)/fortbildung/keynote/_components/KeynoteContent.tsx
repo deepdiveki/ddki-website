@@ -105,16 +105,15 @@ const SPEAKERS = [
   },
   {
     name: "Tim Philipp",
-    role: "Geschäftsführer DeepDiveKI\nEhemalige Lehrkraft für Informatik & Sport",
+    role: "Geschäftsführer DeepDiveKI\nLehrkraft für Informatik & Sport",
     image: "/images/team/team-02-cutout.png",
     back: {
       intro:
-        "Mitgründer und Geschäftsführer von DeepDiveKI mit langjähriger Erfahrung in der Lehre. Bringt Technik und Didaktik zusammen.",
+        "Geschäftsführer und Mitgründer  von DeepDiveKI mit langjähriger Erfahrung in der Lehre. Bringt Technik und Didaktik zusammen.",
       points: [
         "Workshops & pädagogische Tage mit hohem Praxisanteil",
         "Entwicklung des DeepChat für Schulen",
         "Schwerpunkte: KI, Datenschutz, Digitalisierung",
-        "Experte in der Weiterentwicklung von Prüfungsformaten",
       ],
     },
   },

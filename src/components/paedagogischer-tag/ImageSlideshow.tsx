@@ -63,8 +63,7 @@ export default function ImageSlideshow() {
                 fill
                 className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 sizes="(max-width: 768px) 50vw, 25vw"
-                quality={90}
-                priority={index === 0}
+                unoptimized
               />
               <div
                 aria-hidden
