@@ -14,7 +14,6 @@ const excludedRoutes = new Set([
   "/software/error",
   "/software/error/verify",
   "/software/unauthorized",
-  "/fortbildung/ki-praxis-komplettkurs",
   // Interne bzw. Demo-Seiten ohne Suchwert – kosten nur Crawl-Budget.
   "/fortbildung/feedback",
   "/software/feedback",

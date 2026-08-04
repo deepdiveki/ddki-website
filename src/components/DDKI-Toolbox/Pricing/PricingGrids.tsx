@@ -4,7 +4,7 @@ import SinglePricing from "./SInglePricing";
 const pricingData = [
   {
     title: "Einzellizenz DeepChat",
-    price: "7,99 €",
+    price: "4,99 €",
     features: [
       "All-in-One KI-Chat",
       "Die besten Sprachmodelle",
@@ -13,7 +13,7 @@ const pricingData = [
       "Datenschutzkonforme KI-Nutzung",
       "Priorisierter Kundensupport"
     ],
-    link: "https://buy.stripe.com/4gw03IfBz8SF0xifYZ",
+    link: "https://buy.stripe.com/5kA8Ae1KJ7OB4NyeUU",
     patch: "basic",
   },
   {
