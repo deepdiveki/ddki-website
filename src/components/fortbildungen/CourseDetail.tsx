@@ -34,7 +34,7 @@ export default function CourseDetail({ course }: { course: Course }) {
 
   return (
     <div className="min-h-screen">
-      <section className="bg-[linear-gradient(180deg,#DDD7FE_0%,#FFF_100%)] pt-31.5 pb-10 lg:pt-38 lg:pb-14">
+      <section className="bg-[linear-gradient(180deg,#DDD7FE_0%,#FFF_100%)] hero-offset pb-10 lg:pb-14">
         <div className="bg-[url('/images/bg-gradient.svg')] bg-cover bg-center">
         <div className="mx-auto max-w-304 px-4 xl:px-0">
           <Link
@@ -48,7 +48,7 @@ export default function CourseDetail({ course }: { course: Course }) {
             <Badge variant="primary">{category?.name}</Badge>
             <Badge>{course.format}</Badge>
           </div>
-          <h1 className="mt-4 text-display-sm font-light -tracking-[0.96px] text-text-primary lg:text-display-lg">
+          <h1 className="mt-4 text-display-sm font-semibold -tracking-[0.96px] text-text-primary lg:text-display-lg">
             {course.title}
           </h1>
           <p className="mt-3 max-w-160 text-md font-light text-text-secondary">

@@ -93,7 +93,7 @@ export function SchulFeedbackSection() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <SectionHeader className="mx-auto max-w-304 px-4 text-center xl:px-0">
-          <HeaderTitle className="text-display-xs font-light -tracking-[0.72px] text-text-primary lg:text-display-sm">
+          <HeaderTitle className="text-display-xs font-semibold -tracking-[0.72px] text-text-primary lg:text-display-sm">
             Was unsere Schulen sagen
           </HeaderTitle>
           <HeaderSubtitle className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
@@ -151,7 +151,7 @@ export default function TestimonialsSection() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <SectionHeader className="mx-auto max-w-304 px-4 text-center xl:px-0">
-          <HeaderTitle className="text-display-xs font-light -tracking-[0.72px] text-text-primary lg:text-display-sm">Was unsere Lehrer:innen sagen</HeaderTitle>
+          <HeaderTitle className="text-display-xs font-semibold -tracking-[0.72px] text-text-primary lg:text-display-sm">Was unsere Lehrer:innen sagen</HeaderTitle>
           <HeaderSubtitle className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
             Die besten Geschichten schreibt der Schulalltag. Hier erzählen
             Lehrer:innen, wie sie unsere Lösungen einsetzen, was sie begeistert

@@ -7,6 +7,7 @@ import { ArrowRight, Clock, Monitor } from "lucide-react";
 import Link from "next/link";
 import Badge from "../ui/Badge";
 import {
+  HeaderEyebrow,
   HeaderSubtitle,
   HeaderTitle,
   SectionHeader,
@@ -27,6 +28,7 @@ export default function FeaturedCoursesSection() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <SectionHeader>
+          <HeaderEyebrow>Unsere Empfehlungen</HeaderEyebrow>
           <HeaderTitle>Empfohlene Fortbildungen</HeaderTitle>
           <HeaderSubtitle>
             Unsere beliebtesten Kurse, von Experten entwickelt und von

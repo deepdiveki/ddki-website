@@ -8,7 +8,7 @@ export default function ContactFormSection() {
   return (
     <section
       id="kontaktformular"
-      className="bg-background-secondary px-4 pt-28 pb-10 md:pt-43.25 md:pb-14 lg:px-4 lg:pb-20 xl:px-28"
+      className="bg-background-secondary px-4 hero-offset pb-10 md:pb-14 lg:px-4 lg:pb-20 xl:px-28"
     >
       <div className="mx-auto flex max-w-304 flex-col items-start justify-between gap-y-10 lg:mb-0 lg:flex-row lg:items-start lg:gap-x-10">
         <motion.div
@@ -18,7 +18,8 @@ export default function ContactFormSection() {
           transition={{ duration: 0.8 }}
           className="w-full text-center lg:w-122 lg:text-start"
         >
-          <h1 className="mx-auto max-w-[70%] text-display-md tracking-[-0.96px] text-text-primary lg:mx-0 lg:text-display-lg">
+          <p className="mb-3 text-sm font-medium tracking-[0.14em] text-primary-base uppercase">Sprechen Sie mit uns</p>
+          <h1 className="mx-auto max-w-[70%] text-display-md font-semibold tracking-[-0.96px] text-text-primary lg:mx-0 lg:text-display-lg">
             Kontaktieren Sie uns
           </h1>
           <p className="mx-auto mt-4 max-w-104.25 px-2 text-md font-light text-text-secondary lg:mx-0 lg:px-0">

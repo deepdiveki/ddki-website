@@ -8,6 +8,7 @@ import Accordion, {
   AccordionTrigger,
 } from "@/components/ui/accordion-faq";
 import {
+  HeaderEyebrow,
   HeaderSubtitle,
   HeaderTitle,
   SectionHeader,
@@ -66,6 +67,7 @@ export default function FAQSection() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <SectionHeader>
+          <HeaderEyebrow>Gut zu wissen</HeaderEyebrow>
           <HeaderTitle>Häufig gestellte Fragen</HeaderTitle>
           <HeaderSubtitle>
             Hier finden Sie Antworten auf die wichtigsten Fragen rund um unsere

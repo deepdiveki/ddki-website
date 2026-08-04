@@ -15,7 +15,7 @@ export default function LogoSlider() {
   return (
     <section className="bg-white px-4 py-10 md:py-14 lg:py-20 xl:px-0">
       <div className="mx-auto max-w-304">
-        <h2 className="mb-10 text-center text-display-xs font-light -tracking-[0.96px] text-text-primary lg:text-display-md">
+        <h2 className="mb-10 text-center text-display-xs font-semibold -tracking-[0.96px] text-text-primary lg:text-display-md">
           Unsere Referenzen
         </h2>
         <div className="relative overflow-hidden">

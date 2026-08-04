@@ -15,8 +15,7 @@ const links = [
   { name: "Keynote", href: "/fortbildung/keynote" },
   { name: "Fortbildungen", href: "/fortbildung/fortbildungen" },
   { name: "Pädagogischer Tag", href: "/fortbildung/paedagogischer-tag" },
-  { name: "Escape Game", href: "/fortbildung/escape-game" },
-  { name: "Über uns", href: "/fortbildung/ueber-uns" },
+  { name: "Video-KI-Komplettkurs", href: "/fortbildung/video-ki-komplettkurs" },
 ];
 
 export default function Header() {

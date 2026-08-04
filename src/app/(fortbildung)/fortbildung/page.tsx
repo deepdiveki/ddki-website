@@ -2,6 +2,7 @@ import CategoriesSection from "@/components/homepage/CategoriesSection";
 import CertificatePreviewSection from "@/components/homepage/CertificatePreviewSection";
 import FeaturedCoursesSection from "@/components/homepage/FeaturedCoursesSection";
 import HeroSection from "@/components/homepage/HeroSection";
+import KomplettkursSection from "@/components/homepage/KomplettkursSection";
 import CtaCard from "@/components/shared/CtaCard";
 import FAQSection from "@/components/shared/FaqSection";
 import type { Metadata } from "next";
@@ -26,6 +27,7 @@ export default function Home() {
       <HeroSection />
       <CategoriesSection />
       <FeaturedCoursesSection />
+      <KomplettkursSection />
       <CertificatePreviewSection />
       <FAQSection />
       <CtaCard />

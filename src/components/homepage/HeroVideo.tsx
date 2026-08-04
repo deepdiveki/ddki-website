@@ -1,10 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
+import { GraduationCap, Play, Pause, Volume2, VolumeX, Maximize } from "lucide-react";
 
 const VIDEO_URL =
   "https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/DDKI%20Videos%20Fortbildung/DDKI_Fortbildung_Komplett.mp4";
+
+const NOISE =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E";
 
 export default function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -65,10 +68,18 @@ export default function HeroVideo() {
   }
 
   return (
-    <div className="w-80 animate-in delay-500 duration-1000 fill-mode-both fade-in md:w-80 lg:w-110 xl:w-140">
-      {/* Outer glow + border wrapper */}
-      <div className="rounded-2xl bg-gradient-to-br from-primary-base/60 via-primary-dark/30 to-primary-base/60 p-[2px] shadow-[0_8px_40px_rgba(198,189,250,0.4)]">
-        <div className="relative overflow-hidden rounded-2xl bg-black">
+    <div className="relative w-80 animate-in delay-500 duration-1000 fill-mode-both fade-in md:w-80 lg:w-110 xl:w-140">
+      {/* Körniger Gradient-Rahmen im Landing-Design */}
+      <div className="relative overflow-hidden rounded-[28px] p-2 shadow-2xl [background:linear-gradient(155deg,#8b5cf6_0%,#a78bfa_38%,#d68cfa_72%,#f0bdfa_100%)]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.22] mix-blend-overlay"
+          style={{
+            backgroundImage: `url("${NOISE}")`,
+            backgroundSize: "140px 140px",
+          }}
+        />
+        <div className="relative overflow-hidden rounded-[20px] bg-black">
           {/* Video */}
           <video
             ref={videoRef}
@@ -156,6 +167,34 @@ export default function HeroVideo() {
               </div>
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Schwebende Glas-Badges */}
+      <div className="hero-float absolute -top-6 -right-4 hidden items-center gap-2.5 rounded-2xl border border-white/60 bg-white/75 px-4 py-2.5 shadow-lg backdrop-blur-md md:flex lg:-right-8">
+        <span className="flex size-3 items-center justify-center rounded-full border-2 border-emerald-400/90">
+          <span className="size-1 rounded-full bg-emerald-400" />
+        </span>
+        <div>
+          <p className="text-md leading-tight font-semibold text-text-primary">
+            98 %
+          </p>
+          <p className="text-xs text-text-secondary">Zufriedenheit</p>
+        </div>
+      </div>
+      <div
+        className={`hero-float-delayed absolute -bottom-6 -left-4 hidden items-center gap-2.5 rounded-2xl border border-white/60 bg-white/75 px-4 py-2.5 shadow-lg backdrop-blur-md transition-opacity duration-300 md:flex lg:-left-8 ${
+          hasStarted ? "pointer-events-none opacity-0" : "opacity-100"
+        }`}
+      >
+        <span className="flex size-8 items-center justify-center rounded-xl bg-primary-base/25">
+          <GraduationCap className="size-4.5 text-primary-darker" />
+        </span>
+        <div>
+          <p className="text-md leading-tight font-semibold text-text-primary">
+            254+
+          </p>
+          <p className="text-xs text-text-secondary">Fortbildungen</p>
         </div>
       </div>
     </div>

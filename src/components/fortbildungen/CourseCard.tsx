@@ -10,7 +10,7 @@ export default function CourseCard({ course }: { course: Course }) {
   return (
     <Link
       href={`/fortbildung/fortbildungen/${course.slug}`}
-      className="group flex h-full flex-col justify-between gap-5 rounded-2xl bg-white p-5 transition-all duration-300 hover:shadow-lg md:p-6"
+      className="group flex h-full flex-col justify-between gap-5 rounded-3xl border border-border-secondary bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-base/40 hover:shadow-xl md:p-6"
     >
       <div>
         <div className="flex items-center gap-2">

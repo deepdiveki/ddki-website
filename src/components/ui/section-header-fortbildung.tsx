@@ -15,11 +15,25 @@ export function SectionHeader({
   );
 }
 
+/** Eyebrow im neuen Landing-Design: Lila-Caps mit weitem Tracking */
+export function HeaderEyebrow({ className, children }: ComponentProps<"p">) {
+  return (
+    <p
+      className={cn(
+        "text-sm font-medium tracking-[0.14em] text-primary-base uppercase",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
+}
+
 export function HeaderTitle({ className, children }: ComponentProps<"h2">) {
   return (
     <h2
       className={cn(
-        "mx-auto text-display-sm -tracking-[0.96px] text-text-primary lg:max-w-155 lg:text-display-lg",
+        "mx-auto text-display-xs font-semibold -tracking-[0.5px] text-text-primary md:text-display-sm lg:max-w-155 lg:text-display-md",
         className,
       )}
     >
@@ -32,7 +46,7 @@ export function HeaderSubtitle({ className, children }: ComponentProps<"h3">) {
   return (
     <h3
       className={cn(
-        "mx-auto text-md font-light text-text-secondary md:max-w-117.5 lg:w-full lg:max-w-155 lg:px-0",
+        "mx-auto text-md font-light leading-relaxed text-text-secondary md:max-w-117.5 lg:w-full lg:max-w-155 lg:px-0 lg:text-lg",
         className,
       )}
     >

@@ -4,6 +4,7 @@ import { categories } from "@/data/categories";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
+  HeaderEyebrow,
   HeaderSubtitle,
   HeaderTitle,
   SectionHeader,
@@ -11,7 +12,7 @@ import {
 
 export default function CategoriesSection() {
   return (
-    <section id="kategorien" className="bg-white py-10 md:py-14 lg:py-28">
+    <section id="kategorien" className="bg-[#F9F8FB] py-10 md:py-14 lg:py-28">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -19,6 +20,7 @@ export default function CategoriesSection() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <SectionHeader>
+          <HeaderEyebrow>Themen, die Schule bewegen</HeaderEyebrow>
           <HeaderTitle>Unsere Themenbereiche</HeaderTitle>
           <HeaderSubtitle>
             Wählen Sie aus zwölf Themenbereichen und finden Sie die passende
@@ -42,9 +44,9 @@ export default function CategoriesSection() {
           >
             <Link
               href={`/fortbildung/fortbildungen?kategorie=${category.id}`}
-              className="group flex flex-col gap-4 rounded-2xl bg-background-secondary p-6 transition-all duration-300 hover:bg-primary-light/20 hover:shadow-md"
+              className="group flex h-full flex-col gap-4 rounded-3xl border border-border-secondary bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-base/40 hover:shadow-xl"
             >
-              <div className="flex size-12 items-center justify-center rounded-xl bg-white transition-colors duration-300 group-hover:bg-primary-base/20">
+              <div className="flex size-12 items-center justify-center rounded-xl bg-primary-light/30 transition-colors duration-300 group-hover:bg-primary-base/20">
                 <category.icon className="size-6 text-text-secondary transition-colors duration-300 group-hover:text-primary-dark" />
               </div>
               <div>

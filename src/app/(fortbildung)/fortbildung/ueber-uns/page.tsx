@@ -20,10 +20,11 @@ export const metadata: Metadata = {
 export default function UeberUnsPage() {
   return (
     <div className="min-h-screen">
-      <section className="bg-[linear-gradient(180deg,#DDD7FE_0%,#FFF_100%)] pt-31.5 pb-10 lg:pt-38 lg:pb-14">
+      <section className="bg-[linear-gradient(180deg,#DDD7FE_0%,#FFF_100%)] hero-offset pb-10 lg:pb-14">
         <div className="bg-[url('/images/bg-gradient.svg')] bg-cover bg-center">
         <div className="mx-auto max-w-304 px-4 text-center xl:px-0">
-          <h1 className="text-display-sm font-light -tracking-[0.96px] text-text-primary lg:text-display-lg">
+          <p className="mb-3 text-sm font-medium tracking-[0.14em] text-primary-base uppercase">Das Team dahinter</p>
+          <h1 className="text-display-sm font-semibold -tracking-[0.96px] text-text-primary lg:text-display-lg">
             Über uns
           </h1>
           <p className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">

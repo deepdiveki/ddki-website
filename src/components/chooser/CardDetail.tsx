@@ -48,7 +48,7 @@ const FORTBILDUNGEN_PRODUCTS = [
   {
     category: "Flexible Formate",
     title: "Modulare Kurse",
-    desc: "Vom Crash-Kurs bis zum Deep-Dive — flexibel buchbar. Individuelle Lernpfade für jedes Erfahrungslevel.",
+    desc: "Vom Crash-Kurs bis zum Deep-Dive, flexibel buchbar. Individuelle Lernpfade für jedes Erfahrungslevel.",
     href: "/fortbildung/fortbildungen",
   },
   {
@@ -129,7 +129,7 @@ export function FortbildungenDetail({ onClose }: { onClose: () => void }) {
             className="mt-4 text-md font-light leading-relaxed text-text-secondary lg:text-lg"
           >
             Entdecken Sie unser umfangreiches Angebot an Fortbildungen in den
-            Bereichen KI, Digitalisierung und Pädagogik — individuell und
+            Bereichen KI, Digitalisierung und Pädagogik, individuell und
             zukunftsorientiert.
           </motion.p>
         </div>
@@ -301,7 +301,7 @@ export function SoftwareDetail({ onClose }: { onClose: () => void }) {
             variants={fadeUp}
             className="mt-4 text-md font-light leading-relaxed text-white/70 lg:text-lg"
           >
-            DeepChat, KI-Schulbüro und weitere digitale Lösungen — entwickelt
+            DeepChat, KI-Schulbüro und weitere digitale Lösungen, entwickelt
             für die Anforderungen moderner Schulen.
           </motion.p>
         </div>

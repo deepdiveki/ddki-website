@@ -14,6 +14,7 @@ import { FortbildungenDetail, SoftwareDetail } from "./CardDetail";
 import PlatformSwitcher from "@/components/shared/PlatformSwitcher";
 import ContactFormSection from "@/components/Kontakt/ContactFormSection";
 import SchulbueroMockup from "./SchulbueroMockup";
+import KomplettkursMockup from "./KomplettkursMockup";
 
 const CardShaderBackground = dynamic(() => import("./CardShaderBackground"), {
   ssr: false,
@@ -491,7 +492,7 @@ export default function ChooserLanding() {
               </h1>
 
               <p className="mx-auto mt-7 max-w-2xl text-lg font-light text-text-secondary lg:text-xl">
-                Praxisnah &amp; DSGVO-konform – für{" "}
+                Praxisnah &amp; DSGVO-konform für{" "}
                 <TypewriterWords
                   words={[
                     "Lehrkräfte",
@@ -576,8 +577,8 @@ export default function ChooserLanding() {
                       Fortbildungen
                     </h2>
                     <p className="mt-2 min-h-[3em] text-md font-light text-white/80 lg:text-lg">
-                      Praxisnahe Lehrerfortbildungen in KI, Digitalisierung &amp;
-                      Pädagogik
+                      Lehrerfortbildungen, Pädagogische Tage &amp; der
+                      Video-KI-Komplettkurs
                     </p>
                     <div className="mt-6 flex items-center justify-end">
                       <ArrowRight className="size-6 transition-transform duration-300 group-hover:translate-x-1" />
@@ -667,14 +668,14 @@ export default function ChooserLanding() {
                   Die DeepDiveKI-Plattform
                 </p>
                 <h2 className="text-display-xs font-semibold -tracking-[0.5px] text-text-primary md:text-display-sm lg:text-display-md">
-                  Eine Plattform –{" "}
+                  Eine Plattform:{" "}
                   <span className="font-semibold text-text-primary">
                     alles an einem Ort.
                   </span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-md font-light leading-relaxed text-text-secondary lg:mx-0 lg:text-lg">
                   Fortbildungen, DeepChat, KI-Schulbüro, Schulwebsites und
-                  kuratierte Materialien greifen ineinander – DSGVO-konform
+                  kuratierte Materialien greifen ineinander, DSGVO-konform
                   gehostet und direkt im Unterricht einsetzbar.
                 </p>
                 <ul className="mx-auto mt-6 flex max-w-md flex-col gap-3 text-left lg:mx-0">
@@ -725,10 +726,49 @@ export default function ChooserLanding() {
                   </span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-md font-light leading-relaxed text-text-secondary lg:mx-0 lg:text-lg">
-                  Das KI-Schulbüro erfasst Anfragen automatisch – ordnet sie zu,
+                  Das KI-Schulbüro erfasst Anfragen automatisch, ordnet sie zu,
                   pflegt sie ins System ein, benachrichtigt die richtigen
                   Personen und archiviert alles rechtssicher.
                 </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* KI-Komplettkurs — grainy gradient mockup */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-24 w-full lg:mt-32"
+          >
+            <div className="mx-auto grid max-w-304 grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div className="text-center lg:text-left">
+                <p className="mb-3 text-sm font-medium tracking-[0.14em] text-primary-base uppercase">
+                  KI-Komplettkurs für Lehrkräfte
+                </p>
+                <h2 className="text-display-xs font-semibold -tracking-[0.5px] text-text-primary md:text-display-sm lg:text-display-md">
+                  Vom KI-Einstieg zur{" "}
+                  <span className="font-semibold text-text-primary">
+                    souveränen Praxis.
+                  </span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-md font-light leading-relaxed text-text-secondary lg:mx-0 lg:text-lg">
+                  Der Videokurs für Lehrkräfte: KI wirklich verstehen, komplette
+                  Unterrichtseinheiten mit KI planen und souveräne Antworten auf
+                  Plagiate, Hausaufgaben und Klausuren entwickeln. Mit 65 Videos,
+                  14 interaktiven Tools und über 60 fertigen Materialien.
+                </p>
+                <Link
+                  href="/fortbildung/video-ki-komplettkurs"
+                  className="group mt-6 inline-flex items-center gap-2 text-md font-medium text-primary-base transition hover:text-primary-dark"
+                >
+                  Zum Kurs
+                  <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
+              <div>
+                <KomplettkursMockup />
               </div>
             </div>
           </motion.div>

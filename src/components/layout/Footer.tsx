@@ -11,13 +11,16 @@ const fortbildungLinks = [
     title: "Angebot",
     links: [
       { name: "Fortbildungen", href: "/fortbildung/fortbildungen" },
-      { name: "Kategorien", href: "/fortbildung#kategorien" },
-      { name: "Empfehlungen", href: "/fortbildung#empfehlungen" },
+      { name: "Pädagogischer Tag", href: "/fortbildung/paedagogischer-tag" },
+      { name: "Keynote", href: "/fortbildung/keynote" },
+      { name: "Video-KI-Komplettkurs", href: "/fortbildung/video-ki-komplettkurs" },
+      { name: "Escape Game", href: "/fortbildung/escape-game" },
     ],
   },
   {
     title: "Informationen",
     links: [
+      { name: "Über uns", href: "/fortbildung/ueber-uns" },
       { name: "Häufige Fragen", href: "/fortbildung#faq" },
       { name: "Kontakt", href: "/fortbildung/kontakt" },
     ],
