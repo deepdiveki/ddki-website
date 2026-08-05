@@ -23,7 +23,7 @@ export default function HeroStats() {
           Hochwertige Fortbildungen für Ihren beruflichen Erfolg.
         </h2>
 
-        <div className="flex w-full items-center gap-10 lg:w-fit lg:gap-16 xl:gap-20">
+        <div className="flex w-full flex-wrap items-center justify-between gap-x-6 gap-y-6 sm:gap-x-10 lg:w-fit lg:justify-start lg:gap-16 xl:gap-20">
           {heroStats.map((stat) => (
             <Stat
               key={stat.subtitle}

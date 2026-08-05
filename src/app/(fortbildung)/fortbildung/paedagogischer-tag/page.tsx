@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   description:
     "Gestalten Sie Ihren pädagogischen Tag mit maßgeschneiderten Fortbildungen rund um KI im Schulalltag – praxisnah, interaktiv und individuell.",
   openGraph: {
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
+      },
+    ],
     title: "Pädagogischer Tag | DeepDive Fortbildungen",
     description:
       "Maßgeschneiderte KI-Fortbildungen für Ihr gesamtes Kollegium – von der Planung bis zur Nachbereitung.",

@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   description:
     "Lernen Sie Björn Isenbiel und Tim Philipp kennen – das Team hinter DeepDive Fortbildungen. KI-Lösungen und Fortbildungen für Schulen aus Hamburg.",
   openGraph: {
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
+      },
+    ],
     title: "Über uns | DeepDive Fortbildungen",
     description:
       "Ein junges Team aus Hamburg mit Leidenschaft für KI und Bildung. Lernen Sie uns kennen.",

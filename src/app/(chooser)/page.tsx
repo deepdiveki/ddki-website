@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   description:
     "DeepDive KI bietet praxisnahe Lehrerfortbildungen und innovative Software-Lösungen wie DeepChat und KI-Schulbüro für Schulen.",
   openGraph: {
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
+      },
+    ],
     title: "DeepDive KI - Fortbildungen & Software für Schulen",
     description:
       "Praxisnahe Lehrerfortbildungen und innovative Software-Lösungen wie DeepChat und KI-Schulbüro für Schulen.",

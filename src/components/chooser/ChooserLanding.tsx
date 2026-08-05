@@ -441,7 +441,7 @@ export default function ChooserLanding() {
         </motion.header>
 
         {/* Main Content */}
-        <div className="relative z-10 flex flex-1 flex-col items-center px-4 pt-24 pb-12">
+        <div className="relative z-10 flex flex-1 flex-col items-center overflow-x-clip px-4 pt-24 pb-12">
           <div className="mx-auto flex w-full max-w-304 flex-col items-center">
             {/* Hero — near full-height */}
             <div className="flex min-h-[calc(100dvh-8rem)] w-full flex-col items-center justify-center">

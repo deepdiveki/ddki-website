@@ -14,6 +14,14 @@ export const metadata: Metadata = {
   description:
     "Kontaktieren Sie uns für Fragen zu unseren Fortbildungsangeboten. Wir beraten Sie gerne persönlich.",
   openGraph: {
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
+      },
+    ],
     title: "Fortbildungen | DeepDive",
     description:
       "Fragen zu Fortbildungen, Keynotes oder dem pädagogischen Tag? Wir beraten Sie gerne.",

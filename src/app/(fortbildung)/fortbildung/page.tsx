@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   description:
     "Entdecken Sie praxisnahe Fortbildungen in KI, Digitalisierung und Pädagogik. Kategorien, empfohlene Kurse und zertifizierte Abschlüsse für Lehrkräfte.",
   openGraph: {
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
+      },
+    ],
     title: "Fortbildungen für Lehrkräfte – KI, Digitalisierung & Pädagogik",
     description:
       "Praxisnahe Fortbildungen in KI, Digitalisierung und Pädagogik. Zertifizierte Abschlüsse für Lehrkräfte.",

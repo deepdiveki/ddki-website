@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   description:
     "Entdecken Sie unser vielfältiges Angebot an Fortbildungen in den Bereichen KI, Digitalisierung, Pädagogik, Management und Gesundheit.",
   openGraph: {
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
+      },
+    ],
     title: "Alle Fortbildungen im Überblick | DeepDive Fortbildungen",
     description:
       "Vielfältige Fortbildungen in KI, Digitalisierung, Pädagogik und mehr – filtern Sie nach Kategorie und Format.",

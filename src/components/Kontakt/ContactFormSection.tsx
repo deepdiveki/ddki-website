@@ -8,7 +8,7 @@ export default function ContactFormSection() {
   return (
     <section
       id="kontaktformular"
-      className="bg-background-secondary px-4 hero-offset pb-10 md:pb-14 lg:px-4 lg:pb-20 xl:px-28"
+      className="overflow-x-clip bg-background-secondary px-4 hero-offset pb-10 md:pb-14 lg:px-4 lg:pb-20 xl:px-28"
     >
       <div className="mx-auto flex max-w-304 flex-col items-start justify-between gap-y-10 lg:mb-0 lg:flex-row lg:items-start lg:gap-x-10">
         <motion.div
