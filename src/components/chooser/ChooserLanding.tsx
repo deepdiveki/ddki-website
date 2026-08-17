@@ -436,7 +436,7 @@ export default function ChooserLanding() {
         >
           <PlatformSwitcher variant="light" activePlatform="plattform" />
           <ButtonLink href="https://plattform.deepdive-ki.de/auth/signin">
-            Login
+            Zur Plattform
           </ButtonLink>
         </motion.header>
 

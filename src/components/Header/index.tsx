@@ -80,7 +80,7 @@ const Header = () => {
               href="https://plattform.deepdive-ki.de/auth/signin"
               variant="secondary"
             >
-              Login
+              Zur Plattform
             </ButtonLink>
             <ButtonLink href="https://plattform.deepdive-ki.de/auth/signup">
               Registrieren
@@ -192,7 +192,7 @@ function MobileMenubar({ userName }: { userName: string | null }) {
                     onClick={() => setIsOpen(false)}
                     className="w-full"
                   >
-                    Login
+                    Zur Plattform
                   </ButtonLink>
                   <ButtonLink
                     href="https://plattform.deepdive-ki.de/auth/signup"

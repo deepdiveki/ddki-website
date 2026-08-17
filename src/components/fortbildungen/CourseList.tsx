@@ -16,7 +16,9 @@ export default function CourseList() {
 
   const filteredCourses = courses
     .filter((course) => {
-      const isDeepDive = course.slug.startsWith("deep-dive-modul-");
+      const isDeepDive =
+        course.deepDiveModul != null ||
+        course.slug.startsWith("deep-dive-modul-");
       const matchesCategory =
         selectedCategory === "alle" ||
         course.categoryId === selectedCategory ||
@@ -28,14 +30,15 @@ export default function CourseList() {
     .sort((a, b) => {
       if (selectedCategory !== "ki") return 0;
 
-      const getOrder = (slug: string) => {
-        if (slug === "crash-kurs-ki") return 0;
-        const deepDiveMatch = slug.match(/^deep-dive-modul-(\d+)$/);
-        if (deepDiveMatch) return 1 + parseInt(deepDiveMatch[1]);
+      const getOrder = (course: (typeof courses)[number]) => {
+        if (course.slug === "crash-kurs-ki") return 0;
+        if (course.deepDiveModul != null) return course.deepDiveModul;
+        const deepDiveMatch = course.slug.match(/^deep-dive-modul-(\d+)$/);
+        if (deepDiveMatch) return parseInt(deepDiveMatch[1]);
         return 100;
       };
 
-      return getOrder(a.slug) - getOrder(b.slug);
+      return getOrder(a) - getOrder(b);
     });
 
   return (

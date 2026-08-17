@@ -12,6 +12,8 @@ export type Course = {
   instructor: string;
   featured: boolean;
   pdfUrl?: string;
+  /** Deep-Dive-Modulnummer (1–8) für Sortierung und KI-Kategoriefilter */
+  deepDiveModul?: number;
   /**
    * Explizite Cross-References. Wenn gesetzt, überschreibt das die automatische
    * „same category"-Logik in CourseDetail. Sonst fallen wir auf Auto-Derivation
@@ -44,29 +46,51 @@ export const courses: Course[] = [
     pdfUrl: "/pdfs/DeepDiveKI - Crash Kurs.pdf",
   },
   {
-    slug: "deep-dive-modul-3",
-    title: "Deep Dive Modul III: Chancen und Risiken von KI in Schule und Gesellschaft",
+    slug: "deep-dive-modul-1",
+    title: "Deep Dive Modul I: Unterrichtseinheiten konzipieren mit KI Tools",
     shortDescription:
-      "Chancen von KI erarbeiten, sinnvolle Nutzung diskutieren und Methoden zur KI-Einführung in Schulen kennenlernen.",
+      "Unterricht mithilfe von KI konzipieren und sofort anwendbare Methoden und Materialien erhalten.",
     description:
-      "Dieses Modul erarbeitet die Chancen von KI und deren sinnvolle Nutzung. Es vermittelt Methoden zur KI-Einführung in Schulen und beleuchtet sowohl Potenziale als auch Risiken aus schulischer und gesellschaftlicher Perspektive.",
+      "In diesem Modul liegt der Fokus auf der Konzeption von Unterricht mithilfe von KI. Teilnehmende erhalten praktische, sofort anwendbare Unterrichtsmethoden und Material. Sie lernen, wie KI-Tools den Planungsprozess unterstützen und beschleunigen können.",
     categoryId: "ki-grundlagen",
     format: "Online",
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
-      "Chancen von KI in der Bildung",
-      "Risiken und Herausforderungen",
-      "Methoden zur KI-Einführung an Schulen",
-      "Gesellschaftliche Perspektiven auf KI",
+      "Unterrichtsplanung mit KI-Unterstützung",
+      "Erstellung von Unterrichtsmaterialien mit KI",
+      "Sofort anwendbare Methoden für den Schulalltag",
+      "Differenzierte Aufgabenstellung mit KI",
+    ],
+    prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
+    instructor: "Björn und Tim",
+    featured: true,
+    pdfUrl: "/pdfs/DeepDiveKI - Modul I.pdf",
+  },
+  {
+    slug: "neue-pruefungsformate-ki",
+    title: "Neue Prüfungsformate in Zeiten von KI",
+    shortDescription:
+      "Kompetenzorientierte Prüfungsformate entwickeln, die KI-Nutzung konstruktiv einbeziehen statt zu verbieten.",
+    description:
+      "Klassische Prüfungen stoßen in Zeiten von KI an ihre Grenzen. Diese Fortbildung zeigt, wie Lehrkräfte kompetenzorientierte Prüfungsformate entwickeln, die KI-Nutzung produktiv einbeziehen. Von mündlichen Reflexionen über Portfolioarbeit bis zu prozessbegleitenden Bewertungen.",
+    categoryId: "pruefen-bewerten-feedback",
+    format: "Online",
+    duration: "3 Stunden",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
+    topics: [
+      "Warum klassische Prüfungen überarbeitet werden müssen",
+      "Kompetenzorientierte Aufgabenformate",
+      "Portfolio- und Prozessbewertung",
+      "KI als Teil der Prüfung, nicht als Gegner",
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn und Tim",
     featured: false,
-    pdfUrl: "/pdfs/DeepDiveKI - Modul III.pdf",
+    pdfUrl: "/pdfs/DeepDiveKI - Prüfungsformate.pdf",
   },
   {
-    slug: "deep-dive-modul-7",
+    slug: "ki-bots",
     title: "KI-Bots für deinen Unterricht erstellen",
     shortDescription:
       "Eigene KI-gestützte Bots entwickeln und Schritt für Schritt für den Unterricht anpassen.",
@@ -86,6 +110,35 @@ export const courses: Course[] = [
     instructor: "Björn und Tim",
     featured: true,
     pdfUrl: "/pdfs/DeepDiveKI - KI-Bots.pdf",
+    deepDiveModul: 7,
+  },
+  {
+    slug: "ki-praxislabor",
+    title: "KI-Praxislabor für Fortgeschrittene",
+    shortDescription:
+      "Vom konkreten Bedarf zum funktionierenden KI-Workflow: individuelle Herausforderungen bearbeiten und passgenaue KI-Lösungen entwickeln.",
+    description:
+      "Sie bringen eigene Fragen und Anwendungsfälle aus dem Schulalltag mit. Gemeinsam entwickeln wir Assistenten oder Agenten, die bei Ihrer Arbeit wirklich helfen und die Sie danach selbst weiter nutzen können. Programmierkenntnisse brauchen Sie nicht.",
+    categoryId: "ki-tools-chatbots",
+    format: "Online",
+    duration: "3 Stunden",
+    targetAudience: "Lehrkräfte und Bildungspersonal aller Schulformen und Fächer",
+    topics: [
+      "Konkrete Herausforderungen und Einsatzbedarfe identifizieren",
+      "Tools, Promptstrategien und Automatisierungen erproben",
+      "Passgenaue KI-Workflows, Bots oder Assistenten entwickeln",
+      "Lösungen testen, reflektieren und im Austausch optimieren",
+    ],
+    prerequisites:
+      "Fortgeschrittene KI-Kenntnisse und Zugang zu einer KI-Bezahlversion",
+    instructor: "Alexander",
+    featured: true,
+    pdfUrl: "/pdfs/DeepDiveKI - KI-Praxislabor.pdf",
+    relatedSlugs: [
+      "ki-bots",
+      "prompt-engineering-fuer-lehrkraefte",
+      "crash-kurs-ki",
+    ],
   },
   {
     slug: "prompt-engineering-fuer-lehrkraefte",
@@ -109,28 +162,7 @@ export const courses: Course[] = [
     featured: false,
   },
 
-  {
-    slug: "deep-dive-modul-1",
-    title: "Deep Dive Modul I: Unterrichtseinheiten konzipieren mit KI Tools",
-    shortDescription:
-      "Unterricht mithilfe von KI konzipieren und sofort anwendbare Methoden und Materialien erhalten.",
-    description:
-      "In diesem Modul liegt der Fokus auf der Konzeption von Unterricht mithilfe von KI. Teilnehmende erhalten praktische, sofort anwendbare Unterrichtsmethoden und Material. Sie lernen, wie KI-Tools den Planungsprozess unterstützen und beschleunigen können.",
-    categoryId: "ki-grundlagen",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Bildungspersonal",
-    topics: [
-      "Unterrichtsplanung mit KI-Unterstützung",
-      "Erstellung von Unterrichtsmaterialien mit KI",
-      "Sofort anwendbare Methoden für den Schulalltag",
-      "Differenzierte Aufgabenstellung mit KI",
-    ],
-    prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
-    instructor: "Björn und Tim",
-    featured: true,
-    pdfUrl: "/pdfs/DeepDiveKI - Modul I.pdf",
-  },
+  
   {
     slug: "differenzierung-im-unterricht",
     title: "Differenzierung und Individualisierung: Mit KI alle Lernenden erreichen",
@@ -152,7 +184,7 @@ export const courses: Course[] = [
     instructor: "Björn und Tim",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - Differenzierung.pdf",
-    relatedSlugs: ["ki-und-neurodivergenz", "deep-dive-modul-4"],
+    relatedSlugs: ["ki-und-neurodivergenz", "inklusion-und-ki"],
   },
 
   {
@@ -178,28 +210,6 @@ export const courses: Course[] = [
     pdfUrl: "/pdfs/DeepDiveKI - Modul II.pdf",
   },
   {
-    slug: "neue-pruefungsformate-ki",
-    title: "Neue Prüfungsformate in Zeiten von KI",
-    shortDescription:
-      "Kompetenzorientierte Prüfungsformate entwickeln, die KI-Nutzung konstruktiv einbeziehen statt zu verbieten.",
-    description:
-      "Klassische Prüfungen stoßen in Zeiten von KI an ihre Grenzen. Diese Fortbildung zeigt, wie Lehrkräfte kompetenzorientierte Prüfungsformate entwickeln, die KI-Nutzung produktiv einbeziehen. Von mündlichen Reflexionen über Portfolioarbeit bis zu prozessbegleitenden Bewertungen.",
-    categoryId: "pruefen-bewerten-feedback",
-    format: "Online",
-    duration: "3 Stunden",
-    targetAudience: "Lehrkräfte und Bildungspersonal",
-    topics: [
-      "Warum klassische Prüfungen überarbeitet werden müssen",
-      "Kompetenzorientierte Aufgabenformate",
-      "Portfolio- und Prozessbewertung",
-      "KI als Teil der Prüfung, nicht als Gegner",
-    ],
-    prerequisites: "Keine Vorkenntnisse erforderlich",
-    instructor: "Björn und Tim",
-    featured: false,
-    pdfUrl: "/pdfs/DeepDiveKI - Prüfungsformate.pdf",
-  },
-  {
     slug: "ki-gestuetztes-feedback",
     title: "KI-gestütztes Feedback: Lernstände erkennen und individuell rückmelden",
     shortDescription:
@@ -222,7 +232,7 @@ export const courses: Course[] = [
   },
 
   {
-    slug: "deep-dive-modul-4",
+    slug: "inklusion-und-ki",
     title: "Inklusion und KI",
     shortDescription:
       "KI im Kontext von Inklusion nutzen: differenzierte Lernangebote erstellen und barrierefreieren Unterricht gestalten.",
@@ -242,6 +252,7 @@ export const courses: Course[] = [
     instructor: "Björn und Tim",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - Inklusion.pdf",
+    deepDiveModul: 4,
     relatedSlugs: ["ki-und-neurodivergenz", "differenzierung-im-unterricht"],
   },
   {
@@ -265,11 +276,11 @@ export const courses: Course[] = [
     instructor: "Janne",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - KI Neurodivergenz.pdf",
-    relatedSlugs: ["differenzierung-im-unterricht", "deep-dive-modul-4"],
+    relatedSlugs: ["differenzierung-im-unterricht", "inklusion-und-ki"],
   },
 
   {
-    slug: "deep-dive-modul-8",
+    slug: "datenschutz",
     title: "Datenschutz und Sicherheit im Internet",
     shortDescription:
       "Online-Sicherheit, Fake News, Internetidentität und ethischer Umgang mit digitalen Technologien.",
@@ -289,10 +300,11 @@ export const courses: Course[] = [
     instructor: "Björn und Tim",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - Datenschutz.pdf",
+    deepDiveModul: 8,
   },
 
   {
-    slug: "deep-dive-modul-5",
+    slug: "ki-fuer-schulleitung",
     title: "KI in Ihrer Schule: Chancen für Schulleitung und Führungskräfte",
     shortDescription:
       "Effektive KI-Einsätze zur Optimierung administrativer und pädagogischer Schulprozesse.",
@@ -312,10 +324,32 @@ export const courses: Course[] = [
     instructor: "Björn und Tim",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - Schulleitung.pdf",
+    deepDiveModul: 5,
   },
-
   {
-    slug: "deep-dive-modul-6",
+    slug: "deep-dive-modul-3",
+    title: "Deep Dive Modul III: Chancen und Risiken von KI in Schule und Gesellschaft",
+    shortDescription:
+      "Chancen von KI erarbeiten, sinnvolle Nutzung diskutieren und Methoden zur KI-Einführung in Schulen kennenlernen.",
+    description:
+      "Dieses Modul erarbeitet die Chancen von KI und deren sinnvolle Nutzung. Es vermittelt Methoden zur KI-Einführung in Schulen und beleuchtet sowohl Potenziale als auch Risiken aus schulischer und gesellschaftlicher Perspektive.",
+    categoryId: "ki-grundlagen",
+    format: "Online",
+    duration: "3 Stunden",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
+    topics: [
+      "Chancen von KI in der Bildung",
+      "Risiken und Herausforderungen",
+      "Methoden zur KI-Einführung an Schulen",
+      "Gesellschaftliche Perspektiven auf KI",
+    ],
+    prerequisites: "Keine Vorkenntnisse erforderlich",
+    instructor: "Björn und Tim",
+    featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Modul III.pdf",
+  },
+  {
+    slug: "deepchat-einfuehrung",
     title: "DDKI DeepChat: Einführung und Anwendungsbeispiele",
     shortDescription:
       "Praxisorientierte Einführung in den DDKI DeepChat mit konkreten Anwendungsbeispielen für den Unterricht.",
@@ -335,6 +369,7 @@ export const courses: Course[] = [
     instructor: "Björn und Tim",
     featured: false,
     pdfUrl: "/pdfs/DeepDiveKI - DeepChat.pdf",
+    deepDiveModul: 6,
   },
   {
     slug: "KI-Chatbots-im-unterricht",
@@ -456,7 +491,7 @@ export const courses: Course[] = [
   },
   
   {
-    slug: "eltern-kollegium-multiprofessionelle-teams-ki",
+    slug: "eltern-kollegium-und-teams",
     title: "Eltern, Kollegium und Multiprofessionelle Teams",
     shortDescription:
       "KI und digitale Tools nutzen, um Zusammenarbeit mit Eltern, Kollegium und multiprofessionellen Teams transparenter, strukturierter und zeitsparender zu gestalten.",
