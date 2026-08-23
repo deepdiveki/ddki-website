@@ -13,9 +13,11 @@ export default function CourseCard({ course }: { course: Course }) {
       className="group flex h-full flex-col justify-between gap-5 rounded-3xl border border-border-secondary bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-base/40 hover:shadow-xl md:p-6"
     >
       <div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Badge variant="primary">{category?.name}</Badge>
-          <Badge>{course.format}</Badge>
+          {course.format.map((format) => (
+            <Badge key={format}>{format}</Badge>
+          ))}
         </div>
         <h3 className="mt-3 text-lg font-medium text-text-primary">
           {course.title}
@@ -31,10 +33,7 @@ export default function CourseCard({ course }: { course: Course }) {
             <Clock className="size-3.5" />
             {course.duration}
           </span>
-          <span className="flex items-center gap-1">
-            <Monitor className="size-3.5" />
-            {course.format}
-          </span>
+          
         </div>
         <span className="flex items-center gap-1 text-sm font-medium text-primary-dark transition-transform duration-300 group-hover:translate-x-1">
           <ArrowRight className="size-4" />

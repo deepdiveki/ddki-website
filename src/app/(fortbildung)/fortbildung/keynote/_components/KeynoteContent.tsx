@@ -94,7 +94,7 @@ const SPEAKERS = [
     image: "/images/team/team-01-cutout.png",
     back: {
       intro:
-        "Geschäftsführer und Mitgründer von DeepDiveKI, aktive Lehrkraft. Verbindet Schulpraxis mit KI-Expertise.",
+        "Geschäftsführer und Mitgründer von DeepDiveKI und aktive Lehrkraft. Verbindet Schulpraxis mit KI-Expertise.",
       points: [
         "Wissenschaftlicher Mitarbeiter an der Leuphana und Doktorand im Bereich Künstliche Intelligenz und Bildung",
         "Keynotes & Fortbildungen für Kollegien und Konferenzen",

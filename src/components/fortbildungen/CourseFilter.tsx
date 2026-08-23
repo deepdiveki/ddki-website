@@ -3,7 +3,7 @@
 import { categories } from "@/data/categories";
 import { cn } from "@/lib/utils";
 
-const formats = ["Alle", "Online", "Präsenz", "Hybrid"] as const;
+const formats = ["Alle", "Online", "Präsenz"] as const;
 
 interface CourseFilterProps {
   selectedCategory: string;

@@ -4,7 +4,7 @@ export type Course = {
   shortDescription: string;
   description: string;
   categoryId: string;
-  format: "Online" | "Präsenz" | "Hybrid";
+  format: ("Online" | "Präsenz")[];
   duration: string;
   targetAudience: string;
   topics: string[];
@@ -31,7 +31,7 @@ export const courses: Course[] = [
     description:
       "Dieser Crash Kurs vermittelt praktische KI-Werkzeuge und Unterrichtsmethoden. Teilnehmende lernen verschiedene KI-basierte Werkzeuge kennen und erproben Team-Teaching-Modelle. Der KI-Chatbot DeepChat kann allen Teilnehmenden datenschutzkonform zur Verfügung gestellt werden.",
     categoryId: "ki-grundlagen",
-    format: "Online",
+    format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -53,7 +53,7 @@ export const courses: Course[] = [
     description:
       "In diesem Modul liegt der Fokus auf der Konzeption von Unterricht mithilfe von KI. Teilnehmende erhalten praktische, sofort anwendbare Unterrichtsmethoden und Material. Sie lernen, wie KI-Tools den Planungsprozess unterstützen und beschleunigen können.",
     categoryId: "ki-grundlagen",
-    format: "Online",
+    format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -75,7 +75,7 @@ export const courses: Course[] = [
     description:
       "Klassische Prüfungen stoßen in Zeiten von KI an ihre Grenzen. Diese Fortbildung zeigt, wie Lehrkräfte kompetenzorientierte Prüfungsformate entwickeln, die KI-Nutzung produktiv einbeziehen. Von mündlichen Reflexionen über Portfolioarbeit bis zu prozessbegleitenden Bewertungen.",
     categoryId: "pruefen-bewerten-feedback",
-    format: "Online",
+    format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -97,7 +97,7 @@ export const courses: Course[] = [
     description:
       "In diesem Modul lernen Lehrkräfte, eigene KI-gestützte Bots zu entwickeln und anzupassen. Es vermittelt Grundlagen sowie eine Schritt-für-Schritt-Anleitung zur Erstellung von Unterrichtsbots, die den individuellen Bedürfnissen der Lernenden gerecht werden.",
     categoryId: "ki-tools-chatbots",
-    format: "Online",
+    format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -120,7 +120,7 @@ export const courses: Course[] = [
     description:
       "Sie bringen eigene Fragen und Anwendungsfälle aus dem Schulalltag mit. Gemeinsam entwickeln wir Assistenten oder Agenten, die bei Ihrer Arbeit wirklich helfen und die Sie danach selbst weiter nutzen können. Programmierkenntnisse brauchen Sie nicht.",
     categoryId: "ki-tools-chatbots",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal aller Schulformen und Fächer",
     topics: [
@@ -141,6 +141,27 @@ export const courses: Course[] = [
     ],
   },
   {
+    slug: "Chatbots-als-Companions",
+    title: "Chatbots als Companions für Jugendliche",
+    shortDescription:
+      "Risiken erkennen und Jugendliche im Umgang mit Chatbots schützen.",
+    description:
+      "Für die meisten Jugendlichen sind Chatbots bereits fester Teil des Alltags geworden. Dabei werden sie längst nicht mehr nur genutzt, um Hausaufgaben zu erledigen, sondern zunehmend auch um persönliche  Probleme zu besprechen, als Ersatz für Freunde oder sogar Therapie. In diesem Seminar lernen Teilnehmende, welche Chancen und Gefahren bei dem Einsatz von Chatbots als Companions für Jugendliche einhergehen und was Schulen und Lehrkräfte tun können, um Jugendliche bestmöglich zu schützen.",
+    categoryId: "ki-grundlagen",
+    format: ["Online"],
+    duration: "3 Stunden",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
+    topics: [
+      "Verbreitung und Nutzung von Chatbots als Companions unter Jugendlichen",
+      "Gefahren, aber auch Chancen von Chatbots als Companions",
+      "Chatbot Companions und Inklusion",
+      "Maßnahmen und Hilfestellungen zum Schutz von Jugendlichen in Bezug auf Chatbot Companions",
+    ],
+    prerequisites: "Keine Vorkenntnisse erforderlich",
+    instructor: "Milena",
+    featured: false,
+  },
+  {
     slug: "prompt-engineering-fuer-lehrkraefte",
     title: "Prompt Engineering für Lehrkräfte: KI gezielt und effektiv nutzen",
     shortDescription:
@@ -148,7 +169,7 @@ export const courses: Course[] = [
     description:
       "Prompt Engineering ist die Schlüsselkompetenz für den effektiven Einsatz von KI im Unterricht. In dieser Fortbildung lernen Lehrkräfte, wie sie durch gezielte Eingaben bessere Ergebnisse aus KI-Chatbots wie dem AIS.chat und DeepChat erhalten. Von der Materialerstellung über die Differenzierung bis zur Feedback-Automatisierung.",
     categoryId: "ki-grundlagen",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -157,12 +178,11 @@ export const courses: Course[] = [
       "Differenzierung und Individualisierung per Prompt",
       "Automatisiertes Feedback mit KI generieren",
     ],
-    prerequisites: "Grundlegende KI-Kenntnisse empfohlen",
+    prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Björn und Tim",
     featured: false,
   },
 
-  
   {
     slug: "differenzierung-im-unterricht",
     title: "Differenzierung und Individualisierung: Mit KI alle Lernenden erreichen",
@@ -171,7 +191,7 @@ export const courses: Course[] = [
     description:
       "Heterogene Klassen sind die Norm. Diese Fortbildung vermittelt praxiserprobte Strategien, wie Lehrkräfte mit Hilfe von KI-Tools differenzierte Aufgaben, gestufte Hilfen und individuelle Lernwege für verschiedene Leistungsniveaus erstellen, zeitsparend und effektiv.",
     categoryId: "foerderung-inklusion",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -195,7 +215,7 @@ export const courses: Course[] = [
     description:
       "Dieses Modul vermittelt praktische Methoden für den Umgang mit KI im Unterricht und in der Leistungsbewertung. Im Fokus stehen Hausaufgaben, Klausuren, Plagiate und faire Bewertungsformen in Zeiten von KI.",
     categoryId: "pruefen-bewerten-feedback",
-    format: "Online",
+    format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -210,6 +230,27 @@ export const courses: Course[] = [
     pdfUrl: "/pdfs/DeepDiveKI - Modul II.pdf",
   },
   {
+    slug: "KI-Ethik",
+    title: "KI Ethik für Lehrkräfte",
+    shortDescription:
+      "Ethische Fragen rund um KI im Schulalltag sicher einordnen.",
+    description:
+      "Dieses Modul verbindet Grundlagenwissen zu KI-Ethik mit konkreten Herausforderungen für den Schulalltag. Lehrkräfte lernen, welche ethischen Fragen KI-Nutzung im Unterricht aufwirft und wie sich diese verantwortungsvoll adressieren lassen. Dafür werfen wir einen Blick auf Themen wie Datenschutz, Digital Divide, Deepfakes und Deskilling. Praxisnahe Szenarien machen deutlich, wie ein reflektierter, altersgerechter Umgang mit KI im Klassenzimmer gelingt.",
+    categoryId: "ki-grundlagen",
+    format: ["Online"],
+    duration: "3 Stunden",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
+    topics: [
+      "Ethische Grundprinzipien beim KI-Einsatz",
+      "Deskilling, Digital Divide und Deepfakes im Schulkontext",
+      "Datenschutz beim KI-Einsatz",
+      "Praxisbeispiele für ethisch reflektierten KI-Einsatz",
+    ],
+    prerequisites: "Keine Vorkenntnisse erforderlich",
+    instructor: "Milena",
+    featured: false,
+  },
+  {
     slug: "ki-gestuetztes-feedback",
     title: "KI-gestütztes Feedback: Lernstände erkennen und individuell rückmelden",
     shortDescription:
@@ -217,7 +258,7 @@ export const courses: Course[] = [
     description:
       "Gutes Feedback ist einer der wirksamsten Faktoren für Lernfortschritt, aber auch einer der zeitaufwändigsten. Diese Fortbildung zeigt, wie Lehrkräfte KI-Tools nutzen können, um Lernstände schnell zu erfassen und individuelles, konstruktives Feedback zu generieren.",
     categoryId: "pruefen-bewerten-feedback",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -239,7 +280,7 @@ export const courses: Course[] = [
     description:
       "Dieses Modul behandelt KI im Kontext von Inklusion. Lehrkräfte lernen, differenzierte Lernangebote zu erstellen und KI für barrierefreiere Unterrichtsgestaltung zu nutzen. Praxisnahe Beispiele zeigen, wie KI individuelle Förderung unterstützen kann.",
     categoryId: "foerderung-inklusion",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte aller Fächer und Schulformen",
     topics: [
@@ -263,7 +304,7 @@ export const courses: Course[] = [
     description:
       "Dieses Modul verbindet Grundlagenwissen zu Neurodivergenz mit konkreten KI-Anwendungen für den Schulalltag. Lehrkräfte lernen, wie sich ADHS und Autismus bei Lernenden im Unterricht zeigen – und wie KI bei Differenzierung, Kommunikation und Planung gezielt entlasten kann. Praxisnahe Szenarien machen deutlich, wie individuelle Unterstützung realistisch umsetzbar wird.",
     categoryId: "foerderung-inklusion",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -287,7 +328,7 @@ export const courses: Course[] = [
     description:
       "Dieses Modul behandelt Online-Sicherheit, Fake News, Internetidentität, Cybercrime und KI-Risiken. Es diskutiert den ethischen Umgang mit digitalen Technologien und vermittelt praxisnahes Wissen zum Schutz im digitalen Raum.",
     categoryId: "fachunterricht-medien-informatik",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -311,7 +352,7 @@ export const courses: Course[] = [
     description:
       "Dieses Modul zeigt Schulleitungen und Führungskräften effektive KI-Einsätze zur Optimierung administrativer und pädagogischer Schulprozesse. Von der Verwaltung bis zur strategischen Schulentwicklung erfahren Sie, wie KI Ihre Arbeit unterstützen kann.",
     categoryId: "schule-zusammenarbeit",
-    format: "Online",
+    format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Schulleitung und Führungskräfte",
     topics: [
@@ -334,7 +375,7 @@ export const courses: Course[] = [
     description:
       "Dieses Modul erarbeitet die Chancen von KI und deren sinnvolle Nutzung. Es vermittelt Methoden zur KI-Einführung in Schulen und beleuchtet sowohl Potenziale als auch Risiken aus schulischer und gesellschaftlicher Perspektive.",
     categoryId: "ki-grundlagen",
-    format: "Online",
+    format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -356,7 +397,7 @@ export const courses: Course[] = [
     description:
       "Dieses Modul bietet eine praxisorientierte Einführung in den DeepChat mit konkreten Anwendungsbeispielen für den Unterricht. Ziel ist eine effizientere und individualisierte Unterrichtsgestaltung durch den gezielten Einsatz digitaler Werkzeuge.",
     categoryId: "ki-tools-chatbots",
-    format: "Online",
+    format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -379,7 +420,7 @@ export const courses: Course[] = [
     description:
       "Seit Februar 2026 steht vielen Schulen in Deutschland der KI-Chatbot AIS.chat zur Verfügung. Diese Fortbildung zeigt praxisnah, wie Lehrkräfte den AIS.chat im Unterricht einsetzen. Für Materialerstellung, Textgenerierung, Bildgenerierung und individualisiertes Lernen.",
     categoryId: "ki-tools-chatbots",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -400,7 +441,7 @@ export const courses: Course[] = [
     description:
       "Die Auswahl an digitalen Werkzeugen ist riesig, aber welche eignen sich wirklich für den Fachunterricht? Diese Fortbildung gibt einen strukturierten Überblick über bewährte Tools für verschiedene Fächer und zeigt, wie sie didaktisch sinnvoll eingesetzt werden.",
     categoryId: "fachunterricht-medien-informatik",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte einzelner Fächer und Schulformen",
     topics: [
@@ -421,7 +462,7 @@ export const courses: Course[] = [
     description:
       "Das Programm vermittelt kreative Verbindungen zwischen Musik und Mathematik anhand praxiserprobter Beispiele, die durch die Reduktion musikalischer Parameter in allen Jahrgangsstufen einsetzbar sind. Die Teilnehmenden lernen einfache Lieder mit mathematischen Texten, verbinden Bruchrechnung und Notenlängen im Klassenrap, machen Musik im Stil von Stomp mit Mathebüchern oder Linealen, erkunden akustische Eigenschaften von Schulorten in einer Klang-Raum-Performance und nutzen Stochastik sowie symmetrische Formen für kompositorische Strukturen. Optional nach Absprache: grafische Notation, Zwölftonmusik, serielle oder aleatorische Musik.",
     categoryId: "fachunterricht-medien-informatik",
-    format: "Präsenz",
+    format: ["Präsenz"],
     duration: "3 Stunden",
     targetAudience:
       "Lehrkräfte aller Schulformen und Jahrgangsstufen",
@@ -447,7 +488,7 @@ export const courses: Course[] = [
     description:
       "Das Programm erkundet Klänge, Stimmungen, Rhythmen und Klangfarben in Sprache und Musik. Anhand praxiserprobter Beispiele aus Literatur, Theater und Musical werden Texte mit Klängen verbunden, um kurze Musikstücke für Gedichte oder Kurzgeschichten zu entwickeln. Die Teilnehmenden nutzen die (Sprech-)Stimme als Klangquelle, präsentieren Gedichte und dramatische Texte, schreiben Raps oder Kurzgedichte mit Rhythmusbausteinen, improvisieren mit ungewöhnlichen Klangkörpern und erkunden Alltagsgeräusche aus Comics durch Hören, Zeichnen und Sprechen. Schulorte wie Treppenhäuser oder Keller werden in einer Klang-Raum-Performance auf ihre akustischen Eigenschaften hin untersucht.",
     categoryId: "fachunterricht-medien-informatik",
-    format: "Präsenz",
+    format: ["Präsenz"],
     duration: "3 Stunden",
     targetAudience:
       "Lehrkräfte aller Schulformen und Jahrgangsstufen",
@@ -475,7 +516,7 @@ export const courses: Course[] = [
     description:
       "Lehrkräfte arbeiten durchschnittlich deutlich über ihre Sollstunden. Diese Fortbildung zeigt, wie KI-Tools gezielt Zeitfresser im Arbeitsalltag reduzieren können. Von der Korrekturentlastung über automatisierte Elternkommunikation bis zur effizienteren Unterrichtsplanung.",
     categoryId: "schule-zusammenarbeit",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
     topics: [
@@ -498,7 +539,7 @@ export const courses: Course[] = [
     description:
       "Diese Fortbildung zeigt Lehrkräften und Bildungspersonal, wie Künstliche Intelligenz und digitale Tools die Zusammenarbeit mit Eltern, im Kollegium und in multiprofessionellen Teams transparenter, strukturierter und zeitsparender gestalten können. Im Mittelpunkt stehen klare Absprachen, organisierte Übergaben, verlässliche Informationsflüsse sowie die gemeinsame Planung und Weiterentwicklung von Materialien. Die Teilnehmenden erproben praxisnah, wie KI bei Elternkommunikation, Dokumentation, Organisation und Teamprozessen unterstützen kann. Besonderer Wert liegt auf dem direkten Praxistransfer, der Erprobung datenschutzkonformer Tools und der unmittelbaren Anwendbarkeit im Schulalltag.",
     categoryId: "schule-zusammenarbeit",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal aller Schulformen",
     topics: [
@@ -521,7 +562,7 @@ export const courses: Course[] = [
     description:
       "Diese Fortbildung vermittelt Lehrkräften, wie Künstliche Intelligenz gezielt zur Förderung von Lesekompetenz und Sprachbildung eingesetzt werden kann. Im Mittelpunkt stehen die Erstellung sprachsensibler, differenzierter und mehrsprachiger Materialien sowie die Anpassung von Texten an unterschiedliche Sprachniveaus und Lesefähigkeiten. Die Teilnehmenden erproben praxisnah, wie sie mit KI Lesetexte vereinfachen oder anreichern, Wortschatzübungen, Verständnisfragen, Lesebegleitungen und Sprachhilfen erstellen sowie individuelle Lernwege für Schüler*innen ermöglichen können. Besonderer Wert liegt auf dem direkten Praxistransfer, der datenschutzkonformen Nutzung geeigneter Tools und der fächerübergreifenden Anwendbarkeit im Schulalltag.",
     categoryId: "foerderung-inklusion",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal aller Schulformen",
     topics: [
@@ -543,7 +584,7 @@ export const courses: Course[] = [
     description:
       "Mathematische Basiskompetenzen sind Voraussetzung für schulischen Erfolg. Diese Fortbildung zeigt, wie Lehrkräfte KI-Tools nutzen, um Lernlücken zu identifizieren, individuelle Übungsaufgaben zu generieren und mathematisches Verständnis nachhaltig aufzubauen.",
     categoryId: "foerderung-inklusion",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Mathematiklehrkräfte und Bildungspersonal",
     topics: [
@@ -566,7 +607,7 @@ export const courses: Course[] = [
     description:
       "Informatik ist Mangelfach und Programmieren zunehmend gefragt. Diese Fortbildung zeigt, wie Lehrkräfte Programmiergrundlagen mit KI-Unterstützung vermitteln können: KI als Coding-Assistent, automatische Fehleranalyse und individualisierte Lernpfade vom Block-basierten bis zum textbasierten Programmieren.",
     categoryId: "fachunterricht-medien-informatik",
-    format: "Online",
+    format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Informatiklehrkräfte und Bildungspersonal",
     topics: [

@@ -24,7 +24,8 @@ export default function CourseList() {
         course.categoryId === selectedCategory ||
         (selectedCategory === "ki" && isDeepDive);
       const matchesFormat =
-        selectedFormat === "alle" || course.format === selectedFormat;
+        selectedFormat === "alle" ||
+        course.format.includes(selectedFormat as "Online" | "Präsenz");
       return matchesCategory && matchesFormat;
     })
     .sort((a, b) => {

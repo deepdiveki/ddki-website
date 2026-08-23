@@ -59,9 +59,11 @@ export default function FeaturedCoursesSection() {
                 className="group flex h-full flex-col justify-between gap-6 rounded-2xl bg-white p-6 transition-all duration-300 hover:shadow-lg md:rounded-3xl md:p-8"
               >
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <Badge variant="primary">{category?.name}</Badge>
-                    <Badge>{course.format}</Badge>
+                    {course.format.map((format) => (
+                      <Badge key={format}>{format}</Badge>
+                    ))}
                   </div>
                   <h3 className="mt-4 text-display-xs text-text-primary">
                     {course.title}
@@ -77,10 +79,7 @@ export default function FeaturedCoursesSection() {
                       <Clock className="size-4" />
                       {course.duration}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Monitor className="size-4" />
-                      {course.format}
-                    </span>
+                    
                   </div>
                   <span className="flex items-center gap-1 text-sm font-medium text-primary-dark transition-transform duration-300 group-hover:translate-x-1">
                     Details

@@ -44,9 +44,11 @@ export default function CourseDetail({ course }: { course: Course }) {
             <ArrowLeft className="size-4" />
             Zurück zur Übersicht
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Badge variant="primary">{category?.name}</Badge>
-            <Badge>{course.format}</Badge>
+            {course.format.map((format) => (
+              <Badge key={format}>{format}</Badge>
+            ))}
           </div>
           <h1 className="mt-4 text-display-sm font-semibold -tracking-[0.96px] text-text-primary lg:text-display-lg">
             {course.title}
@@ -110,7 +112,7 @@ export default function CourseDetail({ course }: { course: Course }) {
                   <InfoItem
                     icon={<Monitor className="size-5" />}
                     label="Format"
-                    value={course.format}
+                    value={course.format.join(" · ")}
                   />
                   <InfoItem
                     icon={<Users className="size-5" />}
@@ -121,11 +123,6 @@ export default function CourseDetail({ course }: { course: Course }) {
                     icon={<BookOpen className="size-5" />}
                     label="Voraussetzungen"
                     value={course.prerequisites}
-                  />
-                  <InfoItem
-                    icon={<User className="size-5" />}
-                    label="Dozent/in"
-                    value={course.instructor}
                   />
                 </div>
 

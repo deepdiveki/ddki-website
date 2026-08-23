@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/fortbildung/keynote",
   },
-  title: "Keynote – KI in der Bildung",
+  title: "Keynote: KI in der Bildung",
   description:
     "Inspirierende Keynotes rund um Künstliche Intelligenz in der Bildung – für Konferenzen, Schulveranstaltungen und pädagogische Tage.",
   openGraph: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         alt: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
       },
     ],
-    title: "Keynote – KI in der Bildung | DeepDive Fortbildungen",
+    title: "Keynote: KI in der Bildung | DeepDive Fortbildungen",
     description:
       "Inspirierende Vorträge zu KI im Klassenzimmer, Zukunft der Bildung und Datenschutz – individuell für Ihre Veranstaltung.",
   },
