@@ -90,30 +90,30 @@ const REASONS = [
 const SPEAKERS = [
   {
     name: "Björn Isenbiel",
-    role: "Geschäftsführer DeepDiveKI\nLehrkraft für PGW, Informatik & Sport",
+    topics: ["KI im Unterricht", "Prompting", "Schulentwicklung"],
     image: "/images/team/team-01-cutout.png",
     back: {
       intro:
         "Geschäftsführer und Mitgründer von DeepDiveKI und aktive Lehrkraft. Verbindet Schulpraxis mit KI-Expertise.",
       points: [
+        "Lehrkraft für PGW, Informatik & Sport",
         "Wissenschaftlicher Mitarbeiter an der Leuphana und Doktorand im Bereich Künstliche Intelligenz und Bildung",
-        "Keynotes & Fortbildungen für Kollegien und Konferenzen",
         "Entwickler des Video-KI-Komplettkurses für Lehrkräfte",
-        "Schwerpunkte: KI im Unterricht, Prompting, Schulentwicklung",
+        "Keynotes & Fortbildungen für Kollegien und Konferenzen",
       ],
     },
   },
   {
     name: "Tim Philipp",
-    role: "Geschäftsführer DeepDiveKI\nLehrkraft für Informatik & Sport",
+    topics: ["KI und Bildung", "Datenschutz", "Zukunft mit KI"],
     image: "/images/team/team-02-cutout.png",
     back: {
       intro:
-        "Geschäftsführer und Mitgründer  von DeepDiveKI mit langjähriger Erfahrung in der Lehre. Bringt Technik und Didaktik zusammen.",
+        "Geschäftsführer und Mitgründer von DeepDiveKI mit langjähriger Erfahrung in der Lehre. Bringt Technik und Didaktik zusammen.",
       points: [
-        "Workshops & pädagogische Tage mit hohem Praxisanteil",
-        "Entwicklung des DeepChat für Schulen",
-        "Schwerpunkte: KI, Datenschutz, Digitalisierung",
+        "Lehrkraft für Informatik & Sport",
+        "Entwickler des DeepChats und KI-Schulbüros",
+        "Begleitung von Bildungsinstitutionen bei der Einführung von Künstlicher Intelligenz",
       ],
     },
   },
@@ -204,13 +204,16 @@ export default function KeynoteContent() {
                       <h3 className="mt-5 text-lg font-semibold text-text-primary">
                         {speaker.name}
                       </h3>
-                      <p className="mt-1.5 text-sm font-light leading-relaxed text-text-secondary">
-                        {speaker.role.split("\n").map((line) => (
-                          <span key={line} className="block">
-                            {line}
+                      <div className="mt-4 flex max-w-[15.5rem] flex-wrap justify-center gap-2.5">
+                        {speaker.topics.map((topic) => (
+                          <span
+                            key={topic}
+                            className="inline-flex items-center rounded-full border border-primary-base/30 bg-primary-light/30 px-3 py-1 text-xs font-medium text-primary-darker"
+                          >
+                            {topic}
                           </span>
                         ))}
-                      </p>
+                      </div>
                     </div>
 
                     {/* Rückseite */}
