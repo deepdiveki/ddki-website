@@ -147,7 +147,7 @@ export const courses: Course[] = [
       "Risiken erkennen und Jugendliche im Umgang mit Chatbots schützen.",
     description:
       "Für die meisten Jugendlichen sind Chatbots bereits fester Teil des Alltags geworden. Dabei werden sie längst nicht mehr nur genutzt, um Hausaufgaben zu erledigen, sondern zunehmend auch um persönliche  Probleme zu besprechen, als Ersatz für Freunde oder sogar Therapie. In diesem Seminar lernen Teilnehmende, welche Chancen und Gefahren bei dem Einsatz von Chatbots als Companions für Jugendliche einhergehen und was Schulen und Lehrkräfte tun können, um Jugendliche bestmöglich zu schützen.",
-    categoryId: "ki-grundlagen",
+    categoryId: "medien-gesellschaft",
     format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
@@ -159,6 +159,27 @@ export const courses: Course[] = [
     ],
     prerequisites: "Keine Vorkenntnisse erforderlich",
     instructor: "Milena",
+    featured: false,
+  },
+  {
+    slug: "ki-kompetenzen-schueler",
+    title: "Gemeinsam mit Schülerinnen und Schülern KI-Kompetenzen entwickeln",
+    shortDescription:
+      "Wie Sie KI nicht nur selbst nutzen, sondern gemeinsam mit Ihren Lernenden erkunden, reflektieren und sinnvoll im Unterricht verankern.",
+    description:
+      "In dieser Fortbildung steht nicht nur die Lehrkraft im Mittelpunkt, sondern die gemeinsame Auseinandersetzung mit KI im Klassenzimmer. Sie lernen, wie Sie Schülerinnen und Schüler aktiv in den KI-Lernprozess einbinden, kritisches Denken gegenüber KI fördern und KI-Kompetenzen als fächerübergreifende Querschnittsaufgabe verstehen.",
+    categoryId: "ki-grundlagen",
+    format: ["Online"],
+    duration: "3 Stunden",
+    targetAudience: "Lehrkräfte aller Schulstufen",
+    topics: [
+      "KI-Kompetenz als pädagogisches Ziel",
+      "Gemeinsames Erkunden von KI-Tools mit Lernenden",
+      "Kritisches Denken und Medienkompetenz im KI-Zeitalter",
+      "Unterrichtsszenarien und praktische Aufgabenformate",
+    ],
+    prerequisites: "Keine Vorkenntnisse erforderlich",
+    instructor: "Björn und Tim",
     featured: false,
   },
   {
@@ -236,7 +257,7 @@ export const courses: Course[] = [
       "Ethische Fragen rund um KI im Schulalltag sicher einordnen.",
     description:
       "Dieses Modul verbindet Grundlagenwissen zu KI-Ethik mit konkreten Herausforderungen für den Schulalltag. Lehrkräfte lernen, welche ethischen Fragen KI-Nutzung im Unterricht aufwirft und wie sich diese verantwortungsvoll adressieren lassen. Dafür werfen wir einen Blick auf Themen wie Datenschutz, Digital Divide, Deepfakes und Deskilling. Praxisnahe Szenarien machen deutlich, wie ein reflektierter, altersgerechter Umgang mit KI im Klassenzimmer gelingt.",
-    categoryId: "ki-grundlagen",
+    categoryId: "medien-gesellschaft",
     format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
@@ -327,7 +348,7 @@ export const courses: Course[] = [
       "Online-Sicherheit, Fake News, Internetidentität und ethischer Umgang mit digitalen Technologien.",
     description:
       "Dieses Modul behandelt Online-Sicherheit, Fake News, Internetidentität, Cybercrime und KI-Risiken. Es diskutiert den ethischen Umgang mit digitalen Technologien und vermittelt praxisnahes Wissen zum Schutz im digitalen Raum.",
-    categoryId: "fachunterricht-medien-informatik",
+    categoryId: "medien-gesellschaft",
     format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
@@ -374,7 +395,7 @@ export const courses: Course[] = [
       "Chancen von KI erarbeiten, sinnvolle Nutzung diskutieren und Methoden zur KI-Einführung in Schulen kennenlernen.",
     description:
       "Dieses Modul erarbeitet die Chancen von KI und deren sinnvolle Nutzung. Es vermittelt Methoden zur KI-Einführung in Schulen und beleuchtet sowohl Potenziale als auch Risiken aus schulischer und gesellschaftlicher Perspektive.",
-    categoryId: "ki-grundlagen",
+    categoryId: "medien-gesellschaft",
     format: ["Online", "Präsenz"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",

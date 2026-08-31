@@ -46,7 +46,7 @@
 
 **Use cases:**
 - Pädagogischer Tag / SchiLf für das ganze Kollegium (4-Schritt-Prozess: Kennenlernen → individuelles Programm → Durchführung vor Ort → Materialien zur Weiterarbeit)
-- Einzelmodule à 3 Stunden, online, aus einem Katalog von 19 Kursen in 6 Kategorien
+- Einzelmodule à 3 Stunden, online, aus einem Katalog von 19 Kursen in 7 Kategorien
 - DeepChat für Unterrichtsvorbereitung, Arbeitsblatt-Generierung, Chat mit PDF, KI-Assistenten-Builder, Persona-Chat
 - KI-Schulbüro beantwortet Elternfragen (Anmeldung Klasse 5, Mensa, Busanbindung, Vertretungsplan) — Premium in 35 Sprachen
 - Mentoring-Simulator für Referendariat und Studienseminare
