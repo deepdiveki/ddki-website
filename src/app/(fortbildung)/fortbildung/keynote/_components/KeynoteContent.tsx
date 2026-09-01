@@ -99,7 +99,6 @@ const SPEAKERS = [
         "Lehrkraft für PGW, Informatik & Sport",
         "Wissenschaftlicher Mitarbeiter an der Leuphana und Doktorand im Bereich Künstliche Intelligenz und Bildung",
         "Entwickler des Video-KI-Komplettkurses für Lehrkräfte",
-        "Keynotes & Fortbildungen für Kollegien und Konferenzen",
       ],
     },
   },
@@ -114,6 +113,20 @@ const SPEAKERS = [
         "Lehrkraft für Informatik & Sport",
         "Entwickler des DeepChats und KI-Schulbüros",
         "Begleitung von Bildungsinstitutionen bei der Einführung von Künstlicher Intelligenz",
+      ],
+    },
+  },
+  {
+    name: "Milena Stegner",
+    topics: ["KI-Ethik", "Wissenschaft", "Companions"],
+    image: "/images/team/team-08-cutout.png",
+    back: {
+      intro:
+        "Gründerin von AIdeas mit langjähriger Erfahrung in der Lehre. Ordnet KI gesellschaftlich und ethisch ein.",
+      points: [
+        "Lehrkraft für Englisch, Politikwissenschaften und Philosophie/Ethik",
+        "Wissenschaftliche Mitarbeiterin für den KI-Campus an der Dualen Hochschule Baden-Württemberg",
+        "Promovierende zu Chatbots als Companions (im Bereich Ethik der KI)",
       ],
     },
   },
@@ -174,7 +187,7 @@ export default function KeynoteContent() {
             </div>
 
             {/* Referenten direkt im Hero – Karten drehen sich beim Hovern */}
-            <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:mt-16">
+            <div className="mx-auto mt-12 grid grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-3 lg:mt-16">
               {SPEAKERS.map((speaker, index) => (
                 <motion.div
                   key={speaker.name}
@@ -226,21 +239,21 @@ export default function KeynoteContent() {
                           backgroundSize: "140px 140px",
                         }}
                       />
-                      <div className="relative flex h-full flex-col rounded-xl border border-white/25 bg-white/10 p-4 backdrop-blur-md">
+                      <div className="relative flex h-full flex-col rounded-xl border border-white/25 bg-white/10 p-5 backdrop-blur-md">
                         <h3 className="text-lg font-semibold text-white">
                           {speaker.name}
                         </h3>
-                        <p className="mt-1.5 text-sm font-light leading-relaxed text-white/90">
+                        <p className="mt-2 text-sm font-light leading-relaxed text-white/90">
                           {speaker.back.intro}
                         </p>
-                        <div className="my-3 h-px w-full bg-white/25" />
-                        <ul className="flex flex-col gap-2.5">
+                        <div className="my-4 h-px w-full bg-white/25" />
+                        <ul className="flex flex-col gap-3">
                           {speaker.back.points.map((point) => (
-                            <li key={point} className="flex items-start gap-2.5">
-                              <span className="mt-1.5 flex size-3 shrink-0 items-center justify-center rounded-full border-2 border-emerald-300/90">
-                                <span className="size-1 rounded-full bg-emerald-300" />
+                            <li key={point} className="flex items-start gap-3">
+                              <span className="mt-1 flex size-3.5 shrink-0 items-center justify-center rounded-full border-2 border-emerald-300/90">
+                                <span className="size-1.5 rounded-full bg-emerald-300" />
                               </span>
-                              <span className="text-sm text-white/95">
+                              <span className="text-sm leading-snug text-white/95">
                                 {point}
                               </span>
                             </li>
