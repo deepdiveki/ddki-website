@@ -2,6 +2,7 @@ import {
   BarChart3,
   Brain,
   Building2,
+  Heart,
   Laptop,
   MonitorPlay,
   Shield,
@@ -56,7 +57,15 @@ export const categories: Category[] = [
     description:
       "Schulentwicklung, Teamarbeit und Entlastung im pädagogischen Alltag mit KI.",
     icon: Building2,
-    courseCount: 3,
+    courseCount: 2,
+  },
+  {
+    id: "gesundheit-wohlbefinden",
+    name: "Gesundheit & Wohlbefinden",
+    description:
+      "Resilienz, Stressprävention und Selbstfürsorge für Lehrkräfte im Schulalltag.",
+    icon: Heart,
+    courseCount: 2,
   },
   {
     id: "fachunterricht-medien-informatik",

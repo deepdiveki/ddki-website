@@ -536,7 +536,7 @@ export const courses: Course[] = [
       "Zeitfresser identifizieren und KI-Tools gezielt für Entlastung bei Korrektur, Planung und Verwaltung nutzen.",
     description:
       "Lehrkräfte arbeiten durchschnittlich deutlich über ihre Sollstunden. Diese Fortbildung zeigt, wie KI-Tools gezielt Zeitfresser im Arbeitsalltag reduzieren können. Von der Korrekturentlastung über automatisierte Elternkommunikation bis zur effizienteren Unterrichtsplanung.",
-    categoryId: "schule-zusammenarbeit",
+    categoryId: "gesundheit-wohlbefinden",
     format: ["Online"],
     duration: "3 Stunden",
     targetAudience: "Lehrkräfte und Bildungspersonal",
@@ -552,6 +552,30 @@ export const courses: Course[] = [
     pdfUrl: "/pdfs/DeepDiveKI - Lehrergesundheit.pdf",
   },
   
+  {
+    slug: "resilienz-im-schulalltag",
+    title: "Resilienz im Schulalltag: Kraft tanken und langfristig gesund bleiben",
+    shortDescription:
+      "Stressoren erkennen, Ressourcen stärken und konkrete Strategien für einen resilienteren Schulalltag entwickeln.",
+    description:
+      "Lehrkräfte sind täglich vielfältigen Belastungen ausgesetzt. Diese Fortbildung vermittelt wissenschaftlich fundierte Konzepte der Resilienz und überträgt sie auf den konkreten Schulalltag. Teilnehmende lernen, persönliche Stressoren zu identifizieren, eigene Ressourcen zu aktivieren und nachhaltige Routinen zu entwickeln, die vor Erschöpfung schützen.",
+    categoryId: "gesundheit-wohlbefinden",
+    format: ["Online"],
+    duration: "3 Stunden",
+    targetAudience: "Lehrkräfte und Bildungspersonal",
+    topics: [
+      "Resilienz verstehen: Was stärkt und was schwächt uns?",
+      "Persönliche Stressoren im Schulalltag identifizieren",
+      "Schutzfaktoren und Ressourcen aktivieren",
+      "Konkrete Mikro-Routinen für mehr Widerstandskraft",
+      "Grenzen setzen und professionelle Distanz wahren",
+    ],
+    prerequisites: "Keine Vorkenntnisse erforderlich",
+    instructor: "Björn und Tim",
+    featured: false,
+    pdfUrl: "/pdfs/DeepDiveKI - Resilienz im Schulalltag.pdf",
+    relatedSlugs: ["lehrergesundheit-ki-entlastung"],
+  },
   {
     slug: "eltern-kollegium-und-teams",
     title: "Eltern, Kollegium und Multiprofessionelle Teams",
