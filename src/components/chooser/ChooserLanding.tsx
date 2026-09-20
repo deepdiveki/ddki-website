@@ -15,6 +15,7 @@ import PlatformSwitcher from "@/components/shared/PlatformSwitcher";
 import ContactFormSection from "@/components/Kontakt/ContactFormSection";
 import SchulbueroMockup from "./SchulbueroMockup";
 import KomplettkursMockup from "./KomplettkursMockup";
+import AngebotsFinder from "./AngebotsFinder";
 
 const CardShaderBackground = dynamic(() => import("./CardShaderBackground"), {
   ssr: false,
@@ -823,6 +824,24 @@ export default function ChooserLanding() {
                 <KomplettkursMockup />
               </div>
             </div>
+          </motion.div>
+
+          {/* Angebots-Finder */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mt-24 w-full lg:mt-32"
+          >
+            <SectionHeader
+              eyebrow="Angebots-Finder"
+              title="Was brauchen"
+              muted="Sie?"
+              subtitle="Zwei Fragen genügen: Finden Sie in 30 Sekunden das Angebot, das zu Ihrer Rolle und Ihrem Ziel passt."
+              className="mb-10"
+            />
+            <AngebotsFinder />
           </motion.div>
 
           {/* Logo Banner */}
