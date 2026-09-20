@@ -202,6 +202,38 @@ export default function VideoKursContent() {
         </div>
       </section>
 
+      {/* Kurs-Einblick */}
+      <section className="bg-white py-10 md:py-14 lg:py-24">
+        <div className="mx-auto max-w-304 px-4 xl:px-0">
+          <SectionHeader>
+            <HeaderEyebrow>Kurs-Einblick</HeaderEyebrow>
+            <HeaderTitle>Schauen Sie direkt rein</HeaderTitle>
+            <HeaderSubtitle>
+              Die erste Lektion des Kurses können Sie sich hier in voller Länge
+              ansehen: Herzlich willkommen im Video-KI-Komplettkurs.
+            </HeaderSubtitle>
+          </SectionHeader>
+
+          <motion.div
+            {...fadeUp}
+            className="mx-auto mt-10 max-w-224 overflow-hidden rounded-3xl bg-[#0F1117] shadow-xl lg:mt-14"
+          >
+            <video
+              controls
+              preload="metadata"
+              className="aspect-video w-full"
+              crossOrigin="anonymous"
+            >
+              <source
+                src="https://pub-c5c3d362b2f64f92a63038ba1fc6dd74.r2.dev/0000KIKomplettkurs/S01-einstieg-kennenlernen/S01-L001.mp4"
+                type="video/mp4"
+              />
+              Ihr Browser unterstützt keine Videowiedergabe.
+            </video>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Zahlen-Band */}
       <section className="bg-white py-10 lg:py-14">
         <div className="mx-auto grid max-w-304 grid-cols-2 gap-4 px-4 md:grid-cols-4 xl:px-0">
