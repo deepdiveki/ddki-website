@@ -162,7 +162,7 @@ function IntroOverlay({ onComplete }: { onComplete: () => void }) {
       >
         <Image
           src="/images/ddki-logo.svg"
-          alt="DeepDive KI"
+          alt="DeepDiveKI"
           width={80}
           height={80}
           className="size-16 lg:size-20"

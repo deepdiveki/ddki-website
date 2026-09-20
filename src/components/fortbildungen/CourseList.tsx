@@ -2,17 +2,23 @@
 
 import { courses } from "@/data/courses";
 import { motion } from "framer-motion";
-import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
 import CourseFilter from "./CourseFilter";
 
 export default function CourseList() {
-  const searchParams = useSearchParams();
-  const initialCategory = searchParams.get("kategorie") || "alle";
-
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [selectedCategory, setSelectedCategory] = useState("alle");
   const [selectedFormat, setSelectedFormat] = useState("alle");
+
+  // ?kategorie= erst nach dem Mount anwenden statt über useSearchParams:
+  // so wird die volle Kursliste serverseitig gerendert und bleibt für
+  // Crawler ohne JavaScript sichtbar.
+  useEffect(() => {
+    const kategorie = new URLSearchParams(window.location.search).get(
+      "kategorie",
+    );
+    if (kategorie) setSelectedCategory(kategorie);
+  }, []);
 
   const filteredCourses = courses
     .filter((course) => {

@@ -133,7 +133,9 @@ const fadeUp = {
 function CountUp({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [display, setDisplay] = useState(0);
+  // Mit dem Zielwert starten, damit die echte Zahl im Server-HTML steht
+  // (Crawler und KI-Systeme sehen sonst dauerhaft "0").
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!inView) return;

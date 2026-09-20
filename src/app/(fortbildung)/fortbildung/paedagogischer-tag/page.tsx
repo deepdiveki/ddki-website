@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/fortbildung/paedagogischer-tag",
   },
-  title: "Pädagogischer Tag: Maßgeschneidert für Ihre Schule",
+  title: "Pädagogischer Tag zu KI (SchiLF) für Ihr Kollegium",
   description:
-    "Gestalten Sie Ihren pädagogischen Tag mit maßgeschneiderten Fortbildungen rund um KI im Schulalltag – praxisnah, interaktiv und individuell.",
+    "Pädagogischer Tag zu KI als schulinterne Fortbildung (SchiLF): Wir gestalten Ihren Studientag rund um KI im Schulalltag – praxisnah, interaktiv und auf Ihre Schule zugeschnitten.",
   openGraph: {
     images: [
       {
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
         alt: "DeepDiveKI – KI-Fortbildungen & Software für Schulen",
       },
     ],
-    title: "Pädagogischer Tag | DeepDive Fortbildungen",
+    title: "Pädagogischer Tag zu KI (SchiLF) | DeepDive Fortbildungen",
     description:
-      "Maßgeschneiderte KI-Fortbildungen für Ihr gesamtes Kollegium – von der Planung bis zur Nachbereitung.",
+      "Maßgeschneiderte KI-Fortbildung für Ihr gesamtes Kollegium – von der Planung bis zur Nachbereitung.",
   },
 };
 
@@ -33,11 +33,12 @@ export default function PaedagogischerTagPage() {
           <div className="mx-auto max-w-304 px-4 text-center xl:px-0">
             <p className="mb-3 text-sm font-medium tracking-[0.14em] text-primary-base uppercase">Für das ganze Kollegium</p>
           <h1 className="text-display-sm font-semibold -tracking-[0.96px] text-text-primary lg:text-display-lg">
-              Pädagogischer Tag
+              Pädagogischer Tag zu KI
             </h1>
             <p className="mx-auto mt-3 max-w-150 text-md font-light text-text-secondary">
-              Wir gestalten Ihren pädagogischen Tag praxisnah, interaktiv und
-              individuell auf Ihre Schule zugeschnitten.
+              Ob Pädagogischer Tag, SchiLF oder Studientag: Wir gestalten Ihre
+              schulinterne KI-Fortbildung praxisnah, interaktiv und individuell
+              auf Ihre Schule zugeschnitten.
             </p>
           </div>
         </div>

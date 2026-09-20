@@ -27,6 +27,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/kontakt",
+        destination: "/software/kontakt",
+        permanent: true,
+      },
+      {
+        source: "/about",
+        destination: "/software/about",
+        permanent: true,
+      },
+      {
         source: "/fortbildung/fortbildungen/deep-dive-modul-4",
         destination: "/fortbildung/fortbildungen/inklusion-und-ki",
         permanent: true,

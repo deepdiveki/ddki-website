@@ -1,5 +1,4 @@
 import CourseList from "@/components/fortbildungen/CourseList";
-import { Suspense } from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -44,9 +43,7 @@ export default function FortbildungenPage() {
 
       <section className="bg-background-secondary py-10 md:py-14 lg:py-20">
         <div className="mx-auto max-w-304 px-4 xl:px-0">
-          <Suspense>
-            <CourseList />
-          </Suspense>
+          <CourseList />
         </div>
       </section>
     </div>
