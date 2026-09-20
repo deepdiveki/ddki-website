@@ -1203,7 +1203,7 @@ export default function IntroFBPage() {
                     <div className="absolute inset-0 z-0 grid grid-rows-[2fr_1fr] gap-3 p-3">
                       <div className="relative overflow-hidden rounded-xl border border-white/10">
                         <Image
-                          src="/images/intro_fb/soekia/soekia1.png"
+                          src="/images/intro_fb/soekia/soekia1.webp"
                           alt="SoekiaGPT Screenshot 1"
                           fill
                           className="object-cover"
@@ -1212,7 +1212,7 @@ export default function IntroFBPage() {
                       <div className="grid grid-cols-2 gap-3">
                         <div className="relative overflow-hidden rounded-xl border border-white/10">
                           <Image
-                            src="/images/intro_fb/soekia/soekia2.png"
+                            src="/images/intro_fb/soekia/soekia2.webp"
                             alt="SoekiaGPT Screenshot 2"
                             fill
                             className="object-cover"
@@ -1220,7 +1220,7 @@ export default function IntroFBPage() {
                         </div>
                         <div className="relative overflow-hidden rounded-xl border border-white/10">
                           <Image
-                            src="/images/intro_fb/soekia/soekia3.png"
+                            src="/images/intro_fb/soekia/soekia3.webp"
                             alt="SoekiaGPT Screenshot 3"
                             fill
                             className="object-cover"

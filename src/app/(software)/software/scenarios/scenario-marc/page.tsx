@@ -16,7 +16,7 @@ const scenario: ScenarioContent = {
   studentName: "Marc",
   heroDescription:
     "Üben Sie die Nachbesprechung einer pragmatischen Englischlektion mit Fokus auf klare Zielsetzungen und Zeitmanagement.",
-  image: "/images/cover/cover-05.jpg",
+  image: "/images/cover/cover-05.webp",
   hideLessonImage: true,
   lessonTitle: "Englischlektion \"Einführung going to-future\"",
   lessonSummary: [

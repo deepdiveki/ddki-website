@@ -16,7 +16,7 @@ const scenario = {
   studentName: "Antonia Weber",
   heroDescription:
     "Trainieren Sie die Nachbesprechung einer Englischlektion in der 11. Klasse mit Fokus auf Aktivierung und Schüler:innen-Sprechzeit.",
-  image: "/images/cover/cover-07.png",
+  image: "/images/cover/cover-07.webp",
   lessonTitle: "Englischlektion \"Debating: Social Media & Society\"",
   lessonSummary: [
     {

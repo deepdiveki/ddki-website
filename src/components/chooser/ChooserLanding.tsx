@@ -108,32 +108,32 @@ const SCHOOL_TESTIMONIALS: {
 const CLIENTS = [
   {
     id: 1,
-    image: "/images/clients/ostfriesische-landschaft.png",
+    image: "/images/clients/ostfriesische-landschaft.webp",
     alt: "Ostfriesische Landschaft",
   },
   {
     id: 2,
-    image: "/images/clients/leuphana.png",
+    image: "/images/clients/leuphana.webp",
     alt: "Leuphana Universität Lüneburg",
   },
   {
     id: 3,
-    image: "/images/clients/kla.png",
+    image: "/images/clients/kla.webp",
     alt: "Kaufmännische Lehranstalten Bremerhaven",
   },
   {
     id: 4,
-    image: "/images/clients/uni-hildesheim.png",
+    image: "/images/clients/uni-hildesheim.webp",
     alt: "Universität Hildesheim",
   },
   {
     id: 5,
-    image: "/images/clients/ema-bonn.png",
+    image: "/images/clients/ema-bonn.webp",
     alt: "Ernst-Moritz-Arndt-Gymnasium Bonn",
   },
   {
     id: 6,
-    image: "/images/clients/igs-linden.png",
+    image: "/images/clients/igs-linden.webp",
     alt: "IGS Linden Hannover",
   },
 ];
@@ -403,10 +403,10 @@ function TeamMemberCard({
             height={176}
             className={cn(
               "size-full object-cover",
-              (member.image === "/images/team/team-01.png" ||
-                member.image === "/images/team/team-02.png") &&
+              (member.image === "/images/team/team-01.webp" ||
+                member.image === "/images/team/team-02.webp") &&
                 "scale-125",
-              member.image === "/images/team/team-06.png" &&
+              member.image === "/images/team/team-06.webp" &&
                 " object-[center_35%]",
             )}
           />

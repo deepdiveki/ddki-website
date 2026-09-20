@@ -16,28 +16,28 @@ const scenarios = [
     title: "Szenario Björn",
     description:
       "Gespräch mit Björn, einem passiven, schwer greifbaren Studenten, über eine Deutschstunde zum Thema Kreatives Schreiben. Eine besondere Herausforderung für Ihre Gesprächsführung.",
-    image: "/images/cover/cover-04.jpg",
+    image: "/images/cover/cover-04.webp",
     href: "/software/scenarios/scenario-bjoern",
   },
   {
     title: "Szenario Marc",
     description:
       "Gespräch mit Marc, einem pragmatischen, zeiteffizienten Studenten, über eine Englischstunde zum Thema \"Future Plans\". Hilfreiche Übung für den Umgang mit pragmatischen Persönlichkeiten.",
-    image: "/images/cover/cover-05.jpg",
+    image: "/images/cover/cover-05.webp",
     href: "/software/scenarios/scenario-marc",
   },
   {
     title: "Szenario Tim",
     description:
       "Gespräch mit Tim, einem pragmatischen Sportstudenten, über eine Lektion mit zu wenig Differenzierung. Trainieren Sie klare, umsetzbare Verbesserungen.",
-    image: "/images/cover/cover-06.png",
+    image: "/images/cover/cover-06.webp",
     href: "/software/scenarios/scenario-tim",
   },
   {
     title: "Szenario Antonia",
     description:
       "Gespräch mit Antonia, einer extrovertierten Englischstudentin, über eine sehr lehrerzentrierte Stunde. Fokus auf mehr Aktivierung und Sprechzeit.",
-    image: "/images/cover/cover-07.png",
+    image: "/images/cover/cover-07.webp",
     href: "/software/scenarios/scenario-antonia",
   },
 ];
