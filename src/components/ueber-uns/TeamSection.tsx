@@ -10,6 +10,63 @@ import {
   SectionHeader,
 } from "../ui/SectionHeader";
 
+const FOUNDER_NAMES = ["Björn Isenbiel", "Tim Philipp"];
+const founders = teamData.filter((m) => FOUNDER_NAMES.includes(m.name));
+const dozenten = teamData.filter((m) => !FOUNDER_NAMES.includes(m.name));
+
+function MemberCard({
+  member,
+  index,
+  founder = false,
+}: {
+  member: (typeof teamData)[number];
+  index: number;
+  founder?: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.1,
+        ease: "easeOut",
+      }}
+      className="flex flex-col items-center text-center"
+    >
+      <div className="rounded-full p-[3px] [background:linear-gradient(120deg,#8646F4_0%,#D345F8_100%)] shadow-[0_8px_24px_rgba(134,70,244,0.25)]">
+        <div
+          className={cn(
+            "relative overflow-hidden rounded-full border-[3px] border-white bg-background-secondary",
+            founder ? "size-44" : "size-40",
+          )}
+        >
+          <Image
+            src={member.image}
+            alt={member.name}
+            fill
+            className={cn(
+              "object-cover",
+              (member.image === "/images/team/team-01.png" ||
+                member.image === "/images/team/team-02.png") &&
+                "scale-125",
+              member.image === "/images/team/team-06.png" &&
+                "object-[center_35%]",
+            )}
+          />
+        </div>
+      </div>
+      <h3 className="mt-5 text-lg font-medium text-text-primary">
+        {member.name}
+      </h3>
+      <p className="mt-1 max-w-52 whitespace-pre-line text-sm font-light text-text-secondary">
+        {member.designation}
+      </p>
+    </motion.div>
+  );
+}
+
 export default function TeamSection() {
   return (
     <section className="bg-white py-10 md:py-14 lg:py-28">
@@ -30,46 +87,17 @@ export default function TeamSection() {
         </SectionHeader>
       </motion.div>
 
-      <div className="mx-auto mt-10 grid max-w-304 grid-cols-1 gap-8 px-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-5 xl:px-0">
-        {teamData.map((member, index) => (
-          <motion.div
-            key={member.name}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{
-              duration: 0.7,
-              delay: index * 0.1,
-              ease: "easeOut",
-            }}
-            className="flex flex-col items-center text-center"
-          >
-            <div
-              className={cn(
-                "relative size-40 overflow-hidden rounded-full bg-background-secondary border-2 border-black",
-              )}
-            >
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className={cn(
-                  "object-cover",
-                  (member.image === "/images/team/team-01.png" ||
-                    member.image === "/images/team/team-02.png") &&
-                    "scale-125",
-                  member.image === "/images/team/team-06.png" &&
-                    "object-[center_35%]",
-                )}
-              />
-            </div>
-            <h3 className="mt-5 text-lg font-medium text-text-primary">
-              {member.name}
-            </h3>
-            <p className="mt-1 max-w-52 whitespace-pre-line text-sm font-light text-text-secondary">
-              {member.designation}
-            </p>
-          </motion.div>
+      {/* Geschäftsführung */}
+      <div className="mx-auto mt-10 flex max-w-304 flex-col items-center gap-8 px-4 sm:flex-row sm:justify-center sm:gap-16 lg:mt-16 lg:gap-24 xl:px-0">
+        {founders.map((member, index) => (
+          <MemberCard key={member.name} member={member} index={index} founder />
+        ))}
+      </div>
+
+      {/* Dozenten & Team */}
+      <div className="mx-auto mt-12 flex max-w-304 flex-col items-center gap-8 px-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-12 lg:mt-16 lg:gap-20 xl:px-0">
+        {dozenten.map((member, index) => (
+          <MemberCard key={member.name} member={member} index={index} />
         ))}
       </div>
     </section>

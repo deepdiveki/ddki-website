@@ -31,7 +31,7 @@ const FeaturesList = () => {
                       Mit dem DeepChat Künstliche Intelligenz in Ihre Schule oder Universitäten integrieren.
                     </h3>
                     <p className="mb-10 font-light text-white/70">
-                      Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte – unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.
+                      Ob zur Unterstützung bei Aufgaben, der Analyse von Lernergebnissen oder der Erstellung interaktiver Inhalte: Unsere Plattform hilft dabei, den Unterricht moderner und zugänglicher zu machen.
                     </p>
                     <Link
                       href={`${BASE_PATH}/ddki-toolbox`}

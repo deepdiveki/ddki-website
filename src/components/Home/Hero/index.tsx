@@ -98,7 +98,7 @@ const Hero = () => {
             className="mx-auto mb-9 max-w-[500px] text-md font-light text-white/80"
           >
             Wir bieten vier innovative KI-Produkte für Lehrende, Lernende und
-            Schulen – perfekt aufeinander abgestimmt:
+            Schulen, die perfekt aufeinander abgestimmt sind:
           </motion.p>
         </div>
 

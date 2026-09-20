@@ -369,6 +369,58 @@ function StackedGlassCards() {
 
 /* ─── Main Page ─── */
 
+const FOUNDER_NAMES = ["Björn Isenbiel", "Tim Philipp"];
+
+function TeamMemberCard({
+  member,
+  index,
+  founder = false,
+}: {
+  member: (typeof teamData)[number];
+  index: number;
+  founder?: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
+      className="flex w-56 flex-col items-center text-center"
+    >
+      <div className="rounded-full p-[3px] [background:linear-gradient(120deg,#8646F4_0%,#D345F8_100%)] shadow-[0_8px_24px_rgba(134,70,244,0.25)] transition-transform duration-300 hover:scale-105">
+        <div
+          className={cn(
+            "overflow-hidden rounded-full border-[3px] border-white bg-white",
+            founder ? "size-36 lg:size-44" : "size-32 lg:size-40",
+          )}
+        >
+          <Image
+            src={member.image}
+            alt={member.name}
+            width={176}
+            height={176}
+            className={cn(
+              "size-full object-cover",
+              (member.image === "/images/team/team-01.png" ||
+                member.image === "/images/team/team-02.png") &&
+                "scale-125",
+              member.image === "/images/team/team-06.png" &&
+                " object-[center_35%]",
+            )}
+          />
+        </div>
+      </div>
+      <h3 className="mt-4 text-lg font-semibold text-text-primary">
+        {member.name}
+      </h3>
+      <p className="mt-1 whitespace-pre-line text-sm font-light text-text-secondary">
+        {member.designation}
+      </p>
+    </motion.div>
+  );
+}
+
 export default function ChooserLanding() {
   const [introComplete, setIntroComplete] = useState(() => {
     if (typeof window !== "undefined") {
@@ -935,42 +987,22 @@ export default function ChooserLanding() {
               subtitle="Wir sind ein junges Team aus Hamburg mit einer Leidenschaft für Künstliche Intelligenz und Bildung. Unsere Vision ist es, KI für alle zugänglich zu machen und den Einsatz von KI im Bildungsbereich zu fördern."
             />
 
-            <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
-              {teamData.map((member, i) => (
-                <motion.div
-                  key={member.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-                  className="flex flex-col items-center text-center"
-                >
-                  <div className="rounded-full bg-gradient-to-br from-primary-base via-primary-dark to-primary-darker p-[3px] shadow-md transition-transform duration-300 hover:scale-105">
-                    <div className="size-32 overflow-hidden rounded-full bg-white lg:size-40">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={160}
-                        height={160}
-                        className={cn(
-                          "size-full object-cover",
-                          (member.image === "/images/team/team-01.png" ||
-                            member.image === "/images/team/team-02.png") &&
-                            "scale-125",
-                          member.image === "/images/team/team-06.png" &&
-                            " object-[center_35%]",
-                        )}
-                      />
-                    </div>
-                  </div>
-                  <h3 className="mt-4 text-lg font-semibold text-text-primary">
-                    {member.name}
-                  </h3>
-                  <p className="mt-1 whitespace-pre-line text-sm font-light text-text-secondary">
-                    {member.designation}
-                  </p>
-                </motion.div>
-              ))}
+            {/* Geschäftsführung */}
+            <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-16 lg:gap-24">
+              {teamData
+                .filter((m) => FOUNDER_NAMES.includes(m.name))
+                .map((member, i) => (
+                  <TeamMemberCard key={member.id} member={member} index={i} founder />
+                ))}
+            </div>
+
+            {/* Dozenten & Team */}
+            <div className="mx-auto mt-12 flex max-w-6xl flex-col items-center gap-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-12 lg:gap-20">
+              {teamData
+                .filter((m) => !FOUNDER_NAMES.includes(m.name))
+                .map((member, i) => (
+                  <TeamMemberCard key={member.id} member={member} index={i} />
+                ))}
             </div>
           </motion.div>
         </div>
