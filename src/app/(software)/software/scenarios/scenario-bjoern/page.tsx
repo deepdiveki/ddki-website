@@ -16,7 +16,7 @@ const scenario: ScenarioContent = {
   studentName: "Björn",
   heroDescription:
     "Trainieren Sie die Nachbesprechung einer Deutschlektion mit Fokus auf kreatives Schreiben und einer zurückhaltenden Studentin.",
-  image: "/images/cover/cover-04.jpg",
+  image: "/images/cover/cover-04.webp",
   hideLessonImage: true,
   lessonTitle: "Deutschlektion \"Kreatives Schreiben zu Bildimpulsen\"",
   lessonSummary: [

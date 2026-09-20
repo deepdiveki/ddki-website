@@ -5,11 +5,11 @@ import Link from "next/link";
 const REFERENTS = {
   bjoern: {
     name: "Björn Isenbiel",
-    image: "/images/team/team-01.png",
+    image: "/images/team/team-01.webp",
   },
   tim: {
     name: "Tim Philipp",
-    image: "/images/team/team-02.png",
+    image: "/images/team/team-02.webp",
   },
 } as const;
 

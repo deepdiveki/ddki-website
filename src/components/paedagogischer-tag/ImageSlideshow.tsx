@@ -10,27 +10,27 @@ import Image from "next/image";
  */
 const slides = [
   {
-    src: "/images/paedagogischer-tag/slide-1.jpg",
+    src: "/images/paedagogischer-tag/slide-1.webp",
     alt: "Pädagogischer Tag – Vortrag in der Aula",
     className: "col-span-2 row-span-2",
   },
   {
-    src: "/images/paedagogischer-tag/slide-2.jpg",
+    src: "/images/paedagogischer-tag/slide-2.webp",
     alt: "Pädagogischer Tag – Workshop im Kollegium",
     className: "col-span-1 row-span-1",
   },
   {
-    src: "/images/paedagogischer-tag/slide-3.jpg",
+    src: "/images/paedagogischer-tag/slide-3.webp",
     alt: "Pädagogischer Tag – Gemeinsames Arbeiten",
     className: "col-span-1 row-span-1",
   },
   {
-    src: "/images/paedagogischer-tag/slide-4.jpg",
+    src: "/images/paedagogischer-tag/slide-4.webp",
     alt: "Pädagogischer Tag – Praxisphase",
     className: "col-span-1 row-span-1",
   },
   {
-    src: "/images/paedagogischer-tag/slide-5.jpg",
+    src: "/images/paedagogischer-tag/slide-5.webp",
     alt: "Pädagogischer Tag – Austausch in der Gruppe",
     className: "col-span-1 row-span-1",
   },

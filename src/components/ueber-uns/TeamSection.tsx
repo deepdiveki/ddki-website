@@ -48,10 +48,10 @@ function MemberCard({
             fill
             className={cn(
               "object-cover",
-              (member.image === "/images/team/team-01.png" ||
-                member.image === "/images/team/team-02.png") &&
+              (member.image === "/images/team/team-01.webp" ||
+                member.image === "/images/team/team-02.webp") &&
                 "scale-125",
-              member.image === "/images/team/team-06.png" &&
+              member.image === "/images/team/team-06.webp" &&
                 "object-[center_35%]",
             )}
           />

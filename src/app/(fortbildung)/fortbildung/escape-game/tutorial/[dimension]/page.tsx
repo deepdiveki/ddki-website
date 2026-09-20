@@ -2591,14 +2591,14 @@ Also — los geht's! Schau dir die Fokus-Frage unten an, die uns durch diesen ge
                 <div className="flex flex-col items-center gap-6 md:flex-row md:items-start">
                   <div className="flex-1">
                     <img
-                      src="/images/escape-game/quickdraw-banner.png"
+                      src="/images/escape-game/quickdraw-banner.webp"
                       alt="Quick, Draw! – Flugs gezeichnet!"
                       className="w-full max-w-sm rounded border-2 border-slate-200"
                     />
                   </div>
                   <div className="flex flex-col items-center gap-4">
                     <img
-                      src="/images/escape-game/quickdraw-qr.png"
+                      src="/images/escape-game/quickdraw-qr.webp"
                       alt="QR-Code für Quick, Draw!"
                       className="h-32 w-32"
                     />
@@ -2694,7 +2694,7 @@ Schauen wir uns jetzt an, wofür KI eigentlich eingesetzt wird — und was sie b
                 </details>
                 <div className="mt-4">
                   <img
-                    src="/images/escape-game/wofuer-ki-folie.png"
+                    src="/images/escape-game/wofuer-ki-folie.webp"
                     alt="Wofür eigentlich KI? — Analyse großer Datenmengen → Muster erkennen → Entscheidungen treffen"
                     className="w-full rounded border-2 border-slate-200"
                   />
@@ -2737,7 +2737,7 @@ Also merk dir: Alles, was du heute nutzt — jedes KI-Tool, jeder Chatbot, jede 
                 </details>
                 <div className="mt-4">
                   <img
-                    src="/images/escape-game/ki-kategorien-folie.png"
+                    src="/images/escape-game/ki-kategorien-folie.webp"
                     alt="Von speziellen Aufgaben zu genereller KI — Schwache KI, Starke KI, Überlegene KI"
                     className="w-full rounded border-2 border-slate-200"
                   />
@@ -2788,7 +2788,7 @@ Und jetzt probier das einmal selber aus — öffne ChatGPT, aktiviere Canvas und
                 </details>
                 <div className="mt-4">
                   <img
-                    src="/images/escape-game/eingabe-chatgpt-folie.png"
+                    src="/images/escape-game/eingabe-chatgpt-folie.webp"
                     alt="Eingabe bei ChatGPT — Übersicht der Eingabemöglichkeiten"
                     className="w-full rounded border-2 border-slate-200"
                   />
@@ -2872,7 +2872,7 @@ Das ist der Unterschied zwischen Chat und Cowork: Im Chat bekommst du jedes Mal 
                 </details>
                 <div className="mt-4">
                   <img
-                    src="/images/escape-game/eingabe-claude-folie.png"
+                    src="/images/escape-game/eingabe-claude-folie.webp"
                     alt="oder bei Claude — Übersicht der Eingabemöglichkeiten"
                     className="w-full rounded border-2 border-slate-200"
                   />
@@ -2944,7 +2944,7 @@ Die Antwort liegt in der Art, wie ein LLM arbeitet. Und genau das schauen wir un
                 </details>
                 <div className="mt-4">
                   <img
-                    src="/images/escape-game/ausgabe-chatgpt-folie.png"
+                    src="/images/escape-game/ausgabe-chatgpt-folie.webp"
                     alt="Ausgabe bei ChatGPT — Prompt und LLM Ausgabe als Token"
                     className="w-full rounded border-2 border-slate-200"
                   />
@@ -2995,17 +2995,17 @@ In der nächsten Lektion kannst du das Ganze selbst ausprobieren — mit Soekia 
                 </details>
                 <div className="mt-4 space-y-4">
                   <img
-                    src="/images/escape-game/llm-aufgabe-folie1.png"
+                    src="/images/escape-game/llm-aufgabe-folie1.webp"
                     alt="Aufgabe eines LLM — Das nächste Wort (Token) in einer Wortsequenz soll vorhergesagt werden"
                     className="w-full rounded border-2 border-slate-200"
                   />
                   <img
-                    src="/images/escape-game/llm-aufgabe-folie2.png"
+                    src="/images/escape-game/llm-aufgabe-folie2.webp"
                     alt="Aufgabe eines LLM — Allen Tokens wird eine Wahrscheinlichkeit zugeordnet"
                     className="w-full rounded border-2 border-slate-200"
                   />
                   <img
-                    src="/images/escape-game/llm-aufgabe-folie3.png"
+                    src="/images/escape-game/llm-aufgabe-folie3.webp"
                     alt="Aufgabe eines LLM — Der Token mit der höchsten Wahrscheinlichkeit wird angehängt"
                     className="w-full rounded border-2 border-slate-200"
                   />
@@ -3050,7 +3050,7 @@ Damit hast du den Einstieg geschafft! Du weißt jetzt, was KI im Kern macht — 
                 </details>
                 <div className="mt-4">
                   <img
-                    src="/images/escape-game/soekia-gpt-folie.png"
+                    src="/images/escape-game/soekia-gpt-folie.webp"
                     alt="Soekia GPT – Token-Vorhersage interaktiv erleben"
                     className="w-full rounded border-2 border-slate-200"
                   />

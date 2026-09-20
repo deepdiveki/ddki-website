@@ -16,7 +16,7 @@ const scenario: ScenarioContent = {
   studentName: "Tim Schubert",
   heroDescription:
     "Trainieren Sie die Nachbesprechung einer Sportlektion in der 12. Klasse mit Fokus auf Differenzierung und Belastungssteuerung.",
-  image: "/images/cover/cover-06.png",
+  image: "/images/cover/cover-06.webp",
   lessonTitle: "Sportlektion \"Intervalltraining & Technikstationen\"",
   lessonSummary: [
     {

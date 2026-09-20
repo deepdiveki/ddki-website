@@ -85,7 +85,7 @@ export default function HeroVideo() {
             ref={videoRef}
             preload="none"
             playsInline
-            poster="/images/hero-video-poster.jpg"
+            poster="/images/hero-video-poster.webp"
             onTimeUpdate={handleTimeUpdate}
             onEnded={handleEnded}
             onPause={() => setIsPlaying(false)}

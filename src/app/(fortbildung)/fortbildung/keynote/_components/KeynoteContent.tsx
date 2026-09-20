@@ -91,7 +91,7 @@ const SPEAKERS = [
   {
     name: "Björn Isenbiel",
     topics: ["KI im Unterricht", "Prompting", "Schulentwicklung"],
-    image: "/images/team/team-01-cutout.png",
+    image: "/images/team/team-01-cutout.webp",
     back: {
       intro:
         "Geschäftsführer und Mitgründer von DeepDiveKI und aktive Lehrkraft. Verbindet Schulpraxis mit KI-Expertise.",
@@ -105,7 +105,7 @@ const SPEAKERS = [
   {
     name: "Tim Philipp",
     topics: ["KI und Bildung", "Datenschutz", "Zukunft mit KI"],
-    image: "/images/team/team-02-cutout.png",
+    image: "/images/team/team-02-cutout.webp",
     back: {
       intro:
         "Geschäftsführer und Mitgründer von DeepDiveKI mit langjähriger Erfahrung in der Lehre. Bringt Technik und Didaktik zusammen.",
@@ -119,7 +119,7 @@ const SPEAKERS = [
   {
     name: "Milena Stegner",
     topics: ["KI-Ethik", "Wissenschaft", "Companions"],
-    image: "/images/team/team-08-cutout.png",
+    image: "/images/team/team-08-cutout.webp",
     back: {
       intro:
         "Gründerin von AIdeas mit langjähriger Erfahrung in der Lehre. Ordnet KI gesellschaftlich und ethisch ein.",
