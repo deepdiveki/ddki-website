@@ -2,7 +2,9 @@ import ChooserLanding from "@/components/chooser/ChooserLanding";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DeepDiveKI – Fortbildungen & Software für Schulen",
+  title: {
+    absolute: "DeepDiveKI – Fortbildungen & Software für Schulen",
+  },
   description:
     "DeepDiveKI bietet praxisnahe Lehrerfortbildungen und innovative Software-Lösungen wie DeepChat und KI-Schulbüro für Schulen.",
   openGraph: {
