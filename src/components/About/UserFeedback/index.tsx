@@ -1,9 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
-import CountUp from "react-countup";
 import SectionTitle from "@/components/Common/SectionTitle";
 import { Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
 
 function cn(...classes: (string | undefined | null | false)[]) {
   return classes.filter(Boolean).join(" ");
@@ -40,32 +37,6 @@ const BentoGridItem = ({
         </div>
       </div>
     </div>
-  );
-}
-
-const CounterItem = ({
-  value,
-  label,
-  delay = 0,
-}: {
-  value: number;
-  label: string;
-  delay?: number;
-}) => {
-  return (
-    <motion.div
-      className="flex flex-col items-center px-4 py-2"
-      initial={{ opacity: 0, rotateX: -90 }}
-      whileInView={{ opacity: 1, rotateX: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut", delay }}
-      viewport={{ once: true }}
-      style={{ transformStyle: "preserve-3d" }}
-    >
-      <span className="text-4xl font-light text-white">
-        <CountUp end={value} duration={2} />
-      </span>
-      <span className="text-sm text-white/70">{label}</span>
-    </motion.div>
   );
 };
 
@@ -145,18 +116,6 @@ const feedbackItems = [
 ];
 
 const UserFeedback = () => {
-  const [fortbildungen, setFortbildungen] = useState<number | null>(null);
-  const [lehrer, setLehrer] = useState<number | null>(null);
-
-  useEffect(() => {
-    fetch("/api/stats")
-      .then((res) => res.json())
-      .then((data) => {
-        setFortbildungen(data.fortbildungen);
-        setLehrer(data.lehrer);
-      });
-  }, []);
-
   return (
     <section className="overflow-hidden py-17.5 lg:py-22.5 xl:py-27.5">
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
@@ -166,16 +125,7 @@ const UserFeedback = () => {
           paragraph="Die besten Geschichten schreibt der Schulalltag. Hier erzählen Lehrer:innen, wie sie unsere Lösungen einsetzen, was sie begeistert, und wie KI ihnen den Rücken im Alltag stärkt."
         />
 
-        <div className="mt-10 mb-14 flex justify-center gap-12 perspective-[1000px]">
-          {fortbildungen !== null && (
-            <CounterItem value={fortbildungen} label="Fortbildungen gehalten" delay={0.1} />
-          )}
-          {lehrer !== null && (
-            <CounterItem value={lehrer} label="Lehrer:innen weitergebildet" delay={0.3} />
-          )}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+        <div className="mt-10 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
           {feedbackItems.map((item, index) => (
             <div className="w-full" key={index}>
               <BentoGridItem
