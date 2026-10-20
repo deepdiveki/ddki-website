@@ -36,6 +36,7 @@
     "next-auth": "^4.24.11",
     "nextjs-toploader": "^3.7.15",
     "nodemailer": "^9.0.4",
+    "qrcode": "^1.5.4",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
@@ -55,6 +56,7 @@
   "devDependencies": {
     "@types/fslightbox-react": "^1.7.3",
     "@types/nodemailer": "^6.4.17",
+    "@types/qrcode": "^1.5.5",
     "eslint": "^9.20.0",
     "eslint-config-next": "15.5.9"
   },

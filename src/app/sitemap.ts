@@ -6,7 +6,8 @@ import { courses } from "@/data/courses";
 const siteUrl = process.env.SITE_URL || "https://www.deepdive-ki.de";
 const siteAppDir = path.join(process.cwd(), "src/app");
 
-const excludedSegments = new Set(["error", "unauthorized"]);
+// "praesentation": interne Vortragsfolien, noindex.
+const excludedSegments = new Set(["error", "unauthorized", "praesentation"]);
 const excludedRoutes = new Set([
   "/error",
   "/error/verify",
