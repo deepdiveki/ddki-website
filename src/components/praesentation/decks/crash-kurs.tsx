@@ -150,8 +150,8 @@ export function CardsSlide({
                 <p className="mt-auto text-[24px] font-medium tracking-wider text-white/70 uppercase">
                   {c.label ?? `0${i + 1}`}
                 </p>
-                <h3 className="mt-2 text-[40px] leading-tight font-semibold text-white">{c.title}</h3>
-                <StageGlassPanel className="mt-6">
+                <h3 className="mt-2 min-h-[100px] text-[40px] leading-tight font-semibold text-white">{c.title}</h3>
+                <StageGlassPanel className="mt-6 min-h-[164px]">
                   <p className="text-[24px] leading-snug text-white/95">{c.text}</p>
                 </StageGlassPanel>
               </StageGrainCard>

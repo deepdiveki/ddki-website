@@ -345,7 +345,39 @@ export const PLAGIATE_LIVE = {
   },
 } satisfies Record<string, LiveActivity>;
 
+export const SPARK_LIVE = {
+  learned: {
+    id: "zuletzt-gelernt",
+    type: "poll",
+    title: "Ankommen",
+    question: "Wie haben Sie zuletzt etwas Praktisches gelernt?",
+    options: ["Video geschaut", "Jemand hat es mir gezeigt", "Anleitung gelesen", "Einfach ausprobiert"],
+  },
+  holds: {
+    id: "zugprobe",
+    type: "poll",
+    title: "Zugprobe",
+    question: "Zug drauf: Hält Ihr Palstek?",
+    options: ["Gruppe A (SPARK): hält", "Gruppe A (SPARK): hält nicht", "Gruppe B (Vorlage): hält", "Gruppe B (Vorlage): hält nicht"],
+  },
+  explain: {
+    id: "erklaeren",
+    type: "poll",
+    title: "Verstehen",
+    question: "Könnten Sie erklären, warum sich die Schlaufe nicht zuzieht?",
+    options: ["Gruppe A (SPARK): ja", "Gruppe A (SPARK): nein", "Gruppe B (Vorlage): ja", "Gruppe B (Vorlage): nein"],
+  },
+  skill: {
+    id: "fertigkeit",
+    type: "words",
+    title: "Ihre Fertigkeit",
+    prompt: "Welche Fertigkeit oder welches Thema würden Sie morgen mit SPARK unterrichten? Ein Begriff.",
+    maxChars: 40,
+  },
+} satisfies Record<string, LiveActivity>;
+
 export const LIVE_ACTIVITIES: Record<string, LiveActivity[]> = {
+  spark: Object.values(SPARK_LIVE),
   plagiate: Object.values(PLAGIATE_LIVE),
   "crash-kurs": Object.values(CRASH_KURS_LIVE),
   unterrichtseinheiten: Object.values(UE_LIVE),

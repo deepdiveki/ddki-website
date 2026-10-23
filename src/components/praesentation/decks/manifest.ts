@@ -36,6 +36,12 @@ export const DECK_MANIFEST: DeckMeta[] = [
     speaker: "Björn Isenbiel & Tim Philipp",
   },
   {
+    id: "spark",
+    title: "SPARK: Individuelle Lernwege mit KI",
+    subtitle: "Keynote mit Live-Experiment: zwei Gruppen, ein Seil, ein Palstek",
+    speaker: "Björn Isenbiel",
+  },
+  {
     id: "plagiate",
     title: "Modul II: Plagiate, Hausaufgaben und Klausuren in Zeiten von KI",
     subtitle: "Drei Stunden: vom Erkennungsproblem zum Aufgabendesign",

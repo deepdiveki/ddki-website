@@ -168,6 +168,8 @@ export const GRADIENTS = {
   aurora: "linear-gradient(155deg,#5ee0d0 0%,#6f8dff 42%,#a78bfa 74%,#c6bdfa 100%)",
   purple: "linear-gradient(155deg,#8b5cf6 0%,#a78bfa 38%,#d68cfa 72%,#f0bdfa 100%)",
   ocean: "linear-gradient(155deg,#6f8dff 0%,#8b7cf6 50%,#b89bfa 100%)",
+  /** SPARK-Palette: Teal → Periwinkle → Lavendel */
+  spark: "linear-gradient(155deg,#3fc9bd 0%,#7b98f3 48%,#c2b2fb 100%)",
 } as const;
 
 /** Große Variante der GrainCard für die Bühne (kein max-w, größere Radien). */

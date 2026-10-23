@@ -6,7 +6,7 @@ import type { Deck } from "./types";
 export type DeckState = { slide: number; step: number };
 
 type Message =
-  | { type: "state"; state: DeckState; source: string }
+  | { type: "state"; state: DeckState; source: string; reply?: boolean }
   | { type: "hello"; source: string };
 
 const clamp = (n: number, min: number, max: number) =>
@@ -25,6 +25,9 @@ export function useDeckNavigation(deck: Deck) {
   const fromRemote = useRef(false);
   const sourceId = useRef(Math.random().toString(36).slice(2));
   const channel = useRef<BroadcastChannel | null>(null);
+  // true, wenn die Seite mit #N geöffnet wurde: Dann gewinnt der Deep-Link
+  // gegen Antworten anderer (auch im Cache verbliebener) Fenster auf „hello“.
+  const fromHash = useRef(false);
   const last = deck.slides.length - 1;
 
   const stepsOf = useCallback(
@@ -36,6 +39,7 @@ export function useDeckNavigation(deck: Deck) {
   useEffect(() => {
     const n = parseInt(window.location.hash.slice(1), 10);
     if (Number.isFinite(n) && n >= 1) {
+      fromHash.current = true;
       setState({ slide: clamp(n - 1, 0, last), step: 0 });
     }
   }, [last]);
@@ -49,6 +53,7 @@ export function useDeckNavigation(deck: Deck) {
       const msg = event.data;
       if (msg.source === sourceId.current) return;
       if (msg.type === "state") {
+        if (msg.reply && fromHash.current) return;
         fromRemote.current = true;
         setState(msg.state);
       } else if (msg.type === "hello") {
@@ -56,6 +61,7 @@ export function useDeckNavigation(deck: Deck) {
           type: "state",
           state: stateRef.current,
           source: sourceId.current,
+          reply: true,
         } satisfies Message);
       }
     };
