@@ -18,7 +18,9 @@ import {
   Zap,
 } from "lucide-react";
 import dynamic from "next/dynamic";
+import { Bricolage_Grotesque } from "next/font/google";
 import Image from "next/image";
+import { SparkMark } from "../SparkMark";
 import { useEffect, useState } from "react";
 import {
   Brand,
@@ -60,6 +62,20 @@ const SPARK_URL = "https://spark-ten-alpha.vercel.app";
 const SPARK_JOIN_CODE = "PALSTK";
 const SPARK_AMBER = "#f7b32b";
 const WORK_MINUTES = 8;
+
+/** Überschriften-Schrift der SPARK-App (siehe spark/src/app/layout.tsx). */
+const bricolage = Bricolage_Grotesque({ subsets: ["latin"], weight: ["700", "800"], display: "swap" });
+
+/** Design-Token der SPARK-App (spark/src/app/globals.css). */
+const SPARK = {
+  page: "linear-gradient(135deg,#d6efe9 0%,#e6ebfb 50%,#ddd9f4 100%)",
+  hero: "radial-gradient(90% 80% at 90% 4%,#4fd0be 0%,transparent 52%), radial-gradient(60% 55% at 42% 112%,rgba(214,224,255,0.5) 0%,transparent 60%), linear-gradient(152deg,#3fb3c6 0%,#5b81d6 50%,#93a1e7 100%)",
+  grain:
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E\")",
+  ink: "#191a2c",
+  inkSoft: "#33344a",
+  markVars: { "--spark": "#f7b32b", "--spark-deep": "#e0951a", "--spark-core": "#fff4d6", "--sky": "#aecdf4" } as React.CSSProperties,
+};
 
 const HeadlineShaderBackground = dynamic(
   () => import("@/components/chooser/HeadlineShaderBackground"),
@@ -187,7 +203,7 @@ function SpeakerSlide({ active }: SlideProps) {
   );
 }
 
-/* ─── 6 · SPARK vorstellen (dunkel) ─── */
+/* ─── 6 · SPARK vorstellen (im Design der SPARK-App) ─── */
 
 const SPARK_LETTERS = [
   { letter: "S", word: "Sensemaking" },
@@ -198,59 +214,109 @@ const SPARK_LETTERS = [
 ];
 
 const PARTNERS = [
-  { name: "Universität Ulm", role: "Verbundkoordination · Lernpsychologie" },
-  { name: "PH Schwäbisch Gmünd", role: "Fachdidaktik Physik · Climate Literacy" },
-  { name: "Leuphana Lüneburg", role: "Didaktisch-technische Entwicklung" },
+  { name: "Universität Ulm", role: "Koordination · Lernpsychologie", logo: "/images/spark/uni-ulm.svg", h: 64 },
+  { name: "PH Schwäbisch Gmünd", role: "Fachdidaktik · Climate Literacy", logo: "/images/spark/ph-gmuend.svg", h: 44 },
+  { name: "Leuphana Lüneburg", role: "Didaktisch-technische Entwicklung", logo: "/images/spark/leuphana.svg", h: 64 },
 ];
+
+const HERO_CHIPS = ["Sokratischer Dialog", "Präkonzept-Diagnostik", "Learning Analytics"];
 
 function SparkIntroSlide({ active }: SlideProps) {
   return (
-    <SlideFrame theme="dark">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(63,201,189,0.22)_0%,transparent_55%)]" />
-      <Brand theme="dark" />
-      <div className="grid h-full grid-cols-[1fr_820px] items-center gap-20 px-20 pt-28 pb-20">
-        <div>
-          <Stagger index={0} active={active}>
-            <Eyebrow className="text-primary-base">Das Forschungsprojekt</Eyebrow>
-            <Headline size="xl" className="mt-6 flex items-center gap-6 text-white">
-              <Zap className="size-32 shrink-0" style={{ color: SPARK_AMBER }} strokeWidth={1.6} />
-              SPARK.
-            </Headline>
-          </Stagger>
-          <Stagger index={1} active={active}>
-            <p className="mt-10 max-w-[900px] text-[30px] leading-snug text-white/85">
-              Ein KI-Lehr-Lernassistent, der Lernende, Lehrkraft und Lerngegenstand in einem
-              gemeinsamen Dialog verbindet. Verbundprojekt von drei Hochschulen, Prototyp seit
-              Sommer 2026.
-            </p>
-          </Stagger>
-          <ul className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
-            {SPARK_LETTERS.map((l, i) => (
-              <Stagger key={l.letter} index={2 + i} active={active}>
-                <li className="flex items-baseline gap-3 text-[26px] text-white/85">
-                  <span className="text-[34px] font-semibold" style={{ color: SPARK_AMBER }}>
-                    {l.letter}
-                  </span>
-                  {l.word}
-                </li>
-              </Stagger>
-            ))}
-          </ul>
-        </div>
-        <div className="flex flex-col gap-6">
-          {PARTNERS.map((p, i) => (
-            <Stagger key={p.name} index={2 + i} active={active}>
-              <StageGlassPanel className="flex items-center gap-6">
-                <span className="flex size-16 shrink-0 items-center justify-center rounded-2xl border border-white/30 bg-white/15 text-[28px] font-semibold text-white">
-                  {i + 1}
+    <SlideFrame theme="light">
+      <div className="absolute inset-0" style={{ background: SPARK.page }} />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-overlay"
+        style={{ backgroundImage: SPARK.grain, backgroundSize: "200px 200px" }}
+      />
+      <Brand />
+      <div className="relative flex h-full flex-col px-20 pt-36 pb-16">
+        <Stagger index={0} active={active}>
+          <Eyebrow>Das Forschungsprojekt · spark-ten-alpha.vercel.app</Eyebrow>
+        </Stagger>
+
+        {/* Hero-Kachel wie auf der SPARK-Startseite */}
+        <Stagger index={1} active={active} className="mt-6">
+          <div
+            className="relative isolate h-[590px] overflow-hidden rounded-[40px] px-16 py-14 text-white shadow-[0_24px_60px_-30px_rgba(60,40,110,0.3)]"
+            style={{ background: SPARK.hero }}
+          >
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 -z-10 flex w-[52%] items-center justify-center [mask-image:linear-gradient(to_right,transparent,#000_30%)]"
+              style={SPARK.markVars}
+            >
+              <SparkMark variant="soft" className="size-[700px] translate-x-10" />
+            </div>
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 z-20 opacity-[0.42] mix-blend-overlay"
+              style={{ backgroundImage: SPARK.grain, backgroundSize: "200px 200px" }}
+            />
+            <div className="relative z-10 flex h-full max-w-[1000px] flex-col">
+              <div className="flex items-center gap-4">
+                <span style={SPARK.markVars}>
+                  <SparkMark variant="sharp" className="size-14" />
                 </span>
-                <div>
-                  <p className="text-[32px] leading-tight font-semibold text-white">{p.name}</p>
-                  <p className="mt-1 text-[22px] text-white/75">{p.role}</p>
-                </div>
-              </StageGlassPanel>
-            </Stagger>
-          ))}
+                <span className={cn(bricolage.className, "text-[34px] font-extrabold tracking-tight")}>SPARK</span>
+              </div>
+              <h2 className={cn(bricolage.className, "mt-7 text-[82px] leading-[1.02] font-extrabold tracking-tight")}>
+                Der Funke, der zum <span style={{ color: SPARK_AMBER }}>Denken</span> anregt.
+              </h2>
+              <p className="mt-6 max-w-[900px] text-[26px] leading-snug text-white/85">
+                SPARK gibt keine fertigen Lösungen. Er verbindet kuratierte Inhalte, den
+                individuellen Lernstand und die didaktischen Vorgaben der Lehrkraft zu einer
+                adaptiven Lernbegleitung.
+              </p>
+              <div className="mt-auto flex flex-wrap gap-3">
+                {HERO_CHIPS.map((c) => (
+                  <span
+                    key={c}
+                    className="rounded-full border border-white/25 bg-white/15 px-6 py-3 text-[22px] font-semibold backdrop-blur-sm"
+                  >
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Stagger>
+
+        {/* Schwebende Panels: Akronym + Verbundpartner */}
+        <div className="mt-6 grid flex-1 grid-cols-[1fr_1.1fr] gap-6">
+          <Stagger index={2} active={active} className="h-full">
+            <div className="flex h-full flex-col justify-center rounded-[32px] border border-white/60 bg-white/55 px-10 py-7 backdrop-blur-sm">
+              <p className="text-[18px] font-bold tracking-[0.18em] uppercase" style={{ color: "rgba(51,52,74,0.55)" }}>
+                SPARK steht für
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+                {SPARK_LETTERS.map((l) => (
+                  <li key={l.letter} className="flex items-baseline gap-2 text-[26px]" style={{ color: SPARK.inkSoft }}>
+                    <span className={cn(bricolage.className, "text-[34px] font-extrabold")} style={{ color: SPARK_AMBER }}>
+                      {l.letter}
+                    </span>
+                    {l.word}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Stagger>
+          <Stagger index={3} active={active} className="h-full">
+            <div className="flex h-full flex-col justify-center rounded-[32px] border border-white/60 bg-white/55 px-10 py-7 text-center backdrop-blur-sm">
+              <p className="text-[18px] font-bold tracking-[0.18em] uppercase" style={{ color: "rgba(51,52,74,0.55)" }}>
+                Ein Verbundprojekt von
+              </p>
+              <div className="mt-5 flex items-center justify-between gap-10">
+                {PARTNERS.map((p) => (
+                  <div key={p.name} className="flex flex-col items-center gap-3">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.logo} alt={p.name} style={{ height: p.h }} className="w-auto opacity-80 grayscale" />
+                    <span className="text-[17px]" style={{ color: SPARK.inkSoft }}>{p.role}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Stagger>
         </div>
       </div>
     </SlideFrame>
@@ -742,7 +808,7 @@ function ThanksSlide({ active }: SlideProps) {
         </Stagger>
         <Stagger index={1} active={active}>
           <p className="mt-10 text-[44px] font-light text-white/90">
-            Das Seil dürfen Sie behalten. Den Knoten hoffentlich auch.
+            Das Seil bitte wieder zurückgeben. Das Wissen dürfen Sie behalten :-)
           </p>
         </Stagger>
         <Stagger index={2} active={active}>
@@ -1146,7 +1212,7 @@ export const sparkDeck: Deck = {
       title: "Danke",
       theme: "dark",
       Component: ThanksSlide,
-      notes: "Seile dürfen behalten werden. Kontakt steht auf der Folie. Fragen einsammeln.",
+      notes: "Seile wieder einsammeln (Helfer:innen mit Korb durch die Reihen). Kontakt steht auf der Folie. Fragen einsammeln.",
     },
   ],
 };

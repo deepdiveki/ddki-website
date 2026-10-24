@@ -311,7 +311,7 @@ function PartnerSlide({ active }: SlideProps) {
 /* ─── 6 · Live statt Screenshot ─── */
 
 const DEMO_POINTS = [
-  "DeepChat: KI für Unterricht und Verwaltung, DSGVO-konform gehostet",
+  "KI-Chats im Schulalltag: ChatGPT, Claude, Gemini und Co., Überblick unter deepdive-ki.de/ki-tools",
   "KI-Schulbüro: beantwortet Elternfragen direkt auf der Schulwebsite",
   "Video-Komplettkurs: das Kollegium lernt im eigenen Tempo",
 ];
@@ -458,7 +458,7 @@ export const keynoteDeck: Deck = {
       theme: "dark",
       Component: DemoSlide,
       notes:
-        "Hier ggf. in den echten DeepChat wechseln (zweiter Tab vorbereiten!).\n\nFallback ohne WLAN: Die Mockups auf der Folie erklären, was DeepChat und das Schulbüro tun.",
+        "Hier ggf. live in einen KI-Chat wechseln (zweiter Tab vorbereiten!).\n\nFallback ohne WLAN: Die Mockups auf der Folie erklären, was das Schulbüro und der Komplettkurs tun.",
     },
     {
       id: "danke",

@@ -325,7 +325,7 @@ export const PLAGIATE_LIVE = {
     options: ["Erlaubt", "Grenzwertig", "Geht nicht"],
     scenarios: [
       { text: "Eine Lehrkraft fotografiert 28 Klassenarbeiten mit Namen und lässt ChatGPT Noten vorschlagen.", verdict: 2, why: "Personenbezogene Daten Minderjähriger an einen US-Anbieter, und die Note ist ein Verwaltungsakt, der von Ihnen kommen muss." },
-      { text: "Eine Lehrkraft gibt einen anonymisierten Aufsatz mit ihrem Bewertungsraster in DeepChat und vergleicht das KI-Feedback mit ihrer eigenen Bewertung.", verdict: 0, why: "Anonymisiert, mit Rubrik, als Zweitmeinung. Die finale Bewertung bleibt bei der Lehrkraft. So geht Assistenz." },
+      { text: "Eine Lehrkraft gibt einen anonymisierten Aufsatz mit ihrem Bewertungsraster in ein von der Schule freigegebenes KI-Tool und vergleicht das KI-Feedback mit ihrer eigenen Bewertung.", verdict: 0, why: "Anonymisiert, mit Rubrik, als Zweitmeinung. Die finale Bewertung bleibt bei der Lehrkraft. So geht Assistenz." },
       { text: "Ein Schüler reicht eine Hausaufgabe ein, die zu 80 % von KI stammt, kennzeichnet die Passagen und listet seine Prompts auf.", verdict: 1, why: "Transparent, also kein Täuschungsversuch. Aber ob 80 % KI als Eigenleistung zählt, regelt die KI-Vereinbarung der Klasse. Ohne Vereinbarung: Gespräch." },
     ],
   },
@@ -376,7 +376,77 @@ export const SPARK_LIVE = {
   },
 } satisfies Record<string, LiveActivity>;
 
+export const BOTS_LIVE = {
+  wordsStart: {
+    id: "bot-wunsch",
+    type: "words",
+    title: "Ein Wort",
+    prompt: "Wofür hättest du gern einen Bot, der dir Arbeit abnimmt? Ein Begriff.",
+    maxChars: 40,
+  },
+  erfahrung: {
+    id: "bot-erfahrung",
+    type: "poll",
+    title: "Kurze Umfrage",
+    question: "Hast du schon einmal einen eigenen KI-Bot gebaut?",
+    options: ["Nein, noch nie", "KI-Chat ja, eigenen Bot nein", "Einmal ausprobiert", "Ich nutze eigene Bots regelmäßig"],
+  },
+  ideen: {
+    id: "bot-ideen",
+    type: "judge",
+    title: "Urteilsübung",
+    intro: "Drei Bot-Ideen aus Lehrerzimmern. Geht das so?",
+    options: ["Geht", "Grenzwertig", "Geht nicht"],
+    scenarios: [
+      {
+        text: "Ein Vokabel-Trainer-Bot auf der Schulplattform. Die Klasse nutzt ihn über einen Klassen-Link, ohne Namen einzugeben.",
+        verdict: 0,
+        why: "Freigegebene Plattform, keine personenbezogenen Daten, klarer Lernzweck. So soll es sein.",
+      },
+      {
+        text: "Eine Lehrkraft lädt die Klassenliste mit Noten in einen Bot, damit er individuelle Fördertipps pro Kind schreibt.",
+        verdict: 2,
+        why: "Noten und Namen sind personenbezogene Daten. Das geht in keinem öffentlichen Tool und auch auf der Schulplattform nur mit Freigabe. Fördertipps gehen auch anonym: „Schüler mit Schwäche bei Brüchen“.",
+      },
+      {
+        text: "Ein „Hausaufgaben-Helfer“, der jede Aufgabe komplett löst und die Lösung ausgibt, als Lernhilfe für zu Hause.",
+        verdict: 1,
+        why: "Datenschutz ist unkritisch, Didaktik nicht: Ein Bot, der Lösungen ausgibt, ersetzt das Üben. Besser: Regel „Nie die Lösung, immer der nächste Schritt“.",
+      },
+    ],
+  },
+  typ: {
+    id: "bot-typ",
+    type: "poll",
+    title: "Kurze Umfrage",
+    question: "Welcher Bot wird heute deiner?",
+    options: ["Übungsbot für Lernende", "Tutor-Bot (erklärt, verrät nichts)", "Feedback-Bot", "Assistent für mich als Lehrkraft"],
+  },
+  fehler: {
+    id: "bot-fehler",
+    type: "words",
+    title: "Was ist schiefgegangen?",
+    prompt: "Was hat dein Bot im Test falsch gemacht? Ein Stichwort.",
+    maxChars: 40,
+  },
+  feedback: {
+    id: "feedback-bots",
+    type: "poll",
+    title: "Feedback",
+    question: "War das Modul hilfreich für dich?",
+    options: ["Sehr", "Ja", "Teilweise", "Eher nicht"],
+  },
+  challenge: {
+    id: "challenge-bots",
+    type: "words",
+    title: "30-Tage-Challenge",
+    prompt: "Mit welcher Klasse setzt du deinen Bot als Erstes ein? Klasse und Thema in Stichworten.",
+    maxChars: 50,
+  },
+} satisfies Record<string, LiveActivity>;
+
 export const LIVE_ACTIVITIES: Record<string, LiveActivity[]> = {
+  bots: Object.values(BOTS_LIVE),
   spark: Object.values(SPARK_LIVE),
   plagiate: Object.values(PLAGIATE_LIVE),
   "crash-kurs": Object.values(CRASH_KURS_LIVE),

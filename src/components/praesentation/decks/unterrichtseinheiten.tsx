@@ -56,6 +56,7 @@ import {
 import type { Deck, SlideProps } from "../types";
 import { CardsSlide, G, GridSlide, PauseSlide, StatementSlide, TaskSlide } from "./crash-kurs";
 import { getDeckMeta } from "./manifest";
+import { KI_TOOLS_HOST, KI_TOOLS_URL } from "@/data/ki-tools";
 import { HiSlide, SlideHead, TEAM } from "./nerd-intro";
 
 const DECK = "unterrichtseinheiten";
@@ -881,14 +882,14 @@ function WerkstattSlide({ active }: SlideProps) {
               <div className="flex items-start gap-3">
                 <GreenDot />
                 <p className="text-[24px] leading-snug font-medium text-white">
-                  DeepChat öffnen. Sechs Schritte, 40 Minuten. Wir gehen rum.
+                  KI-Tool Ihrer Wahl öffnen. Sechs Schritte, 40 Minuten. Wir gehen rum.
                 </p>
               </div>
             </StageGlassPanel>
             <div className="mt-6 flex flex-1 items-center justify-center">
-              <QrCode value="https://toolbox.deepdive-ki.de/" size={380} />
+              <QrCode value={KI_TOOLS_URL} size={380} />
             </div>
-            <p className="mt-4 text-center text-[24px] text-white/90">toolbox.deepdive-ki.de</p>
+            <p className="mt-4 text-center text-[24px] text-white/90">{KI_TOOLS_HOST}</p>
           </StageGrainCard>
         </Stagger>
         <div>
@@ -945,7 +946,7 @@ const HelferSlide = (p: SlideProps) => (
     eyebrow="Vier Helfer für den Alltag"
     title="Nicht alles ist KI. Aber alles macht Sie schneller."
     items={[
-      { name: "KI-Assistenten", meta: "DeepChat · ChatGPT · Gems", text: "Einmal Rolle, Rahmen und Ton festlegen, dann nie wieder den Kontext tippen. Ihr Fach-Assistent." },
+      { name: "KI-Assistenten", meta: "GPTs · Claude-Projekte · Gems", text: "Einmal Rolle, Rahmen und Ton festlegen, dann nie wieder den Kontext tippen. Ihr Fach-Assistent." },
       { name: "Perplexity", meta: "Recherche", text: "Antworten mit Links. Für Phase 4, wenn Sie prüfen, was die KI behauptet." },
       { name: "Superwhisper", meta: "Diktat", text: "Prompts sprechen statt tippen. Ein Erstprompt mit sechs Bausteinen in 40 Sekunden." },
       { name: "Shottr", meta: "Screenshot + Texterkennung", text: "Bildungsplan als PDF-Bild? Screenshot, Text erkennen, in den Prompt. Fertig." },
@@ -961,7 +962,7 @@ const VorabSlide = (p: SlideProps) => (
     lines={[
       "Ein konkretes Thema aus Ihrem Bildungsplan, das Sie demnächst unterrichten.",
       "Den Bildungsplan-Auszug dazu, als Text oder Screenshot.",
-      "Einen Zugang zu DeepChat. Der QR-Code kommt in der Pause.",
+      "Einen Zugang zu einem KI-Chat Ihrer Wahl. Der QR-Code mit allen Logins kommt in der Pause.",
     ]}
   />
 );
@@ -1291,7 +1292,7 @@ const WerkstattToolsSlide = (p: SlideProps) => (
     eyebrow="Werkzeuge für die Werkstatt"
     title="Vier Wege zum Material. Nehmen Sie einen."
     items={[
-      { name: "DeepChat", meta: "DeepDiveKI · DSGVO-konform", text: "Für die ganze UE: Prompten, iterieren, Tabelle, Arbeitsblatt als Word. Unser Standardweg heute.", accent: true },
+      { name: "KI-Chat Ihrer Wahl", meta: "ChatGPT · Claude · Gemini · Le Chat", text: "Für die ganze UE: Prompten, iterieren, Tabelle, Arbeitsblatt als Word. Der Standardweg heute.", accent: true },
       { name: "Claude", meta: "Artefakte", text: "Für ein interaktives Material: Quiz, Zeitleiste, Entscheidungsgeschichte, Simulation." },
       { name: "Questionwell", meta: "Fragen-Generator", text: "Aus Text oder Thema werden Fragen in Dutzenden Formaten, direkt nach Kahoot, Quizizz oder Forms exportierbar." },
       { name: "MagicSchool", meta: "70+ Lehrer-Tools", text: "Rubrics, Elternbriefe, IEP-Ziele, Lückentexte. Formulare statt Prompts. Ohne Schülerdaten gut nutzbar." },
@@ -1375,9 +1376,9 @@ export const ueDeck: Deck = {
 
     // B Workflow am Modell (45)
     { id: "workflow", title: "Der Workflow", theme: "light", steps: 4, Component: WorkflowIntro, notes: "Fünf Phasen schrittweise aufbauen. Das ist das Rückgrat. Alles Weitere ordnet sich hier ein." },
-    { id: "kollab", title: "Schulter · Fachschafts-Mail", theme: "light", Component: KollabSlide, notes: "Blick über die Schulter beginnt hier. LIVE: Mail in DeepChat erzeugen, 20 Sekunden. Erste Zeitersparnis des Tages." },
+    { id: "kollab", title: "Schulter · Fachschafts-Mail", theme: "light", Component: KollabSlide, notes: "Blick über die Schulter beginnt hier. LIVE: Mail in einem KI-Chat erzeugen, 20 Sekunden. Erste Zeitersparnis des Tages." },
     { id: "p1", title: "Phase 1", theme: "dark", Component: Phase1, notes: "Trennfolie, 5 Sekunden." },
-    { id: "themenfindung", title: "Der Bildungsplan ist Material", theme: "light", Component: ThemenfindungSlide, notes: "LIVE-DEMO: Prompt in DeepChat eingeben, Bildungsplan-Auszug einfügen. Fünf Zugänge zeigen." },
+    { id: "themenfindung", title: "Der Bildungsplan ist Material", theme: "light", Component: ThemenfindungSlide, notes: "LIVE-DEMO: Prompt in einem KI-Chat eingeben, Bildungsplan-Auszug einfügen. Fünf Zugänge zeigen." },
     { id: "mitmach-thema", title: "Mitmachen · Fünf Zugänge", theme: "light", Component: MitmachThemaSlide, notes: "5 Minuten. Timer im Presenter. Wer keinen Bildungsplan hat: Schulbuch-Inhaltsverzeichnis fotografieren." },
     { id: "p2", title: "Phase 2", theme: "dark", Component: Phase2, notes: "" },
     { id: "bausteine", title: "Sechs Bausteine", theme: "light", steps: 6, Component: BausteineSlide, notes: "Sechs Schritte, pro Baustein einer. Die Crash-Kurs-Formel (Rolle, Kontext, Aufgabe, Format) fächert hier auf: Kontext wird zu Rahmen, Schwerpunkt, Leitfragen." },
@@ -1392,7 +1393,7 @@ export const ueDeck: Deck = {
     { id: "p5", title: "Phase 5", theme: "dark", Component: Phase5, notes: "" },
     { id: "tabelle", title: "Die Tabelle", theme: "light", Component: TabelleSlide, notes: "LIVE: Tabellen-Prompt abschicken, CSV in Excel öffnen. Drei Tricks: Format vorgeben, CSV, Filter-Spalte." },
     { id: "workflow-recap", title: "Workflow · Rückblick", theme: "light", Component: WorkflowRecap, notes: "Alle fünf Phasen noch einmal. Dann Pause." },
-    { id: "pause", title: "Pause", theme: "dark", Component: PauseSlide, notes: "10 Minuten. QR zur Toolbox, wer noch keinen Zugang hat." },
+    { id: "pause", title: "Pause", theme: "dark", Component: PauseSlide, notes: "10 Minuten. QR zur Tool-Übersicht, wer noch keinen Zugang hat." },
 
     // C Methodenkoffer (35)
     { id: "sitzungsplan", title: "Die Modell-UE", theme: "light", Component: SitzungsplanSlide, notes: "Neun Sitzungen, je eine Methode. Wir nehmen sechs davon genauer." },
@@ -1415,7 +1416,7 @@ export const ueDeck: Deck = {
     { id: "urteil", title: "Live · Urteilsübung", theme: "light", steps: 3, Component: LiveUrteil, notes: "Drei didaktische Szenarien auf dem Handy. Je Weiter eine Auflösung. Szenario 1 wird diskutiert, das ist gewollt." },
 
     // D Werkstatt (40)
-    { id: "werkstatt-tools", title: "Werkzeuge für die Werkstatt", theme: "light", Component: WerkstattToolsSlide, notes: "Vier Wege, einen nehmen. DeepChat ist der Standardweg, Claude für ein interaktives Material, Questionwell/MagicSchool für Schnelle." },
+    { id: "werkstatt-tools", title: "Werkzeuge für die Werkstatt", theme: "light", Component: WerkstattToolsSlide, notes: "Vier Wege, einen nehmen. Ein KI-Chat der Wahl ist der Standardweg, Claude für ein interaktives Material, Questionwell/MagicSchool für Schnelle." },
     { id: "werkstatt", title: "Werkstatt", theme: "light", Component: WerkstattSlide, notes: "Sechs Schritte, 40 Minuten, Timer im Presenter. Wir gehen rum. Diese Folie bleibt stehen." },
     { id: "ergebnis-check", title: "Ergebnis-Check", theme: "light", steps: 4, Component: ErgebnisCheckSlide, notes: "Nach 40 Minuten. Wer drei von vier hat, ist gut. Zwei Teilnehmende zeigen ihre Tabelle (freiwillig)." },
 

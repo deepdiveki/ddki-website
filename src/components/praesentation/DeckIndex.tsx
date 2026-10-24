@@ -34,6 +34,18 @@ export default function DeckIndex() {
           </div>
         </li>
       ))}
+      <li className="flex items-center justify-between rounded-2xl border border-primary-dark/40 bg-primary-light/40 p-6 shadow-sm">
+        <div>
+          <p className="text-lg font-semibold text-text-primary">Tim Seite · KI-Tools Deep Dive</p>
+          <p className="text-sm text-text-secondary">Interaktive Website statt Folien · 90 Minuten · ohne Zugangscode, für Teilnehmende</p>
+        </div>
+        <Link
+          href="/praesentation/tim-seite"
+          className="rounded-lg bg-text-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-darker"
+        >
+          Öffnen
+        </Link>
+      </li>
     </ul>
   );
 }

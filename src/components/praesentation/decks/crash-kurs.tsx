@@ -49,6 +49,7 @@ import {
 } from "../live/StageLive";
 import type { Deck, SlideProps } from "../types";
 import { getDeckMeta } from "./manifest";
+import { KI_TOOLS_HOST, KI_TOOLS_URL } from "@/data/ki-tools";
 import {
   AdoptionSlide,
   ChatGptSlide,
@@ -223,7 +224,7 @@ export function TaskSlide({
   prompt,
   steps,
   active,
-  tool = "toolbox.deepdive-ki.de",
+  tool = KI_TOOLS_HOST,
 }: SlideProps & {
   eyebrow: string;
   title: string;
@@ -254,7 +255,7 @@ export function TaskSlide({
             <StageGlassPanel className="mt-3 flex-1">
               <p className="text-[24px] leading-relaxed text-white/95">„{prompt}“</p>
             </StageGlassPanel>
-            <p className="mt-4 text-[20px] text-white/80">Ausprobieren in: {tool}</p>
+            <p className="mt-4 text-[20px] text-white/80">{tool === KI_TOOLS_HOST ? `Tool Ihrer Wahl, alle Logins: ${tool}` : `Werkzeug: ${tool}`}</p>
           </StageGrainCard>
         </Stagger>
         <div>
@@ -551,14 +552,14 @@ function PracticeOverviewSlide({ active }: SlideProps) {
               <div className="flex items-start gap-3">
                 <GreenDot />
                 <p className="text-[24px] leading-snug font-medium text-white">
-                  DeepChat öffnen und loslegen. Vier Aufgaben, je sieben Minuten.
+                  KI-Tool Ihrer Wahl öffnen, QR-Code zeigt alle Logins. Vier Aufgaben, je sieben Minuten.
                 </p>
               </div>
             </StageGlassPanel>
             <div className="mt-6 flex flex-1 items-center justify-center">
-              <QrCode value="https://toolbox.deepdive-ki.de/" size={400} />
+              <QrCode value={KI_TOOLS_URL} size={400} />
             </div>
-            <p className="mt-4 text-center text-[24px] text-white/90">toolbox.deepdive-ki.de</p>
+            <p className="mt-4 text-center text-[24px] text-white/90">{KI_TOOLS_HOST}</p>
           </StageGrainCard>
         </Stagger>
         <div>
@@ -787,7 +788,7 @@ export function PauseSlide({ active }: SlideProps) {
               {mm}:{ss}
             </p>
             <p className="mt-6 text-[30px] text-white/85">
-              {startedAt && left === 0 ? "Weiter geht es." : "Kaffee holen, Handy laden, DeepChat anmelden."}
+              {startedAt && left === 0 ? "Weiter geht es." : "Kaffee holen, Handy laden, bei einem KI-Tool anmelden."}
             </p>
           </Stagger>
         </div>
@@ -795,12 +796,12 @@ export function PauseSlide({ active }: SlideProps) {
           <StageGlassPanel className="flex flex-col items-center p-10">
             <Coffee className="size-14 text-white" strokeWidth={1.4} />
             <p className="mt-4 text-center text-[26px] font-medium text-white">
-              Jetzt schon anmelden, dann geht es nach der Pause sofort los.
+              Alle großen KI-Tools mit Login auf einer Seite. Jetzt schon anmelden, dann geht es nach der Pause sofort los.
             </p>
             <div className="mt-8">
-              <QrCode value="https://toolbox.deepdive-ki.de/" size={360} />
+              <QrCode value={KI_TOOLS_URL} size={360} />
             </div>
-            <p className="mt-5 text-[24px] text-white/90">toolbox.deepdive-ki.de</p>
+            <p className="mt-5 text-[24px] text-white/90">{KI_TOOLS_HOST}</p>
           </StageGlassPanel>
         </Stagger>
       </div>
@@ -832,7 +833,7 @@ const MediaSlide = (p: SlideProps) => (
     eyebrow="Live-Demo · Nicht nur Text"
     title="Bild, Ton und Film in zwei Minuten."
     cards={[
-      { icon: ImageIcon, label: "Bild", title: "Erklärbild", text: "„Ein freundliches Comic-Bild, das den Wasserkreislauf für Klasse 4 zeigt, mit Beschriftungen auf Deutsch.“ In DeepChat oder Canva." },
+      { icon: ImageIcon, label: "Bild", title: "Erklärbild", text: "„Ein freundliches Comic-Bild, das den Wasserkreislauf für Klasse 4 zeigt, mit Beschriftungen auf Deutsch.“ In ChatGPT, Gemini oder Canva." },
       { icon: Music, label: "Audio", title: "Lernlied", text: "„Ein Lied im Stil von Pop, Refrain nennt die vier Phasen der Mitose.“ Mit Suno. Die Klasse vergisst es nicht mehr." },
       { icon: Video, label: "Video", title: "Erklärclip", text: "„20 Sekunden: Ein Vulkan bricht aus, Sicht aus der Luft, ruhiger Erzähler.“ Mit Sora oder Veo. Heute Spielerei, bald Alltag." },
     ]}
@@ -934,7 +935,7 @@ const FeedbackSlide = (p: SlideProps) => (
     title="Feedback zu einem Schülertext."
     prompt="Du bist Deutschlehrerin in Klasse 8. Bewerte den folgenden Text nach diesen Kriterien: Aufbau (1–5), sprachliche Richtigkeit (1–5), Argumentation (1–5). Gib zu jedem Kriterium zwei konkrete Hinweise, was gut ist und was der Schüler als Nächstes üben sollte. Ton: ermutigend. Text: [anonymisierten Text einfügen]"
     steps={[
-      "Nur anonymisierte Texte und nur in DSGVO-konformen Tools (DeepChat).",
+      "Nur anonymisierte Texte und nur in Tools, die Ihre Schule freigegeben hat.",
       "Eigenes Kriterienraster einsetzen, die KI hält sich daran.",
       "Das Feedback bleibt Ihre Entscheidung: lesen, kürzen, unterschreiben.",
     ]}
@@ -1029,7 +1030,7 @@ const PlatformsSlide = (p: SlideProps) => (
     title="Was davon in die Schule darf."
     cols={3}
     items={[
-      { name: "DeepChat", meta: "DeepDiveKI · Hamburg", text: "DSGVO-konform, Server in Deutschland, Assistenten und Arbeitsblatt-Generator für Lehrkräfte und Klassen.", accent: true },
+      { name: "Alle Zugänge", meta: KI_TOOLS_HOST, text: "Die großen KI-Chats und die Schul-Zugänge mit Login-Links auf einer Seite. Neutral, ohne Produktempfehlung.", accent: true },
       { name: "AIS Chat", meta: "Landesangebot", text: "Von Ländern bereitgestellter KI-Chat für Schulen. Datenschutz geklärt, Funktionsumfang schlank." },
       { name: "telli", meta: "Länder · FWU", text: "Gemeinsamer KI-Assistent mehrerer Bundesländer für Lehrkräfte und Lernende." },
       { name: "fobizz", meta: "Deutschland", text: "Fortbildungsplattform mit KI-Werkzeugen, Datenschutzfiltern und Klassenräumen." },
@@ -1211,7 +1212,7 @@ export const crashKursDeck: Deck = {
     { id: "schaetzung", title: "Live · Schätzfrage Schüler", theme: "light", steps: 1, Component: LiveStudents, notes: "Schieberegler auf dem Handy. Weiter = Auflösung (74 %, Vodafone Stiftung 2024). Zahl vor dem Vortrag prüfen." },
     { id: "schueler", title: "Ihre Klasse ist längst weiter", theme: "light", Component: StudentsSlide, notes: "JIM 2024 und Vodafone Stiftung 2024 vorher gegenprüfen. Character.ai/Snapchat My AI: Wer kennt das? Hand hoch." },
     { id: "modelle", title: "Die großen KIs", theme: "light", Component: ModelsSlide, notes: "Acht Namen, die man kennen sollte." },
-    { id: "plattformen", title: "Plattformen für Schulen", theme: "light", Component: PlatformsSlide, notes: "DeepChat ist unser Produkt, das sagen wir offen. AIS Chat und telli je nach Bundesland." },
+    { id: "plattformen", title: "Plattformen für Schulen", theme: "light", Component: PlatformsSlide, notes: "Bewusst produktunabhängig: kein eigenes Tool empfehlen, die Übersichtsseite zeigen. AIS Chat und telli je nach Bundesland." },
     { id: "tools", title: "Spezialwerkzeuge", theme: "light", Component: ToolsSlide, notes: "Je ein Satz pro Tool." },
     { id: "medien", title: "Bild, Ton, Film", theme: "light", Component: MediaSlide, notes: "LIVE-DEMO: Eines der drei wirklich erzeugen, Suno-Lied dauert ca. 40 Sekunden. Vorher Account prüfen." },
     { id: "datenschutz", title: "Drei Regeln", theme: "light", steps: 3, Component: PrivacyRulesSlide, notes: "Drei Schritte. Dann Pause." },
@@ -1219,7 +1220,7 @@ export const crashKursDeck: Deck = {
 
     // ── Prompten & Ausprobieren (40) ──
     { id: "prompting", title: "Prompting 101", theme: "light", Component: PromptStructureSlide, notes: "Zehn Bausteine, am Beispiel Photosynthese-Lückentext." },
-    { id: "prompt-beispiel", title: "Der fertige Prompt", theme: "light", Component: PromptExampleSlide, notes: "Live in DeepChat eingeben und Ergebnis zeigen." },
+    { id: "prompt-beispiel", title: "Der fertige Prompt", theme: "light", Component: PromptExampleSlide, notes: "Live in einem KI-Chat eingeben (ChatGPT, Claude oder Gemini) und Ergebnis zeigen." },
     { id: "formel", title: "Die Kurzformel", theme: "light", steps: 4, Component: FormulaSlide, notes: "Vier Schritte. Das reicht für 80 % aller Fälle." },
     { id: "quickwins", title: "Fünf-Minuten-Gewinne", theme: "light", Component: QuickWinsSlide, notes: "Vier Alltagsprompts. Bei Zeugnis und Elternbrief betonen: keine Namen in den Prompt." },
     { id: "praxis", title: "Jetzt sind Sie dran", theme: "light", Component: PracticeOverviewSlide, notes: "QR zur Toolbox. Vier Aufgaben à 7 Minuten, wir gehen rum. Wer schnell ist: Bonus KI-Assistent." },
@@ -1241,7 +1242,7 @@ export const crashKursDeck: Deck = {
     { id: "leitplanken", title: "Leitplanken", theme: "light", steps: 4, Component: GuardrailsSlide, notes: "Vier Schritte." },
 
     // ── Abschluss ──
-    { id: "challenge", title: "Live · 30-Tage-Challenge", theme: "light", Component: LiveChallenge, notes: "Jede:r schreibt ein Tool + einen Use Case. Ankündigen: In vier Wochen kommt eine Mail mit der Frage, wie es lief (E-Mail-Adressen über Padlet/Formular einsammeln). Guter Anlass für DeepChat-Testzugang." },
+    { id: "challenge", title: "Live · 30-Tage-Challenge", theme: "light", Component: LiveChallenge, notes: "Jede:r schreibt ein Tool + einen Use Case. Ankündigen: In vier Wochen kommt eine Mail mit der Frage, wie es lief (E-Mail-Adressen über Padlet/Formular einsammeln)." },
     { id: "feedback", title: "Live · Feedback", theme: "light", Component: LiveFeedback, notes: "1 Minute." },
     { id: "danke", title: "Danke", theme: "dark", Component: ThanksSlide, notes: "Folien bleiben online, Link auf der Folie." },
 

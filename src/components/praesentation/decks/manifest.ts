@@ -42,6 +42,12 @@ export const DECK_MANIFEST: DeckMeta[] = [
     speaker: "Björn Isenbiel",
   },
   {
+    id: "bots",
+    title: "KI-Bots für deinen Unterricht erstellen",
+    subtitle: "Drei Stunden: eigene KI-Bots entwickeln und Schritt für Schritt anpassen, ohne Programmieren",
+    speaker: "DeepDiveKI-Team",
+  },
+  {
     id: "plagiate",
     title: "Modul II: Plagiate, Hausaufgaben und Klausuren in Zeiten von KI",
     subtitle: "Drei Stunden: vom Erkennungsproblem zum Aufgabendesign",
