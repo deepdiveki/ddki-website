@@ -825,7 +825,7 @@ const BewertungGehtSlide = (p: SlideProps) => (
     eyebrow="KI als Bewertungshilfe · Was geht"
     title="Drei Leitplanken. Dann ja."
     lines={[
-      "Anonymisiert und DSGVO-konform: Platzhalter statt Namen, DeepChat oder Landestool statt ChatGPT.",
+      "Anonymisiert und DSGVO-konform: Platzhalter statt Namen, ein von der Schule freigegebenes Tool statt des privaten Accounts.",
       "Mit Rubrik: KI bewertet zuverlässiger, wenn Kriterien vorliegen. Bei offenen, kreativen Aufgaben sinkt die Genauigkeit deutlich.",
       "Als Zweitmeinung: Rechtschreib-Mechanik, Strukturhinweise, Feedback-Entwurf. Die finale Bewertung ist immer Ihre.",
     ]}
@@ -838,7 +838,7 @@ const BewertungToolsSlide = (p: SlideProps) => (
     eyebrow="Bewertungs-Tools · Nur mit den drei Leitplanken"
     title="Was es gibt."
     items={[
-      { name: "DeepChat", meta: "DSGVO-konform · Rubrik einfügen", text: "Eigenes Raster rein, anonymisierter Text rein, Feedback-Entwurf raus. Server in Deutschland.", accent: true },
+      { name: "KI-Chat mit Rubrik", meta: "ChatGPT · Claude · Gemini · telli", text: "Eigenes Raster rein, anonymisierter Text rein, Feedback-Entwurf raus. Nur in freigegebenen Tools.", accent: true },
       { name: "MagicSchool", meta: "Rubric Generator + Grader", text: "Raster erstellen und anwenden. Formulare statt Prompts. Ohne Schülerdaten gut nutzbar." },
       { name: "EssayGrader", meta: "Zweitmeinung für Essays", text: "Ausführliche Analyse nach Kriterien. Englischlastig, Daten gehen in die USA." },
       { name: "fobizz / telli", meta: "Deutsche Plattformen", text: "Korrekturhilfe mit Datenschutzfilter. Siehe CCC: Ergebnisse prüfen, nicht übernehmen." },
@@ -988,7 +988,7 @@ export const plagiateDeck: Deck = {
     { id: "gefahren", title: "Bewertung · Vier Gefahren", theme: "light", steps: 3, Component: BewertungGefahrenSlide, notes: "Vier Karten, drei Schritte. Bewusst VOR den Tools. Die Note ist ein Verwaltungsakt." },
     { id: "ccc", title: "CCC · Noten ausgewürfelt", theme: "light", Component: CCCSlide, notes: "38C3 „Chatbots im Schulunterricht“, Mühlhoff & Henningsen, Uni Paderborn. Zitat ist sinngemäß zusammengefasst, nicht wörtlich. Paper arxiv 2412.06651." },
     { id: "bewertung-geht", title: "Was geht", theme: "light", steps: 3, Component: BewertungGehtSlide, notes: "Drei Leitplanken. Erst dann Tools." },
-    { id: "bewertung-tools", title: "Bewertungs-Tools", theme: "light", Component: BewertungToolsSlide, notes: "Vier Karten. DeepChat zuerst, das sagen wir offen." },
+    { id: "bewertung-tools", title: "Bewertungs-Tools", theme: "light", Component: BewertungToolsSlide, notes: "Vier Karten. Bewusst produktunabhängig, keine eigene Empfehlung." },
     { id: "bewertung-live", title: "Live · Urteilsübung", theme: "light", steps: 3, Component: LiveBewertung, notes: "Drei Szenarien auf dem Handy, je Weiter eine Auflösung. Szenario 3 (80 % KI, gekennzeichnet) löst die beste Diskussion aus." },
     { id: "mitmach-bewertung", title: "Mitmachen · Werther", theme: "light", Component: MitmachBewertungSlide, notes: "6 Minuten. Werther-Text im Material. Zusatzpointe: Der Text ist selbst KI-typisch glatt." },
 

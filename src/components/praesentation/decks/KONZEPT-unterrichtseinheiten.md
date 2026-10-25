@@ -50,7 +50,7 @@ nach Hause, nicht mit einer Tool-Liste.
 | Ankommen | 15 | Titel, Team, Wortwolke „Zeitfresser", Fahrplan, Umfrage Ebene |
 | A Haltung | 20 | Zeitersparnis-Zahlen, Didaktik vor Technik, drei Ebenen, Schätzfrage |
 | B Workflow am Modell | 45 | Phasen 1–5 mit Live-Demo und Mitmach-Prompts |
-| Pause | 10 | Countdown, DeepChat-Anmeldung |
+| Pause | 10 | Countdown, Anmeldung bei einem KI-Tool (QR: deepdive-ki.de/ki-tools) |
 | C Methodenkoffer | 35 | Sitzungsplan der Modell-UE, 7 Methoden mit Transfer, Urteilsübung |
 | D Werkstatt | 40 | Sechs Schritte zur eigenen UE, Timer, Beratung |
 | E Abschluss | 15 | Qualitätskriterien, Teilen, Challenge, Feedback |
@@ -69,7 +69,7 @@ nach Hause, nicht mit einer Tool-Liste.
 ## 6. Was vorher und nachher passiert
 
 - **Vorab-Mail (eine Woche vorher):** Bildungsplan-Auszug zum Wunschthema mitbringen,
-  DeepChat-Zugang anlegen, ein konkretes Fach-Thema wählen. Ohne Thema keine Werkstatt.
+  Zugang zu einem KI-Chat der Wahl anlegen, ein konkretes Fach-Thema wählen. Ohne Thema keine Werkstatt.
 - **Nachher:** Folien bleiben online. Ergebnis-Check als Checkliste. Nach vier Wochen
   Mail mit der Challenge-Frage.
 
@@ -80,7 +80,7 @@ nach Hause, nicht mit einer Tool-Liste.
 | Tool-Feuerwerk, nichts bleibt | Phasenmodell, jedes Tool einer Phase zugeordnet |
 | Fächerheterogenität | Transfer-Folie nach jeder Methode (Mathe, Grundschule, Sprachen) |
 | „Der Output ist doch fertig" | Iteration + Verifikation als eigene Phasen mit Mitmach-Prompt |
-| Keine Accounts | DeepChat per QR in der Pause |
+| Keine Accounts | QR zur Tool-Übersicht (deepdive-ki.de/ki-tools) in der Pause |
 | Werkstatt frisst Zeit | Sechs Schritte à 6 Minuten, Timer im Presenter, Ergebnis-Check |
 | Datenschutz | Platzhalter-Regel (Schülerin A/B), Rückbezug Crash Kurs |
 | Figuren-Dialoge wirken wie Quellen | Regel „Konstruktion, nicht Person", Vergleich mit echter Quelle Pflicht |
