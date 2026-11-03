@@ -18,7 +18,6 @@ import {
   Zap,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import { Bricolage_Grotesque } from "next/font/google";
 import Image from "next/image";
 import { SparkMark } from "../SparkMark";
 import { useEffect, useState } from "react";
@@ -35,6 +34,7 @@ import {
   Stagger,
 } from "../blocks";
 import { SPARK_LIVE } from "../live/activities";
+import { sparkDisplayHeadlineClass } from "../spark-display-font";
 import { LivePollSlide, LiveWordsSlide } from "../live/StageLive";
 import type { Deck, SlideProps } from "../types";
 import { CardsSlide, GridSlide, StatementSlide } from "./crash-kurs";
@@ -62,9 +62,6 @@ const SPARK_URL = "https://spark-ten-alpha.vercel.app";
 const SPARK_JOIN_CODE = "PALSTK";
 const SPARK_AMBER = "#f7b32b";
 const WORK_MINUTES = 8;
-
-/** Überschriften-Schrift der SPARK-App (siehe spark/src/app/layout.tsx). */
-const bricolage = Bricolage_Grotesque({ subsets: ["latin"], weight: ["700", "800"], display: "swap" });
 
 /** Design-Token der SPARK-App (spark/src/app/globals.css). */
 const SPARK = {
@@ -258,9 +255,9 @@ function SparkIntroSlide({ active }: SlideProps) {
                 <span style={SPARK.markVars}>
                   <SparkMark variant="sharp" className="size-14" />
                 </span>
-                <span className={cn(bricolage.className, "text-[34px] font-extrabold tracking-tight")}>SPARK</span>
+                <span className={cn(sparkDisplayHeadlineClass, "text-[34px]")}>SPARK</span>
               </div>
-              <h2 className={cn(bricolage.className, "mt-7 text-[82px] leading-[1.02] font-extrabold tracking-tight")}>
+              <h2 className={cn(sparkDisplayHeadlineClass, "mt-7 text-[82px] leading-[1.02]")}>
                 Der Funke, der zum <span style={{ color: SPARK_AMBER }}>Denken</span> anregt.
               </h2>
               <p className="mt-6 max-w-[900px] text-[26px] leading-snug text-white/85">
@@ -292,7 +289,7 @@ function SparkIntroSlide({ active }: SlideProps) {
               <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
                 {SPARK_LETTERS.map((l) => (
                   <li key={l.letter} className="flex items-baseline gap-2 text-[26px]" style={{ color: SPARK.inkSoft }}>
-                    <span className={cn(bricolage.className, "text-[34px] font-extrabold")} style={{ color: SPARK_AMBER }}>
+                    <span className={cn(sparkDisplayHeadlineClass, "text-[34px]")} style={{ color: SPARK_AMBER }}>
                       {l.letter}
                     </span>
                     {l.word}

@@ -36,9 +36,15 @@ const slides = [
   },
 ];
 
-export default function ImageSlideshow() {
+type ImageSlideshowProps = {
+  sectionPadding?: string;
+};
+
+export default function ImageSlideshow({
+  sectionPadding = "py-10 md:py-14 lg:py-20",
+}: ImageSlideshowProps) {
   return (
-    <section className="bg-white px-4 py-10 md:py-14 lg:py-20 xl:px-0">
+    <section className={cn("bg-white px-4 xl:px-0", sectionPadding)}>
       <div className="mx-auto max-w-304">
         <div className="grid grid-cols-2 grid-rows-[repeat(4,10rem)] gap-3 md:grid-cols-4 md:grid-rows-[repeat(2,13rem)] md:gap-4">
           {slides.map((slide, index) => (

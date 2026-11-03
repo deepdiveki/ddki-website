@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+
 /**
  * Animierter Organisations-Prozess im Grain-Gradient-Look:
  * Ein leuchtender Punkt läuft endlos die Strecke ab, die Stationen
@@ -31,7 +33,11 @@ const STEPS = [
   },
 ];
 
-export default function OrganisationProzess() {
+export default function OrganisationProzess({
+  compact = false,
+}: {
+  compact?: boolean;
+}) {
   return (
     <div className="relative mt-12 overflow-hidden rounded-[32px] p-5 shadow-2xl [background:linear-gradient(155deg,#6f8dff_0%,#8b7cf6_45%,#b89bfa_78%,#d6bdfa_100%)] sm:p-8">
       <style>{`
@@ -84,7 +90,12 @@ export default function OrganisationProzess() {
 
       <div className="relative">
         {/* Strecke mit Läufer (nur Desktop) */}
-        <div className="relative mb-6 hidden h-6 lg:block">
+        <div
+          className={cn(
+            "relative mb-6 hidden h-6 lg:block",
+            compact && "!hidden",
+          )}
+        >
           <div className="absolute top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-white/25" style={{ left: "12.5%", right: "12.5%" }} />
           <div
             className="orga-fill absolute top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-white/90"
@@ -100,7 +111,14 @@ export default function OrganisationProzess() {
           />
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div
+          className={cn(
+            "grid gap-4",
+            compact
+              ? "sm:grid-cols-2"
+              : "md:grid-cols-2 lg:grid-cols-4",
+          )}
+        >
           {STEPS.map((item, index) => (
             <div
               key={item.step}

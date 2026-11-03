@@ -45,8 +45,20 @@ export default function NiedersachsenPage() {
           </div>
         </div>
       </section>
-      <NlcTrainingOverview />
-      <PaedagogischerTagContent />
+      <div className="mx-auto max-w-304">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_24rem] xl:gap-12">
+          <div className="min-w-0 lg:border-r lg:border-border-tertiary lg:pr-10 xl:pr-12">
+            <PaedagogischerTagContent pageVariant="niedersachsen" part="main" />
+          </div>
+          <aside
+            aria-label="NLC-Termine"
+            className="border-t border-border-tertiary px-4 py-10 md:py-14 lg:sticky lg:top-28 lg:self-start lg:border-t-0 lg:px-0 lg:pt-10 lg:pb-14 xl:pt-14 xl:pb-20"
+          >
+            <NlcTrainingOverview variant="sidebar" />
+          </aside>
+        </div>
+        <PaedagogischerTagContent pageVariant="niedersachsen" part="schedule" />
+      </div>
       <ContactFormSection />
       <CtaCard />
     </div>

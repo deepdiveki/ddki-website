@@ -32,6 +32,7 @@ export default function PraesentationLayout({
       className={cn(
         "min-h-screen w-full bg-background-secondary antialiased",
         stackSans.className,
+        stackSans.variable,
         inter.variable,
       )}
     >
