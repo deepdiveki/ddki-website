@@ -26,7 +26,7 @@ import {
   X,
 } from "lucide-react";
 
-const KAUF_LINK = "https://buy.stripe.com/6oUdRa3EB8JffCvcAafYY03";
+const KAUF_LINK = process.env.NEXT_PUBLIC_STRIPE_KOMPLETTKURS_URL ?? "";
 const LOGIN_LINK = "https://plattform.deepdive-ki.de/ki-komplettkurs";
 
 const triggerBtnClass =
