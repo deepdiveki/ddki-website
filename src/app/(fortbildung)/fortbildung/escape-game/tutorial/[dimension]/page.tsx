@@ -503,7 +503,10 @@ const TUTORIALS: Record<DimensionId, TutorialConfig> = {
     ldkLessonsLinks: {
       2: { url: "https://peer-ai-tutor.streamlit.app", label: "PEER KI-Tutor öffnen" },
       4: { url: "https://smartresponse.westermann.de/klasse-7/wortschatz/wortschatz/wortschatz-menschen-und-gefuehle-people/", label: "Westermann Smart Response öffnen" },
-      6: { url: "https://digitaleprofis.de/kuenstliche-intelligenz/chatgpt/mega-prompts/chatgpt-mega-prompt-4-der-tutor-prompt/", label: "Mega-Prompt Tutor öffnen" },
+      6: {
+        url: "https://digitaleprofis.de/die-besten-prompts-fuer-das-lernen-mit-ki/",
+        label: "Prompt-Vorlagen für Lernbegleiter",
+      },
     },
     ldkLessonsScripts: [
       `Willkommen in der Dimension „Lernen durch KI"! Ich bin Toni und ich freue mich, dass du dabei bist.
@@ -600,7 +603,7 @@ Tragt eure Analyse ins Logbuch ein. Diskutiert in der Gruppe: Würdet ihr dieses
 
 Jetzt wird es anspruchsvoll — und kreativ. Eure Aufgabe: Erstellt mit einem Mega-Prompt euren eigenen KI-Tutor. Nicht ein Tool nutzen, das jemand anderes gebaut hat — sondern selbst definieren, wie eine KI als Tutor agieren soll.
 
-Über den Button unten findet ihr eine Anleitung für den Mega-Prompt-Ansatz. Nutzt ChatGPT, Claude oder ein anderes Sprachmodell und definiert:
+Über den Button unten findet ihr Prompt-Vorlagen als Inspiration (Digitale Profis). Passt eine Vorlage an und nutzt ChatGPT, Claude oder ein anderes Sprachmodell, um euren Tutor zu definieren:
 
 Die Rolle: Wer ist euer Tutor? Ein sokratischer Fragensteller? Ein geduldiger Erklärer? Ein strenger Coach? Definiert Persönlichkeit, Tonalität und Stil.
 
