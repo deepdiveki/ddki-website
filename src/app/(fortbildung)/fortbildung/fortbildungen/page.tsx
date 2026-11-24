@@ -1,4 +1,5 @@
 import CourseList from "@/components/fortbildungen/CourseList";
+import { Download } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -37,6 +38,14 @@ export default function FortbildungenPage() {
             Finden Sie die passende Fortbildung für Ihre berufliche
             Weiterentwicklung. Filtern Sie nach Kategorie oder Format.
           </p>
+          <a
+            href="/pdfs/DDKI_Module_im_Ueberblick.pdf"
+            download
+            className="mx-auto mt-6 inline-flex items-center justify-center gap-2 rounded-[10px] border border-border-secondary bg-background-primary px-4 py-2.5 text-sm font-medium text-text-primary transition-colors hover:bg-background-secondary focus-visible:outline-0 focus-visible:ring-4 focus-visible:ring-[rgba(16,_24,_40,_0.05)]"
+          >
+            <Download className="size-4" aria-hidden />
+            Modulübersicht (PDF)
+          </a>
         </div>
         </div>
       </section>
